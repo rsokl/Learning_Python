@@ -28,9 +28,9 @@ I have posted a number of "To-Do" tasks in this project's [issues](https://githu
 ### Making a Pull Request
 If you want to submit a change to some of the content (e.g. correcting typos), do the following:
 1. Clone this repository
-2. Create a new branch, appropriately named for whatever task you are performing
+2. Create a new branch, appropriately named for whatever task you are performing: `git checkout -b your_branch_name`
 3. Check out your new branch and commit any changes you make to it
-4. Push your branch: `git push origin <your_branch_name>` (you should have permission to do this, if you are added as a "contributor" to this project)
+4. Push your branch: `git push origin your_branch_name` (you should have permission to do this, if you are added as a "contributor" to this project)
 5. Create a [Pull Request](https://help.github.com/articles/creating-a-pull-request/)) from your branch into the master branch.
 
 # Text Contents (Subject to Change)
