@@ -1,3 +1,7 @@
+**NOTE**: Some of the Jupyter notebooks in this repository contain elements that do not render properly when viewed via GitHub. For the "optimal reading experience", clone this repository and open the Jupyter notebooks locally.
+
+**NOTE**: This content is not ready for public release. If you are reading this, then I have added you as a contributor to this project. Please do not distribute this work to others.
+
 # Table of Contents
 - [Essentials of Python, for Data Science Applications](#essentials-of-python-for-data-science-applications)
 - [How To Contribute](#how-to-contribute)
@@ -20,6 +24,14 @@ Contributions to this project are very welcome!  Some great ways to help out are
 I have posted a number of "To-Do" tasks in this project's [issues](https://github.com/LLrsokl/BWSI_2018/issues) page, and I will be adding to these as this project progresses. Included are requests for proofreading and exercises. General feedback on content is also hugely valuable, so feel free to open a new issue to provide your feedback on any of the material.
 
 [Here is a nice Markdown "cheat sheet"](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for looking up how to make tables, code-blocks, etc., in Markdown.
+
+### Making a Pull Request
+If you want to submit a change to some of the content (e.g. correcting typos), do the following:
+1. Clone this repository
+2. Create a new branch, appropriately named for whatever task you are performing
+3. Check out your new branch and commit any changes you make to it
+4. Push your branch: `git push origin <your_branch_name>` (you should have permission to do this, if you are added as a "contributor" to this project)
+5. Create a [Pull Request](https://help.github.com/articles/creating-a-pull-request/)) from your branch into the master branch.
 
 # Text Contents (Subject to Change)
 
