@@ -15,13 +15,13 @@ The following is a collection of modules geared to introduce certain core elemen
  All in all, I like to teach, I like to write, and I like Python, so this is a fun project for me to take on. I am building off of my experience teaching the Cog*Works 2017 BWSI course (which was awesome!) to help inform this work.
  
 # How To Contribute
-Contributions to this project are very welcome!  Some great ways to help out are to:
+Contributions to this project are very welcome!  I will be sure to credit any/all contributions (unless your want to remain anonymous). Some great ways to help out are to:
 - proofread (via [Pull Request](https://help.github.com/articles/creating-a-pull-request/))
 - write reading comprehension exercises (create a new [issue](https://github.com/LLrsokl/BWSI_2018/issues))
 - provide general feedback (create a new [issue](https://github.com/LLrsokl/BWSI_2018/issues))
 - "dummy test" assignments (create a new [issue](https://github.com/LLrsokl/BWSI_2018/issues))
  
-I have posted a number of "To-Do" tasks in this project's [issues](https://github.com/LLrsokl/BWSI_2018/issues) page, and I will be adding to these as this project progresses. Included are requests for proofreading and exercises. General feedback on content is also hugely valuable, so feel free to open a new issue to provide your feedback on any of the material.
+I have posted a number of "To-Do" tasks in this project's [issues](https://github.com/LLrsokl/BWSI_2018/issues) page, and I will be adding to these as this project progresses. Included are requests for proofreading and exercises. Please post within an issue if you are working on a to-do item, so multiple people don't end up working on the same task. General feedback on content is also hugely valuable, so feel free to open a new issue to provide your feedback on any of the material.
 
 [Here is a nice Markdown "cheat sheet"](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for looking up how to make tables, code-blocks, etc., in Markdown.
 
