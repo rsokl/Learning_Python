@@ -15,12 +15,13 @@ In this module, you will:
   
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Table of Contents:
 
    intro.rst
    module_1.rst
    module_2.rst
    
+
 Indices and tables
 ==================
 
