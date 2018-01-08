@@ -1,0 +1,793 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Basics of Functions &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
+        <link rel="next" title="Scope" href="7_Scope.html"/>
+        <link rel="prev" title="Python’s “Itertools”" href="5_Itertools.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Introduction.html">Introducing Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_ConditionalStatements.html">Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_ForLoops.html">For-Loops and Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Itertools.html">Python’s “Itertools”</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basics of Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#The-def-Statement">The <code class="docutils literal"><span class="pre">def</span></code> Statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#The-return-Statement">The <code class="docutils literal"><span class="pre">return</span></code> Statement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Multiple-return-Statements">Multiple <code class="docutils literal"><span class="pre">return</span></code> Statements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Inline-Functions">Inline Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Arguments">Arguments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Positional-Inputs:">Positional Inputs:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Named-Inputs:">Named Inputs:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Functions-are-Objects">Functions are Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_Scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_DataStructures.html">Introduction to Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_DataStructures_II_Dictionaries.html">Data Structures for “Mappings”: Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_DataStructures_III_Sets_and_More.html">Data Structures Part III - Sets &amp; the Collections Module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
+        
+      <li>Basics of Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module2_EssentialsOfPython/6_Functions.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Basics-of-Functions">
+<h1>Basics of Functions<a class="headerlink" href="#Basics-of-Functions" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">There are reading-comprehension exercises included throughout the text.
+These are meant to help you put your reading to practice. Solutions for
+the exercises are included at the bottom of this page.</p>
+</div>
+<p>Defining a function allows you to encapsulate a segment of code,
+specifying the information that enters and leaves the code. You can make
+use of this “code-capsule” repeatedly and in many different contexts.
+For example, suppose you want to count how many vowels are in a string.
+The following defines a function that accomplishes this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">in_string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
+    <span class="n">num_vowels</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">vowels</span> <span class="o">=</span> <span class="s2">&quot;aeiouAEIOU&quot;</span>
+
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">in_string</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">:</span>
+            <span class="n">num_vowels</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># equivalent to vowel_count = vowel_count + 1</span>
+    <span class="k">return</span> <span class="n">num_vowels</span>
+</pre></div>
+</div>
+<p>Executing this code will define the <em>function</em> <code class="docutils literal"><span class="pre">count_vowel</span></code>. This
+function expects to be passed one object, represented by <code class="docutils literal"><span class="pre">in_string</span></code>,
+as an <em>input argument</em>, and it will <em>return</em> the number vowels stored in
+that object. Invoking <code class="docutils literal"><span class="pre">count_vowel</span></code>, passing it an input object, is
+referred to as <em>calling</em> the function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;Hi my name is Ryan&quot;</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p>The great thing about this is that it can be used over and over!</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;Apple&quot;</span><span class="p">)</span>
+<span class="go">2</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;envelope&quot;</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>In this section, we will learn about the syntax for defining and calling
+functions in Python</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Definition</strong>:</p>
+<p class="last">A Python <strong>function</strong> is an object that encapsulates code. <em>Calling</em> the
+function will execute the encapsulated code and <em>return</em> an object. A
+function can be defined so that it accepts <em>arguments</em>, which are
+objects that are to be passed to the encapsulated code.</p>
+</div>
+<div class="section" id="The-def-Statement">
+<h2>The <code class="docutils literal"><span class="pre">def</span></code> Statement<a class="headerlink" href="#The-def-Statement" title="Permalink to this headline">¶</a></h2>
+<p>Similar to <code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and <code class="docutils literal"><span class="pre">for</span></code>, the <code class="docutils literal"><span class="pre">def</span></code> statement is
+reserved by the Python language to signify the definition of functions
+(and a few other things that we’ll cover later). The following is the
+general syntax for defining a Python function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>def &lt;function name&gt;(&lt;function signature&gt;):
+    &quot;&quot;&quot; documentation string &quot;&quot;&quot;
+    &lt;encapsulated code&gt;
+    return &lt;object&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&lt;function</span> <span class="pre">name&gt;</span></code> can be any valid variable name, and <em>must</em> be
+followed by parentheses and then a colon.</li>
+<li><code class="docutils literal"><span class="pre">&lt;function</span> <span class="pre">signature&gt;</span></code> specifies the input arguments to the
+function, and may be left blank (if the function does not accept any
+arguments).</li>
+<li>The documentation string (commonly referred to as a <em>docstring</em>) may
+span multiple lines, and should indicate what the function’s purpose
+is. It is optional.</li>
+<li><code class="docutils literal"><span class="pre">&lt;encapsulated</span> <span class="pre">code&gt;</span></code> can consist of general Python code.</li>
+<li><code class="docutils literal"><span class="pre">return</span></code> is used to indicate what object should be returned,
+whenever the function is called.</li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">return</span></code> statement is also reserved by Python. It denotes the end
+of a function - if reached, a <code class="docutils literal"><span class="pre">return</span></code> statement immediately concludes
+the execution of the function and returns the specified value.</p>
+<p>Note that, like an if-statement and a for-loop, the content of a
+function is indicated by indentation: ***</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># wrong indentation</span>
+<span class="k">def</span> <span class="nf">bad_func1</span><span class="p">():</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># wrong indentation</span>
+<span class="k">def</span> <span class="nf">bad_func2</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># missing colon</span>
+<span class="k">def</span> <span class="nf">bad_func3</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># missing parenthesis</span>
+<span class="k">def</span> <span class="nf">bad_func4</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># this is ok</span>
+<span class="k">def</span> <span class="nf">ok_func</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Reading Comprehension: Writing a Basic Function</strong> Write a function
+named <code class="docutils literal"><span class="pre">count_even</span></code>. It should except one input argument, named
+<code class="docutils literal"><span class="pre">numbers</span></code>, which will be an iterable containing integers. Have the
+function return the number of even-valued integers conatined in the
+list. Include a reasonable docstring.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="The-return-Statement">
+<h2>The <code class="docutils literal"><span class="pre">return</span></code> Statement<a class="headerlink" href="#The-return-Statement" title="Permalink to this headline">¶</a></h2>
+<p>In general, any Python object can follow a function’s <code class="docutils literal"><span class="pre">return</span></code>
+statement. Furthermore, an <strong>empty</strong> <code class="docutils literal"><span class="pre">return</span></code> statement can be
+specified, or the <strong>return</strong> statement of a function can be omitted
+altogether. In both of these cases, <em>the function will return the
+``None`` object</em>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># this function returns `None`</span>
+<span class="c1"># an &quot;empty&quot; return statement</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># this function returns `None`</span>
+<span class="c1"># return statement is omitted</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Warning!</strong></p>
+<p class="last">Take care to not <em>mistakenly</em> omit a return statement or leave it blank.
+You will still be able to call your function, but it will return
+<code class="docutils literal"><span class="pre">None</span></code> no matter what!</p>
+</div>
+<p>A function also need not have any additional code beyond its return
+statement. For example, we can make use of <code class="docutils literal"><span class="pre">sum</span></code> and a generator
+comprehension (see the previous section of this module) to shorten our
+<code class="docutils literal"><span class="pre">count_vowel</span></code> function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># the returned object of a function can be specified straight-away</span>
+<span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">in_string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">in_string</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">All of Python functions return <em>something</em>. Even the built-in <code class="docutils literal"><span class="pre">print</span></code>
+function returns <code class="docutils literal"><span class="pre">None</span></code> after it prints to standard-output!</p>
+</div>
+<div class="section" id="Multiple-return-Statements">
+<h3>Multiple <code class="docutils literal"><span class="pre">return</span></code> Statements<a class="headerlink" href="#Multiple-return-Statements" title="Permalink to this headline">¶</a></h3>
+<p>You can specify more than one <code class="docutils literal"><span class="pre">return</span></code> statement within a function.
+This can be useful for handling edge-cases or optimizations in your
+code. Suppose you want your function to compute <span class="math">\(e^{x}\)</span>, using a
+<a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series#Exponential_function">Taylor
+series</a>
+approximation. The function should immediately return <code class="docutils literal"><span class="pre">1.0</span></code> in the
+case that <span class="math">\(x = 0\)</span>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_exp</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Use a Taylor Series to compute e^x &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">1.</span>
+
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">n</span> <span class="o">/</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal"><span class="pre">x==0</span></code> is <code class="docutils literal"><span class="pre">True</span></code>, then the first <code class="docutils literal"><span class="pre">return</span></code> statement is reached.
+<code class="docutils literal"><span class="pre">1.</span></code> will be returned and the function will be “exited” immediately,
+without ever reaching the code following it.</p>
+</div>
+</div>
+<div class="section" id="Inline-Functions">
+<h2>Inline Functions<a class="headerlink" href="#Inline-Functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions can be defined in-line, as a single return statement:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>can be rewritten as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>This should be used sparingly - only for exceedingly simple functions
+that can be easily understood without docstrings.</p>
+</div>
+<div class="section" id="Arguments">
+<h2>Arguments<a class="headerlink" href="#Arguments" title="Permalink to this headline">¶</a></h2>
+<p>A sequence of comma-separated variable names can specified in the
+function signature to indicated <em>positional</em> arguments for the function.
+For example, the finally specifies <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">lower</span></code>, and <code class="docutils literal"><span class="pre">upper</span></code> as
+input arguments to a function, <code class="docutils literal"><span class="pre">is_bounded</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_bounded</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">lower</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">upper</span>
+</pre></div>
+</div>
+<p>This function can then be passed its arguments in several way:</p>
+<div class="section" id="Positional-Inputs:">
+<h3>Positional Inputs:<a class="headerlink" href="#Positional-Inputs:" title="Permalink to this headline">¶</a></h3>
+<p>The objects passed to <code class="docutils literal"><span class="pre">is_bounded</span></code> will be assigned to its input
+variables based on their positions. That is, <code class="docutils literal"><span class="pre">is_bounded(3,</span> <span class="pre">2,</span> <span class="pre">4)</span></code>
+will assign <code class="docutils literal"><span class="pre">x=3</span></code>, <code class="docutils literal"><span class="pre">lower=2</span></code>, and <code class="docutils literal"><span class="pre">upper=4</span></code>, in accordance with
+the positional ordering of the function’s input arguments:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># evaluate: 2 &lt;= 3 &lt;= 4</span>
+<span class="c1"># specifying inputs based on position</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">is_bounded</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<p>Feeding a function too-few or too-many arguments will raise a
+<code class="docutils literal"><span class="pre">TypeError</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># too few inputs: raises error</span>
+<span class="n">is_bounded</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># too many inputs: raises error</span>
+<span class="n">is_bounded</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Named-Inputs:">
+<h3>Named Inputs:<a class="headerlink" href="#Named-Inputs:" title="Permalink to this headline">¶</a></h3>
+<p>You can provide explicit names when specifying the inputs to a function,
+in which case ordering does not matter. This is very nice for writing
+clear and flexible code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># evaluate: 2 &lt;= 3 &lt;= 4</span>
+<span class="c1"># specify inputs using explicit input names</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">is_bounded</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<p>You can mix-and-match positional and named input by using position-based
+inputs first:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># evaluate: 2 &lt;= 3 &lt;= 4</span>
+<span class="c1"># `x` is specified based on position</span>
+<span class="c1"># `lower` and `upper` are specified by name</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">is_bounded</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<div class="section" id="Default-Arguments">
+<h4>Default Arguments<a class="headerlink" href="#Default-Arguments" title="Permalink to this headline">¶</a></h4>
+<p>You can specify default values for input arguments to a function. Their
+default values are utilized if a user does not specify these inputs when
+calling the function. Recall our <code class="docutils literal"><span class="pre">count_vowels</span></code> function. Suppose we
+want to the ability to include “y” as a vowel. We know, however, that
+people will typically want to exclude “y” from their vowels, so we can
+exclude “y” by default:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">in_string</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
+    <span class="n">vowels</span> <span class="o">=</span> <span class="s2">&quot;aeiouAEIOU&quot;</span>
+    <span class="k">if</span> <span class="n">include_y</span><span class="p">:</span>
+        <span class="n">vowels</span> <span class="o">+=</span> <span class="s2">&quot;yY&quot;</span>  <span class="c1"># add &quot;y&quot; to vowels</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">in_string</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, if <code class="docutils literal"><span class="pre">in_string</span></code> is only specified when calling <code class="docutils literal"><span class="pre">count_vowels</span></code>,
+<code class="docutils literal"><span class="pre">include_y</span></code> will be passed the value <code class="docutils literal"><span class="pre">False</span></code> by default:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the default value: exclude y from vowels</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;Happy&quot;</span><span class="p">)</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<p>This default value can be overridden:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># overriding the default value: include y as a vowel</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;Happy&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="mi">2</span>
+
+<span class="c1"># you can still specify inputs by name</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">count_vowels</span><span class="p">(</span><span class="n">include_y</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">in_string</span><span class="o">=</span><span class="s2">&quot;Happy&quot;</span><span class="p">)</span>
+<span class="mi">2</span>
+</pre></div>
+</div>
+<p>Default-valued input arguments must come after all positional input
+arguments in the function signature:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># this is ok</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># this will raise a syntax error</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Reading Comprehension: Functions and Arguments</strong></p>
+<p>Write a function, <code class="docutils literal"><span class="pre">max_or_min</span></code>, which accepts two positional
+arguments, <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> (which will hold numerical values), and a
+<code class="docutils literal"><span class="pre">mode</span></code> variable that has the default value <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code>.</p>
+<p>The function should return <code class="docutils literal"><span class="pre">min(x,</span> <span class="pre">y)</span></code> or <code class="docutils literal"><span class="pre">max(x,</span> <span class="pre">y)</span></code> according to
+the <code class="docutils literal"><span class="pre">mode</span></code>. Have the function return <code class="docutils literal"><span class="pre">None</span></code> if <code class="docutils literal"><span class="pre">mode</span></code> is neither
+<code class="docutils literal"><span class="pre">&quot;max&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;min&quot;</span></code>.</p>
+<p>Include a descriptive doc-string.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="Accomodating-an-Arbitrary-Number-of-Positional-Arguments">
+<h4>Accomodating an Arbitrary Number of Positional Arguments<a class="headerlink" href="#Accomodating-an-Arbitrary-Number-of-Positional-Arguments" title="Permalink to this headline">¶</a></h4>
+<p>Python provides us with a syntax for defining a function, which can be
+called with an arbitrary number of positional arguments. This is
+signaled by the syntax <code class="docutils literal"><span class="pre">def</span> <span class="pre">f(*&lt;var_name&gt;)</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># The * symbol indicates that an arbitrary number of</span>
+<span class="c1"># arguments can be fed to `f` when calling it.</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="c1">#  All arguments passed to `f` will be &quot;packed&quot; into a</span>
+    <span class="c1">#  tuple that is assigned to the variable `args`.</span>
+    <span class="c1"># `f()`  will assign `args = tuple()`</span>
+    <span class="c1"># `f(x, y, ...)` will assign `args = (x, y, ...)`</span>
+    <span class="k">return</span> <span class="n">args</span>
+</pre></div>
+</div>
+<p>Because it cannot be foreseen how many arguments will be passed to
+<code class="docutils literal"><span class="pre">f</span></code>, all of the objects that are passed to it will be <em>packed into a
+tuple</em>, which is then assigned to the variable <code class="docutils literal"><span class="pre">args</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">()</span>            <span class="c1"># pass zero arguments to `f`</span>
+<span class="go">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>           <span class="c1"># pass one argument to `f`</span>
+<span class="go">(1,)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">)</span>  <span class="c1"># pass three arguments to `f`</span>
+<span class="go">((0, 1), True, &quot;cow&quot;)</span>
+</pre></div>
+</div>
+<p>This syntax can be combined with positional arguments and default
+arguments. Any variables specified after a packed variabled <em>must be
+called by name</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">seq</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x is: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;seq is: &quot;</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;y is: &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># `y` must be specified by name</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">1</span>
+<span class="n">seq</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">5</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>  <span class="c1"># no additional positional arguments are passed</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;cat&quot;</span>
+<span class="n">seq</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">()</span>
+<span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;dog&quot;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Reading Comprehension: Arbitrary Arguments</strong></p>
+<p>Write a function named <code class="docutils literal"><span class="pre">mean</span></code>, which accepts and arbitrary number of
+numerical arguments, and computes the mean of all of the values passed
+to the function. Thus <code class="docutils literal"><span class="pre">mean(1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code> should return
+<span class="math">\(\frac{1 + 2 + 3}{3} = 2.0\)</span></p>
+<p>This function should return <code class="docutils literal"><span class="pre">0.</span></code> if no arguments are passed to it. Be
+sure to test your function, and include a docstring.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Functions-are-Objects">
+<h2>Functions are Objects<a class="headerlink" href="#Functions-are-Objects" title="Permalink to this headline">¶</a></h2>
+<p>Once defined, a function behaves like any other Python object, like a
+list or string or integer. You can assign a variable to a
+function-object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="o">=</span> <span class="n">count_vowels</span>  <span class="c1"># `var` now references the function `count_vowels`</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>        <span class="c1"># you can now &quot;call&quot; `var`</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>You can store functions in a list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">count_vowels</span><span class="p">,</span> <span class="k">print</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
+    <span class="n">func</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also call functions anywhere, and their return-value will be
+returned in-place:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;pillow&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;that&#39;s a lot of vowels!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And, of course, this works within comprehension expressions as well:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">count_vowels</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;bye&quot;</span><span class="p">,</span> <span class="s2">&quot;guy&quot;</span><span class="p">,</span> <span class="s2">&quot;sigh&quot;</span><span class="p">])</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+<p>“Printing” a function isn’t very revealing. It simply tells you the
+memory address where the function-object is stored:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">count_vowel</span><span class="p">)</span>
+<span class="go">&lt;function count_vowels at 0x000002A32898C6A8&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
+<h1>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h1>
+<p><strong>Writing a Basic Function: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_even</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Counts the number of even integers in an iterable&quot;&quot;&quot;</span>
+    <span class="n">total_even</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">total</span>
+</pre></div>
+</div>
+<p>or, using a generator comprehension:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_even</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Counts the number of even integers in an iterable&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span> <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Functions and Arguments: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">max_or_min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Return either `max(x,y)` or `min(x,y)`,</span>
+<span class="sd">        according to the `mode` argument.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : Number</span>
+
+<span class="sd">        y : Number</span>
+
+<span class="sd">        mode : str</span>
+<span class="sd">           Either &#39;max&#39; or &#39;min&#39;</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        The max or min of the two values. `None` is</span>
+<span class="sd">        returned if an invalid mode was specified.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;min&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+</div>
+<p>Note that you can actually have your function raise an “exception” (an
+error) in the case that <code class="docutils literal"><span class="pre">mode</span></code> wasn’t passed a proper value. In fact,
+that is likely the more appropriate behavior for this function.</p>
+<p>Such a solution would look like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">max_or_min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;min&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;`mode` was passed an invalid value: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Arbitrary Arguments: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="o">*</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Returns the mean of the function&#39;s arguments &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span>
+    <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or, being a bit more fancy : - using the fact that <code class="docutils literal"><span class="pre">bool(seq)</span></code> is
+<code class="docutils literal"><span class="pre">False</span></code> if <code class="docutils literal"><span class="pre">seq</span></code> is empty - using the inline if-else syntax</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="o">*</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Returns the mean of the function&#39;s arguments &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">if</span> <span class="n">seq</span> <span class="k">else</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="7_Scope.html" class="btn btn-neutral float-right" title="Scope" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="5_Itertools.html" class="btn btn-neutral" title="Python’s “Itertools”" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

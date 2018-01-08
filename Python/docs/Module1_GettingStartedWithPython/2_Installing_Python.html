@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing Python &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 1: Getting Started with Python" href="../module_1.html"/>
+        <link rel="next" title="Setting Up a Development Environment" href="3_Getting_Started_With_IDEs_and_Notebooks.html"/>
+        <link rel="prev" title="Introducing the Python Programming Language" href="1_GettingStartedWithPython.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_GettingStartedWithPython.html">Introducing the Python Programming Language</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Installing-Anaconda">Installing Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Getting_Started_With_IDEs_and_Notebooks.html">Setting Up a Development Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Informal_Intro_Python.html">An Informal Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Numerical_Work_In_Python.html">Doing Numerical Work in Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_1.html">Module 1: Getting Started with Python</a> &raquo;</li>
+        
+      <li>Installing Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module1_GettingStartedWithPython/2_Installing_Python.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Installing-Python">
+<h1>Installing Python<a class="headerlink" href="#Installing-Python" title="Permalink to this headline">¶</a></h1>
+<p>Without further adieu, we now provide instructions for installing Python
+and other useful Python libraries on your machine via the Anaconda
+platform. Installing the Anaconda platform will install the following: -
+Python (specifically the CPython interpreter that we discussed in the
+previous section) - A number of useful Python packages, like matplotlib,
+NumPy, and SciPy. - Jupyter: provides an interactive “notebook”
+environment for prototyping code. - “conda” a package manager that will
+allow you to install and update Python and additional Python packages,
+while handling all compatibility issues for you.</p>
+<p>Some of the packages provided by Anaconda, like NumPy, have been
+<a class="reference external" href="https://docs.anaconda.com/mkl-optimizations/">optimized</a> and will
+run significantly faster than if you installed them manually.</p>
+<p><code class="docutils literal"><span class="pre">conda</span></code> is not only a package manager, but also an environment
+manager. It is typically a big pain to have different versions of Python
+installed simultaneously. <code class="docutils literal"><span class="pre">conda</span></code> makes it easy to create independent
+environments with respective versions of Python installed in them. For
+this online class, you will want to install Python version 3 on your
+computer. Later, you may need Python version 2 in order to run older
+software; you will simply create a new environment using <code class="docutils literal"><span class="pre">conda</span></code> that
+has Python 2 installed in it.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">“Anaconda” is a collection of the CPython interpreter and a number of
+very popular Python libraries for doing data science related work. It
+also provides a package manager for downloading/updating Python
+packages, and an environment manager for maintaining independent
+installations of Python side-by-side.</p>
+</div>
+<div class="section" id="Installing-Anaconda">
+<h2>Installing Anaconda<a class="headerlink" href="#Installing-Anaconda" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Navigate to <a class="reference external" href="https://www.anaconda.com/download/">this page</a>, and
+click the “Download” button for <strong>Python 3</strong> (depending on when you
+read this, it may say Python 3.6 or Python 3.7, etc.)</li>
+<li>After the download is complete, begin the installation process. There
+will be an installation option:
+<code class="docutils literal"><span class="pre">Add</span> <span class="pre">Anaconda</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">system</span> <span class="pre">PATH</span> <span class="pre">environment</span> <span class="pre">variable</span></code>; we advise
+you to <strong>enable</strong> this installation option.</li>
+<li>Complete the 30 minute <a class="reference external" href="https://conda.io/docs/user-guide/getting-started.html">“Getting
+Started”</a>
+tutorial to familiarize yourself with <code class="docutils literal"><span class="pre">conda</span></code>. This is very
+important!</li>
+</ol>
+<ul class="simple">
+<li>You will need to know how to open a terminal (cmd.exe for Windows
+users) on your computer, and how to navigate between directories in
+the terminal. If you do not know how to do this, read a ‘how-to’ for
+whatever operating system you are using.</li>
+</ul>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note for Windows users</strong>:</p>
+<p class="last"><code class="docutils literal"><span class="pre">conda</span></code> commands do not work in powershell.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3_Getting_Started_With_IDEs_and_Notebooks.html" class="btn btn-neutral float-right" title="Setting Up a Development Environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1_GettingStartedWithPython.html" class="btn btn-neutral" title="Introducing the Python Programming Language" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

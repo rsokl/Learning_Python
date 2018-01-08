@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scope &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
+        <link rel="next" title="Data Structures (Part I): Introduction" href="DataStructures.html"/>
+        <link rel="prev" title="Basics of Functions" href="Functions.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Variable-Shadowing">Variable Shadowing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
+        
+      <li>Scope</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module2_EssentialsOfPython/Scope.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Scope">
+<h1>Scope<a class="headerlink" href="#Scope" title="Permalink to this headline">¶</a></h1>
+<p>A valuable aspect of the “encapsulation” provided by functions is that
+the function’s input argument variables, and any variables defined
+within the function, cannot be “seen” nor accessed outside of the
+function. That is, these variables are said to have a restricted
+<strong>scope</strong>.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Definition</strong>:</p>
+<p class="last">The <strong>scope</strong> of a variable refers to the context in which that variable
+is visible/accessible to the Python interpreter.</p>
+</div>
+<p>Until our work with comprehension-statements and functions, we had only
+encountered variables that have <strong>file scope</strong>. This means that a
+variable, once defined, is visible to all parts of the code contained in
+the same file. Variables with file scope can even be accessed <em>within
+functions</em>. By contrast, the variables defined within a function or as
+input arguments to a function have a <strong>restricted scope</strong> - they can
+only be accessed within the context of the function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># `x` has file scope. It can be even be accessed</span>
+       <span class="c1"># within a function, even if it isn&#39;t passed to</span>
+       <span class="c1"># the function as an argument</span>
+
+<span class="c1"># `my_func` has file scope (after it is defined)</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">func_var</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">+</span> <span class="n">x</span>  <span class="c1"># `x` will have the value 3</span>
+    <span class="c1"># the scope of `y` and `func_var` is restricted to this function</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="c1"># `func_var` and `y` do not exist here</span>
+<span class="k">print</span><span class="p">(</span><span class="n">func_var</span><span class="p">)</span>  <span class="c1"># raises NameError: name `func_var` not defined</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>         <span class="c1"># raises NameError: name `y` not defined</span>
+</pre></div>
+</div>
+<p>Python’s scoping rules are quite liberal compared to those of other
+languages, like C++. In most situations, Python will give variables file
+scope. Let’s briefly survey the various contexts in which variables are
+defined, along with their corresponding scoping rules. Assume that the
+following code represents the entire contents of the Python script
+“example_scope.py”:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># this demonstrates scope of variables in different contexts</span>
+<span class="c1"># nothing meaningful is computed in this file</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>  <span class="c1"># `combinations` has file scope</span>
+
+<span class="c1"># `my_func` has file scope</span>
+<span class="c1"># `in_arg1` has restricted scope</span>
+<span class="c1"># `in_arg2` has restricted scope</span>
+<span class="c1"># `func_block` has restricted scope</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">in_arg1</span><span class="p">,</span> <span class="n">in_arg2</span><span class="o">=</span><span class="s2">&quot;cat&quot;</span><span class="p">):</span>
+    <span class="n">func_block</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+<span class="c1"># `file_var` has file scope</span>
+<span class="c1"># `comp_var` has restricted scope</span>
+<span class="n">file_var</span> <span class="o">=</span> <span class="p">[</span><span class="n">comp_var</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">comp_var</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]]</span>
+
+<span class="c1"># `if_block` has file scope</span>
+<span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">if_block</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">if_block</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># `it_var` has file scope</span>
+<span class="c1"># `for_block` has file scope</span>
+<span class="k">for</span> <span class="n">it_var</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="n">for_block</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># `while_block` has file scope</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">while_block</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">break</span>
+</pre></div>
+</div>
+<p>In the preceding code, the following variables have <em>file scope</em>: -
+<code class="docutils literal"><span class="pre">combinations</span></code> - <code class="docutils literal"><span class="pre">my_func</span></code> - <code class="docutils literal"><span class="pre">file_var</span></code> - <code class="docutils literal"><span class="pre">if_block</span></code> -
+<code class="docutils literal"><span class="pre">it_var</span></code> - <code class="docutils literal"><span class="pre">for_block</span></code> - <code class="docutils literal"><span class="pre">while_block</span></code></p>
+<p>whereas the following variables have <em>restricted scope</em>: - <code class="docutils literal"><span class="pre">in_arg1</span></code> -
+<code class="docutils literal"><span class="pre">in_arg2</span></code> - <code class="docutils literal"><span class="pre">func_block</span></code> - <code class="docutils literal"><span class="pre">comp_var</span></code></p>
+<p>In C++, the variables <code class="docutils literal"><span class="pre">if_block</span></code>, <code class="docutils literal"><span class="pre">it_var</span></code>, <code class="docutils literal"><span class="pre">for_block</span></code>, and
+<code class="docutils literal"><span class="pre">while_block</span></code> all would have had restricted scopes - these variables
+would not be defined outside of their respective if/for/while blocks.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">Variables defined within a function have a <em>restricted scope</em> such that
+they do not exist outside of that function. Most other contexts for
+defining variables in Python produce variables with <em>file scope</em> (i.e.
+they can be accessed anywhere in the file’s code, subsequent to their
+definition).</p>
+</div>
+<div class="section" id="Variable-Shadowing">
+<h2>Variable Shadowing<a class="headerlink" href="#Variable-Shadowing" title="Permalink to this headline">¶</a></h2>
+<p>What happens when a file-scope variable and a function-scope variable
+share the same name? This type of circumstance is known as <strong>variable
+shadowing</strong>. Python resolves this by giving precedence to the variable
+<em>with the most restricted scope</em>, when inside that scope:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># input-arg `x` overrides file-scope version of `x`</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># overrides file-scope version of `y`</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="c1"># `x` is 2 here, once again</span>
+<span class="c1"># `y` is 3 here, once again</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># prints 0</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>      <span class="c1"># prints 2  3</span>
+</pre></div>
+</div>
+<p>and similarly,</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="s2">&quot;cow&quot;</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="n">it</span> <span class="o">=</span> <span class="s2">&quot;dog&quot;</span> <span class="c1"># overrides file-scope version of `it`</span>
+    <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">it</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>  <span class="c1"># within the list comprehension, the func-scope `it` is overridden</span>
+    <span class="c1"># `it` is &quot;dog&quot; here, once again</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+<span class="c1"># `it` is &quot;cow&quot; here, once again</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DataStructures.html" class="btn btn-neutral float-right" title="Data Structures (Part I): Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Functions.html" class="btn btn-neutral" title="Basics of Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

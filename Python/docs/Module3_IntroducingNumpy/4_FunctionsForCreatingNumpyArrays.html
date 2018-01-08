@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Section 4: Functions for Creating NumPy Arrays &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Section 4: Functions for Creating NumPy Arrays</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module3_IntroducingNumpy/4_FunctionsForCreatingNumpyArrays.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Section-4:-Functions-for-Creating-NumPy-Arrays">
+<h1>Section 4: Functions for Creating NumPy Arrays<a class="headerlink" href="#Section-4:-Functions-for-Creating-NumPy-Arrays" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Creating-Arrays-from-Lists">
+<h2>Creating Arrays from Lists<a class="headerlink" href="#Creating-Arrays-from-Lists" title="Permalink to this headline">¶</a></h2>
+<p>You can create an array from a Python <code class="docutils literal"><span class="pre">list</span></code> (or <code class="docutils literal"><span class="pre">tuple</span></code>) using
+NumPy’s <code class="docutils literal"><span class="pre">array</span></code> function. NumPy will interpret the structure of the
+data it receives to determine the dimensionality and shape of the array:</p>
+<p>A list of numbers will be used to create a 1-dimensional array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>  <span class="c1"># shape: (3,)</span>
+<span class="go">array([ 1.,  2.,  3.])</span>
+</pre></div>
+</div>
+<p>A list of <strong>equal-length</strong> lists of numbers will lead to a 2-dimensional
+array - each list comprises a row of the array. A list of two,
+length-three lists will produce a (2,3)-shaped array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">]])</span>  <span class="c1"># shape: (2, 3)</span>
+<span class="go">array([[ 1.,  2.,  3.],</span>
+<span class="go">       [ 4.,  5.,  6.]])</span>
+</pre></div>
+</div>
+<p>A list of equal-length lists, of equal-length lists, creates a 3D-array,
+and so on. You will seldom use lists to form high-dimenstional arrays.
+Instead, there are other array-creation functions that are more
+amendable to generating high-dimensional data. The next section of the
+module introduces the <code class="docutils literal"><span class="pre">reshape</span></code> function, which is supremely useful
+towards this end.</p>
+<div class="alert alert-block alert-danger"><p><strong>Warning</strong>: You actually <em>can</em> create an array from lists of <em>unequal</em>
+lengths. The resulting array is <strong>not</strong> an ND-array, it has no
+well-defined dimensionality. Instead, something called an <em>object-array</em>
+is produced, which does not benefit from the majortiy of NumPy’s
+features. This is a relatively obscure feature of the NumPy library, and
+should be avoided unless you really know what you’re doing!</p>
+</div></div>
+<div class="section" id="Creating-Constant-Arrays:-zeros-and-ones">
+<h2>Creating Constant Arrays: <code class="docutils literal"><span class="pre">zeros</span></code> and <code class="docutils literal"><span class="pre">ones</span></code><a class="headerlink" href="#Creating-Constant-Arrays:-zeros-and-ones" title="Permalink to this headline">¶</a></h2>
+<p>NumPy provides the functions <code class="docutils literal"><span class="pre">zeros</span></code> and <code class="docutils literal"><span class="pre">ones</span></code>, which will fill an
+array of user-specified shape with the 0s and 1s, respectively:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>  <span class="c1"># shape: (3, 4)</span>
+<span class="go">array([[ 0.,  0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,))</span>  <span class="c1"># shape: (4,)</span>
+<span class="go">array([ 1.,  1.,  1.,  1.])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Creating-Sequential-Arrays:-arange-and-linspace">
+<h2>Creating Sequential Arrays: <code class="docutils literal"><span class="pre">arange</span></code> and <code class="docutils literal"><span class="pre">linspace</span></code><a class="headerlink" href="#Creating-Sequential-Arrays:-arange-and-linspace" title="Permalink to this headline">¶</a></h2>
+<p>The
+<code class="docutils literal"><span class="pre">`arange</span></code> &lt;<a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.arange.html">https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.arange.html</a>&gt;`__
+function allows you to initialize a sequence of integers based on a
+starting point (inclusive), stopping point (exclusive), and step size:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">10.</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># start (included): 0, stop (excluded): 10, step:1</span>
+<span class="go">array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
+
+<span class="go"># supplying one value to `arange` amounts to specifying the stop value</span>
+<span class="go"># start=0 and step=1 are then used a defaults</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># equivalent to: start: 0, stop: 10, step:1</span>
+<span class="go">array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># start (included): -5, stop (excluded): 6, step:2</span>
+<span class="go">array([-5, -3, -1,  1,  3,  5])</span>
+</pre></div>
+</div>
+<p>The
+<code class="docutils literal"><span class="pre">`linspace</span></code> &lt;<a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linspace.html">https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linspace.html</a>&gt;`__
+function allows you to generate <span class="math">\(N\)</span> <em>evenly-spaced</em> points within
+a user-specified interval <span class="math">\([i, j]\)</span> (<span class="math">\(i\)</span> and <span class="math">\(j\)</span> are
+included in the interval). This is often used to generate a domain of
+values on which to evaluate a mathematical function (e.g. if you want to
+the sine function from <span class="math">\(-\pi\)</span> to <span class="math">\(\pi\)</span> on a finely-divided
+grid).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># generate 5 evenly-spaced points on the interval [-1, 1]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.</span> <span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">1.</span> <span class="p">])</span>
+
+<span class="c1"># generate 2 evenly-spaced points on the interval [3, 4]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">3.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">])</span>
+
+<span class="c1"># generate 100 evenly-spaced points on the interval [-pi, pi]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">3.14159265</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mf">3.14159265</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Creating-Arrays-Using-Random-Sampling">
+<h2>Creating Arrays Using Random Sampling<a class="headerlink" href="#Creating-Arrays-Using-Random-Sampling" title="Permalink to this headline">¶</a></h2>
+<p>Several functions can be accessed from <code class="docutils literal"><span class="pre">np.random</span></code>, which populate
+arrays of a user-specified shape by drawing randomly from a specified
+statistical distribution:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># create a shape-(3,3) array by drawing randomly</span>
+<span class="c1"># from the uniform distribution [0, 1)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">0.09542611</span><span class="p">,</span>  <span class="mf">0.13183498</span><span class="p">,</span>  <span class="mf">0.39836068</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.7358235</span> <span class="p">,</span>  <span class="mf">0.77640024</span><span class="p">,</span>  <span class="mf">0.74913595</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.37702688</span><span class="p">,</span>  <span class="mf">0.86617624</span><span class="p">,</span>  <span class="mf">0.39846429</span><span class="p">]])</span>
+
+<span class="c1"># create a shape-(5,) array by drawing randomly</span>
+<span class="c1"># from a mean-0, variance-1 Gaussian distribution</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.11262121</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.35392007</span><span class="p">,</span>  <span class="mf">0.4245215</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.81995588</span><span class="p">,</span>  <span class="mf">0.65412323</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>There are <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.random.html">many more
+functions</a>
+to read about that allow you to draw from a wide variety of statistical
+distributions. This only scratches the surface of random number
+generation in NumPy.</p>
+</div>
+<div class="section" id="Creating-an-Array-with-a-Specified-Data-Type">
+<h2>Creating an Array with a Specified Data Type<a class="headerlink" href="#Creating-an-Array-with-a-Specified-Data-Type" title="Permalink to this headline">¶</a></h2>
+<p>Each of the preceding functions used to create an array can be passed a
+so-called ‘keyword’ argument, <code class="docutils literal"><span class="pre">dtype</span></code>, which instructs NumPy to use a
+specified data type when producing the contents of the array.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># populate an array using 32-bit floating point numbers</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="c1"># default data type produced by `arange` is 32-bit integers</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span>
+<span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+
+<span class="c1"># the data type produced by `arange` can be specified otherwise</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float16&quot;</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float16</span><span class="p">)</span>
+
+<span class="c1"># generate shape-(4,4) array of 64-bit complex-valued 0s</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;complex64&quot;</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">complex64</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="alert alert-block alert-warning"><p><strong>FYI</strong>: A complex number is a number with the form: <span class="math">\(a + ib\)</span>,
+where <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are real-valued numbers, and <span class="math">\(i\)</span> is
+defined to be the number that satisfies the relationship
+<span class="math">\(i^2 = -1\)</span>. Because no real-valued number satisfies this
+relationship, <span class="math">\(i\)</span> is called the “imaginary number”. Weirdo
+electrical engineers use the symbol <span class="math">\(j\)</span> in place of <span class="math">\(i\)</span>,
+which is why Python would display the complex number <span class="math">\(2 + 3i\)</span> as
+<code class="docutils literal"><span class="pre">2+3j</span></code>.</p>
+</div></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

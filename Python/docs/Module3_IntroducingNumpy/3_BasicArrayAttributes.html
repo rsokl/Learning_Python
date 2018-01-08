@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Section 3: Basic Array Attributes &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Section 3: Basic Array Attributes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module3_IntroducingNumpy/3_BasicArrayAttributes.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Section-3:-Basic-Array-Attributes">
+<h1>Section 3: Basic Array Attributes<a class="headerlink" href="#Section-3:-Basic-Array-Attributes" title="Permalink to this headline">¶</a></h1>
+<p>Armed with our understanding of multidimensional NumPy arrays, we now
+look at methods for programmatically inspecting an array’s attributes
+(e.g. its dimensionality). It is especially important to understand what
+an array’s “shape” is.</p>
+<p>We will use the following array to provide context for our discussion:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+<span class="go">                               [ 4,  5,  6,  7]],</span>
+
+<span class="go">                              [[ 8,  9, 10, 11],</span>
+<span class="go">                               [12, 13, 14, 15]],</span>
+
+<span class="go">                              [[16, 17, 18, 19],</span>
+<span class="go">                               [20, 21, 22, 23]]])</span>
+</pre></div>
+</div>
+<p>According to the preceding discussion, it is a 3-dimensional array
+structured such that: - axis-0 discerns which of the <strong>3 sheets</strong> to
+select from. - axis-1 discerns which of the <strong>2 rows</strong>, in any sheet, to
+select from. - axis-1 discerns which of the <strong>4 columns</strong>, in any sheet,
+to select from.</p>
+<p>In general these attributes are are accessed via the syntax
+<code class="docutils literal"><span class="pre">&lt;array_variable_name&gt;.&lt;attribute_name&gt;</span></code>, as is demonstrated in the
+following examples.</p>
+<p><strong>ndarray.ndim</strong> &gt;The number of axes (dimensions) of the array.
+&gt;<code class="docutils literal"><span class="pre">python</span> <span class="pre">&gt;&gt;&gt;</span> <span class="pre">example_array.ndim</span> <span class="pre">3</span></code></p>
+<p><strong>ndarray.shape</strong> &gt;An ordered sequence of integers indicating the number
+of elements that are stored along each dimension of the array. For a
+2D-array with <span class="math">\(N\)</span> rows and <span class="math">\(M\)</span> columns, shape will be
+<span class="math">\((N, M)\)</span>. The number of integers that specifies the shape is
+therefore equal to the number of dimensions of the array.
+&gt;<code class="docutils literal"><span class="pre">python</span> <span class="pre">&gt;&gt;&gt;</span> <span class="pre">example_array.shape</span> <span class="pre">(3,</span> <span class="pre">2,</span> <span class="pre">4)</span></code></p>
+<p><strong>ndarray.size</strong> &gt;The total number of elements of the array. This is
+equal to the product of the elements of shape.
+&gt;<code class="docutils literal"><span class="pre">python</span> <span class="pre">&gt;&gt;&gt;</span> <span class="pre">example_array.size</span> <span class="pre">24</span></code></p>
+<p><strong>ndarray.dtype</strong> &gt;An object describing the data type of the elements in
+the array. Recall that NumPy’s ND-arrays are <em>homogenous</em> - they can
+only posses numbers of a uniform data type.</p>
+<blockquote>
+<div>``<code class="docutils literal"><span class="pre">python</span> <span class="pre">#</span></code>example_array` contains integers, each of
+which are represented using 32 bits of memory &gt;&gt;
+example_array.dtype dtype(‘int32’)</div></blockquote>
+<div class="highlight-default"><div class="highlight"><pre><span></span>**ndarray.itemsize**
+&gt;The size, in bytes (8 bits is 1 byte), of each element of the array. For example, an array of elements of type `float64` has itemsize 8 $(= \frac{64}{8})$, while one of type `complex32` has itemsize 4 $(= \frac{32}{8})$.
+&gt;```python
+ # each integer in `example_array` is represented using 4 bytes (32 bits) of memory
+&gt;&gt;&gt; example_array.itemsize
+4
+</pre></div>
+</div>
+<div class="alert alert-block alert-warning"><p><strong>Note</strong>: The <code class="docutils literal"><span class="pre">.</span></code> syntax appears frequently in Python. In general, if
+<code class="docutils literal"><span class="pre">x.&lt;name&gt;</span></code> returns a common Python object, like a number or a string,
+then <code class="docutils literal"><span class="pre">&lt;name&gt;</span></code> is called a <strong>property</strong> of <code class="docutils literal"><span class="pre">x</span></code> (also referred to as
+an attribute). If <code class="docutils literal"><span class="pre">x.&lt;name&gt;</span></code> invokes a <em>function</em>, then <code class="docutils literal"><span class="pre">&lt;name&gt;</span></code> is
+called a <strong>method</strong> of <code class="docutils literal"><span class="pre">x</span></code>. For example, assume <code class="docutils literal"><span class="pre">x</span></code> is a NumPy
+array, then <code class="docutils literal"><span class="pre">x.ndim</span></code> is a property of <code class="docutils literal"><span class="pre">x</span></code>, whereas <code class="docutils literal"><span class="pre">x.sum()</span></code> is a
+method of <code class="docutils literal"><span class="pre">x</span></code>. This will be discussed formally in a module pertaining
+to object-oriented programming.</p>
+</div></div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,849 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data Structures (Part II): Dictionaries &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
+        <link rel="next" title="Data Structures (Part III): Sets &amp; the Collections Module" href="DataStructures_III_Sets_and_More.html"/>
+        <link rel="prev" title="Data Structures (Part I): Introduction" href="DataStructures.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data Structures (Part II): Dictionaries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Dictionary-Basics">Dictionary Basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Constructing-a-dictionary">Constructing a dictionary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Retrieving-a-value,-given-a-key">Retrieving a value, given a key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Adding-more-key-value-mappings">Adding more key-value mappings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#What-Can-a-Dictionary-Store?">What Can a Dictionary Store?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Inspecting-a-Dictionary">Inspecting a Dictionary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Complexities-of-the-Dictionary's-Functions">Complexities of the Dictionary’s Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Are-Dictionaries-Ordered?-A-Word-of-Warning">Are Dictionaries Ordered? A Word of Warning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
+        
+      <li>Data Structures (Part II): Dictionaries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Data-Structures-(Part-II):-Dictionaries">
+<h1>Data Structures (Part II): Dictionaries<a class="headerlink" href="#Data-Structures-(Part-II):-Dictionaries" title="Permalink to this headline">¶</a></h1>
+<p>Python’s dictionary allows you to store key-value pairs, and then pass
+the dictionary a key to quickly retrieve its corresponding value.
+Specifically, you construct the dictionary by specifying one-way
+mappings from key-objects to value-objects. <strong>Each key must map to
+exactly one value</strong>, meaning that a key must be unique.</p>
+<p>Python’s dictionary is a shining star among its data structures, it is
+compact, fast, versatile, and extremely useful:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use a dictionary to map groceries to prices: item-name -&gt; price</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">items_to_prices</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cheese&quot;</span><span class="p">:</span><span class="mf">2.53</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">:</span> <span class="mf">3.40</span><span class="p">,</span> <span class="s2">&quot;frozen pizza&quot;</span><span class="p">:</span> <span class="mf">8.01</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">items_to_prices</span><span class="p">[</span><span class="s2">&quot;frozen pizza&quot;</span><span class="p">]</span>
+<span class="mf">8.01</span>
+
+<span class="c1"># keep track of whether or not a 3D coordinate fell into some region in space</span>
+<span class="c1"># map (x, y, z) coordinates to &quot;is-in a region&quot;: (x, y, z) -&gt; True/False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">point_to_region</span> <span class="o">=</span> <span class="p">{(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span><span class="bp">False</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">):</span><span class="bp">True</span><span class="p">,</span> <span class="p">(</span><span class="mf">4.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">):</span><span class="bp">False</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">point_to_region</span><span class="p">[(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)]</span>
+<span class="bp">True</span>
+
+<span class="c1"># map student-name to exam scores: name -&gt; scores</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">name_to_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Ryan S&quot;</span><span class="p">:[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="s2">&quot;Nick S&quot;</span><span class="p">:[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">90</span><span class="p">]}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">name_to_scores</span><span class="p">[</span><span class="s2">&quot;Ryan S&quot;</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>It is important to note outright that the time it takes for dictionary
+to take a key and retrieve a value <em>does not depend on the size of the
+dictionary.</em> That is the complexity for a dictionary look-up is
+<span class="math">\(\mathcal{O}(1)\)</span>! It accomplishes this by making use of a
+technique known as
+<a class="reference external" href="https://en.wikipedia.org/wiki/Hash_function">hashing</a>.</p>
+<p>We will be discussing the essentials of the dictionary. It is highly
+recommended that you refer to the official Python documentation for a
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict">complete rundown of all the functions available to the
+dictionary</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="nb">dict</span><span class="p">([(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;carrot&quot;</span><span class="p">,</span> <span class="s2">&quot;vegetable&quot;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[1]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>{&#39;apple&#39;: &#39;fruit&#39;, &#39;carrot&#39;: &#39;vegetable&#39;}
+</pre></div>
+</div>
+</div>
+<div class="section" id="Dictionary-Basics">
+<h2>Dictionary Basics<a class="headerlink" href="#Dictionary-Basics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Constructing-a-dictionary">
+<h3>Constructing a dictionary<a class="headerlink" href="#Constructing-a-dictionary" title="Permalink to this headline">¶</a></h3>
+<p>A nice syntax for creating a dictionary is to specify key-value pairs
+inside “curly braces”: <code class="docutils literal"><span class="pre">{key1:value1,</span> <span class="pre">key2:value2,</span> <span class="pre">...}</span></code>. As an
+example, let’s construct a dictionary that maps types of foods to
+“fruit” or “vegetable”. We’ll start by mapping “apple” to “fruit”, and
+“carrot” to “vegetable”</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use `{key1:value1, key2:value2, ...} to create a dictionary that maps:</span>
+<span class="c1">#  &quot;apple&quot; -&gt; &quot;fruit&quot;</span>
+<span class="c1"># &quot;carrot&quot; -&gt; &quot;vegetable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">:</span><span class="s2">&quot;fruit&quot;</span><span class="p">,</span> <span class="s2">&quot;carrot&quot;</span><span class="p">:</span><span class="s2">&quot;vegetable&quot;</span><span class="p">}</span>
+
+<span class="c1"># create an empty dictionary</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{}</span>
+<span class="p">{}</span>
+</pre></div>
+</div>
+<p>You can also use the built-in <code class="docutils literal"><span class="pre">dict</span></code> constructor to create the
+dictionary. This can be fed an iterable of sequences of key-value pairs:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use `dict` to create a dictionary that maps:</span>
+<span class="c1">#  &quot;apple&quot; -&gt; &quot;fruit&quot;</span>
+<span class="c1"># &quot;carrot&quot; -&gt; &quot;vegetable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;carrot&quot;</span><span class="p">,</span> <span class="s2">&quot;vegetable&quot;</span><span class="p">)])</span>
+
+<span class="c1"># use `dict` to create an empty dictionary:</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="p">{}</span>
+</pre></div>
+</div>
+<p>Lastly, Python also supports a dictionary-comprehension syntax, which
+mirrors the generator/list comprehension syntax covered earlier in this
+module:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">key</span><span class="p">:</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterable</span> <span class="n">of</span> <span class="n">key</span><span class="o">-</span><span class="n">value</span> <span class="n">pairs</span><span class="o">&gt;</span> <span class="p">[</span><span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">)]}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use the &#39;dictionary comprehension&#39; syntax to create a dictionary that maps:</span>
+<span class="c1">#  &quot;apple&quot; -&gt; &quot;fruit&quot;</span>
+<span class="c1"># &quot;carrot&quot; -&gt; &quot;vegetable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;carrot&quot;</span><span class="p">,</span> <span class="s2">&quot;vegetable&quot;</span><span class="p">)]}</span>
+<span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="s1">&#39;fruit&#39;</span><span class="p">,</span> <span class="s1">&#39;carrot&#39;</span><span class="p">:</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Retrieving-a-value,-given-a-key">
+<h3>Retrieving a value, given a key<a class="headerlink" href="#Retrieving-a-value,-given-a-key" title="Permalink to this headline">¶</a></h3>
+<p>Now we can use this dictionary to “look up” if an item is a fruit or a
+veggie. Dictionaries support the same square-bracket “get-item” syntax
+as a list/tuple, but here a valid key is used as the index:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># get the value associated with the key &quot;apple&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span><span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">]</span>
+<span class="s2">&quot;fruit&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">KeyError</span></code> will be raised if you try to look-up a key that doesn’t
+exist:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># &quot;grape&quot; hasn&#39;t be specified as a key</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span><span class="p">[</span><span class="s2">&quot;grape&quot;</span><span class="p">]</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span>                                  <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">30</span><span class="o">-</span><span class="mi">74</span><span class="n">c002a67890</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">fruit_or_veggie</span><span class="p">[</span><span class="s2">&quot;grape&quot;</span><span class="p">]</span>
+
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;grape&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Adding-more-key-value-mappings">
+<h3>Adding more key-value mappings<a class="headerlink" href="#Adding-more-key-value-mappings" title="Permalink to this headline">¶</a></h3>
+<p>Once created, a dictionary can have a new key-value pair be “set” using
+<code class="docutils literal"><span class="pre">my_dict[new_key]</span> <span class="pre">=</span> <span class="pre">new_value</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># set the mapping &quot;banana&quot; -&gt; &quot;fruit&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span><span class="p">[</span><span class="s2">&quot;banana&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;fruit&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span>
+<span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="s1">&#39;fruit&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">:</span> <span class="s1">&#39;fruit&#39;</span><span class="p">,</span> <span class="s1">&#39;carrot&#39;</span><span class="p">:</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>If the key already exists, the mapping for that key will simply be
+updated.</p>
+<p>The <code class="docutils literal"><span class="pre">update</span></code> function can be used to add multiple key-value pairs at
+once. This function can be passed another dictionaries, or iterables of
+key-value sequences</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># adding multiple key-value pairs to the dictionary</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span><span class="o">.</span><span class="n">update</span><span class="p">([(</span><span class="s2">&quot;grape&quot;</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;onion&quot;</span><span class="p">,</span> <span class="s2">&quot;vegetable&quot;</span><span class="p">)])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span>
+<span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="s1">&#39;fruit&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;banana&#39;</span><span class="p">:</span> <span class="s1">&#39;fruit&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;carrot&#39;</span><span class="p">:</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;grape&#39;</span><span class="p">:</span> <span class="s1">&#39;fruit&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;onion&#39;</span><span class="p">:</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="What-Can-a-Dictionary-Store?">
+<h2>What Can a Dictionary Store?<a class="headerlink" href="#What-Can-a-Dictionary-Store?" title="Permalink to this headline">¶</a></h2>
+<p>Although the preceding example only involves a mappings from strings to
+strings, <em>the keys and values of a dictionary can be homogenous in
+type</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrates the wide variety of object types that can be used as</span>
+<span class="c1"># keys and values in a dictionary</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span><span class="k">print</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">:</span><span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">:[]}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="mi">10</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[</span><span class="s2">&quot;moo&quot;</span><span class="p">]</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="o">&lt;</span><span class="n">function</span> <span class="k">print</span><span class="o">&gt;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[</span><span class="mf">3.4</span><span class="p">]</span>
+<span class="s2">&quot;cow&quot;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[</span><span class="bp">False</span><span class="p">]</span>
+<span class="p">[]</span>
+</pre></div>
+</div>
+<p>To be specific, a dictionary’s contents are the dictated by the
+following rules:</p>
+<ul class="simple">
+<li>A dictionary <em>key</em> must be an <em>immutable</em> object (more precisely, it
+must be
+<a class="reference external" href="https://docs.python.org/3/glossary.html#term-hashable">hashable</a>;
+don’t worry about this detail).</li>
+<li>A dictionary <em>value</em> can be any object (even the dictionary itself!
+Try this, it’s cool!)</li>
+</ul>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Recall</strong>:</p>
+<p class="last">A mutable object can be changed after it is created. An immutable object
+cannot be changed.</p>
+</div>
+<p>Thus valid keys can be the following types:</p>
+<ul class="simple">
+<li>numbers (integers, floating-point numbers, complex numbers)</li>
+<li>strings</li>
+<li>tuples (if the tuple contains anything, it must be other immutable
+objects)</li>
+<li>boolean values</li>
+<li><code class="docutils literal"><span class="pre">frozenset</span></code> objects</li>
+</ul>
+<p>Trying to use a mutable object as a key is problematic since that object
+could be changed <em>after</em> it was already used as a key. Thus the
+dictionary would have to “detect” this change and recreate its “lookup
+scheme” for the changed key. Values, on the otherhand, can be mutable
+because the details of a given value-object have no impact on how the
+dictionary retrieves it.</p>
+<p>In accordance with this discussion will get a <code class="docutils literal"><span class="pre">TypeError</span></code> if you try
+to use a list as a key, since lists are mutable:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># trying to use a list as a key</span>
+<span class="c1"># this raises an error because lists are mutable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bad_dict</span> <span class="o">=</span> <span class="p">{[]:</span><span class="mi">1</span><span class="p">}</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">50</span><span class="o">-</span><span class="n">e7cf39509d06</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">bad_dict</span> <span class="o">=</span> <span class="p">{[]:</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">unhashable</span> <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;list&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">A dictionary key must be an immutable object. A dictionary value can be
+any object.</p>
+</div>
+<div class="section" id="Inspecting-a-Dictionary">
+<h3>Inspecting a Dictionary<a class="headerlink" href="#Inspecting-a-Dictionary" title="Permalink to this headline">¶</a></h3>
+<p>The dictionary provides tooling for inspecting and iterating over its
+keys and values. We will use the following dictionary for our examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span><span class="s2">&quot;value3&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Inspecting a dictionary’s keys</strong></p>
+<p>The dictionary itself can be used to iterate over its keys:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># iterating over a dictionary produces its keys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">,</span> <span class="s1">&#39;key3&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You can also use the dictionary to test for membership among its keys:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># checking if an object is among a dictionary&#39;s keys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;key3&quot;</span> <span class="ow">in</span> <span class="n">example_dict</span>
+<span class="bp">True</span>
+
+<span class="c1"># you *cannot* use this to check for membership among its valus</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;value3&quot;</span> <span class="ow">in</span> <span class="n">example_dict</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">len</span></code> counts the number of keys in the dictionary:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">example_dict</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p><strong>Inspecting a dictionary’s values</strong></p>
+<p><code class="docutils literal"><span class="pre">example_dict.values()</span></code> can be iterated over to produce that
+dictionary’s values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># iterating over a dictionary&#39;s values</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+<span class="p">[</span><span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;value3&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You can also use this to test for membership among the dictionary’s
+values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># checking if an object is among a dictionary&#39;s values</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;value1&quot;</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<p><strong>Inspecting a dictionary’s key-value pairs</strong></p>
+<p><code class="docutils literal"><span class="pre">example_dict.items()</span></code> can be iterated over to produce that
+dictionary’s key-value pairs (which are packed into tuples):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># iterating over a dictionary produces its keys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="p">[(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;value1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key2&#39;</span><span class="p">,</span> <span class="s1">&#39;value2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key3&#39;</span><span class="p">,</span> <span class="s1">&#39;value3&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>You can also use this to test for membership among the dictionary’s
+key-value pairs:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># checking if a key-value pair exists in a dictionary</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;value1&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Complexities-of-the-Dictionary's-Functions">
+<h3>Complexities of the Dictionary’s Functions<a class="headerlink" href="#Complexities-of-the-Dictionary's-Functions" title="Permalink to this headline">¶</a></h3>
+<p>In addition to being flexibile and versatile, the dictionary’s functions
+manage to be quite efficient as well. The following is a summary of the
+complexities associated with various common operations using a
+dictionary (according to its implementation in CPython) - note all the
+<span class="math">\(\mathcal{O}(1)\)</span> operations!</p>
+<p>Let <code class="docutils literal"><span class="pre">example_dict</span></code> represent a dictionary with <span class="math">\(n\)</span> key-value
+pair mappings.</p>
+<p>The following are <span class="math">\(\mathcal{O}(1)\)</span> operations:</p>
+<ul class="simple">
+<li>Return the number of keys in the dictionary:<code class="docutils literal"><span class="pre">len(example_dict)</span></code></li>
+<li>Check if the key is in the dictionary, and return the value if it is:
+<code class="docutils literal"><span class="pre">example_dict[key]</span></code></li>
+<li>Set a key-value mapping: <code class="docutils literal"><span class="pre">example_dict[key]</span> <span class="pre">=</span> <span class="pre">value</span></code></li>
+<li>Check if an object is among the dictionary’s keys:
+<code class="docutils literal"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict</span></code></li>
+<li>Check if a pair of objects are among the dictionary’s key-value:
+<code class="docutils literal"><span class="pre">(obj1,</span> <span class="pre">obj2)</span> <span class="pre">in</span> <span class="pre">example_dict.items()</span></code></li>
+</ul>
+<p>The following are <span class="math">\(\mathcal{O}(n)\)</span> operations:</p>
+<ul class="simple">
+<li>Check if an object is among the dictionary’s values:
+<code class="docutils literal"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict.values()</span></code></li>
+<li>Iterate over the dictionary’s keys/values/key-value pairs</li>
+</ul>
+</div>
+<div class="section" id="Are-Dictionaries-Ordered?-A-Word-of-Warning">
+<h3>Are Dictionaries Ordered? A Word of Warning<a class="headerlink" href="#Are-Dictionaries-Ordered?-A-Word-of-Warning" title="Permalink to this headline">¶</a></h3>
+<p>Unlike Python’s sequences, the dictionary has no inherent ordering…
+that is, until Python 3.6 came out.</p>
+<p>Prior to Python 3.6, a dictionary had no ordering associated with it. If
+you iterated over its keys, values, or key-value pairs, you had no
+guarantee about the <em>order</em> in which these items would be produced.
+<code class="docutils literal"><span class="pre">[i</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">example_dict]</span></code> could produce a list of keys with
+different ordering each time the code was run, you were only guaranteed
+that the list would contain all of the dictionary’s keys:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># in Python 3.5 and earlier, dictionaries were unordered</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span><span class="s2">&quot;value3&quot;</span><span class="p">}</span>
+
+<span class="c1"># this can produce lists with different orders</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="p">]</span>
+<span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="p">]</span>
+<span class="p">[</span><span class="s2">&quot;key2&quot;</span><span class="p">,</span> <span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="p">]</span>
+<span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">]</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>The dictionary was <a class="reference external" href="https://docs.python.org/3/whatsnew/3.6.html#new-dict-implementation">reimplemented in Python
+3.6</a>
+so that it would consume roughly 25% less memory than (which is a big
+deal!). The catch was… this new implementation entails that the
+dictionary’s various iterables will always yield their items according
+to the order in which they were added to the dictionary. That is, in
+Python 3.6 and beyond:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># in Python 3.6 and beyond, dictionaries are ordered</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span><span class="s2">&quot;value3&quot;</span><span class="p">}</span>
+
+<span class="c1"># this will always produce the same result</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="p">]</span>
+<span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This is great, right? Wrong! If you write code in Python 3.6 that relies
+on the fact that dictionaries are ordered, your algorithm will almost
+certainly produce the wrong results if you run it using Python 3.5 or
+earlier! Worst of all, it very unlikely that this will raise any error
+in your code, so the bug will persist silently… this is very tough to
+catch!</p>
+<p><strong>No matter what version of Python you are using, write your code as if
+the dictionary is unordered!</strong></p>
+<p>If you do want to use an ordered dictionary, your code should make use
+of <code class="docutils literal"><span class="pre">collections.OrderedDict</span></code>, which behaves like just like the
+standard dictionary, but is guaranteed to maintain ordering regardless
+of what version of Python you are using.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ordered</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;value1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key2&#39;</span><span class="p">,</span> <span class="s1">&#39;value2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key3&#39;</span><span class="p">,</span> <span class="s1">&#39;value3&#39;</span><span class="p">)])</span>
+
+<span class="c1"># this will always produce the same result</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ordered</span><span class="p">]</span>
+<span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">No matter what version of Python you are using, write your code as if
+the Python dictionary is unordered. If you do want to use an ordered
+dictionary, your code should make use of <code class="docutils literal"><span class="pre">collections.OrderedDict</span></code>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DataStructures_III_Sets_and_More.html" class="btn btn-neutral float-right" title="Data Structures (Part III): Sets &amp; the Collections Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DataStructures.html" class="btn btn-neutral" title="Data Structures (Part I): Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
