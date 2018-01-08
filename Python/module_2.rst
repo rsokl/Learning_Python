@@ -24,14 +24,14 @@ Although far from comprehensive, this module will acquaint you with the many of 
 
    Module2_EssentialsOfPython/SequenceTypes.ipynb
    Module2_EssentialsOfPython/Variables_and_Assignment.ipynb
-   Module2_EssentialsOfPython/1_Introduction.ipynb
-   Module2_EssentialsOfPython/2_ConditionalStatements.ipynb
-   Module2_EssentialsOfPython/3_ForLoops.ipynb
+   Module2_EssentialsOfPython/Introduction.ipynb
+   Module2_EssentialsOfPython/ConditionalStatements.ipynb
+   Module2_EssentialsOfPython/ForLoops.ipynb
    Module2_EssentialsOfPython/Iterables.ipynb
-   Module2_EssentialsOfPython/4_Generators_and_Comprehensions.ipynb
-   Module2_EssentialsOfPython/5_Itertools.ipynb
-   Module2_EssentialsOfPython/6_Functions.ipynb
-   Module2_EssentialsOfPython/7_Scope.ipynb
-   Module2_EssentialsOfPython/8_DataStructures.ipynb
-   Module2_EssentialsOfPython/9_DataStructures_II_Dictionaries.ipynb
-   Module2_EssentialsOfPython/10_DataStructures_III_Sets_and_More.ipynb
+   Module2_EssentialsOfPython/Generators_and_Comprehensions.ipynb
+   Module2_EssentialsOfPython/Itertools.ipynb
+   Module2_EssentialsOfPython/Functions.ipynb
+   Module2_EssentialsOfPython/Scope.ipynb
+   Module2_EssentialsOfPython/DataStructures.ipynb
+   Module2_EssentialsOfPython/DataStructures_II_Dictionaries.ipynb
+   Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.ipynb
