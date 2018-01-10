@@ -132,6 +132,7 @@
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
 </ul>
 
             
@@ -515,19 +516,24 @@ will raise a <code class="docutils literal"><span class="pre">StopIteration</spa
 </pre></div>
 </div>
 <p>The following paragraph is <em>not</em> essential to your understanding of the
-material. I am including it to avoid the risk of making this text be
-misleading to those who already know quite a bit about Python. Please
-feel free to skip it: &gt;<code class="docutils literal"><span class="pre">next</span></code> cannot be used to get the “next” item
-in a sequence (e.g. a list, tuple, or string) because a sequence-object
-can’t “remember” its state of iteration. A sequence is thus an
-“iterable”, because it only has the <em>potential</em> to be iterated over. You
-must pass an iterable to the function <code class="docutils literal"><span class="pre">iter</span></code> in order to produce an
-“iterator” - an object that keeps track of the last item it iterated
-over in the sequence. Python does this for you when you perform a
-for-loop over, say, a list - it passes that list to <code class="docutils literal"><span class="pre">iter</span></code> before
+material. I am including it to prevent this text from being misleading
+to those who already know quite a bit about Python. Please feel free to
+skip it:</p>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>You Don’t Need to Read This</strong></p>
+<p><code class="docutils literal"><span class="pre">next</span></code> cannot be used to get the “next” item in a sequence (e.g. a
+list, tuple, or string) because a sequence-object can’t “remember” its
+state of iteration. A sequence is thus an “iterable”, because it only
+has the <em>potential</em> to be iterated over.</p>
+<p>You must pass an iterable to the built-in function <code class="docutils literal"><span class="pre">iter</span></code> in order to
+produce an “iterator” - an object that keeps track of the last item it
+iterated over in the sequence. Python does this for you when you perform
+a for-loop over, say, a list. It passes that list to <code class="docutils literal"><span class="pre">iter</span></code> before
 performing the for-loop. A generator already can keep track of its state
 of iteration, thus it is an “iterator” and you can iterate over it using
-<code class="docutils literal"><span class="pre">next</span></code>. &gt; &gt; … I told you to skip this.</p>
+<code class="docutils literal"><span class="pre">next</span></code>.</p>
+<p class="last">… I told you to skip this.</p>
+</div>
 </div>
 <div class="section" id="Using-generator-comprehensions-on-the-fly">
 <h3>Using generator comprehensions on the fly<a class="headerlink" href="#Using-generator-comprehensions-on-the-fly" title="Permalink to this headline">¶</a></h3>

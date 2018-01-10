@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reshaping Arrays &amp; Array-Traversal Order &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
+        <link rel="next" title="“Vectorized” Operations: Optimized Computations on NumPy Arrays" href="VectorizedOperations.html"/>
+        <link rel="prev" title="Functions for Creating NumPy Arrays" href="FunctionsForCreatingNumpyArrays.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="IntroducingTheNDarray.html">Introducing the ND-array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessingDataAlongMultipleDimensions.html">Accessing Data Along Multiple Dimensions in an Array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicArrayAttributes.html">Basic Array Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FunctionsForCreatingNumpyArrays.html">Functions for Creating NumPy Arrays</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Reshaping Arrays &amp; Array-Traversal Order</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Introducing-the-reshape-Function">Introducing the <code class="docutils literal"><span class="pre">reshape</span></code> Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#How-to-Traverse-an-Array:-Row-major-(C)-vs-Column-major-(F)-Traversal-Ordering">How to Traverse an Array: Row-major (C) vs Column-major (F) Traversal Ordering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="VectorizedOperations.html">“Vectorized” Operations: Optimized Computations on NumPy Arrays</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_3.html">Module 3: The Essentials of NumPy</a> &raquo;</li>
+        
+      <li>Reshaping Arrays &amp; Array-Traversal Order</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module3_IntroducingNumpy/ReshapingArrays.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Reshaping-Arrays-&amp;-Array-Traversal-Order">
+<h1>Reshaping Arrays &amp; Array-Traversal Order<a class="headerlink" href="#Reshaping-Arrays-&-Array-Traversal-Order" title="Permalink to this headline">¶</a></h1>
+<p>In this section, you will learn:</p>
+<ul class="simple">
+<li>How to us NumPy’s <code class="docutils literal"><span class="pre">reshape</span></code> function to change the
+shape/dimensionality of an array.</li>
+<li>That there is more than one valid way for NumPy to perform this
+operation, which amounts to how NumPy traverses a multidimensional
+array.</li>
+<li>The row-major array traversal methodology, which is utilized by
+NumPy, as a default.</li>
+</ul>
+<div class="section" id="Introducing-the-reshape-Function">
+<h2>Introducing the <code class="docutils literal"><span class="pre">reshape</span></code> Function<a class="headerlink" href="#Introducing-the-reshape-Function" title="Permalink to this headline">¶</a></h2>
+<p>NumPy provides an extremely valuable function, <code class="docutils literal"><span class="pre">reshape</span></code>, which allows
+you to change the dimensionality and axis-layout of a given array. This
+adjusts the indexing interface used to access the array’s underlying
+data, as was discussed in eariler in this module.</p>
+<p>We will be making heavy use of the <code class="docutils literal"><span class="pre">arange</span></code> function here so that we
+can easily create arrays of a specified length and with distinct
+elements; that being said, there is nothing special about <code class="docutils literal"><span class="pre">arange</span></code>;
+reshaping works on NumPy arrays contructed in any fashion. Let’s take a
+shape-(6,) array, and reshape it to a shape-(2, 3) array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">array([0, 1, 2, 3, 4, 5])</span>
+
+<span class="go"># reshape a shape-(6,) array into a shape-(2,3) array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">array([[0, 1, 2],</span>
+<span class="go">       [3, 4, 5]])</span>
+</pre></div>
+</div>
+<p>Of course, the size the the initial array must match the size of the
+to-be reshaped array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># an array with 5 numbers are cannot be reshaped</span>
+<span class="c1"># into a (3, 2) array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">total</span> <span class="n">size</span> <span class="n">of</span> <span class="n">new</span> <span class="n">array</span> <span class="n">must</span> <span class="n">be</span> <span class="n">unchanged</span>
+</pre></div>
+</div>
+<p>Multidimensional arrays can be reshaped too:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([[ 0,  1,  2,  3],</span>
+<span class="go">       [ 4,  5,  6,  7],</span>
+<span class="go">       [ 8,  9, 10, 11]])</span>
+
+<span class="go"># reshape from (3,4) to (2,3,2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">array([[[ 0,  1],</span>
+<span class="go">        [ 2,  3],</span>
+<span class="go">        [ 4,  5]],</span>
+
+<span class="go">       [[ 6,  7],</span>
+<span class="go">        [ 8,  9],</span>
+<span class="go">        [10, 11]]])</span>
+</pre></div>
+</div>
+<p>Because the size of an input array and the resulting reshaped array must
+agree, you can specify <em>one</em> of the dimension-sizes in the reshape
+function to be -1, and this will cue NumPy to compute that dimension’s
+size for you. For example, if you are reshaping a shape-(36,) array into
+a shape-(3, 4, 3) array. The following are valid:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Equivalent ways of specifying a reshape</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># (36,) --reshape--&gt; (3, 4, 3)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># NumPy replaces -1 with 36/(3*4) -&gt; 3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># NumPy replaces -1 with 36/(3*3) -&gt; 4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># NumPy replaces -1 with 36/(3*4) -&gt; 3</span>
+</pre></div>
+</div>
+<p>You can use -1 to specify only one dimension:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># this is an ambiguous specification, and thus</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">ValueError                                Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-3-207d18d18af2&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 np.arange(36).reshape(3, -1, -1)</span>
+
+<span class="go">ValueError: can only specify one unknown dimension</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="How-to-Traverse-an-Array:-Row-major-(C)-vs-Column-major-(F)-Traversal-Ordering">
+<h2>How to Traverse an Array: Row-major (C) vs Column-major (F) Traversal Ordering<a class="headerlink" href="#How-to-Traverse-an-Array:-Row-major-(C)-vs-Column-major-(F)-Traversal-Ordering" title="Permalink to this headline">¶</a></h2>
+<p>There is not a unique ordering for a <code class="docutils literal"><span class="pre">reshape</span></code> function to adhere to.
+For example, <code class="docutils literal"><span class="pre">np.arange(6).reshape(3,</span> <span class="pre">2)</span></code> could sensibly return:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>  <span class="ow">or</span>   <span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                                                    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>             <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Both arrays are of the appropriate shape and preserve the ordering of
+the original sequence of numbers, depending on how you traverse them.
+The left array preserves the ordering of the original data if you
+traverse the columns within a row, and then proceed to the next row.
+This is known as <strong>row-major</strong> ordering. The array on the right
+preserves the ordering if you traverse the rows within a given column,
+and then transition to the next column. This is thus referred to as
+<strong>column-major</strong> ordering. One ordering is no better than the other,
+that being said, NumPy always defaults to row-major ordering whenever
+one of its functions involves array traversal.</p>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Remember This:</strong></p>
+<p class="last">NumPy utilizes row-major ordering, as a default, for any operation that
+requires an array to be traversed</p>
+</div>
+<p>These two orderings are simple enough to follow for a 2D-array, but how
+do they manifest in arrays with higher dimensions, where we have to
+worry not only about rows and columns, but potentially “stacks of sheets
+with rows and columns” (which would be a 4D array) and so on? The
+generic rules are as follows:</p>
+<ul class="simple">
+<li><strong>Row-major ordering (C ordering) {NumPy’s default}</strong>: traverse an
+array by advancing the index of the <em>last axis</em>, first, until the end
+of that axis is reached, and then advance the index of the second-to
+last axis, and so on.</li>
+<li><strong>Column-major ordering (F ordering)</strong>: traverse an array by
+advancing the index of the <em>first axis</em>, first, until the end of that
+axis is reached, and then advance the index of the second axis, and
+so on.</li>
+</ul>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">“Row-major” ordering is also referred to as “C-ordering” because this is
+the traversal method utilized in the C language. “Column-major”
+ordering, on the other hand, is also referred to as “F-ordering”,
+because it is used by the Fortran language. NumPy functions, like
+<code class="docutils literal"><span class="pre">reshape</span></code> allow you to specify either <code class="docutils literal"><span class="pre">order=&quot;C&quot;</span></code> (which is the
+default) or <code class="docutils literal"><span class="pre">order=&quot;F&quot;</span></code> to control the order in which an array is
+traversed; these options thus correspond to row-major and column-major
+ordering.</p>
+</div>
+<p>To make this more concrete, let’s consider how NumPy reshapes a
+shape-(24,) array into a shape-(2,3,4) array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># reshape a shape-(24,) array into a shape-(2,3,4) array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
+
+       <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<p>Following NumPy’s default row-major ordering, we can perform this
+reshaping by following these steps:</p>
+<ol class="arabic simple">
+<li>Create an empty array of the desired shape: (2, 3, 4).</li>
+<li>Start by inserting inserting the 0th element from the input array
+into the (0, 0, 0) element of the output array.</li>
+<li>Advance the index by <em>increasing the index of the last axis, first</em>,
+and inserting the following element from the input array.</li>
+<li>If you reach the end of an axis (axis-2, for instance, only has 4
+slots), reset the index for that axis to 0, and advance the index of
+the preceding axis. Go back to 3.</li>
+</ol>
+<p>This traversal process is easier to understand when laid out explicitly:</p>
+<hr class="docutils" />
+<p><strong>Reshaping a shape-(24,) array to a shape-(2,3,4) array, using NumPy’s
+default “row-major” ordering</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Input Array     Output Array
+-----------    ---------------
+ entry: 0  -&gt;  entry: (0, 0, 0)
+ entry: 1  -&gt;  entry: (0, 0, 1)
+ entry: 2  -&gt;  entry: (0, 0, 2)
+ entry: 3  -&gt;  entry: (0, 0, 3) *row-0 of sheet 0, filled. go to next row*
+ entry: 4  -&gt;  entry: (0, 1, 0)
+ entry: 5  -&gt;  entry: (0, 1, 1)
+ entry: 6  -&gt;  entry: (0, 1, 2)
+ entry: 7  -&gt;  entry: (0, 1, 3) *row-1 of sheet 0, filled. go to next row*
+ entry: 8  -&gt;  entry: (0, 2, 0)
+ entry: 9  -&gt;  entry: (0, 2, 1)
+ entry:10  -&gt;  entry: (0, 2, 2)
+ entry:11  -&gt;  entry: (0, 2, 3) *row-2 of sheet 0, filled. go to next sheet!*
+
+ entry:12  -&gt;  entry: (1, 0, 0)
+ entry:13  -&gt;  entry: (1, 0, 1)
+ entry:14  -&gt;  entry: (1, 0, 2)
+ entry:15  -&gt;  entry: (1, 0, 3) *row-0 of sheet 1, filled. go to next row*
+ entry:16  -&gt;  entry: (1, 1, 0)
+ entry:17  -&gt;  entry: (1, 1, 1)
+ entry:18  -&gt;  entry: (1, 1, 2)
+ entry:19  -&gt;  entry: (1, 1, 3) *row-1 of sheet 1, filled. go to next row*
+ entry:20  -&gt;  entry: (1, 2, 0)
+ entry:21  -&gt;  entry: (1, 2, 1)
+ entry:22  -&gt;  entry: (1, 2, 2)
+ entry:23  -&gt;  entry: (1, 2, 3) *row-2 of sheet 1, filled. Done!*
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>The same process can be extended to reshape one multidimensional array
+into another multidimensional array of a different shape. The input and
+output arrays are simply traversed, respectively, according to
+“row-major” rules. Suppose we want to reshape a shape-(2,3,4) array into
+a shape-(6,4) array. This process would be carried out as follows:</p>
+<hr class="docutils" />
+<p><strong>Reshaping a shape-(2,3,4) into a shape(6,4) array using NumPy’s
+default “row-major” ordering</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>   <span class="n">Input</span> <span class="n">Array</span>       <span class="n">Output</span> <span class="n">Array</span>
+<span class="o">----------------</span>    <span class="o">---------------</span>
+<span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Although this bookkeeping may seem a bit tedious at first glance, you
+will likely find that you are able to build up enough intuition for
+row-majoring ordering, to the point where you never need to write out
+these tables in full! The ability to reshape an array, to adjust the way
+you can access an array’s data, is commonly used in data science
+applications. Furthermore, understanding how NumPy handles array
+traversal is critical to understanding more advanced concepts like
+array-broadcasting and advanced indexing.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reshape is its own inverse</strong>:</p>
+<p class="last">According to this discussion, <code class="docutils literal"><span class="pre">reshape</span></code> can effectively “undo” itself:
+<code class="docutils literal"><span class="pre">np.arange(10).reshape(5,2).reshape(10)</span></code> will return
+<code class="docutils literal"><span class="pre">array([0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9])</span></code>. Take some time to consider
+why this will always be true, no matter how many intermediary reshapes
+are performed.</p>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reshaping Does Not Make a Copy</strong>:</p>
+<p class="last">NumPy does not actually create a new copy of an array’s data when
+performing a <code class="docutils literal"><span class="pre">reshape</span></code> operation. Instead, the original array and the
+reshaped array reference the same underlying data. The reshaped array
+simply provides a new index-interface for accessing said data, and is
+thus referred to as a “view” of the original array (more on this in a
+later module).</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="VectorizedOperations.html" class="btn btn-neutral float-right" title="“Vectorized” Operations: Optimized Computations on NumPy Arrays" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FunctionsForCreatingNumpyArrays.html" class="btn btn-neutral" title="Functions for Creating NumPy Arrays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

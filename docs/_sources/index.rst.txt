@@ -20,7 +20,8 @@ In this module, you will:
    intro.rst
    module_1.rst
    module_2.rst
-   
+   module_3.rst
+
 
 Indices and tables
 ==================
