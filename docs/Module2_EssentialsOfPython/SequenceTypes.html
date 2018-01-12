@@ -110,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
@@ -378,9 +378,11 @@ string; the second row gives the corresponding negative indices. Each
 member’s index corresponds to the edge <em>left</em> of the member:</p>
 <ul class="simple">
 <li>(<span class="math">\(0 \rightarrow P\)</span>) &amp; (<span class="math">\(-6 \rightarrow P\)</span>)</li>
-<li>(<span class="math">\(1 \rightarrow y\)</span>) &amp; (<span class="math">\(-5 \rightarrow P\)</span>)</li>
-<li>…</li>
-<li>(<span class="math">\(5 \rightarrow n\)</span>) &amp; (<span class="math">\(-1 \rightarrow P\)</span>)</li>
+<li>(<span class="math">\(1 \rightarrow y\)</span>) &amp; (<span class="math">\(-5 \rightarrow y\)</span>)</li>
+<li>(<span class="math">\(2 \rightarrow t\)</span>) &amp; (<span class="math">\(-4 \rightarrow t\)</span>)</li>
+<li>(<span class="math">\(3 \rightarrow h\)</span>) &amp; (<span class="math">\(-3 \rightarrow h\)</span>)</li>
+<li>(<span class="math">\(4 \rightarrow o\)</span>) &amp; (<span class="math">\(-2 \rightarrow o\)</span>)</li>
+<li>(<span class="math">\(5 \rightarrow n\)</span>) &amp; (<span class="math">\(-1 \rightarrow n\)</span>)</li>
 </ul>
 <p>Given this indexing scheme, Python reserves the use of square brackets
 following a variable name or object, as the “get-item” syntax:</p>
@@ -582,20 +584,24 @@ return the index <code class="docutils literal"><span class="pre">0</span></code
 <li><code class="docutils literal"><span class="pre">x[:0:-1]</span></code></li>
 </ol>
 <p><strong>Checking Your General Understanding: Solutions</strong></p>
-<ol class="arabic">
-<li><p class="first">Recall that <code class="docutils literal"><span class="pre">//</span></code> does “floor-division” to return an integer:
+<ol class="arabic simple">
+<li>Recall that <code class="docutils literal"><span class="pre">//</span></code> does “floor-division” to return an integer:
 <span class="math">\(3//2 \rightarrow 1\)</span> (not 1.5). Thus <code class="docutils literal"><span class="pre">len(x)//2</span></code> gives us
 <span class="math">\(\frac{N-1}{2}\)</span> if <span class="math">\(N\)</span> is odd, and <span class="math">\(\frac{N}{2}\)</span> if
 <span class="math">\(N\)</span> is even. This is the number of elements that we want to
 skip before we start looking for the max value in the last-half of
-<code class="docutils literal"><span class="pre">x</span></code>, thus this is where we should “start” our slice.
-```python &gt;&gt;&gt; x = [10, 1, 0, 9, -22, 3] # len(x) -&gt; 6 &gt;&gt;&gt;
-max(x[len(x)//2:]) 9</p>
-<blockquote>
-<div><p>x = [10, 1, 0, 9, -22, 3, 8] # len(x) -&gt; 7
-max(x[len(x)//2:]) 9 ```</p>
-</div></blockquote>
-</li>
+<code class="docutils literal"><span class="pre">x</span></code>, thus this is where we should “start” our slice.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">22</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>     <span class="c1"># len(x) -&gt; 6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">:])</span>
+<span class="go">9</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">22</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># len(x) -&gt; 7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">:])</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<ol class="arabic" start="2">
 <li><p class="first">“boopee” is every-other letter in “blogosphere”, thus slicing this
 sequence with a step-size of 2, <code class="docutils literal"><span class="pre">&quot;blogosphere&quot;[::2]</span></code>, returns
 “boopee”. We can then use <code class="docutils literal"><span class="pre">seq*n</span></code> to repeat this sequence five

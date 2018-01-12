@@ -567,7 +567,7 @@ array is not overwritten).</p>
 <p>To be explicit, if we have a 2D-array, <span class="math">\(X\)</span>, of shape
 (<span class="math">\(m\)</span>,<span class="math">\(n\)</span>):</p>
 <div class="math">
-\[ \begin{align}\begin{aligned}:nowrap:\\\begin{split}\begin{equation}
+\begin{equation}
 X =
 \begin{bmatrix}
     x_{0,0} &amp;  \cdot &amp; \cdot &amp; \cdot &amp; x_{0,n-1} \\
@@ -576,12 +576,11 @@ X =
     \cdot &amp; &amp; &amp; \cdot &amp; \cdot \\
     x_{m-1,0} &amp; \cdot &amp; \cdot &amp; \cdot &amp; x_{m-1,n-1}
 \end{bmatrix}
-\end{equation}\end{split}\end{aligned}\end{align} \]</div>
-<p>Then applying the unary function, <span class="math">\(f(x)\)</span>, to the array <span class="math">\(X\)</span>,
+\end{equation}</div><p>Then applying the unary function, <span class="math">\(f(x)\)</span>, to the array <span class="math">\(X\)</span>,
 will form a new array by applying <span class="math">\(f(x)\)</span> to <em>each</em> of <span class="math">\(X\)</span>‘s
 entries:</p>
 <div class="math">
-\[ \begin{align}\begin{aligned}:nowrap:\\\begin{split}\begin{equation}
+\begin{equation}
 f(X) =
 \begin{bmatrix}
     f(x_{0,0}) &amp;  \cdot &amp; \cdot &amp; \cdot &amp; f(x_{0,n-1}) \\
@@ -590,8 +589,7 @@ f(X) =
     \cdot &amp; &amp; &amp; \cdot &amp; \cdot \\
     f(x_{m-1,0}) &amp; \cdot &amp; \cdot &amp; \cdot &amp; f(x_{m-1,n-1})
 \end{bmatrix}
-\end{equation}\end{split}\end{aligned}\end{align} \]</div>
-<p>This process is generalizes to arrays of any dimensionality and shape.</p>
+\end{equation}</div><p>This process is generalizes to arrays of any dimensionality and shape.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># example of a unary function operating on a 2D array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
@@ -1525,7 +1523,7 @@ to their pairwise elements.</p>
 <p>To be concrete, suppose we have a 2D-array, <span class="math">\(X\)</span>, of shape
 (<span class="math">\(m\)</span>,<span class="math">\(n\)</span>):</p>
 <div class="math">
-\[ \begin{align}\begin{aligned}:nowrap:\\\begin{split}\begin{equation}
+\begin{equation}
 X =
 \begin{bmatrix}
     x_{0,0} &amp;  \cdot &amp; \cdot &amp; \cdot &amp; x_{0,n-1} \\
@@ -1534,10 +1532,9 @@ X =
     \cdot &amp; &amp; &amp; \cdot &amp; \cdot \\
     x_{m-1,0} &amp; \cdot &amp; \cdot &amp; \cdot &amp; x_{m-1,n-1}
 \end{bmatrix}
-\end{equation}\end{split}\end{aligned}\end{align} \]</div>
-<p>and and array, <span class="math">\(Y\)</span>, of the same shape</p>
+\end{equation}</div><p>and and array, <span class="math">\(Y\)</span>, of the same shape</p>
 <div class="math">
-\[ \begin{align}\begin{aligned}:nowrap:\\\begin{split}\begin{equation}
+\begin{equation}
 Y =
 \begin{bmatrix}
     y_{0,0} &amp;  \cdot &amp; \cdot &amp; \cdot &amp; y_{0,n-1} \\
@@ -1546,11 +1543,10 @@ Y =
     \cdot &amp; &amp; &amp; \cdot &amp; \cdot \\
     y_{m-1,0} &amp; \cdot &amp; \cdot &amp; \cdot &amp; y_{m-1,n-1}
 \end{bmatrix}
-\end{equation}\end{split}\end{aligned}\end{align} \]</div>
-<p>then, according to the above prescription, applying a binary
+\end{equation}</div><p>then, according to the above prescription, applying a binary
 NumPy-function, <span class="math">\(f(x,y)\)</span> on these two arrays produces:</p>
 <div class="math">
-\[ \begin{align}\begin{aligned}:nowrap:\\\begin{split}\begin{equation}
+\begin{equation}
 f(X, Y) =
 \begin{bmatrix}
     f(x_{0,0}, y_{0,0}) &amp;  \cdot &amp; \cdot &amp; \cdot &amp; f(x_{0,n-1}, y_{0,n-1}) \\
@@ -1559,8 +1555,7 @@ f(X, Y) =
     \cdot &amp; &amp; &amp; \cdot &amp; \cdot \\
     f(x_{m-1,0}, y_{m-1,0}) &amp; \cdot &amp; \cdot &amp; \cdot &amp; f(x_{m-1,n-1}, y_{m-1,n-1})
 \end{bmatrix}
-\end{equation}\end{split}\end{aligned}\end{align} \]</div>
-<p>This process is generalizes to arrays of any dimensionality and shape,
+\end{equation}</div><p>This process is generalizes to arrays of any dimensionality and shape,
 as long as the two operands have the same shape.</p>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Important Note</strong>:</p>
@@ -1608,7 +1603,7 @@ in traditional linear algebra.</p>
 <span class="math">\(\lambda\)</span>, and a 2D-array, <span class="math">\(X\)</span>, of shape
 (<span class="math">\(m\)</span>,<span class="math">\(n\)</span>):</p>
 <div class="math">
-\[ \begin{align}\begin{aligned}:nowrap:\\\begin{split}\begin{equation}
+\begin{equation}
 X =
 \begin{bmatrix}
     x_{0,0} &amp;  \cdot &amp; \cdot &amp; \cdot &amp; x_{0,n-1} \\
@@ -1617,11 +1612,10 @@ X =
     \cdot &amp; &amp; &amp; \cdot &amp; \cdot \\
     x_{m-1,0} &amp; \cdot &amp; \cdot &amp; \cdot &amp; x_{m-1,n-1}
 \end{bmatrix}
-\end{equation}\end{split}\end{aligned}\end{align} \]</div>
-<p>then, according to the above prescription, applying a binary
+\end{equation}</div><p>then, according to the above prescription, applying a binary
 NumPy-function, <span class="math">\(f(x,y)\)</span> on this scalar/array pair produces:</p>
 <div class="math">
-\[ \begin{align}\begin{aligned}:nowrap:\\\begin{split}\begin{equation}
+\begin{equation}
 f(X, \lambda) =
 \begin{bmatrix}
     f(x_{0,0}, \lambda) &amp;  \cdot &amp; \cdot &amp; \cdot &amp; f(x_{0,n-1}, \lambda) \\
@@ -1630,8 +1624,7 @@ f(X, \lambda) =
     \cdot &amp; &amp; &amp; \cdot &amp; \cdot \\
     f(x_{m-1,0}, \lambda) &amp; \cdot &amp; \cdot &amp; \cdot &amp; f(x_{m-1,n-1}, \lambda)
 \end{bmatrix}
-\end{equation}\end{split}\end{aligned}\end{align} \]</div>
-<p>Also, if <span class="math">\(f(x,y)\)</span> is commutative, i.e. <span class="math">\(f(x,y) = f(y,x)\)</span>,
+\end{equation}</div><p>Also, if <span class="math">\(f(x,y)\)</span> is commutative, i.e. <span class="math">\(f(x,y) = f(y,x)\)</span>,
 then <span class="math">\(f(\lambda, X) = f(X, \lambda)\)</span>.</p>
 <p>This process is generalizes to an array of any dimensionality and shape.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># example of a binary function operating on a scalar &amp; a 2D array</span>
