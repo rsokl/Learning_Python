@@ -228,9 +228,12 @@
 <p>Here we survey Python’s built-in data structures. You should already be
 familiar with its lists and tuples, two data structures that facilitate
 working with sequential data. Two other critical, built-in data
-structures to be introduced are: - dictionary: a mapping from “keys” to
-“values” - sets: an unordered collection of items that can be used to
-perform set-algerbra operations (e.g. union and intersection)</p>
+structures to be introduced are:</p>
+<ul class="simple">
+<li>dictionary: a mapping from “keys” to “values”</li>
+<li>sets: an unordered collection of items that can be used to perform
+set-algerbra operations (e.g.&nbsp;union and intersection)</li>
+</ul>
 <p>These data structures are not merely convenient constructs with some
 nice pre-written functionality; they also provide an interface to some
 optimized core-utilities that have been written in C (or whatever
@@ -343,8 +346,10 @@ an algorithm iterates over a sequence twice, its big-O complexity
 should be written as <span class="math">\(\mathcal{O}(n)\)</span>, rather than
 <span class="math">\(\mathcal{O}(2n)\)</span>.</li>
 <li>An algorithm whose run time <em>does not depend on the size of its
-input</em> is a <span class="math">\(\mathcal{O}(1)\)</span> algorithm.</li>
+input</em> is a <span class="math">\(\mathcal{O}(1)\)</span> algorithm.<ul>
 <li>Example: a function that returns the second element from a list.</li>
+</ul>
+</li>
 <li>There are more nuanced methods for analyzing algorithm complexity
 than solely considering the worst-case scenario, which can be overly
 pessimistic. Know that “big-O” notation can be used to convey mean
@@ -362,14 +367,13 @@ structures.</p>
 </div>
 <div class="section" id="Sequential-Data-Structures:-Lists,-Tuples,-and-Deques">
 <h2>Sequential Data Structures: Lists, Tuples, and Deques<a class="headerlink" href="#Sequential-Data-Structures:-Lists,-Tuples,-and-Deques" title="Permalink to this headline">¶</a></h2>
-<p>The “Getting Started with Python” module already introduced lists and
-tuples. Recall that both provide the same interface for accessing and
-summarizing the contents of a homogenous sequence of objects. However, a
-list can be mutated - updated, removed from, and added to - whereas a
-tuple cannot be mutated. Thus a list is <em>mutable</em>, whereas a tuple is
-<em>immutable</em>. Here you will find a summary of the algorithmic
-complexities of many of the built-in functions that work on sequential
-data structures.</p>
+<p>The “Sequence Types” section already introduced lists and tuples. Recall
+that both provide the same interface for accessing and summarizing the
+contents of a homogenous sequence of objects. However, a list can be
+mutated - updated, removed from, and added to - whereas a tuple cannot
+be mutated. Thus a list is <em>mutable</em>, whereas a tuple is <em>immutable</em>.
+Here you will find a summary of the algorithmic complexities of many of
+the built-in functions that work on sequential data structures.</p>
 <p>For a complete rundown of the functions available to Python’s list, go
 <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">here</a>.</p>
 <div class="section" id="List/Tuple-Complexities">
@@ -382,9 +386,9 @@ with various common operations using lists and tuple (according to their
 implementations in CPython):</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="26%" />
-<col width="15%" />
-<col width="59%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Operation</th>
@@ -395,31 +399,40 @@ implementations in CPython):</p>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">len(seq)</span></code></td>
 <td>O(1)</td>
-<td>Return the number of items in the sequence</td>
+<td>Return the number of
+items in the sequence</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">seq[i]</span></code></td>
 <td>O(1)</td>
-<td>Retrieve any item from the sequence</td>
+<td>Retrieve any item
+from the sequence</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">seq[i:j]</span></code></td>
 <td>O(k)</td>
-<td>Retrieve a length-k slice from the sequence</td>
+<td>Retrieve a length-k
+slice from the
+sequence</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">seq..</span></code></td>
 <td>O(n)</td>
-<td>Iterate over the sequence</td>
+<td>Iterate over the
+sequence</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">seq</span></code></td>
 <td>O(n)</td>
-<td>Check if <code class="docutils literal"><span class="pre">obj</span></code> is a member of <code class="docutils literal"><span class="pre">seq</span></code></td>
+<td>Check if <code class="docutils literal"><span class="pre">obj</span></code> is a
+member of <code class="docutils literal"><span class="pre">seq</span></code></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">seq.count(obj)</span></code></td>
 <td>O(n)</td>
-<td>Count the number of occurrences of <code class="docutils literal"><span class="pre">obj</span></code> in <code class="docutils literal"><span class="pre">seq</span></code></td>
+<td>Count the number of
+occurrences of
+<code class="docutils literal"><span class="pre">obj</span></code> in <code class="docutils literal"><span class="pre">seq</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">seq.index(obj)</span></code></td>
 <td>O(n)</td>
-<td>Return position-index of <code class="docutils literal"><span class="pre">obj</span></code> in <code class="docutils literal"><span class="pre">seq</span></code></td>
+<td>Return position-index
+of <code class="docutils literal"><span class="pre">obj</span></code> in <code class="docutils literal"><span class="pre">seq</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -441,9 +454,9 @@ is a summary of the complexities associated with various operations
 using a list (according to its implementation in CPython):</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="28%" />
-<col width="15%" />
-<col width="57%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Operation</th>
@@ -454,50 +467,36 @@ using a list (according to its implementation in CPython):</p>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">my_list[i]</span> <span class="pre">=</span> <span class="pre">obj</span></code></td>
 <td>O(1)</td>
-<td>Set the ith entry of the list with a new object.</td>
+<td>Set the ith entry of
+the list with a new
+object.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">my_list.append(obj)</span></code></td>
+<tr class="row-odd"><td><a href="#id1"><span class="problematic" id="id2">``</span></a>my_list.append(obj)
+``</td>
 <td>O(1)</td>
-<td>Append a new object to the end of the list.</td>
+<td>Append a new object
+to the end of the
+list.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">my_list.pop()</span></code></td>
 <td>O(1)</td>
-<td>Remove the object from the <em>end</em> of the list.</td>
+<td>Remove the object
+from the <em>end</em> of the
+list.</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">my_list.pop(0)</span></code></td>
 <td>O(n)</td>
-<td>Remove the object from the <em>beginning</em> of the list.</td>
+<td>Remove the object
+from the <em>beginning</em>
+of the list.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">my_list.sort()</span></code></td>
 <td>O(nlog(n))</td>
-<td>Return a sorted version of the list.</td>
+<td>Return a sorted
+version of the list.</td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="The-deque">
-<h4>The deque<a class="headerlink" href="#The-deque" title="Permalink to this headline">¶</a></h4>
-<p>Like the list, Python’s deque is a mutable, sequential data structure.
-What distinguishes the deque is that:</p>
-<ul class="simple">
-<li>Mutating either the beginning or the end of a deque is
-<span class="math">\(\mathcal{O}(1)\)</span>, whereas mutating the beginning of a list is
-<span class="math">\(\mathcal{O}(n)\)</span>.</li>
-<li>The downside of the preceding feature is that accessing items near
-the middle of the deque is <span class="math">\(\mathcal{O}(n)\)</span>, whereas it is
-<span class="math">\(\mathcal{O}(1)\)</span> for lists and tuples.</li>
-</ul>
-<p>A complete rundown of the deque’s functionality can be found
-<a class="reference external" href="https://docs.python.org/3/library/collections.html#deque-objects">here</a>.</p>
-<p>The deque is included in Python’s <code class="docutils literal"><span class="pre">collections</span></code> module, and thus must
-be imported:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">my_deque</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">my_deque</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">my_deque</span>
-<span class="go">deque([0, 1, 2, 3])</span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>

@@ -1,0 +1,609 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Conditional Statements &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
+        <link rel="next" title="For-Loops and While-Loops" href="ForLoops.html"/>
+        <link rel="prev" title="Introducing Control Flow" href="Introduction.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Conditional Statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Booleans:-True/False-in-Python">Booleans: True/False in Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Boolean-Operations">Boolean Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Comparison-Operations">Comparison Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bool-and-Truth-Values-of-Non-Boolean-Objects"><code class="docutils literal"><span class="pre">bool</span></code> and Truth Values of Non-Boolean Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if,-else,-and-elif"><code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and <code class="docutils literal"><span class="pre">elif</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Inline-if-else-statements">Inline if-else statements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
+        
+      <li>Conditional Statements</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module2_EssentialsOfPython/ConditionalStatements.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Conditional-Statements">
+<h1>Conditional Statements<a class="headerlink" href="#Conditional-Statements" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we will be inroduced to the <code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and
+<code class="docutils literal"><span class="pre">elif</span></code> statements. These allow you to specify that blocks of code are
+to be executed only if specified conditions are found to be true, or
+perhaps alternative code if the condition is found to be false. We will
+begin this section by learning about boolean values (i.e. True/False)
+and boolean logic in Python.</p>
+<div class="section" id="Booleans:-True/False-in-Python">
+<h2>Booleans: True/False in Python<a class="headerlink" href="#Booleans:-True/False-in-Python" title="Permalink to this headline">¶</a></h2>
+<p>Conceptually, a boolean value is very simple - a boolean value can
+represent either “True” or “False”. These two boolean values are
+specified with capital letters in Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="bp">True</span>   <span class="c1"># x stores the boolean value: True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="bp">False</span>  <span class="c1"># y stores the boolean value: False</span>
+</pre></div>
+</div>
+<div class="section" id="Boolean-Operations">
+<h3>Boolean Operations<a class="headerlink" href="#Boolean-Operations" title="Permalink to this headline">¶</a></h3>
+<p>Python supports simple operators and comparisons for performing basic
+boolean logic. <code class="docutils literal"><span class="pre">and</span></code>, <code class="docutils literal"><span class="pre">or</span></code>, and <code class="docutils literal"><span class="pre">not</span></code> are the boolean operations.
+The behavior of these operators are trivial at face-value:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">True</span> <span class="ow">or</span> <span class="bp">False</span>
+<span class="go">True</span>
+
+<span class="go">&gt;&gt;&gt;True and False</span>
+<span class="go">False</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="ow">not</span> <span class="bp">False</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Grouping with parentheses also works:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="bp">True</span> <span class="ow">or</span> <span class="bp">False</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">True</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">not</span></code> has priority over <code class="docutils literal"><span class="pre">and</span></code>, which takes priority over <code class="docutils literal"><span class="pre">or</span></code>.
+Therefore</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="bp">False</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">False</span> <span class="ow">or</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>will be interpreted as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating precedence of boolean operators</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="bp">False</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">False</span><span class="p">))</span> <span class="ow">or</span> <span class="bp">False</span>  <span class="c1"># simplifies to...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="bp">False</span> <span class="ow">and</span> <span class="bp">True</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">False</span>  <span class="c1"># simplifies to...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">False</span> <span class="ow">or</span> <span class="bp">False</span>  <span class="c1"># simplifies to...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Comparison-Operations">
+<h3>Comparison Operations<a class="headerlink" href="#Comparison-Operations" title="Permalink to this headline">¶</a></h3>
+<p>Comparison statements will evaluate explicitly to either <code class="docutils literal"><span class="pre">True</span></code> or
+<code class="docutils literal"><span class="pre">False</span></code>. There are eight comparison operations in Python:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&lt;</span></code></td>
+<td>strictly less than</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&lt;=</span></code></td>
+<td>less than or equal</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;</span></code></td>
+<td>strictly greater than</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;=</span></code></td>
+<td>greater than or equal</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">==</span></code></td>
+<td>equal</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">!=</span></code></td>
+<td>not equal</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">is</span></code></td>
+<td>object identity</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">is</span> <span class="pre">not</span></code></td>
+<td>negated object identity</td>
+</tr>
+</tbody>
+</table>
+<p>The first six of these operators are familiar from mathematics:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal"><span class="pre">=</span></code> and <code class="docutils literal"><span class="pre">==</span></code> have very different meanings. The former is
+an assignment operator, and the latter is the equality operator:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># the variable `x` is assigned the value 3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">==</span> <span class="mi">3</span>  <span class="c1"># check if `x` and 3 have the same value</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Python allows you to chain comparison operators to create “compound”
+comparisons:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">1</span>  <span class="c1"># performs (2 &lt; 3) and (3 &lt; 1)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="section" id="Testing-for-Membership-in-Collections:-in-and-not-in">
+<h4>Testing for Membership in Collections: <code class="docutils literal"><span class="pre">in</span></code> and <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code><a class="headerlink" href="#Testing-for-Membership-in-Collections:-in-and-not-in" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal"><span class="pre">in</span></code> and <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code> statements are a built-in operator for
+<em>testing for membership in a collection of items</em>. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>      <span class="c1"># test for membership in a list</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># test for membership in a tuple</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="s2">&quot;apple&quot;</span> <span class="c1"># test for membership in a string</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Python uses very efficient algorithms for testing membership, as invoked
+by <code class="docutils literal"><span class="pre">in</span></code> and <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="bool-and-Truth-Values-of-Non-Boolean-Objects">
+<h2><code class="docutils literal"><span class="pre">bool</span></code> and Truth Values of Non-Boolean Objects<a class="headerlink" href="#bool-and-Truth-Values-of-Non-Boolean-Objects" title="Permalink to this headline">¶</a></h2>
+<p>It can be useful to ascribe non-boolean objects with inherit boolean
+values. For example, in computer science, the number 0 is often
+associated with <code class="docutils literal"><span class="pre">False</span></code> and non-zero numbers are associated with
+<code class="docutils literal"><span class="pre">True</span></code>. Python allows its objects to be ascribed boolean values, which
+can be evaluated with the built-in Python command <code class="docutils literal"><span class="pre">bool</span></code>. For example,
+the Python integer 0 is ascribed the boolean value <code class="docutils literal"><span class="pre">False</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>and non-zero Python integers are associated with <code class="docutils literal"><span class="pre">True</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>The following built-in Python objects evaluate to <code class="docutils literal"><span class="pre">False</span></code> via
+<code class="docutils literal"><span class="pre">bool</span></code>:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">False</span></code></li>
+<li><code class="docutils literal"><span class="pre">None</span></code></li>
+<li>Zero of any numeric type: <code class="docutils literal"><span class="pre">0</span></code>, <code class="docutils literal"><span class="pre">0.0</span></code>, <code class="docutils literal"><span class="pre">0j</span></code></li>
+<li>Any empty sequence, such as an empty string or list: <code class="docutils literal"><span class="pre">''</span></code>,
+<code class="docutils literal"><span class="pre">tuple()</span></code>, <code class="docutils literal"><span class="pre">[]</span></code>, <code class="docutils literal"><span class="pre">numpy.array([])</span></code></li>
+<li>Empty dictionaries and sets</li>
+</ul>
+<p>Thus non-zero numbers, non-empty sequences and collections evaluate to
+<code class="docutils literal"><span class="pre">True</span></code> via <code class="docutils literal"><span class="pre">bool</span></code>.</p>
+<p>Given this discussion, logical operations can thus be applied in the
+context of non-boolean objects, in Python. Although this seldomly occurs
+in practice, we include the following table to summarize how Python
+formally evaluates its logical operations in the context of non-boolean
+values:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="45%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Result</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>x or y</td>
+<td>if x is false, then y, else x</td>
+<td><code class="docutils literal"><span class="pre">2</span> <span class="pre">or</span> <span class="pre">1</span></code> returns <code class="docutils literal"><span class="pre">2</span></code></td>
+</tr>
+<tr class="row-odd"><td>x and y</td>
+<td>if x is false, then x, else y</td>
+<td><code class="docutils literal"><span class="pre">&quot;hi&quot;</span> <span class="pre">and</span> <span class="pre">0</span></code> returns <code class="docutils literal"><span class="pre">0</span></code></td>
+</tr>
+<tr class="row-even"><td>not x</td>
+<td>if x is false, then True, else False</td>
+<td><code class="docutils literal"><span class="pre">not</span> <span class="pre">[1,</span> <span class="pre">4]</span></code> returns <code class="docutils literal"><span class="pre">True</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">The <code class="docutils literal"><span class="pre">bool</span></code> function allows you to evaluate the boolean-values ascribed
+to various Python objects. For instance, <code class="docutils literal"><span class="pre">bool(0)</span></code> returns <code class="docutils literal"><span class="pre">False</span></code>
+wherease <code class="docutils literal"><span class="pre">bool(1)</span></code> returns <code class="docutils literal"><span class="pre">True</span></code>.</p>
+</div>
+</div>
+<div class="section" id="if,-else,-and-elif">
+<h2><code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and <code class="docutils literal"><span class="pre">elif</span></code><a class="headerlink" href="#if,-else,-and-elif" title="Permalink to this headline">¶</a></h2>
+<p>We now introduce the simple, but powerful <code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and <code class="docutils literal"><span class="pre">elif</span></code>
+conditional statements. The following pseudo-code demonstrates their
+general usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">expression_1</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="n">the</span> <span class="n">code</span> <span class="n">within</span> <span class="n">this</span> <span class="n">indented</span> <span class="n">block</span> <span class="ow">is</span> <span class="n">executed</span> <span class="k">if</span><span class="o">..</span>
+    <span class="o">-</span> <span class="nb">bool</span><span class="p">(</span><span class="o">&lt;</span><span class="n">expression_1</span><span class="o">&gt;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">elif</span> <span class="o">&lt;</span><span class="n">expression_2</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="n">the</span> <span class="n">code</span> <span class="n">within</span> <span class="n">this</span> <span class="n">indented</span> <span class="n">block</span> <span class="ow">is</span> <span class="n">executed</span> <span class="k">if</span><span class="o">..</span>
+     <span class="o">-</span> <span class="nb">bool</span><span class="p">(</span><span class="o">&lt;</span><span class="n">expression_1</span><span class="o">&gt;</span><span class="p">)</span> <span class="n">was</span> <span class="kc">False</span>
+     <span class="o">-</span> <span class="nb">bool</span><span class="p">(</span><span class="o">&lt;</span><span class="n">expression_2</span><span class="o">&gt;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="k">elif</span> <span class="o">&lt;</span><span class="n">expression_n</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="n">the</span> <span class="n">code</span> <span class="n">within</span> <span class="n">this</span> <span class="n">indented</span> <span class="n">block</span> <span class="ow">is</span> <span class="n">executed</span> <span class="k">if</span><span class="o">..</span>
+      <span class="o">-</span> <span class="nb">bool</span><span class="p">(</span><span class="o">&lt;</span><span class="n">expression_1</span><span class="o">&gt;</span><span class="p">)</span> <span class="n">was</span> <span class="kc">False</span>
+      <span class="o">-</span> <span class="nb">bool</span><span class="p">(</span><span class="o">&lt;</span><span class="n">expression_2</span><span class="o">&gt;</span><span class="p">)</span> <span class="n">was</span> <span class="kc">False</span>
+      <span class="o">...</span>
+      <span class="o">...</span>
+      <span class="o">-</span> <span class="nb">bool</span><span class="p">(</span><span class="o">&lt;</span><span class="n">expression_n</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">)</span> <span class="n">was</span> <span class="kc">False</span>
+      <span class="o">-</span> <span class="nb">bool</span><span class="p">(</span><span class="o">&lt;</span><span class="n">expression_n</span><span class="o">&gt;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">the</span> <span class="n">code</span> <span class="n">within</span> <span class="n">this</span> <span class="n">indented</span> <span class="n">block</span> <span class="ow">is</span> <span class="n">executed</span> <span class="n">only</span> <span class="k">if</span>
+    <span class="nb">all</span> <span class="n">preceding</span> <span class="n">expressions</span> <span class="n">were</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>In practice this can look like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  <span class="c1"># bool(3 &lt; 2) returns False</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;`x` has more than three items in it&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span>  <span class="c1"># bool(len(x) == 2) returns True</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;`x` has two items in it&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span>  <span class="c1"># this branch is never reached</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;`x` has one items in it&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>           <span class="c1"># this branch is never reached</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;`x` is an empty list&quot;</span><span class="p">)</span>
+
+<span class="s2">&quot;`x` has two items in it&quot;</span>
+</pre></div>
+</div>
+<p>In its simplest form, a conditional statement requires only an <code class="docutils literal"><span class="pre">if</span></code>
+clause. <code class="docutils literal"><span class="pre">else</span></code> and <code class="docutils literal"><span class="pre">elif</span></code> clauses can only follow an <code class="docutils literal"><span class="pre">if</span></code> clause.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="c1"># x is now 1</span>
+</pre></div>
+</div>
+<p>It is worth pointing out a “dangerous” code design pattern, which is to
+assign a variable conditionally. Take the following code for example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># assume x and y have not yet been defined</span>
+<span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">z</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">else</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Any code following this “if-else” block is in a perilous state: <code class="docutils literal"><span class="pre">y</span></code> is
+never defined if <code class="docutils literal"><span class="pre">z</span></code> has a positive value, in which case any
+subsequent code referencing <code class="docutils literal"><span class="pre">y</span></code> will raise an error. <em>Never define a
+variable conditionally</em>.</p>
+<div class="section" id="Inline-if-else-statements">
+<h3>Inline if-else statements<a class="headerlink" href="#Inline-if-else-statements" title="Permalink to this headline">¶</a></h3>
+<p>Python supports a syntax for writing a restricted version of if-else
+statements in a single line. The following code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">sign</span> <span class="o">=</span> <span class="s2">&quot;positive&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">sign</span> <span class="o">=</span> <span class="s2">&quot;negative&quot;</span>
+</pre></div>
+</div>
+<p>can be written in a single line as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">sign</span> <span class="o">=</span> <span class="s2">&quot;positive&quot;</span> <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;negative&quot;</span>
+</pre></div>
+</div>
+<p>This is suggestive of the general underlying syntax for inline if-else
+statements:</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>The inline if-else statement</strong>:</p>
+<p class="last">The expression <code class="docutils literal"><span class="pre">A</span> <span class="pre">if</span> <span class="pre">&lt;condition&gt;</span> <span class="pre">else</span> <span class="pre">B</span></code> returns <code class="docutils literal"><span class="pre">A</span></code> if
+<code class="docutils literal"><span class="pre">bool(&lt;condition&gt;)</span></code> evaluates to <code class="docutils literal"><span class="pre">True</span></code>, otherwise this expression
+will return <code class="docutils literal"><span class="pre">B</span></code>.</p>
+</div>
+<p>This syntax is highly restricted compared to the full “if-elif-else”
+expressions - no “elif” statement is permitted by this inline syntax,
+nor are muli-line code blocks within the if/else clauses.</p>
+<p>Inline if-else statements can be used anywhere, not just on the right
+side of an assignment statement, and can be quite convenient:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># will append 1 to `my_list` if `x` is non-negative</span>
+<span class="c1"># will append 0 to `my_list if `x` is negative</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We will see this syntax shine when we learn about comprehension
+statements. That being said, this syntax should be used judiciously. For
+example, inline if-else statements ought not be used in arithmetic
+expressions, for therein lies madness:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># don&#39;t ever do this...ever!</span>
+<span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="mi">2</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">9</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ForLoops.html" class="btn btn-neutral float-right" title="For-Loops and While-Loops" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction.html" class="btn btn-neutral" title="Introducing Control Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

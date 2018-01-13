@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setting Up a Development Environment &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 1: Getting Started with Python" href="../module_1.html"/>
+        <link rel="next" title="An Informal Introduction to Python" href="Informal_Intro_Python.html"/>
+        <link rel="prev" title="Installing Python" href="Installing_Python.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="GettingStartedWithPython.html">Introducing the Python Programming Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installing_Python.html">Installing Python</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setting Up a Development Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#What-You-Will-Learn">What You Will Learn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Integrated-Development-Environments">Integrated Development Environments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Recommended-IDEs">Recommended IDEs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#The-Python-Console">The Python Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#The-IPython-Console">The IPython Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Jupyter-Notebook">Jupyter Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Running-a-Notebook-Server-&amp;-Taking-a-Tour">Running a Notebook Server &amp; Taking a Tour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Notebook-Cells">Notebook Cells</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Familiarizing-Yourself-with-Jupyter-notebooks">Familiarizing Yourself with Jupyter notebooks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Notebooks-for-Visualizing-Data-and-Sharing-Information">Notebooks for Visualizing Data and Sharing Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Some-Bells-and-Whistles">Some Bells and Whistles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Informal_Intro_Python.html">An Informal Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Numerical_Work_In_Python.html">Doing Numerical Work in Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_1.html">Module 1: Getting Started with Python</a> &raquo;</li>
+        
+      <li>Setting Up a Development Environment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Setting-Up-a-Development-Environment">
+<h1>Setting Up a Development Environment<a class="headerlink" href="#Setting-Up-a-Development-Environment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="What-You-Will-Learn">
+<h2>What You Will Learn<a class="headerlink" href="#What-You-Will-Learn" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>An IDE is a sophisticated text editors that allow you edit, run, and
+debug code. These are optional for the course.</li>
+<li>Python shell is an interface for typing Python code and executing it
+directly in your computer’s terminal.</li>
+<li>IPython shell is a much nicer version of the shell - it provides
+syntax highlighting, autocompletion, and other features.</li>
+<li>Jupyter notebook is a powerful tool for prototyping and experimenting
+with code, as well as visualizing data and writing nicely-formatted
+text. We will be using this throughout the course.</li>
+</ul>
+</div>
+<div class="section" id="Integrated-Development-Environments">
+<h2>Integrated Development Environments<a class="headerlink" href="#Integrated-Development-Environments" title="Permalink to this headline">¶</a></h2>
+<p>In Section 1 of this module, we learned that a Python script is simply a
+text file that contains Python code. Beyond typically using a <code class="docutils literal"><span class="pre">.py</span></code>
+suffix for the filename, there is nothing that differentiates this sort
+of file from any other text file. That being said, it is not a good idea
+to use a simple text editor to write Python code (and it is a
+<strong>terrible</strong> idea to use word-processing software, like Microsoft Word,
+to do so). Insted we want an “integrated development environment” (IDE)
+that will facilitate our code writing.</p>
+<p>First and foremost, a good IDE will provide a text editor that will:</p>
+<ul class="simple">
+<li>check your code for syntax errors (a misspelled function name, a
+reference to an undefined variable, etc)</li>
+<li>colorize your code so that it is easy to distinguish, for instance,
+numbers from character strings.</li>
+<li>enable you to easily look up documentation and definitions for
+functions that you are using.</li>
+<li>autocomplete the names of variables and functions as you are typing
+them.</li>
+</ul>
+<p>An IDE also often provides debugging tools so that you can test your
+code; it will also typically interface with version-control software,
+like Git, so that you can keep track of versions of your code as you
+modify it. We will not discuss these useful, but more advanced features
+here.</p>
+<div class="section" id="Recommended-IDEs">
+<h3>Recommended IDEs<a class="headerlink" href="#Recommended-IDEs" title="Permalink to this headline">¶</a></h3>
+<p>There are many excellent IDEs that can be configured to work well with
+Python. Two IDEs that we endorse are:</p>
+<p><a class="reference external" href="https://www.jetbrains.com/pycharm/download">PyCharm</a>: A powerful IDE
+dedicated to Python.</p>
+<p><strong>Pros</strong></p>
+<ul class="simple">
+<li>works well out-of-the-box</li>
+<li>supported by professionals and thus is very reliable</li>
+<li>highly configurable</li>
+<li>fully-featured</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul class="simple">
+<li>can be resource-heavy, especially for a laptop</li>
+<li>may be overwhelming to new users (but has good documentation and
+tutorials)</li>
+</ul>
+<p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> with the <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">Python
+extension</a>: A
+lightweight, highly customizable IDE.</p>
+<p><strong>Pros</strong></p>
+<ul class="simple">
+<li>lightweight and elegant</li>
+<li>works with many different languages, so you only need to familiarize
+yourself with one IDE</li>
+<li>a huge number of extensions can be downloaded to add functionality to
+the editor, these are created by a large community of open-source
+developers.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul class="simple">
+<li>currently less polished and powerful than PyCharm</li>
+<li>can require some tinkering to get features working</li>
+</ul>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">Integrated Development Environments (IDEs) provide powerful tools for
+helping you write well-formatted and typo-free code. We recommend using
+PyCharm Community Edition or Visual Studio Code (with the Python
+extension installed) for your Python IDE.</p>
+</div>
+</div>
+</div>
+<div class="section" id="The-Python-Console">
+<h2>The Python Console<a class="headerlink" href="#The-Python-Console" title="Permalink to this headline">¶</a></h2>
+<p>It is slow to tinker with Python code by writing a script and then
+executing it. Instead, a simple way to try out Python is to open a
+Python “console” in your terminal. To do so, open your computer’s
+terminal (cmd.exe in Windows) and simply type: python. You should see
+something like:</p>
+<div class="figure" id="id1">
+<img alt="Python console example" src="../_images/PythonShellClip.PNG" />
+<p class="caption"><span class="caption-text">Python console example</span></p>
+</div>
+<p>appear in your terminal. You can run any Python command here. Try typing
+<code class="docutils literal"><span class="pre">print(&quot;Hello</span> <span class="pre">World&quot;)</span></code> into the console (and then hit RETURN/ENTER).
+You will see Hello World print to your terminal. You just executed some
+Python code! A console session has “memory” of the commands that you
+type. For instance, if you run the line of code <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">5</span></code> in the
+console, then the variable <code class="docutils literal"><span class="pre">x</span></code> will reference the value 5 until you
+close this console session (or you delete or reassign <code class="docutils literal"><span class="pre">x</span></code>).</p>
+<p>Exit the Python shell by executing the command <code class="docutils literal"><span class="pre">exit()</span></code>. The Python
+console is a simple but valuable tool, that would come with Python even
+if you didn’t install Python via Anaconda. There is, however, a
+far-superior console that comes with the Anaconda distibution of
+packages that you installed, called IPython.</p>
+</div>
+<div class="section" id="The-IPython-Console">
+<h2>The IPython Console<a class="headerlink" href="#The-IPython-Console" title="Permalink to this headline">¶</a></h2>
+<p>The IPython console (<strong>Interactive</strong> Python console) provides a much
+nicer shell than the vanilla one described in the preceding section. If
+you have installed Anaconda, then you can simply execute the command
+<code class="docutils literal"><span class="pre">ipython</span></code> in your terminal to begin an IPython console session (make
+sure that you have exited from the Python console you may have opened in
+the preceding section):</p>
+<div class="figure" id="id2">
+<img alt="IPython console example" src="../_images/IPythonClip.PNG" />
+<p class="caption"><span class="caption-text">IPython console example</span></p>
+</div>
+<p>IPython can perform autocompletion when you are typing known commands
+and names. Try typing <code class="docutils literal"><span class="pre">pri</span></code> and then hit the <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> key. <code class="docutils literal"><span class="pre">pri</span></code>
+should autocomplete to <code class="docutils literal"><span class="pre">print</span></code>. This autocompletion works with any
+defined Python variables or function names, including ones that you have
+defined yourself. Writing code is greatly expedited by autocompletion.
+This is also useful when you can’t remember the exact name of a variable
+hitting <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> will bring up a list of possible variable names, given
+what you have typed.</p>
+<p>Notice, also, that <code class="docutils literal"><span class="pre">print</span></code> appears in a colored font - this is because
+it is a built-in function in Python. IPython color-codes text to
+disambiguate built-in function names, strings of characters, numbers,
+and other common objects that will appear in your code. This greatly
+enhances the readability of code.</p>
+<p>If you type <code class="docutils literal"><span class="pre">print(&quot;Hello</span> <span class="pre">World&quot;)</span></code>, you will also notice that the
+parentheses are highlighted when your cursor is on one of them - IPython
+will highlight pairs of parentheses (and other types of brackets and
+quotation marks) so that you can easily see if you have a mismatch.</p>
+<p>Exit the IPython shell by executing the command <code class="docutils literal"><span class="pre">exit()</span></code>.</p>
+<p>The IPython console is superior to the “vanilla” console that comes with
+Python in nearly every way. We have only scratched the surface of its
+capabilities. Read about IPython’s other capabilities
+<a class="reference external" href="http://ipython.readthedocs.io/en/stable/interactive/tutorial.html">here</a>.</p>
+<p>The IPython shell is a great tool for quickly prototyping and testing
+small chunks of Python code. Jupyter Notebook is an even more powerful
+tool for quickly writing and running Python code.</p>
+</div>
+<div class="section" id="Jupyter-Notebook">
+<h2>Jupyter Notebook<a class="headerlink" href="#Jupyter-Notebook" title="Permalink to this headline">¶</a></h2>
+<p>A Jupyter Notebook is similar to the IPython shell in that it provides
+an interface for running Python code. However, a “notebook” will
+actually open up in your web browser (e.g., Firefox, Chrome, or
+Safari–whichever is your default). Although it opens in your browser,
+<strong>everything is happening locally on your machine</strong>. You don’t need to
+be connected to the internet to work on a Jupyter notebook!</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">Although you will open Jupyter notebooks using an internet browser,
+everything is occuring locally on your machine (i.e. no internet
+connection is needed).</p>
+</div>
+<div class="section" id="Running-a-Notebook-Server-&amp;-Taking-a-Tour">
+<h3>Running a Notebook Server &amp; Taking a Tour<a class="headerlink" href="#Running-a-Notebook-Server-&-Taking-a-Tour" title="Permalink to this headline">¶</a></h3>
+<p>In your terminal, navigate to a directory (a.k.a folder) that you are
+okay creating files in. If you don’t know how to do this, Google it!</p>
+<p>Once you are in the desired directory, type in your terminal:
+<code class="docutils literal"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> You should see some text appear in your terminal:</p>
+<div class="figure" id="id3">
+<img alt="Starting a jupyter notebook server on your machine" src="../_images/jupyter_login.PNG" />
+<p class="caption"><span class="caption-text">Starting a jupyter notebook server on your machine</span></p>
+</div>
+<p>This is a “notebook server” that is running on your machine - it
+basically handles all of the communication between your browser and your
+machine. A new window or tab should open in your web browser, which
+looks like a file explorer. You can use this to enter subdirectories and
+to open up any Jupyter notebooks that you have saved.</p>
+<p>In the top-right corner of this window, click on the dropdown menu
+labeled “New”, and select the option <code class="docutils literal"><span class="pre">Python</span> <span class="pre">[conda</span> <span class="pre">root]</span></code>.</p>
+<p>A new tab will open in your browser, revealing a “Jupyter notebook”
+called <code class="docutils literal"><span class="pre">Untitled.ipynb</span></code> running a Python kernel. The commands that you
+run in this notebook are interpreted and executed by Python in the
+essentially same way that they would be in a script or in a console.</p>
+</div>
+<div class="section" id="Notebook-Cells">
+<h3>Notebook Cells<a class="headerlink" href="#Notebook-Cells" title="Permalink to this headline">¶</a></h3>
+<p>Whereas a Python console only allows you to work on one line of code at
+a time, a notebook allows you to write code within “cells” and to
+execute these chunks of code cell-by-cell. In the first cell, write the
+lines of code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>then press <code class="docutils literal"><span class="pre">&lt;SHIFT&gt;+&lt;RETURN&gt;</span></code>. This will execute all of the code
+within the given cell (in this instance, assigning the variables <code class="docutils literal"><span class="pre">x</span></code>
+and <code class="docutils literal"><span class="pre">y</span></code> with the values 3 and 4, respectively) and then creates a new
+cell below. In the next cell type the code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>and hit <code class="docutils literal"><span class="pre">&lt;SHIFT&gt;+&lt;RETURN&gt;</span></code> to execute this code. The number 7 will
+appear beneath the cell - this, of course, is the value that is returned
+when <code class="docutils literal"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">4</span></code> is evaluated:</p>
+<div class="figure" id="id4">
+<img alt="jupyter notebook example" src="../_images/jupyter_early.png" />
+<p class="caption"><span class="caption-text">jupyter notebook example</span></p>
+</div>
+<p>Notice that the notebook “knows” about its variables across its cells.
+This doesn’t just work from top to bottom - you can define <code class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">2</span></code> in
+the third cell, and then execute code that references <code class="docutils literal"><span class="pre">z</span></code> in the first
+cell. What really matters is the <em>order</em> in which the cells are
+executed. Notice that <code class="docutils literal"><span class="pre">In[1]</span></code> denotes that the top cell with the first
+input-cell executed in the notebook, and <code class="docutils literal"><span class="pre">In[2]</span></code> denotes the second
+cell that was executed. Formally, the cells within a given notebook
+share a common “namespace” of all the variable names that have been
+defined in the notebook. Separate notebooks are completely independent
+from one another.</p>
+<p>A major value of using a notebook is that you can rapidly edit these
+cells (say, change <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">3</span></code> to <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">10</span></code>), and re-execute them to
+nimbly tinker with whatever code you are developing. Although simple,
+this is a hugely powerful environment for prototyping code.</p>
+</div>
+<div class="section" id="Familiarizing-Yourself-with-Jupyter-notebooks">
+<h3>Familiarizing Yourself with Jupyter notebooks<a class="headerlink" href="#Familiarizing-Yourself-with-Jupyter-notebooks" title="Permalink to this headline">¶</a></h3>
+<p>While in a notebook, on the toolbar at the top of the notebook, click on
+<em>Help</em> and then <em>User Interface Tour</em>.</p>
+<ul class="simple">
+<li>Work through the brief tour.</li>
+<li>Next, click on Help and then Keyboard shortcuts.</li>
+<li>Take some time to familiarize yourself with commands that allow you
+to: run code, insert cells above &amp; below, and delete cells.</li>
+</ul>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">You can “reset the notebook’s kernel” in order to interrupt and “reset”
+your notebook: its written contents will still there, but it will be as
+if none of its code has been run and no variables are defined. Press
+<code class="docutils literal"><span class="pre">&lt;ESC&gt;-0-0</span></code> to bring up a prompt to reset the kernel.</p>
+</div>
+</div>
+<div class="section" id="Notebooks-for-Visualizing-Data-and-Sharing-Information">
+<h3>Notebooks for Visualizing Data and Sharing Information<a class="headerlink" href="#Notebooks-for-Visualizing-Data-and-Sharing-Information" title="Permalink to this headline">¶</a></h3>
+<p>Jupyter notebooks can do much more than run Python code. They can be
+used to render HTML and Markdown (a lightweight markup language that
+allows you to write plain text with some stylized elements). You can
+embed images, videos, and audio in notebooks, and plots of data render
+nicely beneath cells. This functionality has made Jupyter notebooks
+wildly popular for use among data scientists, researchers, and other
+people who want to create, analyze, and share numerical results with one
+another.</p>
+<p>By default, every cell is in “Code” mode - it expects Python code, and
+will run any code within it. The cell can also be set to “Markdown”
+mode. Markdown is a lightweight markup language that allows you to write
+plain text with some stylized elements. If you ever want to write a
+substantial amount of documentation or explanation about your code, you
+can set a cell to Markdown mode and type in it as if it were a text
+editor. “Running” a markdown cell will render the text you wrote.</p>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">If you ever find that your Python code isn’t being formatted properly,
+and doesn’t run at all when you execute the cell (you get no output, not
+even errors), there is a good chance that you have accidentally set the
+cell to ‘Markdown’ mode! Change it back to ‘Code’ mode by pressing
+<code class="docutils literal"><span class="pre">&lt;ESC&gt;-Y</span></code> when the cell is selected.</p>
+</div>
+</div>
+<div class="section" id="Some-Bells-and-Whistles">
+<h3>Some Bells and Whistles<a class="headerlink" href="#Some-Bells-and-Whistles" title="Permalink to this headline">¶</a></h3>
+<p>Jupyter notebook provides nice, basic utilities for editing code: -
+Autocompletion: Hit <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> as you are typing in an existing function
+or variable name - Color-coding built-in functions, strings of
+characters, and numbers - Bringing up documentation for functions - In a
+cell (set to Code mode), type <code class="docutils literal"><span class="pre">sum</span></code> and then press <code class="docutils literal"><span class="pre">&lt;SHIFT&gt;+&lt;TAB&gt;</span></code>
+when your text cursor is still on <code class="docutils literal"><span class="pre">sum</span></code>. - This will bring up the
+documentation for the built-in Python function sum. -
+<code class="docutils literal"><span class="pre">&lt;SHIFT&gt;-&lt;TAB&gt;-&lt;TAB&gt;</span></code> (holding SHIFT, tap TAB twice) will open an
+extended window to show the full documentation. - This works with any
+function that has a “docstring” defined for it - even ones that you
+write yourself. This is an excellent way to quickly look up the
+documentation for any function/object in Python. Pressing ESC will close
+the window.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Informal_Intro_Python.html" class="btn btn-neutral float-right" title="An Informal Introduction to Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Installing_Python.html" class="btn btn-neutral" title="Installing Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

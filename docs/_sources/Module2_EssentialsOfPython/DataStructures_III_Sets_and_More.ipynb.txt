@@ -6,7 +6,16 @@
    "source": [
     "# Data Structures (Part III): Sets & the Collections Module\n",
     "## The \"Set\" Data Structure\n",
-    "The Python \"set\" is an *unordered* collection of *unique*, *immutable* objects. Similar to a dictionary's keys, checking to see if an object is a member of a given set is a $\\mathcal{O}(1)$ operation - the time required to check for membership does not depend on the size of the set. Furthermore, this data structure supports set-algebra operations for comparing sets.\n",
+    "The Python \"set\" is an *unordered* collection of *unique* objects. It is useful for:\n",
+    "\n",
+    "- Filtering out \"repeat\" objects in a collection, producing only its unique members.\n",
+    "- Quickly checking for membership, as an $\\mathcal{O}(1)$ operation.\n",
+    "- Efficiently comparing two sets of objects; e.g. is one set a \"subset\" of another.\n",
+    "\n",
+    "A set uses a \"hashing\" scheme for keeping track of its contents. Thus, like a dictionary's keys, a set can only store *immutable* objects so that its hashes will never become invalid.\n",
+    "\n",
+    "Python's sets also support many familiar set-algebra operations, like taking the union or intersection of sets, as we will see below.\n",
+    "\n",
     "\n",
     "### Creating a set\n",
     "You can initialize a set using the syntax: `{item1, item2, ...}`. Please note that this is distinct from the the dictionary-initialization syntax, which uses a colon to indicate key-value pairs:\n",
@@ -47,7 +56,7 @@
    "metadata": {},
    "source": [
     "### Set operations\n",
-    "Sets support membership-checking, which is an $\\mathcal{O}(1)$ operation, along with iteration. Note that sets are unordered, thus the order of iteration is effectively random:\n",
+    "Sets support membership-checking ($\\mathcal{O}(1)$) along with iteration ($\\mathcal{O}(n)$). Note that sets are unordered, thus the order of iteration is effectively random:\n",
     "```python\n",
     "# checking membership in a set\n",
     ">>> 2 in {1, 2, 3}\n",
@@ -91,7 +100,7 @@
     "False\n",
     "```\n",
     "\n",
-    "A set is a *mutable* object - it can be updated after it was created:\n",
+    "A set is a *mutable* object, it can be updated after it was created:\n",
     "```python\n",
     "# sets are mutable\n",
     ">>> x.add(\"dog\")\n",
@@ -119,7 +128,7 @@
    "metadata": {},
    "source": [
     "## The Collections Module\n",
-    "Python provides a number of valuable, optimized data structures in its [\"collections\" module](https://docs.python.org/3/library/collections.html). We've already encountered its `deque` and `OrderedDict` data structures. It is recommended that the reader take some time to peruse this module. Here, we will briefly show off some of utility of its data structures. \n",
+    "Python provides a number of valuable, optimized data structures in its [\"collections\" module](https://docs.python.org/3/library/collections.html). It is recommended that the reader take some time to peruse this module. Here, we will briefly show off some of utility of its data structures. \n",
     "\n",
     "Refer to the [official documentation](https://docs.python.org/3/library/collections.html) for a complete listing of the functions available to these data structures."
    ]
@@ -130,16 +139,25 @@
    "source": [
     "### Named-Tuple\n",
     "A named tuple allows you to form a tuple whose members are named. Thus the user can access a member by-name or via index. Otherwise the named tuple behaves just like a typical tuple. This facilitates clean, readable code.\n",
+    "\n",
+    "Suppose, for instance, you want to keep track of the 3D-position and time of an event. You can use a named-tuple so that each space and time coordinate can be referenced \"by name\". In this way, the reader doesn't have to keep in mind that element-3 of your tuple corresponds to time:\n",
+    "\n",
     "```python\n",
     "# demonstrate the use of named tuple\n",
     ">>> from collections import namedtuple\n",
     "\n",
-    "# define a tuple that holds space-time coordinate\n",
-    ">>> space_time_coord = namedtuple(\"space_time_coordinate\", ['x', 'y', 'z', 't'])\n",
+    "# Define a tuple that holds space-time coordinate.\n",
+    "# Here we define the tuple to have four entries, named \n",
+    "# 'x', 'y', 'z', and 't', in order.\n",
+    ">>> space_time_coord = namedtuple(\"space_time_coord\", ['x', 'y', 'z', 't'])\n",
     "\n",
     "# `r` is a particular space-time coordinate (an instance of our named tuple)\n",
     ">>> r = space_time_coord(1.5, 2.3, 5.1, 100.2)\n",
+    "\n",
     ">>> r.t  # access the time coordinate \"by name\"; this is more descriptive than `r[3]`\n",
+    "100.2\n",
+    "\n",
+    ">>> r[3]  # you can also access contents by indexing/slicing\n",
     "100.2\n",
     "```"
    ]
@@ -149,7 +167,7 @@
    "metadata": {},
    "source": [
     "### Default Dictionary\n",
-    "A default dictionary allows you to specify an function that will be used to initialize as a \"default value\" for that dictionary. That is, whenever you try to access a key that does not exist in the dictionary, instead of raising `KeyError`, the mapping $key \\rightarrow f()$ will be created in the dictionary:\n",
+    "A default dictionary allows you to specify a Python function, $f$ that will be used to initialize as a \"default value\" for that dictionary. The default value will be whatever $f()$ returns. That is, whenever you try to access a key that does not exist in the dictionary, instead of raising `KeyError`, the mapping $key \\rightarrow f()$ will be created in the dictionary:\n",
     "\n",
     "```python\n",
     "# demonstrate the behavior of the `defaultdict`\n",
@@ -236,6 +254,28 @@
     "Counter({(None, None): 3, 0: 2, 'moo': 1})\n",
     "```\n",
     "Refer to the [official documentation](https://docs.python.org/3/library/collections.html#counter-objects) for a complete listing of all the nice functions that `Counter` has access to."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### The deque\n",
+    "Like the list, Python's deque is a mutable, sequential data structure. What distinguishes the deque is that:\n",
+    "\n",
+    " - Mutating either the beginning or the end of a deque is $\\mathcal{O}(1)$, whereas mutating the beginning of a list is $\\mathcal{O}(n)$. As such, the deque has unique functions to take advantage of this, like `appendleft`.\n",
+    " - The downside of the preceding feature is that *accessing items near the middle of the deque is* $\\mathcal{O}(n)$, whereas it is $\\mathcal{O}(1)$ for lists and tuples.\n",
+    "\n",
+    "A complete rundown of the deque's functionality can be found [here](https://docs.python.org/3/library/collections.html#deque-objects).\n",
+    "\n",
+    "The deque is included in Python's `collections` module, and thus must be imported:\n",
+    "```python\n",
+    ">>> from collections import deque\n",
+    ">>> my_deque = deque([1,2,3])\n",
+    ">>> my_deque.appendleft(0)\n",
+    ">>> my_deque\n",
+    "deque([0, 1, 2, 3])\n",
+    "```"
    ]
   }
  ],

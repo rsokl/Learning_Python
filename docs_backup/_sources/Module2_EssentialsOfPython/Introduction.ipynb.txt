@@ -1,0 +1,70 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Introducing Control Flow\n",
+    "Very simply put, to \"control flow\" in your code is to affect the order in which the \n",
+    "code in your program are executed. Up until this point in the course, you have seen (and hopefully written) code that \n",
+    "executes linearly, for example:\n",
+    "\n",
+    "```python\n",
+    "x = 6\n",
+    "y = 23\n",
+    "print(\"x + y = \", x + y)\n",
+    "print(\"x - y = \", x - y)\n",
+    "```\n",
+    "\n",
+    "But what if you want your code to do something different when `x` is an even number? What if you want to do an additional computation for every number that falls between `x` and `y`? By the end of this module, you should understand how to write programs that can accommodate these, and many other, branches in logic.\n",
+    "\n",
+    "Control flow tools will vastly expand your ability to write useful code. They are the quintessential building blocks for modern programming languages, and are effectively the same across Python, C, C++, Java, and many others (barring syntactic differences).\n",
+    "\n",
+    "As a sneak peek, let's write a function that counts how many numbers between m and n are divisible by 3\n",
+    "\n",
+    "```python\n",
+    "def cnt_div_by_3(m, n):\n",
+    "    \"\"\" Counts how many numbers in the interval [m, n] are divisible by 3. \"\"\"\n",
+    "    count = 0\n",
+    "    for num in range(m, n + 1):\n",
+    "        if num % 3 == 0:  # x % y  gives the remainder of x / y \n",
+    "            count += 1\n",
+    "        else:\n",
+    "            pass \n",
+    "    return count\n",
+    "```\n",
+    "(note: there are much more efficient ways of computing this - can you think of any?)\n",
+    "\n",
+    "This code contains several critical \"control flow\" features:\n",
+    "\n",
+    "- The `def cnt_div_by_3(m, n):` statement signals the definition of a function: a modular block of code, which can be utilized elsewhere in your code.\n",
+    "- The line `for num in range(m, n + 1):` signifies a \"for-loop\" which instructs the code to iterate over a sequence of numbers, executing a common block of code for each iteration.\n",
+    "- `if num % 3 == 0:` and `else` instructs pieces of codes to be executed conditionally - only if a specified condition is met.\n",
+    "\n",
+    "In the following sections, you will be formally introduced to if-elif-else blocks, for-loops & iterables, and functions, all so that you can implement effective \"control flow\" in your code."
+   ]
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

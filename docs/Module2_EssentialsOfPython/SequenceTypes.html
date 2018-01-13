@@ -100,7 +100,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Sequence Types</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Working-with-sequences">Working with sequences</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Accessing-a-sequence's-members-and-subsequences:-seq[index]-and-seq[start:stop:step]">Accessing a sequence’s members and subsequences: <code class="docutils literal"><span class="pre">seq[index]</span></code> and <code class="docutils literal"><span class="pre">seq[start:stop:step]</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Accessing-a-sequence’s-members-and-subsequences:-seq[index]-and-seq[start:stop:step]">Accessing a sequence’s members and subsequences: <code class="docutils literal"><span class="pre">seq[index]</span></code> and <code class="docutils literal"><span class="pre">seq[start:stop:step]</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
@@ -267,28 +267,30 @@ different types of sequence, which includes lists, tuples, and strings.
 This interface allows you to inspect, summarize, join, and retrieve
 members from any variety of sequence.</p>
 <p><strong>Checking if an object is contained within a sequence:</strong> <code class="docutils literal"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">seq</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using &#39;in&#39; and &#39;not in&#39; for membership checking</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="ow">in</span> <span class="n">x</span>
-<span class="go">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">x</span>
+<span class="bp">True</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span> <span class="ow">in</span> <span class="n">x</span>
-<span class="go">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">x</span>
+<span class="bp">False</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span>
-<span class="go">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span>
+<span class="bp">True</span>
 
-<span class="go"># strings can also test for sub-sequence membership</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;cat&quot;</span> <span class="ow">in</span> <span class="s2">&quot;the cat in the hat&quot;</span>
-<span class="go">True</span>
+<span class="c1"># strings can also test for sub-sequence membership</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;cat&quot;</span> <span class="ow">in</span> <span class="s2">&quot;the cat in the hat&quot;</span>
+<span class="bp">True</span>
 </pre></div>
 </div>
 <p><strong>Concatenating sequences:</strong> <code class="docutils literal"><span class="pre">seq1</span> <span class="pre">+</span> <span class="pre">seq2</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="go">[1, 2, 3, 4]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># concatenating sequences with &#39;+&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;c&quot;</span> <span class="o">+</span> <span class="s2">&quot;at&quot;</span>
-<span class="go">&quot;cat&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;c&quot;</span> <span class="o">+</span> <span class="s2">&quot;at&quot;</span>
+<span class="s2">&quot;cat&quot;</span>
 </pre></div>
 </div>
 <p><strong>Repeated concatenation of a sequence:</strong> <code class="docutils literal"><span class="pre">n*seq1</span></code> or <code class="docutils literal"><span class="pre">seq1*n</span></code></p>
@@ -301,19 +303,20 @@ members from any variety of sequence.</p>
 </pre></div>
 </div>
 <p><strong>Asking for the number of members in a sequence:</strong> <code class="docutils literal"><span class="pre">len(seq)</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
-<span class="go">3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># getting the length of a sequence</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
+<span class="mi">3</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">([</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">])</span>
-<span class="go">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">([</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">])</span>
+<span class="mi">2</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">())</span>  <span class="c1"># `list()` and `[]` are equivalent</span>
-<span class="go">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">())</span>  <span class="c1"># `list()` and `[]` are equivalent</span>
+<span class="mi">0</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
-<p class="last"><code class="docutils literal"><span class="pre">len</span></code> is one of many functions that are “built-in” (i.e. predefined)
+<p class="last"><code class="docutils literal"><span class="pre">len</span></code> is one of many functions that are “built-in” (i.e.&nbsp;predefined)
 in Python. Accordingly, you should not give your own variables or
 functions this name. Other built-in functions that you may have already
 encountered are <code class="docutils literal"><span class="pre">print</span></code>, <code class="docutils literal"><span class="pre">sum</span></code>, <code class="docutils literal"><span class="pre">min</span></code>, and <code class="docutils literal"><span class="pre">max</span></code>.</p>
@@ -354,8 +357,8 @@ encountered are <code class="docutils literal"><span class="pre">print</span></c
 <span class="go">2</span>
 </pre></div>
 </div>
-<div class="section" id="Accessing-a-sequence's-members-and-subsequences:-seq[index]-and-seq[start:stop:step]">
-<h3>Accessing a sequence’s members and subsequences: <code class="docutils literal"><span class="pre">seq[index]</span></code> and <code class="docutils literal"><span class="pre">seq[start:stop:step]</span></code><a class="headerlink" href="#Accessing-a-sequence's-members-and-subsequences:-seq[index]-and-seq[start:stop:step]" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Accessing-a-sequence’s-members-and-subsequences:-seq[index]-and-seq[start:stop:step]">
+<h3>Accessing a sequence’s members and subsequences: <code class="docutils literal"><span class="pre">seq[index]</span></code> and <code class="docutils literal"><span class="pre">seq[start:stop:step]</span></code><a class="headerlink" href="#Accessing-a-sequence’s-members-and-subsequences:-seq[index]-and-seq[start:stop:step]" title="Permalink to this headline">¶</a></h3>
 <p>It is critical to have a good grasp of how to access a sequence’s
 members and subsequences by using indexing and slicing, respectively.</p>
 <div class="section" id="Indexing">
@@ -555,7 +558,8 @@ entries, <span class="math">\(N\)</span>, interpret “half” as <span class="m
 if the length of <code class="docutils literal"><span class="pre">x</span></code> is 11, we want to find the largest values
 among the last <em>six</em> elements.</li>
 <li>Using the string “blogosphere”, slicing, and repeat-concatenation,
-create the string: ‘boopeeboopeeboopeeboopeeboopee’</li>
+create the string: ‘boopeeboopeeboopeeboopeeboopee’. (hint: how would
+you slice “blogosphere” to produce “boopee”, think step-size)</li>
 <li>Assume that a tuple, <code class="docutils literal"><span class="pre">x</span></code>, contains the item <code class="docutils literal"><span class="pre">5</span></code> in it at least
 once. Find where that first entry is, and change it to <code class="docutils literal"><span class="pre">-5</span></code>. For
 example <code class="docutils literal"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">0</span> <span class="pre">5)</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">-5,</span> <span class="pre">0</span> <span class="pre">5)</span></code>.</li>
@@ -563,8 +567,9 @@ example <code class="docutils literal"><span class="pre">(1,</span> <span class=
 <code class="docutils literal"><span class="pre">neg_index</span></code>, find corresponding the positive-value for that index.
 That is, if <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">&quot;cat&quot;</span></code>, and <code class="docutils literal"><span class="pre">neg_index</span> <span class="pre">=</span> <span class="pre">-3</span></code>, which is the
 negative index that would return <code class="docutils literal"><span class="pre">&quot;c&quot;</span></code>, then you would want to
-return the index <code class="docutils literal"><span class="pre">0</span></code>. ***</li>
+return the index <code class="docutils literal"><span class="pre">0</span></code>.</li>
 </ol>
+<hr class="docutils" />
 </div>
 </div>
 </div>
@@ -601,21 +606,21 @@ skip before we start looking for the max value in the last-half of
 <span class="go">9</span>
 </pre></div>
 </div>
-<ol class="arabic" start="2">
-<li><p class="first">“boopee” is every-other letter in “blogosphere”, thus slicing this
+<ol class="arabic simple" start="2">
+<li>“boopee” is every-other letter in “blogosphere”, thus slicing this
 sequence with a step-size of 2, <code class="docutils literal"><span class="pre">&quot;blogosphere&quot;[::2]</span></code>, returns
 “boopee”. We can then use <code class="docutils literal"><span class="pre">seq*n</span></code> to repeat this sequence five
-times. Thus the solution is</p>
+times. Thus the solution is</li>
+</ol>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;blogosphere&quot;</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span>
 <span class="go">&#39;boopeeboopeeboopeeboopeeboopee&#39;</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">Tuples are immutable objects. This means that their content cannot be
+<ol class="arabic simple" start="3">
+<li>Tuples are immutable objects. This means that their content cannot be
 changed once it is created. Thus this question is ill-posed! How
 clever am I for writing that question? I feel so clever. Wow. I’m
-great.</p>
-</li>
+great.</li>
 </ol>
 <p>If that question was posed in terms of a <em>list</em>, then the solution would
 be:</p>
@@ -625,15 +630,14 @@ be:</p>
 <span class="go">[1, 2, -5, 0, 5]</span>
 </pre></div>
 </div>
-<ol class="arabic" start="4">
-<li><p class="first">Refer to the “index” diagram to see that this is the simple
+<ol class="arabic simple" start="4">
+<li>Refer to the “index” diagram to see that this is the simple
 relationship between positive and negative indices for a given
-sequence:</p>
+sequence:</li>
+</ol>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pos_index</span> <span class="o">=</span> <span class="n">neg_index</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-</li>
-</ol>
 </div>
 </div>
 

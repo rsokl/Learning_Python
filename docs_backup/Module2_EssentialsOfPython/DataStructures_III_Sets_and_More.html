@@ -1,0 +1,559 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data Structures (Part III): Sets &amp; the Collections Module &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
+        <link rel="next" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
+        <link rel="prev" title="Data Structures (Part II): Dictionaries" href="DataStructures_II_Dictionaries.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data Structures (Part III): Sets &amp; the Collections Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#The-&quot;Set&quot;-Data-Structure">The “Set” Data Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Creating-a-set">Creating a set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Set-operations">Set operations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#The-Collections-Module">The Collections Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Named-Tuple">Named-Tuple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Default-Dictionary">Default Dictionary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Counter">Counter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
+        
+      <li>Data Structures (Part III): Sets &amp; the Collections Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Data-Structures-(Part-III):-Sets-&amp;-the-Collections-Module">
+<h1>Data Structures (Part III): Sets &amp; the Collections Module<a class="headerlink" href="#Data-Structures-(Part-III):-Sets-&-the-Collections-Module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="The-&quot;Set&quot;-Data-Structure">
+<h2>The “Set” Data Structure<a class="headerlink" href="#The-"Set"-Data-Structure" title="Permalink to this headline">¶</a></h2>
+<p>The Python “set” is an <em>unordered</em> collection of <em>unique</em>, <em>immutable</em>
+objects. Similar to a dictionary’s keys, checking to see if an object is
+a member of a given set is a <span class="math">\(\mathcal{O}(1)\)</span> operation - the time
+required to check for membership does not depend on the size of the set.
+Furthermore, this data structure supports set-algebra operations for
+comparing sets.</p>
+<div class="section" id="Creating-a-set">
+<h3>Creating a set<a class="headerlink" href="#Creating-a-set" title="Permalink to this headline">¶</a></h3>
+<p>You can initialize a set using the syntax: <code class="docutils literal"><span class="pre">{item1,</span> <span class="pre">item2,</span> <span class="pre">...}</span></code>.
+Please note that this is distinct from the the dictionary-initialization
+syntax, which uses a colon to indicate key-value pairs:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># initializing a set containing various immutable objects</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)}</span>
+<span class="p">{</span><span class="bp">False</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mf">3.4</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>A set can be constructed using the generator-comprehension syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># initialization via set-comprehension</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">}</span>
+<span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>And, like the <code class="docutils literal"><span class="pre">list</span></code>, <code class="docutils literal"><span class="pre">tuple</span></code>, and <code class="docutils literal"><span class="pre">dict</span></code> constructors, <code class="docutils literal"><span class="pre">set</span></code>
+constructs a set from an iterable. You must use <code class="docutils literal"><span class="pre">set()</span></code> if you want to
+create an empty set, using <code class="docutils literal"><span class="pre">{}</span></code> creates an empty <em>dictionary</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using `set` to consume an iterable to construct a set</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="c1"># creating an empty set</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># specifying `{}` would create an empty *dictionary*</span>
+</pre></div>
+</div>
+<p>Redundant items are “ignored” when constructing or adding to a set. Thus
+<em>constructing a set is a great way to extract the unique items from a
+collection</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># filter repeat-items from a collection by feeding it into a set</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;moo&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Set-operations">
+<h3>Set operations<a class="headerlink" href="#Set-operations" title="Permalink to this headline">¶</a></h3>
+<p>Sets support membership-checking, which is an <span class="math">\(\mathcal{O}(1)\)</span>
+operation, along with iteration. Note that sets are unordered, thus the
+order of iteration is effectively random:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># checking membership in a set</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="bp">True</span>
+
+<span class="c1"># iterating over a set (the order of iteration is random)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">}]</span>
+<span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Python also provides the set-theoretic operations of union,
+intersection, and the relations of set equality and set inclusion. These
+can be invoked using operator symbols or by calling functions on the set
+explicitly.</p>
+<p>For an exhaustive list of the functions available to the set, please
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">refer to the official Python
+documentation</a>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating set-comparison operations</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}</span>
+
+<span class="c1"># union: items in x or y, or both</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">|</span> <span class="n">y</span>  <span class="c1"># or x.union(y)</span>
+<span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">}</span>
+
+<span class="c1"># intersection: items in both x and y</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span>  <span class="c1"># or x.intersection(y)</span>
+<span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">}</span>
+
+<span class="c1"># difference: items in x but not in y</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>  <span class="c1"># or x.difference(y)</span>
+<span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+
+<span class="c1"># symmetric difference: in x or y, but not in both</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">^</span> <span class="n">y</span>  <span class="c1"># or x.symmetric_difference</span>
+<span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">}</span>
+
+<span class="c1"># check if set_1 is a superset of set_2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">&gt;=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+<span class="bp">True</span>
+
+<span class="c1"># check if set_1 and set_2 are equivalent sets</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<p>A set is a <em>mutable</em> object - it can be updated after it was created:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># sets are mutable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Because it is mutable, a set cannot be used as a dictionary-key, nor can
+a set be a member of another set. Python provides an immutable version
+of the set, <code class="docutils literal"><span class="pre">frozenset</span></code>, which has all of the functions of a set other
+than those that mutate the set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `frozenset` is an immutable version of a Python set</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">frozenset</span><span class="p">({</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">Python’s set is an unordered collection of unique, immutable objects. It
+is an excellent tool for extracting the unique members from a collection
+of items. The set provides <span class="math">\(\mathcal{O}(1)\)</span> membership-checking
+along with a suite of set-algebra operations for comparing sets.
+<code class="docutils literal"><span class="pre">frozenset</span></code> is an immutable version of the set.</p>
+</div>
+</div>
+</div>
+<div class="section" id="The-Collections-Module">
+<h2>The Collections Module<a class="headerlink" href="#The-Collections-Module" title="Permalink to this headline">¶</a></h2>
+<p>Python provides a number of valuable, optimized data structures in its
+<a class="reference external" href="https://docs.python.org/3/library/collections.html">“collections”
+module</a>. We’ve
+already encountered its <code class="docutils literal"><span class="pre">deque</span></code> and <code class="docutils literal"><span class="pre">OrderedDict</span></code> data structures.
+It is recommended that the reader take some time to peruse this module.
+Here, we will briefly show off some of utility of its data structures.</p>
+<p>Refer to the <a class="reference external" href="https://docs.python.org/3/library/collections.html">official
+documentation</a>
+for a complete listing of the functions available to these data
+structures.</p>
+<div class="section" id="Named-Tuple">
+<h3>Named-Tuple<a class="headerlink" href="#Named-Tuple" title="Permalink to this headline">¶</a></h3>
+<p>A named tuple allows you to form a tuple whose members are named. Thus
+the user can access a member by-name or via index. Otherwise the named
+tuple behaves just like a typical tuple. This facilitates clean,
+readable code.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the use of named tuple</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="c1"># define a tuple that holds space-time coordinate</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">space_time_coord</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;space_time_coordinate&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">])</span>
+
+<span class="c1"># `r` is a particular space-time coordinate (an instance of our named tuple)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">space_time_coord</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">100.2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">t</span>  <span class="c1"># access the time coordinate &quot;by name&quot;; this is more descriptive than `r[3]`</span>
+<span class="mf">100.2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Default-Dictionary">
+<h3>Default Dictionary<a class="headerlink" href="#Default-Dictionary" title="Permalink to this headline">¶</a></h3>
+<p>A default dictionary allows you to specify an function that will be used
+to initialize as a “default value” for that dictionary. That is,
+whenever you try to access a key that does not exist in the dictionary,
+instead of raising <code class="docutils literal"><span class="pre">KeyError</span></code>, the mapping <span class="math">\(key \rightarrow f()\)</span>
+will be created in the dictionary:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the behavior of the `defaultdict`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_default_dict</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>  <span class="c1"># will map any missing key to `list()`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_default_dict</span>  <span class="c1"># an empty default dictionary</span>
+<span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{})</span>
+
+<span class="c1"># &quot;apple&quot; is not a key, so the default mapping &quot;apple&quot; -&gt; list() is created</span>
+<span class="c1"># and this value is returned</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_default_dict</span><span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">]</span>
+<span class="p">[]</span>
+
+<span class="c1"># this mapping now exists in the dictionary</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_default_dict</span>
+<span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="p">[]})</span>
+</pre></div>
+</div>
+<p>Suppose you want to use a dictionary as a grade book, which maps
+<span class="math">\(name \rightarrow grades\)</span>. With a standard dictionary, you have to
+worry about encountering a student for the first time:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="s2">&quot;Ryan&quot;</span>
+<span class="n">grade</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># I failed the test..</span>
+
+<span class="c1"># standard dictionary usage</span>
+<span class="n">gradebook</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># if student isnt in the gradebook, enter that student</span>
+<span class="c1"># along with an empty list as the grades</span>
+<span class="k">if</span> <span class="n">student</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">:</span>
+    <span class="n">gradebook</span><span class="p">[</span><span class="n">student</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">gradebook</span><span class="p">[</span><span class="n">student</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>  <span class="c1"># append the grade to that student&#39;s list of grades</span>
+</pre></div>
+</div>
+<p>The default dictionary’s behavior exactly accommodates this
+initialization process (when providing <code class="docutils literal"><span class="pre">list</span></code> as the initializtion
+function):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">gradebook</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="n">gradebook</span><span class="p">[</span><span class="n">student</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Counter">
+<h3>Counter<a class="headerlink" href="#Counter" title="Permalink to this headline">¶</a></h3>
+<p>Python’s counter data structure is designed for tallying the unique
+objects that it encounters. It essentially creates a dictionary that
+maps: <span class="math">\(obj \rightarrow count\)</span>. Suppose you want to study the
+distribution of words used in a body of text; counter is perfect for
+this application:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the `Counter` data structure</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="c1"># Note: We will &quot;normalize&quot; our text by making it all lowercase.</span>
+<span class="c1"># We will then split the string by its spaces, storing the resulting</span>
+<span class="c1"># tokens in a list. For real text, we would also want to remove punctuation</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">text_1</span> <span class="o">=</span> <span class="s2">&quot;The cat in the hat&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">text_1</span> <span class="o">=</span> <span class="n">text_1</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">text_1</span>
+<span class="p">[</span><span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;hat&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">word_distr</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">text_1</span><span class="p">)</span>  <span class="c1"># tally the unique objects in `text_1`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">word_distr</span>
+<span class="n">Counter</span><span class="p">({</span><span class="s1">&#39;cat&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;hat&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+
+<span class="c1"># feed additional items to the counter by &quot;update&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">text_2</span> <span class="o">=</span> <span class="s2">&quot;The apple in the tree&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">text_2</span> <span class="o">=</span> <span class="n">text_2</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">word_distr</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">text_2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">word_distr</span>
+<span class="n">Counter</span><span class="p">({</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;hat&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;tree&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+
+<span class="c1"># get the top-2 most common words, along with their counts</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">word_distr</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">[(</span><span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+
+<span class="c1"># get the count for the word &quot;tree&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">word_distr</span><span class="p">[</span><span class="s2">&quot;tree&quot;</span><span class="p">]</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">Counter</span></code> accepts any iterable of immutable objects:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Counter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)])</span>
+<span class="go">Counter({(None, None): 3, 0: 2, &#39;moo&#39;: 1})</span>
+</pre></div>
+</div>
+<p>Refer to the <a class="reference external" href="https://docs.python.org/3/library/collections.html#counter-objects">official
+documentation</a>
+for a complete listing of all the nice functions that <code class="docutils literal"><span class="pre">Counter</span></code> has
+access to.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../module_3.html" class="btn btn-neutral float-right" title="Module 3: The Essentials of NumPy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DataStructures_II_Dictionaries.html" class="btn btn-neutral" title="Data Structures (Part II): Dictionaries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

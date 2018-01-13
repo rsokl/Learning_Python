@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Variables &amp; Assignment &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
+        <link rel="next" title="Introducing Control Flow" href="Introduction.html"/>
+        <link rel="prev" title="Sequence Types" href="SequenceTypes.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Variables &amp; Assignment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Valid-Names-for-Variables">Valid Names for Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Referencing-a-&quot;Mutable&quot;-Object-with-Multiple-Variables">Referencing a “Mutable” Object with Multiple Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Reading-Comprehension:-Does-slicing-a-list-produce-a-reference-to-that-list?">Reading Comprehension: Does slicing a list produce a reference to that list?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Dealing-with-Immutable-Objects">Dealing with Immutable Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
+        
+      <li>Variables &amp; Assignment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module2_EssentialsOfPython/Variables_and_Assignment.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Variables-&amp;-Assignment">
+<h1>Variables &amp; Assignment<a class="headerlink" href="#Variables-&-Assignment" title="Permalink to this headline">¶</a></h1>
+<p>Variables permit us to write code that is flexible and amendable to
+repurpose. Suppose we want write code that logs a student’s grade on an
+exam. The logic behind this process should not depend on whether we are
+logging Brian’s score of 92% versus Ashley’s score of 94%. As such, we
+can utilize variables, say <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">grade</span></code>, to serve as
+placeholders for this information. In this subsection, we will
+demonstrate how to define variables in Python.</p>
+<p>In Python, the <code class="docutils literal"><span class="pre">=</span></code> symbol represents the “assignment” operator. The
+variable goes to the left of <code class="docutils literal"><span class="pre">=</span></code>, and the object that the variable is
+being assigned to goes to the right:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>  <span class="c1"># the variable `name` is being assigned to the string &quot;Brian&quot;</span>
+<span class="n">grade</span> <span class="o">=</span> <span class="mi">92</span>      <span class="c1"># the variable `grade` is being assigned to the integer 92</span>
+</pre></div>
+</div>
+<p>Attempting to reverse the assignment order (e.g. <code class="docutils literal"><span class="pre">92</span> <span class="pre">=</span> <span class="pre">name</span></code>) will
+result in a syntax error. When a variable is assigned to an object (like
+a number or a string), it is common to say that the variable
+<strong>references</strong> that object. That is, the variable <code class="docutils literal"><span class="pre">name</span></code> references
+the string <code class="docutils literal"><span class="pre">&quot;Brian&quot;</span></code>.</p>
+<p>Once a variable is referencing a value, you can use the variable
+elsewhere in your code as a placeholder:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>
+<span class="n">grade</span> <span class="o">=</span> <span class="mi">92</span>
+<span class="n">failing</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="k">if</span> <span class="n">grade</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="n">failing</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1"># writes: name | grade | passing-status</span>
+<span class="c1"># to the end of the file &quot;student_grades.txt&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;student_grades.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">opened_file</span><span class="p">:</span>
+    <span class="n">opened_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{name} | {grade} | {failing}&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="Valid-Names-for-Variables">
+<h2>Valid Names for Variables<a class="headerlink" href="#Valid-Names-for-Variables" title="Permalink to this headline">¶</a></h2>
+<p>A variable name can only consist of alphanumeric characters (<code class="docutils literal"><span class="pre">a-z</span></code>,
+<code class="docutils literal"><span class="pre">A-Z</span></code>, <code class="docutils literal"><span class="pre">0-9</span></code>) and the underscore symbol (<code class="docutils literal"><span class="pre">_</span></code>); a valid name cannot
+begin with a numerical value:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">var</span></code>: valid</li>
+<li><code class="docutils literal"><span class="pre">_var2</span></code>: valid</li>
+<li><code class="docutils literal"><span class="pre">ApplePie_Yum_Yum</span></code>: valid</li>
+<li><code class="docutils literal"><span class="pre">2cool</span></code>: <strong>invalid</strong> (begins with a numerical character)</li>
+<li><code class="docutils literal"><span class="pre">I.am.the.best</span></code>: <strong>invalid</strong> (contains <code class="docutils literal"><span class="pre">.</span></code>)</li>
+</ul>
+<p>They also cannot conflict with character sequences that are reserved by
+the Python language. As such, the following cannot be used as variable
+names:</p>
+<ul class="simple">
+<li>for, while, break, pass, continue</li>
+<li>in, is, not</li>
+<li>if, else, elif</li>
+<li>def, class, return, yield, raises</li>
+<li>import, from, as, with</li>
+<li>try, except, finally</li>
+</ul>
+</div>
+<div class="section" id="Referencing-a-&quot;Mutable&quot;-Object-with-Multiple-Variables">
+<h2>Referencing a “Mutable” Object with Multiple Variables<a class="headerlink" href="#Referencing-a-"Mutable"-Object-with-Multiple-Variables" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to assign variables to other, existing variables. Doing
+so will cause the variables to reference the same object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list1` references [1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span>      <span class="c1">#  `list2` and `list1` now both reference [1, 2, 3]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="go">[1, 2, 3]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+<p>What this entails is that these common variables will reference the
+<em>same instance</em> of the list. Meaning that if the list changes, all of
+the variables referencing that list will reflect this change:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># append 4 to the end of [1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 4]</span>
+</pre></div>
+</div>
+<p>We can see that <code class="docutils literal"><span class="pre">list2</span></code> is still assigned to reference the <em>same,
+updated</em> list as <code class="docutils literal"><span class="pre">list1</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 4]</span>
+</pre></div>
+</div>
+<p>In general, assigning a variable <code class="docutils literal"><span class="pre">b</span></code> to a variable <code class="docutils literal"><span class="pre">a</span></code> will cause
+the variables to reference the <em>same</em> object in the system’s memory, and
+assigning <code class="docutils literal"><span class="pre">c</span></code> to <code class="docutils literal"><span class="pre">a</span></code> or <code class="docutils literal"><span class="pre">b</span></code> will simply have a third variable
+reference this same object. Then any change (a.k.a <em>mutation</em>) of the
+object will be reflected in all of the variables that reference it
+(<code class="docutils literal"><span class="pre">a</span></code>, <code class="docutils literal"><span class="pre">b</span></code>, and <code class="docutils literal"><span class="pre">c</span></code>).</p>
+<p>Of course, assigning two variables to identical, but <em>distinct</em> lists
+means that a change to one list will not affect the other:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list1` references [1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list2` references a *separate* list, whose value is [1, 2, 3]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># append 4 to the end of [1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 4]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>     <span class="c1"># `list2` still references its own list</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Reading-Comprehension:-Does-slicing-a-list-produce-a-reference-to-that-list?">
+<h3>Reading Comprehension: Does slicing a list produce a reference to that list?<a class="headerlink" href="#Reading-Comprehension:-Does-slicing-a-list-produce-a-reference-to-that-list?" title="Permalink to this headline">¶</a></h3>
+<p>Suppose <code class="docutils literal"><span class="pre">x</span></code> is assigned to a list, and that <code class="docutils literal"><span class="pre">y</span></code> is assigned to a
+“slice” of <code class="docutils literal"><span class="pre">x</span></code>. Do <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> reference the same list? That is,
+if you update part of the subsequence common to <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>, does
+that change show up in both of them? Write some simple code to
+investigate this.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Dealing-with-Immutable-Objects">
+<h2>Dealing with Immutable Objects<a class="headerlink" href="#Dealing-with-Immutable-Objects" title="Permalink to this headline">¶</a></h2>
+<p>A <em>major exception</em> to the preceding discussion of referencing a single
+object with multiple variables is when one is working with an
+<strong>immutable</strong> object.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Definition</strong>:</p>
+<p class="last">An <strong>immutable object</strong> is a Python object, that, once defined, cannot
+have its value/state be changed without creating a new object
+altogether.</p>
+</div>
+<p>We saw that a given instance of a list can have its value be changed
+(e.g. we appended the number 4 to the list), meaning that a list is an
+example of a <em>mutable</em> object. We also, saw in the section on sequence
+types that a tuple in an <em>immutable</em> sequence. A Python integer is
+another immutable object. Consider the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>    <span class="c1"># assigns `y` to the integer 2</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1"># equivalent to `x = x + 1`</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># `y` is unaffected by whatever happened to `x`</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p>It may seem that <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> initially reference the same “instance”
+of <code class="docutils literal"><span class="pre">2</span></code>, and thus both should ultimately reference <code class="docutils literal"><span class="pre">3</span></code>. Because
+Python integers are immutable, it is impossible to change the value of a
+given integer-object. To increase the value of <code class="docutils literal"><span class="pre">x</span></code> by 1 entails
+assigning <code class="docutils literal"><span class="pre">x</span></code> to a new integer altogether, leaving the value
+referenced by <code class="docutils literal"><span class="pre">y</span></code> unchanged. In effect, <code class="docutils literal"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">1</span></code> tells <code class="docutils literal"><span class="pre">x</span></code> to
+reference a completely new integer, <code class="docutils literal"><span class="pre">3</span></code>, and <code class="docutils literal"><span class="pre">y</span></code> continues to
+reference <code class="docutils literal"><span class="pre">2</span></code>.</p>
+<p>The following are some common immutable and mutable objects in Python.
+These will be important to have in mind as we start to work with
+dictionaries and sets.</p>
+<p><strong>Some immutable objects</strong></p>
+<ul class="simple">
+<li>numbers (integers, floating-point numbers, complex numbers)</li>
+<li>strings</li>
+<li>tuples</li>
+<li>boolean values</li>
+<li>“frozen”-sets</li>
+</ul>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Some mutable objects **</p>
+<ul class="simple">
+<li>lists</li>
+<li>dictionaries</li>
+<li>sets</li>
+<li>numpy-arrays</li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
+<h1>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h1>
+<p><strong>Does slicing a list produce a reference to that list?: Answer</strong> Based
+on the following behavior, we can conclude that slicing a list does
+<strong>not</strong> produce a reference to the original list. Rather, slicing a list
+produces a copy of the appropriate subsequence of the list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>      <span class="c1"># does `y` reference the same list as `x`?</span>
+<span class="go">[0, 1]</span>
+
+<span class="go">x[0] = -1  # update one of the entries of the list that `x` references</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">[-1, 1, 2, 3]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>      <span class="c1"># the list that `y` references was unaffected by the update</span>
+<span class="go">[0, 1]</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Introduction.html" class="btn btn-neutral float-right" title="Introducing Control Flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SequenceTypes.html" class="btn btn-neutral" title="Sequence Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

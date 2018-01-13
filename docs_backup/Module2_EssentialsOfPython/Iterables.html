@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Iterables &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
+        <link rel="next" title="Generators &amp; Comprehension Expressions" href="Generators_and_Comprehensions.html"/>
+        <link rel="prev" title="For-Loops and While-Loops" href="ForLoops.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Iterables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#&quot;Tricks-for-working-with-iterables">“Tricks for working with iterables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#&quot;Unpacking&quot;-iterables">“Unpacking” iterables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Enumerating-iterables">Enumerating iterables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
+        
+      <li>Iterables</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module2_EssentialsOfPython/Iterables.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Iterables">
+<h1>Iterables<a class="headerlink" href="#Iterables" title="Permalink to this headline">¶</a></h1>
+<p>Our encounter with for-loops introduced the term <em>iterable</em> - an object
+that can be “looped over” in a for-loop.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Definition</strong>:</p>
+<p class="last">An <strong>iterable</strong> is any Python object capable of returning its members
+one at a time, permitting it to be iterated over in a for-loop.</p>
+</div>
+<p>Familiar examples of iterables include lists, tuples, strings - any such
+sequence can be iterated over in a for-loop. We will also encounter
+important non-sequential collections, like dictionaries and sets; these
+are iterables as well. It is also possible to have an iterable that
+“generates” each one of its members upon iteration - meaning that it
+doesn’t ever store all of its members in memory at once. We dedicate an
+entire section to generators, a special type of iterator, because they
+are so useful for writing efficient code.</p>
+<p>The rest of this section is dedicated to two useful ways to enrich your
+usage of iterables.</p>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">“Under the hood”, an iterable is any Python object with an
+<code class="docutils literal"><span class="pre">__iter__()</span></code> method or with a <code class="docutils literal"><span class="pre">__getitem__()</span></code> method that implements
+<code class="docutils literal"><span class="pre">Sequence</span></code> semantics. These details will become salient if you read
+through the Object Oriented Programming module.</p>
+</div>
+<div class="section" id="&quot;Tricks-for-working-with-iterables">
+<h2>“Tricks for working with iterables<a class="headerlink" href="#"Tricks-for-working-with-iterables" title="Permalink to this headline">¶</a></h2>
+<p>Python provides some syntactic “tricks” for working with iterables:
+“unpacking” iterables and “enumerating” iterables. Although these may
+seem like inconsequential niceties at first glance, they deserve our
+attention because they will help us write clean, readable code. Writing
+clean, readable code leads to bug-free algorithms that are easy to
+understand. Furthermore, these tricks will also facilitate the use of
+other great Python features, like comprehension-statements, which will
+be introduced in the coming sections.</p>
+<div class="section" id="&quot;Unpacking&quot;-iterables">
+<h3>“Unpacking” iterables<a class="headerlink" href="#"Unpacking"-iterables" title="Permalink to this headline">¶</a></h3>
+<p>Suppose that you have three values stored in a list, and that you want
+to assign a distinct variable to each value. Given the lessons that we
+have covered thus far, you would likely write the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># simple script for assigning variables to contents of list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Python provides an extremely useful functionality, known as <strong>iterable
+unpacking</strong>, which allows us to write the simple, elegant code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># assigning variables to contents of a list using iterable unpacking</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">my_list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="mi">7</span> <span class="mi">9</span> <span class="mi">11</span>
+</pre></div>
+</div>
+<p>That is, the Python interpreter “sees” the pattern of variables to the
+left of the assignment, and will “unpack” the iterable (which happens to
+be a list in this instance). It may not seem it from this example, but
+this is an <em>extremely</em> useful feature of Python that greatly facilitates
+the readability of code!</p>
+<p>Iterable unpacking is particularly useful in the context of performing
+for-loops over iterables-of-iterables. For example, suppose we have a
+list containing tuples of name-grade pairs:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grades</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Ashley&quot;</span><span class="p">,</span> <span class="mi">93</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Brad&quot;</span><span class="p">,</span> <span class="mi">95</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Cassie&quot;</span><span class="p">,</span> <span class="mi">84</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Recall from the preceding section that if we loop over this list, that
+the iterate-variable will be assigned to each of these tuples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">grades</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will print:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;Ashley&#39;</span><span class="p">,</span> <span class="mi">93</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;Brad&#39;</span><span class="p">,</span> <span class="mi">95</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;Cassie&#39;</span><span class="p">,</span> <span class="mi">84</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is likely that we will want to work with the student’s name and their
+grade independently (e.g. use the name to access a log, and add the
+grade-value to our class statistics), thus we will need to index into
+<code class="docutils literal"><span class="pre">entry</span></code> twice to assign its contents to two separate variables.
+However, because each iteration of the for-loop involves an assignment
+of the form <code class="docutils literal"><span class="pre">entry</span> <span class="pre">=</span> <span class="pre">(&quot;Ashley&quot;,</span> <span class="pre">93)</span></code>, we can make use of iterable
+unpacking!</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># The first iteration of this for-loop performs</span>
+<span class="c1"># the unpacking assignment: name, grade = (&quot;Ashley&quot;, 93)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">grade</span> <span class="ow">in</span> <span class="n">grades</span><span class="p">:</span>
+    <span class="c1"># name = &quot;Ashley&quot;, grade = 93</span>
+    <span class="c1"># name = &quot;Brad&quot;,   grade = 95</span>
+    <span class="c1"># name = &quot;Cassie&quot;, grade = 84</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>prints:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Ashley</span>
+<span class="mi">93</span>
+
+<span class="n">Brad</span>
+<span class="mi">95</span>
+
+<span class="n">Cassie</span>
+<span class="mi">84</span>
+</pre></div>
+</div>
+<p>This for-loop code is concise and supremely readable. It is highly
+recommended that you make use of iterable unpacking in such contexts.</p>
+<p>Iterable unpacking is not quite as simple as it might seem. What happens
+if you provide 4 variables to unpack into, but use an iterable
+containing 10 items? Although what we have covered thus far conveys the
+most essential use case, it is good to know that <a class="reference external" href="https://www.python.org/dev/peps/pep-3132/#specification">Python provides an
+even more extensive syntax for unpacking
+iterables</a>.
+We will also see that unpacking can be useful when creating and using
+functions.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">Python provides a sleek syntax for “unpacking” the contents of an
+iterable - assigning each item to its own variable. This allows us to
+write intuitive, highly-readable code when performing a for-loop over a
+collection of iterables.</p>
+</div>
+</div>
+<div class="section" id="Enumerating-iterables">
+<h3>Enumerating iterables<a class="headerlink" href="#Enumerating-iterables" title="Permalink to this headline">¶</a></h3>
+<p>It is often useful to keep track of the iteration-count of a for-loop.
+Suppose we want to record all of the positions in a list where the value
+<code class="docutils literal"><span class="pre">None</span></code> is stored:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># track which entries of an iterable store the value `None`</span>
+<span class="n">iter_cnt</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># manually track iteration-count</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">none_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iter_cnt</span><span class="p">)</span>
+    <span class="n">iter_cnt</span> <span class="o">=</span> <span class="n">iter_cnt</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># `none_indices` now stores: [1, 3]</span>
+</pre></div>
+</div>
+<p>We can make use of the built-in
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a>
+function so that we don’t need to initialize and manually increment the
+<code class="docutils literal"><span class="pre">iter_cnt</span></code> variable:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using `enumerate` function to keep iteration-count</span>
+<span class="n">none_indices</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">iter_cnt</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]):</span>  <span class="c1"># note the use of iterable unpacking!</span>
+    <span class="c1"># iter_cnt = 0, item = 2</span>
+    <span class="c1"># iter_cnt = 1, item = None</span>
+    <span class="c1"># iter_cnt = 2, item = -10</span>
+    <span class="c1"># etc.</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">none_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iter_cnt</span><span class="p">)</span>
+
+<span class="c1"># `none_indices` now stores: [1, 3]</span>
+</pre></div>
+</div>
+<p>In general, the <code class="docutils literal"><span class="pre">enumerate</span></code> function accepts an iterable and returns a
+new iterable that produces a tuple of the iteration-count and the
+corresponding item from the original iterable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">enumerate</span><span class="p">(</span><span class="o">&lt;</span><span class="n">item_0</span><span class="p">,</span> <span class="n">item_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">item_n</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">::</span> <span class="o">&lt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">item_0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">item_1</span><span class="p">),</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">item_n</span><span class="p">)</span><span class="o">&gt;</span>
+
+<span class="o">&lt;&gt;</span> <span class="n">represents</span> <span class="nb">any</span> <span class="n">iterable</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">etc</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">The built-in
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a>
+function should be used (in conjuction with iterator unpacking) whenever
+it is necessary to track the iteration count of a for-loop. It is
+valuable to use this in conjunction with tuple unpacking.</p>
+</div>
+<hr class="docutils" />
+<p><strong>Reading Comprehension: enumerate</strong> Use the iterable <code class="docutils literal"><span class="pre">&quot;abcd&quot;</span></code>, the
+<code class="docutils literal"><span class="pre">enumerate</span></code> function, and tuple-unpacking in a for-loop to create the
+list: <code class="docutils literal"><span class="pre">[(0,</span> <span class="pre">'a'),</span> <span class="pre">(1,</span> <span class="pre">'b'),</span> <span class="pre">(2,</span> <span class="pre">'c'),</span> <span class="pre">(3,</span> <span class="pre">'d')]</span></code></p>
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>Reading Comprehension: Is it sorted?</strong> Use control flow and looping
+tools to see if an iterable of numbers is sorted.</p>
+<p>The variable <code class="docutils literal"><span class="pre">unsorted_index</span></code> should be initialized to <code class="docutils literal"><span class="pre">None</span></code>. If
+the iterable is <em>not</em> sorted, <code class="docutils literal"><span class="pre">unsorted_index</span></code> should store the index
+of the where the sequence <em>first</em> fell out of order. If the iterable is
+sorted, then <code class="docutils literal"><span class="pre">unsorted_index</span></code> should remain <code class="docutils literal"><span class="pre">None</span></code> and your code
+should print “sorted!”.</p>
+<p>For instance:</p>
+<ul class="simple">
+<li>given the iterable <code class="docutils literal"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">-10,</span> <span class="pre">2]</span></code>, <code class="docutils literal"><span class="pre">unsorted_index</span></code>
+should take the value <code class="docutils literal"><span class="pre">2</span></code>.</li>
+<li>given the iterable <code class="docutils literal"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[-1,</span> <span class="pre">0,</span> <span class="pre">3,</span> <span class="pre">6]</span></code>, <code class="docutils literal"><span class="pre">unsorted_index</span></code>
+should be <code class="docutils literal"><span class="pre">None</span></code> and your code should print “sorted!”.</li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
+<h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
+<p><strong>enumerate: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">letter</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">):</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">num</span><span class="p">,</span> <span class="n">letter</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Is it sorted?: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">unsorted_index</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">current_num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">prev_num</span> <span class="o">=</span> <span class="n">current_num</span>
+    <span class="k">elif</span> <span class="n">prev_num</span> <span class="o">&gt;</span> <span class="n">current_num</span><span class="p">:</span>
+        <span class="n">unsorted_index</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="k">break</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;sorted!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Generators_and_Comprehensions.html" class="btn btn-neutral float-right" title="Generators &amp; Comprehension Expressions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ForLoops.html" class="btn btn-neutral" title="For-Loops and While-Loops" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
