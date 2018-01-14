@@ -37,7 +37,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/> 
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
+        <link rel="next" title="Sequence Types" href="SequenceTypes.html"/>
+        <link rel="prev" title="Module 2: The Essentials of Python" href="../module_2.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -91,10 +94,45 @@
             
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Python Object Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Number-Types">Number Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Python’s-math-module">Python’s math module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Integers">Integers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Floating-Point-Numbers">Floating-Point Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Complex-Numbers">Complex Numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#The-Boolean-Type">The Boolean Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#The-None-Type">The None-Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Strings">Strings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Introducing-the-string-type">Introducing the string type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#String-essentials">String essentials</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
 </ul>
 
@@ -139,6 +177,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
         
       <li>Basic Python Object Types</li>
     
@@ -624,9 +664,8 @@ in a single line:</p>
 the “Conditional Statements” section. There, we will also review the
 familiar comparison statements: “greater-than”, “less-than”, etc.</p>
 </div>
-</div>
 <div class="section" id="The-None-Type">
-<h1>The None-Type<a class="headerlink" href="#The-None-Type" title="Permalink to this headline">¶</a></h1>
+<h2>The None-Type<a class="headerlink" href="#The-None-Type" title="Permalink to this headline">¶</a></h2>
 <p>There is a simple type, <code class="docutils literal"><span class="pre">NoneType</span></code> that has exactly one object:
 <code class="docutils literal"><span class="pre">None</span></code>. <code class="docutils literal"><span class="pre">None</span></code> is used to represent “null”… nothing.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `None` is the *only* object belonging to NoneType</span>
@@ -666,6 +705,7 @@ this code may not make perfect sense to you yet:</p>
 <span class="k">if</span> <span class="n">large_num</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The list did not contain any number larger than 10&quot;</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 <div class="section" id="Strings">
 <h2>Strings<a class="headerlink" href="#Strings" title="Permalink to this headline">¶</a></h2>
@@ -859,6 +899,15 @@ precision of a floating point number.</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SequenceTypes.html" class="btn btn-neutral float-right" title="Sequence Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../module_2.html" class="btn btn-neutral" title="Module 2: The Essentials of Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
