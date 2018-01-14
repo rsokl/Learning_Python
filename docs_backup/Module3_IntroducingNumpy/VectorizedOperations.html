@@ -104,7 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="FunctionsForCreatingNumpyArrays.html">Functions for Creating NumPy Arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ReshapingArrays.html">Reshaping Arrays &amp; Array-Traversal Order</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">“Vectorized” Operations: Optimized Computations on NumPy Arrays</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#NumPy's-Mathematical-Functions">NumPy’s Mathematical Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#NumPy’s-Mathematical-Functions">NumPy’s Mathematical Functions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Unary-Functions">Unary Functions</a></li>
 </ul>
 </li>
@@ -385,8 +385,8 @@ div.nboutput div.output_area.stderr {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
-<div class="section" id="&quot;Vectorized&quot;-Operations:-Optimized-Computations-on-NumPy-Arrays">
-<h1>“Vectorized” Operations: Optimized Computations on NumPy Arrays<a class="headerlink" href="#"Vectorized"-Operations:-Optimized-Computations-on-NumPy-Arrays" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="“Vectorized”-Operations:-Optimized-Computations-on-NumPy-Arrays">
+<h1>“Vectorized” Operations: Optimized Computations on NumPy Arrays<a class="headerlink" href="#“Vectorized”-Operations:-Optimized-Computations-on-NumPy-Arrays" title="Permalink to this headline">¶</a></h1>
 <p>In this section, we will:</p>
 <ul class="simple">
 <li>Define the term vectorization, as it is used in the context of
@@ -418,9 +418,9 @@ typically works with lists with unrestricted contents.</p>
 <p class="first fa fa-exclamation-circle"><strong>Definition</strong>:</p>
 <p class="last">In the context of high-level languages like Python, Matlab, and R, the
 term <strong>vectorization</strong> describes the use of optimized, pre-compiled code
-written in a low-level language (e.g. C) to perform mathematical
+written in a low-level language (e.g.&nbsp;C) to perform mathematical
 operations over a sequence of data. This is done in place of an explicit
-iteration written in the native language code (e.g. a “for-loop” written
+iteration written in the native language code (e.g.&nbsp;a “for-loop” written
 in Python).</p>
 </div>
 <p>Consider, for instance, the task of summing the integers 0-9,999 stored
@@ -472,13 +472,13 @@ vectorized functions:</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p class="last">NumPy provides a highly-optimized functions for performing mathematical
-operations on arrays of numbers. Performing extensive iterations (e.g.
-via ‘for-loops’) in Python to perform repeated mathematical computations
-should nearly always be replaced by the use of vectorized functions on
-arrays. This informs the entire design paradigm of NumPy.</p>
+operations on arrays of numbers. Performing extensive iterations
+(e.g.&nbsp;via ‘for-loops’) in Python to perform repeated mathematical
+computations should nearly always be replaced by the use of vectorized
+functions on arrays. This informs the entire design paradigm of NumPy.</p>
 </div>
-<div class="section" id="NumPy's-Mathematical-Functions">
-<h2>NumPy’s Mathematical Functions<a class="headerlink" href="#NumPy's-Mathematical-Functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="NumPy’s-Mathematical-Functions">
+<h2>NumPy’s Mathematical Functions<a class="headerlink" href="#NumPy’s-Mathematical-Functions" title="Permalink to this headline">¶</a></h2>
 <p>We will now take some time to survey the various types of vectorized
 mathematical functions that NumPy supplies, and how these mathematical
 operations, which traditionally are defined on individual numbers, are
@@ -496,12 +496,12 @@ documentation</a>.</p>
 <div class="section" id="Unary-Functions">
 <h3>Unary Functions<a class="headerlink" href="#Unary-Functions" title="Permalink to this headline">¶</a></h3>
 <p>A unary function is a mathematical function that only accepts one
-operand (i.e. argument): <span class="math">\(f(x)\)</span>. NumPy supplies many familiar
+operand (i.e.&nbsp;argument): <span class="math">\(f(x)\)</span>. NumPy supplies many familiar
 unary functions:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="63%" />
-<col width="37%" />
+<col width="64%" />
+<col width="36%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Unary Function: <span class="math">\(f(x)\)</span></th>
@@ -552,9 +552,9 @@ for example the hyperbolic and inverse trigonometric functions are
 available too. These familiar functions are defined to work on
 individual numbers (i.e. “scalars”), not sequences of numbers. How,
 then, does NumPy implement these functions so that they behave in a
-coherent way when operating on arrays? The answer is that is <strong>maps</strong>
+coherent way when operating on arrays? The answer is that it <strong>maps</strong>
 the function over the array - applying <span class="math">\(f(x)\)</span> to each element
-within the array, and producing a new array as a result (i.e. the input
+within the array, and producing a new array as a result (i.e.&nbsp;the input
 array is not overwritten).</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
@@ -577,8 +577,8 @@ X =
     x_{m-1,0} &amp; \cdot &amp; \cdot &amp; \cdot &amp; x_{m-1,n-1}
 \end{bmatrix}
 \end{equation}</div><p>Then applying the unary function, <span class="math">\(f(x)\)</span>, to the array <span class="math">\(X\)</span>,
-will form a new array by applying <span class="math">\(f(x)\)</span> to <em>each</em> of <span class="math">\(X\)</span>‘s
-entries:</p>
+will form a new array by applying <span class="math">\(f(x)\)</span> to <em>each</em> of
+<span class="math">\(X\)</span>’s entries:</p>
 <div class="math">
 \begin{equation}
 f(X) =
@@ -1431,9 +1431,9 @@ if (IPython.notebook.kernel != null) {
 are all binary functions:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="49%" />
-<col width="26%" />
-<col width="26%" />
+<col width="50%" />
+<col width="25%" />
+<col width="25%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Binary Function: <span class="math">\(f(x, y)\)</span></th>
@@ -1479,8 +1479,8 @@ NumPy arrays.</p>
 <p>Here are some other common binary functions:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="67%" />
-<col width="33%" />
+<col width="68%" />
+<col width="32%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Binary Function: <span class="math">\(f(x, y)\)</span></th>
@@ -1500,7 +1500,7 @@ NumPy arrays.</p>
 functions, in the context of NumPy arrays:</p>
 <ol class="arabic simple">
 <li>When both operands of the function are arrays (of the same shape).</li>
-<li>When one operand of the function is a scalar (i.e. a single number)
+<li>When one operand of the function is a scalar (i.e.&nbsp;a single number)
 and the other is an array.</li>
 </ol>
 <p>NumPy also provides operations for performing elementwise comparisons of
@@ -1587,7 +1587,7 @@ producing an array of the same shape as either of the operands.</p>
 <div class="section" id="Binary-functions-applied-on-a-scalar-and-an-array">
 <h3>Binary functions applied on a scalar and an array<a class="headerlink" href="#Binary-functions-applied-on-a-scalar-and-an-array" title="Permalink to this headline">¶</a></h3>
 <p>By now, you may be able to guess NumPy’s behavior when you perform feed
-a binary function a scalar (i.e. a single number) and an array: the
+a binary function a scalar (i.e.&nbsp;a single number) and an array: the
 function is applied elementwise on the array, with each application
 filling one of the function’s arguments, and the single scalar provided
 everywhere as the other operand. This matches exactly the behavior seen
@@ -1653,8 +1653,8 @@ an input, and produces a single number as an output:
 functions:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="75%" />
-<col width="25%" />
+<col width="77%" />
+<col width="23%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Sequential Function: <span class="math">\(f(\{x_i\}_{i=0}^{n-1})\)</span></th>
@@ -1691,7 +1691,7 @@ working with 1-dimensional arrays:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># can also be invoked as `x.sum()`</span>
 <span class="go">6.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># can also be invoked as `x.mean()`</span>
-<span class="go">3.</span>
+<span class="go">2.</span>
 </pre></div>
 </div>
 <p>How do these functions behave when they are fed multi-dimensional
@@ -1754,17 +1754,17 @@ sequences:</p>
 <p>to be summed over. Axis-1 is the only “non-traversed” axis, and because
 axis-1 of <code class="docutils literal"><span class="pre">x</span></code> has a shape 2 (<code class="docutils literal"><span class="pre">x</span></code> has two columns) the
 “valid-combinations of indices for the non-traversed axes” is simply
-index-0 (i.e. column-0) and index-1 (i.e. column-1) on axis-1. Thus each
+index-0 (i.e.&nbsp;column-0) and index-1 (i.e.&nbsp;column-1) on axis-1. Thus each
 column of <code class="docutils literal"><span class="pre">x</span></code> is summed over, producing a shape-(2,) array containing
 the result of the two sums. Similarly, summing over axis-1 (over the
 columns of the data) produces a shape-(3,) array as a result.</p>
 <p>You can also supply <em>multiple</em> axes to the keyword argument by
 specifying them in as “tuple” of integers (using a list instead of a
 tuple will <em>not</em> work). <code class="docutils literal"><span class="pre">np.sum(x,</span> <span class="pre">axis=(0,1))</span></code> cues NumPy to traverse
-<em>both</em> of <code class="docutils literal"><span class="pre">x</span></code>’s axes, designating the entirety of <code class="docutils literal"><span class="pre">x</span></code>’s contents as
-the sequence, and summing to the single sequence into one number. Recall
-that this matches the default behavior when no <code class="docutils literal"><span class="pre">axis</span></code> keyword argument
-is specified.</p>
+<em>both</em> of <code class="docutils literal"><span class="pre">x</span></code>’s axes, designating the entirety of <code class="docutils literal"><span class="pre">x</span></code>’s contents
+as the sequence, and summing to the single sequence into one number.
+Recall that this matches the default behavior when no <code class="docutils literal"><span class="pre">axis</span></code> keyword
+argument is specified.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p class="last">All sequential NumPy-functions have an <code class="docutils literal"><span class="pre">axis</span></code> keyword argument that
@@ -1857,7 +1857,7 @@ makes these functions incredibly fast, when compared to the analagous
 computations performed in pure Python. Although the preceding discussion
 laid out a substantial number of rules for how these functions work, one
 should not worry about memorizing them. Rather, it is best to apply
-these functions to arrays of various dimensionality, and build any
+these functions to arrays of various dimensionality, and build an
 intuition for them. You may be pleasantly surprised by how easy it is to
 get a hang of this material by simply putting it to practice.</p>
 </div>

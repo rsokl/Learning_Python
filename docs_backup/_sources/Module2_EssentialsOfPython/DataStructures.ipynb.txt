@@ -6,6 +6,7 @@
    "source": [
     "# Data Structures (Part I): Introduction\n",
     "Here we survey Python's built-in data structures. You should already be familiar with its lists and tuples, two data structures that facilitate working with sequential data. Two other critical, built-in data structures to be introduced are:\n",
+    "\n",
     "- dictionary: a mapping from \"keys\" to \"values\"\n",
     "- sets: an unordered collection of items that can be used to perform set-algerbra operations (e.g. union and intersection) \n",
     "\n",
@@ -102,7 +103,7 @@
    "metadata": {},
    "source": [
     "## Sequential Data Structures: Lists, Tuples, and Deques\n",
-    "The \"Getting Started with Python\" module already introduced lists and tuples. Recall that both provide the same interface for accessing and summarizing the contents of a homogenous sequence of objects. However, a list can be mutated - updated, removed from, and added to - whereas a tuple cannot be mutated. Thus a list is *mutable*, whereas a tuple is *immutable*. Here you will find a summary of the algorithmic complexities of many of the built-in functions that work on sequential data structures.\n",
+    "The \"Sequence Types\" section already introduced lists and tuples. Recall that both provide the same interface for accessing and summarizing the contents of a homogenous sequence of objects. However, a list can be mutated - updated, removed from, and added to - whereas a tuple cannot be mutated. Thus a list is *mutable*, whereas a tuple is *immutable*. Here you will find a summary of the algorithmic complexities of many of the built-in functions that work on sequential data structures.\n",
     "\n",
     "For a complete rundown of the functions available to Python's list, go [here](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).\n",
     "\n",
@@ -134,24 +135,7 @@
     "|`my_list.append(obj)`| O(1) | Append a new object to the end of the list. |\n",
     "|`my_list.pop()`| O(1) | Remove the object from the *end* of the list. |\n",
     "|`my_list.pop(0)`| O(n) | Remove the object from the *beginning* of the list. |\n",
-    "|`my_list.sort()`| O(nlog(n)) | Return a sorted version of the list. |\n",
-    "\n",
-    "### The deque\n",
-    "Like the list, Python's deque is a mutable, sequential data structure. What distinguishes the deque is that:\n",
-    "\n",
-    " - Mutating either the beginning or the end of a deque is $\\mathcal{O}(1)$, whereas mutating the beginning of a list is $\\mathcal{O}(n)$.\n",
-    " - The downside of the preceding feature is that accessing items near the middle of the deque is $\\mathcal{O}(n)$, whereas it is $\\mathcal{O}(1)$ for lists and tuples.\n",
-    "\n",
-    "A complete rundown of the deque's functionality can be found [here](https://docs.python.org/3/library/collections.html#deque-objects).\n",
-    "\n",
-    "The deque is included in Python's `collections` module, and thus must be imported:\n",
-    "```python\n",
-    ">>> from collections import deque\n",
-    ">>> my_deque = deque([1,2,3])\n",
-    ">>> my_deque.appendleft(0)\n",
-    ">>> my_deque\n",
-    "deque([0, 1, 2, 3])\n",
-    "```"
+    "|`my_list.sort()`| O(nlog(n)) | Return a sorted version of the list. |\n"
    ]
   }
  ],

@@ -108,7 +108,6 @@
 <li class="toctree-l2"><a class="reference internal" href="Installing_Python.html">Installing Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Getting_Started_With_IDEs_and_Notebooks.html">Setting Up a Development Environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Informal_Intro_Python.html">An Informal Introduction to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Numerical_Work_In_Python.html">Doing Numerical Work in Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
@@ -264,11 +263,11 @@ carry out the operations described by the code.</p>
 <p>You can save the the valid code from the preceding section in a text
 file using a simple text editor, and <em>voilà</em> you have written a <strong>Python
 script</strong> - a text file whose contents is Python code. It is standard to
-save this text file using the suffix ‘.py’ (e.g. <code class="docutils literal"><span class="pre">my_code.py</span></code>), rather
-than the familiar ‘.txt’ (e.g. <code class="docutils literal"><span class="pre">my_text.txt</span></code>). There is nothing
-special about the ‘.py’ suffix other than it helps to differentiate
-files that contain Python code from run-of-the-mill text files, which
-contain plain English.</p>
+save this text file using the suffix <code class="docutils literal"><span class="pre">.py</span></code> (e.g. <code class="docutils literal"><span class="pre">my_code.py</span></code>),
+rather than the familiar <code class="docutils literal"><span class="pre">.txt</span></code> (e.g. <code class="docutils literal"><span class="pre">my_text.txt</span></code>). There is
+nothing special about the <code class="docutils literal"><span class="pre">.py</span></code> suffix other than it helps to
+differentiate files that contain Python code from run-of-the-mill text
+files, which contain plain English.</p>
 <p>Although you can use simple text editors to write Python scripts
 (e.g.&nbsp;notepad (Win), TextEdit (Mac), vim (Linux)), there are much more
 sophisticated editors that provide an “integrated development
@@ -316,42 +315,43 @@ than C, like in Java (Jython) and Go (Grumpy). These are not guaranteed
 to be up-to-date with the latest specifications of the Python language,
 and are rarely used in comparison to the CPython interpreter.</p>
 </div>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>About Installing Python</strong>:</p>
+<p class="last">Do not download and install Python from python.org. There isn’t anything
+wrong with this, however a later section will provide you with explicit
+instructions for installing Python on your machine.</p>
+</div>
 <p>If you “install Python on your computer” from
 <a class="reference external" href="https://www.python.org/downloads/release/python-363/">python.org</a>,
-you are essentially downloading an executable program called
-<code class="docutils literal"><span class="pre">python.exe</span></code> onto your machine. <code class="docutils literal"><span class="pre">python.exe</span></code> is the result of
-compiling the aforementioned CPython code, and it is capable of
-performing the all of the tasks of a Python interpreter. <strong>Do not
-download and install Python from *python.org*</strong>. A later section will
-provide you with explicit instructions for installing Python on your
-machine.</p>
+you are essentially downloading an executable program onto your machine
+that operates as a Python interpreter. On Windows, for instance this
+program is called <code class="docutils literal"><span class="pre">python.exe</span></code>. This program is the result of the
+aforementioned CPython code, and it is capable of performing the all of
+the tasks of a Python interpreter.</p>
 <p>Once you have a Python interpreter installed on your machine, using it
 to execute a Python script is quite simple. Assume for the sake of
-simplicity that <code class="docutils literal"><span class="pre">python.exe</span></code> and <code class="docutils literal"><span class="pre">my_script.py</span></code> are in the same
-directory (a.k.a ‘folder’) in your computer. Then, in a terminal
-(<code class="docutils literal"><span class="pre">cmd.exe</span></code> for Windows) you can execute the following command:</p>
-<div class="highlight-shell"><div class="highlight"><pre><span></span>python.exe my_script.py
+simplicity that the <code class="docutils literal"><span class="pre">python</span></code> interpreter program and <code class="docutils literal"><span class="pre">my_script.py</span></code>
+are in the same directory (a.k.a ‘folder’) in your computer. Then, in a
+terminal (<code class="docutils literal"><span class="pre">cmd.exe</span></code> for Windows) you can execute the following
+command:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>python my_script.py
 </pre></div>
 </div>
-<p>and this will instruct the program <code class="docutils literal"><span class="pre">python.exe</span></code> to read in your text
-file <code class="docutils literal"><span class="pre">my_script.py</span></code>, ensure that your code obeys all of the
-grammatical rules specified by the Python language, and then send
+<p>and this will instruct the Python interpreter program <code class="docutils literal"><span class="pre">python</span></code> to read
+in your text file <code class="docutils literal"><span class="pre">my_script.py</span></code>, ensure that your code obeys all of
+the grammatical rules specified by the Python language, and then send
 instructions to your computer in accordance with the code that it reads.
 If your script simply contains the code <code class="docutils literal"><span class="pre">print(&quot;hello</span> <span class="pre">world&quot;)</span></code>, then
 the text <code class="docutils literal"><span class="pre">hello</span> <span class="pre">world</span></code> will appear in your terminal window, as
 expected.</p>
 <p>In practice, you will be able to simply execute <code class="docutils literal"><span class="pre">python</span> <span class="pre">my_script.py</span></code>
 in any directory, and your computer will know where to look to find the
-<code class="docutils literal"><span class="pre">python.exe</span></code> program - this will be set up during the installation
-process.</p>
-<div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
-<p class="last">It may be confusing to think that the Python language is interpreted by
+<code class="docutils literal"><span class="pre">python</span></code> program. This will be set up during the installation process.</p>
+<p>It may be confusing to think that the Python language is interpreted by
 using a program written in another language. How, then, is that language
 interpreted? The answer, in the case of CPython, is that C code need not
-be interpreted - programs exist for Windows, Macs, and Linux that can
+be interpreted; programs exist for Windows, Macs, and Linux that can
 translate C code directly into machine instructions.</p>
-</div>
 </div>
 <div class="section" id="Why-Python?">
 <h2>Why Python?<a class="headerlink" href="#Why-Python?" title="Permalink to this headline">¶</a></h2>

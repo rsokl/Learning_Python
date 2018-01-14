@@ -38,8 +38,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Fundamentals of Python alpha documentation" href="index.html"/>
-        <link rel="next" title="Sequence Types" href="Module2_EssentialsOfPython/SequenceTypes.html"/>
-        <link rel="prev" title="Doing Numerical Work in Python" href="Module1_GettingStartedWithPython/Numerical_Work_In_Python.html"/> 
+        <link rel="next" title="Basic Python Object Types" href="Module2_EssentialsOfPython/Basic_Objects.html"/>
+        <link rel="prev" title="An Informal Introduction to Python" href="Module1_GettingStartedWithPython/Informal_Intro_Python.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -97,6 +97,8 @@
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Module 2: The Essentials of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Basic_Objects.html">Basic Python Object Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Basic_Objects.html#The-None-Type">The None-Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
@@ -234,6 +236,16 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Module2_EssentialsOfPython/Basic_Objects.html">Basic Python Object Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Basic_Objects.html#Number-Types">Number Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Basic_Objects.html#The-Boolean-Type">The Boolean Type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Module2_EssentialsOfPython/Basic_Objects.html#The-None-Type">The None-Type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Basic_Objects.html#Strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Basic_Objects.html#Summary">Summary</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Module2_EssentialsOfPython/SequenceTypes.html">Sequence Types</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/SequenceTypes.html#Working-with-sequences">Working with sequences</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/SequenceTypes.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
@@ -248,7 +260,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Module2_EssentialsOfPython/Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module2_EssentialsOfPython/Introduction.html">Introducing Control Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html">Conditional Statements</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#Booleans:-True/False-in-Python">Booleans: True/False in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#Comparison-Operations">Comparison Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#Testing-for-Membership-in-Collections:-in-and-not-in">Testing for Membership in Collections: <code class="docutils literal"><span class="pre">in</span></code> and <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#bool-and-Truth-Values-of-Non-Boolean-Objects"><code class="docutils literal"><span class="pre">bool</span></code> and Truth Values of Non-Boolean Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#if,-else,-and-elif"><code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and <code class="docutils literal"><span class="pre">elif</span></code></a></li>
 </ul>
@@ -261,7 +274,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Module2_EssentialsOfPython/Iterables.html">Iterables</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Iterables.html#“Tricks-for-working-with-iterables-Python-provides-some-syntactic”tricks&quot;-for-working-with-iterables:-“unpacking”-iterables-and-“enumerating”-iterables.-Although-these-may-seem-like-inconsequential-niceties-at-first-glance,-they-deserve-our-attention-because-they-will-help-us-write-clean,-readable-code.-Writing-clean,-readable-code-leads-to-bug-free-algorithms-that-are-easy-to-understand.-Furthermore,-these-tricks-will-also-facilitate-the-use-of-other-great-Python-features,-like-comprehension-statements,-which-will-be-introduced-in-the-coming-sections.">“Tricks for working with iterables Python provides some syntactic”tricks” for working with iterables: “unpacking” iterables and “enumerating” iterables. Although these may seem like inconsequential niceties at first glance, they deserve our attention because they will help us write clean, readable code. Writing clean, readable code leads to bug-free algorithms that are easy to understand. Furthermore, these tricks will also facilitate the use of other great Python features, like comprehension-statements, which will be introduced in the coming sections.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Iterables.html#Functions-that-act-on-iterables">Functions that act on iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Iterables.html#Tricks-for-working-with-iterables">Tricks for working with iterables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Iterables.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -321,10 +335,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Module2_EssentialsOfPython/SequenceTypes.html" class="btn btn-neutral float-right" title="Sequence Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Module2_EssentialsOfPython/Basic_Objects.html" class="btn btn-neutral float-right" title="Basic Python Object Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Module1_GettingStartedWithPython/Numerical_Work_In_Python.html" class="btn btn-neutral" title="Doing Numerical Work in Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Module1_GettingStartedWithPython/Informal_Intro_Python.html" class="btn btn-neutral" title="An Informal Introduction to Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
