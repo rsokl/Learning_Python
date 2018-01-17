@@ -98,11 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Python Object Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html#The-None-Type">The None-Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Conditional Statements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Comparison-Operations">Comparison Operations</a></li>
@@ -119,7 +117,6 @@
 <li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
@@ -347,7 +344,7 @@ value <code class="docutils literal"><span class="pre">False</span></code>:</p>
 <p>Thus non-zero numbers and non-empty sequences/collections evaluate to
 <code class="docutils literal"><span class="pre">True</span></code> via <code class="docutils literal"><span class="pre">bool</span></code>.</p>
 <p>Given this discussion, logical operations can thus be applied in the
-context of non-boolean objects, in Python. Although this seldomly occurs
+context of non-boolean objects, in Python. Although this seldom occurs
 in practice, we include the following table to summarize how Python
 formally evaluates its logical operations in the context of non-boolean
 values:</p>
@@ -450,16 +447,16 @@ clause. <code class="docutils literal"><span class="pre">else</span></code> and 
 <p>It is worth pointing out a “dangerous” code design pattern, which is to
 assign a variable conditionally. Take the following code for example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># assume x and y have not yet been defined</span>
-<span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">z</span><span class="p">:</span>
+<span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">else</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="k">else</span><span class="p">:</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>Any code following this “if-else” block is in a perilous state: <code class="docutils literal"><span class="pre">y</span></code> is
-never defined if <code class="docutils literal"><span class="pre">z</span></code> has a positive value, in which case any
-subsequent code referencing <code class="docutils literal"><span class="pre">y</span></code> will raise an error. <em>Never define a
-variable conditionally</em>.</p>
+never defined if <code class="docutils literal"><span class="pre">z</span></code> is positive, in which case any subsequent code
+referencing <code class="docutils literal"><span class="pre">y</span></code> will raise an error. Similarly, <code class="docutils literal"><span class="pre">x</span></code> will never be
+defined if <code class="docutils literal"><span class="pre">z</span></code> is negative. <em>Never define a variable conditionally</em>.</p>
 <div class="section" id="Inline-if-else-statements">
 <h4>Inline if-else statements<a class="headerlink" href="#Inline-if-else-statements" title="Permalink to this headline">¶</a></h4>
 <p>Python supports a syntax for writing a restricted version of if-else

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Basic Python Object Types &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Basic Object Types &mdash; Fundamentals of Python alpha documentation</title>
   
 
   
@@ -98,7 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Python Object Types</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Object Types</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Number-Types">Number Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Python’s-math-module">Python’s math module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Integers">Integers</a></li>
@@ -118,7 +118,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
@@ -126,7 +125,6 @@
 <li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
@@ -180,7 +178,7 @@
         
           <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
         
-      <li>Basic Python Object Types</li>
+      <li>Basic Object Types</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -233,16 +231,18 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
-<div class="section" id="Basic-Python-Object-Types">
-<h1>Basic Python Object Types<a class="headerlink" href="#Basic-Python-Object-Types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Basic-Object-Types">
+<h1>Basic Object Types<a class="headerlink" href="#Basic-Object-Types" title="Permalink to this headline">¶</a></h1>
 <p>You will see the term “object” be used frequently throughout this text.
-In Python, “object” is quite the catch-all term; including numbers,
-strings, lists, functions - a Python object is essentially anything that
-you can assign a variable to. The different types of objects naturally
-have different uses and different built-in functions available to them.
-Here, we will review some of essential types that are built-in to
-Python, as this is an essential starting point for using the language
-effectively. We will cover:</p>
+In Python, the term “object” is quite the catch-all; including numbers,
+strings of characters, lists, functions - a Python object is essentially
+anything that you can assign a variable to. That being said, there are
+different <em>types</em> of objects: Python treats integers as a different
+<em>type</em> of object than a string, for instance.</p>
+<p>The different object types have manifestly different purposes and thus
+have different built-in functions available to them. Here, we will
+review some of basic types that are built-in to Python, as natural entry
+point to writing code. We will cover:</p>
 <ul class="simple">
 <li>numbers (integers, floating-point numbers, and complex numbers)</li>
 <li>booleans</li>
@@ -250,19 +250,19 @@ effectively. We will cover:</p>
 <li>strings</li>
 </ul>
 <p>The built-in function <code class="docutils literal"><span class="pre">isinstance</span></code> will allow us to check if an object
-is of a given type. For example, this code checks if an object is an
-integer:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># assign the variable `x` to the integer-object 1</span>
+is of a given type. You can also use the built-in <code class="docutils literal"><span class="pre">type</span></code> function to
+check an object’s type. For example, the following code checks if an
+object is an integer:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># assign the variable `x` to the integer-object 1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="go"># checking that `x` is an integer</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-<p>You can alsoe use the built-in <code class="docutils literal"><span class="pre">type</span></code> function to check an object’s
-type:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">int</span>
+<span class="c1"># checking that `x` is an integer</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="bp">True</span>
+
+<span class="c1"># checking what the type of an object is</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">int</span>
 </pre></div>
 </div>
 <p>In a later module, you will learn “object-oriented” programming, which
@@ -330,7 +330,7 @@ like “greater than” are not defined for complex numbers):</p>
 </table>
 <p>These operations obey the familiar order of operations from your
 mathematics class, with parentheses available for association:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># multiplication takes precendence over addition</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># multiplication takes precedence over addition</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="mi">7</span>
 
@@ -339,7 +339,7 @@ mathematics class, with parentheses available for association:</p>
 <span class="mi">9</span>
 </pre></div>
 </div>
-<p>It should be noted that in many other programming lanaguages, including
+<p>It should be noted that in many other programming languages, including
 the out-dated Python 2, dividing two integers would always return an
 integer - even if mathematically the result should be a fraction. In
 Python 3, <em>the quotient of two integers will always return a
@@ -355,8 +355,8 @@ floating-point number</em>:</p>
 </div>
 <p>The <code class="docutils literal"><span class="pre">//</span></code> operator is known as the “floor-divide” operator: it performs
 division between two numbers and returns the result as an integer by
-discarding any decimal-places for that numer (thus returning the “floor”
-of that number. This can be used to perform the integer-division
+discarding any decimal-places for that number (thus returning the
+“floor” of that number. This can be used to perform the integer-division
 traditionally used in other programming languages:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># floor-division</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">//</span> <span class="mi">3</span>  <span class="c1"># 0.3333.. -&gt; 0</span>
@@ -374,7 +374,7 @@ documentation</a>.
 This module must be imported into your code in order to use its
 functions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the `math` module to use</span>
-<span class="c1"># additonal mathematical functions</span>
+<span class="c1"># additional mathematical functions</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">4.</span><span class="p">)</span>
 <span class="mf">2.0</span>
@@ -461,7 +461,7 @@ documentation</a>.</p>
 <div class="section" id="Scientific-Notation">
 <h4>Scientific Notation<a class="headerlink" href="#Scientific-Notation" title="Permalink to this headline">¶</a></h4>
 <p>A float can also be created using familiar scientific notation. The
-character <code class="docutils literal"><span class="pre">e</span></code> is used to represent $:raw-latex:<a href="#id1"><span class="problematic" id="id2">`</span></a>times <a href="#id3"><span class="problematic" id="id4">`</span></a>10 $, and the
+character <code class="docutils literal"><span class="pre">e</span></code> is used to represent <span class="math">\(\times 10\)</span>, and the
 proceeding number is the exponent. Here are some examples of traditional
 scientific notation, and their corresponding representation in Python:</p>
 <p><span class="math">\(1.38 \times 10^{-4} \rightarrow\)</span> <code class="docutils literal"><span class="pre">1.38e-04</span></code></p>
@@ -728,7 +728,7 @@ formed using:</p>
 unicode</a>
 to represent this wide variety of characters. Don’t worry about this
 detail beyond making note of it.)</p>
-<p>Strings are belong to the built-in <code class="docutils literal"><span class="pre">str</span></code> type, which can be used to
+<p>Strings belong to the built-in <code class="docutils literal"><span class="pre">str</span></code> type, which can be used to
 convert non-string objects into strings:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 <span class="go">str</span>
@@ -777,7 +777,7 @@ printed.</p>
 </pre></div>
 </div>
 <p>Using triple quotes allows you to write a block-string, meaning that you
-can include text on muliple lines, and it is all still treated as one
+can include text on multiple lines, and it is all still treated as one
 string:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using triple-quotes to write a multi-line string</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; I am a string.</span>
@@ -869,7 +869,7 @@ provided throughout this section, whenever you are wondering how to best
 do a specific task with a given type of object.</p>
 <p>As a final reminder, we saw that that an integer in Python is able to
 hold a value with arbitrarily-many digits. A floating-point number, on
-the otherhand, is restricted in the number of “significant” digits it
+the other hand, is restricted in the number of “significant” digits it
 can hold. Thus, where it is perfectly fine to check if two integers are
 exactly equal:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># checking if two integers are equal is great!</span>

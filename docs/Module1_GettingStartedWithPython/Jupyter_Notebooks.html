@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Jupyter Notebooks &mdash; Fundamentals of Python alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+        <link rel="up" title="Module 1: Getting Started with Python" href="../module_1.html"/>
+        <link rel="next" title="Setting Up a Development Environment" href="Getting_Started_With_IDEs_and_Notebooks.html"/>
+        <link rel="prev" title="An Informal Introduction to Python" href="Informal_Intro_Python.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="GettingStartedWithPython.html">Introducing the Python Programming Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installing_Python.html">Installing Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Informal_Intro_Python.html">An Informal Introduction to Python</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Jupyter Notebooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Running-a-Notebook-Server-&amp;-Taking-a-Tour">Running a Notebook Server &amp; Taking a Tour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Notebook-Cells">Notebook Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Familiarizing-Yourself-with-Jupyter-notebooks">Familiarizing Yourself with Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Notebooks-for-Visualizing-Data-and-Sharing-Information">Notebooks for Visualizing Data and Sharing Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Some-Bells-and-Whistles">Some Bells and Whistles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Getting_Started_With_IDEs_and_Notebooks.html">Setting Up a Development Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fundamentals of Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_1.html">Module 1: Getting Started with Python</a> &raquo;</li>
+        
+      <li>Jupyter Notebooks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module1_GettingStartedWithPython/Jupyter_Notebooks.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Jupyter-Notebooks">
+<h1>Jupyter Notebooks<a class="headerlink" href="#Jupyter-Notebooks" title="Permalink to this headline">¶</a></h1>
+<p>A Jupyter Notebook is similar to the IPython shell in that it provides
+an interface for running Python code. However, a “notebook” will
+actually open up in your web browser (e.g., Firefox, Chrome, or
+Safari–whichever is your default). Although it opens in your browser,
+<strong>everything is happening locally on your machine</strong>. You don’t need to
+be connected to the internet to work on a Jupyter notebook!</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">Although you will open Jupyter notebooks using an internet browser,
+everything is occuring locally on your machine (i.e.&nbsp;no internet
+connection is needed).</p>
+</div>
+<div class="section" id="Running-a-Notebook-Server-&amp;-Taking-a-Tour">
+<h2>Running a Notebook Server &amp; Taking a Tour<a class="headerlink" href="#Running-a-Notebook-Server-&-Taking-a-Tour" title="Permalink to this headline">¶</a></h2>
+<p>In your terminal, navigate to a directory (a.k.a folder) that you are
+okay creating files in. If you don’t know how to do this, Google it!</p>
+<p>Once you are in the desired directory, type in your terminal:
+<code class="docutils literal"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> You should see some text appear in your terminal:</p>
+<div class="figure" id="id1">
+<img alt="Starting a jupyter notebook server on your machine" src="../_images/jupyter_login.PNG" />
+<p class="caption"><span class="caption-text">Starting a jupyter notebook server on your machine</span></p>
+</div>
+<p>This is a “notebook server” that is running on your machine - it
+basically handles all of the communication between your browser and your
+machine. A new window or tab should open in your web browser, which
+looks like a file explorer. You can use this to enter subdirectories and
+to open up any Jupyter notebooks that you have saved.</p>
+<p>In the top-right corner of this window, click on the dropdown menu
+labeled “New”, and select the option <code class="docutils literal"><span class="pre">Python</span> <span class="pre">[conda</span> <span class="pre">root]</span></code>.</p>
+<p>A new tab will open in your browser, revealing a “Jupyter notebook”
+called <code class="docutils literal"><span class="pre">Untitled.ipynb</span></code> running a Python kernel. The commands that you
+run in this notebook are interpreted and executed by Python in the
+essentially same way that they would be in a script or in a console.</p>
+</div>
+<div class="section" id="Notebook-Cells">
+<h2>Notebook Cells<a class="headerlink" href="#Notebook-Cells" title="Permalink to this headline">¶</a></h2>
+<p>Whereas a Python console only allows you to work on one line of code at
+a time, a notebook allows you to write code within “cells” and to
+execute these chunks of code cell-by-cell. In the first cell, write the
+lines of code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>then press <code class="docutils literal"><span class="pre">&lt;SHIFT&gt;+&lt;RETURN&gt;</span></code>. This will execute all of the code
+within the given cell (in this instance, assigning the variables <code class="docutils literal"><span class="pre">x</span></code>
+and <code class="docutils literal"><span class="pre">y</span></code> with the values 3 and 4, respectively) and then creates a new
+cell below. In the next cell type the code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>and hit <code class="docutils literal"><span class="pre">&lt;SHIFT&gt;+&lt;RETURN&gt;</span></code> to execute this code. The number 7 will
+appear beneath the cell - this, of course, is the value that is returned
+when <code class="docutils literal"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">4</span></code> is evaluated:</p>
+<div class="figure" id="id2">
+<img alt="jupyter notebook example" src="../_images/jupyter_early.png" />
+<p class="caption"><span class="caption-text">jupyter notebook example</span></p>
+</div>
+<p>Notice that the notebook “knows” about its variables across its cells.
+This doesn’t just work from top to bottom - you can define <code class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">2</span></code> in
+the third cell, and then execute code that references <code class="docutils literal"><span class="pre">z</span></code> in the first
+cell. What really matters is the <em>order</em> in which the cells are
+executed. Notice that <code class="docutils literal"><span class="pre">In[1]</span></code> denotes that the top cell with the first
+input-cell executed in the notebook, and <code class="docutils literal"><span class="pre">In[2]</span></code> denotes the second
+cell that was executed. Formally, the cells within a given notebook
+share a common “namespace” of all the variable names that have been
+defined in the notebook. Separate notebooks are completely independent
+from one another.</p>
+<p>A major value of using a notebook is that you can rapidly edit these
+cells (say, change <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">3</span></code> to <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">10</span></code>), and re-execute them to
+nimbly tinker with whatever code you are developing. Although simple,
+this is a hugely powerful environment for prototyping code.</p>
+</div>
+<div class="section" id="Familiarizing-Yourself-with-Jupyter-notebooks">
+<h2>Familiarizing Yourself with Jupyter notebooks<a class="headerlink" href="#Familiarizing-Yourself-with-Jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>While in a notebook, on the toolbar at the top of the notebook, click on
+<em>Help</em> and then <em>User Interface Tour</em>.</p>
+<ul class="simple">
+<li>Work through the brief tour.</li>
+<li>Next, click on Help and then Keyboard shortcuts.</li>
+<li>Take some time to familiarize yourself with commands that allow you
+to: run code, insert cells above &amp; below, and delete cells.</li>
+</ul>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">You can “reset the notebook’s kernel” in order to interrupt and “reset”
+your notebook: its written contents will still there, but it will be as
+if none of its code has been run and no variables are defined. Press
+<code class="docutils literal"><span class="pre">&lt;ESC&gt;-0-0</span></code> to bring up a prompt to reset the kernel.</p>
+</div>
+</div>
+<div class="section" id="Notebooks-for-Visualizing-Data-and-Sharing-Information">
+<h2>Notebooks for Visualizing Data and Sharing Information<a class="headerlink" href="#Notebooks-for-Visualizing-Data-and-Sharing-Information" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter notebooks can do much more than run Python code. They can be
+used to render HTML and Markdown (a lightweight markup language that
+allows you to write plain text with some stylized elements). You can
+embed images, videos, and audio in notebooks, and plots of data render
+nicely beneath cells. This functionality has made Jupyter notebooks
+wildly popular for use among data scientists, researchers, and other
+people who want to create, analyze, and share numerical results with one
+another.</p>
+<p>By default, every cell is in “Code” mode - it expects Python code, and
+will run any code within it. The cell can also be set to “Markdown”
+mode. Markdown is a lightweight markup language that allows you to write
+plain text with some stylized elements. If you ever want to write a
+substantial amount of documentation or explanation about your code, you
+can set a cell to Markdown mode and type in it as if it were a text
+editor. “Running” a markdown cell will render the text you wrote.</p>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">If you ever find that your Python code isn’t being formatted properly,
+and doesn’t run at all when you execute the cell (you get no output, not
+even errors), there is a good chance that you have accidentally set the
+cell to ‘Markdown’ mode! Change it back to ‘Code’ mode by pressing
+<code class="docutils literal"><span class="pre">&lt;ESC&gt;-Y</span></code> when the cell is selected.</p>
+</div>
+</div>
+<div class="section" id="Some-Bells-and-Whistles">
+<h2>Some Bells and Whistles<a class="headerlink" href="#Some-Bells-and-Whistles" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter notebook provides nice, basic utilities for editing code: -
+Autocompletion: Hit <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> as you are typing in an existing function
+or variable name - Color-coding built-in functions, strings of
+characters, and numbers</p>
+<p><strong>Bringing up documentation for functions</strong></p>
+<ul class="simple">
+<li>In a cell (set to Code mode), type <code class="docutils literal"><span class="pre">sum</span></code> and then press
+<code class="docutils literal"><span class="pre">&lt;SHIFT&gt;+&lt;TAB&gt;</span></code> when your text cursor is still on <code class="docutils literal"><span class="pre">sum</span></code>.</li>
+<li>This will bring up the documentation for the built-in Python function
+sum.</li>
+<li><code class="docutils literal"><span class="pre">&lt;SHIFT&gt;-&lt;TAB&gt;-&lt;TAB&gt;</span></code> (holding SHIFT, tap TAB twice) will open an
+extended window to show the full documentation.</li>
+<li>This works with any function that has a “docstring” defined for it -
+even ones that you write yourself. This is an excellent way to
+quickly look up the documentation for any function/object in Python.
+Pressing ESC will close the window.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Getting_Started_With_IDEs_and_Notebooks.html" class="btn btn-neutral float-right" title="Setting Up a Development Environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Informal_Intro_Python.html" class="btn btn-neutral" title="An Informal Introduction to Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

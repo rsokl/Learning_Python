@@ -22,6 +22,7 @@ Although far from comprehensive, this module will acquaint you with the many of 
    :maxdepth: 2
    :caption: Contents:
 
+   Module2_EssentialsOfPython/Basic_Objects.ipynb
    Module2_EssentialsOfPython/SequenceTypes.ipynb
    Module2_EssentialsOfPython/Variables_and_Assignment.ipynb
    Module2_EssentialsOfPython/Introduction.ipynb

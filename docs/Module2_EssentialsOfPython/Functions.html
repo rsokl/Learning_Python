@@ -98,11 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Python Object Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html#The-None-Type">The None-Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
@@ -116,15 +114,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Inline-Functions">Inline Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Arguments">Arguments</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Positional-Inputs:">Positional Inputs:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Named-Inputs:">Named Inputs:</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#Arguments">Arguments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Functions-are-Objects">Functions are Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
@@ -303,7 +297,7 @@ arguments).</li>
 span multiple lines, and should indicate what the function’s purpose
 is. It is optional.</li>
 <li><code class="docutils literal"><span class="pre">&lt;encapsulated</span> <span class="pre">code&gt;</span></code> can consist of general Python code, and is
-demarked by being indented relative to the <code class="docutils literal"><span class="pre">def</span></code> statement.</li>
+demarcated by being indented relative to the <code class="docutils literal"><span class="pre">def</span></code> statement.</li>
 <li><code class="docutils literal"><span class="pre">return</span></code> is used to indicate what object should be returned,
 whenever the function is called.</li>
 </ul>
@@ -350,7 +344,7 @@ function is indicated by indentation: ***</p>
 <p><strong>Reading Comprehension: Writing a Basic Function</strong> Write a function
 named <code class="docutils literal"><span class="pre">count_even</span></code>. It should accept one input argument, named
 <code class="docutils literal"><span class="pre">numbers</span></code>, which will be an iterable containing integers. Have the
-function return the number of even-valued integers conatined in the
+function return the number of even-valued integers contained in the
 list. Include a reasonable docstring.</p>
 </div>
 <hr class="docutils" />
@@ -443,8 +437,6 @@ input arguments to a function, <code class="docutils literal"><span class="pre">
 </pre></div>
 </div>
 <p>This function can then be passed its arguments in several way:</p>
-<div class="section" id="Positional-Inputs:">
-<h3>Positional Inputs:<a class="headerlink" href="#Positional-Inputs:" title="Permalink to this headline">¶</a></h3>
 <p>The objects passed to <code class="docutils literal"><span class="pre">is_bounded</span></code> will be assigned to its input
 variables based on their positions. That is, <code class="docutils literal"><span class="pre">is_bounded(3,</span> <span class="pre">2,</span> <span class="pre">4)</span></code>
 will assign <code class="docutils literal"><span class="pre">x=3</span></code>, <code class="docutils literal"><span class="pre">lower=2</span></code>, and <code class="docutils literal"><span class="pre">upper=4</span></code>, in accordance with
@@ -464,9 +456,6 @@ the positional ordering of the function’s input arguments:</p>
 <span class="n">is_bounded</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Named-Inputs:">
-<h3>Named Inputs:<a class="headerlink" href="#Named-Inputs:" title="Permalink to this headline">¶</a></h3>
 <p>You can provide explicit names when specifying the inputs to a function,
 in which case ordering does not matter. This is very nice for writing
 clear and flexible code:</p>
@@ -485,8 +474,6 @@ inputs first:</p>
 <span class="bp">True</span>
 </pre></div>
 </div>
-<div class="section" id="Default-Arguments">
-<h4>Default Arguments<a class="headerlink" href="#Default-Arguments" title="Permalink to this headline">¶</a></h4>
 <p>You can specify default values for input arguments to a function. Their
 default values are utilized if a user does not specify these inputs when
 calling the function. Recall our <code class="docutils literal"><span class="pre">count_vowels</span></code> function. Suppose we
@@ -539,10 +526,7 @@ arguments, <code class="docutils literal"><span class="pre">x</span></code> and 
 the <code class="docutils literal"><span class="pre">mode</span></code>. Have the function return <code class="docutils literal"><span class="pre">None</span></code> if <code class="docutils literal"><span class="pre">mode</span></code> is neither
 <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;min&quot;</span></code>.</p>
 <p>Include a descriptive doc-string.</p>
-</div>
 <hr class="docutils" />
-<div class="section" id="Accomodating-an-Arbitrary-Number-of-Positional-Arguments">
-<h4>Accomodating an Arbitrary Number of Positional Arguments<a class="headerlink" href="#Accomodating-an-Arbitrary-Number-of-Positional-Arguments" title="Permalink to this headline">¶</a></h4>
 <p>Python provides us with a syntax for defining a function, which can be
 called with an arbitrary number of positional arguments. This is
 signaled by the syntax <code class="docutils literal"><span class="pre">def</span> <span class="pre">f(*&lt;var_name&gt;)</span></code>.</p>
@@ -570,7 +554,7 @@ tuple</em>, which is then assigned to the variable <code class="docutils literal
 </pre></div>
 </div>
 <p>This syntax can be combined with positional arguments and default
-arguments. Any variables specified after a packed variabled <em>must be
+arguments. Any variables specified after a packed variable <em>must be
 called by name</em>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">seq</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x is: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -602,8 +586,6 @@ to the function. Thus <code class="docutils literal"><span class="pre">mean(1,</
 <span class="math">\(\frac{1 + 2 + 3}{3} = 2.0\)</span></p>
 <p>This function should return <code class="docutils literal"><span class="pre">0.</span></code> if no arguments are passed to it. Be
 sure to test your function, and include a docstring.</p>
-</div>
-</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="Functions-are-Objects">
@@ -641,10 +623,9 @@ memory address where the function-object is stored:</p>
 </pre></div>
 </div>
 </div>
-</div>
 <hr class="docutils" />
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
-<h1>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h1>
+<h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Writing a Basic Function: Solution</strong></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_even</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Counts the number of even integers in an iterable&quot;&quot;&quot;</span>
@@ -718,6 +699,7 @@ that is likely the more appropriate behavior for this function.</p>
     <span class="sd">&quot;&quot;&quot; Returns the mean of the function&#39;s arguments &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">if</span> <span class="n">seq</span> <span class="k">else</span> <span class="mi">0</span>
 </pre></div>
+</div>
 </div>
 </div>
 

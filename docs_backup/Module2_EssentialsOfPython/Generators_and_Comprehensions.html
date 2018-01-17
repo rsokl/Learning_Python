@@ -98,6 +98,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Python Object Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html#The-None-Type">The None-Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
@@ -586,8 +588,8 @@ the for-loop’s iterations.</p>
 <div class="section" id="Using-generator-comprehensions-on-the-fly">
 <h3>Using generator comprehensions on the fly<a class="headerlink" href="#Using-generator-comprehensions-on-the-fly" title="Permalink to this headline">¶</a></h3>
 <p>A feature of Python, that can make your code supremely readable and
-intutive, is that <em>generator comprehensions can be fed directly into
-functions</em>. That is,</p>
+intutive, is that generator comprehensions can be fed <em>directly</em> into
+functions that operate on iterabls. That is,</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
 <span class="go">328350</span>
@@ -606,9 +608,12 @@ you can simply write:</p>
 </pre></div>
 </div>
 <p>This convenient syntax works for any function that expects an iterable
-as an argument, such as the <code class="docutils literal"><span class="pre">list</span></code> function:</p>
+as an argument, such as the <code class="docutils literal"><span class="pre">list</span></code> function and <code class="docutils literal"><span class="pre">all</span></code> function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="go">[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="go">True</span>
 </pre></div>
 </div>
 <div class="admonition note">

@@ -98,6 +98,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Python Object Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html#The-None-Type">The None-Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
@@ -105,7 +107,8 @@
 <li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Iterables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#“Tricks-for-working-with-iterables-Python-provides-some-syntactic”tricks&quot;-for-working-with-iterables:-“unpacking”-iterables-and-“enumerating”-iterables.-Although-these-may-seem-like-inconsequential-niceties-at-first-glance,-they-deserve-our-attention-because-they-will-help-us-write-clean,-readable-code.-Writing-clean,-readable-code-leads-to-bug-free-algorithms-that-are-easy-to-understand.-Furthermore,-these-tricks-will-also-facilitate-the-use-of-other-great-Python-features,-like-comprehension-statements,-which-will-be-introduced-in-the-coming-sections.">“Tricks for working with iterables Python provides some syntactic”tricks” for working with iterables: “unpacking” iterables and “enumerating” iterables. Although these may seem like inconsequential niceties at first glance, they deserve our attention because they will help us write clean, readable code. Writing clean, readable code leads to bug-free algorithms that are easy to understand. Furthermore, these tricks will also facilitate the use of other great Python features, like comprehension-statements, which will be introduced in the coming sections.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Functions-that-act-on-iterables">Functions that act on iterables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tricks-for-working-with-iterables">Tricks for working with iterables</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#“Unpacking”-iterables">“Unpacking” iterables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Enumerating-iterables">Enumerating iterables</a></li>
 </ul>
@@ -249,8 +252,46 @@ usage of iterables.</p>
 <code class="docutils literal"><span class="pre">Sequence</span></code> semantics. These details will become salient if you read
 through the Object Oriented Programming module.</p>
 </div>
-<div class="section" id="“Tricks-for-working-with-iterables-Python-provides-some-syntactic”tricks&quot;-for-working-with-iterables:-“unpacking”-iterables-and-“enumerating”-iterables.-Although-these-may-seem-like-inconsequential-niceties-at-first-glance,-they-deserve-our-attention-because-they-will-help-us-write-clean,-readable-code.-Writing-clean,-readable-code-leads-to-bug-free-algorithms-that-are-easy-to-understand.-Furthermore,-these-tricks-will-also-facilitate-the-use-of-other-great-Python-features,-like-comprehension-statements,-which-will-be-introduced-in-the-coming-sections.">
-<h2>“Tricks for working with iterables Python provides some syntactic”tricks” for working with iterables: “unpacking” iterables and “enumerating” iterables. Although these may seem like inconsequential niceties at first glance, they deserve our attention because they will help us write clean, readable code. Writing clean, readable code leads to bug-free algorithms that are easy to understand. Furthermore, these tricks will also facilitate the use of other great Python features, like comprehension-statements, which will be introduced in the coming sections.<a class="headerlink" href="#“Tricks-for-working-with-iterables-Python-provides-some-syntactic”tricks"-for-working-with-iterables:-“unpacking”-iterables-and-“enumerating”-iterables.-Although-these-may-seem-like-inconsequential-niceties-at-first-glance,-they-deserve-our-attention-because-they-will-help-us-write-clean,-readable-code.-Writing-clean,-readable-code-leads-to-bug-free-algorithms-that-are-easy-to-understand.-Furthermore,-these-tricks-will-also-facilitate-the-use-of-other-great-Python-features,-like-comprehension-statements,-which-will-be-introduced-in-the-coming-sections." title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Functions-that-act-on-iterables">
+<h2>Functions that act on iterables<a class="headerlink" href="#Functions-that-act-on-iterables" title="Permalink to this headline">¶</a></h2>
+<p>Here are some useful built-in functions that accept iterables as
+arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">list</span></code> and <code class="docutils literal"><span class="pre">tuple</span></code>: construct a list or tuple from the contents
+of an iterable</li>
+<li><code class="docutils literal"><span class="pre">sum</span></code>: sum up the contents of an iterable</li>
+<li><code class="docutils literal"><span class="pre">any</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> if <code class="docutils literal"><span class="pre">bool(item)</span></code> was True for <em>any</em> item
+in the iterable, and ends the iteration immediately.</li>
+<li><code class="docutils literal"><span class="pre">all</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> only if <code class="docutils literal"><span class="pre">bool(item)</span></code> was True for <em>all
+items</em> in the iterable.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Examples of built-in functions that act on iterables</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;I am a cow&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="mi">6</span>
+
+<span class="c1"># `bool(item)` evalutes to `False` for each of these items</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">any</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">1</span><span class="p">))</span>
+<span class="bp">False</span>
+
+<span class="c1"># `bool(item)` evalutes to  `True` for each of these items</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">])</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Tricks-for-working-with-iterables">
+<h2>Tricks for working with iterables<a class="headerlink" href="#Tricks-for-working-with-iterables" title="Permalink to this headline">¶</a></h2>
+<p>Python provides some syntactic “tricks” for working with iterables:
+“unpacking” iterables and “enumerating” iterables. Although these may
+seem like inconsequential niceties at first glance, they deserve our
+attention because they will help us write clean, readable code. Writing
+clean, readable code leads to bug-free algorithms that are easy to
+understand. Furthermore, these tricks will also facilitate the use of
+other great Python features, like comprehension-statements, which will
+be introduced in the coming sections.</p>
 <div class="section" id="“Unpacking”-iterables">
 <h3>“Unpacking” iterables<a class="headerlink" href="#“Unpacking”-iterables" title="Permalink to this headline">¶</a></h3>
 <p>Suppose that you have three values stored in a list, and that you want
