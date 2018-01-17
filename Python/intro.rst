@@ -11,7 +11,7 @@ I want this to be a lean, one-stop resource for learning the essentials of Pytho
 
 What isn't this?
 ----------------
-This is not even close to being exhaustive treatment of the Python language, and is not sufficient to become a "complete" Python user. But it will hopefully provide a solid enough foundation that aquiring those missing pieces will be relatively easy.
+This is not even close to being exhaustive treatment of the Python language, and is not sufficient to become a "complete" Python user. But it will hopefully provide a solid enough foundation that acquiring those missing pieces will be relatively easy.
 
 This is also not a deep "Python for Data Science" resource. It will not teach you how to use machine learning and data analysis libraries like sci-kit learn and Pandas, or how to make fantastic visualizations (it does cover some basics of plotting data...). But! It *will* equip you with a mature enough understanding of NumPy and concepts like array broadcasting and vectorization, so that picking these libraries up will be relatively simple!
 
@@ -28,4 +28,4 @@ Python is a relatively easy language to pick up, and it doesn't require much rig
 
 About Me
 --------
-I started learning to use Python in graduate school for my physics research, and I was *so* bad at using it. Fortunately, one of my labmates was more experienced and had the good sense to tell me that my code and workflow was terrible. He pointed me to tooling, style guides, and documentation pages so that I could improve (I'd like to think that this resourceI'm writing now would have been a huge help to me back then!). I've been coding in Python for at least six years now, and I've taken to following the language, along with its new features and changes, quite closely. Currently I do machine learning research, and have served as a core developer for a machine learning library. I also love to teach, so this has been a fun project for me to take on!
+I started learning to use Python in graduate school for my physics research, and I was *so* bad at using it. Fortunately, one of my labmates was more experienced and had the good sense to tell me that my code and workflow was terrible. He pointed me to tooling, style guides, and documentation pages so that I could improve (I'd like to think that this resource would have been a huge help to me back then). I've been coding in Python for at least six years now, and I've taken to following the language, along with its new features and changes, quite closely. Currently I do machine learning research, and have served as a core developer for a machine learning library. I also love to teach, so this has been a fun project for me to take on!
