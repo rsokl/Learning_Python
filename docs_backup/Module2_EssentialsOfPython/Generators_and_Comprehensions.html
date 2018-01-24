@@ -98,11 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Python Object Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html#The-None-Type">The None-Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
@@ -128,7 +126,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
@@ -256,7 +253,7 @@ with its current state of iterations. It generates each member, one at a
 time, only as it is requested via iteration.</p>
 </div>
 <p>Recall that that a list readily stores all of its members; you can
-access any of its contents via indexing. A generator, on the otherhand,
+access any of its contents via indexing. A generator, on the other hand,
 <em>does not store any items</em>. Instead, it stores the instructions for
 generating each of its members, and stores its iteration state; this
 means that the generator will know if it has generated its second
@@ -267,8 +264,12 @@ long sequence of items, without having to store them all in memory.</p>
 <div class="section" id="The-range-generator">
 <h3>The <code class="docutils literal"><span class="pre">range</span></code> generator<a class="headerlink" href="#The-range-generator" title="Permalink to this headline">¶</a></h3>
 <p>An extremely popular built-in generator is <code class="docutils literal"><span class="pre">range</span></code>, which, given the
-values: - ‘start’ (inclusive, default=0) - ‘stop’ (exclusive) - ‘step’
-(default=1)</p>
+values:</p>
+<ul class="simple">
+<li>‘start’ (inclusive, default=0)</li>
+<li>‘stop’ (exclusive)</li>
+<li>‘step’ (default=1)</li>
+</ul>
 <p>will generate the corresponding sequence of integers (from start to
 stop, using the step size) upon iteration. Consider the following
 example usages of <code class="docutils literal"><span class="pre">range</span></code>:</p>
@@ -308,8 +309,8 @@ the memory consumption used when defining a generator for the sequence
 of number <span class="math">\(0-N\)</span> using <code class="docutils literal"><span class="pre">range</span></code>, compared to storing the sequence
 in a list:</p>
 <div class="figure" id="id1">
-<img alt="Mem_Consumption_Generator.png" src="../_images/Mem_Consumption_Generator.png" />
-<p class="caption"><span class="caption-text">Mem_Consumption_Generator.png</span></p>
+<img alt="Memory consumption figure" src="../_images/Mem_Consumption_Generator.png" />
+<p class="caption"><span class="caption-text">Memory consumption figure</span></p>
 </div>
 <p>Given our discussion of generators, it should make sense that the memory
 consumed simply by defining <code class="docutils literal"><span class="pre">range(N)</span></code> is independent of <span class="math">\(N\)</span>,
@@ -474,7 +475,7 @@ be stored during any given iteration of the sum: the current value of
 the sum, and the number being added to it.</p>
 <p>What happens if we run this command a second time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># computes the sum of ... nothing!</span>
-<span class="c1"># `gen` has alredy been consumed!</span>
+<span class="c1"># `gen` has already been consumed!</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
 <span class="mi">0</span>
 </pre></div>
@@ -486,15 +487,20 @@ fortunately, defining a generator requires very few resources, so this
 is not a point of concern.</p>
 <p>You can also check for membership in a generator, but this also consumes
 the generator:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># checking for membership consumes a generator</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">gen</span>  <span class="c1"># `gen` becomes consumed</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># checking for membership consumes a generator until</span>
+<span class="c1"># it finds that item (consuming the entire generator</span>
+<span class="c1"># if the item is not contained within it)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="ow">in</span> <span class="n">gen</span>  <span class="c1"># first 5 elements are consumed</span>
 <span class="bp">True</span>
 
-<span class="c1"># checking for membership in</span>
-<span class="c1"># the empty generator will return False!</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">gen</span>
+<span class="c1"># 1-5 are no longer contained in gen</span>
+<span class="c1"># this check consumes the entire generator!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="ow">in</span> <span class="n">gen</span>
 <span class="bp">False</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="mi">0</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -588,7 +594,7 @@ the for-loop’s iterations.</p>
 <div class="section" id="Using-generator-comprehensions-on-the-fly">
 <h3>Using generator comprehensions on the fly<a class="headerlink" href="#Using-generator-comprehensions-on-the-fly" title="Permalink to this headline">¶</a></h3>
 <p>A feature of Python, that can make your code supremely readable and
-intutive, is that generator comprehensions can be fed <em>directly</em> into
+intuitive, is that generator comprehensions can be fed <em>directly</em> into
 functions that operate on iterabls. That is,</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
@@ -709,30 +715,11 @@ generator comprehensions</p>
 Otherwise you can quickly end up with code that is nearly
 incomprehensible.</p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># don&#39;t ever do this... ever</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">[[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span><span class="mi">2</span> <span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">(</span><span class="n">i</span><span class="o">//</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">))]</span>
-<span class="p">[[],</span>
- <span class="p">[],</span>
- <span class="p">[[]],</span>
- <span class="p">[[]],</span>
- <span class="p">[[],</span> <span class="p">[]],</span>
- <span class="p">[[],</span> <span class="p">[]],</span>
- <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[]],</span>
- <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[]],</span>
- <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]],</span>
- <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]],</span>
- <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]],</span>
- <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]],</span>
- <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]],</span>
- <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]],</span>
- <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]]]</span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
-<p><strong>Using ``range``: Solution</strong></p>
+<p><strong>Using range: Solution</strong></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># start=10, stop=0 (excluded), step-size=-1</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>

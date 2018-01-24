@@ -98,11 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Python Object Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html#The-None-Type">The None-Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
@@ -119,7 +117,6 @@
 <li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
@@ -260,10 +257,13 @@ arguments:</p>
 <li><code class="docutils literal"><span class="pre">list</span></code> and <code class="docutils literal"><span class="pre">tuple</span></code>: construct a list or tuple from the contents
 of an iterable</li>
 <li><code class="docutils literal"><span class="pre">sum</span></code>: sum up the contents of an iterable</li>
-<li><code class="docutils literal"><span class="pre">any</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> if <code class="docutils literal"><span class="pre">bool(item)</span></code> was True for <em>any</em> item
-in the iterable, and ends the iteration immediately.</li>
-<li><code class="docutils literal"><span class="pre">all</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> only if <code class="docutils literal"><span class="pre">bool(item)</span></code> was True for <em>all
-items</em> in the iterable.</li>
+<li><code class="docutils literal"><span class="pre">sorted</span></code>: return a list of the sorted contents of a function</li>
+<li><code class="docutils literal"><span class="pre">any</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> and ends the iteration immediately if
+<code class="docutils literal"><span class="pre">bool(item)</span></code> was <code class="docutils literal"><span class="pre">True</span></code> for <em>any</em> item in the iterable.</li>
+<li><code class="docutils literal"><span class="pre">all</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> only if <code class="docutils literal"><span class="pre">bool(item)</span></code> was <code class="docutils literal"><span class="pre">True</span></code> for
+<em>all</em> items in the iterable.</li>
+<li><code class="docutils literal"><span class="pre">max</span></code>: return the largest value in an iterable.</li>
+<li><code class="docutils literal"><span class="pre">min</span></code>: return the smalles value in an iterable.</li>
 </ul>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Examples of built-in functions that act on iterables</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;I am a cow&quot;</span><span class="p">)</span>
@@ -272,6 +272,9 @@ items</em> in the iterable.</li>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="mi">6</span>
 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="s2">&quot;gheliabciou&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">]</span>
+
 <span class="c1"># `bool(item)` evalutes to `False` for each of these items</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">any</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">1</span><span class="p">))</span>
 <span class="bp">False</span>
@@ -279,6 +282,12 @@ items</em> in the iterable.</li>
 <span class="c1"># `bool(item)` evalutes to  `True` for each of these items</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">])</span>
 <span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">max</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="mi">9</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="s1">&#39;e&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -420,18 +429,18 @@ function so that we don’t need to initialize and manually increment the
 <p>In general, the <code class="docutils literal"><span class="pre">enumerate</span></code> function accepts an iterable and returns a
 new iterable that produces a tuple of the iteration-count and the
 corresponding item from the original iterable:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">enumerate</span><span class="p">(</span><span class="o">&lt;</span><span class="n">item_0</span><span class="p">,</span> <span class="n">item_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">item_n</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">::</span> <span class="o">&lt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">item_0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">item_1</span><span class="p">),</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">item_n</span><span class="p">)</span><span class="o">&gt;</span>
-
-<span class="o">&lt;&gt;</span> <span class="n">represents</span> <span class="nb">any</span> <span class="n">iterable</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">etc</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">enumerate</span><span class="p">(</span><span class="o">&lt;</span><span class="n">item_0</span><span class="p">,</span> <span class="n">item_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">item_n</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="c1"># generates: (0, item_0).. (1, item_1).. ... (n, item_n)&gt;</span>
 </pre></div>
 </div>
+<p>&lt;&gt; represents any iterable (list, tuple, string, etc)</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p class="last">The built-in
 <a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a>
-function should be used (in conjuction with iterator unpacking) whenever
-it is necessary to track the iteration count of a for-loop. It is
-valuable to use this in conjunction with tuple unpacking.</p>
+function should be used (in conjunction with iterator unpacking)
+whenever it is necessary to track the iteration count of a for-loop. It
+is valuable to use this in conjunction with tuple unpacking.</p>
 </div>
 <hr class="docutils" />
 <p><strong>Reading Comprehension: enumerate</strong> Use the iterable <code class="docutils literal"><span class="pre">&quot;abcd&quot;</span></code>, the

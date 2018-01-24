@@ -98,11 +98,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Python Object Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html#The-None-Type">The None-Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">For-Loops and While-Loops</a><ul>
@@ -119,7 +117,6 @@
 <li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Functions.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
@@ -229,19 +226,10 @@
 <div class="section" id="For-Loops-and-While-Loops">
 <h1>For-Loops and While-Loops<a class="headerlink" href="#For-Loops-and-While-Loops" title="Permalink to this headline">¶</a></h1>
 <p>In this section, we will introduce the essential “for-loop” contol flow
-paradigm along with the formal definition of an “iterable”.
-Additionally, we will encounter some of the most essential features of
-Python that sets it apart as a language that is both easy to read and
-write. These include:</p>
-<ul class="simple">
-<li>iterable unpacking</li>
-<li>iterable enumerations</li>
-<li>generators</li>
-<li>list comprehensions</li>
-</ul>
-<p>The utility of these items cannot be understated. Moving forward, you
-will likely find use for these concepts in nearly every piece of Python
-code that you write!</p>
+paradigm along with the formal definition of an “iterable”. The utility
+of these items cannot be understated. Moving forward, you will likely
+find use for these concepts in nearly every piece of Python code that
+you write!</p>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
 <p class="last">There are reading-comprehension exercises included throughout the text.
@@ -382,11 +370,12 @@ restart your kernel.</p>
 list to the end of it. Do this until the last value in <code class="docutils literal"><span class="pre">x</span></code> is at least
 100. Use a while-loop.</p>
 <p>If you start with <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[1]</span></code>, then by the end of your while-loop <code class="docutils literal"><span class="pre">x</span></code>
-should be <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">8,</span> <span class="pre">16,</span> <span class="pre">32,</span> <span class="pre">64,</span> <span class="pre">128]</span></code>. ***</p>
+should be <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">8,</span> <span class="pre">16,</span> <span class="pre">32,</span> <span class="pre">64,</span> <span class="pre">128]</span></code>.</p>
 </div>
+<hr class="docutils" />
 <div class="section" id="break,-continue,-&amp;-else-clauses-on-loops">
 <h2><code class="docutils literal"><span class="pre">break</span></code>, <code class="docutils literal"><span class="pre">continue</span></code>, &amp; <code class="docutils literal"><span class="pre">else</span></code> clauses on loops<a class="headerlink" href="#break,-continue,-&-else-clauses-on-loops" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">conitnue</span></code> and <code class="docutils literal"><span class="pre">break</span></code> statements are to be used within the
+<p>The <code class="docutils literal"><span class="pre">continue</span></code> and <code class="docutils literal"><span class="pre">break</span></code> statements are to be used within the
 bodies of both for-loops and while-loops. They provide added means for
 “short-circuiting” or prematurely exiting a given loop, respectively.</p>
 <p>The <code class="docutils literal"><span class="pre">break</span></code> statement can be used within the body of a for-loop, or
@@ -422,7 +411,7 @@ else-statement will be executed <em>only if the loop was not exited via a
 <span class="k">if</span> <span class="n">you</span> <span class="n">are</span> <span class="n">reading</span> <span class="n">this</span><span class="p">,</span> <span class="n">then</span> <span class="n">the</span> <span class="n">loop</span> <span class="n">completed</span> <span class="n">without</span> <span class="n">a</span> <span class="s1">&#39;break&#39;</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">continue</span></code> statement, when encountered, causes the loop-statment
+<p>The <code class="docutils literal"><span class="pre">continue</span></code> statement, when encountered, causes the loop-statement
 to be revisited immediately.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>

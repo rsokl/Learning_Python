@@ -104,12 +104,12 @@
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Conditional Statements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Comparison-Operations">Comparison Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Testing-for-Membership-in-Collections:-in-and-not-in">Testing for Membership in Collections: <code class="docutils literal"><span class="pre">in</span></code> and <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bool-and-Truth-Values-of-Non-Boolean-Objects"><code class="docutils literal"><span class="pre">bool</span></code> and Truth Values of Non-Boolean Objects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#if,-else,-and-elif"><code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and <code class="docutils literal"><span class="pre">elif</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Pitfall:-Variable-Assignment-in-Conditional-Contexts">Pitfall: Variable Assignment in Conditional Contexts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Inline-if-else-statements">Inline if-else statements</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
@@ -225,6 +225,12 @@
 </style>
 <div class="section" id="Conditional-Statements">
 <h1>Conditional Statements<a class="headerlink" href="#Conditional-Statements" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">There are reading-comprehension exercises included throughout the text.
+These are meant to help you put your reading to practice. Solutions for
+the exercises are included at the bottom of this page.</p>
+</div>
 <p>In this section, we will be introduced to the <code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and
 <code class="docutils literal"><span class="pre">elif</span></code> statements. These allow you to specify that blocks of code are
 to be executed only if specified conditions are found to be true, or
@@ -293,23 +299,39 @@ comparisons:</p>
 <span class="go">False</span>
 </pre></div>
 </div>
+<p>Whereas <code class="docutils literal"><span class="pre">==</span></code> checks to see if two objects have the same value, the
+<code class="docutils literal"><span class="pre">is</span></code> operator checks to see if two objects are actually the <em>same</em>
+object. For example, creating two lists with the same contents produces
+two <em>distinct</em> lists, that have the same “value”:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `==` vs `is`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
+<span class="bp">True</span>
+
+<span class="c1"># `x` and `y` reference equivalent, but distinct lists</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">y</span>
+<span class="bp">False</span>
+</pre></div>
 </div>
-<div class="section" id="Testing-for-Membership-in-Collections:-in-and-not-in">
-<h2>Testing for Membership in Collections: <code class="docutils literal"><span class="pre">in</span></code> and <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code><a class="headerlink" href="#Testing-for-Membership-in-Collections:-in-and-not-in" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">in</span></code> and <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code> statements are a built-in operator for
-<em>testing for membership in a collection of items</em>. For example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>      <span class="c1"># test for membership in a list</span>
+<p>Thus the <code class="docutils literal"><span class="pre">is</span></code> operator is most commonly used to check if a variable
+references the <code class="docutils literal"><span class="pre">None</span></code> object, or either of the boolean objects:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span>
 <span class="go">True</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># test for membership in a tuple</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="s2">&quot;apple&quot;</span> <span class="c1"># test for membership in a string</span>
+<span class="go"># (2 &lt; 0) returns the object `False`</span>
+<span class="go"># thus this becomes: `False is False`</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">False</span>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>Whenever possible, Python uses efficient algorithms for testing
-membership, as invoked by <code class="docutils literal"><span class="pre">in</span></code> and <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code>.</p>
+<p>Use <code class="docutils literal"><span class="pre">is</span> <span class="pre">not</span></code> to check if two objects are distinct:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="bool-and-Truth-Values-of-Non-Boolean-Objects">
 <h2><code class="docutils literal"><span class="pre">bool</span></code> and Truth Values of Non-Boolean Objects<a class="headerlink" href="#bool-and-Truth-Values-of-Non-Boolean-Objects" title="Permalink to this headline">¶</a></h2>
@@ -391,8 +413,23 @@ to various non-boolean objects. For instance, <code class="docutils literal"><sp
 <div class="section" id="if,-else,-and-elif">
 <h2><code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and <code class="docutils literal"><span class="pre">elif</span></code><a class="headerlink" href="#if,-else,-and-elif" title="Permalink to this headline">¶</a></h2>
 <p>We now introduce the simple, but powerful <code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and <code class="docutils literal"><span class="pre">elif</span></code>
-conditional statements. The following pseudo-code demonstrates their
-general usage:</p>
+conditional statements. This will allow us to create simple branches in
+our code. For instance, suppose you are writing code for a video game,
+and you want to update a character’s status based on her/his number of
+health-points (an integer). The following code is representative of
+this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">num_health</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;good&quot;</span>
+<span class="k">elif</span> <span class="n">num_health</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;okay&quot;</span>
+<span class="k">elif</span> <span class="n">num_health</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;danger&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;dead&quot;</span>
+</pre></div>
+</div>
+<p>The following pseudo-code demonstrates their general template for
+conditional statements:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">expression_1</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="n">the</span> <span class="n">code</span> <span class="n">within</span> <span class="n">this</span> <span class="n">indented</span> <span class="n">block</span> <span class="ow">is</span> <span class="n">executed</span> <span class="k">if</span><span class="o">..</span>
     <span class="o">-</span> <span class="nb">bool</span><span class="p">(</span><span class="o">&lt;</span><span class="n">expression_1</span><span class="o">&gt;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
@@ -418,13 +455,19 @@ general usage:</p>
 <p>In practice this can look like:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
-<span class="k">if</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  <span class="c1"># bool(3 &lt; 2) returns False</span>
+<span class="k">if</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># bool(3 &lt; 2) returns False, this code</span>
+    <span class="c1"># block is skipped</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;`x` has more than three items in it&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="c1"># bool(len(x) == 2) returns True</span>
+<span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="c1"># bool(len(x) == 2) returns True</span>
+    <span class="c1"># this code block is executed</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;`x` has two items in it&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="c1"># this statement is never reached</span>
+<span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="c1"># this statement is never reached</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;`x` has one items in it&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>           <span class="c1"># this statement is never reached</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># this statement is never reached</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;`x` is an empty list&quot;</span><span class="p">)</span>
 
 <span class="s2">&quot;`x` has two items in it&quot;</span>
@@ -442,23 +485,30 @@ clause. <code class="docutils literal"><span class="pre">else</span></code> and 
 <span class="c1"># x is now 1</span>
 </pre></div>
 </div>
-<div class="section" id="Pitfall:-Variable-Assignment-in-Conditional-Contexts">
-<h3>Pitfall: Variable Assignment in Conditional Contexts<a class="headerlink" href="#Pitfall:-Variable-Assignment-in-Conditional-Contexts" title="Permalink to this headline">¶</a></h3>
-<p>It is worth pointing out a “dangerous” code design pattern, which is to
-assign a variable conditionally. Take the following code for example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># assume x and y have not yet been defined</span>
-<span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
+<hr class="docutils" />
+<p><strong>Reading Comprehension: Conditional statements</strong></p>
+<ol class="arabic simple">
+<li>Assume <code class="docutils literal"><span class="pre">my_list</span></code> is a list. Given the following code:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">first_item</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="k">if</span> <span class="n">my_list</span><span class="p">:</span>
+    <span class="n">first_item</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Any code following this “if-else” block is in a perilous state: <code class="docutils literal"><span class="pre">y</span></code> is
-never defined if <code class="docutils literal"><span class="pre">z</span></code> is positive, in which case any subsequent code
-referencing <code class="docutils literal"><span class="pre">y</span></code> will raise an error. Similarly, <code class="docutils literal"><span class="pre">x</span></code> will never be
-defined if <code class="docutils literal"><span class="pre">z</span></code> is negative. <em>Never define a variable conditionally</em>.</p>
+<p>What will happen if <code class="docutils literal"><span class="pre">my_list</span></code> is <code class="docutils literal"><span class="pre">[]</span></code>? Will <code class="docutils literal"><span class="pre">IndexError</span></code> be
+raised? What will <code class="docutils literal"><span class="pre">first_item</span></code> be?</p>
+<p>2. The variable <code class="docutils literal"><span class="pre">my_file</span></code> is a string like <code class="docutils literal"><span class="pre">&quot;code.py&quot;</span></code>,
+<code class="docutils literal"><span class="pre">&quot;my_doc.txt&quot;</span></code>, etc, where a period denotes the end of the file-name
+and the beginning of the file-type. <code class="docutils literal"><span class="pre">my_file</span></code> will have at most one
+period in it. Write code that creates a variable which stores only the
+filename. Accommodate cases where <code class="docutils literal"><span class="pre">my_file</span></code> does <em>not</em> include a
+file-type.</p>
+<p>That is, <code class="docutils literal"><span class="pre">&quot;code.py&quot;</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">&quot;code&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;doc2.pdf&quot;</span></code>
+<span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">&quot;doc2&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;hello_world&quot;</span></code> <span class="math">\(\rightarrow\)</span>
+<code class="docutils literal"><span class="pre">&quot;hello_world&quot;</span></code> ***</p>
 <div class="section" id="Inline-if-else-statements">
-<h4>Inline if-else statements<a class="headerlink" href="#Inline-if-else-statements" title="Permalink to this headline">¶</a></h4>
+<h3>Inline if-else statements<a class="headerlink" href="#Inline-if-else-statements" title="Permalink to this headline">¶</a></h3>
 <p>Python supports a syntax for writing a restricted version of if-else
 statements in a single line. The following code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
@@ -490,6 +540,11 @@ side of an assignment statement, and can be quite convenient:</p>
 <span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;a&quot;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;b&quot;</span>
+<span class="go">&quot;b</span>
+</pre></div>
+</div>
 <p>We will see this syntax shine when we learn about comprehension
 statements. That being said, this syntax should be used judiciously. For
 example, inline if-else statements ought not be used in arithmetic
@@ -499,6 +554,24 @@ expressions, for therein lies madness:</p>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
+<h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
+<p><strong>Conditional statements</strong></p>
+<p>1. If <code class="docutils literal"><span class="pre">my_list</span></code> is <code class="docutils literal"><span class="pre">[]</span></code>, then <code class="docutils literal"><span class="pre">bool(my_list)</span></code> will return
+<code class="docutils literal"><span class="pre">False</span></code>, and the code block will be skipped. Thus <code class="docutils literal"><span class="pre">first_item</span></code> will
+be <code class="docutils literal"><span class="pre">None</span></code>.</p>
+<p>2. First, check to see if <code class="docutils literal"><span class="pre">.</span></code> is even contained in <code class="docutils literal"><span class="pre">my_file</span></code>. If it
+is, find its index-position, and slice the string up to that index.
+Otherwise, <code class="docutils literal"><span class="pre">my_file</span></code> is already the file name.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">my_file</span> <span class="o">=</span> <span class="s2">&quot;code.pdf&quot;</span>
+
+<span class="k">if</span> <span class="s2">&quot;.&quot;</span> <span class="ow">in</span> <span class="n">my_file</span><span class="p">:</span>
+    <span class="n">dot_index</span> <span class="o">=</span> <span class="n">my_file</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">my_file</span><span class="p">[:</span><span class="n">dot_index</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">my_file</span>
+</pre></div>
 </div>
 </div>
 </div>
