@@ -225,7 +225,7 @@
 </style>
 <div class="section" id="For-Loops-and-While-Loops">
 <h1>For-Loops and While-Loops<a class="headerlink" href="#For-Loops-and-While-Loops" title="Permalink to this headline">¶</a></h1>
-<p>In this section, we will introduce the essential “for-loop” contol flow
+<p>In this section, we will introduce the essential “for-loop” control flow
 paradigm along with the formal definition of an “iterable”. The utility
 of these items cannot be understated. Moving forward, you will likely
 find use for these concepts in nearly every piece of Python code that
@@ -239,8 +239,15 @@ the exercises are included at the bottom of this page.</p>
 <div class="section" id="For-Loops">
 <h2>For-Loops<a class="headerlink" href="#For-Loops" title="Permalink to this headline">¶</a></h2>
 <p>A “for-loop” allows you to iterate over a collection of items, and
-execute a block of code once for each iteration. The general syntax for
-a “for-loop” is:</p>
+execute a block of code once for each iteration. For example, the
+following code will sum up all the positive numbers in a tuple:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mf">22.0</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">num</span>
+</pre></div>
+</div>
+<p>The general syntax for a “for-loop” is:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">&lt;</span><span class="n">var</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterable</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="n">block</span> <span class="n">of</span> <span class="n">code</span>
 </pre></div>
@@ -302,17 +309,14 @@ iterable, the iterate-variable is never defined:</p>
 even defined. Thus the code enclosed within the for-loop is never
 reached, and the subsequent <code class="docutils literal"><span class="pre">print(x)</span></code> statement will raise a
 <code class="docutils literal"><span class="pre">NameError</span></code>, because <code class="docutils literal"><span class="pre">x</span></code> was never defined!</p>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: A basic for-loop</strong></p>
-<p>Write a for-loop that:</p>
-<ul class="simple">
-<li>iterates over the iterable: <code class="docutils literal"><span class="pre">&quot;abcdefghij&quot;</span></code></li>
-<li>uses an iterate-variable named <code class="docutils literal"><span class="pre">letter</span></code></li>
-<li>prints <code class="docutils literal"><span class="pre">letter</span></code> if it is a vowel (a, e, i, o, or u)</li>
-</ul>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">There are reading-comprehension exercises included throughout the text.
+These are meant to help you put your reading to practice. Solutions for
+the exercises are included at the bottom of this page.</p>
 </div>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="While-Loops">
 <h2>While-Loops<a class="headerlink" href="#While-Loops" title="Permalink to this headline">¶</a></h2>
 <p>A “while-loop” allows you to repeat a block of code until a condition is

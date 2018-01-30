@@ -226,7 +226,7 @@
 <div class="section" id="Iterables">
 <h1>Iterables<a class="headerlink" href="#Iterables" title="Permalink to this headline">¶</a></h1>
 <p>Our encounter with for-loops introduced the term <em>iterable</em> - an object
-that can be “looped over” in a for-loop.</p>
+that can be “iterated over”, such as in a for-loop.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Definition</strong>:</p>
 <p class="last">An <strong>iterable</strong> is any Python object capable of returning its members
@@ -240,8 +240,8 @@ are iterables as well. It is also possible to have an iterable that
 doesn’t ever store all of its members in memory at once. We dedicate an
 entire section to generators, a special type of iterator, because they
 are so useful for writing efficient code.</p>
-<p>The rest of this section is dedicated to two useful ways to enrich your
-usage of iterables.</p>
+<p>The rest of this section is dedicated to working with iterables in your
+code.</p>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
 <p class="last">“Under the hood”, an iterable is any Python object with an
@@ -263,7 +263,7 @@ of an iterable</li>
 <li><code class="docutils literal"><span class="pre">all</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> only if <code class="docutils literal"><span class="pre">bool(item)</span></code> was <code class="docutils literal"><span class="pre">True</span></code> for
 <em>all</em> items in the iterable.</li>
 <li><code class="docutils literal"><span class="pre">max</span></code>: return the largest value in an iterable.</li>
-<li><code class="docutils literal"><span class="pre">min</span></code>: return the smalles value in an iterable.</li>
+<li><code class="docutils literal"><span class="pre">min</span></code>: return the smallest value in an iterable.</li>
 </ul>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Examples of built-in functions that act on iterables</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;I am a cow&quot;</span><span class="p">)</span>
@@ -275,15 +275,15 @@ of an iterable</li>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="s2">&quot;gheliabciou&quot;</span><span class="p">)</span>
 <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">]</span>
 
-<span class="c1"># `bool(item)` evalutes to `False` for each of these items</span>
+<span class="c1"># `bool(item)` evaluates to `False` for each of these items</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">any</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">1</span><span class="p">))</span>
 <span class="bp">False</span>
 
-<span class="c1"># `bool(item)` evalutes to  `True` for each of these items</span>
+<span class="c1"># `bool(item)` evaluates to  `True` for each of these items</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">])</span>
 <span class="bp">True</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">max</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">max</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 <span class="mi">9</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
@@ -353,13 +353,14 @@ grade-value to our class statistics), thus we will need to index into
 <code class="docutils literal"><span class="pre">entry</span></code> twice to assign its contents to two separate variables.
 However, because each iteration of the for-loop involves an assignment
 of the form <code class="docutils literal"><span class="pre">entry</span> <span class="pre">=</span> <span class="pre">(&quot;Ashley&quot;,</span> <span class="pre">93)</span></code>, we can make use of iterable
-unpacking!</p>
+unpacking! That is, we can replace <code class="docutils literal"><span class="pre">entry</span></code> with <code class="docutils literal"><span class="pre">name,</span> <span class="pre">grade</span></code> and
+Python will intuitively do an unpacking upon each assignment of the
+for-loop.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># The first iteration of this for-loop performs</span>
 <span class="c1"># the unpacking assignment: name, grade = (&quot;Ashley&quot;, 93)</span>
+<span class="c1"># then the second iteration: name, grade = (&quot;Brad&quot;, 95)</span>
+<span class="c1"># and so-on</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">grade</span> <span class="ow">in</span> <span class="n">grades</span><span class="p">:</span>
-    <span class="c1"># name = &quot;Ashley&quot;, grade = 93</span>
-    <span class="c1"># name = &quot;Brad&quot;,   grade = 95</span>
-    <span class="c1"># name = &quot;Cassie&quot;, grade = 84</span>
     <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>

@@ -117,6 +117,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Specifying-the-axis-Keyword-Argument-in-Sequential-NumPy-Functions">Specifying the <code class="docutils literal"><span class="pre">axis</span></code> Keyword Argument in Sequential NumPy-Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#Linear-Algebra">Linear Algebra</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Conclusion">Conclusion</a></li>
 </ul>
 </li>
@@ -1592,7 +1593,7 @@ function is applied elementwise on the array, with each application
 filling one of the function’s arguments, and the single scalar provided
 everywhere as the other operand. This matches exactly the behavior seen
 in traditional linear algebra.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>  <span class="c1"># convenient notation for calling `np.multiply(2, x)`</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>  <span class="c1"># convenient notation for calling `np.multiply(3, x)`</span>
 <span class="go">array([ 0.,  3.,  6.])</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>  <span class="c1"># convenient notation for calling `np.power(x, 2)`</span>
@@ -1849,10 +1850,20 @@ removed.</p>
 </div>
 </div>
 </div>
+<div class="section" id="Linear-Algebra">
+<h2>Linear Algebra<a class="headerlink" href="#Linear-Algebra" title="Permalink to this headline">¶</a></h2>
+<p>Lastly, we note that NumPy provides a suite of functions that can
+perform computations and routines relevant to linear algebra. Included
+here are functions for performing matrix products and tensor products,
+solving eigenvalue problems, inverting matrices, and computing vector
+normalizations. Please refer to the <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.linalg.html">official NumPy
+documentation</a>
+for a full listing of these functions.</p>
+</div>
 <div class="section" id="Conclusion">
 <h2>Conclusion<a class="headerlink" href="#Conclusion" title="Permalink to this headline">¶</a></h2>
 <p>NumPy provides users with a wide variety of functions capable of
-performing operations on arrays of data. It’s use of <strong>vectorization</strong>
+performing operations on arrays of data. Its use of <strong>vectorization</strong>
 makes these functions incredibly fast, when compared to the analogous
 computations performed in pure Python. Although the preceding discussion
 laid out a substantial number of rules for how these functions work, one

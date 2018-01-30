@@ -114,7 +114,13 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Inline-Functions">Inline Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Arguments">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Arguments">Arguments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Specifying-Arguments-by-Position">Specifying Arguments by Position</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Specifying-Arguments-by-Name">Specifying Arguments by Name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Default-Valued-Arguments">Default-Valued Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Accommodating-an-Arbitrary-Number-of-Positional-Arguments">Accommodating an Arbitrary Number of Positional Arguments</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#Functions-are-Objects">Functions are Objects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
@@ -437,6 +443,8 @@ input arguments to a function, <code class="docutils literal"><span class="pre">
 </pre></div>
 </div>
 <p>This function can then be passed its arguments in several way:</p>
+<div class="section" id="Specifying-Arguments-by-Position">
+<h3>Specifying Arguments by Position<a class="headerlink" href="#Specifying-Arguments-by-Position" title="Permalink to this headline">¶</a></h3>
 <p>The objects passed to <code class="docutils literal"><span class="pre">is_bounded</span></code> will be assigned to its input
 variables based on their positions. That is, <code class="docutils literal"><span class="pre">is_bounded(3,</span> <span class="pre">2,</span> <span class="pre">4)</span></code>
 will assign <code class="docutils literal"><span class="pre">x=3</span></code>, <code class="docutils literal"><span class="pre">lower=2</span></code>, and <code class="docutils literal"><span class="pre">upper=4</span></code>, in accordance with
@@ -456,6 +464,9 @@ the positional ordering of the function’s input arguments:</p>
 <span class="n">is_bounded</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="Specifying-Arguments-by-Name">
+<h3>Specifying Arguments by Name<a class="headerlink" href="#Specifying-Arguments-by-Name" title="Permalink to this headline">¶</a></h3>
 <p>You can provide explicit names when specifying the inputs to a function,
 in which case ordering does not matter. This is very nice for writing
 clear and flexible code:</p>
@@ -474,6 +485,9 @@ inputs first:</p>
 <span class="bp">True</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="Default-Valued-Arguments">
+<h3>Default-Valued Arguments<a class="headerlink" href="#Default-Valued-Arguments" title="Permalink to this headline">¶</a></h3>
 <p>You can specify default values for input arguments to a function. Their
 default values are utilized if a user does not specify these inputs when
 calling the function. Recall our <code class="docutils literal"><span class="pre">count_vowels</span></code> function. Suppose we
@@ -526,7 +540,10 @@ arguments, <code class="docutils literal"><span class="pre">x</span></code> and 
 the <code class="docutils literal"><span class="pre">mode</span></code>. Have the function return <code class="docutils literal"><span class="pre">None</span></code> if <code class="docutils literal"><span class="pre">mode</span></code> is neither
 <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;min&quot;</span></code>.</p>
 <p>Include a descriptive doc-string.</p>
+</div>
 <hr class="docutils" />
+<div class="section" id="Accommodating-an-Arbitrary-Number-of-Positional-Arguments">
+<h3>Accommodating an Arbitrary Number of Positional Arguments<a class="headerlink" href="#Accommodating-an-Arbitrary-Number-of-Positional-Arguments" title="Permalink to this headline">¶</a></h3>
 <p>Python provides us with a syntax for defining a function, which can be
 called with an arbitrary number of positional arguments. This is
 signaled by the syntax <code class="docutils literal"><span class="pre">def</span> <span class="pre">f(*&lt;var_name&gt;)</span></code>.</p>
@@ -563,19 +580,15 @@ called by name</em>:</p>
     <span class="k">return</span> <span class="bp">None</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># `y` must be specified by name</span>
-</pre></div>
-</div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">1</span>
+<span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">1</span>
 <span class="n">seq</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">5</span>
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>  <span class="c1"># no additional positional arguments are passed</span>
-</pre></div>
-</div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;cat&quot;</span>
-<span class="n">seq</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">()</span>
-<span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;dog&quot;</span>
+<span class="go">x   is:  &quot;cat&quot;</span>
+<span class="go">seq is:  ()</span>
+<span class="go">y   is:  &quot;dog&quot;</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -586,6 +599,7 @@ to the function. Thus <code class="docutils literal"><span class="pre">mean(1,</
 <span class="math">\(\frac{1 + 2 + 3}{3} = 2.0\)</span></p>
 <p>This function should return <code class="docutils literal"><span class="pre">0.</span></code> if no arguments are passed to it. Be
 sure to test your function, and include a docstring.</p>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="Functions-are-Objects">

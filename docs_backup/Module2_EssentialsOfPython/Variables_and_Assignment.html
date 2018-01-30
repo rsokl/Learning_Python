@@ -102,11 +102,11 @@
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Variables &amp; Assignment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Valid-Names-for-Variables">Valid Names for Variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Referencing-a-“Mutable”-Object-with-Multiple-Variables">Referencing a “Mutable” Object with Multiple Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Referencing-a-Mutable-Object-with-Multiple-Variables">Referencing a Mutable Object with Multiple Variables</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Reading-Comprehension:-Does-slicing-a-list-produce-a-reference-to-that-list?">Reading Comprehension: Does slicing a list produce a reference to that list?</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Dealing-with-Immutable-Objects">Dealing with Immutable Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Referencing-an-Immutable-Object-with-Multiple-Variables">Referencing an Immutable Object with Multiple Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -225,6 +225,12 @@
 </style>
 <div class="section" id="Variables-&amp;-Assignment">
 <h1>Variables &amp; Assignment<a class="headerlink" href="#Variables-&-Assignment" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p class="last">There are reading-comprehension exercises included throughout the text.
+These are meant to help you put your reading to practice. Solutions for
+the exercises are included at the bottom of this page.</p>
+</div>
 <p>Variables permit us to write code that is flexible and amendable to
 repurpose. Suppose we want write code that logs a student’s grade on an
 exam. The logic behind this process should not depend on whether we are
@@ -283,8 +289,8 @@ names:</p>
 <li>try, except, finally</li>
 </ul>
 </div>
-<div class="section" id="Referencing-a-“Mutable”-Object-with-Multiple-Variables">
-<h2>Referencing a “Mutable” Object with Multiple Variables<a class="headerlink" href="#Referencing-a-“Mutable”-Object-with-Multiple-Variables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Referencing-a-Mutable-Object-with-Multiple-Variables">
+<h2>Referencing a Mutable Object with Multiple Variables<a class="headerlink" href="#Referencing-a-Mutable-Object-with-Multiple-Variables" title="Permalink to this headline">¶</a></h2>
 <p>It is possible to assign variables to other, existing variables. Doing
 so will cause the variables to reference the same object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list1` references [1, 2, 3]</span>
@@ -341,8 +347,8 @@ investigate this.</p>
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="Dealing-with-Immutable-Objects">
-<h2>Dealing with Immutable Objects<a class="headerlink" href="#Dealing-with-Immutable-Objects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Referencing-an-Immutable-Object-with-Multiple-Variables">
+<h2>Referencing an Immutable Object with Multiple Variables<a class="headerlink" href="#Referencing-an-Immutable-Object-with-Multiple-Variables" title="Permalink to this headline">¶</a></h2>
 <p>A <em>major exception</em> to the preceding discussion of referencing a single
 object with multiple variables is when one is working with an
 <strong>immutable</strong> object.</p>
@@ -397,10 +403,10 @@ dictionaries and sets.</p>
 <hr class="docutils" />
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
-<p><strong>Does slicing a list produce a reference to that list?: Answer</strong> Based
-on the following behavior, we can conclude that slicing a list does
-<strong>not</strong> produce a reference to the original list. Rather, slicing a list
-produces a copy of the appropriate subsequence of the list:</p>
+<p><strong>Does slicing a list produce a reference to that list?</strong></p>
+<p>Based on the following behavior, we can conclude that slicing a list
+does <strong>not</strong> produce a reference to the original list. Rather, slicing a
+list produces a copy of the appropriate subsequence of the list:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
