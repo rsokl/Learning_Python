@@ -374,8 +374,8 @@ floating-point number</em> (i.e.&nbsp;a number that includes a decimal point):</
 <p>The <code class="docutils literal"><span class="pre">//</span></code> operator is known as the “floor-divide” operator: it performs
 division between two numbers and returns the result as an integer by
 discarding any decimal-places for that number (thus returning the
-“floor” of that number. This can be used to perform the integer-division
-traditionally used in other programming languages:</p>
+“floor” of that number). This can be used to perform the
+integer-division traditionally used in other programming languages:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># floor-division</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">//</span> <span class="mi">3</span>  <span class="c1"># 0.3333.. -&gt; 0</span>
 <span class="mi">0</span>
@@ -388,7 +388,7 @@ traditionally used in other programming languages:</p>
 <p>The modulo operator, <code class="docutils literal"><span class="pre">%</span></code>, is not commonly seen in mathematics
 textbooks. It is, however, a very useful operation to have at our
 disposal. <code class="docutils literal"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code> (said as x “mod” y in programmer’s jargon) returns
-the <em>fractional remainder</em> of <code class="docutils literal"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code>. For example:</p>
+the <em>remainder</em> of <code class="docutils literal"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code>. For example:</p>
 <ul class="simple">
 <li><span class="math">\(\frac{3}{2} = 1 + \frac{1}{2}\)</span>. 2 “goes into” 3 one time,
 leaving a remainder of 1. Thus <code class="docutils literal"><span class="pre">3</span> <span class="pre">%</span> <span class="pre">2</span></code> returns <code class="docutils literal"><span class="pre">1</span></code></li>
@@ -682,10 +682,10 @@ for all the arithmetic operations? Determine this by trial and error.</p>
 <hr class="docutils" />
 <div class="section" id="The-Boolean-Type">
 <h2>The Boolean Type<a class="headerlink" href="#The-Boolean-Type" title="Permalink to this headline">¶</a></h2>
-<p>There are two boolean-type objects <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code>. We have
-already seen that the <code class="docutils literal"><span class="pre">isinstance</span></code> function either returns <code class="docutils literal"><span class="pre">True</span></code> or
-<code class="docutils literal"><span class="pre">False</span></code>, as a given object either is or isn’t and instance of a
-specific type.</p>
+<p>There are two boolean-type objects <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code>; they belong
+to the built-in type <code class="docutils literal"><span class="pre">bool</span></code>. We have already seen that the
+<code class="docutils literal"><span class="pre">isinstance</span></code> function either returns <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code>, as a given
+object either is or isn’t and instance of a specific type.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># the two boolean-objects: `True` and `False`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 <span class="nb">bool</span>
@@ -721,12 +721,16 @@ in a single line:</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>Comparison statements from basic mathematics naturally booleans.</p>
+<p>Comparison statements used in basic mathematics naturally return boolean
+objects.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span>
 <span class="go">True</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="mf">10.5</span> <span class="o">&lt;</span> <span class="mi">0</span>
 <span class="go">False</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">4</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">bool</span></code> type has additional utilities, which will be discussed in
@@ -757,7 +761,7 @@ object or a float-type object.</p>
 <p>As such, instead of checking if an object belongs to NoneType, you
 should simply check if the object is <code class="docutils literal"><span class="pre">None</span></code>. Python reserves <code class="docutils literal"><span class="pre">is</span></code> as
 a operation that checks if two objects are identical. This is different
-that <code class="docutils literal"><span class="pre">==</span></code>, which checks if two objects are associated with the same
+than <code class="docutils literal"><span class="pre">==</span></code>, which checks if two objects are associated with the same
 value or state.:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Check if an object &quot;is&quot; None, instead</span>
 <span class="c1"># of checking if it is of NoneType</span>
@@ -981,7 +985,7 @@ construct the list with the resulting objects.</p>
 <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>The built-in <code class="docutils literal"><span class="pre">list</span></code> type can be used to convert over types of
+<p>The built-in <code class="docutils literal"><span class="pre">list</span></code> type can be used to convert other types of
 sequences (and more generally, any <em>iterable</em> object, which we will
 discuss later) into a list:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `list` forms a list out of the contents of other sequences</span>
@@ -1091,40 +1095,9 @@ boolean, and a string, in that order. Then, add two more entries to the
 end of the list: a float and a complex number.</p>
 <p>3. Alphabetize the list of names:
 <code class="docutils literal"><span class="pre">[&quot;Jane&quot;,</span> <span class="pre">&quot;Adam&quot;,</span> <span class="pre">&quot;Ryan&quot;,</span> <span class="pre">&quot;Bob&quot;,</span> <span class="pre">&quot;Zordon&quot;,</span> <span class="pre">&quot;Jack&quot;,</span> <span class="pre">&quot;Jackenzie&quot;]</span></code>.</p>
+</div>
+</div>
 <hr class="docutils" />
-<p><strong>Lists</strong></p>
-<ol class="arabic simple">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="bp">None</span><span class="p">]</span>
-<span class="go">[None]</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span>
-<span class="go">[4, False, &#39;moo&#39;, 3.14, (9-2j)]</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="3">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span> <span class="s2">&quot;Adam&quot;</span><span class="p">,</span> <span class="s2">&quot;Ryan&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Zordon&quot;</span><span class="p">,</span> <span class="s2">&quot;Jack&quot;</span><span class="p">,</span> <span class="s2">&quot;Jackenzie&quot;</span><span class="p">]</span>
-
-<span class="go"># The documentation for `sort` says that the sorting happens &quot;in-place&quot;. This</span>
-<span class="go"># means that the original list is replaced by the sorted list. The alternative</span>
-<span class="go"># would be that `sort` returns a new, sorted list, without changing the list</span>
-<span class="go"># assigned to `names`.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">names</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">names</span>
-<span class="go">[&#39;Adam&#39;, &#39;Bob&#39;, &#39;Jack&#39;, &#39;Jackenzie&#39;, &#39;Jane&#39;, &#39;Ryan&#39;, &#39;Zordon&#39;]</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="Summary">
 <h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline">¶</a></h2>
 <p>The term “object” is a catch-all in Python, meaning anything that we can
@@ -1297,6 +1270,37 @@ number:</p>
 </ol>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
 <span class="go">&quot;11&quot;</span>
+</pre></div>
+</div>
+<p><strong>Lists</strong></p>
+<ol class="arabic simple">
+<li></li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="bp">None</span><span class="p">]</span>
+<span class="go">[None]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span>
+<span class="go">[4, False, &#39;moo&#39;, 3.14, (9-2j)]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li></li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span> <span class="s2">&quot;Adam&quot;</span><span class="p">,</span> <span class="s2">&quot;Ryan&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Zordon&quot;</span><span class="p">,</span> <span class="s2">&quot;Jack&quot;</span><span class="p">,</span> <span class="s2">&quot;Jackenzie&quot;</span><span class="p">]</span>
+
+<span class="go"># The documentation for `sort` says that the sorting happens &quot;in-place&quot;. This</span>
+<span class="go"># means that the original list is replaced by the sorted list. The alternative</span>
+<span class="go"># would be that `sort` returns a new, sorted list, without changing the list</span>
+<span class="go"># assigned to `names`.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">names</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">names</span>
+<span class="go">[&#39;Adam&#39;, &#39;Bob&#39;, &#39;Jack&#39;, &#39;Jackenzie&#39;, &#39;Jane&#39;, &#39;Ryan&#39;, &#39;Zordon&#39;]</span>
 </pre></div>
 </div>
 </div>

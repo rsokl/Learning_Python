@@ -13,7 +13,7 @@ What this isn't
 ----------------
 This is not even close to being exhaustive treatment of the Python language, and is not sufficient to become a "complete" Python user. But it will hopefully provide a solid enough foundation that acquiring those missing pieces will be relatively easy.
 
-This is also not a deep "Python for Data Science" resource. It will not teach you how to use machine learning and data analysis libraries like sci-kit learn and Pandas, or how to make advanced visualizations. But, it *will* equip you with a deep enough enough understanding of NumPy and concepts like array broadcasting and vectorization, such that picking these libraries up will be relatively simple.
+This is also not a deep "Python for Data Science" resource. It will not teach you how to use machine learning and data analysis libraries like sci-kit learn and Pandas, or how to make advanced visualizations. But, it *will* equip you with a deep enough understanding of NumPy, including concepts like array broadcasting and vectorization. NumPy is such an essential component to doing numerical work in Python that it has deeply influenced essentially all other major STEM-related Python libraries (sci-kit, TensorFlow, PyTorch, Pandas). Understanding NumPy well will make these other libraries much easier to pick up later. 
 
 
 What about Python textbooks?

@@ -432,9 +432,9 @@ solution.</p>
 <div class="section" id="Storing-generators">
 <h3>Storing generators<a class="headerlink" href="#Storing-generators" title="Permalink to this headline">¶</a></h3>
 <p>Just like we saw with the <code class="docutils literal"><span class="pre">range</span></code> generator, defining a generator
-using a comprehension does <em>not</em> perform any computations or consumer
-any memory beyond defining the rules for producing the sequence of data.
-See what happens when we try to print this generator:</p>
+using a comprehension does <em>not</em> perform any computations or consume any
+memory beyond defining the rules for producing the sequence of data. See
+what happens when we try to print this generator:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># will generate 0, 1, 4, 9, 25, ..., 9801</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>

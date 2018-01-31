@@ -168,13 +168,12 @@
     ">>> grades[0] \n",
     "array([ 93, 95])\n",
     "```\n",
-    "This is because NumPy will automatically insert slices for you if you don't provide as many indices as there are dimensions for your array:\n",
+    "This is because NumPy will automatically insert trailing-slices for you if you don't provide as many indices as there are dimensions for your array. `grades[0]` was treated as `grades[0, :]`.\n",
     "\n",
     "<div class=\"alert alert-info\"> \n",
     "Suppose you have an $N$-dimensional array, and only provide $j$ indices for the array; NumPy will automatically insert $N-j$ trailing slices for you. In the case that $N=5$ and $j=3$, `d5_array[0, 0, 0]` is treated as  `d5_array[0, 0, 0, :, :]`\n",
     "</div>\n",
     "\n",
-    "Therefore `grades[0]` was treated as `grades[0, :]`. \n",
     "\n",
     "Thus far, we have discussed some rules for accessing data in arrays, all of which fall into the category that is designated [\"basic indexing\"](https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html#basic-slicing-and-indexing) by the NumPy documentation. We will discuss the details of basic indexing and of [\"advanced indexing\"](https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html#advanced-indexing), in full, in a later section. Note, however, that all of the indexing/slicing reviewed here produces a \"view\" of the original array. That is, *no data is copied* when you index into an array using integer indices and/or slices. Recall that slicing lists and tuples *do* produce copies of the data.\n"
    ]
@@ -269,7 +268,7 @@
     ">>> x = np.array(15.2)\n",
     "```\n",
     "\n",
-    "This is *not* equivalent to a length-1 1D-array: `np.array([15.2])`. According to our definition of dimensionality, *zero* numbers are required to index into a 0-D array, thus you cannot index into it.\n",
+    "This is *not* equivalent to a length-1 1D-array: `np.array([15.2])`. According to our definition of dimensionality, *zero* numbers are required to index into a 0-D array as it is unnecessary to provide an identifier for a standalone number. Thus you cannot index into a 0-D array.\n",
     "```python\n",
     "# you cannot index into a 0-D array\n",
     ">>> x[0]\n",
@@ -322,7 +321,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.3"
+   "version": "3.5.3"
   }
  },
  "nbformat": 4,
