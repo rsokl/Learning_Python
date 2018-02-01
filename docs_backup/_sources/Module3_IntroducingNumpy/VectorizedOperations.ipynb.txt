@@ -115,7 +115,9 @@
     ">>> x = np.array([0., 1., 2.])\n",
     "\n",
     "# produces array([exp(0.), exp(1.), exp(2.)])\n",
-    ">>> np.exp(x)  # x is not overwritten by this\n",
+    "# x is not overwritten by this; a new array\n",
+    "# is created\n",
+    ">>> np.exp(x) \n",
     "array([ 1. ,  2.71828183,  7.3890561 ])\n",
     "```\n",
     "\n",
@@ -157,6 +159,13 @@
     ">>> np.square(x)  # equivalent to: `x**2`\n",
     "array([[ 1,  4],\n",
     "       [ 9, 16]])\n",
+    "```\n",
+    "\n",
+    "Because slicing returns an array, you can utilize these in mathematical operations as well\n",
+    "```python\n",
+    "# square column-0 of `x`\n",
+    ">>> x[:, 0] ** 2\n",
+    "array([1, 9])\n",
     "```"
    ]
   },
@@ -1002,6 +1011,27 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "***\n",
+    "\n",
+    "**Reading Comprehension: Unary Functions**\n",
+    "\n",
+    "Given the 2D array:\n",
+    "```python\n",
+    ">>> x = np.array([[ 0,  1,  2,  3],\n",
+    "                  [ 4,  5,  6,  7],\n",
+    "                  [ 8,  9, 10, 11],\n",
+    "                  [12, 13, 14, 15]])\n",
+    "```\n",
+    "\n",
+    "Take the natural-logarithm of the 1st and 3rd element in the 3rd-row `x`, producing a shape-(2,) result. \n",
+    "\n",
+    "***"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Binary Functions\n",
     "A binary function has the form $f(x,y)$. The arithmetic operations are all binary functions:\n",
     "\n",
@@ -1125,6 +1155,11 @@
     ">>> np.add(x, y)  # equivalent to `x + y`\n",
     "array([[11,  2],\n",
     "       [-1,  4]])\n",
+    "\n",
+    "\n",
+    "# add column-0 of `x` and row-1 of `y`\n",
+    ">>> x[:, 0] + y[1, :]\n",
+    "array([6, 2])\n",
     "```"
    ]
   },
@@ -1139,6 +1174,26 @@
     "Applying a binary NumPy-function, $f(x,y)$, to two same-shape arrays will apply $f(x,y)$ to each of their pairwise elements, producing an array of the same shape as either of the operands.  \n",
     "\n",
     "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "***\n",
+    "\n",
+    "**Reading Comprehension: Binary Functions**\n",
+    "\n",
+    "Given the 2D array:\n",
+    "```python\n",
+    ">>> x = np.array([[ 0,  1,  2,  3],\n",
+    "                  [ 4,  5,  6,  7],\n",
+    "                  [ 8,  9, 10, 11],\n",
+    "                  [12, 13, 14, 15]])\n",
+    "```\n",
+    "\n",
+    "Add the four quadrants of `x`, producing a shape-(2, 2) output. \n",
+    "***"
    ]
   },
   {
@@ -1192,13 +1247,23 @@
    "metadata": {},
    "source": [
     "```python\n",
-    "# example of a binary function operating on a scalar & a 2D array\n",
+    "# examples of a binary function operating on a scalar & an array\n",
     ">>> x = np.array([[10,  2],\n",
     "                  [ 3,  5]])\n",
     "\n",
     ">>> np.maximum(4, x)\n",
     "array([[10,  4],\n",
     "       [ 4,  5]])\n",
+    "\n",
+    ">>> y = np.array([[[ 0,  1,  2,  3,  4,  5,  6,  7],\n",
+    "                   [ 8,  9, 10, 11, 12, 13, 14, 15]],\n",
+    "\n",
+    "                  [[16, 17, 18, 19, 20, 21, 22, 23],\n",
+    "                   [24, 25, 26, 27, 28, 29, 30, 31]]])\n",
+    "\n",
+    ">>> y[0, :, ::2] * -1\n",
+    "array([[  0,  -2,  -4,  -6],\n",
+    "       [ -8, -10, -12, -14]])\n",
     "```"
    ]
   },
@@ -1389,6 +1454,36 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "***\n",
+    "\n",
+    "**Reading Comprehension: Basic Sequential Functions**\n",
+    "\n",
+    "A digital image is simply an array of numbers, which instructs a grid of pixels on a monitor to shine light of specific colors, according to the numerical values in that array. \n",
+    "\n",
+    "An RGB-image can thus be stored as a 3D NumPy array of shape-$(V, H, 3)$. $V$ is the number of pixels along the vertical direction, $H$ is the number of pixels along the horizontal, and the size-3 dimension stores the red, blue, and green color values for a given pixel. Thus a $(32, 32, 3)$ array would be a 32x32 RBG image.\n",
+    "\n",
+    "It is common to work with a collection of images. Suppose we want to store N images in a single array; thus we now consider a 4D shape-$(N, V, H, 3)$ array. \n",
+    "\n",
+    "Let's collect some statistics on a collection of images. For the sake of convenience, let's simply generate a 4D-array of random numbers as a placeholder for real image data. We will generate 100, 32x32 RGB images:\n",
+    "\n",
+    "```python\n",
+    ">>> images = np.random.rand(100, 32, 32, 3)\n",
+    "```\n",
+    "\n",
+    "Now, compute the following:\n",
+    "1. The average 32x32 RGB image.\n",
+    "2. The total sum of all the values in the array.\n",
+    "3. The minimum blue value, respective to each image.\n",
+    "4. The standard deviation among all the RGB values in all the images, respective to each pixel position (thus you should produce a shape-(32, 32) array of values).\n",
+    "5. The maximum red-value in the top-left quadrant, respective to each image.\n",
+    "\n",
+    "***"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Linear Algebra\n",
     "Lastly, we note that NumPy provides a suite of functions that can perform computations and routines relevant to linear algebra. Included here are functions for performing matrix products and tensor products, solving eigenvalue problems, inverting matrices, and computing vector normalizations. Please refer to the [official NumPy documentation](https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.linalg.html) for a full listing of these functions.\n",
     "\n"
@@ -1400,6 +1495,86 @@
    "source": [
     "## Conclusion\n",
     "NumPy provides users with a wide variety of functions capable of performing operations on arrays of data. Its use of **vectorization** makes these functions incredibly fast, when compared to the analogous computations performed in pure Python. Although the preceding discussion laid out a substantial number of rules for how these functions work, one should not worry about memorizing them. Rather, it is best to apply these functions to arrays of various dimensionality, and build an intuition for them. You may be pleasantly surprised by how easy it is to get a hang of this material by simply putting it to practice."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Reading Comprehension Solutions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Unary Functions: Solution**\n",
+    "\n",
+    "```python\n",
+    ">>> x = np.array([[ 0,  1,  2,  3],\n",
+    "                  [ 4,  5,  6,  7],\n",
+    "                  [ 8,  9, 10, 11],\n",
+    "                  [12, 13, 14, 15]])\n",
+    "\n",
+    "\n",
+    ">>> np.log(x[2, 1::2])\n",
+    "array([ 2.19722458,  2.39789527])\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Binary Functions: Solution**\n",
+    "\n",
+    "```python\n",
+    ">>> x = np.array([[ 0,  1,  2,  3],\n",
+    "                  [ 4,  5,  6,  7],\n",
+    "                  [ 8,  9, 10, 11],\n",
+    "                  [12, 13, 14, 15]])\n",
+    "\n",
+    "    # top-left  top-right    bottom-left  bottom-right\n",
+    ">>> x[:2, :2] + x[:2, -2:] + x[-2:, :2] + x[-2:, -2:]\n",
+    "array([[20, 24],\n",
+    "       [36, 40]])\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Basic Sequential Functions: Solutions**\n",
+    "```python\n",
+    ">>> images = np.random.rand(100, 32, 32, 3)\n",
+    "\n",
+    "# 1. The average 32x32 RGB image. \n",
+    ">>> mean_imag = images.mean(axis=0)\n",
+    ">>> mean_imag.shape\n",
+    "(32, 32, 3)\n",
+    "\n",
+    "# 2. The total sum of all the values in the array.\n",
+    ">>> images.sum()\n",
+    "153422.97903817348\n",
+    "\n",
+    "# 3. The minimum blue value, respective to each image.\n",
+    "# the colors are ordered red-blue-green along axis-3\n",
+    ">>> min_blue = images[:, :, :, 2].min(axis=(1, 2))\n",
+    ">>> min_blue.shape\n",
+    "(100,)\n",
+    "\n",
+    "# 4. The standard deviation among all the RGB values in all the images, \n",
+    "#    respective to each pixel.\n",
+    ">>> pixel_std_dev = images.std(axis=(0, 3))\n",
+    ">>> pixel_std_dev.shape\n",
+    "(32, 32)\n",
+    "\n",
+    "# The maximum red-value in the top-left quadrant, respective to each image.\n",
+    ">>> max_red_quad = images[:, :16, :16, 0].max(axis=(1, 2))\n",
+    ">>> max_red_quad.shape\n",
+    "(100,)\n",
+    "```"
    ]
   }
  ],
@@ -1420,7 +1595,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.3"
+   "version": "3.5.3"
   }
  },
  "nbformat": 4,

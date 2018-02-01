@@ -232,6 +232,22 @@
 These are meant to help you put your reading to practice. Solutions for
 the exercises are included at the bottom of this page.</p>
 </div>
+<p>The following objects are all example of sequences:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># examples of sequences</span>
+
+<span class="c1"># a list</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># a string</span>
+<span class="s2">&quot;hello out there&quot;</span>
+
+<span class="c1"># a tuple</span>
+<span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># a NumPy array</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+</pre></div>
+</div>
 <p>Being able to work with sequences of objects/data is so important that
 it warrants us to take our first (relatively) deep dive into Python. The
 preceding reading introduced Python lists and strings, two important
@@ -584,14 +600,15 @@ nearly ubiquitously in Python code, it is important to know that there
 is a built-in <code class="docutils literal"><span class="pre">slice</span></code> object that Python uses to form slices. It
 accepts the same start, stop, and stop values, and produces the same
 sort of slicing behavior:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">seq</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
-<span class="go">&quot;abc&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the `slice` object explicitly</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="s2">&quot;abc&quot;</span>
 </pre></div>
 </div>
 <p>This gives you the ability to work with slices in more creative ways in
 your code, since it allows you to assign a variable to a slice.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the `slice` object</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the `slice` object to slice several sequences</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq1</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq3</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
@@ -632,7 +649,7 @@ will raise an <code class="docutils literal"><span class="pre">IndexError</span>
 <p>However, specifying an out-of-bounds start or stop value for a slice
 does not raise an error. Instead, the nearest valid start/stop value is
 used instead:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># python</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># no bounds checking is used for slicing</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[:</span><span class="mi">10000</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 </pre></div>
@@ -704,11 +721,9 @@ return the index <code class="docutils literal"><span class="pre">0</span></code
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Basics of sequences</strong></p>
-<ol class="arabic simple">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">([</span><span class="bp">True</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span>
-<span class="go">(True, None, 22)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 1. Change the list [True, None, 22] into a tuple.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">tuple</span><span class="p">([</span><span class="bp">True</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span>
+<span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>2. We have been introduced to three Python types that are sequential in

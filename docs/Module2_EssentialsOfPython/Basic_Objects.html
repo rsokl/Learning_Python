@@ -355,6 +355,14 @@ mathematics class, with parentheses available for association:</p>
 <span class="c1"># grouping operations with parentheses</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="mi">9</span>
+
+<span class="c1"># finding the remainder of division</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">11</span> <span class="o">%</span> <span class="mi">5</span>
+<span class="mi">1</span>
+
+<span class="c1"># checking an inequality</span>
+<span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">4</span><span class="p">)</span>
+<span class="bp">True</span>
 </pre></div>
 </div>
 <p>It should be noted that in many other programming languages, including
@@ -478,8 +486,15 @@ a limited number of digits.</p>
 <p>These objects belong to the built-in type <code class="docutils literal"><span class="pre">float</span></code>, which can be used
 to convert objects to floats:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># examples of &quot;floating-point&quot; numbers</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="mf">1.3</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="o">-</span><span class="mf">3.1415926535</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mf">100.</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="mf">10.0</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="mf">0.3333333333333333</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="mf">0.5</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="o">-</span><span class="mf">2.1</span><span class="p">)</span>
 <span class="nb">float</span>
@@ -576,11 +591,9 @@ aspect of dealing with floating-point numbers with limited numerical
 precision. To accommodate this, don’t check if two floats are “equal”.
 Rather, you should check if they are “close enough in value”. Let me
 emphasize this:</p>
-<ul class="simple">
-<li><strong>You should never check to see if two floats are exactly equal in
-value. Instead, you should only check that two floats are
-approximately equal to one another</strong>.</li>
-</ul>
+<p><strong>You should never check to see if two floats are exactly equal in
+value. Instead, you should only check that two floats are approximately
+equal to one another</strong>.</p>
 <p>The <code class="docutils literal"><span class="pre">math</span></code> module has a very nice function for this; <code class="docutils literal"><span class="pre">math.isclose</span></code>
 will check if the relative difference between two numbers is less than
 <span class="math">\(1 \times 10^{-9}\)</span>. You can change this tolerance value along with
@@ -944,10 +957,11 @@ tab-character):</p>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
-<li>Convert the integer <code class="docutils literal"><span class="pre">12</span></code> to the string <code class="docutils literal"><span class="pre">&quot;12&quot;</span></code>. ***</li>
+<li>Convert the integer <code class="docutils literal"><span class="pre">12</span></code> to the string <code class="docutils literal"><span class="pre">&quot;12&quot;</span></code>.</li>
 </ol>
 </div>
 </div>
+<hr class="docutils" />
 <div class="section" id="Lists">
 <h2>Lists<a class="headerlink" href="#Lists" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal"><span class="pre">list</span></code> is a type of Python object that allows use to store a
@@ -1181,7 +1195,7 @@ precision of a floating point number.</p>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
-<p><strong>Understanding the modulo operator</strong></p>
+<p><strong>Understanding the modulo operator: Solution</strong></p>
 <p>If <code class="docutils literal"><span class="pre">n</span></code> is an integer, then 2 will divide into it evenly, and thus
 there is no remainder. If <code class="docutils literal"><span class="pre">n</span></code> is odd, then <code class="docutils literal"><span class="pre">n</span> <span class="pre">/</span> <span class="pre">2</span></code> must have a
 remainder of 1. Thus:</p>
@@ -1189,7 +1203,7 @@ remainder of 1. Thus:</p>
 <li><code class="docutils literal"><span class="pre">n</span> <span class="pre">%</span> <span class="pre">2</span></code> = 0 if <code class="docutils literal"><span class="pre">n</span></code> is an even number</li>
 <li><code class="docutils literal"><span class="pre">n</span> <span class="pre">%</span> <span class="pre">2</span></code> = 1 if <code class="docutils literal"><span class="pre">n</span></code> is an odd number</li>
 </ul>
-<p><strong>Working with numbers in Python</strong></p>
+<p><strong>Working with numbers in Python: Solution</strong></p>
 <p>1. The division operator, <code class="docutils literal"><span class="pre">/</span></code>, will return a floating-point number
 even if it is operating on two integer-type numbers.</p>
 <p>2. For all of the arithmetic operations, <code class="docutils literal"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span> <span class="pre">**</span></code>, operating on a
@@ -1202,105 +1216,89 @@ number:</p>
 <span class="go">1.0</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
-<span class="go">9.025013499434122</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 3. Given the function f(x)=e^|x−2|f(x), make use</span>
+<span class="c1">#    of the math module to compute f(−0.2).</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="mf">9.025013499434122</span>
 </pre></div>
 </div>
-<p><strong>Boolean expressions</strong></p>
-<ol class="arabic simple">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># returns `True` if `x` is an even number</span>
+<p><strong>Boolean expressions: Solutions</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 1. Write an a comparison-statement that will return</span>
+<span class="c1">#    True if x is an even number</span>
 <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.9</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 2. Write a line of code that will return False if:</span>
+<span class="c1">#    x and y are within 0.9 of one another, and x is a positive number.</span>
+<span class="ow">not</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.9</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># returns `True` if `x` is a bool or a float</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 3. Write an expression that returns True if</span>
+<span class="c1">#    x is a boolean-type object or a float-type object</span>
 <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Strings</strong></p>
-<ol class="arabic simple">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;cat&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
-<span class="go">&#39;    cat    &#39;</span>
+<p><strong>Strings: Solutions</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 1.  Use a function that will take the string &quot;cat&quot;</span>
+<span class="c1">#     and returns the string &quot;   cat    &quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;cat&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="s1">&#39;    cat    &#39;</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;cat&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
-<span class="go">&#39;----cat----&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;cat&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="s1">&#39;----cat----&#39;</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;I.am.aware.that.spaces.are.a.thing&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="go">&#39;I am aware that.spaces.are.a.thing&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 2. Replace the first three periods of this string with</span>
+<span class="c1">#    a space-character:</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;I.am.aware.that.spaces.are.a.thing&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="s1">&#39;I am aware that.spaces.are.a.thing&#39;</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;  basket    &quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<span class="go">&#39;basket&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 3. Remove the whitespace from both ends</span>
+<span class="c1">#    of: &quot;  basket    &quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;  basket    &quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="s1">&#39;basket&#39;</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello</span><span class="se">\n\t</span><span class="s2">over there&quot;</span><span class="p">)</span>
-<span class="go">Hello</span>
-<span class="go">    over there</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 4.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello</span><span class="se">\n\t</span><span class="s2">over there&quot;</span><span class="p">)</span>
+<span class="n">Hello</span>
+    <span class="n">over</span> <span class="n">there</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
-<span class="go">&quot;11&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 5. Convert the integer 12 to the string &quot;12&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="s2">&quot;11&quot;</span>
 </pre></div>
 </div>
-<p><strong>Lists</strong></p>
-<ol class="arabic simple">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="bp">None</span><span class="p">]</span>
-<span class="go">[None]</span>
+<p><strong>Lists: Solutions</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Create a list whose sole entry is the None object.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span>
+<span class="p">[</span><span class="bp">None</span><span class="p">]</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span>
-<span class="go">[4, False, &#39;moo&#39;, 3.14, (9-2j)]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 2. Assign the variable k to a list that contains an</span>
+<span class="c1">#    integer, a boolean, and a string, in that order.</span>
+<span class="c1">#    Then, add two more entries to the end of the</span>
+<span class="c1">#    list - a float and a complex number.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">k</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">k</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="s1">&#39;moo&#39;</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="p">(</span><span class="mi">9</span><span class="o">-</span><span class="mi">2j</span><span class="p">)]</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li></li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span> <span class="s2">&quot;Adam&quot;</span><span class="p">,</span> <span class="s2">&quot;Ryan&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Zordon&quot;</span><span class="p">,</span> <span class="s2">&quot;Jack&quot;</span><span class="p">,</span> <span class="s2">&quot;Jackenzie&quot;</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 3. Alphabetize the list of names:</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span> <span class="s2">&quot;Adam&quot;</span><span class="p">,</span> <span class="s2">&quot;Ryan&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Zordon&quot;</span><span class="p">,</span> <span class="s2">&quot;Jack&quot;</span><span class="p">,</span> <span class="s2">&quot;Jackenzie&quot;</span><span class="p">]</span>
 
-<span class="go"># The documentation for `sort` says that the sorting happens &quot;in-place&quot;. This</span>
-<span class="go"># means that the original list is replaced by the sorted list. The alternative</span>
-<span class="go"># would be that `sort` returns a new, sorted list, without changing the list</span>
-<span class="go"># assigned to `names`.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">names</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">names</span>
-<span class="go">[&#39;Adam&#39;, &#39;Bob&#39;, &#39;Jack&#39;, &#39;Jackenzie&#39;, &#39;Jane&#39;, &#39;Ryan&#39;, &#39;Zordon&#39;]</span>
+<span class="c1"># The documentation for `sort` says that the sorting happens &quot;in-place&quot;. This</span>
+<span class="c1"># means that the original list is replaced by the sorted list. The alternative</span>
+<span class="c1"># would be that `sort` returns a new, sorted list, without changing the list</span>
+<span class="c1"># assigned to `names`.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">names</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">names</span>
+<span class="p">[</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Jackenzie&#39;</span><span class="p">,</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;Ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;Zordon&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>

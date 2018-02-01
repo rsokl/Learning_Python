@@ -117,6 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="FunctionsForCreatingNumpyArrays.html">Functions for Creating NumPy Arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ReshapingArrays.html">Reshaping Arrays &amp; Array-Traversal Order</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VectorizedOperations.html">“Vectorized” Operations: Optimized Computations on NumPy Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Broadcasting.html">Array Broadcasting</a></li>
 </ul>
 </li>
 </ul>
@@ -427,15 +428,15 @@ Instead, NumPy it will return all of the exam scores for student-0
 <span class="go">array([ 93, 95])</span>
 </pre></div>
 </div>
-<p>This is because NumPy will automatically insert slices for you if you
-don’t provide as many indices as there are dimensions for your array:</p>
+<p>This is because NumPy will automatically insert trailing-slices for you
+if you don’t provide as many indices as there are dimensions for your
+array. <code class="docutils literal"><span class="pre">grades[0]</span></code> was treated as <code class="docutils literal"><span class="pre">grades[0,</span> <span class="pre">:]</span></code>.</p>
 <div class="admonition note">
 Suppose you have an <span class="math">\(N\)</span>-dimensional array, and only provide
 <span class="math">\(j\)</span> indices for the array; NumPy will automatically insert
 <span class="math">\(N-j\)</span> trailing slices for you. In the case that <span class="math">\(N=5\)</span> and
 <span class="math">\(j=3\)</span>, <code class="docutils literal"><span class="pre">d5_array[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code> is treated as
 <code class="docutils literal"><span class="pre">d5_array[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">:,</span> <span class="pre">:]</span></code></div>
-<p>Therefore <code class="docutils literal"><span class="pre">grades[0]</span></code> was treated as <code class="docutils literal"><span class="pre">grades[0,</span> <span class="pre">:]</span></code>.</p>
 <p>Thus far, we have discussed some rules for accessing data in arrays, all
 of which fall into the category that is designated <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html#basic-slicing-and-indexing">“basic
 indexing”</a>
@@ -535,7 +536,9 @@ value):</p>
 </div>
 <p>This is <em>not</em> equivalent to a length-1 1D-array: <code class="docutils literal"><span class="pre">np.array([15.2])</span></code>.
 According to our definition of dimensionality, <em>zero</em> numbers are
-required to index into a 0-D array, thus you cannot index into it.</p>
+required to index into a 0-D array as it is unnecessary to provide an
+identifier for a standalone number. Thus you cannot index into a 0-D
+array.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># you cannot index into a 0-D array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="o">---------------------------------------------------------------------------</span>
