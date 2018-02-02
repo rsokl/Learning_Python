@@ -1,6 +1,6 @@
-**NOTE**: Some of the Jupyter notebooks in this repository contain elements that do not render properly when viewed via GitHub. For the "optimal reading experience", clone this repository and open the Jupyter notebooks locally.
+View this content as hosted on [Python Like You Mean It](https://rsokl.github.io/Learning_Python/index.html)
 
-**NOTE**: This content is not ready for public release. If you are reading this, then I have added you as a contributor to this project. Please do not distribute this work to others.
+**NOTE**: This content is not meant for public release. If you are reading this, then I have added you as a contributor to this project. Please do not distribute this work to others.
 
 # Table of Contents
 - [Essentials of Python, for Data Science Applications](#essentials-of-python-for-data-science-applications)
@@ -29,47 +29,3 @@ If you want to submit a change to some of the content (e.g. correcting typos), d
 4. Push your branch: `git push origin your_branch_name` (you should have permission to do this, if you are added as a "contributor" to this project)
 5. Create a [Pull Request](https://help.github.com/articles/creating-a-pull-request/)) from your branch into the master branch.
 
-# Text Contents (Subject to Change)
-
-Module 1: Getting Started with Python
-- What is Python?
-- Installing Python (via Anaconda)
-- IDEs and Jupyter Notebooks
-- Basics of Python
-
-Module 2: Essentials of Python
-- Boolean logic and conditional statements
-- For-loops and iterators
-- Generators and comprehension statements
-- Itertools
-- Functions
-- Scope
-
-Module 3: Introducing NumPy
-- Introducing the NumPy "ND-array"
-- Accessing data along multiple dimensions
-- Basic array attributes
-- Functions for creating NumPy arrays
-- Reshaping arrays and array-traversal ordering
-- Vectorized Operations
-
-Module 4: Python's Data Structures (Incomplete)
-- Lists
-- Dictionaries
-- Tuples
-- Sets
-- Python's collections module
-
-Module 5: Advanced NumPy (Incomplete)
-- Basic Indexing
-- Broadcasting
-- Advanced Indexing
-
-Module 6: Object Oriented Programming (Incomplete)
-- Introduction to object oriented programming
-- Defining a class
-- Referencing an object
-- Creating an object instance
-- Methods
-- Special methods
-- Class inheritance
