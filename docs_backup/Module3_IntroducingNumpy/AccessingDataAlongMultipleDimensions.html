@@ -225,9 +225,45 @@
 <ul class="simple">
 <li>Define the “dimensionality” of an array.</li>
 <li>Discuss the usefulness of ND-arrays.</li>
-<li>Introduce the basic indexing scheme for accessing the contents of
-ND-arrays along their “axes”.</li>
+<li>Introduce the indexing and slicing scheme for accessing an
+multi-dimensional array’s contents</li>
 </ul>
+<p>We will encounter arrays of varying dimensionalities:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># A 0-D array</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># A 1-D array</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.1</span><span class="p">])</span>
+
+<span class="c1"># A 2-D array</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">93</span><span class="p">,</span>  <span class="mi">95</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">84</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">99</span><span class="p">,</span>  <span class="mi">87</span><span class="p">]])</span>
+
+<span class="c1"># A 3-D array</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+           <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
+
+          <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+           <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<p>Similar to Python’s sequences, we use 0-based indices and slicing to
+access the content of an array. However, we must specify an index/slice
+for <em>each</em> dimension of an array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># A 3-D array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
+
+                  <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]])</span>
+
+<span class="c1"># get: sheet-0, both rows, flip order of columns</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
 <div class="section" id="One-dimensional-Arrays">
 <h2>One-dimensional Arrays<a class="headerlink" href="#One-dimensional-Arrays" title="Permalink to this headline">¶</a></h2>
 <p>Let’s being our discussion by constructing a simple ND-array containing

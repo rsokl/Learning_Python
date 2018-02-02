@@ -102,11 +102,8 @@
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Variables &amp; Assignment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Valid-Names-for-Variables">Valid Names for Variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Referencing-a-Mutable-Object-with-Multiple-Variables">Referencing a Mutable Object with Multiple Variables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Reading-Comprehension:-Does-slicing-a-list-produce-a-reference-to-that-list?">Reading Comprehension: Does slicing a list produce a reference to that list?</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#Referencing-an-Immutable-Object-with-Multiple-Variables">Referencing an Immutable Object with Multiple Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Referencing-a-Mutable-Object-with-Multiple-Variables">Referencing a Mutable Object with Multiple Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Mutable-&amp;-Immutable-Types-of-Objects">Mutable &amp; Immutable Types of Objects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -252,7 +249,8 @@ a number or a string), it is common to say that the variable
 the string <code class="docutils literal"><span class="pre">&quot;Brian&quot;</span></code>.</p>
 <p>Once a variable is referencing a value, you can use the variable
 elsewhere in your code as a placeholder:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the use of variables in code</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>
 <span class="n">grade</span> <span class="o">=</span> <span class="mi">92</span>
 <span class="n">failing</span> <span class="o">=</span> <span class="bp">False</span>
 
@@ -293,14 +291,16 @@ names:</p>
 <h2>Referencing a Mutable Object with Multiple Variables<a class="headerlink" href="#Referencing-a-Mutable-Object-with-Multiple-Variables" title="Permalink to this headline">¶</a></h2>
 <p>It is possible to assign variables to other, existing variables. Doing
 so will cause the variables to reference the same object:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list1` references [1, 2, 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span>      <span class="c1">#  `list2` and `list1` now both reference [1, 2, 3]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the behavior of variables</span>
+<span class="c1"># referencing the same object</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list1` references [1, 2, 3]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span>      <span class="c1">#  `list2` and `list1` now both reference [1, 2, 3]</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
-<span class="go">[1, 2, 3]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
-<span class="go">[1, 2, 3]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>What this entails is that these common variables will reference the
@@ -337,50 +337,36 @@ means that a change to one list will not affect the other:</p>
 </pre></div>
 </div>
 <hr class="docutils" />
-<div class="section" id="Reading-Comprehension:-Does-slicing-a-list-produce-a-reference-to-that-list?">
-<h3>Reading Comprehension: Does slicing a list produce a reference to that list?<a class="headerlink" href="#Reading-Comprehension:-Does-slicing-a-list-produce-a-reference-to-that-list?" title="Permalink to this headline">¶</a></h3>
+<p><strong>Reading Comprehension: Does slicing a list produce a reference to that
+list?</strong></p>
 <p>Suppose <code class="docutils literal"><span class="pre">x</span></code> is assigned to a list, and that <code class="docutils literal"><span class="pre">y</span></code> is assigned to a
 “slice” of <code class="docutils literal"><span class="pre">x</span></code>. Do <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> reference the same list? That is,
 if you update part of the subsequence common to <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>, does
 that change show up in both of them? Write some simple code to
 investigate this.</p>
-</div>
-</div>
 <hr class="docutils" />
-<div class="section" id="Referencing-an-Immutable-Object-with-Multiple-Variables">
-<h2>Referencing an Immutable Object with Multiple Variables<a class="headerlink" href="#Referencing-an-Immutable-Object-with-Multiple-Variables" title="Permalink to this headline">¶</a></h2>
-<p>A <em>major exception</em> to the preceding discussion of referencing a single
-object with multiple variables is when one is working with an
-<strong>immutable</strong> object.</p>
-<div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Definition</strong>:</p>
-<p class="last">An <strong>immutable object</strong> is a Python object, that, once defined, cannot
-have its value/state be changed without creating a new object
-altogether.</p>
-</div>
-<p>We saw that a given instance of a list can have its value be changed
-(e.g.&nbsp;we appended the number 4 to the list), meaning that a list is an
-example of a <em>mutable</em> object. We also, saw in the section on sequence
-types that a tuple in an <em>immutable</em> sequence. A Python integer is
-another immutable object. Consider the following:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>    <span class="c1"># assigns `y` to the integer 2</span>
+<p>This discussion is warranted for a list, because a list is <em>mutable</em> - a
+given list can be changed after it is created. A tuple, being
+<em>immutable</em>, cannot be changed. Any operation that appears to be
+updating a tuple must actually be creating an entirely new tuple
+altogether. Consider the following example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `x` and `y` reference the same tuple</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1"># equivalent to `x = x + 1`</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># `y` is unaffected by whatever happened to `x`</span>
-<span class="go">2</span>
+<span class="c1"># shorthand for: x = x + (4, 5)</span>
+<span class="c1"># this creates a new tuple</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># y still references the original tuple</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>It may seem that <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> initially reference the same “instance”
-of <code class="docutils literal"><span class="pre">2</span></code>, and thus both should ultimately reference <code class="docutils literal"><span class="pre">3</span></code>. Because
-Python integers are immutable, it is impossible to change the value of a
-given integer-object. To increase the value of <code class="docutils literal"><span class="pre">x</span></code> by 1 entails
-assigning <code class="docutils literal"><span class="pre">x</span></code> to a new integer altogether, leaving the value
-referenced by <code class="docutils literal"><span class="pre">y</span></code> unchanged. In effect, <code class="docutils literal"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">1</span></code> tells <code class="docutils literal"><span class="pre">x</span></code> to
-reference a completely new integer, <code class="docutils literal"><span class="pre">3</span></code>, and <code class="docutils literal"><span class="pre">y</span></code> continues to
-reference <code class="docutils literal"><span class="pre">2</span></code>.</p>
+</div>
+<div class="section" id="Mutable-&amp;-Immutable-Types-of-Objects">
+<h2>Mutable &amp; Immutable Types of Objects<a class="headerlink" href="#Mutable-&-Immutable-Types-of-Objects" title="Permalink to this headline">¶</a></h2>
 <p>The following are some common immutable and mutable objects in Python.
 These will be important to have in mind as we start to work with
 dictionaries and sets.</p>
@@ -392,18 +378,35 @@ dictionaries and sets.</p>
 <li>boolean values</li>
 <li>“frozen”-sets</li>
 </ul>
-<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Some mutable objects **</p>
+<p><strong>Some mutable objects</strong></p>
 <ul class="simple">
 <li>lists</li>
 <li>dictionaries</li>
 <li>sets</li>
 <li>numpy-arrays</li>
 </ul>
+<hr class="docutils" />
+<p><strong>Reading Comprehension: Understanding References</strong></p>
+<p>Based on our discussion of mutable and immutable objects, predict what
+the value of <code class="docutils literal"><span class="pre">y</span></code> will be in the following circumstance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="go"># shorthand for: `x = x * 3`</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">*=</span> <span class="mi">3</span>
+<span class="go">&gt;&gt;&gt;x</span>
+<span class="go">9</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">???</span>
+</pre></div>
+</div>
+<hr class="docutils" />
 </div>
 <hr class="docutils" />
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
-<p><strong>Does slicing a list produce a reference to that list?</strong></p>
+<p><strong>Does slicing a list produce a reference to that list?: Solution</strong></p>
 <p>Based on the following behavior, we can conclude that slicing a list
 does <strong>not</strong> produce a reference to the original list. Rather, slicing a
 list produces a copy of the appropriate subsequence of the list:</p>
@@ -421,6 +424,9 @@ list produces a copy of the appropriate subsequence of the list:</p>
 <span class="go">[0, 1]</span>
 </pre></div>
 </div>
+<p><strong>Understanding References: Solutions</strong></p>
+<p>Integers are immutable, thus <code class="docutils literal"><span class="pre">x</span></code> must reference an entirely new object
+(<code class="docutils literal"><span class="pre">9</span></code>), and <code class="docutils literal"><span class="pre">y</span></code> still references <code class="docutils literal"><span class="pre">3</span></code>.</p>
 </div>
 </div>
 

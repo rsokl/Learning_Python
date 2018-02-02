@@ -243,7 +243,7 @@ the exercises are included at the bottom of this page.</p>
 <div class="section" id="Introducing-Generators">
 <h2>Introducing Generators<a class="headerlink" href="#Introducing-Generators" title="Permalink to this headline">¶</a></h2>
 <p>Now we introduce an important type of object called a <strong>generator</strong>,
-which allows use to generate arbitrarily-many items in a series, without
+which allows us to generate arbitrarily-many items in a series, without
 having to store them all in memory at once.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Definition</strong>:</p>
@@ -306,7 +306,7 @@ whereas the list <code class="docutils literal"><span class="pre">[0,</span> <sp
 at once. For short sequences, this seems to be a rather paltry savings;
 this is not the case for long sequences. The following graph compares
 the memory consumption used when defining a generator for the sequence
-of number <span class="math">\(0-N\)</span> using <code class="docutils literal"><span class="pre">range</span></code>, compared to storing the sequence
+of numbers <span class="math">\(0-N\)</span> using <code class="docutils literal"><span class="pre">range</span></code>, compared to storing the sequence
 in a list:</p>
 <div class="figure" id="id1">
 <img alt="Memory consumption figure" src="../_images/Mem_Consumption_Generator.png" />
@@ -463,7 +463,7 @@ these inspections are valid.</p>
 <h3>Consuming generators<a class="headerlink" href="#Consuming-generators" title="Permalink to this headline">¶</a></h3>
 <p>We can feed this to any function that accepts iterables. For instance,
 we can feed <code class="docutils literal"><span class="pre">gen</span></code> to the built-in <code class="docutils literal"><span class="pre">sum</span></code> function, which sums the
-content of an iterable:</p>
+contents of an iterable:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>  <span class="c1"># computes the sum 0 + 1 + 4 + 9 + 25 + ... + 9801</span>
 <span class="go">328350</span>
@@ -550,7 +550,7 @@ each of its members in order, on demand via <code class="docutils literal"><span
 exhausted. As we’ve seen, a generator is an example of an iterator. We
 now must understand that every iterator is an iterable, but not every
 iterable is an iterator.</p>
-<p>An <em>iterable</em> is an object that at <em>can</em> be iterated over but does not
+<p>An <em>iterable</em> is an object that <em>can</em> be iterated over but does not
 necessarily have all the machinery of an iterator. For example,
 sequences (e.g lists, tuples, and strings) and other containers
 (e.g.&nbsp;dictionaries and sets) do not have the ability to keep track of
@@ -635,7 +635,7 @@ function.</p>
 <hr class="docutils" />
 <div class="section" id="List-comprehensions">
 <h3>List comprehensions<a class="headerlink" href="#List-comprehensions" title="Permalink to this headline">¶</a></h3>
-<p>Using generator comprehensions to initialize lists is so useful, that
+<p>Using generator comprehensions to initialize lists is so useful that
 Python actually reserves a specialized syntax for it, known as the list
 comprehension. A <strong>list comprehension</strong> is a syntax for constructing a
 list, which exactly mirrors the generator comprehension syntax:</p>
@@ -649,7 +649,7 @@ simply write:</p>
 </pre></div>
 </div>
 <p>This produces the exact same result as feeding the <code class="docutils literal"><span class="pre">list</span></code> function a
-generator comprehension, however, using a list comprehension is slightly
+generator comprehension. However, using a list comprehension is slightly
 more efficient than is feeding the <code class="docutils literal"><span class="pre">list</span></code> function a generator
 comprehension.</p>
 <p>Tuples can be created using comprehensions too, but we cannot use the

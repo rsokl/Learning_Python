@@ -14,7 +14,7 @@
     "\n",
     "\n",
     "## Introducing Generators\n",
-    "Now we introduce an important type of object called a **generator**, which allows use to generate arbitrarily-many items in a series, without having to store them all in memory at once.  \n",
+    "Now we introduce an important type of object called a **generator**, which allows us to generate arbitrarily-many items in a series, without having to store them all in memory at once.  \n",
     "\n",
     "<div class=\"alert alert-info\">\n",
     "\n",
@@ -68,7 +68,7 @@
     "# prints: 0.. 1.. 2.. 3.. 4\n",
     "```\n",
     "\n",
-    "Because `range` is a generator, the command `range(5)` will simply store the instructions needed to produce the sequence of numbers 0-4, whereas the list `[0, 1, 2, 3, 4]` stores all of these items in memory at once. For short sequences, this seems to be a rather paltry savings; this is not the case for long sequences. The following graph compares the memory consumption used when defining a generator for the sequence of number $0-N$ using `range`, compared to storing the sequence in a list:\n",
+    "Because `range` is a generator, the command `range(5)` will simply store the instructions needed to produce the sequence of numbers 0-4, whereas the list `[0, 1, 2, 3, 4]` stores all of these items in memory at once. For short sequences, this seems to be a rather paltry savings; this is not the case for long sequences. The following graph compares the memory consumption used when defining a generator for the sequence of numbers $0-N$ using `range`, compared to storing the sequence in a list:\n",
     "\n",
     "![Memory consumption figure](./attachments/Mem_Consumption_Generator.png)\n",
     "\n",
@@ -245,7 +245,7 @@
    "metadata": {},
    "source": [
     "### Consuming generators\n",
-    "We can feed this to any function that accepts iterables. For instance, we can feed `gen` to the built-in `sum` function, which sums the content of an iterable:\n",
+    "We can feed this to any function that accepts iterables. For instance, we can feed `gen` to the built-in `sum` function, which sums the contents of an iterable:\n",
     "```python\n",
     ">>> gen = (i**2 for i in range(100))\n",
     ">>> sum(gen)  # computes the sum 0 + 1 + 4 + 9 + 25 + ... + 9801\n",
@@ -333,7 +333,7 @@
     "\n",
     "An *iterator* object stores its current state of iteration and \"yields\" each of its members in order, on demand via `next`, until it is exhausted. As we've seen, a generator is an example of an iterator. We now must understand that every iterator is an iterable, but not every iterable is an iterator.\n",
     "\n",
-    "An *iterable* is an object that at *can* be iterated over but does not necessarily have all the machinery of an iterator. For example, sequences (e.g lists, tuples, and strings) and other containers (e.g. dictionaries and sets) do not have the ability to keep track of their own state of iteration. That is, you cannot call `next` on one of these outright: \n",
+    "An *iterable* is an object that *can* be iterated over but does not necessarily have all the machinery of an iterator. For example, sequences (e.g lists, tuples, and strings) and other containers (e.g. dictionaries and sets) do not have the ability to keep track of their own state of iteration. That is, you cannot call `next` on one of these outright: \n",
     "\n",
     "```python\n",
     "# a list is an example of an iterable that is *not*\n",
@@ -425,7 +425,7 @@
    "metadata": {},
    "source": [
     "### List comprehensions\n",
-    "Using generator comprehensions to initialize lists is so useful, that Python actually reserves a specialized syntax for it, known as the list comprehension. A **list comprehension** is a syntax for constructing a list, which exactly mirrors the generator comprehension syntax:\n",
+    "Using generator comprehensions to initialize lists is so useful that Python actually reserves a specialized syntax for it, known as the list comprehension. A **list comprehension** is a syntax for constructing a list, which exactly mirrors the generator comprehension syntax:\n",
     "\n",
     "```\n",
     "[<expression> for <var> in <iterable> {if <condition}]\n",
@@ -439,7 +439,7 @@
     "[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n",
     "```\n",
     "\n",
-    "This produces the exact same result as feeding the `list` function a generator comprehension, however, using a list comprehension is slightly more efficient than is feeding the `list` function a generator comprehension.\n",
+    "This produces the exact same result as feeding the `list` function a generator comprehension. However, using a list comprehension is slightly more efficient than is feeding the `list` function a generator comprehension.\n",
     "\n",
     "Tuples can be created using comprehensions too, but we cannot use the familiar parentheses, since these are reserved for defining a generator-comprehension. Instead, you must explicitly invoke the `tuple` initialization function:\n",
     "```python\n",
@@ -618,7 +618,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.3"
+   "version": "3.6.4"
   }
  },
  "nbformat": 4,

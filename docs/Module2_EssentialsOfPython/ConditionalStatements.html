@@ -245,8 +245,8 @@ number, and will cube <code class="docutils literal"><span class="pre">x</span><
 </pre></div>
 </div>
 <p>Please refer to the “Basic Python Object Types” subsection to recall the
-basics of the “boolean” type, which represents True and False. We will
-extend that discussion by introducing comparison operations and
+basics of the “boolean” type, which represents True and False values. We
+will extend that discussion by introducing comparison operations and
 membership-checking, and then expanding on the utility of the built-in
 <code class="docutils literal"><span class="pre">bool</span></code> type.</p>
 <div class="section" id="Comparison-Operations">
@@ -297,8 +297,8 @@ operations in Python:</p>
 </pre></div>
 </div>
 <p>Note that <code class="docutils literal"><span class="pre">=</span></code> and <code class="docutils literal"><span class="pre">==</span></code> have very different meanings. The former is
-an assignment operator, and the latter is the equality operator:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># assign variable `x` to the value 3</span>
+the assignment operator, and the latter is the equality operator:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># assign the value 3 to the variable `x`</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">==</span> <span class="mi">3</span>  <span class="c1"># check if `x` and 3 have the same value</span>
 <span class="go">True</span>
 </pre></div>
@@ -345,13 +345,12 @@ references the <code class="docutils literal"><span class="pre">None</span></cod
 </div>
 <div class="section" id="bool-and-Truth-Values-of-Non-Boolean-Objects">
 <h2><code class="docutils literal"><span class="pre">bool</span></code> and Truth Values of Non-Boolean Objects<a class="headerlink" href="#bool-and-Truth-Values-of-Non-Boolean-Objects" title="Permalink to this headline">¶</a></h2>
-<p>It can be useful to ascribe non-boolean objects with inherit boolean
-values. For example, in computer science, the number 0 is often
-associated with <code class="docutils literal"><span class="pre">False</span></code> and non-zero numbers are associated with
-<code class="docutils literal"><span class="pre">True</span></code>. Python ascribes most of its built-in objects with inherent
-boolean values, which can be evaluated with the built-in Python command
-<code class="docutils literal"><span class="pre">bool</span></code>. For example, the Python integer 0 is ascribed the boolean
-value <code class="docutils literal"><span class="pre">False</span></code>:</p>
+<p>It can be useful to ascribe boolean values to non-boolean objects. For
+example, in computer science, the number 0 is often associated with
+<code class="docutils literal"><span class="pre">False</span></code> and non-zero numbers are associated with <code class="docutils literal"><span class="pre">True</span></code>. Python
+ascribes boolean values to most of its built-in objects, which can be
+evaluated with the built-in Python command <code class="docutils literal"><span class="pre">bool</span></code>. For example, in
+Python the boolean value <code class="docutils literal"><span class="pre">False</span></code> is ascribed to the integer 0:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Using `bool` to access the True/False</span>
 <span class="c1"># value of non-boolean objects</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -416,7 +415,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code></td>
 </table>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">The <code class="docutils literal"><span class="pre">bool</span></code> function allows you to evaluate the boolean-values ascribed
+<p class="last">The <code class="docutils literal"><span class="pre">bool</span></code> function allows you to evaluate the boolean values ascribed
 to various non-boolean objects. For instance, <code class="docutils literal"><span class="pre">bool([])</span></code> returns
 <code class="docutils literal"><span class="pre">False</span></code> wherease <code class="docutils literal"><span class="pre">bool([1,</span> <span class="pre">2])</span></code> returns <code class="docutils literal"><span class="pre">True</span></code>.</p>
 </div>
@@ -439,7 +438,7 @@ this:</p>
     <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;dead&quot;</span>
 </pre></div>
 </div>
-<p>The following pseudo-code demonstrates their general template for
+<p>The following pseudo-code demonstrates the general template for
 conditional statements:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">expression_1</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="n">the</span> <span class="n">code</span> <span class="n">within</span> <span class="n">this</span> <span class="n">indented</span> <span class="n">block</span> <span class="ow">is</span> <span class="n">executed</span> <span class="k">if</span><span class="o">..</span>
@@ -494,6 +493,32 @@ clause. <code class="docutils literal"><span class="pre">else</span></code> and 
 <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
 <span class="c1"># x is now 1</span>
+</pre></div>
+</div>
+<p>Similarly, conditional statements can have an <code class="docutils literal"><span class="pre">if</span></code> and an <code class="docutils literal"><span class="pre">else</span></code>
+without an <code class="docutils literal"><span class="pre">elif</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># A conditional statement consisting of</span>
+<span class="c1"># an &quot;if&quot;-clause and an &quot;else&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1"># x is now -2</span>
+</pre></div>
+</div>
+<p>Conditional statements can also have an <code class="docutils literal"><span class="pre">if</span></code> and an <code class="docutils literal"><span class="pre">elif</span></code> without
+an <code class="docutils literal"><span class="pre">else</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># A conditional statement consisting of</span>
+<span class="c1"># an &quot;if&quot;-clause and an &quot;elif&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;cba&#39;</span>
+<span class="c1"># x is now &#39;abcabcabc&#39;</span>
 </pre></div>
 </div>
 <hr class="docutils" />

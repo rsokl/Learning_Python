@@ -251,15 +251,15 @@ The following defines a function that accomplishes this:</p>
 
     <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">in_string</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">:</span>
-            <span class="n">num_vowels</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># equivalent to vowel_count = vowel_count + 1</span>
+            <span class="n">num_vowels</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># equivalent to num_vowels = num_vowels + 1</span>
     <span class="k">return</span> <span class="n">num_vowels</span>
 </pre></div>
 </div>
-<p>Executing this code will define the <em>function</em> <code class="docutils literal"><span class="pre">count_vowel</span></code>. This
+<p>Executing this code will define the <em>function</em> <code class="docutils literal"><span class="pre">count_vowels</span></code>. This
 function expects to be passed one object, represented by <code class="docutils literal"><span class="pre">in_string</span></code>,
-as an <em>input argument</em>, and it will <em>return</em> the number vowels stored in
-that object. Invoking <code class="docutils literal"><span class="pre">count_vowel</span></code>, passing it an input object, is
-referred to as <em>calling</em> the function:</p>
+as an <em>input argument</em>, and it will <em>return</em> the number of vowels stored
+in that object. Invoking <code class="docutils literal"><span class="pre">count_vowels</span></code>, passing it an input object,
+is referred to as <em>calling</em> the function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;Hi my name is Ryan&quot;</span><span class="p">)</span>
 <span class="go">5</span>
 </pre></div>
@@ -383,7 +383,7 @@ You will still be able to call your function, but it will return
 <p>A function also need not have any additional code beyond its return
 statement. For example, we can make use of <code class="docutils literal"><span class="pre">sum</span></code> and a generator
 comprehension (see the previous section of this module) to shorten our
-<code class="docutils literal"><span class="pre">count_vowel</span></code> function:</p>
+<code class="docutils literal"><span class="pre">count_vowels</span></code> function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># the returned object of a function can be specified straight-away</span>
 <span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">in_string</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
@@ -392,7 +392,7 @@ comprehension (see the previous section of this module) to shorten our
 </div>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
-<p class="last">All of Python functions return <em>something</em>. Even the built-in <code class="docutils literal"><span class="pre">print</span></code>
+<p class="last">All Python functions return <em>something</em>. Even the built-in <code class="docutils literal"><span class="pre">print</span></code>
 function returns <code class="docutils literal"><span class="pre">None</span></code> after it prints to standard-output!</p>
 </div>
 <div class="section" id="Multiple-return-Statements">
@@ -406,15 +406,15 @@ approximation. The function should immediately return <code class="docutils lite
 case that <span class="math">\(x = 0\)</span>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_exp</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Use a Taylor Series to compute e^x &quot;&quot;&quot;</span>
-    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mf">1.</span>
+        <span class="k">return</span> <span class="mf">1.0</span>
 
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">n</span> <span class="o">/</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>If <code class="docutils literal"><span class="pre">x==0</span></code> is <code class="docutils literal"><span class="pre">True</span></code>, then the first <code class="docutils literal"><span class="pre">return</span></code> statement is reached.
-<code class="docutils literal"><span class="pre">1.</span></code> will be returned and the function will be “exited” immediately,
+<code class="docutils literal"><span class="pre">1.0</span></code> will be returned and the function will be “exited” immediately,
 without ever reaching the code following it.</p>
 </div>
 </div>
@@ -436,7 +436,7 @@ that can be easily understood without docstrings.</p>
 <h2>Arguments<a class="headerlink" href="#Arguments" title="Permalink to this headline">¶</a></h2>
 <p>A sequence of comma-separated variable names can specified in the
 function signature to indicated <em>positional</em> arguments for the function.
-For example, the finally specifies <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">lower</span></code>, and <code class="docutils literal"><span class="pre">upper</span></code> as
+For example, the following specifies <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">lower</span></code>, and <code class="docutils literal"><span class="pre">upper</span></code> as
 input arguments to a function, <code class="docutils literal"><span class="pre">is_bounded</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_bounded</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">lower</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">upper</span>
@@ -455,7 +455,7 @@ the positional ordering of the function’s input arguments:</p>
 <span class="bp">True</span>
 </pre></div>
 </div>
-<p>Feeding a function too-few or too-many arguments will raise a
+<p>Feeding a function too few or too many arguments will raise a
 <code class="docutils literal"><span class="pre">TypeError</span></code></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># too few inputs: raises error</span>
 <span class="n">is_bounded</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -485,13 +485,20 @@ inputs first:</p>
 <span class="bp">True</span>
 </pre></div>
 </div>
+<p>Note that if you provide a named input, all the inputs following it must
+also be named:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># positional arguments cannot follow named arguments</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">is_bounded</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="c1"># error!</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="Default-Valued-Arguments">
 <h3>Default-Valued Arguments<a class="headerlink" href="#Default-Valued-Arguments" title="Permalink to this headline">¶</a></h3>
 <p>You can specify default values for input arguments to a function. Their
 default values are utilized if a user does not specify these inputs when
 calling the function. Recall our <code class="docutils literal"><span class="pre">count_vowels</span></code> function. Suppose we
-want to the ability to include “y” as a vowel. We know, however, that
+want the ability to include “y” as a vowel. We know, however, that
 people will typically want to exclude “y” from their vowels, so we can
 exclude “y” by default:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">in_string</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
@@ -502,7 +509,7 @@ exclude “y” by default:</p>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">in_string</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now, if <code class="docutils literal"><span class="pre">in_string</span></code> is only specified when calling <code class="docutils literal"><span class="pre">count_vowels</span></code>,
+<p>Now, if only <code class="docutils literal"><span class="pre">in_string</span></code> is specified when calling <code class="docutils literal"><span class="pre">count_vowels</span></code>,
 <code class="docutils literal"><span class="pre">include_y</span></code> will be passed the value <code class="docutils literal"><span class="pre">False</span></code> by default:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the default value: exclude y from vowels</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;Happy&quot;</span><span class="p">)</span>
@@ -538,7 +545,7 @@ arguments, <code class="docutils literal"><span class="pre">x</span></code> and 
 <code class="docutils literal"><span class="pre">mode</span></code> variable that has the default value <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code>.</p>
 <p>The function should return <code class="docutils literal"><span class="pre">min(x,</span> <span class="pre">y)</span></code> or <code class="docutils literal"><span class="pre">max(x,</span> <span class="pre">y)</span></code> according to
 the <code class="docutils literal"><span class="pre">mode</span></code>. Have the function return <code class="docutils literal"><span class="pre">None</span></code> if <code class="docutils literal"><span class="pre">mode</span></code> is neither
-<code class="docutils literal"><span class="pre">&quot;max&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;min&quot;</span></code>.</p>
+<code class="docutils literal"><span class="pre">&quot;max&quot;</span></code> nor <code class="docutils literal"><span class="pre">&quot;min&quot;</span></code>.</p>
 <p>Include a descriptive doc-string.</p>
 </div>
 <hr class="docutils" />
@@ -609,7 +616,7 @@ list or string or integer. You can assign a variable to a
 function-object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="o">=</span> <span class="n">count_vowels</span>  <span class="c1"># `var` now references the function `count_vowels`</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>        <span class="c1"># you can now &quot;call&quot; `var`</span>
-<span class="go">1</span>
+<span class="go">2</span>
 </pre></div>
 </div>
 <p>You can store functions in a list:</p>
@@ -632,7 +639,7 @@ returned in-place:</p>
 </div>
 <p>“Printing” a function isn’t very revealing. It simply tells you the
 memory address where the function-object is stored:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">count_vowel</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">count_vowels</span><span class="p">)</span>
 <span class="go">&lt;function count_vowels at 0x000002A32898C6A8&gt;</span>
 </pre></div>
 </div>
