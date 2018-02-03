@@ -119,7 +119,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#What-Can-a-Dictionary-Store?">What Can a Dictionary Store?</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Inspecting-a-Dictionary">Inspecting a Dictionary</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Complexities-of-the-Dictionary’s-Functions">Complexities of the Dictionary’s Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Time-Complexities-of-the-Dictionary’s-Functions">Time Complexities of the Dictionary’s Functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Are-Dictionaries-Ordered?-A-Word-of-Warning">Are Dictionaries Ordered? A Word of Warning</a></li>
 </ul>
 </li>
@@ -235,15 +235,15 @@ the dictionary a key to quickly retrieve its corresponding value.
 Specifically, you construct the dictionary by specifying one-way
 mappings from key-objects to value-objects. <strong>Each key must map to
 exactly one value</strong>, meaning that a key must be unique.</p>
-<p>Python’s dictionary is a shining star among its data structures, it is
+<p>Python’s dictionary is a shining star among its data structures; it is
 compact, fast, versatile, and extremely useful:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use a dictionary to map groceries to prices: item-name -&gt; price</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">items_to_prices</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cheese&quot;</span><span class="p">:</span><span class="mf">2.53</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">:</span> <span class="mf">3.40</span><span class="p">,</span> <span class="s2">&quot;frozen pizza&quot;</span><span class="p">:</span> <span class="mf">8.01</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">items_to_prices</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cheese&quot;</span><span class="p">:</span> <span class="mf">2.53</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">:</span> <span class="mf">3.40</span><span class="p">,</span> <span class="s2">&quot;frozen pizza&quot;</span><span class="p">:</span> <span class="mf">8.01</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">items_to_prices</span><span class="p">[</span><span class="s2">&quot;frozen pizza&quot;</span><span class="p">]</span>
 <span class="mf">8.01</span>
 
 <span class="c1"># keep track of whether or not a 3D coordinate fell into some region in space</span>
-<span class="c1"># map (x, y, z) coordinates to &quot;is-in a region&quot;: (x, y, z) -&gt; True/False</span>
+<span class="c1"># map (x, y, z) coordinates to &quot;is in a region&quot;: (x, y, z) -&gt; True/False</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">point_to_region</span> <span class="o">=</span> <span class="p">{(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span><span class="bp">False</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">):</span><span class="bp">True</span><span class="p">,</span> <span class="p">(</span><span class="mf">4.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">):</span><span class="bp">False</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">point_to_region</span><span class="p">[(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)]</span>
 <span class="bp">True</span>
@@ -321,7 +321,7 @@ as a list/tuple, but here a valid key is used as the index:</p>
 </div>
 <p><code class="docutils literal"><span class="pre">KeyError</span></code> will be raised if you try to look-up a key that doesn’t
 exist:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># &quot;grape&quot; hasn&#39;t be specified as a key</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># &quot;grape&quot; hasn&#39;t been specified as a key</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span><span class="p">[</span><span class="s2">&quot;grape&quot;</span><span class="p">]</span>
 <span class="o">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span>                                  <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
@@ -383,8 +383,8 @@ type</em>:</p>
 <span class="p">[]</span>
 </pre></div>
 </div>
-<p>To be specific, a dictionary’s contents are the dictated by the
-following rules:</p>
+<p>To be specific, a dictionary’s contents are dictated by the following
+rules:</p>
 <ul class="simple">
 <li>A dictionary <em>key</em> must be an <em>immutable</em> object (more precisely, it
 must be
@@ -491,25 +491,25 @@ key-value pairs:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="Complexities-of-the-Dictionary’s-Functions">
-<h3>Complexities of the Dictionary’s Functions<a class="headerlink" href="#Complexities-of-the-Dictionary’s-Functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Time-Complexities-of-the-Dictionary’s-Functions">
+<h3>Time Complexities of the Dictionary’s Functions<a class="headerlink" href="#Time-Complexities-of-the-Dictionary’s-Functions" title="Permalink to this headline">¶</a></h3>
 <p>In addition to being flexible and versatile, the dictionary’s functions
 manage to be quite efficient as well. The following is a summary of the
-complexities associated with various common operations using a
+time complexities associated with various common operations using a
 dictionary (according to its implementation in CPython) - note all the
 <span class="math">\(\mathcal{O}(1)\)</span> operations!</p>
 <p>Let <code class="docutils literal"><span class="pre">example_dict</span></code> represent a dictionary with <span class="math">\(n\)</span> key-value
 pair mappings.</p>
 <p>The following are <span class="math">\(\mathcal{O}(1)\)</span> operations:</p>
 <ul class="simple">
-<li>Return the number of keys in the dictionary:<code class="docutils literal"><span class="pre">len(example_dict)</span></code></li>
+<li>Return the number of keys in the dictionary: <code class="docutils literal"><span class="pre">len(example_dict)</span></code></li>
 <li>Check if the key is in the dictionary, and return the value if it is:
 <code class="docutils literal"><span class="pre">example_dict[key]</span></code></li>
 <li>Set a key-value mapping: <code class="docutils literal"><span class="pre">example_dict[key]</span> <span class="pre">=</span> <span class="pre">value</span></code></li>
 <li>Check if an object is among the dictionary’s keys:
 <code class="docutils literal"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict</span></code></li>
-<li>Check if a pair of objects are among the dictionary’s key-value:
-<code class="docutils literal"><span class="pre">(obj1,</span> <span class="pre">obj2)</span> <span class="pre">in</span> <span class="pre">example_dict.items()</span></code></li>
+<li>Check if a pair of objects are among the dictionary’s key-value
+pairs: <code class="docutils literal"><span class="pre">(obj1,</span> <span class="pre">obj2)</span> <span class="pre">in</span> <span class="pre">example_dict.items()</span></code></li>
 </ul>
 <p>The following are <span class="math">\(\mathcal{O}(n)\)</span> operations:</p>
 <ul class="simple">
@@ -526,7 +526,7 @@ is, until Python 3.6 came out.</p>
 you iterated over its keys, values, or key-value pairs, you had no
 guarantee about the <em>order</em> in which these items would be produced.
 <code class="docutils literal"><span class="pre">[i</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">example_dict]</span></code> could produce a list of keys with
-different ordering each time the code was run, you were only guaranteed
+different ordering each time the code was run; you were only guaranteed
 that the list would contain all of the dictionary’s keys:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># in Python 3.5 and earlier, dictionaries were unordered</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span><span class="s2">&quot;value3&quot;</span><span class="p">}</span>
@@ -546,8 +546,8 @@ that the list would contain all of the dictionary’s keys:</p>
 </div>
 <p>The dictionary was <a class="reference external" href="https://docs.python.org/3/whatsnew/3.6.html#new-dict-implementation">reimplemented in Python
 3.6</a>
-so that it would consume roughly 25% less memory than (which is a big
-deal!). The catch was… this new implementation entails that the
+so that it would consume roughly 25% less memory than before (which is a
+big deal!). The catch was… this new implementation entails that the
 dictionary’s various iterables will always yield their items according
 to the order in which they were added to the dictionary. That is, in
 Python 3.6 and beyond:</p>

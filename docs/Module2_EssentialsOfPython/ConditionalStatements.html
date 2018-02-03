@@ -234,16 +234,26 @@ the exercises are included at the bottom of this page.</p>
 <p>In this section, we will be introduced to the <code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and
 <code class="docutils literal"><span class="pre">elif</span></code> statements. These allow you to specify that blocks of code are
 to be executed only if specified conditions are found to be true, or
-perhaps alternative code if the condition is found to be false.</p>
+perhaps alternative code if the condition is found to be false. For
+example, the following code will square <code class="docutils literal"><span class="pre">x</span></code> if it is a negative
+number, and will cube <code class="docutils literal"><span class="pre">x</span></code> if it is a positive number:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># a simple if-else block</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">3</span>
+</pre></div>
+</div>
 <p>Please refer to the “Basic Python Object Types” subsection to recall the
-basics of the “boolean” type, which represents True and False. We will
-extend that discussion by introducing comparison operations and
+basics of the “boolean” type, which represents True and False values. We
+will extend that discussion by introducing comparison operations and
 membership-checking, and then expanding on the utility of the built-in
 <code class="docutils literal"><span class="pre">bool</span></code> type.</p>
 <div class="section" id="Comparison-Operations">
 <h2>Comparison Operations<a class="headerlink" href="#Comparison-Operations" title="Permalink to this headline">¶</a></h2>
-<p>Comparison statements will evaluate explicitly to either <code class="docutils literal"><span class="pre">True</span></code> or
-<code class="docutils literal"><span class="pre">False</span></code>. There are eight comparison operations in Python:</p>
+<p>Comparison statements will evaluate explicitly to either of the
+boolean-objects: <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code>. There are eight comparison
+operations in Python:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="32%" />
@@ -287,8 +297,8 @@ membership-checking, and then expanding on the utility of the built-in
 </pre></div>
 </div>
 <p>Note that <code class="docutils literal"><span class="pre">=</span></code> and <code class="docutils literal"><span class="pre">==</span></code> have very different meanings. The former is
-an assignment operator, and the latter is the equality operator:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># assign variable `x` to the value 3</span>
+the assignment operator, and the latter is the equality operator:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># assign the value 3 to the variable `x`</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">==</span> <span class="mi">3</span>  <span class="c1"># check if `x` and 3 have the same value</span>
 <span class="go">True</span>
 </pre></div>
@@ -335,13 +345,12 @@ references the <code class="docutils literal"><span class="pre">None</span></cod
 </div>
 <div class="section" id="bool-and-Truth-Values-of-Non-Boolean-Objects">
 <h2><code class="docutils literal"><span class="pre">bool</span></code> and Truth Values of Non-Boolean Objects<a class="headerlink" href="#bool-and-Truth-Values-of-Non-Boolean-Objects" title="Permalink to this headline">¶</a></h2>
-<p>It can be useful to ascribe non-boolean objects with inherit boolean
-values. For example, in computer science, the number 0 is often
-associated with <code class="docutils literal"><span class="pre">False</span></code> and non-zero numbers are associated with
-<code class="docutils literal"><span class="pre">True</span></code>. Python ascribes most of its built-in objects with inherent
-boolean values, which can be evaluated with the built-in Python command
-<code class="docutils literal"><span class="pre">bool</span></code>. For example, the Python integer 0 is ascribed the boolean
-value <code class="docutils literal"><span class="pre">False</span></code>:</p>
+<p>It can be useful to ascribe boolean values to non-boolean objects. For
+example, in computer science, the number 0 is often associated with
+<code class="docutils literal"><span class="pre">False</span></code> and non-zero numbers are associated with <code class="docutils literal"><span class="pre">True</span></code>. Python
+ascribes boolean values to most of its built-in objects, which can be
+evaluated with the built-in Python command <code class="docutils literal"><span class="pre">bool</span></code>. For example, in
+Python the boolean value <code class="docutils literal"><span class="pre">False</span></code> is ascribed to the integer 0:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Using `bool` to access the True/False</span>
 <span class="c1"># value of non-boolean objects</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -349,8 +358,9 @@ value <code class="docutils literal"><span class="pre">False</span></code>:</p>
 </pre></div>
 </div>
 <p>and non-zero Python integers are associated with <code class="docutils literal"><span class="pre">True</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">True</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># nonzero values evaluate to `True`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">bool</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="bp">True</span>
 </pre></div>
 </div>
 <p>The following built-in Python objects evaluate to <code class="docutils literal"><span class="pre">False</span></code> via
@@ -405,7 +415,7 @@ returns <code class="docutils literal"><span class="pre">True</span></code></td>
 </table>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">The <code class="docutils literal"><span class="pre">bool</span></code> function allows you to evaluate the boolean-values ascribed
+<p class="last">The <code class="docutils literal"><span class="pre">bool</span></code> function allows you to evaluate the boolean values ascribed
 to various non-boolean objects. For instance, <code class="docutils literal"><span class="pre">bool([])</span></code> returns
 <code class="docutils literal"><span class="pre">False</span></code> wherease <code class="docutils literal"><span class="pre">bool([1,</span> <span class="pre">2])</span></code> returns <code class="docutils literal"><span class="pre">True</span></code>.</p>
 </div>
@@ -428,7 +438,7 @@ this:</p>
     <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;dead&quot;</span>
 </pre></div>
 </div>
-<p>The following pseudo-code demonstrates their general template for
+<p>The following pseudo-code demonstrates the general template for
 conditional statements:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">expression_1</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="n">the</span> <span class="n">code</span> <span class="n">within</span> <span class="n">this</span> <span class="n">indented</span> <span class="n">block</span> <span class="ow">is</span> <span class="n">executed</span> <span class="k">if</span><span class="o">..</span>
@@ -485,6 +495,32 @@ clause. <code class="docutils literal"><span class="pre">else</span></code> and 
 <span class="c1"># x is now 1</span>
 </pre></div>
 </div>
+<p>Similarly, conditional statements can have an <code class="docutils literal"><span class="pre">if</span></code> and an <code class="docutils literal"><span class="pre">else</span></code>
+without an <code class="docutils literal"><span class="pre">elif</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># A conditional statement consisting of</span>
+<span class="c1"># an &quot;if&quot;-clause and an &quot;else&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1"># x is now -2</span>
+</pre></div>
+</div>
+<p>Conditional statements can also have an <code class="docutils literal"><span class="pre">if</span></code> and an <code class="docutils literal"><span class="pre">elif</span></code> without
+an <code class="docutils literal"><span class="pre">else</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># A conditional statement consisting of</span>
+<span class="c1"># an &quot;if&quot;-clause and an &quot;elif&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;cba&#39;</span>
+<span class="c1"># x is now &#39;abcabcabc&#39;</span>
+</pre></div>
+</div>
 <hr class="docutils" />
 <p><strong>Reading Comprehension: Conditional statements</strong></p>
 <ol class="arabic simple">
@@ -498,15 +534,18 @@ clause. <code class="docutils literal"><span class="pre">else</span></code> and 
 </div>
 <p>What will happen if <code class="docutils literal"><span class="pre">my_list</span></code> is <code class="docutils literal"><span class="pre">[]</span></code>? Will <code class="docutils literal"><span class="pre">IndexError</span></code> be
 raised? What will <code class="docutils literal"><span class="pre">first_item</span></code> be?</p>
-<p>2. The variable <code class="docutils literal"><span class="pre">my_file</span></code> is a string like <code class="docutils literal"><span class="pre">&quot;code.py&quot;</span></code>,
-<code class="docutils literal"><span class="pre">&quot;my_doc.txt&quot;</span></code>, etc, where a period denotes the end of the file-name
-and the beginning of the file-type. <code class="docutils literal"><span class="pre">my_file</span></code> will have at most one
-period in it. Write code that creates a variable which stores only the
-filename. Accommodate cases where <code class="docutils literal"><span class="pre">my_file</span></code> does <em>not</em> include a
-file-type.</p>
-<p>That is, <code class="docutils literal"><span class="pre">&quot;code.py&quot;</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">&quot;code&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;doc2.pdf&quot;</span></code>
-<span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">&quot;doc2&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;hello_world&quot;</span></code> <span class="math">\(\rightarrow\)</span>
-<code class="docutils literal"><span class="pre">&quot;hello_world&quot;</span></code> ***</p>
+<p>2. Assume variable <code class="docutils literal"><span class="pre">my_file</span></code> is a string storing a filename, where a
+period denotes the end of the filename and the beginning of the
+file-type. Write code that extracts only the filename.</p>
+<p><code class="docutils literal"><span class="pre">my_file</span></code> will have at most one period in it. Accommodate cases where
+<code class="docutils literal"><span class="pre">my_file</span></code> does <em>not</em> include a file-type.</p>
+<p>That is:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&quot;code.py&quot;</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">&quot;code&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;doc2.pdf&quot;</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">&quot;doc2&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;hello_world&quot;</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">&quot;hello_world&quot;</span></code></li>
+</ul>
+<hr class="docutils" />
 <div class="section" id="Inline-if-else-statements">
 <h3>Inline if-else statements<a class="headerlink" href="#Inline-if-else-statements" title="Permalink to this headline">¶</a></h3>
 <p>Python supports a syntax for writing a restricted version of if-else
@@ -534,15 +573,18 @@ expressions - no “elif” statement is permitted by this inline syntax,
 nor are muli-line code blocks within the if/else clauses.</p>
 <p>Inline if-else statements can be used anywhere, not just on the right
 side of an assignment statement, and can be quite convenient:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="c1"># will append 1 to `my_list` if `x` is non-negative</span>
-<span class="c1"># will append 0 to `my_list if `x` is negative</span>
-<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;a&quot;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;b&quot;</span>
-<span class="go">&quot;b</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using inline if-else statements in different scenarios</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># will store 1 if `x` is non-negative</span>
+<span class="c1"># will store 0 if `x` is negative</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;a&quot;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;b&quot;</span>
+<span class="s2">&quot;b</span>
 </pre></div>
 </div>
 <p>We will see this syntax shine when we learn about comprehension

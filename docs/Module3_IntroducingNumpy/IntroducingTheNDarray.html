@@ -233,9 +233,9 @@ over patterned subsequences of its elements, using compiled C code
 instead of Python; this is a process called vectorization.</li>
 </ol>
 <p>Let’s take a sneak peek to see at what this module has in store. The
-following code creates an ND-array containing the numbers 0-9:</p>
+following code creates an ND-array containing the numbers 0-8:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>We can “reshape” this array so that its contents can be accessed along 2
@@ -255,10 +255,33 @@ entry in the array (without us needing to write a for-loop)</p>
 <span class="go">       [36, 49, 64]], dtype=int32)</span>
 </pre></div>
 </div>
-<p>And finally, let’s take the mean value over the three distinct columns
-in our data:</p>
+<p>Let’s take the mean value over the three distinct columns in our data:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">array([ 3.,  4.,  5.])</span>
+</pre></div>
+</div>
+<p>We can use broadcasting to raise each column of <code class="docutils literal"><span class="pre">x</span></code> to a different
+power:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
+<span class="go">array([[  1.,   1.,   4.],</span>
+<span class="go">       [  1.,   4.,  25.],</span>
+<span class="go">       [  1.,   7.,  64.]])</span>
+</pre></div>
+</div>
+<p>Basic indexing allows us to access multi-dimensional slices of <code class="docutils literal"><span class="pre">x</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">array([[0, 1, 2],</span>
+<span class="go">       [3, 4, 5]])</span>
+</pre></div>
+</div>
+<p>Advanced indexing can be used to access all even-valued entries of
+<code class="docutils literal"><span class="pre">x</span></code>; let’s update <code class="docutils literal"><span class="pre">x</span></code> so that all of its even-valued entries are
+multiplied by -1:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([[ 0,  1, -2],</span>
+<span class="go">       [ 3, -4,  5],</span>
+<span class="go">       [-6,  7, -8]])</span>
 </pre></div>
 </div>
 <p>By the end of this module, these code snippets should make good sense,

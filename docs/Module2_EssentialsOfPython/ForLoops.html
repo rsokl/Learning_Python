@@ -310,12 +310,6 @@ iterable, the iterate-variable is never defined:</p>
 even defined. Thus the code enclosed within the for-loop is never
 reached, and the subsequent <code class="docutils literal"><span class="pre">print(x)</span></code> statement will raise a
 <code class="docutils literal"><span class="pre">NameError</span></code>, because <code class="docutils literal"><span class="pre">x</span></code> was never defined!</p>
-<div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
-<p class="last">There are reading-comprehension exercises included throughout the text.
-These are meant to help you put your reading to practice. Solutions for
-the exercises are included at the bottom of this page.</p>
-</div>
 </div>
 </div>
 <div class="section" id="While-Loops">
@@ -326,12 +320,12 @@ no longer true:</p>
     <span class="n">block</span> <span class="n">of</span> <span class="n">code</span>
 </pre></div>
 </div>
-<p>Where <code class="docutils literal"><span class="pre">&lt;condition&gt;</span></code> expression that returns <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code>, or
-it is any object on which <code class="docutils literal"><span class="pre">bool</span></code> can be called. The “body” of the
-while-loop is the code indented beneath the for-loop statement.</p>
+<p>Where <code class="docutils literal"><span class="pre">&lt;condition&gt;</span></code> is an expression that returns <code class="docutils literal"><span class="pre">True</span></code> or
+<code class="docutils literal"><span class="pre">False</span></code>, or is any object on which <code class="docutils literal"><span class="pre">bool</span></code> can be called. The “body”
+of the while-loop is the code indented beneath the while-loop statement.</p>
 <p>The while-loop behaves as follows:</p>
 <ul class="simple">
-<li>Call <code class="docutils literal"><span class="pre">bool(&lt;condition&gt;)</span></code>, execute the indented block of code if
+<li>Call <code class="docutils literal"><span class="pre">bool(&lt;condition&gt;)</span></code> and execute the indented block of code if
 <code class="docutils literal"><span class="pre">True</span></code> is returned. Otherwise, “exit” the while-loop, skipping past
 the indented code.</li>
 <li>If the indented block code is executed, go back to the first step.</li>
@@ -340,8 +334,7 @@ the indented code.</li>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating a basic while-loop</span>
 <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="c1"># equivalent to: `total = total + 1`</span>
-    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># equivalent to: `total = total + 1`</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  <span class="c1"># `total` has the value 2</span>
 </pre></div>
@@ -364,10 +357,10 @@ code-block</li>
 code would never be reached.</p>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Warning!</strong></p>
-<p class="last">It is possible to write a while-loop such that it’s conditional
-statement is always True, in which case, your code will run ceaselessly!
-If this even happens to you in a Jupyter notebook, either interrupt or
-restart your kernel.</p>
+<p class="last">It is possible to write a while-loop such that its conditional statement
+is always True, in which case your code will run ceaselessly! If this
+even happens to you in a Jupyter notebook, either interrupt or restart
+your kernel.</p>
 </div>
 <hr class="docutils" />
 <p><strong>Reading Comprehension: A basic while-loop</strong></p>
@@ -380,8 +373,8 @@ should be <code class="docutils literal"><span class="pre">[1,</span> <span clas
 <hr class="docutils" />
 <div class="section" id="break,-continue,-&amp;-else-clauses-on-loops">
 <h2><code class="docutils literal"><span class="pre">break</span></code>, <code class="docutils literal"><span class="pre">continue</span></code>, &amp; <code class="docutils literal"><span class="pre">else</span></code> clauses on loops<a class="headerlink" href="#break,-continue,-&-else-clauses-on-loops" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">continue</span></code> and <code class="docutils literal"><span class="pre">break</span></code> statements are to be used within the
-bodies of both for-loops and while-loops. They provide added means for
+<p>The <code class="docutils literal"><span class="pre">continue</span></code> and <code class="docutils literal"><span class="pre">break</span></code> statements can be used within the bodies
+of both for-loops and while-loops. They provide added means for
 “short-circuiting” or prematurely exiting a given loop, respectively.</p>
 <p>The <code class="docutils literal"><span class="pre">break</span></code> statement can be used within the body of a for-loop, or
 while-loop. Encountering <code class="docutils literal"><span class="pre">break</span></code> causes that loop to be exited
