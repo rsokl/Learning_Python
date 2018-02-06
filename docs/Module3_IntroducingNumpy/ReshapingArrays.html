@@ -292,6 +292,15 @@ a shape-(3, 4, 3) array. The following are valid:</p>
 <span class="go">ValueError: can only specify one unknown dimension</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reshaping Does Not Make a Copy</strong>:</p>
+<p class="last">NumPy does not actually create a new copy of an array’s data when
+performing a <code class="docutils literal"><span class="pre">reshape</span></code> operation. Instead, the original array and the
+reshaped array reference the same underlying data. The reshaped array
+simply provides a new index-interface for accessing said data, and is
+thus referred to as a “view” of the original array (more on this in a
+later module).</p>
+</div>
 </div>
 <div class="section" id="How-to-Traverse-an-Array:-Row-major-(C)-vs-Column-major-(F)-Traversal-Ordering">
 <h2>How to Traverse an Array: Row-major (C) vs Column-major (F) Traversal Ordering<a class="headerlink" href="#How-to-Traverse-an-Array:-Row-major-(C)-vs-Column-major-(F)-Traversal-Ordering" title="Permalink to this headline">¶</a></h2>
@@ -436,15 +445,6 @@ array-broadcasting and advanced indexing.</p>
 <code class="docutils literal"><span class="pre">array([0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9])</span></code>. Take some time to consider
 why this will always be true, no matter how many intermediary reshapes
 are performed.</p>
-</div>
-<div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reshaping Does Not Make a Copy</strong>:</p>
-<p class="last">NumPy does not actually create a new copy of an array’s data when
-performing a <code class="docutils literal"><span class="pre">reshape</span></code> operation. Instead, the original array and the
-reshaped array reference the same underlying data. The reshaped array
-simply provides a new index-interface for accessing said data, and is
-thus referred to as a “view” of the original array (more on this in a
-later module).</p>
 </div>
 </div>
 </div>

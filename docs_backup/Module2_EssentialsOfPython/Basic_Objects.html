@@ -250,13 +250,13 @@ the exercises are included at the bottom of this page.</p>
 <p>You will see the term “object” be used frequently throughout this text.
 In Python, the term “object” is quite the catch-all; including numbers,
 strings of characters, lists, functions - a Python object is essentially
-anything that you can assign a variable to. That being said, there are
+anything that you can assign to a variable. That being said, there are
 different <em>types</em> of objects: Python treats integers as a different
 <em>type</em> of object than a string, for instance.</p>
 <p>The different object types have manifestly different purposes and thus
 have different built-in functions available to them. Here, we will
-review some of basic types that are built-in to Python, as natural entry
-point to writing code. We will cover:</p>
+review some of the basic types that are built into Python, as a natural
+entry point to writing code. We will cover:</p>
 <ul class="simple">
 <li>numbers (integers, floating-point numbers, and complex numbers)</li>
 <li>booleans</li>
@@ -286,8 +286,8 @@ will allow you to create your own, customized objects!</p>
 <h2>Number Types<a class="headerlink" href="#Number-Types" title="Permalink to this headline">¶</a></h2>
 <p>Python has three basic types of numbers: integers, “floating-point”
 numbers, and complex numbers. Familiar mathematical symbols can be used
-to perform arithmetic on all of these numbers (comparison operartors
-like “greater than” are not defined for complex numbers):</p>
+to perform arithmetic on all of these numbers (comparison operators like
+“greater than” are not defined for complex numbers):</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="19%" />
@@ -300,7 +300,7 @@ like “greater than” are not defined for complex numbers):</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></td>
-<td>Addition of two numbers</td>
+<td>Sum of two numbers</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></td>
 <td>Difference of two numbers</td>
@@ -404,7 +404,7 @@ leaving a remainder of 1. Thus <code class="docutils literal"><span class="pre">
 remainder. Thus <code class="docutils literal"><span class="pre">9</span> <span class="pre">%</span> <span class="pre">3</span></code> returns <code class="docutils literal"><span class="pre">0</span></code></li>
 </ul>
 <p>Given this description of the “mod” operator, simplify the following by
-hand, and then use the ipython console to check your work:</p>
+hand, and then use the IPython console to check your work:</p>
 <ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">1</span> <span class="pre">%</span> <span class="pre">5</span></code></li>
 <li><code class="docutils literal"><span class="pre">2</span> <span class="pre">%</span> <span class="pre">5</span></code></li>
@@ -465,7 +465,7 @@ objects to integers:</p>
 <span class="go">1</span>
 </pre></div>
 </div>
-<p>You can create as large an integer as you’d like, Python will allocate
+<p>You can create as large an integer as you’d like; Python will allocate
 as much memory as needed (and ultimately, as is available) to store an
 integer’s exact value:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># you can make an integer as large as you&#39;d like</span>
@@ -526,9 +526,9 @@ character <code class="docutils literal"><span class="pre">e</span></code> is us
 proceeding number is the exponent. Here are some examples of traditional
 scientific notation, and their corresponding representation in Python:</p>
 <p><span class="math">\(1.38 \times 10^{-4} \rightarrow\)</span> <code class="docutils literal"><span class="pre">1.38e-04</span></code></p>
-<p><span class="math">\(-0.2 \times 10^{10} \rightarrow\)</span> <code class="docutils literal"><span class="pre">-0.2e10</span></code></p>
-<p>Python will automatically display a float, that possesses many digits,
-in scientific notation:</p>
+<p><span class="math">\(-4.2 \times 10^{10} \rightarrow\)</span> <code class="docutils literal"><span class="pre">-4.2e10</span></code></p>
+<p>Python will automatically display a float that possesses many digits in
+scientific notation:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># python will display many-digit numbers using</span>
 <span class="c1"># scientific notation</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mf">0.0000001</span>  <span class="c1"># seven leading-zeros</span>
@@ -616,7 +616,7 @@ numerical work in Python (and any other programming language), you must
 understand that the finite numerical precision of floating-point numbers
 is a source of error, akin to error associated with imprecision with a
 measuring device, and should be accounted for in your analysis (if error
-analysis warranted at all).</p>
+analysis is warranted).</p>
 <p>Python’s <a class="reference external" href="https://docs.python.org/3.0/library/decimal.html">decimal
 module</a> can be used
 to define higher (or lower) precision numbers than permitted by the
@@ -626,8 +626,8 @@ numbers from this module is guaranteed to be <em>exact</em>, meaning that
 built-in <a class="reference external" href="https://docs.python.org/3/library/fractions.html#module-fractions">fractions
 module</a>,
 which provides tools for working with exact representations of rational
-numbers. Although we will not be using them here, is very important to
-keep in mind that these modules exist and that floating point numbers
+numbers. Although we will not be using them here, it is very important
+to keep in mind that these modules exist and that floating point numbers
 are not the only way around the number line in Python.</p>
 </div>
 </div>
@@ -640,7 +640,8 @@ relationship <span class="math">\(i^2 = -1\)</span>. Because no real-valued numb
 this relationship, <span class="math">\(i\)</span> is called the “imaginary number”.</p>
 <p>Weirdo electrical engineers use the symbol <span class="math">\(j\)</span> in place of
 <span class="math">\(i\)</span>, which is why Python displays the complex number
-<span class="math">\(2 + 3i\)</span> as <code class="docutils literal"><span class="pre">2+3j</span></code>.</p>
+<span class="math">\(2 + 3i\)</span> as <code class="docutils literal"><span class="pre">2+3j</span></code> (this is actually because <span class="math">\(i\)</span> typically
+denotes current; we like electrical engineers too).</p>
 <p>Along with the <code class="docutils literal"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">bj</span></code> syntax, built-in type <code class="docutils literal"><span class="pre">complex</span></code> can be used
 to create complex-type numbers:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># creating complex numbers</span>
@@ -695,7 +696,7 @@ for all the arithmetic operations? Determine this by trial and error.</p>
 <hr class="docutils" />
 <div class="section" id="The-Boolean-Type">
 <h2>The Boolean Type<a class="headerlink" href="#The-Boolean-Type" title="Permalink to this headline">¶</a></h2>
-<p>There are two boolean-type objects <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code>; they belong
+<p>There are two boolean-type objects: <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code>; they belong
 to the built-in type <code class="docutils literal"><span class="pre">bool</span></code>. We have already seen that the
 <code class="docutils literal"><span class="pre">isinstance</span></code> function either returns <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code>, as a given
 object either is or isn’t and instance of a specific type.</p>
@@ -750,7 +751,7 @@ objects.</p>
 the “Conditional Statements” section.</p>
 <hr class="docutils" />
 <p><strong>Reading Comprehension: Boolean expressions</strong></p>
-<p>1. Assuming <code class="docutils literal"><span class="pre">x</span></code> is a an integer-type, write an a comparison-statement
+<p>1. Assuming <code class="docutils literal"><span class="pre">x</span></code> is a an integer-type, write a comparison statement
 that will return <code class="docutils literal"><span class="pre">True</span></code> if <code class="docutils literal"><span class="pre">x</span></code> is an even number, and <code class="docutils literal"><span class="pre">False</span></code>
 otherwise. (Hint: recall the purpose of the <code class="docutils literal"><span class="pre">%</span></code> operator)</p>
 <p>2. Assuming <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> are both real-valued numbers (i.e.&nbsp;not
@@ -773,9 +774,9 @@ object or a float-type object.</p>
 </div>
 <p>As such, instead of checking if an object belongs to NoneType, you
 should simply check if the object is <code class="docutils literal"><span class="pre">None</span></code>. Python reserves <code class="docutils literal"><span class="pre">is</span></code> as
-a operation that checks if two objects are identical. This is different
+an operation that checks if two objects are identical. This is different
 than <code class="docutils literal"><span class="pre">==</span></code>, which checks if two objects are associated with the same
-value or state.:</p>
+value or state:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Check if an object &quot;is&quot; None, instead</span>
 <span class="c1"># of checking if it is of NoneType</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">22</span>
@@ -792,9 +793,9 @@ value or state.:</p>
 <span class="bp">True</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">None</span></code> appears frequently, and is used as a placeholder in code. Here
-is a simple example where <code class="docutils literal"><span class="pre">None</span></code> could be useful; don’t worry that
-this code may not make perfect sense to you yet:</p>
+<p><code class="docutils literal"><span class="pre">None</span></code> appears frequently, and is often used as a placeholder in code.
+Here is a simple example where <code class="docutils literal"><span class="pre">None</span></code> could be useful; don’t worry
+that this code may not make perfect sense to you yet:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating the use of `None` as a placeholder</span>
 
 <span class="c1"># In this code, we want to get the first</span>
@@ -866,8 +867,8 @@ a string:</p>
 </div>
 <p>Strings are not the only sequence-type in Python; lists and tuples are
 examples of sequences as well. We will reserve a separate section to
-learn about the common interface that Python for all of its types that
-are sequential in nature, including the “indexing” and “slicing”
+learn about the common interface that Python has for all of its types
+that are sequential in nature, including the “indexing” and “slicing”
 demonstrated here.</p>
 </div>
 <div class="section" id="String-essentials">
@@ -964,9 +965,9 @@ tab-character):</p>
 <hr class="docutils" />
 <div class="section" id="Lists">
 <h2>Lists<a class="headerlink" href="#Lists" title="Permalink to this headline">¶</a></h2>
-<p>A <code class="docutils literal"><span class="pre">list</span></code> is a type of Python object that allows use to store a
-sequence of other objects. One of its major utilities is that it
-provides us with means for updating the contents of a list later on.</p>
+<p>A <code class="docutils literal"><span class="pre">list</span></code> is a type of Python object that allows us to store a sequence
+of other objects. One of its major utilities is that it provides us with
+means for updating the contents of a list later on.</p>
 <p>A list object is created using square-brackets, and its contents are
 separated by commas: <code class="docutils literal"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">...,</span> <span class="pre">itemN]</span></code>. Its contents need
 not be of the same type of object.</p>
@@ -1042,7 +1043,7 @@ covered in detail in the next section.</p>
 list stand out is that the <em>contents of a list can be changed after the
 list has already been constructed</em>. Thus a list is an example of a
 <em>mutable</em> object.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># changing a list after its been constructing</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># changing a list after it has been constructed</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 
@@ -1104,7 +1105,7 @@ documentation for the built-in functions of lists.</p>
 <ol class="arabic simple">
 <li>Create a list whose sole entry is the <code class="docutils literal"><span class="pre">None</span></code> object.</li>
 </ol>
-<p>2. Assign the variable <code class="docutils literal"><span class="pre">k</span></code> to a list that contains an integer, a
+<p>2. Assign to the variable <code class="docutils literal"><span class="pre">k</span></code> a list that contains an integer, a
 boolean, and a string, in that order. Then, add two more entries to the
 end of the list: a float and a complex number.</p>
 <p>3. Alphabetize the list of names:
@@ -1115,12 +1116,12 @@ end of the list: a float and a complex number.</p>
 <div class="section" id="Summary">
 <h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline">¶</a></h2>
 <p>The term “object” is a catch-all in Python, meaning anything that we can
-assign a variable to. Objects behave differently from one another
+assign to a variable. Objects behave differently from one another
 according to what “type” a given object is.</p>
 <p>We reviewed several fundamental object types in Python:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">int</span></code>, <code class="docutils literal"><span class="pre">float</span></code>, <code class="docutils literal"><span class="pre">complex</span></code>: the numerical types</li>
-<li><code class="docutils literal"><span class="pre">bool</span></code>: the boolean type. <code class="docutils literal"><span class="pre">True</span></code>, <code class="docutils literal"><span class="pre">False</span></code> are the only
+<li><code class="docutils literal"><span class="pre">bool</span></code>: the boolean type. <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code> are the only
 boolean-type objects</li>
 <li><code class="docutils literal"><span class="pre">NoneType</span></code>: the “null” type; <code class="docutils literal"><span class="pre">None</span></code> is <em>the only object that
 belongs to this type</em></li>
@@ -1233,6 +1234,8 @@ number:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 2. Write a line of code that will return False if:</span>
 <span class="c1">#    x and y are within 0.9 of one another, and x is a positive number.</span>
 <span class="ow">not</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.9</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">)</span>
+<span class="c1"># alternatively,</span>
+<span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.9</span> <span class="ow">or</span> <span class="mi">0</span> <span class="o">&gt;</span> <span class="n">x</span>
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 3. Write an expression that returns True if</span>

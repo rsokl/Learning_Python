@@ -237,10 +237,10 @@ useful for:</p>
 <ul class="simple">
 <li>Filtering out “repeat” objects in a collection, producing only its
 unique members.</li>
-<li>Quickly checking for membership, as an <span class="math">\(\mathcal{O}(1)\)</span>
+<li>Quickly checking for membership, as a <span class="math">\(\mathcal{O}(1)\)</span>
 operation.</li>
-<li>Efficiently comparing two sets of objects; e.g.&nbsp;is one set a “subset”
-of another.</li>
+<li>Efficiently comparing two sets of objects; e.g.&nbsp;if one set is a
+“subset” of another.</li>
 </ul>
 <p>A set uses a “hashing” scheme for keeping track of its contents. Thus,
 like a dictionary’s keys, a set can only store <em>immutable</em> objects so
@@ -287,7 +287,7 @@ collection</em>:</p>
 <div class="section" id="Set-operations">
 <h3>Set operations<a class="headerlink" href="#Set-operations" title="Permalink to this headline">¶</a></h3>
 <p>Sets support membership-checking (<span class="math">\(\mathcal{O}(1)\)</span>) along with
-iteration (<span class="math">\(\mathcal{O}(n)\)</span>). Note that sets are unordered, thus
+iteration (<span class="math">\(\mathcal{O}(n)\)</span>). Note that sets are unordered; thus
 the order of iteration is effectively random:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># checking membership in a set</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
@@ -334,7 +334,7 @@ documentation</a>.</p>
 <span class="bp">False</span>
 </pre></div>
 </div>
-<p>A set is a <em>mutable</em> object, it can be updated after it was created:</p>
+<p>A set is a <em>mutable</em> object; it can be updated after it was created:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># sets are mutable</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
@@ -367,7 +367,7 @@ along with a suite of set-algebra operations for comparing sets.
 <a class="reference external" href="https://docs.python.org/3/library/collections.html">“collections”
 module</a>. It is
 recommended that the reader take some time to peruse this module. Here,
-we will briefly show off some of utility of its data structures.</p>
+we will briefly show off some of the utilities of its data structures.</p>
 <p>Refer to the <a class="reference external" href="https://docs.python.org/3/library/collections.html">official
 documentation</a>
 for a complete listing of the functions available to these data
@@ -375,7 +375,7 @@ structures.</p>
 <div class="section" id="Named-Tuple">
 <h3>Named-Tuple<a class="headerlink" href="#Named-Tuple" title="Permalink to this headline">¶</a></h3>
 <p>A named tuple allows you to form a tuple whose members are named. Thus
-the user can access a member by-name or via index. Otherwise the named
+the user can access a member by name or via index. Otherwise the named
 tuple behaves just like a typical tuple. This facilitates clean,
 readable code.</p>
 <p>Suppose, for instance, you want to keep track of the 3D-position and
@@ -385,7 +385,7 @@ have to keep in mind that element-3 of your tuple corresponds to time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the use of named tuple</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
 
-<span class="c1"># Define a tuple that holds space-time coordinate.</span>
+<span class="c1"># Define a tuple that holds a space-time coordinate.</span>
 <span class="c1"># Here we define the tuple to have four entries, named</span>
 <span class="c1"># &#39;x&#39;, &#39;y&#39;, &#39;z&#39;, and &#39;t&#39;, in order.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">space_time_coord</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;space_time_coord&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">])</span>
@@ -404,11 +404,11 @@ have to keep in mind that element-3 of your tuple corresponds to time:</p>
 <div class="section" id="Default-Dictionary">
 <h3>Default Dictionary<a class="headerlink" href="#Default-Dictionary" title="Permalink to this headline">¶</a></h3>
 <p>A default dictionary allows you to specify a Python function, <span class="math">\(f\)</span>
-that will be used to initialize as a “default value” for that
-dictionary. The default value will be whatever <span class="math">\(f()\)</span> returns. That
-is, whenever you try to access a key that does not exist in the
-dictionary, instead of raising <code class="docutils literal"><span class="pre">KeyError</span></code>, the mapping
-<span class="math">\(key \rightarrow f()\)</span> will be created in the dictionary:</p>
+that will be used as a “default value” for that dictionary. The default
+value will be whatever <span class="math">\(f()\)</span> returns. That is, whenever you try to
+access a key that does not exist in the dictionary, instead of raising
+<code class="docutils literal"><span class="pre">KeyError</span></code>, the mapping <span class="math">\(key \rightarrow f()\)</span> will be created in
+the dictionary:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the behavior of the `defaultdict`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
@@ -430,12 +430,12 @@ dictionary, instead of raising <code class="docutils literal"><span class="pre">
 <span class="math">\(name \rightarrow grades\)</span>. With a standard dictionary, you have to
 worry about encountering a student for the first time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="s2">&quot;Ryan&quot;</span>
-<span class="n">grade</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># I failed the test..</span>
+<span class="n">grade</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># I failed the test...</span>
 
 <span class="c1"># standard dictionary usage</span>
 <span class="n">gradebook</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="c1"># if student isnt in the gradebook, enter that student</span>
+<span class="c1"># if student isn&#39;t in the gradebook, enter that student</span>
 <span class="c1"># along with an empty list as the grades</span>
 <span class="k">if</span> <span class="n">student</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">gradebook</span><span class="p">:</span>
     <span class="n">gradebook</span><span class="p">[</span><span class="n">student</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>

@@ -585,17 +585,22 @@ called by name</em>:</p>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;seq is: &quot;</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;y is: &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># `y` must be specified by name</span>
-<span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># `y` must be specified by name</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">1</span>
 <span class="n">seq</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">5</span>
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>  <span class="c1"># no additional positional arguments are passed</span>
-<span class="go">x   is:  &quot;cat&quot;</span>
-<span class="go">seq is:  ()</span>
-<span class="go">y   is:  &quot;dog&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;cat&quot;</span>
+<span class="n">seq</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">()</span>
+<span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;dog&quot;</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -714,8 +719,11 @@ that is likely the more appropriate behavior for this function.</p>
     <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>or, being a bit more fancy : - using the fact that <code class="docutils literal"><span class="pre">bool(seq)</span></code> is
-<code class="docutils literal"><span class="pre">False</span></code> if <code class="docutils literal"><span class="pre">seq</span></code> is empty - using the inline if-else syntax</p>
+<p>or, being a bit more fancy :</p>
+<ul class="simple">
+<li>using the fact that <code class="docutils literal"><span class="pre">bool(seq)</span></code> is <code class="docutils literal"><span class="pre">False</span></code> if <code class="docutils literal"><span class="pre">seq</span></code> is empty</li>
+<li>using the inline if-else syntax</li>
+</ul>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="o">*</span><span class="n">seq</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Returns the mean of the function&#39;s arguments &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">if</span> <span class="n">seq</span> <span class="k">else</span> <span class="mi">0</span>

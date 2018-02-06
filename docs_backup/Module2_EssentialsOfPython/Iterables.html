@@ -232,8 +232,8 @@ that can be “iterated over”, such as in a for-loop.</p>
 <p class="last">An <strong>iterable</strong> is any Python object capable of returning its members
 one at a time, permitting it to be iterated over in a for-loop.</p>
 </div>
-<p>Familiar examples of iterables include lists, tuples, strings - any such
-sequence can be iterated over in a for-loop. We will also encounter
+<p>Familiar examples of iterables include lists, tuples, and strings - any
+such sequence can be iterated over in a for-loop. We will also encounter
 important non-sequential collections, like dictionaries and sets; these
 are iterables as well. It is also possible to have an iterable that
 “generates” each one of its members upon iteration - meaning that it
@@ -304,9 +304,9 @@ be introduced in the coming sections.</p>
 <div class="section" id="“Unpacking”-iterables">
 <h3>“Unpacking” iterables<a class="headerlink" href="#“Unpacking”-iterables" title="Permalink to this headline">¶</a></h3>
 <p>Suppose that you have three values stored in a list, and that you want
-to assign a distinct variable to each value. Given the lessons that we
+to assign each value to a distinct variable. Given the lessons that we
 have covered thus far, you would likely write the following code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># simple script for assigning variables to contents of list</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># simple script for assigning contents of a list to variables</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -316,7 +316,7 @@ have covered thus far, you would likely write the following code:</p>
 </div>
 <p>Python provides an extremely useful functionality, known as <strong>iterable
 unpacking</strong>, which allows us to write the simple, elegant code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># assigning variables to contents of a list using iterable unpacking</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># assigning contents of a list to variables using iterable unpacking</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">my_list</span>
@@ -326,9 +326,9 @@ unpacking</strong>, which allows us to write the simple, elegant code:</p>
 </div>
 <p>That is, the Python interpreter “sees” the pattern of variables to the
 left of the assignment, and will “unpack” the iterable (which happens to
-be a list in this instance). It may not seem it from this example, but
-this is an <em>extremely</em> useful feature of Python that greatly facilitates
-the readability of code!</p>
+be a list in this instance). It may not seem like it from this example,
+but this is an <em>extremely</em> useful feature of Python that greatly
+improves the readability of code!</p>
 <p>Iterable unpacking is particularly useful in the context of performing
 for-loops over iterables-of-iterables. For example, suppose we have a
 list containing tuples of name-grade pairs:</p>
@@ -349,7 +349,7 @@ the iterate-variable will be assigned to each of these tuples:</p>
 </div>
 <p>It is likely that we will want to work with the student’s name and their
 grade independently (e.g.&nbsp;use the name to access a log, and add the
-grade-value to our class statistics), thus we will need to index into
+grade-value to our class statistics); thus we will need to index into
 <code class="docutils literal"><span class="pre">entry</span></code> twice to assign its contents to two separate variables.
 However, because each iteration of the for-loop involves an assignment
 of the form <code class="docutils literal"><span class="pre">entry</span> <span class="pre">=</span> <span class="pre">(&quot;Ashley&quot;,</span> <span class="pre">93)</span></code>, we can make use of iterable
@@ -401,6 +401,7 @@ collection of iterables.</p>
 Suppose we want to record all of the positions in a list where the value
 <code class="docutils literal"><span class="pre">None</span></code> is stored:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># track which entries of an iterable store the value `None`</span>
+<span class="n">none_indices</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">iter_cnt</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># manually track iteration-count</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
@@ -414,7 +415,7 @@ Suppose we want to record all of the positions in a list where the value
 <a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a>
 function so that we don’t need to initialize and manually increment the
 <code class="docutils literal"><span class="pre">iter_cnt</span></code> variable:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using `enumerate` function to keep iteration-count</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the `enumerate` function to keep iteration-count</span>
 <span class="n">none_indices</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">iter_cnt</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]):</span>  <span class="c1"># note the use of iterable unpacking!</span>
     <span class="c1"># iter_cnt = 0, item = 2</span>

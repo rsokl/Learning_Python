@@ -88,18 +88,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "<div class=\"alert alert-warning\">\n",
-    "\n",
-    "**Note**: \n",
-    "\n",
-    "There are reading-comprehension exercises included throughout the text. These are meant to help you put your reading to practice. Solutions for the exercises are included at the bottom of this page.\n",
-    "</div>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "## While-Loops\n",
     "A \"while-loop\" allows you to repeat a block of code until a condition is no longer true:\n",
     "\n",
@@ -108,11 +96,11 @@
     "    block of code\n",
     "```\n",
     "\n",
-    "Where `<condition>` expression that returns `True` or `False`, or it is any object on which `bool` can be called. The \"body\" of the while-loop is the code indented beneath the for-loop statement.\n",
+    "Where `<condition>` is an expression that returns `True` or `False`, or is any object on which `bool` can be called. The \"body\" of the while-loop is the code indented beneath the while-loop statement.\n",
     "\n",
     "The while-loop behaves as follows:\n",
     "\n",
-    "- Call `bool(<condition>)`, execute the indented block of code if `True` is returned. Otherwise, \"exit\" the while-loop, skipping past the indented code.\n",
+    "- Call `bool(<condition>)` and execute the indented block of code if `True` is returned. Otherwise, \"exit\" the while-loop, skipping past the indented code.\n",
     "- If the indented block code is executed, go back to the first step.\n",
     "\n",
     "To be concrete, let's consider the example:\n",
@@ -120,8 +108,7 @@
     "# demonstrating a basic while-loop\n",
     "total = 0\n",
     "while total < 2:\n",
-    "    # equivalent to: `total = total + 1`\n",
-    "    total += 1  \n",
+    "    total += 1  # equivalent to: `total = total + 1`\n",
     "\n",
     "print(total)  # `total` has the value 2\n",
     "```\n",
@@ -142,7 +129,7 @@
     "\n",
     "**Warning!** \n",
     "\n",
-    "It is possible to write a while-loop such that it's conditional statement is always True, in which case, your code will run ceaselessly! If this even happens to you in a Jupyter notebook, either interrupt or restart your kernel.\n",
+    "It is possible to write a while-loop such that its conditional statement is always True, in which case your code will run ceaselessly! If this even happens to you in a Jupyter notebook, either interrupt or restart your kernel.\n",
     "</div>"
    ]
   },
@@ -166,7 +153,7 @@
    "metadata": {},
    "source": [
     "## `break`, `continue`, & `else` clauses on loops\n",
-    "The `continue` and `break` statements are to be used within the bodies of both for-loops and while-loops. They provide added means for \"short-circuiting\" or prematurely exiting a given loop, respectively.\n",
+    "The `continue` and `break` statements can be used within the bodies of both for-loops and while-loops. They provide added means for \"short-circuiting\" or prematurely exiting a given loop, respectively.\n",
     "\n",
     "The `break` statement can be used within the body of a for-loop, or while-loop. Encountering `break` causes that loop to be exited immediately:\n",
     "\n",
@@ -310,7 +297,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.3"
+   "version": "3.6.4"
   }
  },
  "nbformat": 4,
