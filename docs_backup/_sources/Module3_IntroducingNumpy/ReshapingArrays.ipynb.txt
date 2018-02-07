@@ -80,6 +80,19 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Reshaping Does Not Make a Copy**: \n",
+    "\n",
+    "NumPy does not actually create a new copy of an array's data when performing a `reshape` operation. Instead, the original array and the reshaped array reference the same underlying data. The reshaped array simply provides a new index-interface for accessing said data, and is thus referred to as a \"view\" of the original array (more on this in a later module).\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "\n",
     "\n",
     "## How to Traverse an Array: Row-major (C) vs Column-major (F) Traversal Ordering\n",
@@ -200,19 +213,6 @@
     "**Reshape is its own inverse**: \n",
     "\n",
     "According to this discussion, `reshape` can effectively \"undo\" itself: `np.arange(10).reshape(5,2).reshape(10)` will return `array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])`. Take some time to consider why this will always be true, no matter how many intermediary reshapes are performed.\n",
-    "\n",
-    "</div>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "<div class=\"alert alert-info\">\n",
-    "\n",
-    "**Reshaping Does Not Make a Copy**: \n",
-    "\n",
-    "NumPy does not actually create a new copy of an array's data when performing a `reshape` operation. Instead, the original array and the reshaped array reference the same underlying data. The reshaped array simply provides a new index-interface for accessing said data, and is thus referred to as a \"view\" of the original array (more on this in a later module).\n",
     "\n",
     "</div>"
    ]

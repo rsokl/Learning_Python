@@ -36,9 +36,11 @@
     "```python\n",
     "# test for membership in a list\n",
     ">>> -1 in [1, \"moo\", 3, True, 5, None, 7, 8]  # takes 295 nanoseconds on my machine\n",
+    "False\n",
     "\n",
     "# test for membership in a set\n",
     ">>> -1 in {1, \"moo\", 3, True, 5, None, 7, 8}  # takes 65 nanoseconds on my machine\n",
+    "False\n",
     "```\n",
     "We get a 4.5x speedup in our membership test just by using a set instead of a list, because the use of a set permits Python to use an entirely different algorithm for checking for membership. On our end, we merely replaced square brackets with curly braces! Hopefully this is sufficient motivation for learning about Python's data structures and the algorithms that they utilize \"under the hood\".\n",
     "\n",
@@ -156,7 +158,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.4"
+   "version": "3.6.3"
   }
  },
  "nbformat": 4,

@@ -267,9 +267,11 @@ testing for membership in a set is even faster than is checking for
 membership in a list:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># test for membership in a list</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># takes 295 nanoseconds on my machine</span>
+<span class="bp">False</span>
 
 <span class="c1"># test for membership in a set</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>  <span class="c1"># takes 65 nanoseconds on my machine</span>
+<span class="bp">False</span>
 </pre></div>
 </div>
 <p>We get a 4.5x speedup in our membership test just by using a set instead

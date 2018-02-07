@@ -432,8 +432,11 @@ in an array. Calling NumPy’s <code class="docutils literal"><span class="pre">
 iterate over the integers in the array and tally the sum the result is
 then returned by the function (<code class="docutils literal"><span class="pre">np.sum</span></code> is therefore a “vectorized”
 function). Let’s time how long it takes to compute this sum:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># sum an array, using NumPy&#39;s vectorized &#39;sum&#39; function</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span>  <span class="c1"># takes 11 microseconds on my computer</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="go"># sum an array, using NumPy&#39;s vectorized &#39;sum&#39; function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span>  <span class="c1"># takes 11 microseconds on my computer</span>
+<span class="go">49995000</span>
 </pre></div>
 </div>
 <p>Now let’s compare this to the time required to <em>explicitly</em> loop over
@@ -459,6 +462,7 @@ NumPy to do computations over arrays of numbers is to exclusively
 leverage its vectorized functions. The following computations all invoke
 vectorized functions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
 <span class="go"># multiply 2 with each number in the array</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="go">array([4, 6, 8])</span>
@@ -1440,9 +1444,9 @@ if (IPython.notebook.kernel != null) {
 <p><strong>Reading Comprehension: Unary Functions</strong></p>
 <p>Given the 2D array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
-<span class="go">                  [ 4,  5,  6,  7],</span>
-<span class="go">                  [ 8,  9, 10, 11],</span>
-<span class="go">                  [12, 13, 14, 15]])</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
 </pre></div>
 </div>
 <p>Take the natural-logarithm of the 1st and 3rd element in the 3rd-row
@@ -1592,10 +1596,10 @@ section.</p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># example of a binary function operating on two 2D arrays</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
-                  <span class="p">[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">]])</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">]])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">],</span>
-                  <span class="p">[</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span>  <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span>  <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># equivalent to `x + y`</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">11</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
@@ -1617,9 +1621,9 @@ producing an array of the same shape as either of the operands.</p>
 <p><strong>Reading Comprehension: Binary Functions</strong></p>
 <p>Given the 2D array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
-<span class="go">                  [ 4,  5,  6,  7],</span>
-<span class="go">                  [ 8,  9, 10, 11],</span>
-<span class="go">                  [12, 13, 14, 15]])</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
 </pre></div>
 </div>
 <p>Add the four quadrants of <code class="docutils literal"><span class="pre">x</span></code>, producing a shape-(2, 2) output.</p>
@@ -1670,17 +1674,16 @@ then <span class="math">\(f(\lambda, X) = f(X, \lambda)\)</span>.</p>
 <p>This process is generalizes to an array of any dimensionality and shape.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># examples of a binary function operating on a scalar &amp; an array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
-                  <span class="p">[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">]])</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">]])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">]])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
-                   <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]],</span>
-
-                  <span class="p">[[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
-                   <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">]]])</span>
+<span class="o">...</span>                <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]],</span>
+<span class="o">...</span>               <span class="p">[[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">]]])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
 <span class="n">array</span><span class="p">([[</span>  <span class="mi">0</span><span class="p">,</span>  <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="o">-</span><span class="mi">4</span><span class="p">,</span>  <span class="o">-</span><span class="mi">6</span><span class="p">],</span>
@@ -1750,8 +1753,8 @@ arrays? By default, NumPy’s sequential functions treat any
 multidimensional array as if it had been reshaped to a 1-dimensional
 array. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="go">                  [2, 3],</span>
-<span class="go">                  [4, 5]])</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 
 <span class="go"># numpy  will treat `x` as if it is a</span>
 <span class="go"># single sequence of numbers, here</span>
@@ -1770,8 +1773,8 @@ NumPy functions.</p>
 in action:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># creating a shape-(3,2) array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-                  <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-                  <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<span class="o">...</span>               <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 
 <span class="c1"># sum over axis-0, within axis-1</span>
 <span class="c1"># i.e. sum over the rows, within each column</span>
@@ -1883,7 +1886,7 @@ axis-1 index. Thus two sequences are produced:</p>
 <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">13</span><span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="go">array([ 10.,  13.])</span>
 </pre></div>
 </div>
@@ -1958,9 +1961,9 @@ get a hang of this material by simply putting it to practice.</p>
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>Unary Functions: Solution</strong></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
-<span class="go">                  [ 4,  5,  6,  7],</span>
-<span class="go">                  [ 8,  9, 10, 11],</span>
-<span class="go">                  [12, 13, 14, 15]])</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
 
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span>
@@ -1969,9 +1972,9 @@ get a hang of this material by simply putting it to practice.</p>
 </div>
 <p><strong>Binary Functions: Solution</strong></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
-<span class="go">                  [ 4,  5,  6,  7],</span>
-<span class="go">                  [ 8,  9, 10, 11],</span>
-<span class="go">                  [12, 13, 14, 15]])</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
 
 <span class="go">    # top-left  top-right    bottom-left  bottom-right</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:]</span>

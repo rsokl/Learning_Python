@@ -436,12 +436,12 @@ taken 3 exams; naturally, you store these scores in a shape-(6,3) array:</p>
 <span class="c1"># axis-0 (rows):    student</span>
 <span class="c1"># axis-1 (columns): exams</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">grades</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span> <span class="mf">0.79</span><span class="p">,</span>  <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.84</span><span class="p">],</span>
-<span class="o">...</span>                 <span class="p">[</span> <span class="mf">0.87</span><span class="p">,</span>  <span class="mf">0.93</span><span class="p">,</span>  <span class="mf">0.78</span><span class="p">],</span>
-<span class="o">...</span>                 <span class="p">[</span> <span class="mf">0.77</span><span class="p">,</span>  <span class="mf">1.</span>  <span class="p">,</span>  <span class="mf">0.87</span><span class="p">],</span>
-<span class="o">...</span>                 <span class="p">[</span> <span class="mf">0.66</span><span class="p">,</span>  <span class="mf">0.75</span><span class="p">,</span>  <span class="mf">0.82</span><span class="p">],</span>
-<span class="o">...</span>                 <span class="p">[</span> <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.89</span><span class="p">,</span>  <span class="mf">0.76</span><span class="p">],</span>
-<span class="o">...</span>                 <span class="p">[</span> <span class="mf">0.83</span><span class="p">,</span>  <span class="mf">0.71</span><span class="p">,</span>  <span class="mf">0.85</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">grades</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.79</span><span class="p">,</span>  <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.84</span><span class="p">],</span>
+<span class="o">...</span>                    <span class="p">[</span> <span class="mf">0.87</span><span class="p">,</span>  <span class="mf">0.93</span><span class="p">,</span>  <span class="mf">0.78</span><span class="p">],</span>
+<span class="o">...</span>                    <span class="p">[</span> <span class="mf">0.77</span><span class="p">,</span>  <span class="mf">1.</span>  <span class="p">,</span>  <span class="mf">0.87</span><span class="p">],</span>
+<span class="o">...</span>                    <span class="p">[</span> <span class="mf">0.66</span><span class="p">,</span>  <span class="mf">0.75</span><span class="p">,</span>  <span class="mf">0.82</span><span class="p">],</span>
+<span class="o">...</span>                    <span class="p">[</span> <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.89</span><span class="p">,</span>  <span class="mf">0.76</span><span class="p">],</span>
+<span class="o">...</span>                    <span class="p">[</span> <span class="mf">0.83</span><span class="p">,</span>  <span class="mf">0.71</span><span class="p">,</span>  <span class="mf">0.85</span><span class="p">]])</span>
 </pre></div>
 </div>
 <p>We might be interested to see how each of these scores compare to the
@@ -991,7 +991,7 @@ produce the same numerical results.</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="o">...</span>                <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
 <span class="o">...</span>                <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
-
+<span class="o">...</span>
 <span class="o">...</span>               <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
 <span class="o">...</span>                <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
 <span class="o">...</span>                <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
@@ -999,6 +999,7 @@ produce the same numerical results.</p>
 
 <span class="c1"># sum over each row, within a sheet</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">summed_rows</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">summed_rows</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">48</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">57</span><span class="p">]])</span>
 

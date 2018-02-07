@@ -229,22 +229,22 @@ These are meant to help you put your reading to practice. Solutions for
 the exercises are included at the bottom of this page.</p>
 </div>
 <p>Variables permit us to write code that is flexible and amendable to
-repurpose. Suppose we want write code that logs a student’s grade on an
-exam. The logic behind this process should not depend on whether we are
-logging Brian’s score of 92% versus Ashley’s score of 94%. As such, we
-can utilize variables, say <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">grade</span></code>, to serve as
+repurpose. Suppose we want to write code that logs a student’s grade on
+an exam. The logic behind this process should not depend on whether we
+are logging Brian’s score of 92% versus Ashley’s score of 94%. As such,
+we can utilize variables, say <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">grade</span></code>, to serve as
 placeholders for this information. In this subsection, we will
 demonstrate how to define variables in Python.</p>
 <p>In Python, the <code class="docutils literal"><span class="pre">=</span></code> symbol represents the “assignment” operator. The
-variable goes to the left of <code class="docutils literal"><span class="pre">=</span></code>, and the object that the variable is
-being assigned to goes to the right:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>  <span class="c1"># the variable `name` is being assigned to the string &quot;Brian&quot;</span>
-<span class="n">grade</span> <span class="o">=</span> <span class="mi">92</span>      <span class="c1"># the variable `grade` is being assigned to the integer 92</span>
+variable goes to the left of <code class="docutils literal"><span class="pre">=</span></code>, and the object that is being
+assigned to the variable goes to the right:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>  <span class="c1"># the variable `name` is being assigned the string &quot;Brian&quot;</span>
+<span class="n">grade</span> <span class="o">=</span> <span class="mi">92</span>      <span class="c1"># the variable `grade` is being assigned the integer 92</span>
 </pre></div>
 </div>
 <p>Attempting to reverse the assignment order (e.g. <code class="docutils literal"><span class="pre">92</span> <span class="pre">=</span> <span class="pre">name</span></code>) will
-result in a syntax error. When a variable is assigned to an object (like
-a number or a string), it is common to say that the variable
+result in a syntax error. When a variable is assigned an object (like a
+number or a string), it is common to say that the variable
 <strong>references</strong> that object. That is, the variable <code class="docutils literal"><span class="pre">name</span></code> references
 the string <code class="docutils literal"><span class="pre">&quot;Brian&quot;</span></code>.</p>
 <p>Once a variable is referencing a value, you can use the variable
@@ -323,7 +323,7 @@ assigning <code class="docutils literal"><span class="pre">c</span></code> to <c
 reference this same object. Then any change (a.k.a <em>mutation</em>) of the
 object will be reflected in all of the variables that reference it
 (<code class="docutils literal"><span class="pre">a</span></code>, <code class="docutils literal"><span class="pre">b</span></code>, and <code class="docutils literal"><span class="pre">c</span></code>).</p>
-<p>Of course, assigning two variables to identical, but <em>distinct</em> lists
+<p>Of course, assigning two variables to identical but <em>distinct</em> lists
 means that a change to one list will not affect the other:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list1` references [1, 2, 3]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list2` references a *separate* list, whose value is [1, 2, 3]</span>
@@ -339,11 +339,11 @@ means that a change to one list will not affect the other:</p>
 <hr class="docutils" />
 <p><strong>Reading Comprehension: Does slicing a list produce a reference to that
 list?</strong></p>
-<p>Suppose <code class="docutils literal"><span class="pre">x</span></code> is assigned to a list, and that <code class="docutils literal"><span class="pre">y</span></code> is assigned to a
-“slice” of <code class="docutils literal"><span class="pre">x</span></code>. Do <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> reference the same list? That is,
-if you update part of the subsequence common to <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>, does
-that change show up in both of them? Write some simple code to
-investigate this.</p>
+<p>Suppose <code class="docutils literal"><span class="pre">x</span></code> is assigned a list, and that <code class="docutils literal"><span class="pre">y</span></code> is assigned a “slice”
+of <code class="docutils literal"><span class="pre">x</span></code>. Do <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> reference the same list? That is, if you
+update part of the subsequence common to <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>, does that
+change show up in both of them? Write some simple code to investigate
+this.</p>
 <hr class="docutils" />
 <p>This discussion is warranted for a list, because a list is <em>mutable</em> - a
 given list can be changed after it is created. A tuple, being
@@ -383,7 +383,7 @@ dictionaries and sets.</p>
 <li>lists</li>
 <li>dictionaries</li>
 <li>sets</li>
-<li>numpy-arrays</li>
+<li>NumPy arrays</li>
 </ul>
 <hr class="docutils" />
 <p><strong>Reading Comprehension: Understanding References</strong></p>

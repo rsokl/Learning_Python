@@ -229,12 +229,15 @@
     "This output simply indicates that `gen` stores a generator-expression at the memory address `0x000001E768FE8A40`; this is simply where the instructions for generating our sequence of squared numbers is stored. `gen` will not produce any results until we iterate over it. For this reason, generators cannot be inspected in the same way that lists and other sequences can be. You **cannot** do the following:\n",
     "```python\n",
     "# you **cannot** do the following...\n",
+    ">>> gen = (i**2 for i in range(100))\n",
     "\n",
     "# query the length of a generator\n",
-    ">>> len(generator)  # TypeError: object of type 'generator' has no len()\n",
-    "\n",
+    ">>> len(gen)\n",
+    "TypeError: object of type 'generator' has no len()\n",
+    "    \n",
     "# index into a generator\n",
-    ">>> generator[2]  # TypeError: 'generator' object is not subscriptable\n",
+    ">>> gen[2]\n",
+    "TypeError: 'generator' object is not subscriptable\n",
     "```\n",
     "\n",
     "The sole exception to this is the `range` generator, for which all of these inspections are valid."
@@ -618,7 +621,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.4"
+   "version": "3.6.3"
   }
  },
  "nbformat": 4,

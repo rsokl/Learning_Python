@@ -448,12 +448,15 @@ instructions for generating our sequence of squared numbers is stored.
 reason, generators cannot be inspected in the same way that lists and
 other sequences can be. You <strong>cannot</strong> do the following:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># you **cannot** do the following...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 
 <span class="c1"># query the length of a generator</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span>  <span class="c1"># TypeError: object of type &#39;generator&#39; has no len()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="nb">object</span> <span class="n">of</span> <span class="nb">type</span> <span class="s1">&#39;generator&#39;</span> <span class="n">has</span> <span class="n">no</span> <span class="nb">len</span><span class="p">()</span>
 
 <span class="c1"># index into a generator</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">generator</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># TypeError: &#39;generator&#39; object is not subscriptable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gen</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;generator&#39;</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">subscriptable</span>
 </pre></div>
 </div>
 <p>The sole exception to this is the <code class="docutils literal"><span class="pre">range</span></code> generator, for which all of
