@@ -40,7 +40,7 @@
     <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
         <link rel="up" title="Module 1: Getting Started with Python" href="../module_1.html"/>
         <link rel="next" title="Installing Python" href="Installing_Python.html"/>
-        <link rel="prev" title="Module 1: Getting Started with Python" href="../module_1.html"/> 
+        <link rel="prev" title="A Quick Guide to Formatting" href="SiteFormatting.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -97,12 +97,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="SiteFormatting.html">A Quick Guide to Formatting</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Introducing the Python Programming Language</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#What-is-Python?">What is Python?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Python-Scripts">Python Scripts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#What-is-a-Python-Interpreter-and-What-Does-it-Mean-to-“Install-Python”?">What is a Python Interpreter and What Does it Mean to “Install Python”?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Why-Python?">Why Python?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#A-Quick-Guide-to-Formatting">A Quick Guide to Formatting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Summary">Summary</a></li>
 </ul>
 </li>
@@ -181,170 +181,6 @@
             
   
 <style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput,
-div.nboutput {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput div.prompt pre {
-    color: #303F9F;
-}
-
-/* output prompt */
-div.nboutput div.prompt pre {
-    color: #D84315;
-}
-
-/* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 8ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
-}
-@media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput div.prompt.empty {
-        padding: 0;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput div.input_area {
-    border: 1px solid #cfcfcf;
-    border-radius: 2px;
-    background: #f7f7f7;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.pngmath center alignment in output cells */
-div.nboutput div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -554,53 +390,6 @@ scientists, engineers, and other researchers.</p>
 <p>We will be relying heavily on Python and a library for doing optimized
 numerical computations, called NumPy, throughout this course.</p>
 </div>
-<div class="section" id="A-Quick-Guide-to-Formatting">
-<h2>A Quick Guide to Formatting<a class="headerlink" href="#A-Quick-Guide-to-Formatting" title="Permalink to this headline">¶</a></h2>
-<p>Here is a quick rundown of the formatting that will be used throughout
-this text.</p>
-<p>The following represents a block of Python code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># count to 10</span>
-<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<p>Whenever the <code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code> appears, it is used to distinguish Python code that
-is entered in a terminal (e.g.&nbsp;in the IPython console) from its output:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">5</span>
-</pre></div>
-</div>
-<p>The pound-sign, <code class="docutils literal"><span class="pre">#</span></code>, is used to indicate a comment in Python code. Any
-text to the right of a <code class="docutils literal"><span class="pre">#</span></code> will be treated as a comment, and will not
-be interpreted as code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>  <span class="c1"># this is all a comment, so it has no impact on the code!</span>
-<span class="go">5</span>
-</pre></div>
-</div>
-<p>Input and output to either the IPython console or a Jupyter notebook
-will be indicated as follows:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[1]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>5
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="Summary">
 <h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -637,7 +426,7 @@ that comes packaged with the CPython interpreter.</li>
         <a href="Installing_Python.html" class="btn btn-neutral float-right" title="Installing Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../module_1.html" class="btn btn-neutral" title="Module 1: Getting Started with Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="SiteFormatting.html" class="btn btn-neutral" title="A Quick Guide to Formatting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

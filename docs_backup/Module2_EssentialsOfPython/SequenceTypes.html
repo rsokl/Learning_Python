@@ -572,7 +572,7 @@ slice will use a step-size of 1.</p>
 
 <span class="c1"># start: 0, stop: 7, step: 1</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span><span class="p">[:]</span>  <span class="c1"># equivalent: `seq[None:None]`</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
+<span class="s1">&#39;abcdefg&#39;</span>
 
 <span class="c1"># start: 0, stop: 7, step: 2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
@@ -589,10 +589,10 @@ that <code class="docutils literal"><span class="pre">seq[::-1]</span></code> pr
 <span class="s1">&#39;gfedcba&#39;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
-<span class="s2">&quot;fg&quot;</span>
+<span class="s1">&#39;fg&#39;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-<span class="s2">&quot;abcde&quot;</span>
+<span class="s1">&#39;abcde&#39;</span>
 </pre></div>
 </div>
 <p>Although the colon-syntax for slicing, <code class="docutils literal"><span class="pre">seq[start:stop:step]</span></code>, appears
@@ -603,7 +603,7 @@ sort of slicing behavior:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the `slice` object explicitly</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
-<span class="s2">&quot;abc&quot;</span>
+<span class="s1">&#39;abc&#39;</span>
 </pre></div>
 </div>
 <p>This gives you the ability to work with slices in more creative ways in

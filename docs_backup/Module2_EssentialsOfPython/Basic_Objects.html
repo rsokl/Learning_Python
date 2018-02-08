@@ -569,7 +569,7 @@ doing so would require more than 8 bytes of memory to store the entire
 value of that float. As such, attempting to modify a number in decimal
 places beyond its numerical precision does not have any effect:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># changing a float beyond its precision has no effect</span>
-<span class="o">&gt;&gt;&gt;</span>  <span class="mf">1.</span> <span class="o">+</span> <span class="mf">1e-16</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mf">1.</span> <span class="o">+</span> <span class="mf">1e-16</span>
 <span class="mf">1.0</span>
 </pre></div>
 </div>
@@ -604,6 +604,7 @@ Because in the previous example we comparing values that are close to 0,
 we will check if their absolute difference is sufficiently small:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># checking if two float values are &quot;almost equal&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
+
 <span class="c1"># check:</span>
 <span class="c1"># | (0.1 + 0.1 + 0.1 - 0.3) - 0 | &lt; 1x10^{-9}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">((</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">),</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">)</span>
@@ -744,7 +745,7 @@ objects.</p>
 <span class="go">False</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">4</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">True</span>
+<span class="go">False</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">bool</span></code> type has additional utilities, which will be discussed in
@@ -858,7 +859,7 @@ string is an <em>immutable</em> object.</p>
 <p>As the string stores a <em>sequence</em> of characters, Python provides a means
 for accessing individual characters and subsequences of characters from
 a string:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;The cat in the hat.</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;The cat in the hat.&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sentence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">&#39;T&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sentence</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -1054,6 +1055,7 @@ list has already been constructed</em>. Thus a list is an example of a
 
 <span class="c1"># replace a subsequence of `y`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
 <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1076,10 +1078,11 @@ item and multiple items to the end of a list, respectively:</p>
 based on its position in the list, or by specifying the item itself,
 respectively.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
+
 <span class="go"># pop the position-1 item out from a list</span>
 <span class="go"># `pop` will return the item that gets removed.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">&quot;b&quot;</span>
+<span class="go">&#39;b&#39;</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">[&#39;a&#39;, &#39;c&#39;, &#39;d&#39;]</span>
@@ -1087,7 +1090,7 @@ respectively.</p>
 <span class="go"># remove the object &quot;d&quot; from the list</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">[&quot;a&quot;, &quot;c&quot;]</span>
+<span class="go">[&#39;a&#39;, &#39;c&#39;]</span>
 </pre></div>
 </div>
 </div>

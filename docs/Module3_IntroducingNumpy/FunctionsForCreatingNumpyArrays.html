@@ -39,7 +39,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
         <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
-        <link rel="next" title="Reshaping Arrays &amp; Array-Traversal Order" href="ReshapingArrays.html"/>
+        <link rel="next" title="Iterating Over Arrays &amp; Array-Traversal Order" href="ArrayTraversal.html"/>
         <link rel="prev" title="Basic Array Attributes" href="BasicArrayAttributes.html"/> 
 
   
@@ -111,7 +111,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Joining-Arrays-Together">Joining Arrays Together</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ReshapingArrays.html">Reshaping Arrays &amp; Array-Traversal Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ArrayTraversal.html">Iterating Over Arrays &amp; Array-Traversal Order</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VectorizedOperations.html">“Vectorized” Operations: Optimized Computations on NumPy Arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Broadcasting.html">Array Broadcasting</a></li>
 </ul>
@@ -222,7 +222,7 @@ varying shapes and contents. NumPy provides a laundry list of functions
 for creating arrays:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
-<span class="go"># creating an array from a Python-sequence</span>
+<span class="go"># creating an array from a Python sequence</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
 <span class="go">array([ 0,  1,  4,  9, 16])</span>
 
@@ -259,9 +259,9 @@ For example, a single list of numbers will be used to create a
 <span class="n">array</span><span class="p">([</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Nested lists/tuples will be used to constructing multidimensional
-arrays. For example, a “list of equal-length lists of numbers” will lead
-to a 2-dimensional array; each of the inner-lists comprises a row of the
+<p>Nested lists/tuples will be used to construct multidimensional arrays.
+For example, a “list of equal-length lists of numbers” will lead to a
+2-dimensional array; each of the inner-lists comprises a row of the
 array. Thus a list of two, length-three lists will produce a
 (2,3)-shaped array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># a list of lists of numbers will produce a 2D-array</span>
@@ -304,7 +304,7 @@ unless you really know what you’re doing!</p>
 <div class="section" id="Creating-Constant-Arrays:-zeros-and-ones">
 <h2>Creating Constant Arrays: <code class="docutils literal"><span class="pre">zeros</span></code> and <code class="docutils literal"><span class="pre">ones</span></code><a class="headerlink" href="#Creating-Constant-Arrays:-zeros-and-ones" title="Permalink to this headline">¶</a></h2>
 <p>NumPy provides the functions <code class="docutils literal"><span class="pre">zeros</span></code> and <code class="docutils literal"><span class="pre">ones</span></code>, which will fill an
-array of user-specified shape with the 0s and 1s, respectively:</p>
+array of user-specified shape with 0s and 1s, respectively:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># create a 3x4 array of zeros</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
@@ -327,14 +327,14 @@ for a complete listing.</p>
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html#numpy.arange">arange</a>
 function allows you to initialize a sequence of integers based on a
 starting point (inclusive), stopping point (exclusive), and step size.
-This is very similar to the <code class="docutils literal"><span class="pre">range</span></code> function, however <code class="docutils literal"><span class="pre">arange</span></code>
+This is very similar to the <code class="docutils literal"><span class="pre">range</span></code> function; however <code class="docutils literal"><span class="pre">arange</span></code>
 immediately creates this sequence as an array, whereas <code class="docutils literal"><span class="pre">range</span></code>
 produces a generator.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># start (included): 0, stop (excluded): 10, step:1</span>
 <span class="go">array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
 
 <span class="go"># supplying one value to `arange` amounts to specifying the stop value</span>
-<span class="go"># start=0 and step=1 are then used a defaults</span>
+<span class="go"># start=0 and step=1 are then used as defaults</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># equivalent to: start: 0, stop: 10, step:1</span>
 <span class="go">array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
 
@@ -382,7 +382,7 @@ statistical distribution:</p>
        <span class="p">[</span> <span class="mf">0.37702688</span><span class="p">,</span>  <span class="mf">0.86617624</span><span class="p">,</span>  <span class="mf">0.39846429</span><span class="p">]])</span>
 
 <span class="c1"># create a shape-(5,) array by drawing its entries randomly</span>
-<span class="c1"># from a mean-0, variance-1 normal (a.k.a Gaussian) distribution</span>
+<span class="c1"># from a mean-0, variance-1 normal (a.k.a. Gaussian) distribution</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.11262121</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.35392007</span><span class="p">,</span>  <span class="mf">0.4245215</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.81995588</span><span class="p">,</span>  <span class="mf">0.65412323</span><span class="p">])</span>
 </pre></div>
@@ -424,9 +424,9 @@ for the complete list of available array datatypes.</p>
 </div>
 <div class="section" id="Joining-Arrays-Together">
 <h2>Joining Arrays Together<a class="headerlink" href="#Joining-Arrays-Together" title="Permalink to this headline">¶</a></h2>
-<p>Arrays can be concatenated together similar to Python lists and tuples,
-however because NumPy’s arrays can be multi-dimensional, we can choose
-the dimension along which arrays are joined.</p>
+<p>Similar to Python lists and tuples, NumPy arrays can be concatenated
+together. However, because NumPy’s arrays can be multi-dimensional, we
+can choose the dimension along which arrays are joined.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating methods for joining arrays</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
@@ -444,7 +444,7 @@ the dimension along which arrays are joined.</p>
 <p>A complete listing of functions for joining arrays can be <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.array-manipulation.html#joining-arrays">found in the
 official NumPy
 documentation</a>.
-There are corresponding functions for splitting an array into
+There are also corresponding functions for splitting an array into
 independent arrays.</p>
 </div>
 </div>
@@ -459,7 +459,7 @@ independent arrays.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ReshapingArrays.html" class="btn btn-neutral float-right" title="Reshaping Arrays &amp; Array-Traversal Order" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ArrayTraversal.html" class="btn btn-neutral float-right" title="Iterating Over Arrays &amp; Array-Traversal Order" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="BasicArrayAttributes.html" class="btn btn-neutral" title="Basic Array Attributes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
