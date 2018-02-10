@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Accessing Data Along Multiple Dimensions in an Array &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Accessing Data Along Multiple Dimensions in an Array &mdash; Python Like You Mean It alpha documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It alpha documentation" href="../index.html"/>
         <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
         <link rel="next" title="Basic Array Attributes" href="BasicArrayAttributes.html"/>
         <link rel="prev" title="Introducing the ND-array" href="IntroducingTheNDarray.html"/> 
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.9
               </div>
             
           
@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a><ul class="current">
@@ -111,11 +111,15 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#N-dimensional-Arrays">N-dimensional Arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Zero-dimensional-Arrays">Zero-dimensional Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Manipulating-Arrays">Manipulating Arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Introducing-the-reshape-Function">Introducing the <code class="docutils literal"><span class="pre">reshape</span></code> Function</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="BasicArrayAttributes.html">Basic Array Attributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FunctionsForCreatingNumpyArrays.html">Functions for Creating NumPy Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ReshapingArrays.html">Reshaping Arrays &amp; Array-Traversal Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ArrayTraversal.html">Iterating Over Arrays &amp; Array-Traversal Order</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VectorizedOperations.html">“Vectorized” Operations: Optimized Computations on NumPy Arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Broadcasting.html">Array Broadcasting</a></li>
 </ul>
@@ -134,7 +138,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -225,22 +229,22 @@
 <ul class="simple">
 <li>Define the “dimensionality” of an array.</li>
 <li>Discuss the usefulness of ND-arrays.</li>
-<li>Introduce the indexing and slicing scheme for accessing an
+<li>Introduce the indexing and slicing scheme for accessing a
 multi-dimensional array’s contents</li>
 </ul>
 <p>We will encounter arrays of varying dimensionalities:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># A 0-D array</span>
 <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 
-<span class="c1"># A 1-D array</span>
+<span class="c1"># A 1-D array, shape-(3,)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.1</span><span class="p">])</span>
 
-<span class="c1"># A 2-D array</span>
+<span class="c1"># A 2-D array, shape-(3, 2)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">93</span><span class="p">,</span>  <span class="mi">95</span><span class="p">],</span>
           <span class="p">[</span><span class="mi">84</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
           <span class="p">[</span><span class="mi">99</span><span class="p">,</span>  <span class="mi">87</span><span class="p">]])</span>
 
-<span class="c1"># A 3-D array</span>
+<span class="c1"># A 3-D array, shape-(2, 2, 2)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
            <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
 
@@ -268,8 +272,8 @@ for <em>each</em> dimension of an array:</p>
 </div>
 <div class="section" id="One-dimensional-Arrays">
 <h2>One-dimensional Arrays<a class="headerlink" href="#One-dimensional-Arrays" title="Permalink to this headline">¶</a></h2>
-<p>Let’s being our discussion by constructing a simple ND-array containing
-three floating point numbers.</p>
+<p>Let’s begin our discussion by constructing a simple ND-array containing
+three floating-point numbers.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">simple_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -299,7 +303,7 @@ numbers between the edges labeled <span class="math">\(i\)</span> and <span clas
 <span class="go">IndexError: index 3 is out of bounds for axis 0 with size 3</span>
 </pre></div>
 </div>
-<p>Given this indexing scheme, only a <em>one</em> integer is needed to specify a
+<p>Given this indexing scheme, only <em>one</em> integer is needed to specify a
 unique entry in the array. Similarly only <em>one</em> slice is needed to
 uniquely specify a subsequence of entries in the array. For this reason,
 we say that this is a <em>1-dimensional array</em>. In general, the
@@ -354,7 +358,7 @@ that storing these in a 1-dimensional array is not ideal:</p>
 </pre></div>
 </div>
 <p>While no data has been lost, accessing this data using a single index is
-less-than convenient; we want to be able to specify both the student and
+less than convenient; we want to be able to specify both the student and
 the exam when accessing a grade - it is natural to ascribe <em>two
 dimensions</em> to this data. Let’s construct a 2D array containing these
 grades:</p>
@@ -373,8 +377,8 @@ dimension, respectively.</p>
 <p class="last">Although NumPy does formally recognize the concept of dimensionality
 precisely in the way that it is discussed here, its documentation refers
 to an individual dimension of an array as an <strong>axis</strong>. Thus you will see
-“axes” (pronounced “aks-ēz”) used in place of “dimensions”, however they
-mean the same thing.</p>
+“axes” (pronounced “aks-ēz”) used in place of “dimensions”; however,
+they mean the same thing.</p>
 </div>
 <p>NumPy specifies the row-axis (students) of a 2D array as “axis-0” and
 the column-axis (exams) as axis-1. You must now provide <em>two</em> indices,
@@ -392,6 +396,12 @@ reviewed earlier applies to each axis of the ND-array:</p>
   <span class="o">|</span>          <span class="o">+---+---+</span>
   <span class="o">|</span>    <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">|</span><span class="mi">99</span> <span class="o">|</span> <span class="mi">87</span><span class="o">|</span>
   <span class="n">V</span>          <span class="o">+---+---+</span>
+</pre></div>
+</div>
+<p>Because <code class="docutils literal"><span class="pre">grades</span></code> has three entries along axis-0 and two entries along
+axis-1, it has a “shape” of <code class="docutils literal"><span class="pre">(3,</span> <span class="pre">2)</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grades</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(3, 2)</span>
 </pre></div>
 </div>
 <div class="section" id="Integer-Indexing">
@@ -439,8 +449,8 @@ axis-1 slice only includes one column of numbers, the shape of the
 resulting array is (3, 1). 0 is thus only valid (non-negative) index for
 axis-1, since there is only one column to specify in the array.</p>
 <p>You can also supply a “step” value to the slice. <code class="docutils literal"><span class="pre">grades[::-1,</span> <span class="pre">:]</span></code>
-will returns the array of grades with the student-axis flipped (reverse
-alphabetical order).</p>
+will returns the array of grades with the student-axis flipped
+(reverse-alphabetical order).</p>
 </div>
 <div class="section" id="Negative-Indices">
 <h3>Negative Indices<a class="headerlink" href="#Negative-Indices" title="Permalink to this headline">¶</a></h3>
@@ -467,7 +477,7 @@ Instead, NumPy it will return all of the exam scores for student-0
 <span class="go">array([ 93, 95])</span>
 </pre></div>
 </div>
-<p>This is because NumPy will automatically insert trailing-slices for you
+<p>This is because NumPy will automatically insert trailing slices for you
 if you don’t provide as many indices as there are dimensions for your
 array. <code class="docutils literal"><span class="pre">grades[0]</span></code> was treated as <code class="docutils literal"><span class="pre">grades[0,</span> <span class="pre">:]</span></code>.</p>
 <div class="admonition note">
@@ -504,9 +514,10 @@ valuable library to look into at your leisure.</p>
 <h2>N-dimensional Arrays<a class="headerlink" href="#N-dimensional-Arrays" title="Permalink to this headline">¶</a></h2>
 <p>Let’s build up some intuition for arrays with a dimensionality higher
 than 2. The following code creates a 3-dimensional array:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># a 3D array</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># a 3D array, shape-(2, 2, 2)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d3_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
 <span class="o">...</span>                       <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
+<span class="o">...</span>
 <span class="o">...</span>                      <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
 <span class="o">...</span>                       <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]])</span>
 </pre></div>
@@ -568,7 +579,7 @@ sheets …”) continues in the same tedious fashion.</p>
 </div>
 <div class="section" id="Zero-dimensional-Arrays">
 <h2>Zero-dimensional Arrays<a class="headerlink" href="#Zero-dimensional-Arrays" title="Permalink to this headline">¶</a></h2>
-<p>A zero dimensional array is simply a single number (a.k.a a scalar
+<p>A zero dimensional array is simply a single number (a.k.a. a scalar
 value):</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># creating a 0-dimensional array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mf">15.2</span><span class="p">)</span>
@@ -608,6 +619,121 @@ from a 1-dimensional array, after all), NumPy’s ability to provide users
 with an interface for accessing data along dimensions is incredibly
 useful. It affords us an ability to impose intuitive, abstract structure
 to our data.</p>
+</div>
+</div>
+<div class="section" id="Manipulating-Arrays">
+<h2>Manipulating Arrays<a class="headerlink" href="#Manipulating-Arrays" title="Permalink to this headline">¶</a></h2>
+<p>NumPy provides an assortment of functions that allow us manipulate the
+way that an array’s data can be accessed. These permit us to reshape an
+array, change its dimensionality, and swap the positions of its axes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
+
+<span class="go"># reshaping an array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">array([[[ 1,  2],</span>
+<span class="go">        [ 3,  4]],</span>
+
+<span class="go">       [[ 5,  6],</span>
+<span class="go">        [ 7,  8]],</span>
+
+<span class="go">       [[ 9, 10],</span>
+<span class="go">        [11, 12]]])</span>
+
+<span class="go"># Transposing an array: reversing</span>
+<span class="go"># the ordering of its axes. This interchanges</span>
+<span class="go"># the rows and columns of `x`</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="go">array([[ 1,  5,  9],</span>
+<span class="go">       [ 2,  6, 10],</span>
+<span class="go">       [ 3,  7, 11],</span>
+<span class="go">       [ 4,  8, 12]])</span>
+</pre></div>
+</div>
+<p>A complete listing of the available array-manipulation functions can be
+found in the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html">official NumPy
+documentation</a>.
+Among these functions, the reshape function is especially useful.</p>
+<div class="section" id="Introducing-the-reshape-Function">
+<h3>Introducing the <code class="docutils literal"><span class="pre">reshape</span></code> Function<a class="headerlink" href="#Introducing-the-reshape-Function" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">reshape</span></code> function allows you to change the dimensionality and
+axis-layout of a given array. This adjusts the indexing interface used
+to access the array’s underlying data, as was discussed in earlier in
+this module. Let’s take a shape-(6,) array, and reshape it to a
+shape-(2, 3) array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="go"># reshape a shape-(6,) array into a shape-(2,3) array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">array([[0, 1, 2],</span>
+<span class="go">       [3, 4, 5]])</span>
+</pre></div>
+</div>
+<p>You can also conveniently reshape an array by “setting” its shape via
+assignment:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># equivalent to: x = x.reshape(2, 3)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Of course, the size the the initial array must match the size of the
+to-be reshaped array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># an array with 5 numbers are cannot be reshaped</span>
+<span class="c1"># into a (3, 2) array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">total</span> <span class="n">size</span> <span class="n">of</span> <span class="n">new</span> <span class="n">array</span> <span class="n">must</span> <span class="n">be</span> <span class="n">unchanged</span>
+</pre></div>
+</div>
+<p>Multidimensional arrays can be reshaped too:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># reshaping a multidimensional array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
+
+<span class="c1"># reshape from (3, 4) to (2, 3, 2)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">]],</span>
+
+       <span class="p">[[</span> <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<p>Because the size of an input array and the resulting reshaped array must
+agree, you can specify <em>one</em> of the dimension-sizes in the reshape
+function to be -1, and this will cue NumPy to compute that dimension’s
+size for you. For example, if you are reshaping a shape-(36,) array into
+a shape-(3, 4, 3) array. The following are valid:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Equivalent ways of specifying a reshape</span>
+<span class="c1"># np.arange(36) produces the shape-(36,) array ([0, 1, 2, ..., 35])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># (36,) --reshape--&gt; (3, 4, 3)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># NumPy replaces -1 with 36/(3*4) -&gt; 3</span>
+<span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># NumPy replaces -1 with 36/(3*3) -&gt; 4</span>
+<span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># NumPy replaces -1 with 36/(3*4) -&gt; 3</span>
+</pre></div>
+</div>
+<p>You can use -1 to specify only one dimension:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># this is an ambiguous specification, and thus</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">ValueError                                Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-3-207d18d18af2&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 np.arange(36).reshape(3, -1, -1)</span>
+
+<span class="go">ValueError: can only specify one unknown dimension</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reshaping Does Not Make a Copy of an Array</strong>:</p>
+<p class="last">For all straightforward applications of reshape, NumPy does not actually
+create a new copy of an array’s data when performing a <code class="docutils literal"><span class="pre">reshape</span></code>
+operation. Instead, the original array and the reshaped array reference
+the same underlying data. The reshaped array simply provides a new
+index-interface for accessing said data, and is thus referred to as a
+“view” of the original array (more on this “views” in a later section).</p>
+</div>
 </div>
 </div>
 </div>

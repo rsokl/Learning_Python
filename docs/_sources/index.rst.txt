@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Fundamentals of Python
-=================================
+Welcome to Python Like You Mean It
+==================================
   
 .. toctree::
    :maxdepth: 2
