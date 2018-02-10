@@ -50,7 +50,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Fundamentals of Python'
+project = 'Python Like You Mean It'
 copyright = '2018, Ryan Soklaski'
 author = 'Ryan Soklaski'
 
@@ -59,7 +59,7 @@ author = 'Ryan Soklaski'
 # built documents.
 #
 # The short X.Y version.
-version = '0.1'
+version = '0.9'
 # The full version, including alpha/beta/rc tags.
 release = 'alpha'
 
