@@ -1,4 +1,4 @@
-View this content as hosted on [Python Like You Mean It](https://rsokl.github.io/Learning_Python/index.html)
+View this content as hosted on [Python Like You Mean It](https://www.pythonlikeyoumeanit.com/)
 
 **NOTE**: This content is not meant for public release. If you are reading this, then I have added you as a contributor to this project. Please do not distribute this work to others.
 
