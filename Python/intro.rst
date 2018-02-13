@@ -11,7 +11,7 @@ I want this to be a lean, one-stop resource for learning the essentials of Pytho
 
 What this isn't
 ----------------
-This is not even close to being exhaustive treatment of the Python language, and is not sufficient to become a "complete" Python user. But it will hopefully provide a solid enough foundation that acquiring those missing pieces will be relatively easy.
+This is not even close to being an exhaustive treatment of the Python language, and is not sufficient to become a "complete" Python user. But it will hopefully provide a solid enough foundation that acquiring those missing pieces will be relatively easy.
 
 This is also not a deep "Python for Data Science" resource. It will not teach you how to use machine learning and data analysis libraries like sci-kit learn and Pandas. That being said, NumPy is such a critically-important library that it has deeply influenced essentially all of the other major STEM-related Python libraries (e.g. sci-kit, TensorFlow, PyTorch, Pandas). The NumPy content presented here will serve as a cornerstone for working with all of these libraries down the road.
 
