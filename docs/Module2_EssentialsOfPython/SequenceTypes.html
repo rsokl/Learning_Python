@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Sequence Types &mdash; Python Like You Mean It alpha documentation</title>
+  <title>Sequence Types &mdash; Python Like You Mean It 0.9.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.9.1 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Variables &amp; Assignment" href="Variables_and_Assignment.html"/>
         <link rel="prev" title="Basic Object Types" href="Basic_Objects.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.9
+                0.9.1
               </div>
             
           
@@ -393,8 +393,8 @@ members from any variety of sequence.</p>
 <span class="mi">0</span>
 </pre></div>
 </div>
-<p><strong>Getting the index of the first occurrence of ``x`` in a sequence</strong>:
-<code class="docutils literal"><span class="pre">seq.index(x)</span></code></p>
+<p><strong>Getting the index of the first occurrence of</strong> <code class="docutils literal"><span class="pre">x</span></code> <strong>in a
+sequence</strong>: <code class="docutils literal"><span class="pre">seq.index(x)</span></code></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;cat cat cat&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>  <span class="c1"># &#39;t&#39; first occurs at index-2</span>
 <span class="go">2</span>
 
@@ -404,7 +404,7 @@ members from any variety of sequence.</p>
 <span class="go">ValueError: &#39;m&#39; is not in list</span>
 </pre></div>
 </div>
-<p><strong>Counting the number of occurrences of ``x`` in a sequence</strong>:
+<p><strong>Counting the number of occurrences of</strong> <code class="docutils literal"><span class="pre">x</span></code> <strong>in a sequence</strong>:
 <code class="docutils literal"><span class="pre">seq.count(x)</span></code></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;the cat in the hat&quot;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">)</span>
 <span class="go">3</span>
@@ -695,12 +695,6 @@ slicing.</p>
 <p>Write a piece of code for each of the following tasks. If the task is
 impossible/ill-posed explain why.</p>
 <ol class="arabic simple">
-<li>Find the largest value in the last-half of
-<code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[10,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">9,</span> <span class="pre">-22,</span> <span class="pre">3]</span></code>. Write your code such that it would
-work for any sequence, <code class="docutils literal"><span class="pre">x</span></code>. If the list has an odd-number of
-entries, <span class="math">\(N\)</span>, interpret “half” as <span class="math">\(\frac{N+1}{2}\)</span>. Thus
-if the length of <code class="docutils literal"><span class="pre">x</span></code> is 11, we want to find the largest values
-among the last <em>six</em> elements.</li>
 <li>Using the string “blogosphere”, slicing, and repeat-concatenation,
 create the string: ‘boopeeboopeeboopeeboopeeboopee’. (hint: how would
 you slice “blogosphere” to produce “boopee”, think step-size)</li>
@@ -753,23 +747,6 @@ element to the end of a list that has already been constructed.</p>
 </ol>
 <p><strong>Checking Your General Understanding: Solutions</strong></p>
 <ol class="arabic simple">
-<li>Recall that <code class="docutils literal"><span class="pre">//</span></code> does “floor-division” to return an integer:
-<span class="math">\(3//2 \rightarrow 1\)</span> (not 1.5). Thus <code class="docutils literal"><span class="pre">len(x)//2</span></code> gives us
-<span class="math">\(\frac{N-1}{2}\)</span> if <span class="math">\(N\)</span> is odd, and <span class="math">\(\frac{N}{2}\)</span> if
-<span class="math">\(N\)</span> is even. This is the number of elements that we want to
-skip before we start looking for the max value in the last-half of
-<code class="docutils literal"><span class="pre">x</span></code>, thus this is where we should “start” our slice.</li>
-</ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">22</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>     <span class="c1"># len(x) -&gt; 6</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">:])</span>
-<span class="go">9</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">22</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># len(x) -&gt; 7</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">:])</span>
-<span class="go">9</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
 <li>“boopee” is every-other letter in “blogosphere”, thus slicing this
 sequence with a step-size of 2, <code class="docutils literal"><span class="pre">&quot;blogosphere&quot;[::2]</span></code>, returns
 “boopee”. We can then use <code class="docutils literal"><span class="pre">seq*n</span></code> to repeat this sequence five
@@ -779,7 +756,7 @@ times. Thus the solution is</li>
 <span class="go">&#39;boopeeboopeeboopeeboopeeboopee&#39;</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
+<ol class="arabic simple" start="2">
 <li>Tuples are immutable objects. This means that their content cannot be
 changed once it is created. Thus this question is ill-posed! How
 clever am I for writing that question? I feel so clever. Wow. I’m
@@ -793,7 +770,7 @@ be:</p>
 <span class="go">[1, 2, -5, 0, 5]</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="3">
 <li>Refer to the “index” diagram to see that this is the simple
 relationship between positive and negative indices for a given
 sequence:</li>
@@ -848,7 +825,7 @@ sequence:</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.9.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

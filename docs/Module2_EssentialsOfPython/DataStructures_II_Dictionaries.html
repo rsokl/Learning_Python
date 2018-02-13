@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Structures (Part II): Dictionaries &mdash; Python Like You Mean It alpha documentation</title>
+  <title>Data Structures (Part II): Dictionaries &mdash; Python Like You Mean It 0.9.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.9.1 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Data Structures (Part III): Sets &amp; the Collections Module" href="DataStructures_III_Sets_and_More.html"/>
         <link rel="prev" title="Data Structures (Part I): Introduction" href="DataStructures.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.9
+                0.9.1
               </div>
             
           
@@ -118,6 +118,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#What-Can-a-Dictionary-Store?">What Can a Dictionary Store?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Numerical-Precision-&amp;-Dictionary-Keys">Numerical Precision &amp; Dictionary Keys</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Inspecting-a-Dictionary">Inspecting a Dictionary</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Time-Complexities-of-the-Dictionary’s-Functions">Time Complexities of the Dictionary’s Functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Are-Dictionaries-Ordered?-A-Word-of-Warning">Are Dictionaries Ordered? A Word of Warning</a></li>
@@ -237,7 +238,9 @@ mappings from key-objects to value-objects. <strong>Each key must map to
 exactly one value</strong>, meaning that a key must be unique.</p>
 <p>Python’s dictionary is a shining star among its data structures; it is
 compact, fast, versatile, and extremely useful:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use a dictionary to map groceries to prices: item-name -&gt; price</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating basic uses for dictionaries</span>
+
+<span class="c1"># use a dictionary to map groceries to prices: item-name -&gt; price</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">items_to_prices</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cheese&quot;</span><span class="p">:</span> <span class="mf">2.53</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">:</span> <span class="mf">3.40</span><span class="p">,</span> <span class="s2">&quot;frozen pizza&quot;</span><span class="p">:</span> <span class="mf">8.01</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">items_to_prices</span><span class="p">[</span><span class="s2">&quot;frozen pizza&quot;</span><span class="p">]</span>
 <span class="mf">8.01</span>
@@ -260,6 +263,11 @@ dictionary.</em> That is the complexity for a dictionary look-up is
 <span class="math">\(\mathcal{O}(1)\)</span>! It accomplishes this by making use of a
 technique known as
 <a class="reference external" href="https://en.wikipedia.org/wiki/Hash_function">hashing</a>.</p>
+<p>These are all instances of the built-in <code class="docutils literal"><span class="pre">dict</span></code> type:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">items_to_prices</span><span class="p">)</span>
+<span class="go">dict</span>
+</pre></div>
+</div>
 <p>We will be discussing the essentials of the dictionary. It is highly
 recommended that you refer to the official Python documentation for a
 <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict">complete rundown of all the functions available to the
@@ -283,8 +291,9 @@ example, let’s construct a dictionary that maps types of foods to
 <span class="p">{}</span>
 </pre></div>
 </div>
-<p>You can also use the built-in <code class="docutils literal"><span class="pre">dict</span></code> constructor to create the
-dictionary. This can be fed an iterable of sequences of key-value pairs:</p>
+<p>You can also use <code class="docutils literal"><span class="pre">dict</span></code> as a constructor to create the dictionary. It
+can be fed an iterable of key-value pairs, each of which is packed in a
+sequence, such as a tuple:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use `dict` to create a dictionary that maps:</span>
 <span class="c1">#  &quot;apple&quot; -&gt; &quot;fruit&quot;</span>
 <span class="c1"># &quot;carrot&quot; -&gt; &quot;vegetable</span>
@@ -405,7 +414,8 @@ cannot be changed.</p>
 <li>tuples (if the tuple contains anything, it must be other immutable
 objects)</li>
 <li>boolean values</li>
-<li><code class="docutils literal"><span class="pre">frozenset</span></code> objects</li>
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#Set-operations">frozenset</a>
+objects</li>
 </ul>
 <p>Trying to use a mutable object as a key is problematic since that object
 could be changed <em>after</em> it was already used as a key. Thus the
@@ -426,10 +436,40 @@ to use a list as a key, since lists are mutable:</p>
 <span class="ne">TypeError</span><span class="p">:</span> <span class="n">unhashable</span> <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;list&#39;</span>
 </pre></div>
 </div>
+<div class="section" id="Numerical-Precision-&amp;-Dictionary-Keys">
+<h3>Numerical Precision &amp; Dictionary Keys<a class="headerlink" href="#Numerical-Precision-&-Dictionary-Keys" title="Permalink to this headline">¶</a></h3>
+<p>Care must be taken when using floating-point numbers as a key in a
+dictionary, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">due to its limited numerical
+precision</a>.
+For the same reason that you ought not rely on two floats being equal,
+you should not assume that two floats will produce the same hash, when
+stored as a key:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># the folly of using a floating-point number as a key</span>
+<span class="c1"># in a dictionary</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>An acceptable way of accommodating the use of a float as a key,
+depending on the use case, is to first round the floating point number
+to normalize it to a lower precision:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># rounding a float before using it as a key</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># round the float to its 2nd decimal place</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">float_key</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">float_key</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
+<span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+<span class="s1">&#39;apple&#39;</span>
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p class="last">A dictionary key must be an immutable object. A dictionary value can be
 any object.</p>
+</div>
 </div>
 <div class="section" id="Inspecting-a-Dictionary">
 <h3>Inspecting a Dictionary<a class="headerlink" href="#Inspecting-a-Dictionary" title="Permalink to this headline">¶</a></h3>
@@ -633,7 +673,7 @@ dictionary, your code should make use of <code class="docutils literal"><span cl
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.9.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

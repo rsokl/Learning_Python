@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Conditional Statements &mdash; Python Like You Mean It alpha documentation</title>
+  <title>Conditional Statements &mdash; Python Like You Mean It 0.9.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.9.1 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="For-Loops and While-Loops" href="ForLoops.html"/>
         <link rel="prev" title="Introducing Control Flow" href="Introduction.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.9
+                0.9.1
               </div>
             
           
@@ -375,44 +375,6 @@ Python the boolean value <code class="docutils literal"><span class="pre">False<
 </ul>
 <p>Thus non-zero numbers and non-empty sequences/collections evaluate to
 <code class="docutils literal"><span class="pre">True</span></code> via <code class="docutils literal"><span class="pre">bool</span></code>.</p>
-<p>Given this discussion, logical operations can thus be applied in the
-context of non-boolean objects, in Python. Although this seldom occurs
-in practice, we include the following table to summarize how Python
-formally evaluates its logical operations in the context of non-boolean
-values:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Operation</th>
-<th class="head">Result</th>
-<th class="head">Example</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>x or y</td>
-<td>if x is false, then
-y, else x</td>
-<td><code class="docutils literal"><span class="pre">2</span> <span class="pre">or</span> <span class="pre">1</span></code> returns
-<code class="docutils literal"><span class="pre">2</span></code></td>
-</tr>
-<tr class="row-odd"><td>x and y</td>
-<td>if x is false, then
-x, else y</td>
-<td><code class="docutils literal"><span class="pre">&quot;hi&quot;</span> <span class="pre">and</span> <span class="pre">0</span></code>
-returns <code class="docutils literal"><span class="pre">0</span></code></td>
-</tr>
-<tr class="row-even"><td>not x</td>
-<td>if x is false, then
-True, else False</td>
-<td><code class="docutils literal"><span class="pre">not</span> <span class="pre">[1,</span> <span class="pre">4]</span></code>
-returns <code class="docutils literal"><span class="pre">True</span></code></td>
-</tr>
-</tbody>
-</table>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p class="last">The <code class="docutils literal"><span class="pre">bool</span></code> function allows you to evaluate the boolean values ascribed
@@ -519,6 +481,25 @@ an <code class="docutils literal"><span class="pre">else</span></code>:</p>
 <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;cba&#39;</span>
 <span class="c1"># x is now &#39;abcabcabc&#39;</span>
+</pre></div>
+</div>
+<p>Note that only one code block within a single if-elif-else statement can
+be executed: either the “if-block” is executed, or an “elif-block” is
+executed, or the “else-block” is executed. Consecutive if-statements,
+however, are completely independent of one another, and thus their code
+blocks can be executed in sequence, if their respective conditional
+statements resolve to <code class="docutils literal"><span class="pre">True</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># consecutive if-statements are independent</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># y is now 2</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -662,7 +643,7 @@ Otherwise, <code class="docutils literal"><span class="pre">my_file</span></code
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.9.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

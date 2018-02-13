@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Basic Object Types &mdash; Python Like You Mean It alpha documentation</title>
+  <title>Basic Object Types &mdash; Python Like You Mean It 0.9.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.9.1 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Sequence Types" href="SequenceTypes.html"/>
         <link rel="prev" title="Module 2: The Essentials of Python" href="../module_2.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.9
+                0.9.1
               </div>
             
           
@@ -104,6 +104,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Integers">Integers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Floating-Point-Numbers">Floating-Point Numbers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Complex-Numbers">Complex Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Augmented-Assignment-Statements">Augmented Assignment Statements</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#The-Boolean-Type">The Boolean Type</a></li>
@@ -693,8 +694,45 @@ for all the arithmetic operations? Determine this by trial and error.</p>
 <p>3. Given the function <span class="math">\(f(x) = e^{|x - 2|}\)</span>, make use of the
 <code class="docutils literal"><span class="pre">math</span></code> module to compute <span class="math">\(f(-0.2)\)</span>.</p>
 </div>
-</div>
 <hr class="docutils" />
+<div class="section" id="Augmented-Assignment-Statements">
+<h3>Augmented Assignment Statements<a class="headerlink" href="#Augmented-Assignment-Statements" title="Permalink to this headline">¶</a></h3>
+<p>Python provides a nice “shortcut” for updating a variable via an
+arithmetic operation. For example, suppose you want to increase the
+value of <code class="docutils literal"><span class="pre">x</span></code> by 1. Currently, we would update <code class="docutils literal"><span class="pre">x</span></code> as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># incrementing `x` by 1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="mi">6</span>
+</pre></div>
+</div>
+<p>We can make use of a special assignment operation <code class="docutils literal"><span class="pre">+=</span></code> to perform this
+update in an abbreviated way.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using `+=` to increment `x` by 1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># equivalent to: `x = x + 1`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="mi">6</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">+=</span></code> is a type of <em>augmented assignment statement</em>. In general, an
+augmented assignment performs a mathematical operation on a variable,
+and then updates that variable using the result. Augmented assignment
+statements are available for all of the arithmetic operations. Assuming
+<code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">n</span></code> are both types numbers, the following summarizes the
+available arithmetic augmented assignment statements that we can perform
+on <code class="docutils literal"><span class="pre">x</span></code>, using <code class="docutils literal"><span class="pre">n</span></code>:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">n</span></code></li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">-=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">n</span></code></li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">n</span></code></li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">/=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">n</span></code></li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">//=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">//</span> <span class="pre">n</span></code></li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">**=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">**</span> <span class="pre">n</span></code></li>
+</ul>
+</div>
+</div>
 <div class="section" id="The-Boolean-Type">
 <h2>The Boolean Type<a class="headerlink" href="#The-Boolean-Type" title="Permalink to this headline">¶</a></h2>
 <p>There are two boolean-type objects: <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code>; they belong
@@ -837,20 +875,21 @@ unicode</a>
 to represent this wide variety of characters. Don’t worry about this
 detail beyond making note of it, for now.</p>
 <p>Strings belong to the built-in <code class="docutils literal"><span class="pre">str</span></code> type, which can be used to
-convert non-string objects into strings:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
-<span class="go">str</span>
+convert non-string objects into strings.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># the type `str`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="nb">str</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="s2">&quot;83&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
-<span class="go">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="s2">&quot;83&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="bp">True</span>
 
-<span class="go"># Using the type `str` to convert non-string objects</span>
-<span class="go"># into strings.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mf">10.34</span><span class="p">)</span>
-<span class="go">&#39;10.34&#39;</span>
+<span class="c1"># Using the type `str` to convert non-string objects</span>
+<span class="c1"># into strings.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mf">10.34</span><span class="p">)</span>
+<span class="s1">&#39;10.34&#39;</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<span class="go">&#39;True&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="s1">&#39;True&#39;</span>
 </pre></div>
 </div>
 <p>Once a string is formed, it cannot be changed (without creating an
@@ -905,25 +944,32 @@ with these functions by looking over <a class="reference external" href="https:/
 documentation</a>.
 To demonstrate a few of these:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating a few of the built-in functions for strings</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;ryan&quot;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-<span class="s1">&#39;Ryan&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;hello&quot;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="s1">&#39;Hello&#39;</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;item1&quot;</span><span class="p">,</span> <span class="s2">&quot;item2&quot;</span><span class="p">,</span> <span class="s2">&quot;item3&quot;</span><span class="p">])</span>
-<span class="s1">&#39;item1, item2, item3&#39;</span>
+<span class="c1"># join a list of strings, using &quot;...&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;...&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;item1&quot;</span><span class="p">,</span> <span class="s2">&quot;item2&quot;</span><span class="p">,</span> <span class="s2">&quot;item3&quot;</span><span class="p">])</span>
+<span class="s1">&#39;item1...item2...item3&#39;</span>
 
+<span class="c1"># split a string wherever &quot;, &quot; occurs</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;item1, item2, item3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
 <span class="p">[</span><span class="s1">&#39;item1&#39;</span><span class="p">,</span> <span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item3&#39;</span><span class="p">]</span>
 
+<span class="c1"># does this string end with &quot;.py&quot;?</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;script.py&quot;</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">)</span>
 <span class="bp">True</span>
 
+<span class="c1"># does this string start with &quot;sc&quot;?</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;script.py&quot;</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;sc&quot;</span><span class="p">)</span>
 <span class="bp">True</span>
 
+<span class="c1"># insert objects into a string, in its</span>
+<span class="c1"># &quot;formatting&quot; fields {}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;x: {}, y: {}, z: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.2</span><span class="p">,</span> <span class="mf">8.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="s1">&#39;x: 3.2, y: 8.4, z: -1.0&#39;</span>
 
-
+<span class="c1"># Are the characters in the string</span>
+<span class="c1"># numerical digits?</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;7&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
 <span class="bp">True</span>
 </pre></div>
@@ -1275,8 +1321,8 @@ number:</p>
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 5. Convert the integer 12 to the string &quot;12&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
-<span class="s2">&quot;11&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="s1">&#39;12&#39;</span>
 </pre></div>
 </div>
 <p><strong>Lists: Solutions</strong></p>
@@ -1354,7 +1400,7 @@ number:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.9.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

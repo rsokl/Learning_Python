@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Structures (Part III): Sets &amp; the Collections Module &mdash; Python Like You Mean It alpha documentation</title>
+  <title>Data Structures (Part III): Sets &amp; the Collections Module &mdash; Python Like You Mean It 0.9.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.9.1 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
         <link rel="prev" title="Data Structures (Part II): Dictionaries" href="DataStructures_II_Dictionaries.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.9
+                0.9.1
               </div>
             
           
@@ -232,8 +232,8 @@
 <h1>Data Structures (Part III): Sets &amp; the Collections Module<a class="headerlink" href="#Data-Structures-(Part-III):-Sets-&-the-Collections-Module" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="The-“Set”-Data-Structure">
 <h2>The “Set” Data Structure<a class="headerlink" href="#The-“Set”-Data-Structure" title="Permalink to this headline">¶</a></h2>
-<p>The Python “set” is an <em>unordered</em> collection of <em>unique</em> objects. It is
-useful for:</p>
+<p>The <code class="docutils literal"><span class="pre">set</span></code> type describes an <em>unordered</em> collection of <em>unique</em>
+objects. It is useful for:</p>
 <ul class="simple">
 <li>Filtering out “repeat” objects in a collection, producing only its
 unique members.</li>
@@ -246,7 +246,10 @@ operation.</li>
 like a dictionary’s keys, a set can only store <em>immutable</em> objects so
 that its hashes will never become invalid.</p>
 <p>Python’s sets also support many familiar set-algebra operations, like
-taking the union or intersection of sets, as we will see below.</p>
+taking the union or intersection of sets, as we will see below. For an
+exhaustive listing of the functions available to sets, please consult
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">the official documentation on
+sets</a>.</p>
 <div class="section" id="Creating-a-set">
 <h3>Creating a set<a class="headerlink" href="#Creating-a-set" title="Permalink to this headline">¶</a></h3>
 <p>You can initialize a set using the syntax: <code class="docutils literal"><span class="pre">{item1,</span> <span class="pre">item2,</span> <span class="pre">...}</span></code>.
@@ -263,10 +266,15 @@ syntax, which uses a colon to indicate key-value pairs:</p>
 <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>And, like the <code class="docutils literal"><span class="pre">list</span></code>, <code class="docutils literal"><span class="pre">tuple</span></code>, and <code class="docutils literal"><span class="pre">dict</span></code> constructors, <code class="docutils literal"><span class="pre">set</span></code>
-constructs a set from an iterable. You must use <code class="docutils literal"><span class="pre">set()</span></code> if you want to
-create an empty set, using <code class="docutils literal"><span class="pre">{}</span></code> creates an empty <em>dictionary</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using `set` to consume an iterable to construct a set</span>
+<p>And, like the <code class="docutils literal"><span class="pre">list</span></code>, <code class="docutils literal"><span class="pre">tuple</span></code>, and <code class="docutils literal"><span class="pre">dict</span></code> types, the <code class="docutils literal"><span class="pre">set</span></code> type
+can be used to construct a set from an iterable. Note that you must use
+<code class="docutils literal"><span class="pre">set()</span></code> if you want to create an empty set, using <code class="docutils literal"><span class="pre">{}</span></code> creates an
+empty <em>dictionary</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># introducing the `set` type</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">({</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">})</span>
+<span class="nb">set</span>
+
+<span class="c1"># using `set` to consume an iterable to construct a set</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
 
@@ -393,11 +401,24 @@ have to keep in mind that element-3 of your tuple corresponds to time:</p>
 <span class="c1"># `r` is a particular space-time coordinate (an instance of our named tuple)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">space_time_coord</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">100.2</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">t</span>  <span class="c1"># access the time coordinate &quot;by name&quot;; this is more descriptive than `r[3]`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">x</span>  <span class="c1"># access the x coordinate &quot;by name&quot;; this is more descriptive than `r[0]`</span>
+<span class="mf">1.5</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span>
+<span class="mf">2.3</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">z</span>
 <span class="mf">100.2</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># you can also access contents by indexing/slicing</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">t</span>
 <span class="mf">100.2</span>
+
+<span class="c1"># you can also access contents by indexing/slicing</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="mf">100.2</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="p">[:]</span>
+<span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">100.2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -429,7 +450,8 @@ the dictionary:</p>
 <p>Suppose you want to use a dictionary as a grade book, which maps
 <span class="math">\(name \rightarrow grades\)</span>. With a standard dictionary, you have to
 worry about encountering a student for the first time:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="s2">&quot;Ryan&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using a vanilla dictionary to store: name -&gt; list of grades</span>
+<span class="n">student</span> <span class="o">=</span> <span class="s2">&quot;Ryan&quot;</span>
 <span class="n">grade</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># I failed the test...</span>
 
 <span class="c1"># standard dictionary usage</span>
@@ -446,8 +468,16 @@ worry about encountering a student for the first time:</p>
 <p>The default dictionary’s behavior exactly accommodates this
 initialization process (when providing <code class="docutils literal"><span class="pre">list</span></code> as the initialization
 function):</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">gradebook</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="n">gradebook</span><span class="p">[</span><span class="n">student</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using a default dictionary to store: name -&gt; list of grades</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gradebook</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="c1"># Because &quot;Susan&quot; doesn&#39;t exist in the dictionary</span>
+<span class="c1"># `list()` creates an empty list, as a default value,</span>
+<span class="c1"># which we can immediately append her grade to</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gradebook</span><span class="p">[</span><span class="s2">&quot;Susan&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gradebook</span>
+<span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Terrance&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">84</span><span class="p">]})</span>
 </pre></div>
 </div>
 </div>
@@ -571,7 +601,7 @@ be imported:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.9.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
