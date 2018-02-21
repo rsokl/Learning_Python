@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Structures (Part II): Dictionaries &mdash; Python Like You Mean It 0.9.1 documentation</title>
+  <title>Data Structures (Part II): Dictionaries &mdash; Python Like You Mean It 0.10.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 0.9.1 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.10.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Data Structures (Part III): Sets &amp; the Collections Module" href="DataStructures_III_Sets_and_More.html"/>
         <link rel="prev" title="Data Structures (Part I): Introduction" href="DataStructures.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.9.1
+                0.10.0
               </div>
             
           
@@ -124,6 +124,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Are-Dictionaries-Ordered?-A-Word-of-Warning">Are Dictionaries Ordered? A Word of Warning</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
@@ -236,23 +237,31 @@ the dictionary a key to quickly retrieve its corresponding value.
 Specifically, you construct the dictionary by specifying one-way
 mappings from key-objects to value-objects. <strong>Each key must map to
 exactly one value</strong>, meaning that a key must be unique.</p>
-<p>Python’s dictionary is a shining star among its data structures; it is
-compact, fast, versatile, and extremely useful:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating basic uses for dictionaries</span>
-
-<span class="c1"># use a dictionary to map groceries to prices: item-name -&gt; price</span>
+<p>Let’s create the following mapping of grocery-to-price:</p>
+<ul class="simple">
+<li>“cheese” <span class="math">\(\rightarrow\)</span> 2.53,</li>
+<li>“milk” <span class="math">\(\rightarrow\)</span> 3.40,</li>
+<li>“frozen pizza” <span class="math">\(\rightarrow\)</span> 8.01</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use a dictionary to map groceries to prices: item-name -&gt; price</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">items_to_prices</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cheese&quot;</span><span class="p">:</span> <span class="mf">2.53</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">:</span> <span class="mf">3.40</span><span class="p">,</span> <span class="s2">&quot;frozen pizza&quot;</span><span class="p">:</span> <span class="mf">8.01</span><span class="p">}</span>
+
+<span class="c1"># looking up the price of &quot;frozen pizza&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">items_to_prices</span><span class="p">[</span><span class="s2">&quot;frozen pizza&quot;</span><span class="p">]</span>
 <span class="mf">8.01</span>
-
-<span class="c1"># keep track of whether or not a 3D coordinate fell into some region in space</span>
+</pre></div>
+</div>
+<p>Python’s dictionary is a shining star among its data structures; it is
+compact, fast, versatile, and extremely useful. It can be used to create
+a wide variety of mappings.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># keep track of whether or not a 3D coordinate fell into some region in space</span>
 <span class="c1"># map (x, y, z) coordinates to &quot;is in a region&quot;: (x, y, z) -&gt; True/False</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">point_to_region</span> <span class="o">=</span> <span class="p">{(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span><span class="bp">False</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">):</span><span class="bp">True</span><span class="p">,</span> <span class="p">(</span><span class="mf">4.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">):</span><span class="bp">False</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">point_to_region</span><span class="p">[(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)]</span>
 <span class="bp">True</span>
 
 <span class="c1"># map student-name to exam scores: name -&gt; scores</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">name_to_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Ryan S&quot;</span><span class="p">:[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="s2">&quot;Nick S&quot;</span><span class="p">:[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">90</span><span class="p">]}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">name_to_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Ryan S&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="s2">&quot;Nick S&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">90</span><span class="p">]}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">name_to_scores</span><span class="p">[</span><span class="s2">&quot;Ryan S&quot;</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
 </pre></div>
@@ -293,7 +302,7 @@ example, let’s construct a dictionary that maps types of foods to
 </div>
 <p>You can also use <code class="docutils literal"><span class="pre">dict</span></code> as a constructor to create the dictionary. It
 can be fed an iterable of key-value pairs, each of which is packed in a
-sequence, such as a tuple:</p>
+sequence, such as a tuple.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use `dict` to create a dictionary that maps:</span>
 <span class="c1">#  &quot;apple&quot; -&gt; &quot;fruit&quot;</span>
 <span class="c1"># &quot;carrot&quot; -&gt; &quot;vegetable</span>
@@ -365,6 +374,14 @@ key-value sequences</p>
  <span class="s1">&#39;grape&#39;</span><span class="p">:</span> <span class="s1">&#39;fruit&#39;</span><span class="p">,</span>
  <span class="s1">&#39;onion&#39;</span><span class="p">:</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">}</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Dictionary Basics</strong></p>
+<p class="last">Given the tuple of student names
+<code class="docutils literal"><span class="pre">(&quot;Ashley&quot;,</span> <span class="pre">&quot;David&quot;,</span> <span class="pre">&quot;Edward&quot;,</span> <span class="pre">&quot;Zoe&quot;)</span></code>, and their corresponding exam
+grades <code class="docutils literal"><span class="pre">(0.92,</span> <span class="pre">0.72,</span> <span class="pre">0.88,</span> <span class="pre">0.77)</span></code>, create a dictionary that maps: name
+<span class="math">\(\rightarrow\)</span> grade. Then, update Zoe’s grade to <code class="docutils literal"><span class="pre">.79</span></code>. Lastly,
+add a new student, Ryan, whose grade it 0.34.</p>
 </div>
 </div>
 </div>
@@ -500,6 +517,9 @@ keys and values. We will use the following dictionary for our examples:</p>
 <span class="go">3</span>
 </pre></div>
 </div>
+<p><code class="docutils literal"><span class="pre">example_dict.keys()</span></code> also returns an iterable over the dictionary’s
+keys, and thus can be used to exactly the same effect as the dictionary
+itself in these preceding examples.</p>
 <p><strong>Inspecting a dictionary’s values</strong></p>
 <p><code class="docutils literal"><span class="pre">example_dict.values()</span></code> can be iterated over to produce that
 dictionary’s values:</p>
@@ -529,6 +549,18 @@ key-value pairs:</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;value1&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 <span class="bp">True</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Inverting a Dictionary</strong></p>
+<p class="last">Given the dictionary <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">{'k1':</span> <span class="pre">'v1',</span> <span class="pre">'k2':</span> <span class="pre">'v2',</span> <span class="pre">'k3':</span> <span class="pre">'v3'}</span></code>,
+create a dictionary with the opposite mapping. I.e. Create the
+dictionary <code class="docutils literal"><span class="pre">inverted_x</span> <span class="pre">=</span> <span class="pre">{'v1':</span> <span class="pre">'k1',</span> <span class="pre">'v2':</span> <span class="pre">'k2',</span> <span class="pre">'v3':</span> <span class="pre">'k3'}</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Inspecting a Dictionary</strong></p>
+<p class="last">Assume we are working with a dictionary whose values are all numbers.
+Write a function that returns the <em>key</em> that maps to the <em>largest</em> value
+in the dictionary.</p>
 </div>
 </div>
 <div class="section" id="Time-Complexities-of-the-Dictionary’s-Functions">
@@ -627,6 +659,98 @@ dictionary, your code should make use of <code class="docutils literal"><span cl
 </div>
 </div>
 </div>
+<div class="section" id="Reading-Comprehension-Solutions">
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Dictionary Basics: Solutions</strong></p>
+<p>Given the tuple of student names <code class="docutils literal"><span class="pre">(Ashley,</span> <span class="pre">David,</span> <span class="pre">Edward,</span> <span class="pre">Zoe)</span></code>, and
+their corresponding exam grades <code class="docutils literal"><span class="pre">(0.92,</span> <span class="pre">0.72,</span> <span class="pre">0.88,</span> <span class="pre">0.77)</span></code>, create a
+dictionary that maps: name <span class="math">\(\rightarrow\)</span> grade.</p>
+<p>Then, update Zoe’s grade to <code class="docutils literal"><span class="pre">.79</span></code>. Lastly, add a new student, Ryan,
+whose grade it 0.34.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Ashley&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Edward&quot;</span><span class="p">,</span> <span class="s2">&quot;Zoe&quot;</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span> <span class="mf">0.77</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is a basic, but verbose solution. It is too long and its logic is
+complicated by the use of <code class="docutils literal"><span class="pre">index</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># basic solution for creating `grades`</span>
+<span class="n">grades</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">grades</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>You should make use of the function
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Itertools.html#zip">zip</a>
+to pair the names and scores together in an iterable, and create the
+dictionary using a comprehension expression.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># much better solution for creating `grades`</span>
+<span class="n">grades</span> <span class="o">=</span> <span class="p">{</span><span class="n">student</span><span class="p">:</span><span class="n">value</span> <span class="k">for</span> <span class="n">student</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">scores</span><span class="p">)}</span>
+
+<span class="c1"># updating Zoe&#39;s grade</span>
+<span class="n">grades</span><span class="p">[</span><span class="s2">&quot;Zoe&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.79</span>
+
+<span class="c1"># adding Ryan&#39;s grade</span>
+<span class="n">grades</span><span class="p">[</span><span class="s2">&quot;Ryan&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.34</span>
+</pre></div>
+</div>
+<p><strong>Inverting a Dictionary: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># simple solution: using a for-loop</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="s1">&#39;v2&#39;</span><span class="p">,</span> <span class="s1">&#39;k3&#39;</span><span class="p">:</span> <span class="s1">&#39;v3&#39;</span><span class="p">}</span>
+<span class="n">inverted_x</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">inverted_x</span><span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># better solution: using a dictionary-comprehension</span>
+<span class="n">inverted_x</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+<p><strong>Inspecting a Dictionary: Solution</strong></p>
+<p>Assume we are working with a dictionary whose values are all numbers.
+Write a function that returns the key that maps to the <em>largest</em> value
+in the dictionary.</p>
+<p>The solution that you should be able to arrive at is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># solution</span>
+<span class="k">def</span> <span class="nf">max_key</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">max_val</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">max_val</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">key</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_key</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+<span class="go">&#39;c&#39;</span>
+</pre></div>
+</div>
+<p>The downside of this is that it iterates over <code class="docutils literal"><span class="pre">x</span></code> twice: once via
+<code class="docutils literal"><span class="pre">max</span></code> and once via the for-loop. The optimal solution for this only
+involves a single iteration, however it requires advanced concepts that
+are beyond the scope of the material presented here. We include the
+ideal solution for posterity:</p>
+<p>You can provide the <code class="docutils literal"><span class="pre">max</span></code> function with “key” argument, which accepts
+the function that should be used to evaluate the “value” for each
+iteration, which is used to discern the max element. Here, we pass it
+the built-in dictionary-function
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.get">get</a>,
+which takes in a dictionary’s key as an argument, and returns the
+corresponding value from the mapping. Thus <code class="docutils literal"><span class="pre">max</span></code> will iterate over
+each key of <code class="docutils literal"><span class="pre">x</span></code>, and discern the maximum value by comparing the value
+returned by each <code class="docutils literal"><span class="pre">x.get(key)</span></code> (which is effectively the same as
+<code class="docutils literal"><span class="pre">x[key]</span></code>).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># optimal solution (for the sake of completeness)</span>
+<span class="k">def</span> <span class="nf">max_key_optimal</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_key_optimal</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">})</span>
+<span class="go">&#39;d&#39;</span>
+</pre></div>
+</div>
+<p>You can read more about this <code class="docutils literal"><span class="pre">key</span></code> parameter
+<a class="reference external" href="https://docs.python.org/3/howto/sorting.html#key-functions">here</a>.</p>
+</div>
 </div>
 
 
@@ -673,7 +797,7 @@ dictionary, your code should make use of <code class="docutils literal"><span cl
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.9.1',
+            VERSION:'0.10.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

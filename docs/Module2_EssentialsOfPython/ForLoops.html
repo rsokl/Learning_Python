@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>For-Loops and While-Loops &mdash; Python Like You Mean It 0.9.1 documentation</title>
+  <title>For-Loops and While-Loops &mdash; Python Like You Mean It 0.10.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 0.9.1 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.10.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Iterables" href="Iterables.html"/>
         <link rel="prev" title="Conditional Statements" href="ConditionalStatements.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.9.1
+                0.10.0
               </div>
             
           
@@ -310,13 +310,13 @@ iterable, the iterate-variable is never defined:</p>
 even defined. Thus the code enclosed within the for-loop is never
 reached, and the subsequent <code class="docutils literal"><span class="pre">print(x)</span></code> statement will raise a
 <code class="docutils literal"><span class="pre">NameError</span></code>, because <code class="docutils literal"><span class="pre">x</span></code> was never defined!</p>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: A basic for-loop</strong></p>
-<p>Using a for-loop and an if-statement, print each letter in the string
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: A basic for-loop</strong></p>
+<p class="last">Using a for-loop and an if-statement, print each letter in the string
 <code class="docutils literal"><span class="pre">&quot;abcdefghij&quot;</span></code>, if that letter is a vowel.</p>
 </div>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="While-Loops">
 <h2>While-Loops<a class="headerlink" href="#While-Loops" title="Permalink to this headline">¶</a></h2>
 <p>A “while-loop” allows you to repeat a block of code until a condition is
@@ -367,15 +367,15 @@ is always True, in which case your code will run ceaselessly! If this
 even happens to you in a Jupyter notebook, either interrupt or restart
 your kernel.</p>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: A basic while-loop</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: A basic while-loop</strong></p>
 <p>Given list of nonzero, positive numbers, <code class="docutils literal"><span class="pre">x</span></code>, append the sum of that
 list to the end of it. Do this until the last value in <code class="docutils literal"><span class="pre">x</span></code> is at least
 100. Use a while-loop.</p>
-<p>If you start with <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[1]</span></code>, then by the end of your while-loop <code class="docutils literal"><span class="pre">x</span></code>
+<p class="last">If you start with <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[1]</span></code>, then by the end of your while-loop <code class="docutils literal"><span class="pre">x</span></code>
 should be <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">8,</span> <span class="pre">16,</span> <span class="pre">32,</span> <span class="pre">64,</span> <span class="pre">128]</span></code>.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="break,-continue,-&amp;-else-clauses-on-loops">
 <h2><code class="docutils literal"><span class="pre">break</span></code>, <code class="docutils literal"><span class="pre">continue</span></code>, &amp; <code class="docutils literal"><span class="pre">else</span></code> clauses on loops<a class="headerlink" href="#break,-continue,-&-else-clauses-on-loops" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal"><span class="pre">continue</span></code> and <code class="docutils literal"><span class="pre">break</span></code> statements can be used within the bodies
@@ -437,14 +437,14 @@ x =  3 &gt;&gt; enter loop-body &lt;&lt;
 --reached end of loop-body--
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: conducting flow in a loop</strong></p>
-<p>Loop over a list of integers repeatedly, summing up all of its even
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: conducting flow in a loop</strong></p>
+<p class="last">Loop over a list of integers repeatedly, summing up all of its even
 values, and adding the content to a total. Repeat this process until the
 the total exceeds 100, or if you have looped over the list more than 50
 times. Print the total only if it exceeds 100.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>A basic for-loop: Solution</strong></p>
@@ -465,12 +465,16 @@ times. Print the total only if it exceeds 100.</p>
 
 <span class="k">while</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="c1"># return to for-loop if</span>
+        <span class="c1"># `item` is odd-valued</span>
         <span class="k">if</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">continue</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">total</span> <span class="o">+=</span> <span class="n">item</span>
     <span class="n">num_loop</span> <span class="o">+=</span> <span class="mi">1</span>
 
+    <span class="c1"># break from while-loop if</span>
+    <span class="c1"># more than 50 items tallied</span>
     <span class="k">if</span> <span class="mi">50</span> <span class="o">&lt;</span> <span class="n">num_loop</span><span class="p">:</span>
         <span class="k">break</span>
 <span class="k">else</span><span class="p">:</span>
@@ -524,7 +528,7 @@ times. Print the total only if it exceeds 100.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.9.1',
+            VERSION:'0.10.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

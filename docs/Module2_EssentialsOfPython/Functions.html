@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Basics of Functions &mdash; Python Like You Mean It 0.9.1 documentation</title>
+  <title>Basics of Functions &mdash; Python Like You Mean It 0.10.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 0.9.1 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.10.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Scope" href="Scope.html"/>
         <link rel="prev" title="Python’s “Itertools”" href="Itertools.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.9.1
+                0.10.0
               </div>
             
           
@@ -313,7 +313,6 @@ of a function - if reached, a <code class="docutils literal"><span class="pre">r
 the execution of the function and returns the specified value.</p>
 <p>Note that, like an if-statement and a for-loop, the content of a
 function is indicated by indentation:</p>
-<hr class="docutils" />
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># wrong indentation</span>
 <span class="k">def</span> <span class="nf">bad_func1</span><span class="p">():</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
@@ -348,14 +347,14 @@ function is indicated by indentation:</p>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Writing a Basic Function</strong> Write a function
-named <code class="docutils literal"><span class="pre">count_even</span></code>. It should accept one input argument, named
-<code class="docutils literal"><span class="pre">numbers</span></code>, which will be an iterable containing integers. Have the
-function return the number of even-valued integers contained in the
-list. Include a reasonable docstring.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Writing a Basic Function</strong></p>
+<p class="last">Write a function named <code class="docutils literal"><span class="pre">count_even</span></code>. It should accept one input
+argument, named <code class="docutils literal"><span class="pre">numbers</span></code>, which will be an iterable containing
+integers. Have the function return the number of even-valued integers
+contained in the list. Include a reasonable docstring.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="The-return-Statement">
 <h2>The <code class="docutils literal"><span class="pre">return</span></code> Statement<a class="headerlink" href="#The-return-Statement" title="Permalink to this headline">¶</a></h2>
 <p>In general, any Python object can follow a function’s <code class="docutils literal"><span class="pre">return</span></code>
@@ -540,17 +539,17 @@ arguments in the function signature:</p>
     <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Functions and Arguments</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Functions and Arguments</strong></p>
 <p>Write a function, <code class="docutils literal"><span class="pre">max_or_min</span></code>, which accepts two positional
 arguments, <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> (which will hold numerical values), and a
 <code class="docutils literal"><span class="pre">mode</span></code> variable that has the default value <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code>.</p>
 <p>The function should return <code class="docutils literal"><span class="pre">min(x,</span> <span class="pre">y)</span></code> or <code class="docutils literal"><span class="pre">max(x,</span> <span class="pre">y)</span></code> according to
 the <code class="docutils literal"><span class="pre">mode</span></code>. Have the function return <code class="docutils literal"><span class="pre">None</span></code> if <code class="docutils literal"><span class="pre">mode</span></code> is neither
 <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code> nor <code class="docutils literal"><span class="pre">&quot;min&quot;</span></code>.</p>
-<p>Include a descriptive doc-string.</p>
+<p class="last">Include a descriptive doc-string.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Accommodating-an-Arbitrary-Number-of-Positional-Arguments">
 <h3>Accommodating an Arbitrary Number of Positional Arguments<a class="headerlink" href="#Accommodating-an-Arbitrary-Number-of-Positional-Arguments" title="Permalink to this headline">¶</a></h3>
 <p>Python provides us with a syntax for defining a function, which can be
@@ -605,16 +604,16 @@ called by name</em>:</p>
 <span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;dog&quot;</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Arbitrary Arguments</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Arbitrary Arguments</strong></p>
 <p>Write a function named <code class="docutils literal"><span class="pre">mean</span></code>, which accepts and arbitrary number of
 numerical arguments, and computes the mean of all of the values passed
 to the function. Thus <code class="docutils literal"><span class="pre">mean(1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code> should return
 <span class="math">\(\frac{1 + 2 + 3}{3} = 2.0\)</span></p>
-<p>This function should return <code class="docutils literal"><span class="pre">0.</span></code> if no arguments are passed to it. Be
+<p class="last">This function should return <code class="docutils literal"><span class="pre">0.</span></code> if no arguments are passed to it. Be
 sure to test your function, and include a docstring.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Accommodating-an-Arbitrary-Number-of-Keyword-Arguments">
 <h3>Accommodating an Arbitrary Number of Keyword Arguments<a class="headerlink" href="#Accommodating-an-Arbitrary-Number-of-Keyword-Arguments" title="Permalink to this headline">¶</a></h3>
 <p>We can also define a function that is able to accept an arbitrary number
@@ -734,7 +733,6 @@ memory address where the function-object is stored:</p>
 </pre></div>
 </div>
 </div>
-<hr class="docutils" />
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Writing a Basic Function: Solution</strong></p>
@@ -861,7 +859,7 @@ that is likely the more appropriate behavior for this function.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.9.1',
+            VERSION:'0.10.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

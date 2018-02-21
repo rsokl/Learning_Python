@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>“Vectorized” Operations: Optimized Computations on NumPy Arrays &mdash; Python Like You Mean It 0.9.1 documentation</title>
+  <title>“Vectorized” Operations: Optimized Computations on NumPy Arrays &mdash; Python Like You Mean It 0.10.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 0.9.1 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.10.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
         <link rel="next" title="Array Broadcasting" href="Broadcasting.html"/>
         <link rel="prev" title="Iterating Over Arrays &amp; Array-Traversal Order" href="ArrayTraversal.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.9.1
+                0.10.0
               </div>
             
           
@@ -121,6 +121,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Broadcasting.html">Array Broadcasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicIndexing.html">Introducing Basic and Advanced Indexing</a></li>
 </ul>
 </li>
 </ul>
@@ -529,8 +530,8 @@ operations as well</p>
 <p class="last">Applying a unary NumPy function, <span class="math">\(f(x)\)</span>, to an N-dimensional array
 will apply <span class="math">\(f(x)\)</span> elementwise on the array.</p>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Unary Functions</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Unary Functions</strong></p>
 <p>Given the 2D array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
@@ -538,10 +539,10 @@ will apply <span class="math">\(f(x)\)</span> elementwise on the array.</p>
 <span class="gp">... </span>              <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Take the natural-logarithm of the 1st and 3rd element in the 3rd-row of
+<p class="last">Take the natural-logarithm of the 1st and 3rd element in the 3rd-row of
 <code class="docutils literal"><span class="pre">x</span></code>, producing a shape-(2,) result.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Binary-Functions">
 <h3>Binary Functions<a class="headerlink" href="#Binary-Functions" title="Permalink to this headline">¶</a></h3>
 <p>A binary function has the form <span class="math">\(f(x,y)\)</span>. The arithmetic operations
@@ -664,8 +665,8 @@ section.</p>
 arrays will apply <span class="math">\(f(x,y)\)</span> to each of their pairwise elements,
 producing an array of the same shape as either of the operands.</p>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Binary Functions</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Binary Functions</strong></p>
 <p>Given the 2D array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
@@ -673,8 +674,8 @@ producing an array of the same shape as either of the operands.</p>
 <span class="gp">... </span>              <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Add the four quadrants of <code class="docutils literal"><span class="pre">x</span></code>, producing a shape-(2, 2) output.</p>
-<hr class="docutils" />
+<p class="last">Add the four quadrants of <code class="docutils literal"><span class="pre">x</span></code>, producing a shape-(2, 2) output.</p>
+</div>
 <p>By now, you may be able to guess NumPy’s behavior when you perform feed
 a binary function a scalar (i.e.&nbsp;a single number) and an array: the
 function is applied elementwise on the array, with each application
@@ -920,8 +921,8 @@ will be produced by this function. The shape of the result will be that
 of <span class="math">\(X\)</span>, but with the shapes associated with the specified axes
 removed.</p>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Basic Sequential Functions</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Basic Sequential Functions</strong></p>
 <p>A digital image is simply an array of numbers, which instructs a grid of
 pixels on a monitor to shine light of specific colors, according to the
 numerical values in that array.</p>
@@ -949,12 +950,12 @@ placeholder for real image data. We will generate 100, 32x32 RGB images:</p>
 <p>4. The standard deviation among all the RGB values in all the images,
 respective to each pixel position (thus you should produce a shape-(32,
 32) array of values).</p>
-<p>5. The maximum red-value in the top-left quadrant, respective to each
+<p class="last">5. The maximum red-value in the top-left quadrant, respective to each
 image.</p>
 </div>
 </div>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Logical-Operations">
 <h2>Logical Operations<a class="headerlink" href="#Logical-Operations" title="Permalink to this headline">¶</a></h2>
 <p>NumPy provides <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">a suite of logical
@@ -1024,17 +1025,20 @@ get a hang of this material by simply putting it to practice.</p>
 <div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>Unary Functions: Solution</strong></p>
+<p>Take the natural-logarithm of the 1st and 3rd element in the 3rd-row of
+<code class="docutils literal"><span class="pre">x</span></code>, producing a shape-(2,) result.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
 
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span>
-<span class="go">array([ 2.19722458,  2.39789527])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span>
+<span class="go">array([ 2.07944154,  2.30258509])</span>
 </pre></div>
 </div>
 <p><strong>Binary Functions: Solution</strong></p>
+<p>Add the four quadrants of <code class="docutils literal"><span class="pre">x</span></code>, producing a shape-(2, 2) output.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
@@ -1123,7 +1127,7 @@ get a hang of this material by simply putting it to practice.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.9.1',
+            VERSION:'0.10.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

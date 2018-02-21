@@ -113,7 +113,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "***\n",
+    "<div class=\"alert alert-info\">\n",
     "\n",
     "**Reading Comprehension: Understanding the modulo operator**\n",
     "\n",
@@ -135,7 +135,7 @@
     "\n",
     "Now, given any integer, `n`, what are the possible values that `n % 2` can return? See if you can come up with a simple rule for explaining the behavior of `n % 2`.\n",
     "\n",
-    "***"
+    "</div>"
    ]
   },
   {
@@ -361,7 +361,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "***\n",
+    "<div class=\"alert alert-info\">\n",
     "\n",
     "**Reading Comprehension: Working with numbers in Python**\n",
     "\n",
@@ -381,7 +381,40 @@
     "\n",
     "3\\. Given the function $f(x) = e^{|x - 2|}$, make use of the `math` module to compute $f(-0.2)$.\n",
     "\n",
-    "***"
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Augmented Assignment Statements\n",
+    "Python provides a nice \"shortcut\" for updating a variable via an arithmetic operation. For example, suppose you want to increase the value of `x` by 1. Currently, we would update `x` as follows:\n",
+    "```python\n",
+    "# incrementing `x` by 1\n",
+    ">>> x = 5\n",
+    ">>> x = x + 1\n",
+    ">>> x \n",
+    "6\n",
+    "```\n",
+    "\n",
+    "We can make use of a special assignment operation `+=` to perform this update in an abbreviated way.\n",
+    "```python\n",
+    "# using `+=` to increment `x` by 1\n",
+    ">>> x = 5\n",
+    ">>> x += 1  # equivalent to: `x = x + 1`\n",
+    ">>> x\n",
+    "6\n",
+    "```\n",
+    "\n",
+    "`+=` is a type of *augmented assignment statement*. In general, an augmented assignment performs a mathematical operation on a variable, and then updates that variable using the result. Augmented assignment statements are available for all of the arithmetic operations. Assuming `x` and `n` are both types numbers, the following summarizes the available arithmetic augmented assignment statements that we can perform on `x`, using `n`:\n",
+    "\n",
+    "- `x += n` $\\rightarrow$ `x = x + n`\n",
+    "- `x -= n` $\\rightarrow$ `x = x - n`\n",
+    "- `x *= n` $\\rightarrow$ `x = x * n`\n",
+    "- `x /= n` $\\rightarrow$ `x = x / n`\n",
+    "- `x //= n` $\\rightarrow$ `x = x // n`\n",
+    "- `x **= n` $\\rightarrow$ `x = x ** n`"
    ]
   },
   {
@@ -445,7 +478,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "***\n",
+    "<div class=\"alert alert-info\">\n",
     "\n",
     "**Reading Comprehension: Boolean expressions**\n",
     "\n",
@@ -455,7 +488,7 @@
     "\n",
     "3\\. Write an expression that returns `True` if `x` is a boolean-type object or a float-type object.\n",
     "\n",
-    "***"
+    "</div>"
    ]
   },
   {
@@ -528,8 +561,9 @@
     "```\n",
     "By default, Python 3 uses [UTF-8 unicode](https://docs.python.org/3/howto/unicode.html#unicode-howto) to represent this wide variety of characters. Don't worry about this detail beyond making note of it, for now.\n",
     "\n",
-    "Strings belong to the built-in `str` type, which can be used to convert non-string objects into strings:\n",
+    "Strings belong to the built-in `str` type, which can be used to convert non-string objects into strings.\n",
     "```python\n",
+    "# the type `str`\n",
     ">>> type(\"hello\")\n",
     "str\n",
     "\n",
@@ -584,25 +618,32 @@
     "Python's strings have a large number of fantastic, built-in functions available to them. It is *very important* that you familiarize yourself with these functions by looking over [the official documentation](https://docs.python.org/3/library/stdtypes.html#string-methods). To demonstrate a few of these:\n",
     "```python\n",
     "# demonstrating a few of the built-in functions for strings\n",
-    ">>> \"ryan\".capitalize()\n",
-    "'Ryan'\n",
+    ">>> \"hello\".capitalize()\n",
+    "'Hello'\n",
     "\n",
-    ">>> \", \".join([\"item1\", \"item2\", \"item3\"])\n",
-    "'item1, item2, item3'\n",
+    "# join a list of strings, using \"...\"\n",
+    ">>> \"...\".join([\"item1\", \"item2\", \"item3\"])\n",
+    "'item1...item2...item3'\n",
     "\n",
+    "# split a string wherever \", \" occurs\n",
     ">>> 'item1, item2, item3'.split(\", \")\n",
     "['item1', 'item2', 'item3']\n",
     "\n",
+    "# does this string end with \".py\"?\n",
     ">>> \"script.py\".endswith(\".py\")\n",
     "True\n",
     "\n",
+    "# does this string start with \"sc\"?\n",
     ">>> \"script.py\".startswith(\"sc\")\n",
     "True\n",
     "\n",
+    "# insert objects into a string, in its \n",
+    "# \"formatting\" fields {}\n",
     ">>> \"x: {}, y: {}, z: {}\".format(3.2, 8.4, -1.0)\n",
     "'x: 3.2, y: 8.4, z: -1.0'\n",
     "\n",
-    "\n",
+    "# Are the characters in the string\n",
+    "# numerical digits?\n",
     ">>> \"7\".isdigit()\n",
     "True\n",
     "\n",
@@ -617,9 +658,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "***\n",
+    "<div class=\"alert alert-info\">\n",
     "\n",
-    "**Reading Comprehension: strings**\n",
+    "**Reading Comprehension: Strings**\n",
     "\n",
     "To answer some of the following questions, you will need to peruse the documentation for the built-in functions of strings. It may take a bit of experimentation to understand the documentation's use of square-brackets to indicate optional inputs for a function.\n",
     "\n",
@@ -639,7 +680,7 @@
     "\n",
     "5\\. Convert the integer `12` to the string `\"12\"`.\n",
     "\n",
-    "***"
+    "</div>"
    ]
   },
   {
@@ -772,9 +813,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "***\n",
+    "<div class=\"alert alert-info\">\n",
     "\n",
-    "**Reading Comprehension: lists**\n",
+    "**Reading Comprehension: Lists**\n",
     "\n",
     "To answer some of the following questions, you will need to peruse the documentation for the built-in functions of lists.\n",
     "\n",
@@ -784,7 +825,7 @@
     "\n",
     "3\\. Alphabetize the list of names: `[\"Jane\", \"Adam\", \"Ryan\", \"Bob\", \"Zordon\", \"Jack\", \"Jackenzie\"]`. \n",
     "\n",
-    "***"
+    "</div>"
    ]
   },
   {
@@ -972,8 +1013,8 @@
     "\n",
     "```python\n",
     "# 5. Convert the integer 12 to the string \"12\"\n",
-    ">>> str(11)\n",
-    "\"11\"\n",
+    ">>> str(12)\n",
+    "'12'\n",
     "```"
    ]
   },

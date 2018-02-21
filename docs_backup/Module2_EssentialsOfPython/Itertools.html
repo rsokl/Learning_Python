@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python’s “Itertools” &mdash; Python Like You Mean It alpha documentation</title>
+  <title>Python’s “Itertools” &mdash; Python Like You Mean It 0.10.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.10.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Basics of Functions" href="Functions.html"/>
         <link rel="prev" title="Generators &amp; Comprehension Expressions" href="Generators_and_Comprehensions.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.9
+                0.10.0
               </div>
             
           
@@ -111,7 +111,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#enumerate"><code class="docutils literal"><span class="pre">enumerate</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zip"><code class="docutils literal"><span class="pre">zip</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#itertools.chain"><code class="docutils literal"><span class="pre">itertools.chain</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#itertools.combinations"><code class="docutils literal"><span class="pre">itertools.combinations</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#itertools.combinations"><code class="docutils literal"><span class="pre">itertools.combinations</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Reading-Comprehension:-Solutions">Reading Comprehension: Solutions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
@@ -232,7 +235,8 @@ this module - it is strongly recommended that you take some time to see
 what it has in store.</p>
 <p>Actually, there are three functions that belong in itertools, but are so
 useful that they are included in Python by default, and do not need to
-be imported:</p>
+be imported. It is essential that <code class="docutils literal"><span class="pre">range</span></code>, <code class="docutils literal"><span class="pre">enumerate</span></code>, and <code class="docutils literal"><span class="pre">zip</span></code>
+become tools that you are comfortable using.</p>
 <div class="section" id="range">
 <h2><code class="docutils literal"><span class="pre">range</span></code><a class="headerlink" href="#range" title="Permalink to this headline">¶</a></h2>
 <p>generate a sequence of integers in the specified “range”:</p>
@@ -291,6 +295,46 @@ tuples:</p>
 <span class="go">&lt;itertools.combinations at 0x20de10a7728&gt;</span>
 </pre></div>
 </div>
+<hr class="docutils" />
+<p><strong>Reading Comprehension: Itertools I</strong></p>
+<p>Using the <code class="docutils literal"><span class="pre">itertools.combinations</span></code> function, find the probability that
+two randomly drawn items from the list
+<code class="docutils literal"><span class="pre">[&quot;apples&quot;,</span> <span class="pre">&quot;bananas&quot;,</span> <span class="pre">&quot;pears&quot;,</span> <span class="pre">&quot;pears&quot;,</span> <span class="pre">&quot;oranges&quot;]</span></code> would yield a
+combination of “apples” and “pears”.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>Reading Comprehension: Itertools II</strong></p>
+<p>Given the list <code class="docutils literal"><span class="pre">x_vals</span> <span class="pre">=</span> <span class="pre">[0.1,</span> <span class="pre">0.3,</span> <span class="pre">0.6,</span> <span class="pre">0.9]</span></code>, create a generator,
+<code class="docutils literal"><span class="pre">y_gen</span></code>, that will generate the y-value <span class="math">\(y = x^2\)</span> for each value
+of <span class="math">\(x\)</span>. Then, using <code class="docutils literal"><span class="pre">zip</span></code>, create a list of the <span class="math">\((x, y)\)</span>
+pairs, each pair stored in a tuple.</p>
+<hr class="docutils" />
+<div class="section" id="Reading-Comprehension:-Solutions">
+<h3>Reading Comprehension: Solutions<a class="headerlink" href="#Reading-Comprehension:-Solutions" title="Permalink to this headline">¶</a></h3>
+<p><strong>Itertools I: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apples&quot;</span><span class="p">,</span> <span class="s2">&quot;bananas&quot;</span><span class="p">,</span> <span class="s2">&quot;pears&quot;</span><span class="p">,</span> <span class="s2">&quot;pears&quot;</span><span class="p">,</span> <span class="s2">&quot;oranges&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comb_ls</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comb_ls</span><span class="o">.</span><span class="n">count</span><span class="p">((</span><span class="s2">&quot;apples&quot;</span><span class="p">,</span> <span class="s2">&quot;pears&quot;</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">comb_ls</span><span class="p">)</span>
+<span class="go">0.2</span>
+</pre></div>
+</div>
+<p><strong>Itertools II: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x_vals</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">y_gen</span><span class="p">))</span>
+<span class="go">[(0.1, 0.01), (0.3, 0.09), (0.6, 0.36), (0.9, 0.81)]</span>
+</pre></div>
+</div>
+<p>In this instance, the use of <code class="docutils literal"><span class="pre">zip</span></code> is a bit contrived. We could have
+foregone creating <code class="docutils literal"><span class="pre">y_gen</span></code> by just using the following
+list-comprehension:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x_vals</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">]</span>
+<span class="go">[(0.1, 0.01), (0.3, 0.09), (0.6, 0.36), (0.9, 0.81)]</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -338,7 +382,7 @@ tuples:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.10.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

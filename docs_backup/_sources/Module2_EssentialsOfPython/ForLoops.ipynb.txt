@@ -88,6 +88,19 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Reading Comprehension: A basic for-loop**\n",
+    "\n",
+    "Using a for-loop and an if-statement, print each letter in the string `\"abcdefghij\"`, if that letter is a vowel.\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## While-Loops\n",
     "A \"while-loop\" allows you to repeat a block of code until a condition is no longer true:\n",
     "\n",
@@ -137,7 +150,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "***\n",
+    "<div class=\"alert alert-info\">\n",
     "\n",
     "**Reading Comprehension: A basic while-loop**\n",
     "\n",
@@ -145,7 +158,7 @@
     "\n",
     "If you start with `x = [1]`, then by the end of your while-loop `x` should be `[1, 1, 2, 4, 8, 16, 32, 64, 128]`.\n",
     "\n",
-    "***"
+    "</div>"
    ]
   },
   {
@@ -155,9 +168,10 @@
     "## `break`, `continue`, & `else` clauses on loops\n",
     "The `continue` and `break` statements can be used within the bodies of both for-loops and while-loops. They provide added means for \"short-circuiting\" or prematurely exiting a given loop, respectively.\n",
     "\n",
-    "The `break` statement can be used within the body of a for-loop, or while-loop. Encountering `break` causes that loop to be exited immediately:\n",
+    "Encountering `break` within a given loop causes that loop to be exited immediately:\n",
     "\n",
     "```ipython\n",
+    "# breaking out of a loop early\n",
     ">>> for item in [1, 2, 3, 4, 5]:\n",
     "...     if item == 3:\n",
     "...         print(item, \" ...break!\")\n",
@@ -173,6 +187,7 @@
     "An `else` clause can be added to the end of any loop. The body of this else-statement will be executed *only if the loop was not exited via a `break` statement*.\n",
     "\n",
     "```ipython\n",
+    "# including an else-clause at the end of the loop\n",
     ">>> for item in [2, 4, 6]:\n",
     "...     if item == 3:\n",
     "...         print(item, \" ...break!\")\n",
@@ -188,8 +203,9 @@
     "if you are reading this, then the loop completed without a 'break'\n",
     "```\n",
     "\n",
-    "The `continue` statement, when encountered, causes the loop-statement to be revisited immediately.\n",
+    "The `continue` statement, when encountered within a loop, causes the loop-statement to be revisited immediately.\n",
     "```python\n",
+    "# demonstrating a `continue` statement in a loop\n",
     ">>> x = 1\n",
     ">>> while x < 4:\n",
     "...     print(\"x = \", x, \">> enter loop-body <<\")\n",
@@ -214,13 +230,13 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "***\n",
+    "<div class=\"alert alert-info\">\n",
     "\n",
     "**Reading Comprehension: conducting flow in a loop**\n",
     "\n",
     "Loop over a list of integers repeatedly, summing up all of its even values, and adding the content to a total. Repeat this process until the the total exceeds 100, or if you have looped over the list more than 50 times. Print the total only if it exceeds 100.\n",
     "\n",
-    "***"
+    "</div>"
    ]
   },
   {
@@ -266,12 +282,16 @@
     "\n",
     "while total < 100:\n",
     "    for item in x:\n",
+    "        # return to for-loop if \n",
+    "        # `item` is odd-valued\n",
     "        if item % 2 == 1:\n",
     "            continue\n",
     "        else:\n",
     "            total += item\n",
     "    num_loop += 1\n",
     "    \n",
+    "    # break from while-loop if \n",
+    "    # more than 50 items tallied\n",
     "    if 50 < num_loop:\n",
     "        break\n",
     "else:\n",
