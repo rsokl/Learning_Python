@@ -2,7 +2,7 @@
 Python Like You Mean It
 =======================
 
-  Written by Ryan Soklaski (GitHub:`@rsokl <https://github.com/rsokl>`_)
+  Written by Ryan Soklaski (Twitter/GitHub:`@rsokl <https://twitter.com/rsokl>`_)
   
   Edited by David Mascharka (GitHub:`@davidmascharka <https://github.com/davidmascharka>`_).
 
