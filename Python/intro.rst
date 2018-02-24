@@ -4,7 +4,7 @@ Python Like You Mean It
 
   Written by Ryan Soklaski (Twitter/GitHub:`@rsokl <https://twitter.com/rsokl>`_)
   
-  Edited by David Mascharka (GitHub:`@davidmascharka <https://github.com/davidmascharka>`_).
+  Edited by `David Mascharka <https://davidmascharka.com/>`_
 
 What this is
 ------------
