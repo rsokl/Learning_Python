@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>“Vectorized” Operations: Optimized Computations on NumPy Arrays &mdash; Python Like You Mean It 0.10.0 documentation</title>
+  <title>“Vectorized” Operations: Optimized Computations on NumPy Arrays &mdash; Python Like You Mean It 0.10.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 0.10.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.10.1 documentation" href="../index.html"/>
         <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
         <link rel="next" title="Array Broadcasting" href="Broadcasting.html"/>
         <link rel="prev" title="Iterating Over Arrays &amp; Array-Traversal Order" href="ArrayTraversal.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.10.0
+                0.10.1
               </div>
             
           
@@ -117,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Logical-Operations">Logical Operations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Linear-Algebra">Linear Algebra</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Conclusion">Conclusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
 </ul>
 </li>
@@ -820,19 +821,17 @@ in action:</p>
 <p>The <code class="docutils literal"><span class="pre">axis</span></code> argument thus specifies which axis or axes are traversed to
 produce the input sequences for the sequential function to act on. One
 sequence is designated for each valid combination of indices of the
-non-traversed axes. For example, <code class="docutils literal"><span class="pre">np.sum(x,</span> <span class="pre">axis=0)</span></code> designates the
-sequences:</p>
+non-traversed axes. For example, <code class="docutils literal"><span class="pre">np.sum(x,</span> <span class="pre">axis=0)</span></code> says: “for each
+of the columns of <code class="docutils literal"><span class="pre">x</span></code>, sum over its rows”. Thus the following
+sequences are summed over:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>  <span class="c1"># traverse all rows within column-0</span>
 <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>  <span class="c1"># traverse all rows within column-1</span>
 </pre></div>
 </div>
-<p>to be summed over. Axis-1 is the only “non-traversed” axis, and because
-axis-1 of <code class="docutils literal"><span class="pre">x</span></code> has a shape 2 (<code class="docutils literal"><span class="pre">x</span></code> has two columns) the
-“valid-combinations of indices for the non-traversed axes” is simply
-index-0 (i.e.&nbsp;column-0) and index-1 (i.e.&nbsp;column-1) on axis-1. Thus each
-column of <code class="docutils literal"><span class="pre">x</span></code> is summed over, producing a shape-(2,) array containing
-the result of the two sums. Similarly, summing over axis-1 (over the
-columns of the data) produces a shape-(3,) array as a result.</p>
+<p>Thus each column of <code class="docutils literal"><span class="pre">x</span></code> is summed over, producing a shape-(2,) array
+containing the result of the two sums. Similarly, <code class="docutils literal"><span class="pre">np.sum(x,</span> <span class="pre">axis=1)</span></code>
+produces a shape-(3,) array, which stores the sum along each of the
+three rows in <code class="docutils literal"><span class="pre">x</span></code>.</p>
 <p>You can also supply <em>multiple</em> axes to the keyword argument by
 specifying them in a “tuple” of integers (using a list instead of a
 tuple will <em>not</em> work). <code class="docutils literal"><span class="pre">np.sum(x,</span> <span class="pre">axis=(0,1))</span></code> cues NumPy to traverse
@@ -850,8 +849,8 @@ generated for each valid combination of indices for the non-traversed
 axes. By default, <strong>all</strong> of the input-array’s axes are included, thus
 the entire content of the array is treated as a single sequence.</p>
 </div>
-<div class="section" id="Understanding-the-axis-argument-with-Multi-Dimensional-Array">
-<h4>Understanding the <code class="docutils literal"><span class="pre">axis</span></code> argument with Multi-Dimensional Array<a class="headerlink" href="#Understanding-the-axis-argument-with-Multi-Dimensional-Array" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="Understanding-the-axis-argument-with-a-Multi-Dimensional-Array">
+<h4>Understanding the <code class="docutils literal"><span class="pre">axis</span></code> argument with a Multi-Dimensional Array<a class="headerlink" href="#Understanding-the-axis-argument-with-a-Multi-Dimensional-Array" title="Permalink to this headline">¶</a></h4>
 <p>The key to understanding the <code class="docutils literal"><span class="pre">axis</span></code> keyword argument, when working
 with multi-dimensional arrays, is to be comfortable with how array
 traversal works in NumPy. Refer to Section 5 of this module for a
@@ -874,8 +873,10 @@ refresher on this topic. Consider the following shape-(4,2,3) array:</p>
 <p>We can think of this array as possessing four, 2x3 sheets of numbers.
 Traversing along axis-0 of <code class="docutils literal"><span class="pre">x</span></code> amounts to stepping from sheet to
 sheet, given each valid combination of axis-1 and axis-2 indices. Thus
-specifying <code class="docutils literal"><span class="pre">axis=0</span></code> in a sequential NumPy function (e.g. <code class="docutils literal"><span class="pre">np.sum</span></code>)
-designates six distinct sequences within <code class="docutils literal"><span class="pre">x</span></code>:</p>
+<code class="docutils literal"><span class="pre">np.mean(x,</span> <span class="pre">axis=0)</span></code> says: “for each combination of row and column,
+take the mean along the sheets of <code class="docutils literal"><span class="pre">x</span></code>”. Therefore six distinct
+sequences within <code class="docutils literal"><span class="pre">x</span></code> are designated for this sequential function to
+act on:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span>  <span class="mi">9</span><span class="p">}</span>
 <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">19</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">10</span><span class="p">}</span>
 <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">11</span><span class="p">}</span>
@@ -884,10 +885,9 @@ designates six distinct sequences within <code class="docutils literal"><span cl
 <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">14</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>and <code class="docutils literal"><span class="pre">np.mean(x,</span> <span class="pre">axis=0)</span></code> will compute the mean of these six respective
-sequences. Also, notice that the set of valid combinations of axis-1 and
-axis-2 indices corresponds to the two-by-three grid associated with one
-of the sheets. NumPy will return the six mean values in a shape-(2,3)
+<p>Also, notice that the set of valid combinations of axis-1 and axis-2
+indices corresponds to the two-by-three grid associated with they layout
+of a sheet. NumPy will return the six mean values in a shape-(2,3)
 array, so that the correspondence between each sequence and its
 mean-value is unambiguous:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -918,7 +918,7 @@ axis-1 index. Thus two sequences are produced:</p>
 <span class="math">\(j \leq N\)</span>) axes are specified in the <code class="docutils literal"><span class="pre">axis</span></code> keyword argument
 for a sequential NumPy function, then a <span class="math">\(N-j\)</span>-dimensional array
 will be produced by this function. The shape of the result will be that
-of <span class="math">\(X\)</span>, but with the shapes associated with the specified axes
+of <span class="math">\(X\)</span>, but with the entries associated with those <span class="math">\(j\)</span> axes
 removed.</p>
 </div>
 <div class="admonition note">
@@ -1006,7 +1006,7 @@ entries between two arrays are approximately equal in value:</p>
 perform optimized computations and routines relevant to linear algebra.
 Included here are functions for performing matrix products and tensor
 products, solving eigenvalue problems, inverting matrices, and computing
-vector normalizations. Please refer to the <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.linalg.html">official NumPy
+vector normalizations. Please refer to the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html">official NumPy
 documentation</a>
 for a full listing of these functions.</p>
 </div>
@@ -1021,6 +1021,17 @@ should not worry about memorizing them. Rather, it is best to apply
 these functions to arrays of various dimensionality, and build an
 intuition for them. You may be pleasantly surprised by how easy it is to
 get a hang of this material by simply putting it to practice.</p>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html#math-operations">Math
+functions</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">Logic
+functions</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html">Linear algebra
+functions</a></li>
+</ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
@@ -1127,7 +1138,7 @@ get a hang of this material by simply putting it to practice.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.10.0',
+            VERSION:'0.10.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
