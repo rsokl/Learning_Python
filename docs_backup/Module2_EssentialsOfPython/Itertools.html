@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python’s “Itertools” &mdash; Python Like You Mean It 0.10.0 documentation</title>
+  <title>Python’s “Itertools” &mdash; Python Like You Mean It 0.10.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 0.10.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.10.1 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Basics of Functions" href="Functions.html"/>
         <link rel="prev" title="Generators &amp; Comprehension Expressions" href="Generators_and_Comprehensions.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.10.0
+                0.10.1
               </div>
             
           
@@ -107,14 +107,8 @@
 <li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Python’s “Itertools”</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#range"><code class="docutils literal"><span class="pre">range</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#enumerate"><code class="docutils literal"><span class="pre">enumerate</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#zip"><code class="docutils literal"><span class="pre">zip</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#itertools.chain"><code class="docutils literal"><span class="pre">itertools.chain</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#itertools.combinations"><code class="docutils literal"><span class="pre">itertools.combinations</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Reading-Comprehension:-Solutions">Reading Comprehension: Solutions</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension:-Solutions">Reading Comprehension: Solutions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
@@ -237,24 +231,19 @@ what it has in store.</p>
 useful that they are included in Python by default, and do not need to
 be imported. It is essential that <code class="docutils literal"><span class="pre">range</span></code>, <code class="docutils literal"><span class="pre">enumerate</span></code>, and <code class="docutils literal"><span class="pre">zip</span></code>
 become tools that you are comfortable using.</p>
-<div class="section" id="range">
-<h2><code class="docutils literal"><span class="pre">range</span></code><a class="headerlink" href="#range" title="Permalink to this headline">¶</a></h2>
+<p><strong>range</strong></p>
 <p>generate a sequence of integers in the specified “range”:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># will generate 0.. 1.. 2.. ... 8.. 9</span>
 <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="enumerate">
-<h2><code class="docutils literal"><span class="pre">enumerate</span></code><a class="headerlink" href="#enumerate" title="Permalink to this headline">¶</a></h2>
+<p><strong>enumerate</strong></p>
 <p>“enumerate” the items in an iterable:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># will generate (0, &#39;apple&#39;).. (1, &#39;banana&#39;).. (2, &#39;cat&#39;).. (3, &#39;dog&#39;)]</span>
 <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="zip">
-<h2><code class="docutils literal"><span class="pre">zip</span></code><a class="headerlink" href="#zip" title="Permalink to this headline">¶</a></h2>
+<p><strong>zip</strong></p>
 <p>“zip” together the corresponding elements of several iterables into
 tuples:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Angie&quot;</span><span class="p">,</span> <span class="s2">&quot;Brian&quot;</span><span class="p">,</span> <span class="s2">&quot;Cassie&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">]</span>
@@ -269,9 +258,7 @@ tuples:</p>
 <hr class="docutils" />
 <p>The following are some of the many useful tools provided by the
 <code class="docutils literal"><span class="pre">itertools</span></code> module:</p>
-</div>
-<div class="section" id="itertools.chain">
-<h2><code class="docutils literal"><span class="pre">itertools.chain</span></code><a class="headerlink" href="#itertools.chain" title="Permalink to this headline">¶</a></h2>
+<p><strong>itertools.chain</strong></p>
 <p>“chain” together multiple iterables, end-to-end:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gen_1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>               <span class="c1"># 0.. 2.. 4</span>
@@ -284,10 +271,8 @@ tuples:</p>
 <span class="go">&lt;itertools.chain at 0x20de109ec18&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="itertools.combinations">
-<h2><code class="docutils literal"><span class="pre">itertools.combinations</span></code><a class="headerlink" href="#itertools.combinations" title="Permalink to this headline">¶</a></h2>
-<p>Generate all length-n “combinations” from an iterable:</p>
+<p><strong>itertools.combinations</strong> Generate all length-n “combinations” from an
+iterable:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
 
 <span class="go"># will generate: (0, 1, 2).. (0, 1, 3).. (0, 2, 3).. (1, 2, 3)</span>
@@ -309,8 +294,17 @@ combination of “apples” and “pears”.</p>
 of <span class="math">\(x\)</span>. Then, using <code class="docutils literal"><span class="pre">zip</span></code>, create a list of the <span class="math">\((x, y)\)</span>
 pairs, each pair stored in a tuple.</p>
 <hr class="docutils" />
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq-range">range</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#zip">zip</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/itertools.html">itertools</a></li>
+</ul>
+</div>
 <div class="section" id="Reading-Comprehension:-Solutions">
-<h3>Reading Comprehension: Solutions<a class="headerlink" href="#Reading-Comprehension:-Solutions" title="Permalink to this headline">¶</a></h3>
+<h2>Reading Comprehension: Solutions<a class="headerlink" href="#Reading-Comprehension:-Solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>Itertools I: Solution</strong></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apples&quot;</span><span class="p">,</span> <span class="s2">&quot;bananas&quot;</span><span class="p">,</span> <span class="s2">&quot;pears&quot;</span><span class="p">,</span> <span class="s2">&quot;pears&quot;</span><span class="p">,</span> <span class="s2">&quot;oranges&quot;</span><span class="p">]</span>
@@ -333,7 +327,6 @@ list-comprehension:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">]</span>
 <span class="go">[(0.1, 0.01), (0.3, 0.09), (0.6, 0.36), (0.9, 0.81)]</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -382,7 +375,7 @@ list-comprehension:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.10.0',
+            VERSION:'0.10.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
