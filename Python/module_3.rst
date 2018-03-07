@@ -13,3 +13,4 @@ Module 3: The Essentials of NumPy
    Module3_IntroducingNumpy/VectorizedOperations.ipynb
    Module3_IntroducingNumpy/Broadcasting.ipynb
    Module3_IntroducingNumpy/BasicIndexing.ipynb
+   Module3_IntroducingNumpy/AdvancedIndexing.ipynb
