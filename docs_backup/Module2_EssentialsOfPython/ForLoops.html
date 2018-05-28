@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>For-Loops and While-Loops &mdash; Fundamentals of Python alpha documentation</title>
+  <title>For-Loops and While-Loops &mdash; Python Like You Mean It 0.11.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.11.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Iterables" href="Iterables.html"/>
         <link rel="prev" title="Conditional Statements" href="ConditionalStatements.html"/> 
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.11.0
               </div>
             
           
@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
@@ -110,6 +110,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#While-Loops">While-Loops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#break,-continue,-&amp;-else-clauses-on-loops"><code class="docutils literal"><span class="pre">break</span></code>, <code class="docutils literal"><span class="pre">continue</span></code>, &amp; <code class="docutils literal"><span class="pre">else</span></code> clauses on loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -138,7 +139,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -310,11 +311,10 @@ iterable, the iterate-variable is never defined:</p>
 even defined. Thus the code enclosed within the for-loop is never
 reached, and the subsequent <code class="docutils literal"><span class="pre">print(x)</span></code> statement will raise a
 <code class="docutils literal"><span class="pre">NameError</span></code>, because <code class="docutils literal"><span class="pre">x</span></code> was never defined!</p>
-<div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
-<p class="last">There are reading-comprehension exercises included throughout the text.
-These are meant to help you put your reading to practice. Solutions for
-the exercises are included at the bottom of this page.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: A basic for-loop</strong></p>
+<p class="last">Using a for-loop and an if-statement, print each letter in the string
+<code class="docutils literal"><span class="pre">&quot;abcdefghij&quot;</span></code>, if that letter is a vowel.</p>
 </div>
 </div>
 </div>
@@ -326,12 +326,12 @@ no longer true:</p>
     <span class="n">block</span> <span class="n">of</span> <span class="n">code</span>
 </pre></div>
 </div>
-<p>Where <code class="docutils literal"><span class="pre">&lt;condition&gt;</span></code> expression that returns <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code>, or
-it is any object on which <code class="docutils literal"><span class="pre">bool</span></code> can be called. The “body” of the
-while-loop is the code indented beneath the for-loop statement.</p>
+<p>Where <code class="docutils literal"><span class="pre">&lt;condition&gt;</span></code> is an expression that returns <code class="docutils literal"><span class="pre">True</span></code> or
+<code class="docutils literal"><span class="pre">False</span></code>, or is any object on which <code class="docutils literal"><span class="pre">bool</span></code> can be called. The “body”
+of the while-loop is the code indented beneath the while-loop statement.</p>
 <p>The while-loop behaves as follows:</p>
 <ul class="simple">
-<li>Call <code class="docutils literal"><span class="pre">bool(&lt;condition&gt;)</span></code>, execute the indented block of code if
+<li>Call <code class="docutils literal"><span class="pre">bool(&lt;condition&gt;)</span></code> and execute the indented block of code if
 <code class="docutils literal"><span class="pre">True</span></code> is returned. Otherwise, “exit” the while-loop, skipping past
 the indented code.</li>
 <li>If the indented block code is executed, go back to the first step.</li>
@@ -340,8 +340,7 @@ the indented code.</li>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating a basic while-loop</span>
 <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="c1"># equivalent to: `total = total + 1`</span>
-    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># equivalent to: `total = total + 1`</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  <span class="c1"># `total` has the value 2</span>
 </pre></div>
@@ -364,29 +363,29 @@ code-block</li>
 code would never be reached.</p>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Warning!</strong></p>
-<p class="last">It is possible to write a while-loop such that it’s conditional
-statement is always True, in which case, your code will run ceaselessly!
-If this even happens to you in a Jupyter notebook, either interrupt or
-restart your kernel.</p>
+<p class="last">It is possible to write a while-loop such that its conditional statement
+is always True, in which case your code will run ceaselessly! If this
+even happens to you in a Jupyter notebook, either interrupt or restart
+your kernel.</p>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: A basic while-loop</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: A basic while-loop</strong></p>
 <p>Given list of nonzero, positive numbers, <code class="docutils literal"><span class="pre">x</span></code>, append the sum of that
 list to the end of it. Do this until the last value in <code class="docutils literal"><span class="pre">x</span></code> is at least
 100. Use a while-loop.</p>
-<p>If you start with <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[1]</span></code>, then by the end of your while-loop <code class="docutils literal"><span class="pre">x</span></code>
+<p class="last">If you start with <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[1]</span></code>, then by the end of your while-loop <code class="docutils literal"><span class="pre">x</span></code>
 should be <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">8,</span> <span class="pre">16,</span> <span class="pre">32,</span> <span class="pre">64,</span> <span class="pre">128]</span></code>.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="break,-continue,-&amp;-else-clauses-on-loops">
 <h2><code class="docutils literal"><span class="pre">break</span></code>, <code class="docutils literal"><span class="pre">continue</span></code>, &amp; <code class="docutils literal"><span class="pre">else</span></code> clauses on loops<a class="headerlink" href="#break,-continue,-&-else-clauses-on-loops" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">continue</span></code> and <code class="docutils literal"><span class="pre">break</span></code> statements are to be used within the
-bodies of both for-loops and while-loops. They provide added means for
+<p>The <code class="docutils literal"><span class="pre">continue</span></code> and <code class="docutils literal"><span class="pre">break</span></code> statements can be used within the bodies
+of both for-loops and while-loops. They provide added means for
 “short-circuiting” or prematurely exiting a given loop, respectively.</p>
-<p>The <code class="docutils literal"><span class="pre">break</span></code> statement can be used within the body of a for-loop, or
-while-loop. Encountering <code class="docutils literal"><span class="pre">break</span></code> causes that loop to be exited
+<p>Encountering <code class="docutils literal"><span class="pre">break</span></code> within a given loop causes that loop to be exited
 immediately:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="c1"># breaking out of a loop early</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
 <span class="o">...</span>     <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
 <span class="o">...</span>         <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
 <span class="o">...</span>         <span class="k">break</span>
@@ -401,7 +400,8 @@ immediately:</p>
 <p>An <code class="docutils literal"><span class="pre">else</span></code> clause can be added to the end of any loop. The body of this
 else-statement will be executed <em>only if the loop was not exited via a
 ``break`` statement</em>.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]:</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="c1"># including an else-clause at the end of the loop</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]:</span>
 <span class="o">...</span>     <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
 <span class="o">...</span>         <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
 <span class="o">...</span>         <span class="k">break</span>
@@ -416,17 +416,18 @@ else-statement will be executed <em>only if the loop was not exited via a
 <span class="k">if</span> <span class="n">you</span> <span class="n">are</span> <span class="n">reading</span> <span class="n">this</span><span class="p">,</span> <span class="n">then</span> <span class="n">the</span> <span class="n">loop</span> <span class="n">completed</span> <span class="n">without</span> <span class="n">a</span> <span class="s1">&#39;break&#39;</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">continue</span></code> statement, when encountered, causes the loop-statement
-to be revisited immediately.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;&gt;&gt; enter loop-body &lt;&lt;&quot;</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot; continue...back to the top of the loop!&quot;</span><span class="p">)</span>
-<span class="gp">... </span>        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="gp">... </span>        <span class="k">continue</span>
-<span class="gp">... </span>    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;--reached end of loop-body--&quot;</span><span class="p">)</span>
+<p>The <code class="docutils literal"><span class="pre">continue</span></code> statement, when encountered within a loop, causes the
+loop-statement to be revisited immediately.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating a `continue` statement in a loop</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;&gt;&gt; enter loop-body &lt;&lt;&quot;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+<span class="o">...</span>         <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot; continue...back to the top of the loop!&quot;</span><span class="p">)</span>
+<span class="o">...</span>         <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="o">...</span>         <span class="k">continue</span>
+<span class="o">...</span>     <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;--reached end of loop-body--&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default"><div class="highlight"><pre><span></span>x =  1 &gt;&gt; enter loop-body &lt;&lt;
@@ -437,14 +438,27 @@ x =  3 &gt;&gt; enter loop-body &lt;&lt;
 --reached end of loop-body--
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: conducting flow in a loop</strong></p>
-<p>Loop over a list of integers repeatedly, summing up all of its even
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: conducting flow in a loop</strong></p>
+<p class="last">Loop over a list of integers repeatedly, summing up all of its even
 values, and adding the content to a total. Repeat this process until the
 the total exceeds 100, or if you have looped over the list more than 50
 times. Print the total only if it exceeds 100.</p>
 </div>
-<hr class="docutils" />
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-for-statement">‘for’
+statement</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-while-statement">‘while’
+statement</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops">‘break’, ‘continue’, and ‘else’
+clauses</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#pass-statements">‘pass’
+statment</a></li>
+</ul>
+</div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>A basic for-loop: Solution</strong></p>
@@ -465,12 +479,16 @@ times. Print the total only if it exceeds 100.</p>
 
 <span class="k">while</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="c1"># return to for-loop if</span>
+        <span class="c1"># `item` is odd-valued</span>
         <span class="k">if</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">continue</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">total</span> <span class="o">+=</span> <span class="n">item</span>
     <span class="n">num_loop</span> <span class="o">+=</span> <span class="mi">1</span>
 
+    <span class="c1"># break from while-loop if</span>
+    <span class="c1"># more than 50 items tallied</span>
     <span class="k">if</span> <span class="mi">50</span> <span class="o">&lt;</span> <span class="n">num_loop</span><span class="p">:</span>
         <span class="k">break</span>
 <span class="k">else</span><span class="p">:</span>
@@ -524,7 +542,7 @@ times. Print the total only if it exceeds 100.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.11.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -534,6 +552,8 @@ times. Print the total only if it exceeds 100.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

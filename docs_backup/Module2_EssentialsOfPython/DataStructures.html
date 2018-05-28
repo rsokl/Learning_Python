@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Structures (Part I): Introduction &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Data Structures (Part I): Introduction &mdash; Python Like You Mean It 0.11.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.11.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Data Structures (Part II): Dictionaries" href="DataStructures_II_Dictionaries.html"/>
         <link rel="prev" title="Scope" href="Scope.html"/> 
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.11.0
               </div>
             
           
@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Data Structures (Part I): Introduction</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Describing-Algorithm-Complexity">Describing Algorithm Complexity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Sequential-Data-Structures:-Lists,-Tuples,-and-Deques">Sequential Data Structures: Lists, Tuples, and Deques</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Sequential-Data-Structures:-Lists-and-Tuples">Sequential Data Structures: Lists and Tuples</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#List/Tuple-Complexities">List/Tuple Complexities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#List-Complexities">List Complexities</a></li>
 </ul>
@@ -137,7 +137,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -231,11 +231,11 @@ structures to be introduced are:</p>
 <ul class="simple">
 <li>dictionary: a mapping from “keys” to “values”</li>
 <li>sets: an unordered collection of items that can be used to perform
-set-algerbra operations (e.g.&nbsp;union and intersection)</li>
+set-algebraic operations (e.g.&nbsp;union and intersection)</li>
 </ul>
 <p>These data structures are not merely convenient constructs with some
 nice pre-written functionality; they also provide an interface to some
-optimized core-utilities that have been written in C (or whatever
+optimized core utilities that have been written in C (or whatever
 language your Python interpreter is written in). For example, let’s
 write a function that checks if an item is contained within an iterable:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_in</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
@@ -267,9 +267,11 @@ testing for membership in a set is even faster than is checking for
 membership in a list:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># test for membership in a list</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>  <span class="c1"># takes 295 nanoseconds on my machine</span>
+<span class="bp">False</span>
 
 <span class="c1"># test for membership in a set</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>  <span class="c1"># takes 65 nanoseconds on my machine</span>
+<span class="bp">False</span>
 </pre></div>
 </div>
 <p>We get a 4.5x speedup in our membership test just by using a set instead
@@ -364,8 +366,8 @@ summarize the performance of the algorithms used by Python’s data
 structures.</p>
 </div>
 </div>
-<div class="section" id="Sequential-Data-Structures:-Lists,-Tuples,-and-Deques">
-<h2>Sequential Data Structures: Lists, Tuples, and Deques<a class="headerlink" href="#Sequential-Data-Structures:-Lists,-Tuples,-and-Deques" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Sequential-Data-Structures:-Lists-and-Tuples">
+<h2>Sequential Data Structures: Lists and Tuples<a class="headerlink" href="#Sequential-Data-Structures:-Lists-and-Tuples" title="Permalink to this headline">¶</a></h2>
 <p>The “Sequence Types” section already introduced lists and tuples. Recall
 that both provide the same interface for accessing and summarizing the
 contents of a heterogeneous sequence of objects. However, a list can be
@@ -544,7 +546,7 @@ version of the list.</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.11.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -554,6 +556,8 @@ version of the list.</td>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introducing the Python Programming Language &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Introducing the Python Programming Language &mdash; Python Like You Mean It 0.11.0 documentation</title>
   
 
   
@@ -37,10 +37,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.11.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 1: Getting Started with Python" href="../module_1.html"/>
         <link rel="next" title="Installing Python" href="Installing_Python.html"/>
-        <link rel="prev" title="Module 1: Getting Started with Python" href="../module_1.html"/> 
+        <link rel="prev" title="A Quick Guide to Formatting" href="SiteFormatting.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.11.0
               </div>
             
           
@@ -95,14 +95,14 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="SiteFormatting.html">A Quick Guide to Formatting</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Introducing the Python Programming Language</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#What-is-Python?">What is Python?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Python-Scripts">Python Scripts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#What-is-a-Python-Interpreter-and-What-Does-it-Mean-to-“Install-Python”?">What is a Python Interpreter and What Does it Mean to “Install Python”?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Why-Python?">Why Python?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#A-Quick-Guide-to-Formatting">A Quick Guide to Formatting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Summary">Summary</a></li>
 </ul>
 </li>
@@ -128,7 +128,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -181,170 +181,6 @@
             
   
 <style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput,
-div.nboutput {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput div.prompt pre {
-    color: #303F9F;
-}
-
-/* output prompt */
-div.nboutput div.prompt pre {
-    color: #D84315;
-}
-
-/* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 8ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
-}
-@media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput div.prompt.empty {
-        padding: 0;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput div.input_area {
-    border: 1px solid #cfcfcf;
-    border-radius: 2px;
-    background: #f7f7f7;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.pngmath center alignment in output cells */
-div.nboutput div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -430,14 +266,14 @@ the computer to carry out the operations described by the code.</li>
 <h2>Python Scripts<a class="headerlink" href="#Python-Scripts" title="Permalink to this headline">¶</a></h2>
 <p>You can save the the valid code from the preceding section in a text
 file using a simple text editor, and <em>voilà</em> you have written a <strong>Python
-script</strong>: a text file whose contents is Python code. It is standard to
-save this text file using the suffix <code class="docutils literal"><span class="pre">.py</span></code> (e.g. <code class="docutils literal"><span class="pre">my_code.py</span></code>),
-rather than the familiar <code class="docutils literal"><span class="pre">.txt</span></code> (e.g. <code class="docutils literal"><span class="pre">my_text.txt</span></code>). There is
-nothing special about the <code class="docutils literal"><span class="pre">.py</span></code> suffix other than it helps to
-differentiate files that contain Python code from run-of-the-mill text
-files, which contain plain English.</p>
+script</strong>: a text file containing Python code. It is standard to save
+this text file using the suffix <code class="docutils literal"><span class="pre">.py</span></code> (e.g. <code class="docutils literal"><span class="pre">my_code.py</span></code>), rather
+than the familiar <code class="docutils literal"><span class="pre">.txt</span></code> (e.g. <code class="docutils literal"><span class="pre">my_text.txt</span></code>). There is nothing
+special about the <code class="docutils literal"><span class="pre">.py</span></code> suffix; it simply helps differentiate files
+that contain Python code from run-of-the-mill text files, which contain
+plain English.</p>
 <p>Although you can use simple text editors to write Python scripts
-(e.g.&nbsp;notepad (Win), TextEdit (Mac), vim (Linux)), there are much more
+(e.g.&nbsp;notepad (Win), TextEdit (Mac), nano (Linux)), there are much more
 sophisticated editors that provide an “integrated development
 environment” (IDE) for writing code. An IDE, configured to support
 Python, will warn you if you have written code that violates Python’s
@@ -486,7 +322,7 @@ and are rarely used in comparison to the CPython interpreter.</p>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>About Installing Python</strong>:</p>
 <p class="last">Do not download and install Python from python.org. There isn’t anything
-wrong with this, however a later section will provide you with explicit
+wrong with this, but a later section will provide you with explicit
 instructions for installing Python on your machine.</p>
 </div>
 <p>If you “install Python on your computer” from
@@ -522,7 +358,7 @@ in any directory, and your computer will know where to look to find the
 <p>It may be confusing to think that the Python language is interpreted by
 using a program written in another language. How, then, is that language
 interpreted? The answer, in the case of CPython, is that C code need not
-be interpreted; programs exist for Windows, Macs, and Linux that can
+be interpreted; programs exist for Windows, Mac, and Linux that can
 translate C code directly into machine instructions.</p>
 </div>
 <div class="section" id="Why-Python?">
@@ -531,17 +367,21 @@ translate C code directly into machine instructions.</p>
 likely the <a class="reference external" href="https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-u-s-universities/fulltext">most popular introductory language at
 universities</a>.
 First and foremost, its syntax is designed to be intuitive and readable.
-For example, following Python code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+For example, the following Python code sums the numbers 0-9, and prints
+the result:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>produces the same result as the less-obvious and lengthier C++ code:</p>
+<p>This can be reproduced by the following C++ code, which is arguably
+less-intuitive:</p>
 <div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;numeric&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello world&quot;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">e</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -553,53 +393,6 @@ language. Thus, Python has become exceptionally popular especially among
 scientists, engineers, and other researchers.</p>
 <p>We will be relying heavily on Python and a library for doing optimized
 numerical computations, called NumPy, throughout this course.</p>
-</div>
-<div class="section" id="A-Quick-Guide-to-Formatting">
-<h2>A Quick Guide to Formatting<a class="headerlink" href="#A-Quick-Guide-to-Formatting" title="Permalink to this headline">¶</a></h2>
-<p>Here is a quick rundown of the formatting that will be used throughout
-this text.</p>
-<p>The following represents a block of Python code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># count to 10</span>
-<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<p>Whenever the <code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code> appears, it is used to distinguish Python code that
-is entered in a terminal (e.g.&nbsp;in the IPython console) from its output:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">5</span>
-</pre></div>
-</div>
-<p>The pound-sign, <code class="docutils literal"><span class="pre">#</span></code>, is used to indicate a comment in Python code. Any
-text to the right of a <code class="docutils literal"><span class="pre">#</span></code> will be treated as a comment, and will not
-be interpreted as code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>  <span class="c1"># this is all a comment, so it has no impact on the code!</span>
-<span class="go">5</span>
-</pre></div>
-</div>
-<p>Input and output to either the IPython console or a Jupyter notebook
-will be indicated as follows:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[1]:
-</pre></div>
-</div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>5
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Summary">
 <h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline">¶</a></h2>
@@ -637,7 +430,7 @@ that comes packaged with the CPython interpreter.</li>
         <a href="Installing_Python.html" class="btn btn-neutral float-right" title="Installing Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../module_1.html" class="btn btn-neutral" title="Module 1: Getting Started with Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="SiteFormatting.html" class="btn btn-neutral" title="A Quick Guide to Formatting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -668,7 +461,7 @@ that comes packaged with the CPython interpreter.</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.11.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -678,6 +471,8 @@ that comes packaged with the CPython interpreter.</li>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

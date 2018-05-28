@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Iterables &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Iterables &mdash; Python Like You Mean It 0.12.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.12.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Generators &amp; Comprehension Expressions" href="Generators_and_Comprehensions.html"/>
         <link rel="prev" title="For-Loops and While-Loops" href="ForLoops.html"/> 
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.12.0
               </div>
             
           
@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
@@ -111,6 +111,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Enumerating-iterables">Enumerating iterables</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -124,6 +125,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 </ul>
 
             
@@ -138,7 +140,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -254,10 +256,13 @@ through the Object Oriented Programming module.</p>
 <p>Here are some useful built-in functions that accept iterables as
 arguments:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">list</span></code> and <code class="docutils literal"><span class="pre">tuple</span></code>: construct a list or tuple from the contents
-of an iterable</li>
-<li><code class="docutils literal"><span class="pre">sum</span></code>: sum up the contents of an iterable</li>
-<li><code class="docutils literal"><span class="pre">sorted</span></code>: return a list of the sorted contents of a function</li>
+<li><code class="docutils literal"><span class="pre">list</span></code>, <code class="docutils literal"><span class="pre">tuple</span></code>, <code class="docutils literal"><span class="pre">dict</span></code>, <code class="docutils literal"><span class="pre">set</span></code>: construct a list, tuple,
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html">dictionary</a>,
+or
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure">set</a>,
+respectively, from the contents of an iterable</li>
+<li><code class="docutils literal"><span class="pre">sum</span></code>: sum the contents of an iterable.</li>
+<li><code class="docutils literal"><span class="pre">sorted</span></code>: return a list of the sorted contents of an interable</li>
 <li><code class="docutils literal"><span class="pre">any</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> and ends the iteration immediately if
 <code class="docutils literal"><span class="pre">bool(item)</span></code> was <code class="docutils literal"><span class="pre">True</span></code> for <em>any</em> item in the iterable.</li>
 <li><code class="docutils literal"><span class="pre">all</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> only if <code class="docutils literal"><span class="pre">bool(item)</span></code> was <code class="docutils literal"><span class="pre">True</span></code> for
@@ -397,12 +402,30 @@ collection of iterables.</p>
 </div>
 <div class="section" id="Enumerating-iterables">
 <h3>Enumerating iterables<a class="headerlink" href="#Enumerating-iterables" title="Permalink to this headline">¶</a></h3>
-<p>It is often useful to keep track of the iteration-count of a for-loop.
-Suppose we want to record all of the positions in a list where the value
-<code class="docutils literal"><span class="pre">None</span></code> is stored:</p>
+<p>The built-in
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a>
+function allows us to iterate over an iterable, while keeping track of
+the iteration count:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># basic usage of `enumerate`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">):</span>
+<span class="o">...</span>    <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In general, the <code class="docutils literal"><span class="pre">enumerate</span></code> function accepts an iterable as an input,
+and returns a new iterable that produces a tuple of the iteration-count
+and the corresponding item from the original iterable. Thus the items in
+the iterable are being enumerated. To see the utility of this, suppose
+that we want to record all of the positions in a list where the value
+<code class="docutils literal"><span class="pre">None</span></code> is stored. We can achieve this by tracking the iteration count
+of a for-loop over the list.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># track which entries of an iterable store the value `None`</span>
 <span class="n">none_indices</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">iter_cnt</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># manually track iteration-count</span>
+
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">none_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iter_cnt</span><span class="p">)</span>
@@ -411,31 +434,20 @@ Suppose we want to record all of the positions in a list where the value
 <span class="c1"># `none_indices` now stores: [1, 3]</span>
 </pre></div>
 </div>
-<p>We can make use of the built-in
-<a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a>
-function so that we don’t need to initialize and manually increment the
-<code class="docutils literal"><span class="pre">iter_cnt</span></code> variable:</p>
+<p>We can simplify this code, and avoid having to initialize or increment
+the <code class="docutils literal"><span class="pre">iter_cnt</span></code> variable, by utilizing <code class="docutils literal"><span class="pre">enumerate</span></code> along with
+tuple-unpacking.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the `enumerate` function to keep iteration-count</span>
 <span class="n">none_indices</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">iter_cnt</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]):</span>  <span class="c1"># note the use of iterable unpacking!</span>
-    <span class="c1"># iter_cnt = 0, item = 2</span>
-    <span class="c1"># iter_cnt = 1, item = None</span>
-    <span class="c1"># iter_cnt = 2, item = -10</span>
-    <span class="c1"># etc.</span>
+
+<span class="c1"># note the use of iterable unpacking!</span>
+<span class="k">for</span> <span class="n">iter_cnt</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]):</span>
     <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">none_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iter_cnt</span><span class="p">)</span>
 
 <span class="c1"># `none_indices` now stores: [1, 3]</span>
 </pre></div>
 </div>
-<p>In general, the <code class="docutils literal"><span class="pre">enumerate</span></code> function accepts an iterable and returns a
-new iterable that produces a tuple of the iteration-count and the
-corresponding item from the original iterable:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">enumerate</span><span class="p">(</span><span class="o">&lt;</span><span class="n">item_0</span><span class="p">,</span> <span class="n">item_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">item_n</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="c1"># generates: (0, item_0).. (1, item_1).. ... (n, item_n)&gt;</span>
-</pre></div>
-</div>
-<p>&lt;&gt; represents any iterable (list, tuple, string, etc)</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p class="last">The built-in
@@ -444,21 +456,23 @@ function should be used (in conjunction with iterator unpacking)
 whenever it is necessary to track the iteration count of a for-loop. It
 is valuable to use this in conjunction with tuple unpacking.</p>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: enumerate</strong> Use the iterable <code class="docutils literal"><span class="pre">&quot;abcd&quot;</span></code>, the
-<code class="docutils literal"><span class="pre">enumerate</span></code> function, and tuple-unpacking in a for-loop to create the
-list: <code class="docutils literal"><span class="pre">[(0,</span> <span class="pre">'a'),</span> <span class="pre">(1,</span> <span class="pre">'b'),</span> <span class="pre">(2,</span> <span class="pre">'c'),</span> <span class="pre">(3,</span> <span class="pre">'d')]</span></code></p>
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Is it sorted?</strong> Use control flow and looping
-tools to see if an iterable of numbers is sorted.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: enumerate</strong></p>
+<p class="last">Use the iterable <code class="docutils literal"><span class="pre">&quot;abcd&quot;</span></code>, the <code class="docutils literal"><span class="pre">enumerate</span></code> function, and
+tuple-unpacking in a for-loop to create the list:
+<code class="docutils literal"><span class="pre">[(0,</span> <span class="pre">'a'),</span> <span class="pre">(1,</span> <span class="pre">'b'),</span> <span class="pre">(2,</span> <span class="pre">'c'),</span> <span class="pre">(3,</span> <span class="pre">'d')]</span></code></p>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Is it sorted?</strong></p>
+<p>Use control flow and looping tools to see if an iterable of numbers is
+sorted.</p>
 <p>The variable <code class="docutils literal"><span class="pre">unsorted_index</span></code> should be initialized to <code class="docutils literal"><span class="pre">None</span></code>. If
 the iterable is <em>not</em> sorted, <code class="docutils literal"><span class="pre">unsorted_index</span></code> should store the index
 of the where the sequence <em>first</em> fell out of order. If the iterable is
 sorted, then <code class="docutils literal"><span class="pre">unsorted_index</span></code> should remain <code class="docutils literal"><span class="pre">None</span></code> and your code
 should print “sorted!”.</p>
 <p>For instance:</p>
-<ul class="simple">
+<ul class="last simple">
 <li>given the iterable <code class="docutils literal"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">-10,</span> <span class="pre">2]</span></code>, <code class="docutils literal"><span class="pre">unsorted_index</span></code>
 should take the value <code class="docutils literal"><span class="pre">2</span></code>.</li>
 <li>given the iterable <code class="docutils literal"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[-1,</span> <span class="pre">0,</span> <span class="pre">3,</span> <span class="pre">6]</span></code>, <code class="docutils literal"><span class="pre">unsorted_index</span></code>
@@ -466,7 +480,17 @@ should be <code class="docutils literal"><span class="pre">None</span></code> an
 </ul>
 </div>
 </div>
-<hr class="docutils" />
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/glossary.html#term-iterable">Iterable
+Definition</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/howto/functional.html#built-in-functions">Functions on
+iterables</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a></li>
+</ul>
+</div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>enumerate: Solution</strong></p>
@@ -536,7 +560,7 @@ should be <code class="docutils literal"><span class="pre">None</span></code> an
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.12.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -546,6 +570,8 @@ should be <code class="docutils literal"><span class="pre">None</span></code> an
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

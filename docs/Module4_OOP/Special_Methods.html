@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Special Methods &mdash; Python Like You Mean It 0.12.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Python Like You Mean It 0.12.0 documentation" href="../index.html"/>
+        <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
+        <link rel="next" title="Inheritance" href="Inheritance.html"/>
+        <link rel="prev" title="Applications of Object Oriented Programming" href="Applications_of_OOP.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.12.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_OOP.html">Introduction to Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassDefinition.html">Defining a New Class of Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassInstances.html">Instances of a Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Brief_Review.html">A Brief Summary of Terms and Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications_of_OOP.html">Applications of Object Oriented Programming</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Special Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#String-Representations-of-Objects">String-Representations of Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Interfacing-with-Mathematical-Operators">Interfacing with Mathematical Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Creating-a-Container-Like-Class">Creating a Container-Like Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python Like You Mean It</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_4.html">Module 4: Object Oriented Programming</a> &raquo;</li>
+        
+      <li>Special Methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module4_OOP/Special_Methods.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Special-Methods">
+<h1>Special Methods<a class="headerlink" href="#Special-Methods" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we will learn about a variety of instance methods that
+are reserved by Python, which affect an object’s high level behavior and
+its interactions with operators. These are known as special methods.
+<code class="docutils literal"><span class="pre">__init__</span></code> is an example of a special method; recall that it controls
+the process of creating instances of a class. Similarly, we will see
+that <code class="docutils literal"><span class="pre">__add__</span></code> controls the behavior of an object when it is operated
+on by the <code class="docutils literal"><span class="pre">+</span></code> symbol, for example. In general, the names of special
+methods take the form of <code class="docutils literal"><span class="pre">__&lt;name&gt;__</span></code>, where the two underscores
+preceed and succeed the name. Accordingly, special methods can also be
+referred to as “dunder” (double-underscore) methods. Learning to
+leverage special methods will enable us to design elegant and powerful
+classes of objects.</p>
+<p>These methods give us complete control over the various high-level
+interfaces that we use to interact with objects. Let’s make a simple
+class with nonsensical behavior to demonstrate our ability to shape how
+our class behaves:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating (mis)use of special methods</span>
+<span class="k">class</span> <span class="nc">SillyClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Determines behavior of `self[key]` &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Determines behavior of `self ** other` &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Python Like You Mean It&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">silly</span> <span class="o">=</span> <span class="n">SillyClass</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">silly</span><span class="p">[</span><span class="bp">None</span><span class="p">]</span>
+<span class="go">[True, False, True, False]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">silly</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="go">&#39;Python Like You Mean It&#39;</span>
+</pre></div>
+</div>
+<p>This section is not meant to be a comprehensive treatment of special
+methods, which would require us to reach beyond our desired level of
+sophistication. The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">official Python
+documentation</a>
+provides a rigorous but somewhat inaccessible treatment of special
+methods. <a class="reference external" href="http://www.diveintopython3.net/special-method-names.html">Dive into Python
+3</a> has an
+excellent appendix on special methods. It is strongly recommended that
+readers consult this resource.</p>
+<div class="section" id="String-Representations-of-Objects">
+<h2>String-Representations of Objects<a class="headerlink" href="#String-Representations-of-Objects" title="Permalink to this headline">¶</a></h2>
+<p>The following methods determines how an object should be represented as
+a string in various contexts. For example, this text consistently
+utilizes the fact that passing an object to the Python console will
+prompt the console to print out a representation of that object as a
+string. That is,</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">[&#39;a&#39;, 1, True]</span>
+</pre></div>
+</div>
+<p>Under the hood, the special method <code class="docutils literal"><span class="pre">x.__repr__</span></code> is being called to
+obtain this string representation whenever an object is displayed in a
+console/notebook like this. The method returns the string
+<code class="docutils literal"><span class="pre">&quot;['a',</span> <span class="pre">1,</span> <span class="pre">True]&quot;</span></code>, which is then printed out to the console. This is
+an extremely useful for creating classes whose objects can be inspected
+conveniently in a Python console or in a Jupyter notebook. Similarly
+<code class="docutils literal"><span class="pre">__str__</span></code> returns the string that will be produced when <code class="docutils literal"><span class="pre">str</span></code> is
+called on the object.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Signature</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Returns string for a
+printable
+representation of
+object</td>
+<td><code class="docutils literal"><span class="pre">__repr__(self)</span></code></td>
+<td><code class="docutils literal"><span class="pre">repr(x)</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__repr__()</span></code>,
+this is also invoked
+when an object is
+returned by a console</td>
+</tr>
+<tr class="row-odd"><td>Returns string
+representation of an
+object</td>
+<td><code class="docutils literal"><span class="pre">__str__(self)</span></code></td>
+<td><code class="docutils literal"><span class="pre">str(x)</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__str__()</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>A well-implemented <code class="docutils literal"><span class="pre">__repr__</span></code> method can greatly improve the
+convenience of working with a class. For example, let’s add this method
+to our <code class="docutils literal"><span class="pre">ShoppingList</span></code> class that we wrote in the preceding section;
+the <code class="docutils literal"><span class="pre">__repr__</span></code> will create a string with our shopping items on a
+bulleted list with purchased items crossed out:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">strike</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Renders string with strike-through characters through it.</span>
+
+<span class="sd">        `strike(&#39;hello world&#39;)` -&gt; &#39;̶h̶e̶l̶l̶o̶ ̶w̶o̶r̶l̶d&#39;</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        \u0336 is a special strike-through unicode character; it</span>
+<span class="sd">        is not unique to Python.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\u0336</span><span class="s1">{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_purchased</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns formatted shopping list as a string with</span>
+<span class="sd">            purchased items being crossed out.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            str&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_purchased</span><span class="p">:</span>
+            <span class="n">remaining_items</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span><span class="p">]</span>
+            <span class="n">purchased_items</span> <span class="o">=</span> <span class="p">[</span><span class="n">strike</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_purchased</span><span class="p">]</span>
+            <span class="c1"># You wont find the • character on your keyboard. I simply</span>
+            <span class="c1"># googled &quot;unicode bullet point&quot; and copied/pasted it here.</span>
+            <span class="k">return</span> <span class="s2">&quot;• &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">• &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">remaining_items</span> <span class="o">+</span> <span class="n">purchased_items</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_new_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">mark_purchased_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_purchased</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span><span class="o">.</span><span class="n">difference_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_purchased</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span># demonstrating `ShoppingList.__repr__`
+&gt;&gt;&gt; l = ShoppingList([&quot;grapes&quot;, &quot;beets&quot;, &quot;apples&quot;, &quot;milk&quot;, &quot;melon&quot;, &quot;coffee&quot;])
+&gt;&gt;&gt; l.mark_purchased_items([&quot;grapes&quot;, &quot;beets&quot;, &quot;milk&quot;])
+&gt;&gt;&gt; l
+• melon
+• apples
+• coffee
+• ̶g̶r̶a̶p̶e̶s
+• ̶m̶i̶l̶k
+• ̶b̶e̶e̶t̶s
+</pre></div>
+</div>
+<p>See that this simple method makes it much easier for us to inspect the
+state of our shopping list when we are working in a console/notebook
+environment.</p>
+</div>
+<div class="section" id="Interfacing-with-Mathematical-Operators">
+<h2>Interfacing with Mathematical Operators<a class="headerlink" href="#Interfacing-with-Mathematical-Operators" title="Permalink to this headline">¶</a></h2>
+<p>The following special methods control how an object interacts with
+<code class="docutils literal"><span class="pre">+</span></code>, <code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">**</span></code>, and other mathematical operators. A full listing
+of all the special methods used to emulate numeric types can be found
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">here</a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Signature</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Add</td>
+<td><code class="docutils literal"><span class="pre">__add__(self,</span> <span class="pre">other</span>
+<span class="pre">)</span></code></td>
+<td><code class="docutils literal"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__add__(y)</span></code></td>
+</tr>
+<tr class="row-odd"><td>Subtract</td>
+<td><code class="docutils literal"><span class="pre">__sub__(self,</span> <span class="pre">other</span>
+<span class="pre">)</span></code></td>
+<td><code class="docutils literal"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__sub__(y)</span></code></td>
+</tr>
+<tr class="row-even"><td>Multiply</td>
+<td><code class="docutils literal"><span class="pre">__mul__(self,</span> <span class="pre">other</span>
+<span class="pre">)</span></code></td>
+<td><code class="docutils literal"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__mul__(y)</span></code></td>
+</tr>
+<tr class="row-odd"><td>Divide</td>
+<td><code class="docutils literal"><span class="pre">__truediv__(self,</span> <span class="pre">o</span>
+<span class="pre">ther)</span></code></td>
+<td><code class="docutils literal"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__truediv__(y)</span></code></td>
+</tr>
+<tr class="row-even"><td>Power</td>
+<td><code class="docutils literal"><span class="pre">__pow__(self,</span> <span class="pre">other</span>
+<span class="pre">)</span></code></td>
+<td><code class="docutils literal"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__pow__(y)</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>You may be wondering why division has the peculiar name <code class="docutils literal"><span class="pre">__truediv__</span></code>,
+whereas the other operators have more sensible names. This is an
+artifact of the transition from Python 2 to Python 3; <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Number-Types">the default
+integer-division was replaced by
+float-division</a>,
+and thus <code class="docutils literal"><span class="pre">__div__</span></code> was replaced by <code class="docutils literal"><span class="pre">__truediv__</span></code> for the sake of 2-3
+compatibility.</p>
+<p>Let’s give <code class="docutils literal"><span class="pre">ShoppingList</span></code> an <code class="docutils literal"><span class="pre">__add__</span></code> method so that we can merge
+shopping lists using the <code class="docutils literal"><span class="pre">+</span></code> operator. Rather than redefine the entire
+<code class="docutils literal"><span class="pre">ShoppingList</span></code> class, we can simply define this as a function and use
+<code class="docutils literal"><span class="pre">setattr</span></code> to set it as a method to our existing class.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Add the unpurchased and purchased items from another shopping</span>
+<span class="sd">        list to the present one.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : ShoppingList</span>
+<span class="sd">            The shopping list whose items we will add to the present one.</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ShoppingList</span>
+<span class="sd">            The present shopping list, with items added to it.&quot;&quot;&quot;</span>
+    <span class="n">new_list</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">([])</span>
+    <span class="c1"># populate new_list with items from `self` and `other`</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">]:</span>
+        <span class="n">new_list</span><span class="o">.</span><span class="n">add_new_items</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">_needed</span><span class="p">)</span>
+
+        <span class="c1"># add purchased items to list, then mark as purchased</span>
+        <span class="n">new_list</span><span class="o">.</span><span class="n">add_new_items</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">_purchased</span><span class="p">)</span>
+        <span class="n">new_list</span><span class="o">.</span><span class="n">mark_purchased_items</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">_purchased</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">new_list</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># set `__add__` as a method of `ShoppingList`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">setattr</span><span class="p">(</span><span class="n">ShoppingList</span><span class="p">,</span> <span class="s2">&quot;__add__&quot;</span><span class="p">,</span> <span class="fm">__add__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now let’s create a few shopping lists and combine them:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">food</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">([</span><span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;flour&quot;</span><span class="p">,</span> <span class="s2">&quot;salt&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">food</span><span class="o">.</span><span class="n">mark_purchased_items</span><span class="p">([</span><span class="s2">&quot;flour&quot;</span><span class="p">,</span> <span class="s2">&quot;salt&quot;</span><span class="p">])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">office_supplies</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">([</span><span class="s2">&quot;staples&quot;</span><span class="p">,</span> <span class="s2">&quot;pens&quot;</span><span class="p">,</span> <span class="s2">&quot;pencils&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">office_supplies</span><span class="o">.</span><span class="n">mark_purchased_items</span><span class="p">([</span><span class="s2">&quot;pencils&quot;</span><span class="p">])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clothes</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">([</span><span class="s2">&quot;t-shirts&quot;</span><span class="p">,</span> <span class="s2">&quot;socks&quot;</span><span class="p">])</span>
+
+<span class="go"># combine all three shopping lists</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">food</span> <span class="o">+</span> <span class="n">office_supplies</span> <span class="o">+</span> <span class="n">clothes</span>
+<span class="go">• t-shirts</span>
+<span class="go">• eggs</span>
+<span class="go">• pens</span>
+<span class="go">• milk</span>
+<span class="go">• staples</span>
+<span class="go">• socks</span>
+<span class="go">• ̶f̶l̶o̶u̶r</span>
+<span class="go">• ̶s̶a̶l̶t</span>
+<span class="go">• ̶p̶e̶n̶c̶i̶l̶s</span>
+</pre></div>
+</div>
+<p>Overloading the <code class="docutils literal"><span class="pre">+</span></code> operator provides us with a sleek interface for
+merging multiple shopping lists in a sleek, readable way.
+<code class="docutils literal"><span class="pre">food</span> <span class="pre">+</span> <span class="pre">office_supplies</span> <span class="pre">+</span> <span class="pre">clothes</span></code> is equivalent to calling
+<code class="docutils literal"><span class="pre">(food.__add__(office_supplies)).__add__(clothes)</span></code>. It is obvious that
+the former expression is far superior.</p>
+</div>
+<div class="section" id="Creating-a-Container-Like-Class">
+<h2>Creating a Container-Like Class<a class="headerlink" href="#Creating-a-Container-Like-Class" title="Permalink to this headline">¶</a></h2>
+<p>The following special methods allow us to give our class a container
+interface, like that of a dictionary, set, or list. An exhaustive
+listing and discussion of these methods can be found
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">here</a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Signature</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Length</td>
+<td><code class="docutils literal"><span class="pre">__len__(self)</span></code></td>
+<td><code class="docutils literal"><span class="pre">len(x)</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__len__()</span></code></td>
+</tr>
+<tr class="row-odd"><td>Get Item</td>
+<td><code class="docutils literal"><span class="pre">__getitem__(self,</span> <span class="pre">k</span>
+<span class="pre">ey)</span></code></td>
+<td><code class="docutils literal"><span class="pre">x[key]</span></code> invokes
+<a href="#id1"><span class="problematic" id="id2">``</span></a>x.__getitem__(key)`
+`</td>
+</tr>
+<tr class="row-even"><td>Set Item</td>
+<td><code class="docutils literal"><span class="pre">__setitem__(self,</span> <span class="pre">k</span>
+<span class="pre">ey,</span> <span class="pre">item)</span></code></td>
+<td><code class="docutils literal"><span class="pre">x[key]</span> <span class="pre">=</span> <span class="pre">item</span></code>
+invokes
+<code class="docutils literal"><span class="pre">x.__setitem__(key,</span>
+<span class="pre">item)</span></code></td>
+</tr>
+<tr class="row-odd"><td>Contains</td>
+<td><code class="docutils literal"><span class="pre">__contains__(self,</span>
+<span class="pre">item)</span></code></td>
+<td><code class="docutils literal"><span class="pre">item</span> <span class="pre">in</span> <span class="pre">x</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__contains__(item</span>
+<span class="pre">)</span></code></td>
+</tr>
+<tr class="row-even"><td>Iterator</td>
+<td><code class="docutils literal"><span class="pre">__iter__(self)</span></code></td>
+<td><code class="docutils literal"><span class="pre">iter(x)</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__iter__()</span></code></td>
+</tr>
+<tr class="row-odd"><td>Next</td>
+<td><code class="docutils literal"><span class="pre">__next__(self)</span></code></td>
+<td><code class="docutils literal"><span class="pre">next(x)</span></code> invokes
+<code class="docutils literal"><span class="pre">x.__next__()</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>To get a feel for these methods, let’s create class that implements most
+aspects of a list’s interface. We will store a list as an attribute of
+our class to keep track of the contents, but will implement special
+methods that “echo” the interface of the list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyList</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;__iter__&#39;</span><span class="p">):</span>
+            <span class="c1"># handles `MyList([1, 2, 3])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># handles `MyList(1, 2, 3)`</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="c1"># slicing should return a `MyList` instance</span>
+        <span class="c1"># otherwise, the individual element should be returned as-is</span>
+        <span class="k">return</span> <span class="n">MyList</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">else</span> <span class="n">out</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Use the character | as the delimiter for our list&quot;&quot;&quot;</span>
+        <span class="c1"># `self._data.__repr__()` returns &#39;[ ... ]&#39;,</span>
+        <span class="c1"># thus we can slice to get the contents of the string</span>
+        <span class="c1"># and exclude the square-brackets, and add our own</span>
+        <span class="c1"># delimiters in their place</span>
+        <span class="k">return</span> <span class="s2">&quot;|&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
+
+    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s appreciate the rich behavior that we get out of this simple class:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># MyList can accept any iterable as its</span>
+<span class="c1"># first (and only) input argument</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">MyList</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="o">|</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="o">|</span>
+
+<span class="c1"># MyList accepts an arbitrary number of arguments</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">MyList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="o">|</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">|</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">5</span>
+
+<span class="c1"># getting an item</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="mi">1</span>
+
+<span class="c1"># slicing returns a MyList instance</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="o">|</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">|</span>
+
+<span class="c1"># setting an item</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="o">|-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">|</span>
+
+
+<span class="c1"># checking membership</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">10</span> <span class="ow">in</span> <span class="n">x</span>
+<span class="bp">False</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MyList</span><span class="p">()</span>
+<span class="o">||</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">Special
+Methods</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">Emulating Numeric
+Types</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">Emulating Container
+Types</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Inheritance.html" class="btn btn-neutral float-right" title="Inheritance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Applications_of_OOP.html" class="btn btn-neutral" title="Applications of Object Oriented Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.12.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

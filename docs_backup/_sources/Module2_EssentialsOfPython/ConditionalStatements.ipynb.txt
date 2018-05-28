@@ -23,7 +23,7 @@
     "    x = x ** 3\n",
     "```\n",
     "\n",
-    "Please refer to the \"Basic Python Object Types\" subsection to recall the basics of the \"boolean\" type, which represents True and False. We will extend that discussion by introducing comparison operations and membership-checking, and then expanding on the utility of the built-in `bool` type. "
+    "Please refer to the \"Basic Python Object Types\" subsection to recall the basics of the \"boolean\" type, which represents True and False values. We will extend that discussion by introducing comparison operations and membership-checking, and then expanding on the utility of the built-in `bool` type. "
    ]
   },
   {
@@ -51,10 +51,10 @@
     "True\n",
     "```\n",
     "\n",
-    "Note that `=` and `==` have very different meanings. The former is an assignment operator, and the latter is the equality operator:\n",
+    "Note that `=` and `==` have very different meanings. The former is the assignment operator, and the latter is the equality operator:\n",
     "\n",
     "```python\n",
-    ">>> x = 3   # assign variable `x` to the value 3\n",
+    ">>> x = 3   # assign the value 3 to the variable `x`\n",
     ">>> x == 3  # check if `x` and 3 have the same value\n",
     "True\n",
     "```\n",
@@ -105,7 +105,7 @@
    "metadata": {},
    "source": [
     "## `bool` and Truth Values of Non-Boolean Objects\n",
-    "It can be useful to ascribe non-boolean objects with inherit boolean values. For example, in computer science, the number 0 is often associated with `False` and non-zero numbers are associated with `True`. Python ascribes most of its built-in objects with inherent boolean values, which can be evaluated with the built-in Python command `bool`. For example, the Python integer 0 is ascribed the boolean value `False`:\n",
+    "It can be useful to ascribe boolean values to non-boolean objects. For example, in computer science, the number 0 is often associated with `False` and non-zero numbers are associated with `True`. Python ascribes boolean values to most of its built-in objects, which can be evaluated with the built-in Python command `bool`. For example, in Python the boolean value `False` is ascribed to the integer 0:\n",
     "\n",
     "```python\n",
     "# Using `bool` to access the True/False\n",
@@ -131,20 +131,11 @@
     "\n",
     "Thus non-zero numbers and non-empty sequences/collections evaluate to `True` via `bool`.\n",
     "\n",
-    "Given this discussion, logical operations can thus be applied in the context of non-boolean objects, in Python. Although this seldom occurs in practice, we include the following table to summarize how Python formally evaluates its logical operations in the context of non-boolean values:\n",
-    "\n",
-    "| Operation | Result                               | Example                    |\n",
-    "|:---------:|:------------------------------------:|:--------------------------:|\n",
-    "| x or y    | if x is false, then y, else x        | `2 or 1` returns  `2`      |\n",
-    "| x and y   | if x is false, then x, else y        | `\"hi\" and 0` returns `0`   |\n",
-    "| not x     | if x is false, then True, else False | `not [1, 4]` returns `True`|\n",
-    "\n",
-    "\n",
     "<div class=\"alert alert-info\">\n",
     "\n",
     "**Takeaway**: \n",
     "\n",
-    "The `bool` function allows you to evaluate the boolean-values ascribed to various non-boolean objects. For instance, `bool([])` returns `False` wherease `bool([1, 2])` returns `True`.\n",
+    "The `bool` function allows you to evaluate the boolean values ascribed to various non-boolean objects. For instance, `bool([])` returns `False` wherease `bool([1, 2])` returns `True`.\n",
     "</div>"
    ]
   },
@@ -166,7 +157,7 @@
     "    status = \"dead\"\n",
     "```\n",
     "\n",
-    "The following pseudo-code demonstrates their general template for conditional statements:\n",
+    "The following pseudo-code demonstrates the general template for conditional statements:\n",
     "\n",
     "```\n",
     "if <expression_1>:\n",
@@ -226,14 +217,58 @@
     "if x < 0:\n",
     "    x = x ** 2\n",
     "# x is now 1\n",
-    "```\n"
+    "```\n",
+    "\n",
+    "Similarly, conditional statements can have an `if` and an `else` without an `elif`:\n",
+    "\n",
+    "```python\n",
+    "# A conditional statement consisting of\n",
+    "# an \"if\"-clause and an \"else\"\n",
+    "x = 4\n",
+    "\n",
+    "if x > 2:\n",
+    "    x = -2\n",
+    "else:\n",
+    "    x = x + 1\n",
+    "# x is now -2\n",
+    "```\n",
+    "\n",
+    "Conditional statements can also have an `if` and an `elif` without an `else`:\n",
+    "\n",
+    "```python\n",
+    "# A conditional statement consisting of\n",
+    "# an \"if\"-clause and an \"elif\"\n",
+    "x = 'abc'\n",
+    "\n",
+    "if len(x) < 9:\n",
+    "    x = x * 3\n",
+    "elif len(x) > 40:\n",
+    "    x = 'cba'\n",
+    "# x is now 'abcabcabc'\n",
+    "```\n",
+    "\n",
+    "Note that only one code block within a single if-elif-else statement can be executed: either the \"if-block\" is executed, or an \"elif-block\" is executed, or the \"else-block\" is executed. Consecutive if-statements, however, are completely independent of one another, and thus their code blocks can be executed in sequence, if their respective conditional statements resolve to `True`.\n",
+    "\n",
+    "```python\n",
+    "# consecutive if-statements are independent\n",
+    "x = 5\n",
+    "y = 0\n",
+    "\n",
+    "if x < 10:\n",
+    "    y += 1 \n",
+    "\n",
+    "if x < 20:\n",
+    "    y += 1\n",
+    "    \n",
+    "# y is now 2\n",
+    "```"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "***\n",
+    "<div class=\"alert alert-info\">\n",
     "\n",
     "**Reading Comprehension: Conditional statements**\n",
     "\n",
@@ -257,7 +292,7 @@
     "- `\"doc2.pdf\"` $\\rightarrow$ `\"doc2\"`\n",
     "- `\"hello_world\"` $\\rightarrow$ `\"hello_world\"` \n",
     "\n",
-    "***"
+    "</div>"
    ]
   },
   {
@@ -304,7 +339,7 @@
     "[1]\n",
     "\n",
     ">>> \"a\" if x == 1 else \"b\"\n",
-    "\"b\n",
+    "'b'\n",
     "```\n",
     "We will see this syntax shine when we learn about comprehension statements. That being said, this syntax should be used judiciously. For example, inline if-else statements ought not be used in arithmetic expressions, for therein lies madness:\n",
     "\n",
@@ -312,6 +347,19 @@
     "# don't ever do this...ever!\n",
     "2 - 3 if x < 1 else 1 + 6*2 if x >= 0 else 9\n",
     "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Links to Official Documentation\n",
+    "\n",
+    "- [bool](https://docs.python.org/3/library/functions.html#bool)\n",
+    "- [Truth testing](https://docs.python.org/3/library/stdtypes.html#truth-value-testing)\n",
+    "- [Boolean operations](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not)\n",
+    "- [Comparisons](https://docs.python.org/3/library/stdtypes.html#comparisons)\n",
+    "- ['if' statements](https://docs.python.org/3/reference/compound_stmts.html#the-if-statement)"
    ]
   },
   {

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Basic Object Types &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Basic Object Types &mdash; Python Like You Mean It 0.12.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.12.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Sequence Types" href="SequenceTypes.html"/>
         <link rel="prev" title="Module 2: The Essentials of Python" href="../module_2.html"/> 
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.12.0
               </div>
             
           
@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Object Types</a><ul>
@@ -104,6 +104,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Integers">Integers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Floating-Point-Numbers">Floating-Point Numbers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Complex-Numbers">Complex Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Augmented-Assignment-Statements">Augmented Assignment Statements</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#The-Boolean-Type">The Boolean Type</a></li>
@@ -121,6 +122,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -140,6 +142,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 </ul>
 
             
@@ -154,7 +157,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -361,7 +364,7 @@ mathematics class, with parentheses available for association:</p>
 <span class="mi">1</span>
 
 <span class="c1"># checking an inequality</span>
-<span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">4</span><span class="p">)</span>
 <span class="bp">True</span>
 </pre></div>
 </div>
@@ -391,8 +394,8 @@ integer-division traditionally used in other programming languages:</p>
 <span class="mi">1</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Understanding the modulo operator</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Understanding the modulo operator</strong></p>
 <p>The modulo operator, <code class="docutils literal"><span class="pre">%</span></code>, is not commonly seen in mathematics
 textbooks. It is, however, a very useful operation to have at our
 disposal. <code class="docutils literal"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code> (said as x “mod” y in programmer’s jargon) returns
@@ -415,10 +418,10 @@ hand, and then use the IPython console to check your work:</p>
 <li><code class="docutils literal"><span class="pre">22</span> <span class="pre">%</span> <span class="pre">5</span></code></li>
 <li><code class="docutils literal"><span class="pre">22</span> <span class="pre">%</span> <span class="pre">6</span></code></li>
 </ol>
-<p>Now, given any integer, <code class="docutils literal"><span class="pre">n</span></code>, what are the possible values that
+<p class="last">Now, given any integer, <code class="docutils literal"><span class="pre">n</span></code>, what are the possible values that
 <code class="docutils literal"><span class="pre">n</span> <span class="pre">%</span> <span class="pre">2</span></code> can return? See if you can come up with a simple rule for
 explaining the behavior of <code class="docutils literal"><span class="pre">n</span> <span class="pre">%</span> <span class="pre">2</span></code>.</p>
-<hr class="docutils" />
+</div>
 <div class="section" id="Python’s-math-module">
 <h3>Python’s math module<a class="headerlink" href="#Python’s-math-module" title="Permalink to this headline">¶</a></h3>
 <p>The standard library’s math module provides us with many more
@@ -569,7 +572,7 @@ doing so would require more than 8 bytes of memory to store the entire
 value of that float. As such, attempting to modify a number in decimal
 places beyond its numerical precision does not have any effect:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># changing a float beyond its precision has no effect</span>
-<span class="o">&gt;&gt;&gt;</span>  <span class="mf">1.</span> <span class="o">+</span> <span class="mf">1e-16</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mf">1.</span> <span class="o">+</span> <span class="mf">1e-16</span>
 <span class="mf">1.0</span>
 </pre></div>
 </div>
@@ -604,6 +607,7 @@ Because in the previous example we comparing values that are close to 0,
 we will check if their absolute difference is sufficiently small:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># checking if two float values are &quot;almost equal&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
+
 <span class="c1"># check:</span>
 <span class="c1"># | (0.1 + 0.1 + 0.1 - 0.3) - 0 | &lt; 1x10^{-9}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">((</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">),</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">)</span>
@@ -673,8 +677,8 @@ parts of the complex number, respectively.</p>
 mathematical functions defined for complex numbers. For a complete
 listing of these functions, refer to the <a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath">official
 documentation</a>.</p>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Working with numbers in Python</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Working with numbers in Python</strong></p>
 <p>1. In Python, performing an arithmetic operation, such as addition or
 multiplication, on two integers will return an integer, and performing
 an operation on two floats will return a float:</p>
@@ -689,11 +693,48 @@ an operation on two floats will return a float:</p>
 <p>2. What type of number will be returned if you perform a mathematical
 operation using an integer and a floating-point number? Does this hold
 for all the arithmetic operations? Determine this by trial and error.</p>
-<p>3. Given the function <span class="math">\(f(x) = e^{|x - 2|}\)</span>, make use of the
+<p class="last">3. Given the function <span class="math">\(f(x) = e^{|x - 2|}\)</span>, make use of the
 <code class="docutils literal"><span class="pre">math</span></code> module to compute <span class="math">\(f(-0.2)\)</span>.</p>
 </div>
 </div>
-<hr class="docutils" />
+<div class="section" id="Augmented-Assignment-Statements">
+<h3>Augmented Assignment Statements<a class="headerlink" href="#Augmented-Assignment-Statements" title="Permalink to this headline">¶</a></h3>
+<p>Python provides a nice “shortcut” for updating a variable via an
+arithmetic operation. For example, suppose you want to increase the
+value of <code class="docutils literal"><span class="pre">x</span></code> by 1. Currently, we would update <code class="docutils literal"><span class="pre">x</span></code> as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># incrementing `x` by 1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="mi">6</span>
+</pre></div>
+</div>
+<p>We can make use of a special assignment operation <code class="docutils literal"><span class="pre">+=</span></code> to perform this
+update in an abbreviated way.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using `+=` to increment `x` by 1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># equivalent to: `x = x + 1`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="mi">6</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">+=</span></code> is a type of <em>augmented assignment statement</em>. In general, an
+augmented assignment performs a mathematical operation on a variable,
+and then updates that variable using the result. Augmented assignment
+statements are available for all of the arithmetic operations. Assuming
+<code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">n</span></code> are both types numbers, the following summarizes the
+available arithmetic augmented assignment statements that we can perform
+on <code class="docutils literal"><span class="pre">x</span></code>, using <code class="docutils literal"><span class="pre">n</span></code>:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">n</span></code></li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">-=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">n</span></code></li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">n</span></code></li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">/=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">n</span></code></li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">//=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">//</span> <span class="pre">n</span></code></li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">**=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">**</span> <span class="pre">n</span></code></li>
+</ul>
+</div>
+</div>
 <div class="section" id="The-Boolean-Type">
 <h2>The Boolean Type<a class="headerlink" href="#The-Boolean-Type" title="Permalink to this headline">¶</a></h2>
 <p>There are two boolean-type objects: <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code>; they belong
@@ -744,13 +785,13 @@ objects.</p>
 <span class="go">False</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">4</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">True</span>
+<span class="go">False</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">bool</span></code> type has additional utilities, which will be discussed in
 the “Conditional Statements” section.</p>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Boolean expressions</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Boolean expressions</strong></p>
 <p>1. Assuming <code class="docutils literal"><span class="pre">x</span></code> is a an integer-type, write a comparison statement
 that will return <code class="docutils literal"><span class="pre">True</span></code> if <code class="docutils literal"><span class="pre">x</span></code> is an even number, and <code class="docutils literal"><span class="pre">False</span></code>
 otherwise. (Hint: recall the purpose of the <code class="docutils literal"><span class="pre">%</span></code> operator)</p>
@@ -759,10 +800,10 @@ complex numbers), write a line of code that will return <code class="docutils li
 <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> are within 0.9 of one another, and <code class="docutils literal"><span class="pre">x</span></code> is a positive
 number. (Hint: try writing the expression that will return <code class="docutils literal"><span class="pre">True</span></code> for
 this condition, and then negate it)</p>
-<p>3. Write an expression that returns <code class="docutils literal"><span class="pre">True</span></code> if <code class="docutils literal"><span class="pre">x</span></code> is a boolean-type
+<p class="last">3. Write an expression that returns <code class="docutils literal"><span class="pre">True</span></code> if <code class="docutils literal"><span class="pre">x</span></code> is a boolean-type
 object or a float-type object.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="The-None-Type">
 <h2>The None-Type<a class="headerlink" href="#The-None-Type" title="Permalink to this headline">¶</a></h2>
 <p>There is a simple type, <code class="docutils literal"><span class="pre">NoneType</span></code> that has exactly one object:
@@ -836,20 +877,21 @@ unicode</a>
 to represent this wide variety of characters. Don’t worry about this
 detail beyond making note of it, for now.</p>
 <p>Strings belong to the built-in <code class="docutils literal"><span class="pre">str</span></code> type, which can be used to
-convert non-string objects into strings:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
-<span class="go">str</span>
+convert non-string objects into strings.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># the type `str`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="nb">str</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="s2">&quot;83&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
-<span class="go">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="s2">&quot;83&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="bp">True</span>
 
-<span class="go"># Using the type `str` to convert non-string objects</span>
-<span class="go"># into strings.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mf">10.34</span><span class="p">)</span>
-<span class="go">&#39;10.34&#39;</span>
+<span class="c1"># Using the type `str` to convert non-string objects</span>
+<span class="c1"># into strings.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mf">10.34</span><span class="p">)</span>
+<span class="s1">&#39;10.34&#39;</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<span class="go">&#39;True&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="s1">&#39;True&#39;</span>
 </pre></div>
 </div>
 <p>Once a string is formed, it cannot be changed (without creating an
@@ -858,7 +900,7 @@ string is an <em>immutable</em> object.</p>
 <p>As the string stores a <em>sequence</em> of characters, Python provides a means
 for accessing individual characters and subsequences of characters from
 a string:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;The cat in the hat.</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;The cat in the hat.&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sentence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">&#39;T&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sentence</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -904,25 +946,32 @@ with these functions by looking over <a class="reference external" href="https:/
 documentation</a>.
 To demonstrate a few of these:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating a few of the built-in functions for strings</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;ryan&quot;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-<span class="s1">&#39;Ryan&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;hello&quot;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="s1">&#39;Hello&#39;</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;item1&quot;</span><span class="p">,</span> <span class="s2">&quot;item2&quot;</span><span class="p">,</span> <span class="s2">&quot;item3&quot;</span><span class="p">])</span>
-<span class="s1">&#39;item1, item2, item3&#39;</span>
+<span class="c1"># join a list of strings, using &quot;...&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;...&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;item1&quot;</span><span class="p">,</span> <span class="s2">&quot;item2&quot;</span><span class="p">,</span> <span class="s2">&quot;item3&quot;</span><span class="p">])</span>
+<span class="s1">&#39;item1...item2...item3&#39;</span>
 
+<span class="c1"># split a string wherever &quot;, &quot; occurs</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;item1, item2, item3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
 <span class="p">[</span><span class="s1">&#39;item1&#39;</span><span class="p">,</span> <span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item3&#39;</span><span class="p">]</span>
 
+<span class="c1"># does this string end with &quot;.py&quot;?</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;script.py&quot;</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">)</span>
 <span class="bp">True</span>
 
+<span class="c1"># does this string start with &quot;sc&quot;?</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;script.py&quot;</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;sc&quot;</span><span class="p">)</span>
 <span class="bp">True</span>
 
+<span class="c1"># insert objects into a string, in its</span>
+<span class="c1"># &quot;formatting&quot; fields {}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;x: {}, y: {}, z: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.2</span><span class="p">,</span> <span class="mf">8.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="s1">&#39;x: 3.2, y: 8.4, z: -1.0&#39;</span>
 
-
+<span class="c1"># Are the characters in the string</span>
+<span class="c1"># numerical digits?</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;7&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
 <span class="bp">True</span>
 </pre></div>
@@ -930,14 +979,16 @@ To demonstrate a few of these:</p>
 </div>
 <div class="section" id="Official-documentation-for-strings">
 <h3>Official documentation for strings<a class="headerlink" href="#Official-documentation-for-strings" title="Permalink to this headline">¶</a></h3>
+<p>It is highly recommended that you take time to read over all of the
+functions that are built-in to a string.</p>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">Built-in functions for
 strings</a></li>
-<li><a class="reference external" href="https://docs.python.org/3.4/library/string.html#format-specification-mini-language">Specification for formatting
+<li><a class="reference external" href="https://docs.python.org/3.4/library/string.html#format-examples">Formatting
 strings</a></li>
 </ul>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: strings</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Strings</strong></p>
 <p>To answer some of the following questions, you will need to peruse the
 documentation for the built-in functions of strings. It may take a bit
 of experimentation to understand the documentation’s use of
@@ -957,12 +1008,12 @@ tab-character):</p>
     <span class="n">over</span> <span class="n">there</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
+<ol class="last arabic simple" start="5">
 <li>Convert the integer <code class="docutils literal"><span class="pre">12</span></code> to the string <code class="docutils literal"><span class="pre">&quot;12&quot;</span></code>.</li>
 </ol>
 </div>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Lists">
 <h2>Lists<a class="headerlink" href="#Lists" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal"><span class="pre">list</span></code> is a type of Python object that allows us to store a sequence
@@ -1054,6 +1105,7 @@ list has already been constructed</em>. Thus a list is an example of a
 
 <span class="c1"># replace a subsequence of `y`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
 <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1076,10 +1128,11 @@ item and multiple items to the end of a list, respectively:</p>
 based on its position in the list, or by specifying the item itself,
 respectively.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
+
 <span class="go"># pop the position-1 item out from a list</span>
 <span class="go"># `pop` will return the item that gets removed.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">&quot;b&quot;</span>
+<span class="go">&#39;b&#39;</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">[&#39;a&#39;, &#39;c&#39;, &#39;d&#39;]</span>
@@ -1087,7 +1140,7 @@ respectively.</p>
 <span class="go"># remove the object &quot;d&quot; from the list</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">[&quot;a&quot;, &quot;c&quot;]</span>
+<span class="go">[&#39;a&#39;, &#39;c&#39;]</span>
 </pre></div>
 </div>
 </div>
@@ -1095,11 +1148,13 @@ respectively.</p>
 <h3>Official documentation for lists<a class="headerlink" href="#Official-documentation-for-lists" title="Permalink to this headline">¶</a></h3>
 <p>It is highly recommended that you take time to read over all of the
 functions that are built-in to a list. These are all designed to allow
-us to either inspect or mutate the contents of a list. - <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">Built-in
-functions for a
-list</a></p>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: lists</strong></p>
+us to either inspect or mutate the contents of a list.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">Built-in functions for a
+list</a></li>
+</ul>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Lists</strong></p>
 <p>To answer some of the following questions, you will need to peruse the
 documentation for the built-in functions of lists.</p>
 <ol class="arabic simple">
@@ -1108,11 +1163,11 @@ documentation for the built-in functions of lists.</p>
 <p>2. Assign to the variable <code class="docutils literal"><span class="pre">k</span></code> a list that contains an integer, a
 boolean, and a string, in that order. Then, add two more entries to the
 end of the list: a float and a complex number.</p>
-<p>3. Alphabetize the list of names:
+<p class="last">3. Alphabetize the list of names:
 <code class="docutils literal"><span class="pre">[&quot;Jane&quot;,</span> <span class="pre">&quot;Adam&quot;,</span> <span class="pre">&quot;Ryan&quot;,</span> <span class="pre">&quot;Bob&quot;,</span> <span class="pre">&quot;Zordon&quot;,</span> <span class="pre">&quot;Jack&quot;,</span> <span class="pre">&quot;Jackenzie&quot;]</span></code>.</p>
 </div>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Summary">
 <h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline">¶</a></h2>
 <p>The term “object” is a catch-all in Python, meaning anything that we can
@@ -1194,6 +1249,26 @@ if they are close in value:</p>
 <p>It is very important to remember this issue of the limited numerical
 precision of a floating point number.</p>
 </div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#additional-methods-on-integer-types">Integers</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#additional-methods-on-float">Floating point
+numbers</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/math.html#number-theoretic-and-representation-functions">The standard library’s math
+module</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath">The standard library’s complex-valued math
+module</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">Strings</a><ul>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/introduction.html#strings">String
+tutorial</a></li>
+<li><a class="reference external" href="https://docs.python.org/3.4/library/string.html#format-examples">Formatting
+strings</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">Lists</a></li>
+</ul>
+</div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Understanding the modulo operator: Solution</strong></p>
@@ -1272,8 +1347,8 @@ number:</p>
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 5. Convert the integer 12 to the string &quot;12&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
-<span class="s2">&quot;11&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="s1">&#39;12&#39;</span>
 </pre></div>
 </div>
 <p><strong>Lists: Solutions</strong></p>
@@ -1351,7 +1426,7 @@ number:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.12.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -1361,6 +1436,8 @@ number:</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

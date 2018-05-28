@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Basics of Functions &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Basics of Functions &mdash; Python Like You Mean It 0.12.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.12.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Scope" href="Scope.html"/>
         <link rel="prev" title="Python’s “Itertools”" href="Itertools.html"/> 
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.12.0
               </div>
             
           
@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
@@ -119,9 +119,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#Specifying-Arguments-by-Name">Specifying Arguments by Name</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Default-Valued-Arguments">Default-Valued Arguments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Accommodating-an-Arbitrary-Number-of-Positional-Arguments">Accommodating an Arbitrary Number of Positional Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Accommodating-an-Arbitrary-Number-of-Keyword-Arguments">Accommodating an Arbitrary Number of Keyword Arguments</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Functions-are-Objects">Functions are Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -132,6 +134,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 </ul>
 
             
@@ -146,7 +149,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -299,61 +302,61 @@ followed by parentheses and then a colon.</li>
 <li><code class="docutils literal"><span class="pre">&lt;function</span> <span class="pre">signature&gt;</span></code> specifies the input arguments to the
 function, and may be left blank (if the function does not accept any
 arguments).</li>
-<li>The documentation string (commonly referred to as a <em>docstring</em>) may
+<li>The documentation string (commonly referred to as a “docstring”) may
 span multiple lines, and should indicate what the function’s purpose
 is. It is optional.</li>
 <li><code class="docutils literal"><span class="pre">&lt;encapsulated</span> <span class="pre">code&gt;</span></code> can consist of general Python code, and is
 demarcated by being indented relative to the <code class="docutils literal"><span class="pre">def</span></code> statement.</li>
-<li><code class="docutils literal"><span class="pre">return</span></code> is used to indicate what object should be returned,
-whenever the function is called.</li>
+<li><code class="docutils literal"><span class="pre">return</span></code> if reached by the encapsulated code, triggers the function
+to return the specified object and end its own execution immediately.</li>
 </ul>
 <p>The <code class="docutils literal"><span class="pre">return</span></code> statement is also reserved by Python. It denotes the end
-of a function - if reached, a <code class="docutils literal"><span class="pre">return</span></code> statement immediately concludes
-the execution of the function and returns the specified value.</p>
+of a function; if reached, a <code class="docutils literal"><span class="pre">return</span></code> statement immediately concludes
+the execution of the function and returns the specified object.</p>
 <p>Note that, like an if-statement and a for-loop, the content of a
-function is indicated by indentation: ***</p>
+function is indicated by indentation:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># wrong indentation</span>
 <span class="k">def</span> <span class="nf">bad_func1</span><span class="p">():</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <hr class="docutils" />
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># wrong indentation</span>
 <span class="k">def</span> <span class="nf">bad_func2</span><span class="p">():</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">return</span> <span class="n">x</span>
+<span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <hr class="docutils" />
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># missing colon</span>
 <span class="k">def</span> <span class="nf">bad_func3</span><span class="p">()</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <hr class="docutils" />
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># missing parenthesis</span>
 <span class="k">def</span> <span class="nf">bad_func4</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <hr class="docutils" />
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># this is ok</span>
 <span class="k">def</span> <span class="nf">ok_func</span><span class="p">():</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Writing a Basic Function</strong> Write a function
-named <code class="docutils literal"><span class="pre">count_even</span></code>. It should accept one input argument, named
-<code class="docutils literal"><span class="pre">numbers</span></code>, which will be an iterable containing integers. Have the
-function return the number of even-valued integers contained in the
-list. Include a reasonable docstring.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Writing a Basic Function</strong></p>
+<p class="last">Write a function named <code class="docutils literal"><span class="pre">count_even</span></code>. It should accept one input
+argument, named <code class="docutils literal"><span class="pre">numbers</span></code>, which will be an iterable containing
+integers. Have the function return the number of even-valued integers
+contained in the list. Include a reasonable docstring.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="The-return-Statement">
 <h2>The <code class="docutils literal"><span class="pre">return</span></code> Statement<a class="headerlink" href="#The-return-Statement" title="Permalink to this headline">¶</a></h2>
 <p>In general, any Python object can follow a function’s <code class="docutils literal"><span class="pre">return</span></code>
@@ -374,6 +377,16 @@ altogether. In both of these cases, <em>the function will return the
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
+<p>All Python functions return <em>something</em>. Even the built-in <code class="docutils literal"><span class="pre">print</span></code>
+function returns <code class="docutils literal"><span class="pre">None</span></code> after it prints to standard-output!</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># the `print` function returns `None`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+<span class="n">hi</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Warning!</strong></p>
 <p class="last">Take care to not <em>mistakenly</em> omit a return statement or leave it blank.
@@ -389,11 +402,6 @@ comprehension (see the previous section of this module) to shorten our
     <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">in_string</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
 </pre></div>
-</div>
-<div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
-<p class="last">All Python functions return <em>something</em>. Even the built-in <code class="docutils literal"><span class="pre">print</span></code>
-function returns <code class="docutils literal"><span class="pre">None</span></code> after it prints to standard-output!</p>
 </div>
 <div class="section" id="Multiple-return-Statements">
 <h3>Multiple <code class="docutils literal"><span class="pre">return</span></code> Statements<a class="headerlink" href="#Multiple-return-Statements" title="Permalink to this headline">¶</a></h3>
@@ -416,6 +424,31 @@ case that <span class="math">\(x = 0\)</span>:</p>
 <p>If <code class="docutils literal"><span class="pre">x==0</span></code> is <code class="docutils literal"><span class="pre">True</span></code>, then the first <code class="docutils literal"><span class="pre">return</span></code> statement is reached.
 <code class="docutils literal"><span class="pre">1.0</span></code> will be returned and the function will be “exited” immediately,
 without ever reaching the code following it.</p>
+<p>As stated above, a <code class="docutils literal"><span class="pre">return</span></code> statement will trigger a function to end
+its execution immediately when reached, even when subsequent code
+follows it. <em>It is impossible for multiple ``return`` statements to be
+visited within a single function call</em>. Thus if you want to return
+multiple items, then your function must return a single container of
+those items, like a list or a tuple.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Returning multiple items from a function</span>
+<span class="k">def</span> <span class="nf">bad_f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; return x**2 and x**3&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1"># this code can never be reached!</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="k">def</span> <span class="nf">good_f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; return x**2 and x**3&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bad_f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">4</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">good_f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">(4, 8)</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="Inline-Functions">
@@ -429,8 +462,8 @@ without ever reaching the code following it.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
 </pre></div>
 </div>
-<p>This should be used sparingly - only for exceedingly simple functions
-that can be easily understood without docstrings.</p>
+<p>This should be used sparingly, for exceedingly simple functions that can
+be easily understood without docstrings.</p>
 </div>
 <div class="section" id="Arguments">
 <h2>Arguments<a class="headerlink" href="#Arguments" title="Permalink to this headline">¶</a></h2>
@@ -489,7 +522,7 @@ inputs first:</p>
 also be named:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># positional arguments cannot follow named arguments</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">is_bounded</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="c1"># error!</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">positional</span> <span class="n">argument</span> <span class="n">follows</span> <span class="n">keyword</span> <span class="n">argument</span>
 </pre></div>
 </div>
 </div>
@@ -538,24 +571,24 @@ arguments in the function signature:</p>
     <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Functions and Arguments</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Functions and Arguments</strong></p>
 <p>Write a function, <code class="docutils literal"><span class="pre">max_or_min</span></code>, which accepts two positional
 arguments, <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> (which will hold numerical values), and a
 <code class="docutils literal"><span class="pre">mode</span></code> variable that has the default value <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code>.</p>
 <p>The function should return <code class="docutils literal"><span class="pre">min(x,</span> <span class="pre">y)</span></code> or <code class="docutils literal"><span class="pre">max(x,</span> <span class="pre">y)</span></code> according to
 the <code class="docutils literal"><span class="pre">mode</span></code>. Have the function return <code class="docutils literal"><span class="pre">None</span></code> if <code class="docutils literal"><span class="pre">mode</span></code> is neither
 <code class="docutils literal"><span class="pre">&quot;max&quot;</span></code> nor <code class="docutils literal"><span class="pre">&quot;min&quot;</span></code>.</p>
-<p>Include a descriptive doc-string.</p>
+<p class="last">Include a descriptive doc-string.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Accommodating-an-Arbitrary-Number-of-Positional-Arguments">
 <h3>Accommodating an Arbitrary Number of Positional Arguments<a class="headerlink" href="#Accommodating-an-Arbitrary-Number-of-Positional-Arguments" title="Permalink to this headline">¶</a></h3>
 <p>Python provides us with a syntax for defining a function, which can be
 called with an arbitrary number of positional arguments. This is
 signaled by the syntax <code class="docutils literal"><span class="pre">def</span> <span class="pre">f(*&lt;var_name&gt;)</span></code>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># The * symbol indicates that an arbitrary number of</span>
-<span class="c1"># arguments can be fed to `f` when calling it.</span>
+<span class="c1"># arguments can be passed to `args`, when calling `f`.</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="c1">#  All arguments passed to `f` will be &quot;packed&quot; into a</span>
     <span class="c1">#  tuple that is assigned to the variable `args`.</span>
@@ -564,17 +597,20 @@ signaled by the syntax <code class="docutils literal"><span class="pre">def</spa
     <span class="k">return</span> <span class="n">args</span>
 </pre></div>
 </div>
-<p>Because it cannot be foreseen how many arguments will be passed to
+<p>Because Python cannot foresee how many arguments will be passed to
 <code class="docutils literal"><span class="pre">f</span></code>, all of the objects that are passed to it will be <em>packed into a
 tuple</em>, which is then assigned to the variable <code class="docutils literal"><span class="pre">args</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">()</span>            <span class="c1"># pass zero arguments to `f`</span>
-<span class="go">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># pass zero arguments to `f`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">()</span>
+<span class="p">()</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>           <span class="c1"># pass one argument to `f`</span>
-<span class="go">(1,)</span>
+<span class="c1"># pass one argument to `f`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">)</span>  <span class="c1"># pass three arguments to `f`</span>
-<span class="go">((0, 1), True, &quot;cow&quot;)</span>
+<span class="c1"># pass three arguments to `f`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">)</span>
+<span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This syntax can be combined with positional arguments and default
@@ -585,30 +621,204 @@ called by name</em>:</p>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;seq is: &quot;</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;y is: &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># `y` must be specified by name</span>
-<span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># `y` must be specified by name</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">1</span>
 <span class="n">seq</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">5</span>
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>  <span class="c1"># no additional positional arguments are passed</span>
-<span class="go">x   is:  &quot;cat&quot;</span>
-<span class="go">seq is:  ()</span>
-<span class="go">y   is:  &quot;dog&quot;</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Arbitrary Arguments</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;cat&quot;</span>
+<span class="n">seq</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">()</span>
+<span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;dog&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Arbitrary Arguments</strong></p>
 <p>Write a function named <code class="docutils literal"><span class="pre">mean</span></code>, which accepts and arbitrary number of
 numerical arguments, and computes the mean of all of the values passed
 to the function. Thus <code class="docutils literal"><span class="pre">mean(1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code> should return
 <span class="math">\(\frac{1 + 2 + 3}{3} = 2.0\)</span></p>
-<p>This function should return <code class="docutils literal"><span class="pre">0.</span></code> if no arguments are passed to it. Be
+<p class="last">This function should return <code class="docutils literal"><span class="pre">0.</span></code> if no arguments are passed to it. Be
 sure to test your function, and include a docstring.</p>
 </div>
+<p>We see that <code class="docutils literal"><span class="pre">*</span></code> indicates the <em>packing of an arbitrary number of
+arguments into a tuple</em>, when used in the signature of a function
+definition. Simultaneously, <code class="docutils literal"><span class="pre">*</span></code> signals the <em>unpacking of an iterable</em>
+to pass each of its members as a positional argument to a function, when
+used in the context of calling a function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Using `*` when calling a function, to unpack an</span>
+<span class="c1"># iterable. Passing its members as distinct arguments</span>
+<span class="c1"># to the function</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="mi">6</span>
+
+<span class="c1"># `*` means: unpack the contents of [1, 2, 3]</span>
+<span class="c1"># passing each item as x, y, and z,</span>
+<span class="c1"># respectively</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>  <span class="c1"># equivalent to: f(1, 2, 3)</span>
+<span class="mi">6</span>
+</pre></div>
 </div>
-<hr class="docutils" />
+<p>In the following example, we use <code class="docutils literal"><span class="pre">*</span></code> to:</p>
+<ol class="arabic simple">
+<li>Define a function to accept an arbitrary number of arguments, which
+get packed into a tuple.</li>
+<li>Call the function, passing it an arbitrary number of arguments, by
+unpacking an iterable.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">number_of_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">number_of_args</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="go">4</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="go"># passing the list itself as the sole argument</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number_of_args</span><span class="p">(</span><span class="n">some_list</span><span class="p">)</span>
+<span class="go">1</span>
+
+<span class="go"># unpacking the 5 members of the list,</span>
+<span class="go"># passing each one as an argument to the function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number_of_args</span><span class="p">(</span><span class="o">*</span><span class="n">some_list</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Accommodating-an-Arbitrary-Number-of-Keyword-Arguments">
+<h3>Accommodating an Arbitrary Number of Keyword Arguments<a class="headerlink" href="#Accommodating-an-Arbitrary-Number-of-Keyword-Arguments" title="Permalink to this headline">¶</a></h3>
+<p>We can also define a function that is able to accept an arbitrary number
+of <em>keyword</em> arguments, using the syntax: <code class="docutils literal"><span class="pre">def</span> <span class="pre">f(**&lt;var_name&gt;)</span></code></p>
+<p>Note that a single asterisk, <code class="docutils literal"><span class="pre">*</span></code>, was used to denote an arbitrary
+number of <em>positional</em> arguments, whereas <code class="docutils literal"><span class="pre">**</span></code> signals the acceptance
+of an arbitrary number of <em>keyword</em> arguments.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># The ** symbol indicates that an arbitrary number of</span>
+<span class="c1"># keyword arguments can be passed to `args`, when calling `f`.</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">):</span>
+    <span class="c1">#  All keyword arguments passed to `f` will be &quot;packed&quot; into a</span>
+    <span class="c1">#  dictionary that is assigned to the variable `args`.</span>
+    <span class="c1"># `f()`  will assign `args = {}` (an empty dictionary)</span>
+    <span class="c1"># `f(x=1, y=2, ...)` will assign `args = {&quot;x&quot;:1, &quot;y&quot;:2, ...}`</span>
+    <span class="k">return</span> <span class="n">args</span>
+</pre></div>
+</div>
+<p>Because Python cannot foresee how many arguments will be passed to
+<code class="docutils literal"><span class="pre">f</span></code>, all of the keyword arguments that are passed to it will be packed
+into a <em>dictionary</em>, where a given keyword is set as a key (cast as a
+string) that maps to the corresponding value. This dictionary is then
+assigned to the variable <code class="docutils literal"><span class="pre">args</span></code>. Dictionaries will be discussed in
+detail in a <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html">later
+section</a>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">()</span>            <span class="c1"># pass zero arguments to `f`</span>
+<span class="go">{}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>           <span class="c1"># pass one argument to `f`</span>
+<span class="go">{&#39;x&#39;: 1}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">val</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">moo</span><span class="o">=</span><span class="s2">&quot;cow&quot;</span><span class="p">)</span>  <span class="c1"># pass three arguments to `f`</span>
+<span class="go">{&#39;moo&#39;: &#39;cow&#39;, &#39;val&#39;: True, &#39;x&#39;: (0, 1)}</span>
+</pre></div>
+</div>
+<p>This syntax can be combined with positional arguments and default
+arguments. No additional arguments may come after a <code class="docutils literal"><span class="pre">**</span></code> entry in a
+function-definition signature:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x is: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;y is: &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;kwargs is: &quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># passing arbitrary keyword arguments to `f`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">is</span><span class="p">:</span>  <span class="mi">1</span>
+<span class="n">y</span> <span class="ow">is</span><span class="p">:</span>  <span class="mi">9</span>
+<span class="n">kwargs</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">{</span><span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="s1">&#39;hi&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># no additional keyword arguments are passed</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">is</span><span class="p">:</span>  <span class="n">cat</span>
+<span class="n">y</span> <span class="ow">is</span><span class="p">:</span>  <span class="n">dog</span>
+<span class="n">kwargs</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">{}</span>
+</pre></div>
+</div>
+<p>The following function accepts an arbitrary number of positional
+arguments <em>and</em> an arbitrary number of keyword arguments:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># accepting arbitrary positional and keyword arguments</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">y</span><span class="p">):</span>
+    <span class="c1"># all positional arguments get packed into the tuple `x`</span>
+    <span class="c1"># all keyword arguments get packed into the dictionary `y`</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">hi</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">bye</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">sigh</span><span class="o">=-</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;hi&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;bye&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;sigh&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>We see that <code class="docutils literal"><span class="pre">**</span></code> indicates the <em>packing of an arbitrary number of
+keyword arguments into a dictionary</em>, when used in the signature of a
+function definition. Simultaneously, <code class="docutils literal"><span class="pre">**</span></code> signals the <em>unpacking of a
+dictionary</em> to pass each of its key-value pairs as a keyword argument to
+a function, when used in the context of calling a function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Using `**` when calling a function, to unpack a</span>
+<span class="c1"># dictionary, passing its members as keyword arguments</span>
+<span class="c1"># to the function</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">21</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>  <span class="c1"># equivalent to: f(x=9, y=1, z=10)</span>
+<span class="mi">21</span>
+</pre></div>
+</div>
+<p>In the following example, we use <code class="docutils literal"><span class="pre">**</span></code> to:</p>
+<ol class="arabic simple">
+<li>Define a function to accept an arbitrary number of keyword arguments,
+which get packed into a dictionary.</li>
+<li>Call the function, passing it an arbitrary number of keyword
+arguments, by unpacking a dictionary.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_kwargs</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">print_kwargs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">some_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;hi&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;bye&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+
+<span class="go"># unpacking the key-value pairs of the dictionary</span>
+<span class="go"># as keyword arguments and values, to the function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">print_kwargs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">umbrella</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">some_dict</span><span class="p">)</span>
+<span class="go">{&#39;a&#39;: 2, &#39;umbrella&#39;: True, &#39;hi&#39;: 1, &#39;bye&#39;: 2}</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="Functions-are-Objects">
 <h2>Functions are Objects<a class="headerlink" href="#Functions-are-Objects" title="Permalink to this headline">¶</a></h2>
 <p>Once defined, a function behaves like any other Python object, like a
@@ -624,6 +834,9 @@ function-object:</p>
 
 <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
     <span class="n">func</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+
+<span class="c1"># iteration 0: calls `count_vowels(&quot;hello&quot;)`</span>
+<span class="c1"># iteration 1: calls `print(&quot;hello&quot;)`</span>
 </pre></div>
 </div>
 <p>You can also call functions anywhere, and their return-value will be
@@ -644,7 +857,27 @@ memory address where the function-object is stored:</p>
 </pre></div>
 </div>
 </div>
-<hr class="docutils" />
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#functions">Definition of
+‘function’</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">Defining
+functions</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#default-argument-values">Default argument
+values</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments">Keyword
+arguments</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists">Specifying arbitrary
+arguments</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists">Unpacking
+arguments</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#documentation-strings">Documentation
+strings</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#function-annotations">Function
+annotations</a></li>
+</ul>
+</div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Writing a Basic Function: Solution</strong></p>
@@ -714,8 +947,11 @@ that is likely the more appropriate behavior for this function.</p>
     <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>or, being a bit more fancy : - using the fact that <code class="docutils literal"><span class="pre">bool(seq)</span></code> is
-<code class="docutils literal"><span class="pre">False</span></code> if <code class="docutils literal"><span class="pre">seq</span></code> is empty - using the inline if-else syntax</p>
+<p>or, being a bit more fancy :</p>
+<ul class="simple">
+<li>using the fact that <code class="docutils literal"><span class="pre">bool(seq)</span></code> is <code class="docutils literal"><span class="pre">False</span></code> if <code class="docutils literal"><span class="pre">seq</span></code> is empty</li>
+<li>using the inline if-else syntax</li>
+</ul>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="o">*</span><span class="n">seq</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Returns the mean of the function&#39;s arguments &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">if</span> <span class="n">seq</span> <span class="k">else</span> <span class="mi">0</span>
@@ -768,7 +1004,7 @@ that is likely the more appropriate behavior for this function.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.12.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -778,6 +1014,8 @@ that is likely the more appropriate behavior for this function.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
