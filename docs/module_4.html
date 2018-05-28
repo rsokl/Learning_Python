@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module 4: Object Oriented Programming &mdash; Python Like You Mean It 0.12.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Python Like You Mean It 0.12.0 documentation" href="index.html"/>
+        <link rel="next" title="Introduction to Object Oriented Programming" href="Module4_OOP/Introduction_to_OOP.html"/>
+        <link rel="prev" title="Advanced Indexing" href="Module3_IntroducingNumpy/AdvancedIndexing.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Like You Mean It
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.12.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Python Like You Mean It</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module 4: Object Oriented Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Introduction_to_OOP.html">Introduction to Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/ClassDefinition.html">Defining a New Class of Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/ClassInstances.html">Instances of a Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Brief_Review.html">A Brief Summary of Terms and Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Applications_of_OOP.html">Applications of Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Special_Methods.html">Special Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Inheritance.html">Inheritance</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Like You Mean It</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Module 4: Object Oriented Programming</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/module_4.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="module-4-object-oriented-programming">
+<h1>Module 4: Object Oriented Programming<a class="headerlink" href="#module-4-object-oriented-programming" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Module4_OOP/Introduction_to_OOP.html">Introduction to Object Oriented Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Introduction_to_OOP.html#Class-vs-Type:-An-Important-Note-on-Terminology">Class vs Type: An Important Note on Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Introduction_to_OOP.html#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Module4_OOP/ClassDefinition.html">Defining a New Class of Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/ClassDefinition.html#The-General-Form-of-a-Class-Definition">The General Form of a Class Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/ClassDefinition.html#Working-with-Object-Attributes">Working with Object Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/ClassDefinition.html#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/ClassDefinition.html#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Module4_OOP/ClassInstances.html">Instances of a Class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/ClassInstances.html#Object-Identity-and-Creating-an-Instance">Object Identity and Creating an Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/ClassInstances.html#Defining-Instance-Level-Attributes:-the-__init__-Method">Defining Instance-Level Attributes: the <code class="docutils literal"><span class="pre">__init__</span></code> Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/ClassInstances.html#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Module4_OOP/Brief_Review.html">A Brief Summary of Terms and Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module4_OOP/Methods.html">Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Methods.html#Instance-Methods">Instance Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Methods.html#Class-Methods">Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Methods.html#Static-Methods">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Methods.html#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Module4_OOP/Applications_of_OOP.html">Applications of Object Oriented Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Applications_of_OOP.html#Shopping-List">Shopping List</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Module4_OOP/Special_Methods.html">Special Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Special_Methods.html#String-Representations-of-Objects">String-Representations of Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Special_Methods.html#Interfacing-with-Mathematical-Operators">Interfacing with Mathematical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Special_Methods.html#Creating-a-Container-Like-Class">Creating a Container-Like Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Special_Methods.html#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Module4_OOP/Inheritance.html">Inheritance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Inheritance.html#Summary-of-Inheritance">Summary of Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module4_OOP/Inheritance.html#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Module4_OOP/Introduction_to_OOP.html" class="btn btn-neutral float-right" title="Introduction to Object Oriented Programming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Module3_IntroducingNumpy/AdvancedIndexing.html" class="btn btn-neutral" title="Advanced Indexing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.12.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="_static/gtag.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
