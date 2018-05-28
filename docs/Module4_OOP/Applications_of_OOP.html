@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Applications of Object Oriented Programming &mdash; Python Like You Mean It 0.12.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Python Like You Mean It 0.12.0 documentation" href="../index.html"/>
+        <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
+        <link rel="next" title="Special Methods" href="Special_Methods.html"/>
+        <link rel="prev" title="Methods" href="Methods.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.12.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_OOP.html">Introduction to Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassDefinition.html">Defining a New Class of Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassInstances.html">Instances of a Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Brief_Review.html">A Brief Summary of Terms and Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Applications of Object Oriented Programming</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Shopping-List">Shopping List</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Special_Methods.html">Special Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python Like You Mean It</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_4.html">Module 4: Object Oriented Programming</a> &raquo;</li>
+        
+      <li>Applications of Object Oriented Programming</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module4_OOP/Applications_of_OOP.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Applications-of-Object-Oriented-Programming">
+<h1>Applications of Object Oriented Programming<a class="headerlink" href="#Applications-of-Object-Oriented-Programming" title="Permalink to this headline">¶</a></h1>
+<p>We have spent a considerable amount of time learning about the syntax
+and definitions of classes, class objects, instances, and methods. Let’s
+take a moment to gather our knowledge and create a useful class. This
+will help develop a sense for the ways in which object oriented
+programming can be useful for us. We will try to take care to make some
+recommendations when one should and shouldn’t define their own classes.</p>
+<div class="section" id="Shopping-List">
+<h2>Shopping List<a class="headerlink" href="#Shopping-List" title="Permalink to this headline">¶</a></h2>
+<p>Let’s create a shopping list class, where an instance of this class
+stores a list of item-names (strings) to be purchased and a list of
+names that have already been purchased. We will write an <code class="docutils literal"><span class="pre">__init__</span></code>
+function that accepts one or more strings, which will be added to the
+shopping list. Then, we will create methods that will allow us to:</p>
+<ul class="simple">
+<li>add new items to the shopping list</li>
+<li>mark items on the list as “purchased”</li>
+<li>remove items, purchased or not, from the list</li>
+<li>list the name of the items to-be purchased (in alphabetical order)</li>
+<li>list the name of the items have been purchased (in alphabetical
+order)</li>
+</ul>
+<p>We do not want redundant items to be included on our shopping list - if
+someone enters “apples” twice, we should only list it once. Thus we will
+make use of
+<a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure">sets</a>,
+which store unique elements, to store the items on our list.</p>
+<p>Lastly, we will want our methods to accept a variable that is either a
+single item name (a string) or multiple item names (a
+list/tuple/iterable of strings). To accommodate this, if we receive a
+sole string as an input, we will place it in a list before carrying on.
+This will ensure that we are always working with an iterable containing
+a string.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">            items : Union[str, Iterable[str]]</span>
+<span class="sd">                Iterable of item-names to add to shopping list&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">items</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_purchased</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">add_new_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Add more items to the shopping list</span>
+
+<span class="sd">            Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">            items : Union[str, Iterable[str]]</span>
+<span class="sd">                Iterable of item-names to add to shopping list&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">items</span><span class="p">]</span>
+        <span class="c1"># set.update adds elements of an iterable to a set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">mark_purchased_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Provide names of items to mark as &#39;purchased&#39;</span>
+
+<span class="sd">            Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">            items : Union[str, Iterable[str]]&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">items</span><span class="p">]</span>
+        <span class="c1"># only mark items as purchased that are on our list to begin with</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_purchased</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span><span class="p">)</span>
+        <span class="c1"># remove all purchased items from out unpurchased set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span><span class="o">.</span><span class="n">difference_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_purchased</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">list_purchased_items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return a sorted list of the items that have been purchased&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_purchased</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">list_unpurchased_items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return a sorted list of the items still on the list&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_needed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s create a shopping list with a few items on it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># creating a shopping list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">([</span><span class="s2">&quot;apples&quot;</span><span class="p">,</span> <span class="s2">&quot;apples&quot;</span><span class="p">,</span> <span class="s2">&quot;grapes&quot;</span><span class="p">,</span> <span class="s2">&quot;peaches&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;bread&quot;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="o">.</span><span class="n">list_unpurchased_items</span><span class="p">()</span>
+<span class="p">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span> <span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;grapes&#39;</span><span class="p">,</span> <span class="s1">&#39;milk&#39;</span><span class="p">,</span> <span class="s1">&#39;peaches&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="o">.</span><span class="n">list_purchased_items</span><span class="p">()</span>
+<span class="p">[]</span>
+</pre></div>
+</div>
+<p>Notice that I mistakenly placed apples on my list twice. However our use
+of sets under the hood handles this gracefully, reducing all redundant
+entries automatically. Supposing that we are carrying on with our
+shopping and we purchase several items, let’s mark them as such.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># mark items as purchased on our list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="o">.</span><span class="n">mark_purchased_items</span><span class="p">([</span><span class="s2">&quot;grapes&quot;</span><span class="p">,</span> <span class="s2">&quot;pineapples&quot;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="o">.</span><span class="n">list_purchased_items</span><span class="p">()</span>
+<span class="p">[</span><span class="s1">&#39;grapes&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="o">.</span><span class="n">list_unpurchased_items</span><span class="p">()</span>
+<span class="p">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span> <span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;milk&#39;</span><span class="p">,</span> <span class="s1">&#39;peaches&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>See that “grapes” were appropriately removed from our unpurchased set
+and added to our purchased set. Additionally, our implementation
+gracefully ignores our request to mark pineapples as being purchased, as
+pineapples weren’t even on our list to begin with.</p>
+<p>In the next section we will augment our <code class="docutils literal"><span class="pre">ShoppingList</span></code> class with some
+special methods to make it easier to view the items, purchased and not,
+on our list.</p>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Caution: Using Class Definitions Responsibly</strong></p>
+<p>Our <code class="docutils literal"><span class="pre">ShoppingList</span></code> class’ main utility is that it coordinates two sets
+of items for us, making the logic of tracking unpurchased and purchased
+items intuitive and simple. If we did not care about keeping track of
+purchased items, then we ought not define a class at all. We should
+instead just store our items in a <code class="docutils literal"><span class="pre">list</span></code> and use its methods to add
+and remove items.</p>
+<p class="last">When possible, it is preferable to use Python’s built-in types in lieu
+of defining a new class. Doing so will help keep your code simple,
+portable, and compatible with other code.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Special_Methods.html" class="btn btn-neutral float-right" title="Special Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Methods.html" class="btn btn-neutral" title="Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.12.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
