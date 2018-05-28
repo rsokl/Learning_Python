@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Variables &amp; Assignment &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Variables &amp; Assignment &mdash; Python Like You Mean It 0.11.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.11.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Introducing Control Flow" href="Introduction.html"/>
         <link rel="prev" title="Sequence Types" href="SequenceTypes.html"/> 
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.11.0
               </div>
             
           
@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
@@ -135,7 +135,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -229,22 +229,22 @@ These are meant to help you put your reading to practice. Solutions for
 the exercises are included at the bottom of this page.</p>
 </div>
 <p>Variables permit us to write code that is flexible and amendable to
-repurpose. Suppose we want write code that logs a student’s grade on an
-exam. The logic behind this process should not depend on whether we are
-logging Brian’s score of 92% versus Ashley’s score of 94%. As such, we
-can utilize variables, say <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">grade</span></code>, to serve as
+repurpose. Suppose we want to write code that logs a student’s grade on
+an exam. The logic behind this process should not depend on whether we
+are logging Brian’s score of 92% versus Ashley’s score of 94%. As such,
+we can utilize variables, say <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">grade</span></code>, to serve as
 placeholders for this information. In this subsection, we will
 demonstrate how to define variables in Python.</p>
 <p>In Python, the <code class="docutils literal"><span class="pre">=</span></code> symbol represents the “assignment” operator. The
-variable goes to the left of <code class="docutils literal"><span class="pre">=</span></code>, and the object that the variable is
-being assigned to goes to the right:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>  <span class="c1"># the variable `name` is being assigned to the string &quot;Brian&quot;</span>
-<span class="n">grade</span> <span class="o">=</span> <span class="mi">92</span>      <span class="c1"># the variable `grade` is being assigned to the integer 92</span>
+variable goes to the left of <code class="docutils literal"><span class="pre">=</span></code>, and the object that is being
+assigned to the variable goes to the right:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>  <span class="c1"># the variable `name` is being assigned the string &quot;Brian&quot;</span>
+<span class="n">grade</span> <span class="o">=</span> <span class="mi">92</span>      <span class="c1"># the variable `grade` is being assigned the integer 92</span>
 </pre></div>
 </div>
 <p>Attempting to reverse the assignment order (e.g. <code class="docutils literal"><span class="pre">92</span> <span class="pre">=</span> <span class="pre">name</span></code>) will
-result in a syntax error. When a variable is assigned to an object (like
-a number or a string), it is common to say that the variable
+result in a syntax error. When a variable is assigned an object (like a
+number or a string), it is common to say that the variable
 <strong>references</strong> that object. That is, the variable <code class="docutils literal"><span class="pre">name</span></code> references
 the string <code class="docutils literal"><span class="pre">&quot;Brian&quot;</span></code>.</p>
 <p>Once a variable is referencing a value, you can use the variable
@@ -323,7 +323,7 @@ assigning <code class="docutils literal"><span class="pre">c</span></code> to <c
 reference this same object. Then any change (a.k.a <em>mutation</em>) of the
 object will be reflected in all of the variables that reference it
 (<code class="docutils literal"><span class="pre">a</span></code>, <code class="docutils literal"><span class="pre">b</span></code>, and <code class="docutils literal"><span class="pre">c</span></code>).</p>
-<p>Of course, assigning two variables to identical, but <em>distinct</em> lists
+<p>Of course, assigning two variables to identical but <em>distinct</em> lists
 means that a change to one list will not affect the other:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list1` references [1, 2, 3]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list2` references a *separate* list, whose value is [1, 2, 3]</span>
@@ -336,15 +336,15 @@ means that a change to one list will not affect the other:</p>
 <span class="go">[1, 2, 3]</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Does slicing a list produce a reference to that
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Does slicing a list produce a reference to that
 list?</strong></p>
-<p>Suppose <code class="docutils literal"><span class="pre">x</span></code> is assigned to a list, and that <code class="docutils literal"><span class="pre">y</span></code> is assigned to a
-“slice” of <code class="docutils literal"><span class="pre">x</span></code>. Do <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> reference the same list? That is,
-if you update part of the subsequence common to <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>, does
-that change show up in both of them? Write some simple code to
-investigate this.</p>
-<hr class="docutils" />
+<p class="last">Suppose <code class="docutils literal"><span class="pre">x</span></code> is assigned a list, and that <code class="docutils literal"><span class="pre">y</span></code> is assigned a “slice”
+of <code class="docutils literal"><span class="pre">x</span></code>. Do <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> reference the same list? That is, if you
+update part of the subsequence common to <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>, does that
+change show up in both of them? Write some simple code to investigate
+this.</p>
+</div>
 <p>This discussion is warranted for a list, because a list is <em>mutable</em> - a
 given list can be changed after it is created. A tuple, being
 <em>immutable</em>, cannot be changed. Any operation that appears to be
@@ -357,6 +357,7 @@ altogether. Consider the following example:</p>
 <span class="c1"># shorthand for: x = x + (4, 5)</span>
 <span class="c1"># this creates a new tuple</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
 <span class="c1"># y still references the original tuple</span>
@@ -383,27 +384,26 @@ dictionaries and sets.</p>
 <li>lists</li>
 <li>dictionaries</li>
 <li>sets</li>
-<li>numpy-arrays</li>
+<li>NumPy arrays</li>
 </ul>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Understanding References</strong></p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Understanding References</strong></p>
 <p>Based on our discussion of mutable and immutable objects, predict what
 the value of <code class="docutils literal"><span class="pre">y</span></code> will be in the following circumstance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
 
 <span class="go"># shorthand for: `x = x * 3`</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">*=</span> <span class="mi">3</span>
-<span class="go">&gt;&gt;&gt;x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">9</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
 <span class="go">???</span>
 </pre></div>
 </div>
-<hr class="docutils" />
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Does slicing a list produce a reference to that list?: Solution</strong></p>
@@ -474,7 +474,7 @@ list produces a copy of the appropriate subsequence of the list:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.11.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -484,6 +484,8 @@ list produces a copy of the appropriate subsequence of the list:</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

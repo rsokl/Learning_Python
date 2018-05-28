@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Array Broadcasting &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Array Broadcasting &mdash; Python Like You Mean It 0.12.0 documentation</title>
   
 
   
@@ -37,8 +37,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.12.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
+        <link rel="next" title="Introducing Basic and Advanced Indexing" href="BasicIndexing.html"/>
         <link rel="prev" title="“Vectorized” Operations: Optimized Computations on NumPy Arrays" href="VectorizedOperations.html"/> 
 
   
@@ -58,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -68,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.12.0
               </div>
             
           
@@ -94,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a><ul class="current">
@@ -102,17 +103,31 @@
 <li class="toctree-l2"><a class="reference internal" href="AccessingDataAlongMultipleDimensions.html">Accessing Data Along Multiple Dimensions in an Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BasicArrayAttributes.html">Basic Array Attributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FunctionsForCreatingNumpyArrays.html">Functions for Creating NumPy Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ReshapingArrays.html">Reshaping Arrays &amp; Array-Traversal Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ArrayTraversal.html">Iterating Over Arrays &amp; Array-Traversal Order</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VectorizedOperations.html">“Vectorized” Operations: Optimized Computations on NumPy Arrays</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Array Broadcasting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#A-Simple-Example-of-Array-Broadcasting">A Simple Example of Array Broadcasting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Rules-of-Broadcasting">Rules of Broadcasting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Size-1-Axes-&amp;-The-newaxis-Object">Size-1 Axes &amp; The <code class="docutils literal"><span class="pre">newaxis</span></code> Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#A-Simple-Application-of-Array-Broadcasting">A Simple Application of Array Broadcasting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Size-1-Axes-&amp;-The-newaxis-Object">Size-1 Axes &amp; The <code class="docutils literal"><span class="pre">newaxis</span></code> Object</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Inserting-Size-1-Dimensions-into-An-Array">Inserting Size-1 Dimensions into An Array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Utilizing-Size-1-Dimensions-for-Broadcasting">Utilizing Size-1 Dimensions for Broadcasting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#An-Advanced-Application-of-Broadcasting:-Pairwise-Distances">An Advanced Application of Broadcasting: Pairwise Distances</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Pairwise-Distances-Using-For-Loops">Pairwise Distances Using For-Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Pairwise-Distances-Using-Broadcasting-(Unoptimized)">Pairwise Distances Using Broadcasting (Unoptimized)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Optimized-Pairwise-Distances">Optimized Pairwise Distances</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="BasicIndexing.html">Introducing Basic and Advanced Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedIndexing.html">Advanced Indexing</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 </ul>
 
             
@@ -127,7 +142,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -214,23 +229,224 @@
 </style>
 <div class="section" id="Array-Broadcasting">
 <h1>Array Broadcasting<a class="headerlink" href="#Array-Broadcasting" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="A-Simple-Example-of-Array-Broadcasting">
-<h2>A Simple Example of Array Broadcasting<a class="headerlink" href="#A-Simple-Example-of-Array-Broadcasting" title="Permalink to this headline">¶</a></h2>
-<p>In this section, we will discuss the NumPy’s array broadcasting
-mechanism for performing vectorized mathematical operations on arrays of
-<em>unequal</em> shape. Let’s immediately take an example into consideration to
-see array broadcasting in action. Suppose you have a grade book for 6
-students,each of whom have taken 3 exams; naturally, you store these
-scores in a shape-(6,3) array:</p>
+<p>NumPy provides a mechanism for performing mathematical operations on
+arrays of <em>unequal</em> shapes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="go"># a shape-(3, 4) array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">]])</span>
+
+<span class="go"># a shape-(4,) array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="go"># multiplying a shape-(4,) array with a shape-(3, 4) array</span>
+<span class="go"># `y` is multiplied by each row of `x`</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="go">array([[-0. , -0.2, -0.6, -1.2],</span>
+<span class="go">       [-0.4, -1. , -1.8, -2.8],</span>
+<span class="go">       [-0.8, -1.8, -3. , -4.4]])</span>
+</pre></div>
+</div>
+<p>In effect, NumPy treated <code class="docutils literal"><span class="pre">y</span></code> as if its contents had been broadcasted
+along a new dimension, such that <code class="docutils literal"><span class="pre">y</span></code> was a shape-(3, 4) 2D array,
+which makes it compatible for multiplying with <code class="docutils literal"><span class="pre">x</span></code>:</p>
+<div class="math">
+\begin{equation}
+\left( \begin{array}{*{3}{X}}
+  -0.0 &amp; -0.1 &amp; -0.2 &amp; -0.3 \\
+  -0.4 &amp; -0.5 &amp; -0.6 &amp; -0.7 \\
+  -0.8 &amp; -0.9 &amp; -1.0 &amp; -1.1
+\end{array} \right)
+%
+\cdot \left( \begin{array}{*{3}{X}}
+   1 &amp; 2 &amp; 3 &amp; 4
+\end{array}\right)
+%
+\rightarrow \left( \begin{array}{*{3}{X}}
+  -0.0 &amp; -0.1 &amp; -0.2 &amp; -0.3 \\
+  -0.4 &amp; -0.5 &amp; -0.6 &amp; -0.7 \\
+  -0.8 &amp; -0.9 &amp; -1.0 &amp; -1.1
+\end{array} \right)
+%
+\cdot \left( \begin{array}{*{3}{X}}
+  1 &amp; 2 &amp; 3 &amp; 4 \\
+  1 &amp; 2 &amp; 3 &amp; 4 \\
+  1 &amp; 2 &amp; 3 &amp; 4
+\end{array}\right)
+\
+\end{equation}</div><p>It is important to note that NumPy doesn’t really create this
+broadcasted version of <code class="docutils literal"><span class="pre">y</span></code> behind the scenes; it is able to do the
+necessary computations without having to redundantly copy its contents
+into a shape-(3,4) array. Doing so would be a waste of memory and
+computation. That being said, this replication process conveys exactly
+the mathematics of broadcast operations between arrays; thus the
+preceding diagram reflects how you should always envision broadcasting.</p>
+<p>Broadcasting is not reserved for operations between 1-D and 2-D arrays,
+and furthermore both arrays in an operation may undergo broadcasting.
+That being said, not all pairs of arrays are broadcast-compatible.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Broadcast multiplications between a</span>
+<span class="c1"># shape-(3, 1, 2) array and a shape-(3, 1)</span>
+<span class="c1"># array.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
+<span class="o">...</span>
+<span class="o">...</span>               <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
+<span class="o">...</span>
+<span class="o">...</span>               <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mi">1</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="c1"># shape-(3, 1, 2) broadcast-multiply with</span>
+<span class="c1"># shape-(3, 1) produces shape-(3, 3, 2)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]],</span>
+
+       <span class="p">[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]],</span>
+
+       <span class="p">[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]]])</span>
+
+<span class="c1"># an example of broadcast-incompatible arrays</span>
+<span class="c1"># a shape-(2,) array with a shape-(3,) array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">operands</span> <span class="n">could</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">broadcast</span> <span class="n">together</span> <span class="k">with</span> <span class="n">shapes</span> <span class="p">(</span><span class="mi">2</span><span class="p">,)</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Definition: Array Broadcasting</strong></p>
+<p class="last">Array Broadcasting is a mechanism used by NumPy to permit vectorized
+mathematical operations between arrays of unequal, but compatible
+shapes. Specifically, an array will be treated as if its contents have
+been replicated along the appropriate dimensions, such that the shape of
+this new, higher-dimensional array suits the mathematical operation
+being performed.</p>
+</div>
+<p>We will now summarize the rules that determine if two arrays are
+broadcast-compatible with one another, and what the shape of the
+resulting array will be after the mathematical operation between the two
+arrays is performed.</p>
+<div class="section" id="Rules-of-Broadcasting">
+<h2>Rules of Broadcasting<a class="headerlink" href="#Rules-of-Broadcasting" title="Permalink to this headline">¶</a></h2>
+<p>Array broadcasting cannot accommodate arbitrary combinations of array
+shapes. For example, a (7,5)-shape array is incompatible with a
+shape-(11,3) array. Trying to add two such arrays would produce a
+<code class="docutils literal"><span class="pre">ValueError</span></code>. The following rules determine if two arrays are
+broadcast-compatible:</p>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Definition: Rules of Broadcasting</strong>:</p>
+<p>To determine if two arrays are broadcast-compatible, align the entries
+of their shapes such that their trailing dimensions are aligned, and
+then check that each pair of aligned dimensions satisfy either of the
+following conditions:</p>
+<ul class="simple">
+<li>the aligned dimensions have the same size</li>
+<li>one of the dimensions has a size of 1</li>
+</ul>
+<p class="last">The two arrays are broadcast-compatible if either of these conditions
+are satisfied for each pair of aligned dimensions.</p>
+</div>
+<p>Note that it is okay to have one array with a higher-dimensionality and
+thus to have “dangling” leading dimensions. Any size-1 dimension or
+“missing” dimension will be filled-in by broadcasting the content of
+that array.</p>
+<p>Considering the example from the preceding subsection, let’s see that
+the shape-(4,3) and shape-(3,) arrays satisfy these rules for
+broadcast-compatibility:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">3</span>
+     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">3</span>
+<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>Let’s look an assortment of pairs of array-shapes and see whether or not
+they are broadcast-compatible:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>         <span class="mi">8</span>
+     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">8</span>
+<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">8</span>
+
+     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>     <span class="mi">5</span> <span class="n">x</span> <span class="mi">2</span>
+     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
+<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="n">INCOMPATIBLE</span>
+
+     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>     <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
+     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
+<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
+
+     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">8</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">3</span>
+     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">8</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">3</span>
+<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">8</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">3</span>
+
+     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">2</span>
+     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">9</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">2</span>
+<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">9</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">2</span>
+
+     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">2</span>
+     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">8</span> <span class="n">x</span> <span class="mi">2</span>
+<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="n">INCOMPATIBLE</span>
+
+     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">1</span>
+     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">1</span>
+<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>NumPy provides the function
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.broadcast_to.html#numpy.broadcast_to">broadcast_to</a>,
+which can be used to broadcast an array to a specified shape. This can
+help us build our intuition for broadcasting. Let’s broadcast a
+shape-(3,4) array to a shape-(2,3,4) array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating `np.broadcast_to`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
+
+<span class="c1"># Explicitly broadcast a shape-(3,4) array</span>
+<span class="c1"># to a shape-(2,3,4) array.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
+
+       <span class="p">[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Broadcast Compatibility</strong></p>
+<p>Given the following pairs of array-shapes, determine what the resulting
+broadcasted shapes will be. Indicate if a pair is
+broadcast-incompatible.</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal"><span class="pre">7</span> <span class="pre">x</span> <span class="pre">2</span></code> with <code class="docutils literal"><span class="pre">7</span></code></li>
+<li><code class="docutils literal"><span class="pre">4</span></code> with <code class="docutils literal"><span class="pre">3</span> <span class="pre">x</span> <span class="pre">4</span></code></li>
+<li><code class="docutils literal"><span class="pre">1</span> <span class="pre">x</span> <span class="pre">3</span> <span class="pre">x</span> <span class="pre">1</span></code> with <code class="docutils literal"><span class="pre">8</span> <span class="pre">x</span> <span class="pre">1</span> <span class="pre">x</span> <span class="pre">1</span></code></li>
+<li><code class="docutils literal"><span class="pre">9</span> <span class="pre">x</span> <span class="pre">2</span> <span class="pre">x</span> <span class="pre">5</span></code> with <code class="docutils literal"><span class="pre">2</span> <span class="pre">x</span> <span class="pre">5</span></code></li>
+<li><code class="docutils literal"><span class="pre">3</span></code> with <code class="docutils literal"><span class="pre">3</span> <span class="pre">x</span> <span class="pre">3</span> <span class="pre">x</span> <span class="pre">2</span></code></li>
+</ol>
+</div>
+</div>
+<div class="section" id="A-Simple-Application-of-Array-Broadcasting">
+<h2>A Simple Application of Array Broadcasting<a class="headerlink" href="#A-Simple-Application-of-Array-Broadcasting" title="Permalink to this headline">¶</a></h2>
+<p>Here we provide a simple real-world example where broadcasting is
+useful. Suppose you have a grade book for 6 students, each of whom have
+taken 3 exams; naturally, you store these scores in a shape-(6,3) array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># grades for 6 students who have taken 3 exams</span>
+<span class="c1"># axis-0 (rows):    student</span>
+<span class="c1"># axis-1 (columns): exams</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">grades</span>
-<span class="n">array</span><span class="p">([[</span> <span class="mf">0.79</span><span class="p">,</span>  <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.84</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">0.87</span><span class="p">,</span>  <span class="mf">0.93</span><span class="p">,</span>  <span class="mf">0.78</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">0.77</span><span class="p">,</span>  <span class="mf">1.</span>  <span class="p">,</span>  <span class="mf">0.87</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">0.66</span><span class="p">,</span>  <span class="mf">0.75</span><span class="p">,</span>  <span class="mf">0.82</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.89</span><span class="p">,</span>  <span class="mf">0.76</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">0.83</span><span class="p">,</span>  <span class="mf">0.71</span><span class="p">,</span>  <span class="mf">0.85</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">grades</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.79</span><span class="p">,</span>  <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.84</span><span class="p">],</span>
+<span class="o">...</span>                    <span class="p">[</span> <span class="mf">0.87</span><span class="p">,</span>  <span class="mf">0.93</span><span class="p">,</span>  <span class="mf">0.78</span><span class="p">],</span>
+<span class="o">...</span>                    <span class="p">[</span> <span class="mf">0.77</span><span class="p">,</span>  <span class="mf">1.00</span><span class="p">,</span>  <span class="mf">0.87</span><span class="p">],</span>
+<span class="o">...</span>                    <span class="p">[</span> <span class="mf">0.66</span><span class="p">,</span>  <span class="mf">0.75</span><span class="p">,</span>  <span class="mf">0.82</span><span class="p">],</span>
+<span class="o">...</span>                    <span class="p">[</span> <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.89</span><span class="p">,</span>  <span class="mf">0.76</span><span class="p">],</span>
+<span class="o">...</span>                    <span class="p">[</span> <span class="mf">0.83</span><span class="p">,</span>  <span class="mf">0.71</span><span class="p">,</span>  <span class="mf">0.85</span><span class="p">]])</span>
 </pre></div>
 </div>
 <p>We might be interested to see how each of these scores compare to the
@@ -267,9 +483,8 @@ respective mean-score:</p>
 <p>Given our discussion of vectorized operations from the last section, you
 should recoil at the sight of a for-loop in code that is performing
 array-arithmetic. We might as well get out our abacuses and spreadsheets
-at this point. Fortunately, NumPy provides a mechanism called array
-broadcasting, which allows us to compute these offsets in a concise,
-vectorized way:</p>
+at this point. Fortunately, we can make use of broadcasting to compute
+these offsets in a concise, vectorized way:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Using broadcasting to subtract a shape-(3,) array</span>
 <span class="c1"># from a shape-(6,3) array.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">score_offset</span> <span class="o">=</span> <span class="n">grades</span> <span class="o">-</span> <span class="n">mean_exam_scores</span>
@@ -282,96 +497,19 @@ vectorized way:</p>
        <span class="p">[</span> <span class="mf">0.04</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.14</span><span class="p">,</span>  <span class="mf">0.03</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>When you invoke <code class="docutils literal"><span class="pre">grades</span> <span class="pre">-</span> <span class="pre">mean_exam_scores</span></code>, NumPy will recognize that
+<p>According to the broadcasting rules detailed above, when you invoke
+<code class="docutils literal"><span class="pre">grades</span> <span class="pre">-</span> <span class="pre">mean_exam_scores</span></code>, NumPy will recognize that
 <code class="docutils literal"><span class="pre">mean_exam_scores</span></code> has the same shape as each row of <code class="docutils literal"><span class="pre">grades</span></code> and
 thus it will apply the subtraction operation on <em>each</em> row of <code class="docutils literal"><span class="pre">grades</span></code>
-with <code class="docutils literal"><span class="pre">mean_exam_scores</span></code>. What has transpired here is an example of
-<em>array broadcasting</em>. NumPy has effectively replicated the content of
-<code class="docutils literal"><span class="pre">mean_exam_scores</span></code> such that it is now a shape-(6,3) array, which is
-thus compatible for subtraction with <code class="docutils literal"><span class="pre">grades</span></code>. That is, the content of
-<code class="docutils literal"><span class="pre">mean_exam_scores</span></code> has effectively been <em>broadcasted</em> to fill a
-shape-(6,3) array:</p>
-<div class="math">
-\begin{equation}
-\left( \begin{array}{*{3}{X}}
-  0.79 &amp; 0.84 &amp; 0.84 \\
-  0.87 &amp; 0.93 &amp; 0.78 \\
-  0.77 &amp; 1.00 &amp; 0.87 \\
-  0.66 &amp; 0.75 &amp; 0.82 \\
-  0.84 &amp; 0.89 &amp; 0.76 \\
-  0.83 &amp; 0.71 &amp; 0.85
-\end{array} \right)
-%
-- \left( \begin{array}{*{3}{X}}
-  0.79 &amp; 0.85 &amp; 0.82
-\end{array}\right)
-%
-\rightarrow \left( \begin{array}{*{3}{X}}
-  0.79 &amp; 0.84 &amp; 0.84 \\
-  0.87 &amp; 0.93 &amp; 0.78 \\
-  0.77 &amp; 1.00 &amp; 0.87 \\
-  0.66 &amp; 0.75 &amp; 0.82 \\
-  0.84 &amp; 0.89 &amp; 0.76 \\
-  0.83 &amp; 0.71 &amp; 0.85
-\end{array} \right)
-%
-- \left( \begin{array}{*{3}{X}}
-  0.79 &amp; 0.85 &amp; 0.82 \\
-  0.79 &amp; 0.85 &amp; 0.82 \\
-  0.79 &amp; 0.85 &amp; 0.82 \\
-  0.79 &amp; 0.85 &amp; 0.82 \\
-  0.79 &amp; 0.85 &amp; 0.82 \\
-  0.79 &amp; 0.85 &amp; 0.82
-\end{array}\right)
-\
-\end{equation}</div><p>The word “effectively” is used here because NumPy doesn’t really create
-this broadcasted version of <code class="docutils literal"><span class="pre">mean_exam_scores</span></code> behind the scenes; it
-is able to do the necessary computations without having to redundantly
-copy the contents of <code class="docutils literal"><span class="pre">mean_exam_scores</span></code> into a shape-(6,3) array.
-Doing so would be a waste of memory and computation. That being said,
-this replication process conveys exactly the mathematics of broadcast
-operations between arrays; thus the preceding diagram reflects how you
-should always envision broadcasting.</p>
+with <code class="docutils literal"><span class="pre">mean_exam_scores</span></code>. In effect, the content of
+<code class="docutils literal"><span class="pre">mean_exam_scores</span></code> has been <em>broadcasted</em> to fill a shape-(6,3) array,
+so that the element-wise subtraction can be performed. Again, we
+emphasize that NumPy doesn’t actually unnecessarily replicate the data
+of <code class="docutils literal"><span class="pre">mean_exam_scores</span></code>, and that this model of broadcasting merely
+conveys the mathematical process that is transpiring.</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Definition: Array Broadcasting</strong>:</p>
-<p class="last"><strong>Array broadcasting</strong> is a mechanism used by NumPy to permit vectorized
-mathematical operations between arrays of unequal, but compatible
-shapes. Specifically, an array will be treated as if its contents have
-been replicated along appropriate the dimensions, such that the shape of
-this new, higher-dimensional array suites the mathematical operation
-being performed.</p>
-</div>
-<p>NumPy provides the function
-<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.broadcast_to.html#numpy.broadcast_to">broadcast_to</a>,
-which can be used to broadcast an array to a specified shape. This can
-help us build our intuition for broadcasting. Let’s broadcast a
-shape-(3,4) array to a shape-(2,3,4) array:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Using `np.broadcast_to`; here we broadcast a</span>
-<span class="c1"># shape-(3,4) array to a shape-(2,3,4) array.</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
-                  <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
-                  <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
-
-       <span class="p">[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]]])</span>
-</pre></div>
-</div>
-<p>The importance of broadcasting should be manifestly clear. We could now,
-say, compute the position of tens of thousands of particles relative to
-their center of mass, in a concise and highly-optimized way. That being
-said, there are rules that dictate how NumPy performs its broadcasting,
-and what conditions makes two arrays broadcast-compatible. We will spend
-the rest of this section discussing these rules and further developing
-our intuition for broadcasting.</p>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Basic Broadcasting</strong></p>
-<p>Generate a random array of 10,000 2D points using <code class="docutils literal"><span class="pre">np.random.rand</span></code>.
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Basic Broadcasting</strong></p>
+<p class="last">Generate a random array of 10,000 2D points using <code class="docutils literal"><span class="pre">np.random.rand</span></code>.
 Compute the “center of mass” of these points, which is simply the
 average x-coordinate and the average y-coordinate of these 10,000
 points. Then, use broadcasting to compute the shape-(10000,2) array that
@@ -381,90 +519,24 @@ position of a point is <span class="math">\((2, 3)\)</span>, then the position o
 <em>relative</em> to the center of mass is simply
 <span class="math">\((2, 3) - (0.5, 1) = (1.5, 2)\)</span></p>
 </div>
-<hr class="docutils" />
-<div class="section" id="Rules-of-Broadcasting">
-<h2>Rules of Broadcasting<a class="headerlink" href="#Rules-of-Broadcasting" title="Permalink to this headline">¶</a></h2>
-<p>Array broadcasting cannot accommodate arbitrary combinations of array
-shapes. For example, a (7,5)-shape array is incompatible with a
-shape-(11,3) array. Trying to add two such arrays would produce a
-<code class="docutils literal"><span class="pre">ValueError</span></code>. To determine if two arrays are broadcast-compatible,
-line up their shapes so that their trailing dimensions are aligned, and
-then check that each pair of aligned dimensions satisfy either of the
-following conditions:</p>
-<ul class="simple">
-<li>the aligned dimensions have the same size</li>
-<li>one of the dimensions has a size of 1</li>
-</ul>
-<p>The two arrays are broadcast-compatible if either of these conditions
-are satisfied for each pair of aligned dimensions. It is okay to have
-one array with a higher-dimensionality and thus to have “dangling”
-leading dimensions. Any size-1 dimension or “missing” dimension will be
-filled-in by broadcasting the content of that array.</p>
-<p>Taking our grade-book example from the preceding subsection, let’s see
-that the shape-(6,3) and shape-(3,) arrays satisfy these rules for
-broadcast-compatibility:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">6</span> <span class="n">x</span> <span class="mi">3</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">3</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">6</span> <span class="n">x</span> <span class="mi">3</span>
-</pre></div>
 </div>
-<p>Let’s look an assortment of pairs of array-shapes and see whether or not
-they are broadcast-compatible:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>         <span class="mi">8</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">8</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">8</span>
-
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>     <span class="mi">5</span> <span class="n">x</span> <span class="mi">2</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="n">INCOMPATIBLE</span>
-
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>     <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
-
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">8</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">3</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">8</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">3</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">8</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">3</span>
-
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">2</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">9</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">2</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">9</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">2</span>
-
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">2</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">8</span> <span class="n">x</span> <span class="mi">2</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="n">INCOMPATIBLE</span>
-
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">1</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">1</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Broadcast Compatibility</strong></p>
-<p>Given the following pairs of array-shapes, determine what the resulting
-broadcasted shapes will be. Indicate if a pair is
-broadcast-incompatible.</p>
-<ol class="arabic simple">
-<li><code class="docutils literal"><span class="pre">7</span> <span class="pre">x</span> <span class="pre">2</span></code> with <code class="docutils literal"><span class="pre">7</span></code></li>
-<li><code class="docutils literal"><span class="pre">4</span></code> with <code class="docutils literal"><span class="pre">3</span> <span class="pre">x</span> <span class="pre">4</span></code></li>
-<li><code class="docutils literal"><span class="pre">1</span> <span class="pre">x</span> <span class="pre">3</span> <span class="pre">x</span> <span class="pre">1</span></code> with <code class="docutils literal"><span class="pre">8</span> <span class="pre">x</span> <span class="pre">1</span> <span class="pre">x</span> <span class="pre">1</span></code></li>
-<li><code class="docutils literal"><span class="pre">9</span> <span class="pre">x</span> <span class="pre">2</span> <span class="pre">x</span> <span class="pre">5</span></code> with <code class="docutils literal"><span class="pre">2</span> <span class="pre">x</span> <span class="pre">5</span></code></li>
-<li><code class="docutils literal"><span class="pre">3</span></code> with <code class="docutils literal"><span class="pre">3</span> <span class="pre">x</span> <span class="pre">3</span> <span class="pre">x</span> <span class="pre">2</span></code></li>
-</ol>
-</div>
-<hr class="docutils" />
 <div class="section" id="Size-1-Axes-&amp;-The-newaxis-Object">
 <h2>Size-1 Axes &amp; The <code class="docutils literal"><span class="pre">newaxis</span></code> Object<a class="headerlink" href="#Size-1-Axes-&-The-newaxis-Object" title="Permalink to this headline">¶</a></h2>
-<p>Here we will learn the utility of introducing size-1 dimensions into an
-array.</p>
-<p>Dimensions of size-1 are special in that they can be broadcasted to any
-size necessary. Additionally, recalling the rules for reshaping an
-array, you can introduce size-1 dimensions to an array without changing
-the overall size (i.e.&nbsp;total number of entries in an array. Thus we are
-free to add size-1 dimensions to an array as-needed (we will see why
-this can be useful in a moment). Let’s reshape a shape-(3,) array into a
-shape-(1, 3, 1, 1) array:</p>
+<div class="section" id="Inserting-Size-1-Dimensions-into-An-Array">
+<h3>Inserting Size-1 Dimensions into An Array<a class="headerlink" href="#Inserting-Size-1-Dimensions-into-An-Array" title="Permalink to this headline">¶</a></h3>
+<p>As conveyed by the broadcasting rules, dimensions of size-1 are special
+in that they can be broadcasted to any size. Here we will learn about
+introducing size-1 dimensions into an array, for the purpose of
+tailoring its shape for broadcasting.</p>
+<p>You can introduce size-1 dimensions to an array without changing the
+overall size (i.e.&nbsp;total number of entries in an array. Thus we are free
+to add size-1 dimensions to an array via the <code class="docutils literal"><span class="pre">reshape</span></code> function. Let’s
+reshape a shape-(3,) array into a shape-(1, 3, 1, 1) array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="go"># Reshaping an array to introduce size-1 dimensions.</span>
+<span class="go"># The size of the array is 3, regardless of introducing</span>
+<span class="go"># these extra size-1 dimensions.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">array([[[[1]],</span>
 
@@ -488,28 +560,32 @@ demonstrate how <code class="docutils literal"><span class="pre">np.newaxis</spa
 
         <span class="p">[[</span><span class="mi">3</span><span class="p">]]]])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>See that including <code class="docutils literal"><span class="pre">np.newaxis</span></code> objects when indexing <code class="docutils literal"><span class="pre">x</span></code> returns a
-“view” of <code class="docutils literal"><span class="pre">x</span></code>, with size-1 dimensions inserted correspondingly. The
-resulting array is not a copy of <code class="docutils literal"><span class="pre">x</span></code>, it points to the exact same data
-as <code class="docutils literal"><span class="pre">x</span></code>, but merely with a different indexing layout. This is no
-different than what we achieved via reshaping.</p>
+<p>Indexing <code class="docutils literal"><span class="pre">x</span></code> as <code class="docutils literal"><span class="pre">x[np.newaxis,</span> <span class="pre">:,</span> <span class="pre">np.newaxis,</span> <span class="pre">np.newaxis]</span></code> returns a
+“view” of <code class="docutils literal"><span class="pre">x</span></code> as a 4D array with size-1 dimensions inserted as axes 0,
+2, and 3. The resulting array is not a copy of <code class="docutils literal"><span class="pre">x</span></code>; it points to the
+exact same data as <code class="docutils literal"><span class="pre">x</span></code>, but merely with a different indexing layout.
+This is no different than what we achieved via reshaping:
+<code class="docutils literal"><span class="pre">x.reshape(1,</span> <span class="pre">3,</span> <span class="pre">1,</span> <span class="pre">1)</span></code>.</p>
+</div>
+<div class="section" id="Utilizing-Size-1-Dimensions-for-Broadcasting">
+<h3>Utilizing Size-1 Dimensions for Broadcasting<a class="headerlink" href="#Utilizing-Size-1-Dimensions-for-Broadcasting" title="Permalink to this headline">¶</a></h3>
 <p>Moving on to a more pressing matter: why would we ever want to introduce
 these spurious dimensions into an array? Let’s take an example to
-demonstrate the utility of size-1 dimensions. Suppose that we want to
-multiply all possible pairs of entries between two arrays:
-<code class="docutils literal"><span class="pre">array([1,</span> <span class="pre">2,</span> <span class="pre">3])</span></code> with <code class="docutils literal"><span class="pre">array([[4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7]])</span></code>. That is, we want to
-perform twelve multiplications, and have access to each result. At first
-glance, combining a shape-(3,) array with a shape-(4,) array seems
-inadmissible for broadcasting; we seem to be doomed to perform nested
-for-loops like a bunch of cavemen and cavewomen. Fortunately, we can
-make clever use of size-1 dimensions so that we can perform this
-computation in a vectorized way.</p>
-<p>Let’s introduce size-1 dimensions into both arrays as so:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># inserting size-1 dimensions into `x` and `y` in</span>
-<span class="c1"># preparation of broadcasting</span>
+demonstrate the utility of size-1 dimensions.</p>
+<p>Suppose that we want to multiply all possible pairs of entries between
+two arrays: <code class="docutils literal"><span class="pre">array([1,</span> <span class="pre">2,</span> <span class="pre">3])</span></code> with <code class="docutils literal"><span class="pre">array([4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7])</span></code>. That is,
+we want to perform twelve multiplications, and have access to each
+result. At first glance, combining a shape-(3,) array with a shape-(4,)
+array seems inadmissible for broadcasting; we seem to be doomed to
+perform nested for-loops like a bunch of cavemen and cavewomen.
+Fortunately, we can make clever use of size-1 dimensions so that we can
+perform this computation in a vectorized way.</p>
+<p>Let’s introduce size-1 dimensions into <code class="docutils literal"><span class="pre">x</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Inserting size-1 dimensions into `x` and `y` in</span>
+<span class="c1"># preparation of broadcasting.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x_1d</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
@@ -517,17 +593,14 @@ computation in a vectorized way.</p>
        <span class="p">[</span><span class="mi">2</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">y_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y_1d</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
-<span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">x</span></code> is now a shape-(1, 3) array and <code class="docutils literal"><span class="pre">y</span></code> is a shape-(4, 1) array.
-According to the broadcasting rules, these arrays are broadcast
-compatible and will multiply to produce a shape-(3, 4) array. Let’s see
-that multiplying these two arrays will exactly produce the twelve
-numbers that we are after:</p>
+<p><code class="docutils literal"><span class="pre">x</span></code> is now a shape-(3, 1) array and <code class="docutils literal"><span class="pre">y</span></code> is a shape-(4,) array.
+According to the broadcasting rules, these arrays are
+broadcast-compatible and will multiply to produce a shape-(3, 4) array.
+Let’s see that multiplying these two arrays will exactly produce the
+twelve numbers that we are after:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># broadcast-multiplying `x` and `y`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
 <span class="n">array</span><span class="p">([[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
@@ -539,14 +612,14 @@ numbers that we are after:</p>
 \begin{equation}
 \left(
 \begin{array}{*{1}{X}}
-  \left(1\right) \\
-  \left(2\right) \\
-  \left(3\right)
+  1 \\
+  2 \\
+  3
 \end{array} \right)
 %
-\times \left(\left( \begin{array}{*{4}{X}}
+\cdot \left( \begin{array}{*{4}{X}}
   4 &amp; 5 &amp; 6 &amp; 7
-\end{array}\right)\right)
+\end{array}\right)
 %
 \rightarrow \left( \begin{array}{*{4}{X}}
   1 &amp; 1 &amp; 1 &amp; 1 \\
@@ -554,47 +627,48 @@ numbers that we are after:</p>
   3 &amp; 3 &amp; 3 &amp; 3
 \end{array}\right)
 %
-\times \left( \begin{array}{*{4}{X}}
+\cdot \left( \begin{array}{*{4}{X}}
   4 &amp; 5 &amp; 6 &amp; 7 \\
   4 &amp; 5 &amp; 6 &amp; 7 \\
   4 &amp; 5 &amp; 6 &amp; 7
 \end{array}\right)
 %
 = \left( \begin{array}{*{4}{X}}
-  1\times4 &amp; 1\times5 &amp; 1\times6 &amp; 1\times7 \\
-  2\times4 &amp; 2\times5 &amp; 2\times6 &amp; 2\times7 \\
-  3\times4 &amp; 3\times5 &amp; 3\times6 &amp; 3\times7
+  1\cdot4 &amp; 1\cdot5 &amp; 1\cdot6 &amp; 1\cdot7 \\
+  2\cdot4 &amp; 2\cdot5 &amp; 2\cdot6 &amp; 2\cdot7 \\
+  3\cdot4 &amp; 3\cdot5 &amp; 3\cdot6 &amp; 3\cdot7
 \end{array}\right)
 \
 \end{equation}</div><p>See that entry <code class="docutils literal"><span class="pre">(i,</span> <span class="pre">j)</span></code> of the resulting array corresponds to
-<code class="docutils literal"><span class="pre">x_1d[i]</span> <span class="pre">*</span> <span class="pre">y_1d[j]</span></code>.</p>
+<code class="docutils literal"><span class="pre">x_1d[i]</span> <span class="pre">*</span> <span class="pre">y[j]</span></code>.</p>
 <p>Through the use of simple reshaping, shrewdly inserting size-1
 dimensions allowed us to coerce NumPy into performing exactly the
 combination-multiplication that we desired. Furthermore, a keen
 understanding of what broadcasting is provides us with a clear
 interpretation of the structure of the result of this calculation. That
-is, if I reshape <code class="docutils literal"><span class="pre">x</span></code> to be a shape-(M, 1) array, and I reshape <code class="docutils literal"><span class="pre">y</span></code>
-to be a shape-(1, N) array, then (according to broadcasting rules)
-<code class="docutils literal"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code> would produce a shape-(M, N) array storing the multiplication
-of each of <code class="docutils literal"><span class="pre">x</span></code>’s M numbers with each of <code class="docutils literal"><span class="pre">y</span></code>’s N numbers.</p>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Basic Broadcasting II</strong></p>
+is, if I reshape <code class="docutils literal"><span class="pre">x</span></code> to be a shape-<span class="math">\((M, 1)\)</span> array, and <code class="docutils literal"><span class="pre">y</span></code>
+is a shape-<span class="math">\((N,)\)</span> array, then (according to broadcasting rules)
+<code class="docutils literal"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code> would produce a shape-<span class="math">\((M, N)\)</span> array storing the
+product of each of <code class="docutils literal"><span class="pre">x</span></code>’s <span class="math">\(M\)</span> numbers with each of <code class="docutils literal"><span class="pre">y</span></code>’s
+<span class="math">\(N\)</span> numbers.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Basic Broadcasting II</strong></p>
 <p>Given the shape-(2,3,4) array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
-<span class="go">                   [ 4,  5,  6,  7],</span>
-<span class="go">                   [ 8,  9, 10, 11]],</span>
-
-<span class="go">                  [[12, 13, 14, 15],</span>
-<span class="go">                   [16, 17, 18, 19],</span>
-<span class="go">                   [20, 21, 22, 23]]])</span>
+<span class="gp">... </span>               <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
+<span class="gp">...</span>
+<span class="gp">... </span>              <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
 </pre></div>
 </div>
-<p>Normalize <code class="docutils literal"><span class="pre">x</span></code> such that <em>each of its rows, within each sheet, will sum
+<p class="last">Normalize <code class="docutils literal"><span class="pre">x</span></code> such that <em>each of its rows, within each sheet, will sum
 to a value of 1</em>. Make use of the sequential function <code class="docutils literal"><span class="pre">np.sum</span></code>, which
 should be called only once, and broadcast-division.</p>
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Basic Broadcasting III</strong></p>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Basic Broadcasting III</strong></p>
 <p>A digital image is simply an array of numbers, which instructs a grid of
 pixels on a monitor to shine light of specific colors, according to the
 numerical values in that array.</p>
@@ -612,28 +686,308 @@ random numbers as a placeholder for real image data. We will generate
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Using the sequential function <code class="docutils literal"><span class="pre">np.max</span></code> and broadcasting, normalize
-<code class="docutils literal"><span class="pre">images</span></code> such that the largest value within each color-channel of each
-image is 1.</p>
+<p class="last">Using the sequential function <code class="docutils literal"><span class="pre">np.max</span></code> and broadcasting, normalize
+<code class="docutils literal"><span class="pre">images</span></code> such that the largest value within <em>each color-channel of
+each image</em> is 1.</p>
 </div>
-<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="An-Advanced-Application-of-Broadcasting:-Pairwise-Distances">
+<h2>An Advanced Application of Broadcasting: Pairwise Distances<a class="headerlink" href="#An-Advanced-Application-of-Broadcasting:-Pairwise-Distances" title="Permalink to this headline">¶</a></h2>
+<p>We will conclude this section by demonstrating an important, non-trivial
+example of array broadcasting. Here, we will find that the most
+straightforward use of broadcasting is <em>not</em> necessarily the right
+solution for our problem, and we will see that it can be important to
+first refactor the mathematical approach taken to perform a calculation
+before using broadcasting. Specifically, we will see that our initial
+approach for using of broadcasting is memory-inefficient.</p>
+<p>Suppose we have two, 2D arrays. <code class="docutils literal"><span class="pre">x</span></code> has a shape of <span class="math">\((M, D)\)</span> and
+<code class="docutils literal"><span class="pre">y</span></code> has a shape of <span class="math">\((N, D)\)</span>. We want to compute the Euclidean
+distance (a.k.a. the <span class="math">\(L_2\)</span>-distance) between <em>each pair</em> of rows
+between the two arrays. That is, if a given row of <code class="docutils literal"><span class="pre">x</span></code> is represented
+by <span class="math">\(D\)</span> numbers <span class="math">\((x_0, x_1, \ldots, x_{D-1})\)</span>, and similarly,
+a row <code class="docutils literal"><span class="pre">y</span></code> is represented by <span class="math">\((y_0, y_1, \ldots, y_{D-1})\)</span>, and
+we want to compute the Euclidean distance between the two rows:</p>
+<div class="math">
+\begin{equation}
+\sqrt{(x_{0} - y_{0})^2 + (x_{1} - y_{1})^2 + \ldots + (x_{D-1} - y_{D-1})^2} = \sqrt{\sum_{i=0}^{D-1}{(x_{i} - y_{i})^2}}
+\end{equation}</div><p>Doing this for each pair of rows should produce a total of
+<span class="math">\(M\times N\)</span> distances. The previous subsection stepped us through
+a very similar calculation, albeit with lower-dimensional arrays. Let’s
+proceed by performing this computation in three different ways:</p>
+<ol class="arabic simple">
+<li>Using explicit for-loops</li>
+<li>Using straight-forward broadcasting</li>
+<li>Refactoring the problem and then using broadcasting</li>
+</ol>
+<p>For the sake of being concrete, we will compute all of the pairwise
+Euclidean distances between the rows of these two arrays:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># a shape-(5, 3) array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">8.54</span><span class="p">,</span>  <span class="mf">1.54</span><span class="p">,</span>  <span class="mf">8.12</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mf">3.13</span><span class="p">,</span>  <span class="mf">8.76</span><span class="p">,</span>  <span class="mf">5.29</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mf">7.73</span><span class="p">,</span>  <span class="mf">6.71</span><span class="p">,</span>  <span class="mf">1.31</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mf">6.44</span><span class="p">,</span>  <span class="mf">9.64</span><span class="p">,</span>  <span class="mf">8.44</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mf">7.27</span><span class="p">,</span>  <span class="mf">8.42</span><span class="p">,</span>  <span class="mf">5.27</span><span class="p">]])</span>
+
+<span class="c1"># a shape-(6, 3) array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">8.65</span><span class="p">,</span>  <span class="mf">0.27</span><span class="p">,</span>  <span class="mf">4.67</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mf">7.73</span><span class="p">,</span>  <span class="mf">7.26</span><span class="p">,</span>  <span class="mf">1.95</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mf">1.27</span><span class="p">,</span>  <span class="mf">7.27</span><span class="p">,</span>  <span class="mf">3.59</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mf">4.05</span><span class="p">,</span>  <span class="mf">5.16</span><span class="p">,</span>  <span class="mf">3.53</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mf">4.77</span><span class="p">,</span>  <span class="mf">6.48</span><span class="p">,</span>  <span class="mf">8.01</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mf">7.85</span><span class="p">,</span>  <span class="mf">6.68</span><span class="p">,</span>  <span class="mf">6.13</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Thus we will want to compute a total of 30 distances, one for each pair
+of rows from <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>.</p>
+<div class="section" id="Pairwise-Distances-Using-For-Loops">
+<h3>Pairwise Distances Using For-Loops<a class="headerlink" href="#Pairwise-Distances-Using-For-Loops" title="Permalink to this headline">¶</a></h3>
+<p>Performing this computation using for-loops proceeds as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists_looped</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;  Computing pairwise distances using for-loops</span>
+
+<span class="sd">         Parameters</span>
+<span class="sd">         ----------</span>
+<span class="sd">         x : numpy.ndarray, shape=(M, D)</span>
+<span class="sd">         y : numpy.ndarray, shape=(N, D)</span>
+
+<span class="sd">         Returns</span>
+<span class="sd">         -------</span>
+<span class="sd">         numpy.ndarray, shape=(M, N)</span>
+<span class="sd">             The Euclidean distance between each pair of</span>
+<span class="sd">             rows between `x` and `y`.&quot;&quot;&quot;</span>
+    <span class="c1"># `dists[i, j]` will store the Euclidean</span>
+    <span class="c1"># distance between  `x[i]` and `y[j]`</span>
+    <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row_x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>     <span class="c1"># loops over rows of `x`</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">row_y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y</span><span class="p">):</span> <span class="c1"># loops over rows of `y`</span>
+            <span class="c1"># Subtract corresponding entries of the rows,</span>
+            <span class="c1"># squares each difference, and then sums them. This</span>
+            <span class="c1"># exactly matches our equation for Euclidean</span>
+            <span class="c1"># distance (we will do the square root later)</span>
+            <span class="n">dists</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">row_x</span> <span class="o">-</span> <span class="n">row_y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># we still need to take the square root of</span>
+    <span class="c1"># each of our numbers</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Be sure to step through this code and see that <code class="docutils literal"><span class="pre">dists</span></code> stores each
+pair of Euclidean distances between the rows of <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>.</p>
+</div>
+<div class="section" id="Pairwise-Distances-Using-Broadcasting-(Unoptimized)">
+<h3>Pairwise Distances Using Broadcasting (Unoptimized)<a class="headerlink" href="#Pairwise-Distances-Using-Broadcasting-(Unoptimized)" title="Permalink to this headline">¶</a></h3>
+<p>Now, let’s use of vectorization to perform this distance computation. It
+must be established immediately that the method that we about to develop
+here is memory-inefficient. We will address this issue in detail at the
+end of this subsection.</p>
+<p>We start off our vectorized computation by shrewdly inserting size-1
+dimensions into <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>, so that we can perform
+<span class="math">\(M \times N\)</span> subtractions between their pairs of
+length-<span class="math">\(D\)</span> rows. <em>This creates a shape-</em><span class="math">\((M, N, D)\)</span>
+<em>array</em>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># subtract shape-(5, 1, 3) with shape-(1, 6, 3)</span>
+<span class="c1"># produces shape-(5, 6, 3)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">diffs</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">diffs</span><span class="o">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is important to see, via broadcasting, that <code class="docutils literal"><span class="pre">diffs[i,</span> <span class="pre">j]</span></code> stores
+<code class="docutils literal"><span class="pre">x[i]</span> <span class="pre">-</span> <span class="pre">y[j]</span></code>. Thus we need to square each entry of <code class="docutils literal"><span class="pre">diffs</span></code>, sum
+over its last axis, and take the square root, in order to produce our
+<span class="math">\(M \times N\)</span> Euclidean distances:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># producing the Euclidean distances</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">diffs</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dists</span><span class="o">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Voilà! We have produced the distances in a vectorized way. Let’s write
+this out formally as a function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists_crude</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;  Computing pairwise distances using vectorization.</span>
+
+<span class="sd">         This method uses memory-inefficient broadcasting.</span>
+
+<span class="sd">         Parameters</span>
+<span class="sd">         ----------</span>
+<span class="sd">         x : numpy.ndarray, shape=(M, D)</span>
+<span class="sd">         y : numpy.ndarray, shape=(N, D)</span>
+
+<span class="sd">         Returns</span>
+<span class="sd">         -------</span>
+<span class="sd">         numpy.ndarray, shape=(M, N)</span>
+<span class="sd">             The Euclidean distance between each pair of</span>
+<span class="sd">             rows between `x` and `y`.&quot;&quot;&quot;</span>
+    <span class="c1"># The use of `np.newaxis` here is equivalent to our</span>
+    <span class="c1"># use of the `reshape` function</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Regrettably, there is a glaring issue with the vectorized computation
+that we just performed. Consider the largest sized array that is created
+in the for-loop computation, compared to that of this vectorized
+computation. The for-loop version need only create a
+shape-<span class="math">\((M, N)\)</span> array, whereas the vectorized computation creates
+an intermediate array (i.e. <code class="docutils literal"><span class="pre">diffs</span></code>) of shape-<span class="math">\((M, N, D)\)</span>.
+This intermediate array is even created in the one-line version of the
+code. This will create a massive array if <span class="math">\(D\)</span> is a large number!</p>
+<p>Suppose, for instance, that you are finding the Euclidean between pairs
+of RGB images that each have a resolution of <span class="math">\(32 \times 32\)</span> (in
+order to see if the images resemble one another). Thus in this scenario,
+each image is comprised of <span class="math">\(D = 32 \times 32 \times 3 = 3072\)</span>
+numbers (<span class="math">\(32^2\)</span> pixels, and each pixel has 3 values: a red, blue,
+and green-color value). Computing all the distances between a stack of
+5000 images with a stack of 100 images would form an intermediate array
+of shape-<span class="math">\((5000, 100, 3072)\)</span>. Even though this large array only
+exists temporarily, it would have to consume over 6GB of RAM! The
+for-loop version requires <span class="math">\(\frac{1}{3027}\)</span> as much memory (about
+2MB).</p>
+<p>Is our goose cooked? Are we doomed to pick between either slow
+for-loops, or a memory-inefficient use of vectorization? No! We can
+refactor the mathematical form of the Euclidean distance in order to
+avoid the creation of that bloated intermediate array.</p>
+</div>
+<div class="section" id="Optimized-Pairwise-Distances">
+<h3>Optimized Pairwise Distances<a class="headerlink" href="#Optimized-Pairwise-Distances" title="Permalink to this headline">¶</a></h3>
+<p>Performing the pairwise subtraction between the respective rows of <code class="docutils literal"><span class="pre">x</span></code>
+and <code class="docutils literal"><span class="pre">y</span></code> is what created the over-sized intermediate array in our
+previous calculation. Thus we want to rewrite the Euclidean distance
+equation such that none of the terms require broadcasting beyond the
+size of <span class="math">\(M \times N\)</span>.</p>
+<p>The Euclidean distance equation, ignoring the square root for now, can
+be refactored by multiplying out each squared term as so:</p>
+<div class="math">
+\begin{equation}
+\sum_{i=0}^{D-1}{(x_{i} - y_{i})^2} = \sum_{i=0}^{D-1}{x_{i}^2} + \sum_{i=0}^{D-1}{y_{i}^2} - 2\sum_{i=0}^{D-1}{x_{i} y_{i}}
+\end{equation}</div><p>Keep in mind that we must compute this for each pair of rows in <code class="docutils literal"><span class="pre">x</span></code>
+and <code class="docutils literal"><span class="pre">y</span></code>. We will find that this formulation permits the use of matrix
+multiplication, such that we can avoid forming the
+shape-<span class="math">\((M, N, D)\)</span> intermediate array.</p>
+<p>The first two terms in this equation are straight-forward to calculate,
+and, when combined, will only produce a shape-<span class="math">\((M, N)\)</span> array.
+For both <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>, we square each element in the array and then
+sum over the columns for each row:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Computing the first two terms of the</span>
+<span class="c1"># refactored Euclidean distance equation</span>
+
+<span class="c1"># creates a shape-(5,) array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x_sqrd_summed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># creates a shape-(6,) array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y_sqrd_summed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We must insert a size-1 dimension in <code class="docutils literal"><span class="pre">x</span></code> so that we can add all pairs
+of numbers between the resulting shape-<span class="math">\((M, 1)\)</span> and
+shape-<span class="math">\((N,)\)</span> arrays. This will compute
+<span class="math">\(\sum_{i=0}^{D-1}{x_{i}^2} + \sum_{i=0}^{D-1}{y_{i}^2}\)</span> for all of
+the <span class="math">\(M \times N\)</span> pairs of rows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># add a shape-(5, 1) array with a shape-(6, ) array</span>
+<span class="c1"># to create a shape-(5, 6) array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x_y_sqrd</span> <span class="o">=</span> <span class="n">x_sqrd_summed</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">+</span> <span class="n">y_sqrd_summed</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x_y_sqrd</span><span class="o">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This leaves the third term to be computed. It is left to the reader to
+show that computing this sum of products for each pair of rows in <code class="docutils literal"><span class="pre">x</span></code>
+and <code class="docutils literal"><span class="pre">y</span></code> is equivalent to performing the matrix multiplication
+<span class="math">\(-2\;(x \cdot y^{T})\)</span>, where <code class="docutils literal"><span class="pre">y</span></code> has been transposed so that it
+has a shape of <span class="math">\((D, N)\)</span>. This matrix multiplication of a
+shape-<span class="math">\((M, D)\)</span> array with a shape-<span class="math">\((D, N)\)</span> array
+produces a shape-<span class="math">\((M, N)\)</span> array. Therefore, we can compute this
+final term without needing to create a larger, intermediate array.</p>
+<p>Thus the third term in our equation,
+<span class="math">\(-2\sum_{i=0}^{D-1}{x_{i} y_{i}}\)</span>, for all <span class="math">\(M \times N\)</span>
+pairs of rows, is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># computing the third term in the distance</span>
+<span class="c1"># equation, for all pairs of rows</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x_y_prod</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># `np.dot` can also be used to the same effect</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x_y_prod</span><span class="o">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Having accounted for all three terms, we can finally compute the
+Euclidean distances:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># computing all the distances</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_y_sqrd</span> <span class="o">+</span> <span class="n">x_y_prod</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dists</span><span class="o">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In total, we have successfully used vectorization to compute the all
+pairs of distances, while only requiring an array of
+shape-<span class="math">\((M, N)\)</span> to do so! This is the memory-efficient,
+vectorized form - the stuff that dreams are made of. Let’s write the
+function that performs this computation in full.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Computing pairwise distances using memory-efficient</span>
+<span class="sd">        vectorization.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : numpy.ndarray, shape=(M, D)</span>
+<span class="sd">        y : numpy.ndarray, shape=(N, D)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray, shape=(M, N)</span>
+<span class="sd">            The Euclidean distance between each pair of</span>
+<span class="sd">            rows between `x` and `y`.&quot;&quot;&quot;</span>
+    <span class="n">dists</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">dists</span> <span class="o">+=</span>  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">dists</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span>  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">The specific form of an equation can have a major impact on the
+memory-footprint of its vectorized implementation in NumPy. This issue
+can be safely overlooked in cases where you can be certain that the
+array shapes at play will not lead to substantial memory consumption.
+Otherwise, take care to study the form of the equation, to see if it can
+be recast in a way that alleviates its memory-consumption bottlenecks.</p>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Checking the equivalence of the three pairwise
+distance functions</strong></p>
+<p class="last">Use the function
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.allclose.html">numpy.allclose</a>
+to verify that the three methods for computing the pairwise distances
+produce the same numerical results.</p>
+</div>
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html#broadcasting">Basics of
+broadcasting</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html#changing-number-of-dimensions">Broadcasting
+routines</a></li>
+</ul>
+</div>
 <div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>Basic Broadcasting: Solution</strong></p>
 <p>Generating the random array of 10,000, 2D points, and their
 “center-of-mass”.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go"># find the mean x-coord and y-coord of the 10000 points</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">center_of_mass</span> <span class="o">=</span> <span class="n">pts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># -&gt; array([mean_x, mean_y])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">center_of_mass</span><span class="o">.</span><span class="n">shape</span>
-<span class="go">(2,)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># find the mean x-coord and y-coord of the 10000 points</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">center_of_mass</span> <span class="o">=</span> <span class="n">pts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># -&gt; array([mean_x, mean_y])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">center_of_mass</span><span class="o">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,)</span>
 
-<span class="go"># Use broadcasting to compute the position of each point relative</span>
-<span class="go"># to the center of mass. The center of mass coordinates are subtracted</span>
-<span class="go"># from each of the 10000 points, via broadcast-subtraction</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">relative_pos</span> <span class="o">=</span> <span class="n">pts</span> <span class="o">-</span> <span class="n">center_of_mass</span> <span class="c1"># shape-(10000,2) w/ shape-(2,)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">relative_pos</span><span class="o">.</span><span class="n">shape</span>
-<span class="go">(10000, 2)</span>
+<span class="c1"># Use broadcasting to compute the position of each point relative</span>
+<span class="c1"># to the center of mass. The center of mass coordinates are subtracted</span>
+<span class="c1"># from each of the 10000 points, via broadcast-subtraction</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">relative_pos</span> <span class="o">=</span> <span class="n">pts</span> <span class="o">-</span> <span class="n">center_of_mass</span> <span class="c1"># shape-(10000,2) w/ shape-(2,)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">relative_pos</span><span class="o">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Broadcast Compatibility: Solution</strong></p>
@@ -647,16 +1001,17 @@ image is 1.</p>
 <p><strong>Basic Broadcasting II: Solution</strong></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># a shape-(2, 3, 4) array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
-                   <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
-                   <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
-
-                  <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
-                   <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
-                   <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
+<span class="o">...</span>                <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
+<span class="o">...</span>
+<span class="o">...</span>               <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
 
 
 <span class="c1"># sum over each row, within a sheet</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">summed_rows</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">summed_rows</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">48</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">57</span><span class="p">]])</span>
 
@@ -700,6 +1055,30 @@ image is 1.</p>
 <span class="bp">True</span>
 </pre></div>
 </div>
+<p><strong>Checking the equivalence of the three pairwise distance functions:
+Solution</strong></p>
+<p><code class="docutils literal"><span class="pre">numpy.allclose</span></code> returns <code class="docutils literal"><span class="pre">True</span></code> if all pairwise elements between two
+arrays are almost-equal to one another.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">8.54</span><span class="p">,</span>  <span class="mf">1.54</span><span class="p">,</span>  <span class="mf">8.12</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">3.13</span><span class="p">,</span>  <span class="mf">8.76</span><span class="p">,</span>  <span class="mf">5.29</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">7.73</span><span class="p">,</span>  <span class="mf">6.71</span><span class="p">,</span>  <span class="mf">1.31</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">6.44</span><span class="p">,</span>  <span class="mf">9.64</span><span class="p">,</span>  <span class="mf">8.44</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">7.27</span><span class="p">,</span>  <span class="mf">8.42</span><span class="p">,</span>  <span class="mf">5.27</span><span class="p">]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">8.65</span><span class="p">,</span>  <span class="mf">0.27</span><span class="p">,</span>  <span class="mf">4.67</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">7.73</span><span class="p">,</span>  <span class="mf">7.26</span><span class="p">,</span>  <span class="mf">1.95</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">1.27</span><span class="p">,</span>  <span class="mf">7.27</span><span class="p">,</span>  <span class="mf">3.59</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">4.05</span><span class="p">,</span>  <span class="mf">5.16</span><span class="p">,</span>  <span class="mf">3.53</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">4.77</span><span class="p">,</span>  <span class="mf">6.48</span><span class="p">,</span>  <span class="mf">8.01</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">7.85</span><span class="p">,</span>  <span class="mf">6.68</span><span class="p">,</span>  <span class="mf">6.13</span><span class="p">]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">pairwise_dists_looped</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">pairwise_dists_crude</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">pairwise_dists_crude</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -712,6 +1091,8 @@ image is 1.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="BasicIndexing.html" class="btn btn-neutral float-right" title="Introducing Basic and Advanced Indexing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="VectorizedOperations.html" class="btn btn-neutral" title="“Vectorized” Operations: Optimized Computations on NumPy Arrays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -745,7 +1126,7 @@ image is 1.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.12.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -755,6 +1136,8 @@ image is 1.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

@@ -1,0 +1,150 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Applications of Object Oriented Programming\n",
+    "\n",
+    "We have spent a considerable amount of time learning about the syntax and definitions of classes, class objects, instances, and methods. Let's take a moment to gather our knowledge and create a useful class. This will help develop a sense for the ways in which object oriented programming can be useful for us. We will try to take care to make some recommendations when one should and shouldn't define their own classes. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Shopping List\n",
+    "Let's create a shopping list class, where an instance of this class stores a list of item-names (strings) to be purchased and a list of names that have already been purchased. We will write an `__init__` function that accepts one or more strings, which will be added to the shopping list. Then, we will create methods that will allow us to:\n",
+    "\n",
+    "- add new items to the shopping list\n",
+    "- mark items on the list as \"purchased\"\n",
+    "- remove items, purchased or not, from the list\n",
+    "- list the name of the items to-be purchased (in alphabetical order)\n",
+    "- list the name of the items have been purchased (in alphabetical order)\n",
+    "\n",
+    "We do not want redundant items to be included on our shopping list - if someone enters \"apples\" twice, we should only list it once. Thus we will make use of [sets](http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure), which store unique elements, to store the items on our list.\n",
+    "\n",
+    "Lastly, we will want our methods to accept a variable that is either a single item name (a string) or multiple item names (a list/tuple/iterable of strings). To accommodate this, if we receive a sole string as an input, we will place it in a list before carrying on. This will ensure that we are always working with an iterable containing a string.\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```python\n",
+    "class ShoppingList:\n",
+    "    def __init__(self, items):\n",
+    "        \"\"\" Parameters\n",
+    "            ----------\n",
+    "            items : Union[str, Iterable[str]]\n",
+    "                Iterable of item-names to add to shopping list\"\"\"\n",
+    "        if isinstance(items, str):\n",
+    "            items = [items]\n",
+    "        self._needed = set(items)\n",
+    "        self._purchased = set()\n",
+    "    \n",
+    "    def add_new_items(self, items):\n",
+    "        \"\"\" Add more items to the shopping list \n",
+    "            \n",
+    "            Parameters\n",
+    "            ----------\n",
+    "            items : Union[str, Iterable[str]]\n",
+    "                Iterable of item-names to add to shopping list\"\"\"\n",
+    "        if isinstance(items, str):\n",
+    "            items = [items]\n",
+    "        # set.update adds elements of an iterable to a set  \n",
+    "        self._needed.update(items) \n",
+    "        \n",
+    "    def mark_purchased_items(self, items):\n",
+    "        \"\"\" Provide names of items to mark as 'purchased' \n",
+    "            \n",
+    "            Parameters\n",
+    "            ----------\n",
+    "            items : Union[str, Iterable[str]]\"\"\"\n",
+    "        if isinstance(items, str):\n",
+    "            items = [items]\n",
+    "        # only mark items as purchased that are on our list to begin with\n",
+    "        self._purchased.update(set(items) & self._needed)\n",
+    "        # remove all purchased items from out unpurchased set\n",
+    "        self._needed.difference_update(self._purchased)\n",
+    "    \n",
+    "    def list_purchased_items(self):\n",
+    "        \"\"\" Return a sorted list of the items that have been purchased\"\"\"\n",
+    "        return sorted(self._purchased)\n",
+    "\n",
+    "    def list_unpurchased_items(self):\n",
+    "        \"\"\" Return a sorted list of the items still on the list\"\"\"\n",
+    "        return sorted(self._needed)\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's create a shopping list with a few items on it:\n",
+    "\n",
+    "```python\n",
+    "# creating a shopping list\n",
+    ">>> my_list = ShoppingList([\"apples\", \"apples\", \"grapes\", \"peaches\", \"milk\", \"bread\"])\n",
+    ">>> my_list.list_unpurchased_items()\n",
+    "['apples', 'bread', 'grapes', 'milk', 'peaches']\n",
+    ">>> my_list.list_purchased_items()\n",
+    "[]\n",
+    "```\n",
+    "\n",
+    "Notice that I mistakenly placed apples on my list twice. However our use of sets under the hood handles this gracefully, reducing all redundant entries automatically. Supposing that we are carrying on with our shopping and we purchase several items, let's mark them as such.\n",
+    "\n",
+    "```python\n",
+    "# mark items as purchased on our list\n",
+    ">>> my_list.mark_purchased_items([\"grapes\", \"pineapples\"])\n",
+    ">>> my_list.list_purchased_items()\n",
+    "['grapes']\n",
+    ">>> my_list.list_unpurchased_items()\n",
+    "['apples', 'bread', 'milk', 'peaches']\n",
+    "```\n",
+    "\n",
+    "See that \"grapes\" were appropriately removed from our unpurchased set and added to our purchased set. Additionally, our implementation gracefully ignores our request to mark pineapples as being purchased, as pineapples weren't even on our list to begin with.\n",
+    "\n",
+    "In the next section we will augment our `ShoppingList` class with some special methods to make it easier to view the items, purchased and not, on our list."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Caution: Using Class Definitions Responsibly**\n",
+    "\n",
+    "Our `ShoppingList` class' main utility is that it coordinates two sets of items for us, making the logic of tracking unpurchased and purchased items intuitive and simple. If we did not care about keeping track of purchased items, then we ought not define a class at all. We should instead just store our items in a `list` and use its methods to add and remove items. \n",
+    "\n",
+    "When possible, it is preferable to use Python's built-in types in lieu of defining a new class. Doing so will help keep your code simple, portable, and compatible with other code.\n",
+    "\n",
+    "</div>"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

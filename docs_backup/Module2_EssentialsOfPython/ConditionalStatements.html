@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Conditional Statements &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Conditional Statements &mdash; Python Like You Mean It 0.11.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.11.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="For-Loops and While-Loops" href="ForLoops.html"/>
         <link rel="prev" title="Introducing Control Flow" href="Introduction.html"/> 
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.11.0
               </div>
             
           
@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
@@ -109,6 +109,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Inline-if-else-statements">Inline if-else statements</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -138,7 +139,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -245,8 +246,8 @@ number, and will cube <code class="docutils literal"><span class="pre">x</span><
 </pre></div>
 </div>
 <p>Please refer to the “Basic Python Object Types” subsection to recall the
-basics of the “boolean” type, which represents True and False. We will
-extend that discussion by introducing comparison operations and
+basics of the “boolean” type, which represents True and False values. We
+will extend that discussion by introducing comparison operations and
 membership-checking, and then expanding on the utility of the built-in
 <code class="docutils literal"><span class="pre">bool</span></code> type.</p>
 <div class="section" id="Comparison-Operations">
@@ -297,8 +298,8 @@ operations in Python:</p>
 </pre></div>
 </div>
 <p>Note that <code class="docutils literal"><span class="pre">=</span></code> and <code class="docutils literal"><span class="pre">==</span></code> have very different meanings. The former is
-an assignment operator, and the latter is the equality operator:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># assign variable `x` to the value 3</span>
+the assignment operator, and the latter is the equality operator:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># assign the value 3 to the variable `x`</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">==</span> <span class="mi">3</span>  <span class="c1"># check if `x` and 3 have the same value</span>
 <span class="go">True</span>
 </pre></div>
@@ -345,13 +346,12 @@ references the <code class="docutils literal"><span class="pre">None</span></cod
 </div>
 <div class="section" id="bool-and-Truth-Values-of-Non-Boolean-Objects">
 <h2><code class="docutils literal"><span class="pre">bool</span></code> and Truth Values of Non-Boolean Objects<a class="headerlink" href="#bool-and-Truth-Values-of-Non-Boolean-Objects" title="Permalink to this headline">¶</a></h2>
-<p>It can be useful to ascribe non-boolean objects with inherit boolean
-values. For example, in computer science, the number 0 is often
-associated with <code class="docutils literal"><span class="pre">False</span></code> and non-zero numbers are associated with
-<code class="docutils literal"><span class="pre">True</span></code>. Python ascribes most of its built-in objects with inherent
-boolean values, which can be evaluated with the built-in Python command
-<code class="docutils literal"><span class="pre">bool</span></code>. For example, the Python integer 0 is ascribed the boolean
-value <code class="docutils literal"><span class="pre">False</span></code>:</p>
+<p>It can be useful to ascribe boolean values to non-boolean objects. For
+example, in computer science, the number 0 is often associated with
+<code class="docutils literal"><span class="pre">False</span></code> and non-zero numbers are associated with <code class="docutils literal"><span class="pre">True</span></code>. Python
+ascribes boolean values to most of its built-in objects, which can be
+evaluated with the built-in Python command <code class="docutils literal"><span class="pre">bool</span></code>. For example, in
+Python the boolean value <code class="docutils literal"><span class="pre">False</span></code> is ascribed to the integer 0:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Using `bool` to access the True/False</span>
 <span class="c1"># value of non-boolean objects</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -376,47 +376,9 @@ value <code class="docutils literal"><span class="pre">False</span></code>:</p>
 </ul>
 <p>Thus non-zero numbers and non-empty sequences/collections evaluate to
 <code class="docutils literal"><span class="pre">True</span></code> via <code class="docutils literal"><span class="pre">bool</span></code>.</p>
-<p>Given this discussion, logical operations can thus be applied in the
-context of non-boolean objects, in Python. Although this seldom occurs
-in practice, we include the following table to summarize how Python
-formally evaluates its logical operations in the context of non-boolean
-values:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Operation</th>
-<th class="head">Result</th>
-<th class="head">Example</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>x or y</td>
-<td>if x is false, then
-y, else x</td>
-<td><code class="docutils literal"><span class="pre">2</span> <span class="pre">or</span> <span class="pre">1</span></code> returns
-<code class="docutils literal"><span class="pre">2</span></code></td>
-</tr>
-<tr class="row-odd"><td>x and y</td>
-<td>if x is false, then
-x, else y</td>
-<td><code class="docutils literal"><span class="pre">&quot;hi&quot;</span> <span class="pre">and</span> <span class="pre">0</span></code>
-returns <code class="docutils literal"><span class="pre">0</span></code></td>
-</tr>
-<tr class="row-even"><td>not x</td>
-<td>if x is false, then
-True, else False</td>
-<td><code class="docutils literal"><span class="pre">not</span> <span class="pre">[1,</span> <span class="pre">4]</span></code>
-returns <code class="docutils literal"><span class="pre">True</span></code></td>
-</tr>
-</tbody>
-</table>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">The <code class="docutils literal"><span class="pre">bool</span></code> function allows you to evaluate the boolean-values ascribed
+<p class="last">The <code class="docutils literal"><span class="pre">bool</span></code> function allows you to evaluate the boolean values ascribed
 to various non-boolean objects. For instance, <code class="docutils literal"><span class="pre">bool([])</span></code> returns
 <code class="docutils literal"><span class="pre">False</span></code> wherease <code class="docutils literal"><span class="pre">bool([1,</span> <span class="pre">2])</span></code> returns <code class="docutils literal"><span class="pre">True</span></code>.</p>
 </div>
@@ -439,7 +401,7 @@ this:</p>
     <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;dead&quot;</span>
 </pre></div>
 </div>
-<p>The following pseudo-code demonstrates their general template for
+<p>The following pseudo-code demonstrates the general template for
 conditional statements:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">expression_1</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="n">the</span> <span class="n">code</span> <span class="n">within</span> <span class="n">this</span> <span class="n">indented</span> <span class="n">block</span> <span class="ow">is</span> <span class="n">executed</span> <span class="k">if</span><span class="o">..</span>
@@ -496,8 +458,53 @@ clause. <code class="docutils literal"><span class="pre">else</span></code> and 
 <span class="c1"># x is now 1</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Conditional statements</strong></p>
+<p>Similarly, conditional statements can have an <code class="docutils literal"><span class="pre">if</span></code> and an <code class="docutils literal"><span class="pre">else</span></code>
+without an <code class="docutils literal"><span class="pre">elif</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># A conditional statement consisting of</span>
+<span class="c1"># an &quot;if&quot;-clause and an &quot;else&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1"># x is now -2</span>
+</pre></div>
+</div>
+<p>Conditional statements can also have an <code class="docutils literal"><span class="pre">if</span></code> and an <code class="docutils literal"><span class="pre">elif</span></code> without
+an <code class="docutils literal"><span class="pre">else</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># A conditional statement consisting of</span>
+<span class="c1"># an &quot;if&quot;-clause and an &quot;elif&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;cba&#39;</span>
+<span class="c1"># x is now &#39;abcabcabc&#39;</span>
+</pre></div>
+</div>
+<p>Note that only one code block within a single if-elif-else statement can
+be executed: either the “if-block” is executed, or an “elif-block” is
+executed, or the “else-block” is executed. Consecutive if-statements,
+however, are completely independent of one another, and thus their code
+blocks can be executed in sequence, if their respective conditional
+statements resolve to <code class="docutils literal"><span class="pre">True</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># consecutive if-statements are independent</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># y is now 2</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Conditional statements</strong></p>
 <ol class="arabic simple">
 <li>Assume <code class="docutils literal"><span class="pre">my_list</span></code> is a list. Given the following code:</li>
 </ol>
@@ -515,12 +522,12 @@ file-type. Write code that extracts only the filename.</p>
 <p><code class="docutils literal"><span class="pre">my_file</span></code> will have at most one period in it. Accommodate cases where
 <code class="docutils literal"><span class="pre">my_file</span></code> does <em>not</em> include a file-type.</p>
 <p>That is:</p>
-<ul class="simple">
+<ul class="last simple">
 <li><code class="docutils literal"><span class="pre">&quot;code.py&quot;</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">&quot;code&quot;</span></code></li>
 <li><code class="docutils literal"><span class="pre">&quot;doc2.pdf&quot;</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">&quot;doc2&quot;</span></code></li>
 <li><code class="docutils literal"><span class="pre">&quot;hello_world&quot;</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">&quot;hello_world&quot;</span></code></li>
 </ul>
-<hr class="docutils" />
+</div>
 <div class="section" id="Inline-if-else-statements">
 <h3>Inline if-else statements<a class="headerlink" href="#Inline-if-else-statements" title="Permalink to this headline">¶</a></h3>
 <p>Python supports a syntax for writing a restricted version of if-else
@@ -559,7 +566,7 @@ side of an assignment statement, and can be quite convenient:</p>
 <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;a&quot;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;b&quot;</span>
-<span class="s2">&quot;b</span>
+<span class="s1">&#39;b&#39;</span>
 </pre></div>
 </div>
 <p>We will see this syntax shine when we learn about comprehension
@@ -571,6 +578,19 @@ expressions, for therein lies madness:</p>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#truth-value-testing">Truth
+testing</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not">Boolean
+operations</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#comparisons">Comparisons</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-if-statement">‘if’
+statements</a></li>
+</ul>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
@@ -637,7 +657,7 @@ Otherwise, <code class="docutils literal"><span class="pre">my_file</span></code
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.11.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -647,6 +667,8 @@ Otherwise, <code class="docutils literal"><span class="pre">my_file</span></code
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Generators &amp; Comprehension Expressions &mdash; Fundamentals of Python alpha documentation</title>
+  <title>Generators &amp; Comprehension Expressions &mdash; Python Like You Mean It 0.12.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Fundamentals of Python alpha documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 0.12.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Python’s “Itertools”" href="Itertools.html"/>
         <link rel="prev" title="Iterables" href="Iterables.html"/> 
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Fundamentals of Python
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
           
 
           
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.1
+                0.12.0
               </div>
             
           
@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Essentials of Python, for Data Science Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
@@ -113,14 +113,19 @@
 <li class="toctree-l3"><a class="reference internal" href="#Creating-your-own-generator:-generator-comprehensions">Creating your own generator: generator comprehensions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Storing-generators">Storing generators</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Consuming-generators">Consuming generators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Iterating-over-generators-using-next">Iterating over generators using <code class="docutils literal"><span class="pre">next</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Iterables-v.-Iterators">Iterables v. Iterators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Using-generator-comprehensions-on-the-fly">Using generator comprehensions on the fly</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#List-comprehensions">List comprehensions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Chaining-comprehensions">Chaining comprehensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Using-generator-comprehensions-on-the-fly">Using generator comprehensions on the fly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Iterating-over-generators-using-next">Iterating over generators using <code class="docutils literal"><span class="pre">next</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Iterables-vs.&nbsp;Iterators">Iterables vs.&nbsp;Iterators</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#List-&amp;-Tuple-Comprehensions">List &amp; Tuple Comprehensions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Nesting-comprehensions">Nesting comprehensions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -133,6 +138,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 </ul>
 
             
@@ -147,7 +153,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fundamentals of Python</a>
+          <a href="../index.html">Python Like You Mean It</a>
         
       </nav>
 
@@ -321,12 +327,12 @@ whereas the memory consumed by the list grows linearly with <span class="math">\
 <p class="last"><code class="docutils literal"><span class="pre">range</span></code> is a built-in generator, which generates sequences of
 integers.</p>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Using ``range``</strong>:</p>
-<p>Using <code class="docutils literal"><span class="pre">range</span></code> in a for-loop, print the numbers 10-1, in sequence.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Using ``range``</strong>:</p>
+<p class="last">Using <code class="docutils literal"><span class="pre">range</span></code> in a for-loop, print the numbers 10-1, in sequence.</p>
 </div>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Creating-your-own-generator:-generator-comprehensions">
 <h2>Creating your own generator: generator comprehensions<a class="headerlink" href="#Creating-your-own-generator:-generator-comprehensions" title="Permalink to this headline">¶</a></h2>
 <p>Python provides a sleek syntax for defining a simple generator in a
@@ -419,16 +425,16 @@ this section of the official Python
 tutorial</a>
 if you are interested in diving deeper into generators.</p>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Writing a Generator Comprehension</strong>:</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Writing a Generator Comprehension</strong>:</p>
 <p>Using a generator comprehension, define a generator for the series:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">..</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">..</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">..</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span><span class="o">..</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note that (3, 5) is <em>not</em> in the series.</p>
-<p>Iterate over the generator and print its contents to verify your
+<p class="last">Iterate over the generator and print its contents to verify your
 solution.</p>
-<hr class="docutils" />
+</div>
 <div class="section" id="Storing-generators">
 <h3>Storing generators<a class="headerlink" href="#Storing-generators" title="Permalink to this headline">¶</a></h3>
 <p>Just like we saw with the <code class="docutils literal"><span class="pre">range</span></code> generator, defining a generator
@@ -448,12 +454,15 @@ instructions for generating our sequence of squared numbers is stored.
 reason, generators cannot be inspected in the same way that lists and
 other sequences can be. You <strong>cannot</strong> do the following:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># you **cannot** do the following...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 
 <span class="c1"># query the length of a generator</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span>  <span class="c1"># TypeError: object of type &#39;generator&#39; has no len()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="nb">object</span> <span class="n">of</span> <span class="nb">type</span> <span class="s1">&#39;generator&#39;</span> <span class="n">has</span> <span class="n">no</span> <span class="nb">len</span><span class="p">()</span>
 
 <span class="c1"># index into a generator</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">generator</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># TypeError: &#39;generator&#39; object is not subscriptable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gen</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;generator&#39;</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">subscriptable</span>
 </pre></div>
 </div>
 <p>The sole exception to this is the <code class="docutils literal"><span class="pre">range</span></code> generator, for which all of
@@ -509,40 +518,104 @@ the generator:</p>
 and must be re-defined in order to be iterated over again.</p>
 </div>
 </div>
+<div class="section" id="Chaining-comprehensions">
+<h3>Chaining comprehensions<a class="headerlink" href="#Chaining-comprehensions" title="Permalink to this headline">¶</a></h3>
+<p>Because generators are iterables, they can be fed into subsequent
+generator comprehensions. That is, they can be “chained” together.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># chaining two generator comprehensions</span>
+
+<span class="c1"># generates 400.. 100.. 0.. 100.. 400</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gen_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+
+<span class="c1"># sums the generated numbers, excluding any numbers whose absolute value is greater than 150</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">gen_1</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">150</span><span class="p">)</span>
+<span class="mi">200</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Using-generator-comprehensions-on-the-fly">
+<h3>Using generator comprehensions on the fly<a class="headerlink" href="#Using-generator-comprehensions-on-the-fly" title="Permalink to this headline">¶</a></h3>
+<p>A feature of Python, that can make your code supremely readable and
+intuitive, is that generator comprehensions can be fed <em>directly</em> into
+functions that operate on iterables. That is,</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="go">328350</span>
+</pre></div>
+</div>
+<p>can be simplified as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="go">328350</span>
+</pre></div>
+</div>
+<p>If you want your code to compute the finite harmonic series:
+<span class="math">\(\sum_{k=1}^{100} \frac{1}{n} = 1 + \frac{1}{2} + ... + \frac{1}{100}\)</span>,
+you can simply write:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+<span class="go">5.187377517639621</span>
+</pre></div>
+</div>
+<p>This convenient syntax works for any function that expects an iterable
+as an argument, such as the <code class="docutils literal"><span class="pre">list</span></code> function and <code class="docutils literal"><span class="pre">all</span></code> function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># providing generator expressions as arguments to functions</span>
+<span class="c1"># that operate on iterables</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">all</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">80000</span><span class="p">])</span>
+<span class="s1">&#39;10, 200, 4000, 80000&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p class="last">A generator comprehension can be specified directly as an argument to a
+function, wherever a single iterable is expected as an input to that
+function.</p>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Using Generator Comprehensions on the Fly</strong>:</p>
+<p class="last">In a single line, compute the sum of all of the odd-numbers in 0-100.</p>
+</div>
+</div>
+</div>
 <div class="section" id="Iterating-over-generators-using-next">
-<h3>Iterating over generators using <code class="docutils literal"><span class="pre">next</span></code><a class="headerlink" href="#Iterating-over-generators-using-next" title="Permalink to this headline">¶</a></h3>
+<h2>Iterating over generators using <code class="docutils literal"><span class="pre">next</span></code><a class="headerlink" href="#Iterating-over-generators-using-next" title="Permalink to this headline">¶</a></h2>
 <p>The built-in function <code class="docutils literal"><span class="pre">next</span></code> allows you manually “request” the next
-member, in order, from an iterator. Calling <code class="docutils literal"><span class="pre">next</span></code> on an exhausted
-iterator will raise a <code class="docutils literal"><span class="pre">StopIteration</span></code> signal.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">short_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+member of a generator, or more generally, any kind of <em>iterator</em>.
+Calling <code class="docutils literal"><span class="pre">next</span></code> on an exhausted iterator will raise a <code class="docutils literal"><span class="pre">StopIteration</span></code>
+signal.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># consuming an iterator using `next`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">short_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">short_gen</span><span class="p">)</span>
-<span class="go">0.5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">short_gen</span><span class="p">)</span>
+<span class="mf">0.5</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">short_gen</span><span class="p">)</span>
-<span class="go">1.0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">short_gen</span><span class="p">)</span>
+<span class="mf">1.0</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">short_gen</span><span class="p">)</span>
-<span class="go">1.5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">short_gen</span><span class="p">)</span>
+<span class="mf">1.5</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">short_gen</span><span class="p">)</span>
-<span class="go">StopIteration</span>
-<span class="go">Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-5-ed60a54ccf0b&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 next(short_gen)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">short_gen</span><span class="p">)</span>
+<span class="ne">StopIteration</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">ed60a54ccf0b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">short_gen</span><span class="p">)</span>
 
-<span class="go">StopIteration:</span>
+<span class="ne">StopIteration</span><span class="p">:</span>
 </pre></div>
 </div>
 <p>This is a great tool for retrieving content from a generator, or any
 iterator, without having to perform a for-loop over it.</p>
-</div>
-<div class="section" id="Iterables-v.-Iterators">
-<h3>Iterables v. Iterators<a class="headerlink" href="#Iterables-v.-Iterators" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Iterables-vs.&nbsp;Iterators">
+<h3>Iterables vs.&nbsp;Iterators<a class="headerlink" href="#Iterables-vs. Iterators" title="Permalink to this headline">¶</a></h3>
 <p>This subsection is <em>not</em> essential to your basic understanding of the
 material. I am including it to prevent this text from being misleading
-to those who already know quite a bit about Python.</p>
-<p><strong>This is a bit advanced, feel free to skip it…</strong></p>
+to those who already know quite a bit about Python. <strong>This is a bit
+advanced, feel free to skip it…</strong></p>
 <p>There is a bit of confusing terminology to be cleared up: an iterable is
 not the same thing as an iterator.</p>
 <p>An <em>iterator</em> object stores its current state of iteration and “yields”
@@ -553,9 +626,8 @@ iterable is an iterator.</p>
 <p>An <em>iterable</em> is an object that <em>can</em> be iterated over but does not
 necessarily have all the machinery of an iterator. For example,
 sequences (e.g lists, tuples, and strings) and other containers
-(e.g.&nbsp;dictionaries and sets) do not have the ability to keep track of
-their own state of iteration. That is, you cannot call <code class="docutils literal"><span class="pre">next</span></code> on one
-of these outright:</p>
+(e.g.&nbsp;dictionaries and sets) do not keep track of their own state of
+iteration. Thus you cannot call <code class="docutils literal"><span class="pre">next</span></code> on one of these outright:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># a list is an example of an iterable that is *not*</span>
 <span class="c1"># an iterator - you cannot call `next` on it.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -586,55 +658,14 @@ yield each one of the list’s members:</p>
 </div>
 <p>In this way, a list is an <em>iterable</em> but not an <em>iterator</em>, which is
 also the case for tuples, strings, sets, and dictionaries.</p>
-<p>This all happens “behind the scenes” whenever you perform a for-loop
-over an iterable like a list: Python feeds that iterable to <code class="docutils literal"><span class="pre">iter</span></code>,
-and then proceeds to call <code class="docutils literal"><span class="pre">next</span></code> on the resulting iterator for each of
-the for-loop’s iterations.</p>
+<p>Python actually creates an iterator “behind the scenes”, whenever you
+perform a for-loop over an iterable like a list. It feeds that iterable
+to <code class="docutils literal"><span class="pre">iter</span></code>, and then proceeds to call <code class="docutils literal"><span class="pre">next</span></code> on the resulting
+iterator for each of the for-loop’s iterations.</p>
 </div>
-<div class="section" id="Using-generator-comprehensions-on-the-fly">
-<h3>Using generator comprehensions on the fly<a class="headerlink" href="#Using-generator-comprehensions-on-the-fly" title="Permalink to this headline">¶</a></h3>
-<p>A feature of Python, that can make your code supremely readable and
-intuitive, is that generator comprehensions can be fed <em>directly</em> into
-functions that operate on iterables. That is,</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<span class="go">328350</span>
-</pre></div>
 </div>
-<p>can be simplified as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="go">328350</span>
-</pre></div>
-</div>
-<p>If you want your code to compute the finite harmonic series:
-<span class="math">\(\sum_{k=1}^{100} \frac{1}{n} = 1 + \frac{1}{2} + ... + \frac{1}{100}\)</span>,
-you can simply write:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
-<span class="go">5.187377517639621</span>
-</pre></div>
-</div>
-<p>This convenient syntax works for any function that expects an iterable
-as an argument, such as the <code class="docutils literal"><span class="pre">list</span></code> function and <code class="docutils literal"><span class="pre">all</span></code> function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="go">[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">A generator comprehension can be specified directly as an argument to a
-function, wherever a single iterable is expected as an input to that
-function.</p>
-</div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Using Generator Comprehensions on the Fly</strong>:</p>
-<p>In a single line, compute the sum of all of the odd-numbers in 0-100.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="List-comprehensions">
-<h3>List comprehensions<a class="headerlink" href="#List-comprehensions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="List-&amp;-Tuple-Comprehensions">
+<h2>List &amp; Tuple Comprehensions<a class="headerlink" href="#List-&-Tuple-Comprehensions" title="Permalink to this headline">¶</a></h2>
 <p>Using generator comprehensions to initialize lists is so useful that
 Python actually reserves a specialized syntax for it, known as the list
 comprehension. A <strong>list comprehension</strong> is a syntax for constructing a
@@ -644,20 +675,38 @@ list, which exactly mirrors the generator comprehension syntax:</p>
 </div>
 <p>For example, if we want to create a list of square-numbers, we can
 simply write:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
-<span class="go">[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># a simple list comprehension</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>This produces the exact same result as feeding the <code class="docutils literal"><span class="pre">list</span></code> function a
 generator comprehension. However, using a list comprehension is slightly
 more efficient than is feeding the <code class="docutils literal"><span class="pre">list</span></code> function a generator
 comprehension.</p>
-<p>Tuples can be created using comprehensions too, but we cannot use the
-familiar parentheses, since these are reserved for defining a
-generator-comprehension. Instead, you must explicitly invoke the
-<code class="docutils literal"><span class="pre">tuple</span></code> initialization function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="go">(0, 1, 4, 9, 16)</span>
+<p>Let’s appreciate how economical list comprehensions are. The following
+code stores words that contain the letter “o”, in a list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">words_with_o</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">word_collection</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;Like&#39;</span><span class="p">,</span> <span class="s1">&#39;You&#39;</span><span class="p">,</span> <span class="s1">&#39;Mean&#39;</span><span class="p">,</span> <span class="s1">&#39;It&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_collection</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s2">&quot;o&quot;</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="n">words_with_o</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This can be written in a single line, using a list comprehension:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word_collection</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;Like&#39;</span><span class="p">,</span> <span class="s1">&#39;You&#39;</span><span class="p">,</span> <span class="s1">&#39;Mean&#39;</span><span class="p">,</span> <span class="s1">&#39;It&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">words_with_o</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_collection</span> <span class="k">if</span> <span class="s2">&quot;o&quot;</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">words_with_o</span>
+<span class="go">[&#39;Python&#39;, &#39;You&#39;]</span>
+</pre></div>
+</div>
+<p>Tuples can be created using comprehension expressions too, but we must
+explicitly invoke the <code class="docutils literal"><span class="pre">tuple</span></code> constructor since parentheses are
+already reserved for defining a generator-comprehension.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># creating a tuple using a comprehension expression</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -665,16 +714,26 @@ generator-comprehension. Instead, you must explicitly invoke the
 <p class="last">The comprehensions-statement is an extremely useful syntax for creating
 simple and complicated lists and tuples alike.</p>
 </div>
-<hr class="docutils" />
-<p><strong>Reading Comprehension: List Comprehensions</strong>:</p>
-<p>Use a list comprehension to create a list that contains the string
+<div class="section" id="Nesting-comprehensions">
+<h3>Nesting comprehensions<a class="headerlink" href="#Nesting-comprehensions" title="Permalink to this headline">¶</a></h3>
+<p>It can be useful to nest comprehension expressions within one another,
+although this should be used sparingly.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Nested list comprehensions.</span>
+<span class="c1"># This creates a 3x4 &quot;matrix&quot; (list of lists) of zeros.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: List Comprehensions</strong>:</p>
+<p class="last">Use a list comprehension to create a list that contains the string
 “hello” 100 times.</p>
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>Reading Comprehension: Fancier List Comprehensions</strong>:</p>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Fancier List Comprehensions</strong>:</p>
 <p>Use the inline <code class="docutils literal"><span class="pre">if-else</span></code> statement (discussed earlier in this module),
 along with a list comprehension, to create the list:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span>
  <span class="s1">&#39;goodbye&#39;</span><span class="p">,</span>
  <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
  <span class="s1">&#39;goodbye&#39;</span><span class="p">,</span>
@@ -687,35 +746,61 @@ along with a list comprehension, to create the list:</p>
 </pre></div>
 </div>
 </div>
-<hr class="docutils" />
-<div class="section" id="Chaining-comprehensions">
-<h3>Chaining comprehensions<a class="headerlink" href="#Chaining-comprehensions" title="Permalink to this headline">¶</a></h3>
-<p>Because generators are iterables, they can be fed into subsequent
-generator comprehensions</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># generates 400.. 100.. 0.. 100.. 400</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">gen_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
-
-<span class="c1"># sums the generated numbers, excluding any numbers whose absolute value is greater than 150</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">gen_1</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">150</span><span class="p">)</span>
-<span class="mi">200</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="Nesting-comprehensions">
-<h3>Nesting comprehensions<a class="headerlink" href="#Nesting-comprehensions" title="Permalink to this headline">¶</a></h3>
-<p>It can be useful to nest comprehensions within one another:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># create a 3x4 &quot;matrix&quot; (list of lists) of zeros</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
-<span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
-</pre></div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Tuple Comprehensions</strong>:</p>
+<p class="last">Use a tuple-comprehension to extract comma-separated numbers from a
+string, converting them into a tuple of floats. I.e. <code class="docutils literal"><span class="pre">&quot;3.2,2.4,99.8&quot;</span></code>
+should become <code class="docutils literal"><span class="pre">(3.2,</span> <span class="pre">2.4,</span> <span class="pre">99.8)</span></code>. You will want to use the built-in
+string function
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.split">str.split</a>.</p>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Warning!</strong>:</p>
-<p class="last">Chaining and nesting comprehension expressions should be used sparingly.
-Otherwise you can quickly end up with code that is nearly
-incomprehensible.</p>
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Translating a For-Loop</strong>:</p>
+<p>Replicate the functionality of the the following code by writing a list
+comprehension.</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="c1"># skip all non-lowercased letters (including punctuation)</span>
+<span class="c1"># append 1 if lowercase letter is &quot;o&quot;</span>
+<span class="c1"># append 0 if lowercase letter is not &quot;o&quot;</span>
+<span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s2">&quot;Hello. How Are You?&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">islower</span><span class="p">():</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="s2">&quot;o&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Memory Efficiency</strong>:</p>
+<p>Is there any difference in performance between the following
+expressions?</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># feeding `sum` a generator comprehension</span>
+<span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># feeding `sum` a list comprehension</span>
+<span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p class="last">Is one expression preferable over the other? Why?</p>
+</div>
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/glossary.html#term-generator">Generator
+definition</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq-range">range</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#generator-expressions">Generator comprehension
+expressions</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/glossary.html#term-iterator">Iterator
+definition</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#next">next</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#iter">iter</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">List
+comprehensions</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#nested-list-comprehensions">Nested list
+comprehensions</a></li>
+</ul>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
@@ -745,6 +830,23 @@ incomprehensible.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="s2">&quot;hello&quot;</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;goodbye&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 </pre></div>
 </div>
+<p><strong>Tuple Comprehension: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">string_of_nums</span> <span class="o">=</span> <span class="s2">&quot;3.2, 2.4, 99.8&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">string_of_nums</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">))</span>
+<span class="go">(3.2, 2.4, 99.8)</span>
+</pre></div>
+</div>
+<p><strong>Translating a For-Loop: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="s2">&quot;o&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s2">&quot;Hello. How Are You?&quot;</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">islower</span><span class="p">()]</span>
+</pre></div>
+</div>
+<p><strong>Memory Efficiency: Solution</strong></p>
+<p>It is preferable to use the generator expression
+<code class="docutils literal"><span class="pre">sum(1/n</span> <span class="pre">for</span> <span class="pre">n</span> <span class="pre">in</span> <span class="pre">range(1,</span> <span class="pre">101))</span></code>, rather than the list comprehension
+<code class="docutils literal"><span class="pre">sum([1/n</span> <span class="pre">for</span> <span class="pre">n</span> <span class="pre">in</span> <span class="pre">range(1,</span> <span class="pre">101)])</span></code>. Using a list comprehension
+unnecessarily creates a list of the one hundred numbers, in memory,
+before feeding the list to <code class="docutils literal"><span class="pre">sum</span></code>. The generator expression need only
+produce a single value at a time, as <code class="docutils literal"><span class="pre">sum</span></code> iterates over it.</p>
 </div>
 </div>
 
@@ -792,7 +894,7 @@ incomprehensible.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'alpha',
+            VERSION:'0.12.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -802,6 +904,8 @@ incomprehensible.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
