@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Defining a New Class of Object &mdash; Python Like You Mean It 0.13.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Python Like You Mean It 0.13.0 documentation" href="../index.html"/>
+        <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
+        <link rel="next" title="Instances of a Class" href="ClassInstances.html"/>
+        <link rel="prev" title="Introduction to Object Oriented Programming" href="Introduction_to_OOP.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.13.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_OOP.html">Introduction to Object Oriented Programming</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Defining a New Class of Object</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#The-General-Form-of-a-Class-Definition">The General Form of a Class Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Working-with-Object-Attributes">Working with Object Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ClassInstances.html">Instances of a Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Brief_Review.html">A Brief Summary of Terms and Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications_of_OOP.html">Applications of Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Special_Methods.html">Special Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python Like You Mean It</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_4.html">Module 4: Object Oriented Programming</a> &raquo;</li>
+        
+      <li>Defining a New Class of Object</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module4_OOP/ClassDefinition.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Defining-a-New-Class-of-Object">
+<h1>Defining a New Class of Object<a class="headerlink" href="#Defining-a-New-Class-of-Object" title="Permalink to this headline">¶</a></h1>
+<p>This section will introduce the basic syntax for defining a new class
+(a.k.a. type) of Python object. Recall that the phrase <code class="docutils literal"><span class="pre">def</span></code> is used
+to denote the definition of a function. Similarly, <code class="docutils literal"><span class="pre">class</span></code> is used to
+denote the beginning of a class definition. The body of the class
+definition, which is the indented region below a <code class="docutils literal"><span class="pre">class</span></code> statement, is
+used to define the class’ various <strong>attributes</strong>.</p>
+<p>The following defines a new class of object, named <code class="docutils literal"><span class="pre">MyGuy</span></code>, specifying
+four attributes <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code>, <code class="docutils literal"><span class="pre">z</span></code>, and <code class="docutils literal"><span class="pre">f</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># defining a new class/type of object</span>
+<span class="k">class</span> <span class="nc">MyGuy</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="s2">&quot;hi&quot;</span>
+
+    <span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+        <span class="k">return</span> <span class="mi">3</span>
+
+<span class="c1"># leaving the indented region ends the class definition</span>
+</pre></div>
+</div>
+<p>Once this definition for a new class of object is executed, you can
+proceed to reference that object in your code. Here, we will access the
+various attributes of <code class="docutils literal"><span class="pre">MyGuy</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">x</span>
+<span class="go">3</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">y</span>
+<span class="go">[2, 4, 6]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">z</span>
+<span class="go">&quot;hi&quot;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">f</span>
+<span class="go">&lt;function __main__.MyGuy.f&gt;</span>
+</pre></div>
+</div>
+<p>See that all of the attributes can be accessed using the “dot” syntax:
+<code class="docutils literal"><span class="pre">object.attribute_name</span></code>. The attribute <code class="docutils literal"><span class="pre">f</span></code> is a function, thus we
+can call it and it will evaluate as expected:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># calling the attribute f</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MyGuy</span><span class="o">.</span><span class="n">f</span><span class="p">()</span>
+<span class="mi">3</span>
+</pre></div>
+</div>
+<p>An object attribute that is also a function is referred to as a
+<strong>method</strong>. Thus <code class="docutils literal"><span class="pre">f</span></code> is a method of <code class="docutils literal"><span class="pre">MyGuy</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">MyGuy</span></code> is the singular class object that embodies our class
+definition. It is akin to <code class="docutils literal"><span class="pre">list</span></code>, <code class="docutils literal"><span class="pre">str</span></code>, and <code class="docutils literal"><span class="pre">int</span></code>. We will use
+<code class="docutils literal"><span class="pre">MyGuy</span></code> to create objects that are <em>instances</em> of our class, in the
+same way that <code class="docutils literal"><span class="pre">&quot;cat&quot;</span></code> is an instance of <code class="docutils literal"><span class="pre">str</span></code>. More on this soon.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
+<p class="last">The <code class="docutils literal"><span class="pre">class</span></code> expression denotes the definition of a new class of
+object, which entails defining the attributes of that class. An
+attribute can “bind” to that class other Python objects (integers,
+strings, lists, etc), including functions. Attributes that are functions
+are called <em>methods</em>. The syntax <code class="docutils literal"><span class="pre">obj.attr</span></code> is the dot syntax for
+“getting” the attribute named <code class="docutils literal"><span class="pre">attr</span></code> from the object named <code class="docutils literal"><span class="pre">obj</span></code>.</p>
+</div>
+<div class="section" id="The-General-Form-of-a-Class-Definition">
+<h2>The General Form of a Class Definition<a class="headerlink" href="#The-General-Form-of-a-Class-Definition" title="Permalink to this headline">¶</a></h2>
+<p>The general form for a class definition is simply a collection of
+attribute definitions, which either take the form of variable
+assignments or function definitions, resulting in the formation of a new
+class of object, with its attributes and methods:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; class docstring &quot;&quot;&quot;</span>
+    <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span>
+    <span class="o">.</span>
+    <span class="o">.</span>
+    <span class="o">.</span>
+    <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="n">N</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where each <code class="docutils literal"><span class="pre">&lt;statement-j&gt;</span></code> defines an attribute (e.g. <code class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">&quot;hi&quot;</span></code>
+defines the attribute <code class="docutils literal"><span class="pre">z</span></code>, or a function definition creates a method)
+for that class of object.</p>
+<p>Similar to function definitions, class definitions can contain
+effectively arbitrary Python code, and the definition has its own
+<a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html">scope</a>;
+however, <em>any</em> variables assigned within the class definition will be
+available as attributes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Any variable assigned within a class definition becomes</span>
+<span class="c1"># available as an attribute for that class of object, even</span>
+<span class="c1"># a variable defined in a for-loop becomes an attribute of</span>
+<span class="c1"># that class.</span>
+
+<span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+        <span class="c1"># i = 5</span>
+        <span class="c1"># i = 6</span>
+        <span class="c1"># ...</span>
+        <span class="c1"># i = 10</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="n">i</span>
+
+    <span class="c1"># last iteration of loop assigns i = 10</span>
+    <span class="c1"># thus i is an attribute of Dummy with value 10</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Dummy</span><span class="o">.</span><span class="n">cnt</span>  <span class="c1"># cnt = 0 + 5 + 6 + 7 + 8 + 9 + 10</span>
+<span class="go">45</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Dummy</span><span class="o">.</span><span class="n">i</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Naming Classes of Objects:</strong></p>
+<p class="last">The convention for naming a new class/type of object is to use
+“camel-casing”. Thus if I wanted to call my class of objects “pizza
+shop”, I would use the name <code class="docutils literal"><span class="pre">PizzaShop</span></code>. This is in contrast to
+variable names, function names, and <em>instances</em> of a class object (still
+to be introduced), where convention dictates the use of lower-case
+letters and underscores in place of spaces (snake-case).</p>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Create Your Own Class of Object</strong></p>
+<p class="last">Create a definition for the class of object named <code class="docutils literal"><span class="pre">Dog</span></code>. This class
+should have two attributes: “name” and “speak”. The “name” attribute
+should bind a string to the object (the name of the dog). The “speak”
+attribute should be a <em>method</em>, that takes a string as an input argument
+and returns that string with <code class="docutils literal"><span class="pre">&quot;*woof*&quot;</span></code> added to either end of it
+(e.g. <code class="docutils literal"><span class="pre">&quot;hello&quot;</span></code> -&gt; <code class="docutils literal"><span class="pre">&quot;*woof*</span> <span class="pre">hello</span> <span class="pre">*woof*&quot;</span></code>)</p>
+</div>
+</div>
+<div class="section" id="Working-with-Object-Attributes">
+<h2>Working with Object Attributes<a class="headerlink" href="#Working-with-Object-Attributes" title="Permalink to this headline">¶</a></h2>
+<p>Attempting to access an undefined attribute from an object will raise an
+<code class="docutils literal"><span class="pre">AttributeError</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">apple</span>
+<span class="go">AttributeError: type object &#39;MyGuy&#39; has no attribute &#39;apple&#39;</span>
+</pre></div>
+</div>
+<p>We can use built-in function <code class="docutils literal"><span class="pre">hasattr</span></code> to inspect if an object
+possesses a particular attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `hasattr`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">MyGuy</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">)</span>  <span class="c1"># MyGuy.apple is not defined</span>
+<span class="bp">False</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">MyGuy</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>      <span class="c1"># MyGuy.x is defined</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<p>In addition to using the dot-syntax for accessing attributes, the
+built-in function <code class="docutils literal"><span class="pre">getattr</span></code> can be used to the same effect:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `getattr`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MyGuy</span><span class="o">.</span><span class="n">x</span>
+<span class="mi">3</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">MyGuy</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="mi">3</span>
+</pre></div>
+</div>
+<p>It may be surprising to discover that new attributes can be bound (or
+“set”) to the object <em>after</em> that class of object has already been
+defined. This can be done using the builtin-function <code class="docutils literal"><span class="pre">setattr</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use `setattr` to bind the attribute `apple` to `MyGuy`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">MyGuy</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">)</span>  <span class="c1"># MyGuy.apple is not defined</span>
+<span class="bp">False</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">setattr</span><span class="p">(</span><span class="n">MyGuy</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MyGuy</span><span class="o">.</span><span class="n">apple</span>
+<span class="s1">&#39;red&#39;</span>
+</pre></div>
+</div>
+<p>Attributes can be defined/set even less formally, using a simple
+assignment syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">MyGuy</span><span class="p">,</span> <span class="s2">&quot;grape&quot;</span><span class="p">)</span>  <span class="c1"># MyGuy.grape is not defined</span>
+<span class="go">False</span>
+
+<span class="go"># set the attribute `grape` to `MyGuy`</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">grape</span> <span class="o">=</span> <span class="s2">&quot;purple&quot;</span>  <span class="c1"># define and set the attribute &#39;grape&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">grape</span>
+<span class="go">&#39;purple&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># set the attribute &#39;x&#39; with a new value</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">x</span>
+<span class="go">-1</span>
+</pre></div>
+</div>
+<p>It may seem like the class definition is reduced to a mere formality,
+since attributes can be set to an object at so casually. Although Python
+is known for permitting this loosey-goosey style of coding, know that it
+is generally bad form to create attributes for a class of object outside
+of its designated definition.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
+<p class="last"><code class="docutils literal"><span class="pre">hasattr</span></code>, <code class="docutils literal"><span class="pre">getattr</span></code>, and <code class="docutils literal"><span class="pre">setattr</span></code> are built-in functions that
+allow us to, by the name of an attribute, check to see if it exists,
+access its value, and set its value, respectively. Python’s objects are
+shockingly flexible in that their attributes can be created outside of
+the formal space of the class definition. That being said, we should be
+civilized and treat the class definition as a formal
+contract/specification whenever possible.</p>
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#class-objects">Python Tutorial: Class
+Objects</a></li>
+</ul>
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Set Creation: Solution</strong></p>
+<p>Create a definition for the class of object named <code class="docutils literal"><span class="pre">Dog</span></code>. This class
+should have two attributes: “name” and “speak”. The “name” attribute
+should bind a string to the object (the name of the dog). The “speak”
+attribute should be a <em>method</em>, that takes a string as an input argument
+and returns that string with <code class="docutils literal"><span class="pre">&quot;*woof*&quot;</span></code> added to either end of it
+(e.g. <code class="docutils literal"><span class="pre">&quot;hello&quot;</span></code> -&gt; <code class="docutils literal"><span class="pre">&quot;*woof*</span> <span class="pre">hello</span> <span class="pre">*woof*&quot;</span></code>)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Charlie&quot;</span>
+
+    <span class="k">def</span> <span class="nf">speak</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;*woof* &quot;</span> <span class="o">+</span> <span class="n">input_string</span> <span class="o">+</span> <span class="s2">&quot; *woof*&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ClassInstances.html" class="btn btn-neutral float-right" title="Instances of a Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction_to_OOP.html" class="btn btn-neutral" title="Introduction to Object Oriented Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.13.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

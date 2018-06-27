@@ -1,0 +1,957 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced Indexing &mdash; Python Like You Mean It 0.13.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Python Like You Mean It 0.13.0 documentation" href="../index.html"/>
+        <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
+        <link rel="next" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
+        <link rel="prev" title="Introducing Basic and Advanced Indexing" href="BasicIndexing.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.13.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="IntroducingTheNDarray.html">Introducing the ND-array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessingDataAlongMultipleDimensions.html">Accessing Data Along Multiple Dimensions in an Array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicArrayAttributes.html">Basic Array Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FunctionsForCreatingNumpyArrays.html">Functions for Creating NumPy Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ArrayTraversal.html">Iterating Over Arrays &amp; Array-Traversal Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VectorizedOperations.html">“Vectorized” Operations: Optimized Computations on NumPy Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Broadcasting.html">Array Broadcasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicIndexing.html">Introducing Basic and Advanced Indexing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Advanced Indexing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Integer-Array-Indexing">Integer Array Indexing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Indexing-into-1-Dimensional-Arrays">Indexing into 1-Dimensional Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Indexing-into-N-Dimensional-Arrays">Indexing into N-Dimensional Arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Boolean-Array-Indexing">Boolean-Array Indexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#In-Place-&amp;-Augmented-Assignments-via-Advanced-Indexing">In-Place &amp; Augmented Assignments via Advanced Indexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Combining-Basic-and-Advanced-Indexing-Schemes">Combining Basic and Advanced Indexing Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python Like You Mean It</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_3.html">Module 3: The Essentials of NumPy</a> &raquo;</li>
+        
+      <li>Advanced Indexing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module3_IntroducingNumpy/AdvancedIndexing.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Advanced-Indexing">
+<h1>Advanced Indexing<a class="headerlink" href="#Advanced-Indexing" title="Permalink to this headline">¶</a></h1>
+<p>We conclude our discussion of indexing into N-dimensional NumPy arrays
+by understanding advanced indexing. Unlike basic indexing, which allows
+us to access distinct elements and regular slices of an array, advanced
+indexing is significantly more flexible. For example, arrays of integers
+can be used to access arbitrary and even repeated entries from an array,</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+
+<span class="go"># Construct the following 2D array</span>
+<span class="go"># from the contents of `x`:</span>
+<span class="go">#</span>
+<span class="go">#     [[x[0, 0], x[0, 1]],</span>
+<span class="go">#      [x[2, 2], x[2, 2]]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>                 <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="gp">... </span>                 <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">]</span>
+<span class="go">array([[0, 1],</span>
+<span class="go">       [8, 8]])</span>
+</pre></div>
+</div>
+<p>Additionally, it permits the use of <em>boolean-valued</em> arrays as indices,</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Use a boolean-valued array to access</span>
+<span class="c1"># the diagonal values of an array</span>
+
+<span class="c1"># Specify `True` wherever we want to access</span>
+<span class="c1"># the entry of `x`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bool_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+<span class="o">...</span>                        <span class="p">[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+<span class="o">...</span>                        <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">]])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">bool_index</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Unlike basic indexing, advanced indexing always produces a copy of the
+underlying data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">])</span>
+<span class="go">False</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">bool_index</span><span class="p">])</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>The flexibility permitted by advanced indexing makes it a difficult
+topic to treat exhaustively without delving into somewhat terse and
+abstract notation. It is best to refer to <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing">the official
+documentation</a>
+for such a treatment of the topic. Here, we will discuss the essential
+aspects of advanced indexing, with the aim of the discussion being both
+thorough and accessible.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Advanced Indexing</strong>:</p>
+<p>Given an <span class="math">\(N\)</span>-dimensional array, <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">x[index]</span></code> invokes
+<strong>advanced indexing</strong> whenever <code class="docutils literal"><span class="pre">index</span></code> is:</p>
+<ul class="simple">
+<li>an integer-type or boolean-type <code class="docutils literal"><span class="pre">numpy.ndarray</span></code></li>
+<li>a <code class="docutils literal"><span class="pre">tuple</span></code> with at least one <em>sequence</em>-type object as an element
+(e.g.&nbsp;a list, tuple, or ndarray)</li>
+</ul>
+<p class="last">Accessing the contents of an array via advanced indexing <em>always returns
+a copy of those contents</em>, whereas basic indexing returns a view.</p>
+</div>
+<div class="section" id="Integer-Array-Indexing">
+<h2>Integer Array Indexing<a class="headerlink" href="#Integer-Array-Indexing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Indexing-into-1-Dimensional-Arrays">
+<h3>Indexing into 1-Dimensional Arrays<a class="headerlink" href="#Indexing-into-1-Dimensional-Arrays" title="Permalink to this headline">¶</a></h3>
+<p>Using an integer-type array as an index allows us to access the contents
+of an array arbitrarily, permitting items to be accessed out of order,
+and even repeatedly. Consider the following 1-dimensional array.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>See that we can access an arbitrary number of the array’s contents in an
+unpatterned way, which is not permissible via basic index:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># advanced indexing with an integer-array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The instruction for accessing the contents of <code class="docutils literal"><span class="pre">y</span></code> in this way is
+straight-forward to interpret. Each entry of the index-array is used to
+access an element from <code class="docutils literal"><span class="pre">y</span></code>, as illustrated here:</p>
+<div class="math">
+\begin{equation}
+\left(
+\begin{array}{*{6}{X}}
+  y[2] &amp; y[4] &amp; y[0] &amp; y[4] &amp; y[4] &amp; y[4]
+\end{array}
+\right)
+%
+\rightarrow
+\left(
+\begin{array}{*{6}{X}}
+  -2 &amp; -4 &amp; 0 &amp; -4 &amp; -4 &amp; -4
+\end{array}
+\right)
+\end{equation}</div><p>This returns a <em>copy</em> of the data, as do all occurrences of advanced
+indexing.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># advanced indexing returns a copy</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<p>The indexing array can have an arbitrary shape; <em>the resulting array
+will match that shape</em>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># utilizing a 2D-array as an index</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">index_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
+<span class="o">...</span>                      <span class="p">[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+<span class="o">...</span>                      <span class="p">[</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">]])</span>
+
+<span class="c1"># the resulting shape matches the shape of the indexing array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="n">index_2d</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="math">
+\begin{equation}
+\left(
+\begin{array}{*{3}{X}}
+  y[1] &amp; y[2] &amp; y[0] \\
+  y[5] &amp; y[5] &amp; y[5] \\
+  y[2] &amp; y[3] &amp; y[4]
+\end{array}
+\right)
+%
+\rightarrow
+\left(
+\begin{array}{*{3}{X}}
+  -1 &amp; -2 &amp; 0 \\
+  -5 &amp; -5 &amp; -5 \\
+  -2 &amp; -3 &amp; -4
+\end{array}
+\right)
+\end{equation}</div><div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Integer Array Indexing (1-D)</strong></p>
+<p>Given the following array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Use advanced indexing, using an integer-array, to produce the following
+arrays:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 1</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1">#2</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1">#3</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]])</span>
+
+<span class="c1">#4</span>
+<span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Indexing-into-N-Dimensional-Arrays">
+<h3>Indexing into N-Dimensional Arrays<a class="headerlink" href="#Indexing-into-N-Dimensional-Arrays" title="Permalink to this headline">¶</a></h3>
+<p>In the preceding examples, working with a 1-dimensional array, we
+specified a single index-array to access the contents along the only
+dimension of that array. As you may guess, in order to perform this
+variety of indexing on an <span class="math">\(N\)</span>-dimensional array, we must specify
+<span class="math">\(N\)</span> index-arrays; one for each dimension.</p>
+<p>Each of the <span class="math">\(N\)</span> index-arrays must have the same shape, and their
+common shape determines the shape of the resulting array. The
+corresponding entries of each of the <span class="math">\(N\)</span> index-arrays are used to
+specify a specific array element to be accessed. For example, consider
+the following 3-dimensional array whose elements we will be accessing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Indexing a 3D array using integer index-arrays</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
+<span class="o">...</span>
+<span class="o">...</span>               <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<p>We specify three index-arrays; the indices to be accessed along axis-0,
+axis-1, and axis-2, respectively. Suppose we want to produce the array:
+<code class="docutils literal"><span class="pre">array([</span> <span class="pre">3,</span> <span class="pre">23,</span>&#160; <span class="pre">4])</span></code>. The layout of these elements is as follows:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">3</span></code>: sheet-0, row-0, column-3</li>
+<li><code class="docutils literal"><span class="pre">23</span></code>: sheet-1, row-2, column-3</li>
+<li><code class="docutils literal"><span class="pre">4</span></code>: sheet-0, row-1, column-0</li>
+</ul>
+<p>Each index-array must have a shape (3,) in order to produce the result
+of the appropriate shape. The index-array supplied for axis-0 must be
+<code class="docutils literal"><span class="pre">np.array([0,</span> <span class="pre">1,</span> <span class="pre">0])</span></code> in order to select sheet-0 for <code class="docutils literal"><span class="pre">3</span></code>, sheet-1
+for <code class="docutils literal"><span class="pre">23</span></code>, and then sheet-0 for <code class="docutils literal"><span class="pre">4</span></code>. The other index-arrays are
+formed similarly.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># specifies subsequent sheets to access</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># specifies subsequent rows to access</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># specifies subsequent columns to access</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span><span class="p">[</span><span class="n">ind0</span><span class="p">,</span> <span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span>  <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Formally, the index-arrays are traversed simultaneously using <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/ArrayTraversal.html">row-major
+ordering</a>,
+and each combination of integer-indices is used to index into <code class="docutils literal"><span class="pre">z</span></code> and
+populate the corresponding element in the resulting array.</p>
+<div class="math">
+\begin{equation}
+   z\big[ind_0[0], ind_1[0], ind_2[0]\big]
+%
+\rightarrow
+out[0] \\
+   z\big[ind_0[1], ind_1[1], ind_2[1]\big]
+%
+\rightarrow
+out[1] \\
+   z\big[ind_0[2], ind_1[2], ind_2[2]\big]
+%
+\rightarrow
+out[2] \\
+\end{equation}
+
+\begin{equation}
+\left(
+\begin{array}{*{3}{X}}
+   z[0, 0, 3] &amp; z[1, 2, 3] &amp; z[0, 1, 0]
+\end{array}
+\right)
+%
+\rightarrow
+\left(
+\begin{array}{*{3}{X}}
+  3 &amp; 23 &amp; 4
+\end{array}
+\right)
+\end{equation}</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Using integer index-arrays to produce a shape(2, 2) result</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span><span class="p">[</span><span class="n">ind0</span><span class="p">,</span> <span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">17</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="math">
+\begin{equation}
+\left(
+\begin{array}{*{3}{X}}
+  z[1, 1, 1] &amp; z[1, 2, 3] \\
+  z[0, 0, 1] &amp; z[1, 0, 3]
+\end{array}
+\right)
+%
+\rightarrow
+\left(
+\begin{array}{*{3}{X}}
+  17 &amp; 23 \\
+  1 &amp; 15
+\end{array}
+\right)
+\end{equation}</div><div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Integer Array Indexing (N-D)</strong></p>
+<p>Given the following array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
+<span class="gp">...</span>
+<span class="gp">... </span>              <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<p>Use advanced indexing, using integer-arrays, to produce the following
+arrays:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 1</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">22</span><span class="p">]])</span>
+
+<span class="c1">#2</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">23</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
+<p class="last">An <span class="math">\(N\)</span>-dimensional array’s contents can be accessed by supplying
+<span class="math">\(N\)</span> index-arrays of integers; one for each axis of data. The
+index-arrays must have the same shape as one another, and this common
+shape determines the shape of the resulting array. This is a form of
+advanced indexing, and thus a copy of the parent array’s data is
+created.</p>
+</div>
+</div>
+</div>
+<div class="section" id="Boolean-Array-Indexing">
+<h2>Boolean-Array Indexing<a class="headerlink" href="#Boolean-Array-Indexing" title="Permalink to this headline">¶</a></h2>
+<p>NumPy also permits the use of a boolean-valued array as an index, to
+perform advanced indexing on an array. In its simplest form, this is an
+extremely intuitive and elegant method for selecting contents from an
+array based on logical conditions.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># advanced indexing using a boolean-array</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="o">-</span><span class="mf">0.26</span><span class="p">,</span>  <span class="mf">0.49</span><span class="p">,</span>  <span class="mf">0.18</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span> <span class="mf">0.43</span><span class="p">,</span>  <span class="mf">0.3</span> <span class="p">,</span>  <span class="mf">0.29</span><span class="p">]],</span>
+<span class="o">...</span>
+<span class="o">...</span>               <span class="p">[[</span><span class="o">-</span><span class="mf">0.44</span><span class="p">,</span>  <span class="mf">0.3</span> <span class="p">,</span>  <span class="mf">0.28</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span> <span class="mf">0.27</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.09</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.13</span><span class="p">]]])</span>
+
+<span class="c1"># `True` wherever `x` is positive</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bool_ind</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bool_ind</span>
+<span class="n">array</span><span class="p">([[[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
+        <span class="p">[</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">]],</span>
+
+       <span class="p">[[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
+        <span class="p">[</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">bool_ind</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">0.49</span><span class="p">,</span>  <span class="mf">0.18</span><span class="p">,</span>  <span class="mf">0.43</span><span class="p">,</span>  <span class="mf">0.3</span> <span class="p">,</span>  <span class="mf">0.29</span><span class="p">,</span>  <span class="mf">0.3</span> <span class="p">,</span>  <span class="mf">0.28</span><span class="p">,</span>  <span class="mf">0.27</span><span class="p">])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">bool_ind</span><span class="p">])</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<p>In its simplest form, boolean indexing behaves as follows: Suppose <code class="docutils literal"><span class="pre">x</span></code>
+is an <span class="math">\(N\)</span>-dimensional array, and <code class="docutils literal"><span class="pre">ind</span></code> is a boolean-value array
+<em>of the same shape as</em> <code class="docutils literal"><span class="pre">x</span></code>. Then <code class="docutils literal"><span class="pre">x[ind]</span></code> returns a 1-dimensional
+array, which is formed by traversing <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">ind</span></code> using <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/ArrayTraversal.html">row-major
+ordering</a>.
+Wherever an element of <code class="docutils literal"><span class="pre">ind</span></code> is <code class="docutils literal"><span class="pre">True</span></code>, the corresponding entry of
+<code class="docutils literal"><span class="pre">x</span></code> is added to the end of the resulting array. Refer to the preceding
+example and convince yourself that this is the behavior that is
+exhibited.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Boolean Indexing</strong></p>
+<p>Given the following array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.01</span><span class="p">,</span>  <span class="mf">0.03</span><span class="p">,</span>  <span class="mf">0.1</span> <span class="p">,</span>  <span class="mf">0.25</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.38</span><span class="p">,</span>  <span class="mf">0.22</span><span class="p">,</span>  <span class="mf">0.15</span><span class="p">,</span>  <span class="mf">0.34</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="o">-</span><span class="mf">0.29</span><span class="p">,</span>  <span class="mf">0.13</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.26</span><span class="p">,</span>  <span class="mf">0.33</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Use boolean array-indexing and NumPy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">logical
+functions</a>
+to select the contents of <code class="docutils literal"><span class="pre">h</span></code> that satisfy the following conditions.
+Because you are dealing with floating-point numbers, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">you should not
+require that two values are exactly
+equal</a>;
+rather, make use of the function
+<a class="reference external" href="https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.isclose.html">numpy.isclose</a>.</p>
+<ol class="last arabic simple">
+<li>All negative entries in <code class="docutils literal"><span class="pre">h</span></code></li>
+<li>All entries in <code class="docutils literal"><span class="pre">h</span></code> “equal” to <code class="docutils literal"><span class="pre">0.01</span></code> or <code class="docutils literal"><span class="pre">0.33</span></code></li>
+<li>All entries of <code class="docutils literal"><span class="pre">h</span></code> that fall within the domain `(0.1, 0.3)</li>
+</ol>
+</div>
+<p>The function
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html">numpy.where</a>
+can be used to take a boolean-valued array, and produce the <em>tuple</em> of
+index-arrays that access the <code class="docutils literal"><span class="pre">True</span></code> entries of that array, via integer
+array indexing (discussed at the beginning of this section).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `np.where`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bool_ind</span>
+<span class="n">array</span><span class="p">([[[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
+        <span class="p">[</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">]],</span>
+
+       <span class="p">[[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
+        <span class="p">[</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bool_ind</span><span class="p">)</span>
+<span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In this example, a tuple of three integer-valued index-arrays are
+returned, one for each dimension of <code class="docutils literal"><span class="pre">bool_ind</span></code>. See that index-arrays
+indicate the <code class="docutils literal"><span class="pre">True</span></code> entries of <code class="docutils literal"><span class="pre">bool_ind</span></code>. Furthermore, recall that
+<code class="docutils literal"><span class="pre">bool_ind</span></code> was created to access the positive entries of <code class="docutils literal"><span class="pre">x</span></code>; the
+tuple of index-arrays can thus be used to the exact same end.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ind0</span><span class="p">,</span> <span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bool_ind</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">ind0</span><span class="p">,</span> <span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">]</span>
+<span class="go">array([ 0.49,  0.18,  0.43,  0.3 ,  0.29,  0.3 ,  0.28,  0.27])</span>
+
+<span class="go"># unpacking the arrays is not necessary, you can</span>
+<span class="go"># use the tuple as an index</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bool_ind</span><span class="p">)]</span>
+<span class="go">array([ 0.49,  0.18,  0.43,  0.3 ,  0.29,  0.3 ,  0.28,  0.27])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">np.where</span></code> is particularly useful when we want insight into <em>where</em>
+specific conditions are met within an array. Suppose, for instance, we
+want to know which sheets in <code class="docutils literal"><span class="pre">x</span></code> contain values greater than 0.4:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># which sheets in `x` contain a value</span>
+<span class="c1"># greater than 0.4?</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind0</span><span class="p">,</span> <span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.4</span><span class="p">)</span>
+
+<span class="c1"># get rid of redundant answers</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">ind0</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span>
+
+<span class="c1"># only sheet-0 contains such values</span>
+</pre></div>
+</div>
+<p>Armed with NumPy’s suite of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">logical
+functions</a>,
+boolean-array indexing provides a sleek interface for accessing the
+particular contents of an array, irrespective of the array’s shape and
+the layout of its contents. This method of indexing is especially
+powerful in the context of performing augmented updates to an array,
+which is the subject of the following subsection.</p>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: numpy.where</strong></p>
+<p>Given the array</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last"><em>Predict</em> what the output of <code class="docutils literal"><span class="pre">np.where(b)</span></code> is.</p>
+</div>
+</div>
+<div class="section" id="In-Place-&amp;-Augmented-Assignments-via-Advanced-Indexing">
+<h2>In-Place &amp; Augmented Assignments via Advanced Indexing<a class="headerlink" href="#In-Place-&-Augmented-Assignments-via-Advanced-Indexing" title="Permalink to this headline">¶</a></h2>
+<p>Although advanced indexing does not produce a <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/BasicIndexing.html#Producing-a-View-of-an-Array">*view* of the underlying
+data</a>,
+it can still be used to facilitate in-place and augmented assignments to
+regions of an array. Suppose, for instance, that you want to threshold
+the contents of an array such that all of its negative-valued entries
+are replaced with 0. Boolean indexing makes this task trivial to perform
+via in-place assignment:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># assignment via advanced indexing</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.38</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.16</span><span class="p">,</span>  <span class="mf">0.38</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.41</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span><span class="o">-</span><span class="mf">0.47</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.18</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.49</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span> <span class="mf">0.02</span><span class="p">,</span>  <span class="mf">0.4</span> <span class="p">,</span>  <span class="mf">0.33</span><span class="p">,</span>  <span class="mf">0.33</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.13</span><span class="p">]])</span>
+
+<span class="c1"># set all negative entries of `x` to 0 (broadcasting is used)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">0.38</span><span class="p">,</span>  <span class="mf">0.</span>  <span class="p">,</span>  <span class="mf">0.38</span><span class="p">,</span>  <span class="mf">0.</span>  <span class="p">,</span>  <span class="mf">0.</span>  <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span>  <span class="p">,</span>  <span class="mf">0.</span>  <span class="p">,</span>  <span class="mf">0.</span>  <span class="p">,</span>  <span class="mf">0.</span>  <span class="p">,</span>  <span class="mf">0.</span>  <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.02</span><span class="p">,</span>  <span class="mf">0.4</span> <span class="p">,</span>  <span class="mf">0.33</span><span class="p">,</span>  <span class="mf">0.33</span><span class="p">,</span>  <span class="mf">0.</span>  <span class="p">]])</span>
+</pre></div>
+</div>
+<p>We also demonstrate the use of integer-valued index-arrays to perform an
+augmented assignment.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># augmented assignment via integer-arrays</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">ind0</span><span class="p">,</span> <span class="n">ind1</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">0.38</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+
+<span class="c1"># equivalent: x[ 0, 0] *= 100</span>
+<span class="c1">#             x[-1, 1] *= 100</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">ind0</span><span class="p">,</span> <span class="n">ind1</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">100</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="n">array</span><span class="p">([[</span>  <span class="mf">38.</span><span class="p">,</span>   <span class="mf">0.</span> <span class="p">,</span> <span class="mf">0.38</span> <span class="p">,</span>   <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span>  <span class="p">],</span>
+       <span class="p">[</span>   <span class="mf">0.</span><span class="p">,</span>   <span class="mf">0.</span> <span class="p">,</span>    <span class="mf">0.</span><span class="p">,</span>   <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span>  <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.02</span><span class="p">,</span>  <span class="mf">40.</span> <span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span>  <span class="mf">0.33</span><span class="p">,</span>  <span class="mf">0.</span>  <span class="p">]])</span>
+</pre></div>
+</div>
+<p>Recall that redundant entries in an array can be specified via integer
+array indexing. An augmented assignment <em>will only be performed once on
+redundant entries</em>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+
+<span class="go"># y[0] is accessed three times and y[2] one time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])]</span>
+<span class="go">array([4, 4, 4, 8])</span>
+
+<span class="go"># the augmented update is only applied once to y[0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">array([5, 6, 9])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Assignment via advanced indexing</strong></p>
+<p>Given the array</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.58</span><span class="p">,</span>  <span class="mf">0.05</span><span class="p">,</span>  <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.21</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.88</span><span class="p">,</span>  <span class="mf">0.98</span><span class="p">,</span>  <span class="mf">0.45</span><span class="p">,</span>  <span class="mf">0.13</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.1</span> <span class="p">,</span>  <span class="mf">0.52</span><span class="p">,</span>  <span class="mf">0.58</span><span class="p">,</span>  <span class="mf">0.38</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.76</span><span class="p">,</span>  <span class="mf">0.25</span><span class="p">,</span>  <span class="mf">0.07</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p class="last">Replace the diagonal elements of <code class="docutils literal"><span class="pre">x</span></code> with <code class="docutils literal"><span class="pre">(-1,</span> <span class="pre">-2,</span> <span class="pre">-3,</span> <span class="pre">-4)</span></code>, and
+add <code class="docutils literal"><span class="pre">1</span></code> to all values in <code class="docutils literal"><span class="pre">x</span></code> that are greater than <code class="docutils literal"><span class="pre">0.8</span></code>.</p>
+</div>
+</div>
+<div class="section" id="Combining-Basic-and-Advanced-Indexing-Schemes">
+<h2>Combining Basic and Advanced Indexing Schemes<a class="headerlink" href="#Combining-Basic-and-Advanced-Indexing-Schemes" title="Permalink to this headline">¶</a></h2>
+<p>Integer- and boolean-valued arrays can be used in conjunction with
+<code class="docutils literal"><span class="pre">slice</span></code>, <code class="docutils literal"><span class="pre">numpy.newaxis</span></code>, and <code class="docutils literal"><span class="pre">int</span></code> objects to form indices that
+combine basic and advanced indexing schemes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># combining advanced and basic indexing techniques</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
+<span class="o">...</span>
+<span class="o">...</span>               <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+<span class="o">...</span>                <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">])</span>
+
+<span class="c1"># select sheet-0, all rows, last column</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span><span class="p">[</span><span class="n">ind0</span><span class="p">,</span> <span class="p">:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>The rules for resolving the various possible combinations of basic and
+advanced indexing are nontrivial. Refer to the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">official NumPy
+documentation</a>
+for a detailed description for these rules. In practice, basic and
+advanced indexing can typically be used independently from one another.</p>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing">Advanced
+Indexing</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">Logical
+Functions</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html">numpy.where</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">Combining Basics and Advanced
+Indexing</a></li>
+</ul>
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Integer Array Indexing (1-D): Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="n">ind1</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1">#2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="n">ind2</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1">#3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<span class="o">...</span>                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="n">ind3</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]])</span>
+
+<span class="c1">#4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],</span>
+<span class="o">...</span>                  <span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+<span class="o">...</span>                  <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="n">ind4</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p><strong>Integer Array Indexing (N-D): Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]],</span>
+<span class="gp">...</span>
+<span class="gp">... </span>              <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+<span class="gp">... </span>               <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span><span class="p">[</span><span class="n">ind0</span><span class="p">,</span> <span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">22</span><span class="p">]])</span>
+
+<span class="c1"># 2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span><span class="p">[</span><span class="n">ind0</span><span class="p">,</span> <span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">]</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">23</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p><strong>Boolean Indexing: Solution</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.01</span><span class="p">,</span>  <span class="mf">0.03</span><span class="p">,</span>  <span class="mf">0.1</span> <span class="p">,</span>  <span class="mf">0.25</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.38</span><span class="p">,</span>  <span class="mf">0.22</span><span class="p">,</span>  <span class="mf">0.15</span><span class="p">,</span>  <span class="mf">0.34</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="o">-</span><span class="mf">0.29</span><span class="p">,</span>  <span class="mf">0.13</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.26</span><span class="p">,</span>  <span class="mf">0.33</span><span class="p">]])</span>
+
+<span class="go"># 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="p">[</span><span class="n">h</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="go">array([-0.29, -0.26])</span>
+
+<span class="go"># 2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">))]</span>
+<span class="go">array([ 0.01,  0.33])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">&lt;</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mf">0.3</span><span class="p">)]</span>
+<span class="go">array([ 0.25,  0.22,  0.15,  0.13])</span>
+</pre></div>
+</div>
+<p><strong>numpy.where: Solution</strong></p>
+<p>Given the array</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Predict</em> what the output of <code class="docutils literal"><span class="pre">np.where(b)</span></code> is.</p>
+<p>This will return a tuple of two integer-valued index-arrays. These
+contain the indices, along axis-0 and axis-1 respectively, where <code class="docutils literal"><span class="pre">b</span></code>
+contains the value <code class="docutils literal"><span class="pre">True</span></code>. The indices are ordered by traversing <code class="docutils literal"><span class="pre">b</span></code>
+in row-major order. It returns:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Assignment via advanced indexing</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.58</span><span class="p">,</span>  <span class="mf">0.05</span><span class="p">,</span>  <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.21</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.88</span><span class="p">,</span>  <span class="mf">0.98</span><span class="p">,</span>  <span class="mf">0.45</span><span class="p">,</span>  <span class="mf">0.13</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.1</span> <span class="p">,</span>  <span class="mf">0.52</span><span class="p">,</span>  <span class="mf">0.58</span><span class="p">,</span>  <span class="mf">0.38</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.76</span><span class="p">,</span>  <span class="mf">0.25</span><span class="p">,</span>  <span class="mf">0.07</span><span class="p">]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mf">0.8</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([[ 0.  ,  0.05,  1.84,  0.21],</span>
+<span class="go">       [ 1.88,  2.  ,  0.45,  0.13],</span>
+<span class="go">       [ 0.1 ,  0.52,  3.  ,  0.38],</span>
+<span class="go">       [ 1.84,  0.76,  0.25,  4.  ]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../module_4.html" class="btn btn-neutral float-right" title="Module 4: Object Oriented Programming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="BasicIndexing.html" class="btn btn-neutral" title="Introducing Basic and Advanced Indexing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.13.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../_static/gtag.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

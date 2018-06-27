@@ -112,11 +112,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Example:-Writing-and-Reading-a-Text-File">Example: Writing and Reading a Text File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Globbing-for-Files">Globbing for Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Saving-&amp;-Loading-Python-Objects:-pickle">Saving &amp; Loading Python Objects: pickle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Saving-and-Loading-NumPy-Arrays">Saving and Loading NumPy Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Example:-Writing-and-Reading-NumPy-Arrays">Example: Writing and Reading NumPy Arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
 </ul>
 </li>
 </ul>
@@ -226,16 +223,11 @@
 that involves reading from and writing to files. We will learn about the
 built-in <code class="docutils literal"><span class="pre">pathlib.Path</span></code> object, which will help to ensure that the
 code that we write is portable across operating systems (OS)
-(e.g.&nbsp;Windows, MacOS, Linux). We will also be introduced to a <em>context
-manager</em>, <code class="docutils literal"><span class="pre">open</span></code>, which will permit us to read-from and write-to a
-file safely; by “safely” we mean that we will be assured that any file
-that we open will eventually be closed properly, so that it will not be
-corrupted even in the event that our code hits an error. Next, we will
-learn how to “glob” for files, meaning that we will learn to search for
-and list files whose names match specific patterns. Lastly, we will
-briefly encounter the <code class="docutils literal"><span class="pre">pickle</span></code> module which allows us to save (or
-“pickle”) and load Python objects to and from your computer’s file
-system.</p>
+(i.e.&nbsp;Windows vs MacOS vs Linux). We will also be introduced to a
+so-called context manager, which will permit us to read-from and
+write-to a file safely; by “safely” we mean that we will be assured that
+any file that we open will eventually be closed properly, so that it
+will not be corrupted even in the event that our code hits an error.</p>
 <div class="section" id="Working-with-Paths">
 <h2>Working with Paths<a class="headerlink" href="#Working-with-Paths" title="Permalink to this headline">¶</a></h2>
 <p>Suppose you are writing a Jupyter notebook where you are analyzing data
@@ -262,7 +254,7 @@ utilized, without modification, across operating systems. This where
 Python’s fantastic <code class="docutils literal"><span class="pre">pathlib</span></code> module comes in handy.</p>
 <div class="section" id="pathlib.Path">
 <h3>pathlib.Path<a class="headerlink" href="#pathlib.Path" title="Permalink to this headline">¶</a></h3>
-<p>The standard library’s <a class="reference external" href="https://docs.python.org/3/library/pathlib.html">pathlib
+<p>The built-in <a class="reference external" href="https://docs.python.org/3/library/pathlib.html">pathlib
 module</a> provides a
 number of classes that make it easy to work with file system paths
 across operating systems. We will limit our discussion to the
@@ -291,7 +283,7 @@ overrides the <code class="docutils literal"><span class="pre">/</span></code> o
 method</a>)
 so that we can create a path to a subsequent directory. Let’s see this
 in action:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># creating a path to the file &#39;data1.txt&#39; in the subdirectory &#39;data&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># creating a path to a file in a subdirectory</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">path_to_data1</span> <span class="o">=</span> <span class="n">root</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;data1.txt&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">path_to_data1</span>
 <span class="n">WindowsPath</span><span class="p">(</span><span class="s1">&#39;data/data1.txt&#39;</span><span class="p">)</span>
@@ -377,9 +369,7 @@ even in the event that our code raises an error.</p>
 <p>The following code opens the file “file1.txt” for writing:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the use of the `open` context manager</span>
 
-<span class="c1"># we will write to the file named &quot;file1.txt&quot;, located</span>
-<span class="c1"># in the present directory</span>
-<span class="n">path_to_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;file1.txt&quot;</span><span class="p">)</span>
+<span class="n">path_to_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;file1.txt&quot;</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="c1"># The indented space enters the &quot;context&quot; of the open file.</span>
     <span class="c1"># Leaving the indented space exist the context of the opened file, forcing</span>
@@ -471,9 +461,9 @@ NumPy array of numbers.</p>
 </div>
 <div class="section" id="Working-with-the-File-Object">
 <h3>Working with the File Object<a class="headerlink" href="#Working-with-the-File-Object" title="Permalink to this headline">¶</a></h3>
-<p>When we invoke <code class="docutils literal"><span class="pre">open</span></code> to open a file, the context manager produces an
-opened file object. The methods of this file object allow us to write-to
-and read-from the opened file (assuming that we have utilized the
+<p>When we invoke <code class="docutils literal"><span class="pre">open</span></code> to open a file, we gain access to an opened file
+object. The methods of this file object allow us to write-to and
+read-from the opened file (assuming that we have utilized the
 appropriate mode when opening it).</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the `read` method of the file object</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">var</span><span class="p">:</span>
@@ -511,26 +501,24 @@ line-by-line.</p>
 <div class="section" id="Example:-Writing-and-Reading-a-Text-File">
 <h2>Example: Writing and Reading a Text File<a class="headerlink" href="#Example:-Writing-and-Reading-a-Text-File" title="Permalink to this headline">¶</a></h2>
 <p>Given the following string:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># recall: triple-quotes can be used to write multi-line strings</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">some_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A bagel rolled down the hill.</span>
-<span class="s2">I mean *all* the way down the hill.</span>
-<span class="s2">A lady watched it roll.</span>
-<span class="s2">Way to help me out.&quot;&quot;&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">some_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A bagel rolled down the hill.</span>
+<span class="go">I mean *all* the way down the hill.</span>
+<span class="go">A lady watched it roll.</span>
+<span class="go">Way to help me out.&quot;&quot;&quot;</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">some_text</span>
-<span class="s1">&#39;A bagel rolled down the hill.</span><span class="se">\n</span><span class="s1">I mean *all* the way down the hill.</span><span class="se">\n</span><span class="s1">A lady watched it roll.</span><span class="se">\n</span><span class="s1">Way to help me out.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">some_text</span>
+<span class="go">&#39;A bagel rolled down the hill.\nI mean *all* the way down the hill.\nA lady watched it roll.\nWay to help me out.&#39;</span>
 </pre></div>
 </div>
-<p>Write that string to a file, “a_poem.txt”, in the present directory:</p>
+<p>Write that string to a file, “a_poem.txt”:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use mode-x to ensure that we don&#39;t overwrite the file</span>
 <span class="c1"># if it already exists</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;a_poem.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">my_open_file</span><span class="p">:</span>
     <span class="n">my_open_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">some_text</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now let’s read in each line of the file and append them to the list
-<code class="docutils literal"><span class="pre">out</span></code>, but <em>only if that line starts with the letter ‘A’</em> (just to
-make things a little bit more involved):</p>
+<p>Now read in each line of the file and append that line to the list
+<code class="docutils literal"><span class="pre">out</span></code>, but <em>only if that line starts with the letter ‘A’</em>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;a_poem.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">my_open_file</span><span class="p">:</span>
     <span class="c1"># recall: iterating over the file-object yields each line of the file</span>
     <span class="c1"># one line at a time</span>
@@ -543,205 +531,52 @@ make things a little bit more involved):</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="Globbing-for-Files">
-<h2>Globbing for Files<a class="headerlink" href="#Globbing-for-Files" title="Permalink to this headline">¶</a></h2>
-<p>There are many cases in which we may want to construct a list of files
-to iterate over. For example, if we have several data files, it would be
-useful to create a file list which we can iterate through and process in
-sequence. One way to do this would be to manually construct such a list
-of files:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">my_files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data/file1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data/file2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data/file3.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data/file4.txt&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>However, this is extraordinarily tedious and prone to error, either by
-mis-typing a file name or forgetting a file. A much more powerful way to
-construct such a list of files is by file globbing. A <code class="docutils literal"><span class="pre">glob</span></code> is a set
-of file names matching some pattern. To glob files, we use special
-wildcard characters that will match all the files with a certain part of
-a file name. In our case, <code class="docutils literal"><span class="pre">*</span></code> will be the wildcard character we use
-the most - it matches any character. This is much better motivated with
-an example. Below, we see some globs and the types of patterns they will
-match:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># matches anything that starts with `file` and ends with `.txt` like</span>
-<span class="c1"># file1.txt, filefilefile.txt, file.txt, file12345.txt, ...</span>
-<span class="n">file</span><span class="o">*.</span><span class="n">txt</span>
-
-<span class="c1"># matches all .txt files in the &#39;data&#39; directory</span>
-<span class="n">data</span><span class="o">/*.</span><span class="n">txt</span>
-
-<span class="c1"># matches any file name</span>
-<span class="o">*</span>
-
-<span class="c1"># matches all png image files</span>
-<span class="o">*.</span><span class="n">png</span>
-
-<span class="c1"># matches anything that contains &#39;test&#39; as part of its file name</span>
-<span class="o">*</span><span class="n">test</span><span class="o">*</span>
-
-<span class="c1"># matches all .py files that contain &#39;number&#39;</span>
-<span class="o">*</span><span class="n">number</span><span class="o">*.</span><span class="n">py</span>
-</pre></div>
-</div>
-<p>The <code class="docutils literal"><span class="pre">pathlib</span></code> module provides convenient functionality for globbing
-files. Once we have a <code class="docutils literal"><span class="pre">Path</span></code> object, we can simply call <code class="docutils literal"><span class="pre">glob()</span></code> on
-it and pass in a glob string. This will return a
-<a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#Introducing-Generators">generator</a>
-that will yield each of the globbed files.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># glob all of the text files in the present directory</span>
-<span class="c1"># that start with &#39;test&#39; and end with &#39;.txt&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">root_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">files</span> <span class="o">=</span> <span class="n">root_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;test*.txt&#39;</span><span class="p">)</span>  <span class="c1"># this produces a generator</span>
-<span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="n">Path</span><span class="o">.</span><span class="n">glob</span> <span class="n">at</span> <span class="mh">0x00000146CE118620</span><span class="o">&gt;</span>
-
-<span class="c1"># get a sorted list of the globbed paths</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
-<span class="p">[</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">&#39;test_0.txt&#39;</span><span class="p">),</span>
- <span class="n">PosixPath</span><span class="p">(</span><span class="s1">&#39;test_1.txt&#39;</span><span class="p">),</span>
- <span class="n">PosixPath</span><span class="p">(</span><span class="s1">&#39;test_apple.txt&#39;</span><span class="p">)]</span>
-
-<span class="c1"># iterating over the generator directly</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">root_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;test*.txt&#39;</span><span class="p">):</span>
-<span class="o">&gt;&gt;&gt;</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="o">...</span>         <span class="c1"># do some processing</span>
-<span class="o">...</span>         <span class="k">pass</span>
-</pre></div>
-</div>
-<p>For more details on globbing, see <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob">the
-documentation</a>.</p>
-<div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Basic glob patterns</strong></p>
-<p>Write a glob pattern for each of the following prompts</p>
-<ul class="last simple">
-<li>Glob all .txt files in the directory <code class="docutils literal"><span class="pre">./files</span></code></li>
-<li>Glob all files that contain ‘quirk’ as part of their file name</li>
-<li>Glob all file that begins with ‘data’</li>
-<li>Glob all file that starts with the letter ‘q’, contains a ‘w’, and
-ends with a ‘.npy’ extension</li>
-</ul>
-</div>
-<p>The <code class="docutils literal"><span class="pre">*</span></code> wildcard is not the only pattern available to us. Sometimes it
-can be useful to match certain subsets of characters. For example, we
-may only want to match file names that start with a number. With the
-<code class="docutils literal"><span class="pre">*</span></code> wildcard alone, that’s not possible. Luckily for us, these common
-use-cases are also taken care of.</p>
-<p>To match a subset of characters, we can use square brackets: <code class="docutils literal"><span class="pre">[abc]*</span></code>
-will match anything that starts with ‘a’, ‘b’, or ‘c’ and nothing else.
-We can also use a ‘-’ inside our brackets to glob groups of characters.
-For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># matches any file that starts with a number</span>
-<span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">*.</span><span class="n">txt</span>
-
-<span class="c1"># matches any file that has a vowel in its name</span>
-<span class="o">*</span><span class="p">[</span><span class="n">aeiou</span><span class="p">]</span><span class="o">*</span>
-
-<span class="c1"># matches any file that starts with a lowercase letter</span>
-<span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">z</span><span class="p">]</span><span class="o">*</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: More glob patterns</strong></p>
-<p>Write a glob pattern for each of the following prompts</p>
-<ul class="last simple">
-<li>Any file with an odd number in its name</li>
-<li>All txt files that have the letters ‘q’ or ‘z’ in them</li>
-</ul>
-</div>
-</div>
-<div class="section" id="Saving-&amp;-Loading-Python-Objects:-pickle">
-<h2>Saving &amp; Loading Python Objects: pickle<a class="headerlink" href="#Saving-&-Loading-Python-Objects:-pickle" title="Permalink to this headline">¶</a></h2>
-<p>Suppose that you have just populated a dictionary that is serving as a
-grade book for a course that you are teaching:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grades</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Albert&quot;</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s2">&quot;Emmy&quot;</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span> <span class="s2">&quot;Marie&quot;</span><span class="p">:</span> <span class="mi">79</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>How do you save this dictionary so that you can revisit these grades at
-a later time? Python’s standard library includes the
-<a class="reference external" href="https://docs.python.org/3/library/pickle.html">pickle</a> module, which
-provides functions for saving and loading Python objects to disk. Let’s
-“pickle” this dictionary, saving it to the file “grades.pkl” in our
-present directory:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
-
-<span class="c1"># pickling a dictionary</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;grades.pkl&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">opened_file</span><span class="p">:</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">grades</span><span class="p">,</span> <span class="n">opened_file</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><code class="docutils literal"><span class="pre">pickle.dump</span></code> creates a serialized representation of our dictionary,
-which is then written to our opened file via the file object that we
-supplied. Note that we open the file in write-binary mode as we are
-writing binary data and not text data that first needs to be encoded to
-binary data. Also note that we use the “.pkl” suffix to indicate that
-the file is binary data that was written using Python’s pickle protocol.
-Using this suffix is not necessary but is good practice.</p>
-<p><code class="docutils literal"><span class="pre">pickle.load</span></code> will unpickle our Python object from disk, permitting us
-to resume work with our grade book.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># unpickling a dictionary</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;grades.pkl&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">opened_file</span><span class="p">:</span>
-    <span class="n">my_loaded_grades</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">opened_file</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_loaded_grades</span>
-<span class="go">{&#39;Albert&#39;: 92, &#39;David&#39;: 85, &#39;Emmy&#39;: 98, &#39;Marie&#39;: 79}</span>
-</pre></div>
-</div>
-<p><code class="docutils literal"><span class="pre">pickle.dump</span></code> and <code class="docutils literal"><span class="pre">pickle.load</span></code> cover the vast majority of our
-object-pickling needs. A wide range of Python objects can be saved in
-this way, including functions that we define and instances of custom
-classes. Please refer to <a class="reference external" href="https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled">the official
-documentation</a>
-for a discussion of the Python objects that can and cannot be pickled.</p>
-</div>
-<div class="section" id="Saving-and-Loading-NumPy-Arrays">
-<h2>Saving and Loading NumPy Arrays<a class="headerlink" href="#Saving-and-Loading-NumPy-Arrays" title="Permalink to this headline">¶</a></h2>
-<p>NumPy provides its own functions for saving and loading arrays. Although
-these arrays can be pickled, it is strongly advised to leverage NumPy’s
-file-IO functions. NumPy’s standard binary file type used to store array
-data is known as an ‘.npy’ file. The NumPy binary archive format, which
+<div class="section" id="Example:-Writing-and-Reading-NumPy-Arrays">
+<h2>Example: Writing and Reading NumPy Arrays<a class="headerlink" href="#Example:-Writing-and-Reading-NumPy-Arrays" title="Permalink to this headline">¶</a></h2>
+<p>First, note that NumPy’s standard binary file type, used to store array
+data, is known as ‘.npy’ file. The NumPy binary archive format, which
 stores multiple arrays in one file, is known as the ‘.npz’ format.</p>
 <p>Let’s save the array <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.array([1,</span> <span class="pre">2,</span> <span class="pre">3])</span></code> to the binary file (not
-a text file) “my_array.npz”. <code class="docutils literal"><span class="pre">numpy.save</span></code> and <code class="docutils literal"><span class="pre">numpy.load</span></code> will save
-and load arrays, handling all of the file opening and closing for you.
-Thus there is no need to use a context manager when using these
-functions.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+a text file) “my_array.npz”.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
-<span class="go"># save a numpy array to disk</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;my_array.npy&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-
-<span class="go"># load the saved array from disk</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;my_array.npy&quot;</span><span class="p">)</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="c1"># we aren&#39;t saving text thus we must open</span>
+<span class="c1"># our file in binary-write mode</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;my_array.npy&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+     <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now let’s load this array from the binary file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># once again, the file must be opened to read</span>
+<span class="c1"># binary data, not text data</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;my_array.npy&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
 <span class="go">array([1, 2, 3])</span>
 </pre></div>
 </div>
-<p>We can use <code class="docutils literal"><span class="pre">numpy.savez</span></code> to save multiple arrays to a single archive
-file “my_archive.npz”. Here we will save three arrays to the archive. We
-can specify the names of these arrays, via the keyword arguments that we
-provide, so that we can distinguish them when loading the archive.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># save three arrays to a numpy archive file</span>
-<span class="n">a0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<p>Finally, let’s save multiple arrays to a single archive file
+“my_archive.npz”.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="n">a2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
 
-<span class="c1"># we provide the keywords arguments `soil`, `crust`, and `bedrock`,</span>
-<span class="c1"># as the names of the respective arrays in the archive.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="s2">&quot;my_archive.npz&quot;</span><span class="p">,</span> <span class="n">soil</span><span class="o">=</span><span class="n">a0</span><span class="p">,</span> <span class="n">crust</span><span class="o">=</span><span class="n">a1</span><span class="p">,</span> <span class="n">bedrock</span><span class="o">=</span><span class="n">a2</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;my_archive.npz&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">my_archive_file</span><span class="p">:</span>
+    <span class="c1"># you can use keyword arguments to specify the names used</span>
+    <span class="c1"># to store the array in the archive</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">my_archive_file</span><span class="p">,</span> <span class="n">array_0</span><span class="o">=</span><span class="n">a0</span><span class="p">,</span> <span class="n">array_1</span><span class="o">=</span><span class="n">a1</span><span class="p">,</span> <span class="n">array_2</span><span class="o">=</span><span class="n">a2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Loading arrays from an archive is slightly more involved than loading a
-single array; we will want to open our archive file using a context
-manager and then load the arrays as we see fit. <code class="docutils literal"><span class="pre">np.load</span></code> can be used
-as a context manager in lieu of <code class="docutils literal"><span class="pre">open</span></code>. The file-object that it
-produces is our archive of numpy arrays, and it provides a
-dictionary-like interface for accessing these arrays:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># opening the archive and accessing each array by name</span>
-<span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;my_archive.npz&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">my_archive_file</span><span class="p">:</span>
-    <span class="n">out0</span> <span class="o">=</span> <span class="n">my_archive_file</span><span class="p">[</span><span class="s2">&quot;soil&quot;</span><span class="p">]</span>
-    <span class="n">out1</span> <span class="o">=</span> <span class="n">my_archive_file</span><span class="p">[</span><span class="s2">&quot;crust&quot;</span><span class="p">]</span>
-    <span class="n">out2</span> <span class="o">=</span> <span class="n">my_archive_file</span><span class="p">[</span><span class="s2">&quot;bedrock&quot;</span><span class="p">]</span>
+<p><code class="docutils literal"><span class="pre">np.load</span></code> can be used as a context manager in lieu of <code class="docutils literal"><span class="pre">open</span></code>. The
+file-object that it produces is our archive of numpy arrays, and it
+provides a dictionary-like interface for accessing these arrays:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;my_archive.npz&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">my_archive_file</span><span class="p">:</span>
+    <span class="n">out0</span> <span class="o">=</span> <span class="n">my_archive_file</span><span class="p">[</span><span class="s2">&quot;array_0&quot;</span><span class="p">]</span>
+    <span class="n">out1</span> <span class="o">=</span> <span class="n">my_archive_file</span><span class="p">[</span><span class="s2">&quot;array_1&quot;</span><span class="p">]</span>
+    <span class="n">out2</span> <span class="o">=</span> <span class="n">my_archive_file</span><span class="p">[</span><span class="s2">&quot;array_2&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">out0</span>
@@ -762,33 +597,6 @@ module</a></li>
 function</a></li>
 <li><a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Official tutorial: reading and writing
 files</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob">Globbing
-files</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/pickle.html">The pickle module</a><ul>
-<li><a class="reference external" href="https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled">What can and cannot be
-pickled?</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="Reading-Comprehension-Solutions">
-<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
-<p><strong>Basic glob patterns: Solutions</strong></p>
-<ul class="simple">
-<li>Glob all .txt files in the directory <code class="docutils literal"><span class="pre">./files</span></code> (answer:
-<code class="docutils literal"><span class="pre">./files/*.txt</span></code>)</li>
-<li>Glob all files that contain ‘quirk’ as part of their file name
-(answer: <code class="docutils literal"><span class="pre">*quirk*</span></code>)</li>
-<li>Glob all file that begins with ‘data’ (answer: <code class="docutils literal"><span class="pre">data*</span></code>)</li>
-<li>Glob all file that starts with the letter ‘q’, contains a ‘w’, and
-ends with a ‘.npy’ extension (answer: <code class="docutils literal"><span class="pre">q*w*.npy</span></code>)</li>
-</ul>
-<p><strong>More glob patterns: Solutions</strong></p>
-<p>Write a glob pattern for each of the following prompts</p>
-<ul class="simple">
-<li>Any file with an odd number in its name (answer: <code class="docutils literal"><span class="pre">*[13579]*</span></code>)</li>
-<li>All txt files that have the letters ‘q’ or ‘z’ in them (answer:
-<code class="docutils literal"><span class="pre">*[qz]*.txt</span></code>)</li>
 </ul>
 </div>
 </div>
