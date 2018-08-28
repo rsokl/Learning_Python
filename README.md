@@ -1,3 +1,5 @@
+This is Sam Carpenter(CogWorks 2k18)'s branch where he adds practice problems to PLYMI! He's already doing that merging dicionaries one that Ryan mentioned, but honestly this man is crazy and we have no idea what else he might add!
+
 View this content as hosted on [Python Like You Mean It](https://www.pythonlikeyoumeanit.com/)
 
 This site is written primarily in Jupyter notebooks, which are transformed into html using [nbsphinx](https://nbsphinx.readthedocs.io/en/0.3.4/). The positive aspect of this is that you simply need to be familiar with Jupyter notebooks and some [markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in order to contribute to this project!
