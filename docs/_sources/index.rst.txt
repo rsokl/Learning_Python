@@ -47,7 +47,9 @@ I started learning to use Python in graduate school for my physics research, and
    intro.rst
    module_1.rst
    module_2.rst
+   module_2_problems.rst
    module_3.rst
+   module_3_problems.rst
    module_4.rst
    module_5.rst	     
 

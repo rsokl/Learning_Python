@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Difference Fanout &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Module 2: Problems" href="../../module_2_problems.html"/>
+        <link rel="next" title="Encode as String" href="EncodeAsString.html"/>
+        <link rel="prev" title="Within Margin Percentage" href="MarginPercentage.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Python Like You Mean It
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Python Like You Mean It</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../module_2_problems.html">Module 2: Problems</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="MergeMaxDicts.html">Merging Two Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Palindrome.html">Is Palindrome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MarginPercentage.html">Within Margin Percentage</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Difference Fanout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Solution:-difference_fanout-using-for-loops">Solution: difference_fanout using for-loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Solution:-difference_fanout-using-list-comprehensions">Solution: difference_fanout using list comprehensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Extension">Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="EncodeAsString.html">Encode as String</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_3_problems.html">Module 3: Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_4.html">Module 4: Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_5.html">Module 5: Odds and Ends</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python Like You Mean It</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../module_2_problems.html">Module 2: Problems</a> &raquo;</li>
+        
+      <li>Difference Fanout</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Module2_EssentialsOfPython/Problems/DifferenceFanout.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Difference-Fanout">
+<h1>Difference Fanout<a class="headerlink" href="#Difference-Fanout" title="Permalink to this headline">¶</a></h1>
+<p>Given a list of numbers, for each number generate a list of the
+differences between it and <span class="math">\(n_{fanout}\)</span> (known as the <strong>fanout</strong>
+value) following numbers in the list. Return a list of all the lists
+generated for each number. For members in the list that have fewer than
+<span class="math">\(n_{fanout}\)</span> following members, calculate as many differences as
+possible. For example, suppose we want to compute the difference fanout
+on the list <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">1]</span></code> with a fanout value of 3. Then we would
+compute:</p>
+<ul class="simple">
+<li><span class="math">\(3 \rightarrow [2 - 3, 4 - 3, 6 - 3]\)</span></li>
+<li><span class="math">\(2 \rightarrow [4 - 2, 6 - 2, 1 - 2]\)</span></li>
+<li><span class="math">\(4 \rightarrow [6 - 4, 1 - 4]\)</span></li>
+<li><span class="math">\(6 \rightarrow [1 - 6]\)</span></li>
+<li><span class="math">\(1 \rightarrow []\)</span></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">difference_fanout</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">],</span> <span class="p">[]]</span>
+</pre></div>
+</div>
+<p>You will want to know about
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Lists">lists</a>,
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Introducing-Indexing-and-Slicing">indexing &amp;
+slicing</a>
+lists, and
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ForLoops.html">for-loops</a>
+to solve this problem.</p>
+<p>For extra credits (and some extra fun!), try to write your function only
+using <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#List-&amp;-Tuple-Comprehensions">list
+comprehension</a>.</p>
+<div class="section" id="Solution:-difference_fanout-using-for-loops">
+<h2>Solution: difference_fanout using for-loops<a class="headerlink" href="#Solution:-difference_fanout-using-for-loops" title="Permalink to this headline">¶</a></h2>
+<p>We will naturally tackle this problem by performing nested for-loops.
+The outermost for-loop will loop over each number in the list. We will
+refer to this number as the “base number”. We will want the inner
+for-loop to iterate ahead of the base number so that we can compute the
+differences between it and its <span class="math">\(n_{fanout}\)</span> neighbors. We will
+need to take care re-initialize our intermediate list of differences for
+each new base number, otherwise each subtraction will get appended to
+one long list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Return a list of differences for</span>
+<span class="sd">        each value with its following terms</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l: List[Number]</span>
+<span class="sd">            Input list of base numbers.</span>
+
+<span class="sd">        fanout: int</span>
+<span class="sd">            Number of neighbors to compute differences against.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[List[Number]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">all_fanouts</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># will store each list of fanouts</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">base_number</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="c1"># `base_fanout` will store the differences between</span>
+        <span class="c1"># the base number&#39;s successive neighbors and base number</span>
+        <span class="n">base_fanout</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">fanout</span><span class="p">]:</span>
+            <span class="n">base_fanout</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbor</span> <span class="o">-</span> <span class="n">base_number</span><span class="p">)</span>
+
+        <span class="n">all_fanouts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">base_fanout</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">all_fanouts</span>
+</pre></div>
+</div>
+<p>Note our use of
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Iterables.html#Enumerating-iterables">enumerate</a>;
+this permits us to simultaneously access our base number, which we use
+in the subtraction, as well as its index-position within the list <code class="docutils literal"><span class="pre">l</span></code>,
+which we use to determine the neighbors.</p>
+<p>Next, you may be concerned that our inner-loop will attempt to iterate
+beyond the end of the list. Consider the case in which <code class="docutils literal"><span class="pre">base_number</span></code>
+is the final element in <code class="docutils literal"><span class="pre">l</span></code>, thus <code class="docutils literal"><span class="pre">l[i+1:</span> <span class="pre">i+1+fanout]</span></code> would be
+equivalent to <code class="docutils literal"><span class="pre">l[len(l):</span> <span class="pre">len(l)+fanout]</span></code> - the stopping point for this
+slice clearly reaches beyond the extent of <code class="docutils literal"><span class="pre">l</span></code> (assuming
+<code class="docutils literal"><span class="pre">fanout</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>). Fortunately, this is not an oversight on our part.
+While indexing a list outside of its bounds will raise an error, recall
+that <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Handling-out-of-bounds-indices">a slice will automatically limit itself to be within bounds of a
+given
+sequence</a>.
+That is, <code class="docutils literal"><span class="pre">l[i+1:</span> <span class="pre">i+1+fanout]</span></code> actually behaves like
+<code class="docutils literal"><span class="pre">l[min(i,</span> <span class="pre">len(l)-1):</span> <span class="pre">min(len(l),</span> <span class="pre">i+1+fanout)]</span></code> (assuming we are
+dealing only with positive indices and non-empty lists). Thus our
+inner-loop will naturally limit itself. In the case that <code class="docutils literal"><span class="pre">base_number</span></code>
+is the final element in <code class="docutils literal"><span class="pre">l</span></code>, the inner-loop will exit immediately,
+leaving <code class="docutils literal"><span class="pre">base_fanout</span></code> empty. Although somewhat obscure, this is an
+important aspect of Python’s slicing mechanism to keep in mind.</p>
+</div>
+<div class="section" id="Solution:-difference_fanout-using-list-comprehensions">
+<h2>Solution: difference_fanout using list comprehensions<a class="headerlink" href="#Solution:-difference_fanout-using-list-comprehensions" title="Permalink to this headline">¶</a></h2>
+<p>We can make judicious use of nested <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#List-&amp;-Tuple-Comprehensions">list
+comprehensions</a>
+to simplify our solution. Although the syntax may appear to be
+convoluted at first glance, it permits us proceed without worrying about
+initializing multiple empty lists and appending to them at the right
+points in our nested for-loops</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Return a list of differences for</span>
+<span class="sd">        each value with its following terms</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l: List[Number]</span>
+<span class="sd">            Input list</span>
+
+<span class="sd">        fanout: int</span>
+<span class="sd">            Number of neighbors to compute difference with</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[Number]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">neighbor</span> <span class="o">-</span> <span class="n">base</span> <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">fanout</span><span class="p">]]</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">base</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>See that the outermost list comprehension loops over the base number, as
+did the outer for-loop in the prior solution, and that the innermost
+list comprehension plays the same roll as the inner for-loop.</p>
+<p>There are fewer potential points of failure in this solution, as its
+conciseness removes the “moving parts” that had to be managed in the
+previous solution. This should help demonstrate the power of the
+comprehension expression syntax.</p>
+</div>
+<div class="section" id="Extension">
+<h2>Extension<a class="headerlink" href="#Extension" title="Permalink to this headline">¶</a></h2>
+<p>Recall from
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#Functions-are-Objects">earlier</a>
+that functions are, under the hood, just objects with some special
+operations that allow you to “call” a function. This means that you can
+pass other functions as parameters into a function. It is especially
+powerful, since it enables us to generalize the purposes of our
+functions. For example, we don’t have to limit our function to just
+computing the <strong>difference</strong> between members and their following terms;
+we can apply <strong>any</strong> <em>binary operation</em>. Instead of finding the
+difference, we can calculate the sum or product or even concatenate two
+strings for a list of string. The possibilities are limitless.</p>
+<p>Armed with this knowledge, we can generalize the code.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">,</span> <span class="n">op</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Return a list of outputs for each value</span>
+<span class="sd">        after applying a binary operation between</span>
+<span class="sd">        the value and its following terms</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l: List[Any]</span>
+<span class="sd">            Input list</span>
+
+<span class="sd">        fanout: int</span>
+<span class="sd">            Number of neighbors to apply the operation with</span>
+
+<span class="sd">        op: Callable[[Any, Any], Any]</span>
+<span class="sd">            Any binary operation to be applied to fanout-pairs</span>
+<span class="sd">            of elements in `l`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[List[Any]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">op</span><span class="p">(</span><span class="n">neighbor</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span> <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">fanout</span><span class="p">]]</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">base</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Now, we can rewrite <code class="docutils literal"><span class="pre">difference_fanout</span></code> simply as</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">difference_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">apply_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">,</span> <span class="n">subtract</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can easily change <code class="docutils literal"><span class="pre">subtract</span></code> to some other function for a totally
+different use.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="EncodeAsString.html" class="btn btn-neutral float-right" title="Encode as String" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MarginPercentage.html" class="btn btn-neutral" title="Within Margin Percentage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../../_static/gtag.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

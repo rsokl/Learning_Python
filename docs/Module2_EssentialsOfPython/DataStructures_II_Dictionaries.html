@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Structures (Part II): Dictionaries &mdash; Python Like You Mean It 0.15.0 documentation</title>
+  <title>Data Structures (Part II): Dictionaries &mdash; Python Like You Mean It 1.0.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 0.15.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Data Structures (Part III): Sets &amp; the Collections Module" href="DataStructures_III_Sets_and_More.html"/>
         <link rel="prev" title="Data Structures (Part I): Introduction" href="DataStructures.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.15.0
+                1.0
               </div>
             
           
@@ -131,7 +131,9 @@
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2_problems.html">Module 2: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
 </ul>
@@ -598,11 +600,11 @@ pairs: <code class="docutils literal"><span class="pre">(obj1,</span> <span clas
 <p>Unlike Python’s sequences, the dictionary has no inherent ordering… that
 is, until Python 3.6 came out.</p>
 <p>Prior to Python 3.6, a dictionary had no ordering associated with it. If
-you iterated over its keys, values, or key-value pairs, you had no
-guarantee about the <em>order</em> in which these items would be produced.
-<code class="docutils literal"><span class="pre">[i</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">example_dict]</span></code> could produce a list of keys with
-different ordering each time the code was run; you were only guaranteed
-that the list would contain all of the dictionary’s keys:</p>
+you iterated over a dictionary’s keys, values, or key-value pairs, you
+had no guarantee about the <em>order</em> in which these items would be
+produced. <code class="docutils literal"><span class="pre">[i</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">example_dict]</span></code> could produce a list of keys
+with different ordering each time the code was run; you were only
+guaranteed that the list would contain all of the dictionary’s keys:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># in Python 3.5 and earlier, dictionaries were unordered</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span><span class="s2">&quot;value3&quot;</span><span class="p">}</span>
 
@@ -621,15 +623,16 @@ that the list would contain all of the dictionary’s keys:</p>
 </div>
 <p>The dictionary was <a class="reference external" href="https://docs.python.org/3/whatsnew/3.6.html#new-dict-implementation">reimplemented in Python
 3.6</a>
-so that it would consume roughly 25% less memory than before (which is a
-big deal!). The catch was… this new implementation entails that the
-dictionary’s various iterables will always yield their items according
-to the order in which they were added to the dictionary. That is, in
-Python 3.6 and beyond:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># in Python 3.6 and beyond, dictionaries are ordered</span>
+so that it will consume roughly 25% less memory than before (which is a
+big deal!). The catch is that this new implementation entails that the
+dictionary’s various iterables (e.g. <code class="docutils literal"><span class="pre">dict.keys()</span></code>, <code class="docutils literal"><span class="pre">dict.values()</span></code>,
+<code class="docutils literal"><span class="pre">dict.items()</span></code>) will always yield their items according to the order
+in which they were added to the dictionary.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># in Python 3.6 and beyond dictionaries are ordered according to the order in</span>
+<span class="c1"># which key-value pairs were added to the dictionary by the user</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span><span class="s2">&quot;value3&quot;</span><span class="p">}</span>
 
-<span class="c1"># this will always produce the same result</span>
+<span class="c1"># this will always produce the same ordering of keys</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="p">]</span>
 <span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">]</span>
 </pre></div>
@@ -638,18 +641,20 @@ Python 3.6 and beyond:</p>
 on the fact that dictionaries are ordered, your algorithm will almost
 certainly produce the wrong results if you run it using Python 3.5 or
 earlier! Worst of all, it very unlikely that this will raise any error
-in your code, so the bug will persist silently… this is very tough to
+in your code so the bug will persist silently - this is very tough to
 catch!</p>
-<p><strong>No matter what version of Python you are using, write your code as if
-the dictionary is unordered!</strong></p>
-<p>If you do want to use an ordered dictionary, your code should make use
-of <code class="docutils literal"><span class="pre">collections.OrderedDict</span></code>, which behaves like just like the
-standard dictionary, but is guaranteed to maintain ordering regardless
-of what version of Python you are using.</p>
+<p><strong>Unless you make explicit that your code is incompatible with versions
+of Python prior to Python 3.6, write your code as if the dictionary is
+unordered!</strong></p>
+<p>If you do want to use an ordered dictionary, make use of
+<code class="docutils literal"><span class="pre">collections.OrderedDict</span></code>, which behaves like just like the standard
+dictionary but is guaranteed to maintain ordering regardless of what
+version of Python you are using.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">ordered</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;value1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key2&#39;</span><span class="p">,</span> <span class="s1">&#39;value2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key3&#39;</span><span class="p">,</span> <span class="s1">&#39;value3&#39;</span><span class="p">)])</span>
 
-<span class="c1"># this will always produce the same result</span>
+<span class="c1"># this will always produce the same result, regardless of what</span>
+<span class="c1"># version of Python is being used</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ordered</span><span class="p">]</span>
 <span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">]</span>
 </pre></div>
@@ -814,7 +819,7 @@ returned by each <code class="docutils literal"><span class="pre">x.get(key)</sp
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.15.0',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

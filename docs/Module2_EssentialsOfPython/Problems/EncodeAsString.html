@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Encode as String &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/my_theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Module 2: Problems" href="../../module_2_problems.html"/>
+        <link rel="next" title="Module 3: The Essentials of NumPy" href="../../module_3.html"/>
+        <link rel="prev" title="Difference Fanout" href="DifferenceFanout.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Python Like You Mean It
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Python Like You Mean It</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../module_2_problems.html">Module 2: Problems</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="MergeMaxDicts.html">Merging Two Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Palindrome.html">Is Palindrome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MarginPercentage.html">Within Margin Percentage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DifferenceFanout.html">Difference Fanout</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Encode as String</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_3_problems.html">Module 3: Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_4.html">Module 4: Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_5.html">Module 5: Odds and Ends</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python Like You Mean It</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../module_2_problems.html">Module 2: Problems</a> &raquo;</li>
+        
+      <li>Encode as String</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Module2_EssentialsOfPython/Problems/EncodeAsString.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Encode-as-String">
+<h1>Encode as String<a class="headerlink" href="#Encode-as-String" title="Permalink to this headline">¶</a></h1>
+<p>Sometimes it is very important to handle different input object types
+differently in a function. This problem will exercise your understanding
+of types, control-flow, dictionaries, and more.</p>
+<blockquote>
+<div>We want to encode a sequence of Python objects as a single string.
+The following describes the encoding method that we want to use for
+each type of object. Each object’s transcription in should be
+separated by <code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">|</span> <span class="pre">&quot;</span></code>, and the result should be one large string.</div></blockquote>
+<ul class="simple">
+<li>If the object is an integer, convert it into a string by spelling out
+each digit in base-10 in this format: <code class="docutils literal"><span class="pre">142</span></code> <span class="math">\(\rightarrow\)</span>
+<code class="docutils literal"><span class="pre">one-four-two</span></code>; <code class="docutils literal"><span class="pre">-12</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">neg-one-two</span></code>.</li>
+<li>If the object is a float, just append its integer part (obtained by
+rounding down) the same way and the string <code class="docutils literal"><span class="pre">&quot;and</span> <span class="pre">float&quot;</span></code>:
+<code class="docutils literal"><span class="pre">12.324</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">one-two</span> <span class="pre">and</span> <span class="pre">float</span></code>.</li>
+<li>If the object is a string, keep it as is.</li>
+<li>If the object is of any other type, return <code class="docutils literal"><span class="pre">'&lt;OTHER&gt;'</span></code>.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">concat_to_str</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span><span class="o">-</span><span class="mf">14.23</span><span class="p">,</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span>
+<span class="o">...</span>                    <span class="s2">&quot;Aha&quot;</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="s1">&#39;one-two | neg-one-four and float | hello | &lt;OTHER&gt; | Aha | one-zero and float | &lt;OTHER&gt; | five&#39;</span>
+</pre></div>
+</div>
+<p><strong>Tips</strong>: check out the <code class="docutils literal"><span class="pre">isinstance</span></code> function introduced
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html">here</a>
+for handling different types. Also, consider creating a helper function
+for the conversion from integer to our special-format string, since we
+have to do it twice. It’s always good to extrapolate repeated tasks into
+functions. You’ll also need to hard-code the conversion from each digit
+to its English spell-out.</p>
+<div class="section" id="Solution">
+<h2>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h2>
+<p>Our solution is broken down into three simple functions. <code class="docutils literal"><span class="pre">int_to_str</span></code>
+is used to map signed integers to English words. <code class="docutils literal"><span class="pre">item_to_transcript</span></code>
+is capable of mapping an object of any type to its string
+representation, in accordance with the prescription made by the problem
+statement. Finally, <code class="docutils literal"><span class="pre">concat_to_str</span></code> orchestrates these two helper
+functions, looping over each object in our input list, mapping each
+object to its string representation, and joining these strings with
+<code class="docutils literal"><span class="pre">'</span> <span class="pre">|</span> <span class="pre">'</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">int_to_str</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Takes an integer and formats it into a special string</span>
+<span class="sd">        e.g. 142 -&gt; &quot;one-four-two&quot;</span>
+<span class="sd">             -12 -&gt; &quot;neg-one-two&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;4&quot;</span><span class="p">:</span> <span class="s2">&quot;four&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">:</span> <span class="s2">&quot;five&quot;</span><span class="p">,</span> <span class="s2">&quot;6&quot;</span><span class="p">:</span> <span class="s2">&quot;six&quot;</span><span class="p">,</span> <span class="s2">&quot;7&quot;</span><span class="p">:</span> <span class="s2">&quot;seven&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;8&quot;</span><span class="p">:</span> <span class="s2">&quot;eight&quot;</span><span class="p">,</span> <span class="s2">&quot;9&quot;</span><span class="p">:</span> <span class="s2">&quot;nine&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span> <span class="s2">&quot;neg&quot;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="n">digit</span><span class="p">]</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">item_to_transcript</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Any -&gt; str &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span> <span class="k">return</span> <span class="s1">&#39;&lt;OTHER&gt;&#39;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span> <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; and float&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span> <span class="k">return</span> <span class="n">item</span>
+    <span class="k">return</span> <span class="s1">&#39;&lt;OTHER&gt;&#39;</span>
+
+<span class="k">def</span> <span class="nf">concat_to_str</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Maps a list of objects to their string</span>
+<span class="sd">    representations concatenated together.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    l: List[Any]</span>
+<span class="sd">        Input list of objects</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; concat_to_str([1, None, &#39;hi&#39;, 2.0])</span>
+<span class="sd">    one | &lt;OTHER&gt; | hi | two and float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">item_to_transcript</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We use the <code class="docutils literal"><span class="pre">str.join</span></code> function along with a generator comprehensions
+in a couple places in our solution. Recall that</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s2">&quot;&lt;hi&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">some_iterable_of_strings</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is equivalent to the long-form code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">some_iterable_of_strings</span><span class="p">:</span>
+    <span class="n">out</span> <span class="o">+=</span> <span class="s2">&quot;&lt;hi&gt;&quot;</span> <span class="o">+</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">int_to_str</span></code> plays a clever trick to convert each integer,
+digit-by-digit, into its string form - it calls <code class="docutils literal"><span class="pre">str</span></code> on the integer.
+This converts the integer into a string, which is a
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html">sequence</a>.
+This permits us to access each digit of the integer and even iterate
+over them:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># casting an integer to a string makes its</span>
+<span class="c1"># sign and digits accessible via indexing/iteration</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="mi">123</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="s1">&#39;-123&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s1">&#39;-&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="s1">&#39;3&#39;</span>
+</pre></div>
+</div>
+<p>Thus, in total <code class="docutils literal"><span class="pre">&quot;-&quot;.join(mapping[digit]</span> <span class="pre">for</span> <span class="pre">digit</span> <span class="pre">in</span> <span class="pre">str(n))</span></code> is
+responsible for casting an integer to a string, iterating over each of
+its digits and mapping them to their corresponding word using the
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html">dictionary</a>
+that we defined in the function.</p>
+<p><code class="docutils literal"><span class="pre">item_to_transcript</span></code> it an especially slick function. First, let’s
+make clear the fancy use of the inline syntax here. This function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">item_to_transcript</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Any -&gt; str &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span> <span class="k">return</span> <span class="s1">&#39;&lt;OTHER&gt;&#39;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span> <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; and float&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span> <span class="k">return</span> <span class="n">item</span>
+    <span class="k">return</span> <span class="s1">&#39;&lt;OTHER&gt;&#39;</span>
+</pre></div>
+</div>
+<p>is entirely equivalent to this function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">item_to_transcript_alt</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Any -&gt; str &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;OTHER&gt;&#39;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; and float&quot;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">item</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;OTHER&gt;&#39;</span>
+</pre></div>
+</div>
+<p>The latter uses the familiar pattern of
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ConditionalStatements.html">if-elif-else</a>
+statements and makes for a completely satisfactory version of the
+function. See, however, that each of the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#Multiple-return-Statements">multiple return
+statements</a>
+in <code class="docutils literal"><span class="pre">item_to_transcript</span></code> guarantees the same logic, in that if a
+condition is meant a value will be returned by the function and none of
+its subsequent code can be visited. That is, if <code class="docutils literal"><span class="pre">item</span></code> is an integer
+the second if-condition will evaluate to <code class="docutils literal"><span class="pre">True</span></code> and
+<code class="docutils literal"><span class="pre">int_to_str(item)</span></code> will be returned, immediately expelling the point
+of execution from the body of the function.</p>
+<p>Ultimately, the preference of one function over the other is merely a
+matter of stylistic preference. You also have likely noted the peculiar
+in-line <code class="docutils literal"><span class="pre">if-return</span></code> expressions. These too are only stylistic choices;</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is no different from</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The use of in-line <code class="docutils literal"><span class="pre">if-return</span></code> expressions in <code class="docutils literal"><span class="pre">item_to_transcript</span></code>
+does a nice job emphasizing the dictionary-like mapping behavior of the
+function: the form of the code suits its functionality nicely. That
+being said, these should generally be used sparingly. Some may call this
+a “cute” trick. And it is. This code is cute. I write cute code.</p>
+<p>Finally, you may have noticed what looks like a redundancy in our code:
+our first <code class="docutils literal"><span class="pre">if</span></code> statement returns <code class="docutils literal"><span class="pre">'&lt;OTHER&gt;'</span></code> if <code class="docutils literal"><span class="pre">item</span></code> is <code class="docutils literal"><span class="pre">True</span></code>
+or <code class="docutils literal"><span class="pre">False</span></code>, and our final line of code returns <code class="docutils literal"><span class="pre">'&lt;OTHER&gt;'</span></code> if none
+of the preceding conditions were met (i.e. <code class="docutils literal"><span class="pre">item</span></code> is not a <code class="docutils literal"><span class="pre">bool</span></code>,
+<code class="docutils literal"><span class="pre">int</span></code>, <code class="docutils literal"><span class="pre">float</span></code>, or <code class="docutils literal"><span class="pre">str</span></code> type object). Why then did we not just
+merge our first <code class="docutils literal"><span class="pre">if</span></code> clause with this ultimate catch-all? The reason
+is that <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code> are not only instances of the boolean
+type, they are also integers! <code class="docutils literal"><span class="pre">True</span></code> behaves like the integer <code class="docutils literal"><span class="pre">1</span></code>
+and <code class="docutils literal"><span class="pre">False</span></code> like <code class="docutils literal"><span class="pre">0</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span><span class="o">*</span><span class="bp">True</span> <span class="o">+</span> <span class="bp">True</span> <span class="o">-</span> <span class="bp">False</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>Thus, had we not taken care to check for booleans up front, <code class="docutils literal"><span class="pre">True</span></code> and
+<code class="docutils literal"><span class="pre">False</span></code> would have been mapped to <code class="docutils literal"><span class="pre">'one'</span></code> and <code class="docutils literal"><span class="pre">'zero'</span></code>,
+respectively, rather than <code class="docutils literal"><span class="pre">'&lt;OTHER&gt;'</span></code>. This is a relatively subtle
+edge case to catch.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../module_3.html" class="btn btn-neutral float-right" title="Module 3: The Essentials of NumPy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DifferenceFanout.html" class="btn btn-neutral" title="Difference Fanout" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ryan Soklaski.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+      <script type="text/javascript" src="../../_static/gtag.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
