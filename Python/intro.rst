@@ -30,8 +30,17 @@ Python shouldn't be *too* easy
 Python is a relatively easy language to pick up, and it doesn't require much rigor to make code work. Unfortunately, this means that there are many Python users out there who know enough to just get by, but lack a sound understanding of the language. You don't want to get caught in the "know enough Python to be dangerous" zone; therein lies complacency, stagnation, and the genesis of a lot of bad code. You've got to Python like you mean it!
 
 
+Contributors
+------------
+The following people made significant contributions to PLYMI, adding problems with worked solutions and valuable feedback on the text:
+
+- `@alexding123 <https://github.com/alexding123>`_
+- AJ Federici (GitHub:`@Federici <https://github.com/AFederici>`_)
+- Annabelle Lew (GitHub:`@Federici <https://github.com/AnnabelleLew>`_)
+- Petar Griggs (GitHub:`@Federici <https://github.com/petarmhg>`_)
+- Sam Carpenter (GitHub:`@HardBoiled800 <https://github.com/HardBoiled800>`_)
+
+
 About Me
 --------
 I started learning to use Python in graduate school for my physics research, and I was *so* bad at using it. Fortunately, one of my labmates was more experienced and had the good sense to tell me that my code and workflow was terrible. He pointed me to tooling, style guides, and documentation pages so that I could improve (I'd like to think that this resource would have been a huge help to me back then). I've been coding in Python for at least six years now, and I've taken to following the language, along with its new features and changes, quite closely. Currently I do machine learning research, and have served as a core developer for a machine learning library. I also love to teach, so this has been a fun project for me to take on!
-
-
