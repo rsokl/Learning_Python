@@ -105,6 +105,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Floating-Point-Numbers">Floating-Point Numbers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Complex-Numbers">Complex Numbers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Augmented-Assignment-Statements">Augmented Assignment Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Improving-The-Readability-of-Numbers">Improving The Readability of Numbers</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#The-Boolean-Type">The Boolean Type</a><ul>
@@ -557,8 +558,8 @@ bits) on most machines, to store the value of a floating-point number.</p>
 number is written in scientific notation. The computer will not be able
 to reliably represent a number’s digits beyond those accounted for by
 the allotted 8 bytes. For instance, the following Python integer is
-defined with 23 digits, but when this number is converted to a float, it
-only retains 16 decimal places in scientific notation:</p>
+defined with 100 digits, but when this number is converted to a float,
+it only retains 15 decimal places in scientific notation:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating the finite-precision of a float.</span>
 
 <span class="c1"># An integer with 100 digits - Python will use as</span>
@@ -574,10 +575,15 @@ only retains 16 decimal places in scientific notation:</p>
 <span class="mf">1.111111111111111e+99</span>
 </pre></div>
 </div>
-<p>The computer cannot keep track of those last 6 decimal places, because
+<p>The computer cannot keep track of those last 84 decimal places because
 doing so would require more than 8 bytes of memory to store the entire
-value of that float. As such, attempting to modify a number in decimal
-places beyond its numerical precision does not have any effect:</p>
+value of that float. If you had been diligently counting stars in the
+sky (perhaps across many universes, this number far exceeds the
+estimated number of stars in our universe), you would have just lost
+track of over <span class="math">\(1\times10^{83}\)</span> of them simply by converting your
+integer count to a float!</p>
+<p>As such, attempting to modify a floating point number in decimal places
+beyond its numerical precision does not have any effect:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># changing a float beyond its precision has no effect</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mf">1.</span> <span class="o">+</span> <span class="mf">1e-16</span>
 <span class="mf">1.0</span>
@@ -662,11 +668,27 @@ to create complex-type numbers:</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">3j</span><span class="p">)</span>
 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">0j</span><span class="p">)</span>
+
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">3j</span><span class="p">)</span>
 <span class="nb">complex</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="mi">4j</span><span class="p">,</span> <span class="nb">complex</span><span class="p">)</span>
 <span class="bp">True</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal"><span class="pre">j</span></code> is not, by itself, reserved as a special placeholder for
+<span class="math">\(i\)</span>. Rather, <code class="docutils literal"><span class="pre">j</span></code> must be preceded immediately with a numerical
+literal (i.e.&nbsp;you cannot use a variable) in order for the Python
+interpreter to treat it as a complex number.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `j` by itself is treated like any other character</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">j</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;j&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+
+<span class="c1"># `1j` is interpreted as the imaginary number</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">1j</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">0j</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You can access <code class="docutils literal"><span class="pre">a</span></code> and <code class="docutils literal"><span class="pre">b</span></code> from <code class="docutils literal"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">bj</span></code>, the real and imaginary
@@ -700,8 +722,11 @@ an operation on two floats will return a float:</p>
 <p>2. What type of number will be returned if you perform a mathematical
 operation using an integer and a floating-point number? Does this hold
 for all the arithmetic operations? Determine this by trial and error.</p>
-<p class="last">3. Given the function <span class="math">\(f(x) = e^{|x - 2|}\)</span>, make use of the
+<p>3. Given the function <span class="math">\(f(x) = e^{|x - 2|}\)</span>, make use of the
 <code class="docutils literal"><span class="pre">math</span></code> module to compute <span class="math">\(f(-0.2)\)</span>.</p>
+<p class="last">4. Using Python’s syntax for scientific notation, write an expression
+that verifies that one trillion divided by one billion is equal to one
+thousand</p>
 </div>
 </div>
 <div class="section" id="Augmented-Assignment-Statements">
@@ -740,6 +765,35 @@ on <code class="docutils literal"><span class="pre">x</span></code>, using <code
 <li><code class="docutils literal"><span class="pre">x</span> <span class="pre">//=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">//</span> <span class="pre">n</span></code></li>
 <li><code class="docutils literal"><span class="pre">x</span> <span class="pre">**=</span> <span class="pre">n</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">**</span> <span class="pre">n</span></code></li>
 </ul>
+</div>
+<div class="section" id="Improving-The-Readability-of-Numbers">
+<h3>Improving The Readability of Numbers<a class="headerlink" href="#Improving-The-Readability-of-Numbers" title="Permalink to this headline">¶</a></h3>
+<p>Python version 3.6 introduced the ability to include underscores between
+the digits of a number as a visual delimiter. This character can be used
+to improve the readability of long numbers in your code. For example the
+number <code class="docutils literal"><span class="pre">662607004</span></code> can be rewritten as <code class="docutils literal"><span class="pre">662_607_004</span></code>, using <code class="docutils literal"><span class="pre">_</span></code> to
+delimit digits separated by orders of one thousand. Leading, trailing,
+or multiple underscores in a row are not allowed; otherwise this
+character can be included anywhere within a numerical literal.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># examples of using `_` as a visual delimiter in numbers</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="n">_000_000</span>  <span class="c1"># this is nice!</span>
+<span class="mi">1000000</span>
+
+<span class="c1"># this is gross but is permitted</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span><span class="n">_3_4</span><span class="o">.</span><span class="mi">5</span><span class="n">_6_7</span>
+<span class="mf">234.567</span>
+
+<span class="c1"># underscores work with all variety of numerical literals</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">10</span><span class="n">_000j</span>
+<span class="mi">10000j</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first fa fa-exclamation-circle"><strong>Compatibility Warning</strong></p>
+<p class="last">The permitted use of the underscore character, <code class="docutils literal"><span class="pre">_</span></code>, in numerical
+literals was introduced in Python 3.6. Thus utilizing this syntax in
+your code will render it incompatible with Python 3.5 and earlier.</p>
+</div>
 </div>
 </div>
 <div class="section" id="The-Boolean-Type">
@@ -1366,12 +1420,25 @@ number:</p>
 <span class="go">1.0</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 3. Given the function f(x)=e^|x−2|f(x), make use</span>
-<span class="c1">#    of the math module to compute f(−0.2).</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
-<span class="mf">9.025013499434122</span>
+<p>3. Given the function <span class="math">\(f(x) = e^{|x - 2|}\)</span>, make use of the
+<code class="docutils literal"><span class="pre">math</span></code> module to compute <span class="math">\(f(-0.2)\)</span>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">9.025013499434122</span>
+</pre></div>
+</div>
+<p>4. Using Python’s syntax for scientific notation, write an expression
+that verifies that one trillion divided by one billion is equal to one
+thousand.</p>
+<blockquote>
+<div>As cautioned above, we should avoid checking to see if two floating
+point numbers are exactly equal, and instead simply ensure that they
+are close in value. Keep in mind that a number written Python’s
+using scientific syntax will produce a float.</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">isclose</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isclose</span><span class="p">(</span><span class="mf">1e12</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">)</span>
+<span class="go">True</span>
 </pre></div>
 </div>
 <p><strong>Boolean expressions: Solutions</strong></p>

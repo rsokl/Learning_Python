@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Basic Object Types &mdash; Python Like You Mean It 0.15.0 documentation</title>
+  <title>Basic Object Types &mdash; Python Like You Mean It 1.0.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 0.15.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Sequence Types" href="SequenceTypes.html"/>
         <link rel="prev" title="Module 2: The Essentials of Python" href="../module_2.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.15.0
+                1.0
               </div>
             
           
@@ -107,7 +107,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#Augmented-Assignment-Statements">Augmented Assignment Statements</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#The-Boolean-Type">The Boolean Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#The-Boolean-Type">The Boolean Type</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Logic-Operators">Logic Operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Boolean-Objects-are-Integers">Boolean Objects are Integers</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#The-None-Type">The None-Type</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Strings">Strings</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Introducing-the-string-type">Introducing the string type</a></li>
@@ -141,7 +145,9 @@
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2_problems.html">Module 2: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
 </ul>
@@ -555,17 +561,17 @@ defined with 23 digits, but when this number is converted to a float, it
 only retains 16 decimal places in scientific notation:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating the finite-precision of a float.</span>
 
-<span class="c1"># An integer with 23 digits - Python will use as</span>
+<span class="c1"># An integer with 100 digits - Python will use as</span>
 <span class="c1"># much memory as needed to store an integer</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="mi">18181818181818181818181</span>
-<span class="mi">18181818181818181818181</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># creates a string with 100 1s and makes it an int</span>
+<span class="mi">1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</span>
 
 <span class="c1"># Converted to a float, it retains only</span>
 <span class="c1"># 16 decimal places, when written in scientific</span>
 <span class="c1"># notation. This is the precision permitted by</span>
 <span class="c1"># 8 bytes of memory.</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="mi">18181818181818181818181</span><span class="p">)</span>
-<span class="mf">1.8181818181818182e+22</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># creates a string with 100 1s and makes it a float</span>
+<span class="mf">1.111111111111111e+99</span>
 </pre></div>
 </div>
 <p>The computer cannot keep track of those last 6 decimal places, because
@@ -754,12 +760,28 @@ object either is or isn’t and instance of a specific type.</p>
 <p><code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code> must be specified with capital letters in Python.
 These should not be confused with strings; note that there are no
 quotation marks used here.</p>
+<div class="section" id="Logic-Operators">
+<h3>Logic Operators<a class="headerlink" href="#Logic-Operators" title="Permalink to this headline">¶</a></h3>
 <p>Python provides familiar operators for performing basic boolean logic:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">and</span></code></li>
-<li><code class="docutils literal"><span class="pre">or</span></code></li>
-<li><code class="docutils literal"><span class="pre">not</span></code></li>
-</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Logic Operation</th>
+<th class="head">Symbolic Operator</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">and</span></code></td>
+<td><code class="docutils literal"><span class="pre">&amp;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">or</span></code></td>
+<td>|</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating boolean-logic operators</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="bp">True</span> <span class="ow">or</span> <span class="bp">False</span>
 <span class="bp">True</span>
@@ -771,8 +793,21 @@ quotation marks used here.</p>
 <span class="bp">True</span>
 </pre></div>
 </div>
-<p>Grouping with parentheses also works, and multiple operators can be used
-in a single line:</p>
+<p>Operator symbols are available in place of the reserved words <code class="docutils literal"><span class="pre">and</span></code>
+and <code class="docutils literal"><span class="pre">or</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the symbolic logic operators</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">False</span> <span class="o">|</span> <span class="bp">True</span>  <span class="c1"># equivalent to: `False or True`</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">False</span> <span class="o">&amp;</span> <span class="bp">True</span>  <span class="c1"># equivalent to: `False and True`</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<p>That being said, it is generally more “Pythonic” (i.e.&nbsp;in-vogue with
+Python users) to favor the use of the word-operators over the symbolic
+ones.</p>
+<p>Multiple logic operators can be used in a single line and parentheses
+can be used to group expressions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="bp">True</span> <span class="ow">or</span> <span class="bp">False</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">True</span>
 <span class="go">True</span>
 </pre></div>
@@ -791,6 +826,43 @@ objects.</p>
 </div>
 <p>The <code class="docutils literal"><span class="pre">bool</span></code> type has additional utilities, which will be discussed in
 the “Conditional Statements” section.</p>
+</div>
+<div class="section" id="Boolean-Objects-are-Integers">
+<h3>Boolean Objects are Integers<a class="headerlink" href="#Boolean-Objects-are-Integers" title="Permalink to this headline">¶</a></h3>
+<p>The two boolean objects <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code> formally belong to the
+<code class="docutils literal"><span class="pre">int</span></code> type in addition to <code class="docutils literal"><span class="pre">bool</span></code>, and are associated with the values
+<code class="docutils literal"><span class="pre">1</span></code> and <code class="docutils literal"><span class="pre">0</span></code>, respectively:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">1</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>As such, they can be used in mathematical expressions interchangeably
+with <code class="docutils literal"><span class="pre">1</span></code> and <code class="docutils literal"><span class="pre">0</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span><span class="o">*</span><span class="bp">True</span> <span class="o">-</span> <span class="bp">False</span>  <span class="c1"># equivalent to: 3*1 + 0</span>
+<span class="go">3</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">True</span> <span class="o">/</span> <span class="bp">False</span>  <span class="c1"># equivalent to: 1 / 0</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">ZeroDivisionError                         Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-4-f8487d9d0863&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 True / False</span>
+
+<span class="go">ZeroDivisionError: division by zero</span>
+</pre></div>
+</div>
+<p>The purpose of having <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code> double as integers is
+beyond the scope of this section. It is simply useful to be aware of
+these facts so that this behavior is not completely alien to you as you
+begin to write code in Python.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Boolean expressions</strong></p>
 <p>1. Assuming <code class="docutils literal"><span class="pre">x</span></code> is a an integer-type, write a comparison statement
@@ -803,6 +875,7 @@ number. (Hint: try writing the expression that will return <code class="docutils
 this condition, and then negate it)</p>
 <p class="last">3. Write an expression that returns <code class="docutils literal"><span class="pre">True</span></code> if <code class="docutils literal"><span class="pre">x</span></code> is a boolean-type
 object or a float-type object.</p>
+</div>
 </div>
 </div>
 <div class="section" id="The-None-Type">
@@ -1099,7 +1172,7 @@ list has already been constructed</em>. Thus a list is an example of a
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 
-<span class="c1"># &quot;set&quot; the string &#39;apple&#39; into position-1 of `x`</span>
+<span class="c1"># &quot;set&quot; the string &#39;apple&#39; into position 1 of `x`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
 <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -1110,7 +1183,7 @@ list has already been constructed</em>. Thus a list is an example of a
 <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>The built-in list-functions “append” and “extend” allow use to add one
+<p>The built-in list-functions “append” and “extend” allow us to add one
 item and multiple items to the end of a list, respectively:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 
@@ -1427,7 +1500,7 @@ number:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.15.0',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

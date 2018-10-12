@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Variables &amp; Assignment &mdash; Python Like You Mean It 0.15.0 documentation</title>
+  <title>Variables &amp; Assignment &mdash; Python Like You Mean It 1.0.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 0.15.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Introducing Control Flow" href="Introduction.html"/>
         <link rel="prev" title="Sequence Types" href="SequenceTypes.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.15.0
+                1.0
               </div>
             
           
@@ -102,8 +102,11 @@
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Variables &amp; Assignment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Valid-Names-for-Variables">Valid Names for Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Mutable-and-Immutable-Objects">Mutable and Immutable Objects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Mutable-&amp;-Immutable-Types-of-Objects">Mutable &amp; Immutable Types of Objects</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#Referencing-a-Mutable-Object-with-Multiple-Variables">Referencing a Mutable Object with Multiple Variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Mutable-&amp;-Immutable-Types-of-Objects">Mutable &amp; Immutable Types of Objects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -120,7 +123,9 @@
 <li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2_problems.html">Module 2: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
 </ul>
@@ -246,11 +251,11 @@ assigned to the variable goes to the right:</p>
 </div>
 <p>Attempting to reverse the assignment order (e.g. <code class="docutils literal"><span class="pre">92</span> <span class="pre">=</span> <span class="pre">name</span></code>) will
 result in a syntax error. When a variable is assigned an object (like a
-number or a string), it is common to say that the variable
-<strong>references</strong> that object. That is, the variable <code class="docutils literal"><span class="pre">name</span></code> references
-the string <code class="docutils literal"><span class="pre">&quot;Brian&quot;</span></code>.</p>
-<p>Once a variable is referencing a value, you can use the variable
-elsewhere in your code as a placeholder:</p>
+number or a string), it is common to say that the variable <strong>is a
+reference to</strong> that object. For example, the variable <code class="docutils literal"><span class="pre">name</span></code>
+references the string <code class="docutils literal"><span class="pre">&quot;Brian&quot;</span></code>. This means that, once a variable is
+assigned an object, it can be used elsewhere in your code as a reference
+to (or placeholder for) that object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the use of variables in code</span>
 <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>
 <span class="n">grade</span> <span class="o">=</span> <span class="mi">92</span>
@@ -262,14 +267,14 @@ elsewhere in your code as a placeholder:</p>
 <span class="c1"># writes: name | grade | passing-status</span>
 <span class="c1"># to the end of the file &quot;student_grades.txt&quot;</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;student_grades.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">opened_file</span><span class="p">:</span>
-    <span class="n">opened_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{name} | {grade} | {failing}&quot;</span><span class="p">)</span>
+    <span class="n">opened_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;{} | {} | {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="p">,</span> <span class="n">failing</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="section" id="Valid-Names-for-Variables">
 <h2>Valid Names for Variables<a class="headerlink" href="#Valid-Names-for-Variables" title="Permalink to this headline">¶</a></h2>
-<p>A variable name can only consist of alphanumeric characters (<code class="docutils literal"><span class="pre">a-z</span></code>,
+<p>A variable name may consist of alphanumeric characters (<code class="docutils literal"><span class="pre">a-z</span></code>,
 <code class="docutils literal"><span class="pre">A-Z</span></code>, <code class="docutils literal"><span class="pre">0-9</span></code>) and the underscore symbol (<code class="docutils literal"><span class="pre">_</span></code>); a valid name cannot
-begin with a numerical value:</p>
+begin with a numerical value.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">var</span></code>: valid</li>
 <li><code class="docutils literal"><span class="pre">_var2</span></code>: valid</li>
@@ -281,13 +286,80 @@ begin with a numerical value:</p>
 the Python language. As such, the following cannot be used as variable
 names:</p>
 <ul class="simple">
-<li>for, while, break, pass, continue</li>
-<li>in, is, not</li>
-<li>if, else, elif</li>
-<li>def, class, return, yield, raises</li>
-<li>import, from, as, with</li>
-<li>try, except, finally</li>
+<li><code class="docutils literal"><span class="pre">for</span></code>, <code class="docutils literal"><span class="pre">while</span></code>, <code class="docutils literal"><span class="pre">break</span></code>, <code class="docutils literal"><span class="pre">pass</span></code>, <code class="docutils literal"><span class="pre">continue</span></code></li>
+<li><code class="docutils literal"><span class="pre">in</span></code>, <code class="docutils literal"><span class="pre">is</span></code>, <code class="docutils literal"><span class="pre">not</span></code></li>
+<li><code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, <code class="docutils literal"><span class="pre">elif</span></code></li>
+<li><code class="docutils literal"><span class="pre">def</span></code>, <code class="docutils literal"><span class="pre">class</span></code>, <code class="docutils literal"><span class="pre">return</span></code>, <code class="docutils literal"><span class="pre">yield</span></code>, <code class="docutils literal"><span class="pre">raises</span></code></li>
+<li><code class="docutils literal"><span class="pre">import</span></code>, <code class="docutils literal"><span class="pre">from</span></code>, <code class="docutils literal"><span class="pre">as</span></code>, <code class="docutils literal"><span class="pre">with</span></code></li>
+<li><code class="docutils literal"><span class="pre">try</span></code>, <code class="docutils literal"><span class="pre">except</span></code>, <code class="docutils literal"><span class="pre">finally</span></code></li>
 </ul>
+<p>There are other unicode characters that are permitted as valid
+characters in a Python variable name, but it is not worthwhile to delve
+into those details here.</p>
+</div>
+<div class="section" id="Mutable-and-Immutable-Objects">
+<h2>Mutable and Immutable Objects<a class="headerlink" href="#Mutable-and-Immutable-Objects" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>mutability</strong> of an object refers to its ability to have its state
+be changed. A <strong>mutable object</strong> can have its state be changed, whereas
+an <strong>immutable object</strong> cannot. For instance, a list is an example of a
+mutable object. Once formed, we are able to update the contents of a
+list - replacing, adding to, and removing its elements.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the mutability of a list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>  <span class="c1"># replace element-0 of `x` with -4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>To spell out what is transpiring here, we:</p>
+<ol class="arabic simple">
+<li>Create (initialize) a list with the state <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>.</li>
+<li>Assign this list to the variable <code class="docutils literal"><span class="pre">x</span></code>; <code class="docutils literal"><span class="pre">x</span></code> is now a reference to
+that list.</li>
+<li>Using our referencing variable, <code class="docutils literal"><span class="pre">x</span></code>, update element-0 of the list
+to store the integer <code class="docutils literal"><span class="pre">-4</span></code>.</li>
+</ol>
+<p>This does not create a new list object, rather it <em>mutates</em> our original
+list. This is why printing <code class="docutils literal"><span class="pre">x</span></code> in the console displays <code class="docutils literal"><span class="pre">[-4,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>
+and not <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>.</p>
+<p>A tuple is an example of an immutable object. Once formed, there is no
+mechanism by which one can change of the state of a tuple; and any code
+that appears to be updating a tuple is in fact creating an entirely new
+tuple.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating to the immutability of a tuple</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>  <span class="c1"># attempt to replace element-0 of `x` with -4</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">a858573fdc63</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+      <span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">2</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>  <span class="c1"># attempt to replace element-0 of `x` with -4</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;tuple&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+</pre></div>
+</div>
+<div class="section" id="Mutable-&amp;-Immutable-Types-of-Objects">
+<h3>Mutable &amp; Immutable Types of Objects<a class="headerlink" href="#Mutable-&-Immutable-Types-of-Objects" title="Permalink to this headline">¶</a></h3>
+<p>The following are some common immutable and mutable objects in Python.
+These will be important to have in mind as we start to work with
+dictionaries and sets.</p>
+<p><strong>Some immutable objects</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Number-Types">numbers</a>
+(integers, floating-point numbers, complex numbers)</li>
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Strings">strings</a></li>
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Tuples">tuples</a></li>
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#The-Boolean-Type">booleans</a></li>
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure">“frozen”-sets</a></li>
+</ul>
+<p><strong>Some mutable objects</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Lists">lists</a></li>
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html">dictionaries</a></li>
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure">sets</a></li>
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/module_3.html">NumPy arrays</a></li>
+</ul>
+</div>
 </div>
 <div class="section" id="Referencing-a-Mutable-Object-with-Multiple-Variables">
 <h2>Referencing a Mutable Object with Multiple Variables<a class="headerlink" href="#Referencing-a-Mutable-Object-with-Multiple-Variables" title="Permalink to this headline">¶</a></h2>
@@ -347,47 +419,6 @@ update part of the subsequence common to <code class="docutils literal"><span cl
 change show up in both of them? Write some simple code to investigate
 this.</p>
 </div>
-<p>This discussion is warranted for a list, because a list is <em>mutable</em> - a
-given list can be changed after it is created. A tuple, being
-<em>immutable</em>, cannot be changed. Any operation that appears to be
-updating a tuple must actually be creating an entirely new tuple
-altogether. Consider the following example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `x` and `y` reference the same tuple</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-
-<span class="c1"># shorthand for: x = x + (4, 5)</span>
-<span class="c1"># this creates a new tuple</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-
-<span class="c1"># y still references the original tuple</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="Mutable-&amp;-Immutable-Types-of-Objects">
-<h2>Mutable &amp; Immutable Types of Objects<a class="headerlink" href="#Mutable-&-Immutable-Types-of-Objects" title="Permalink to this headline">¶</a></h2>
-<p>The following are some common immutable and mutable objects in Python.
-These will be important to have in mind as we start to work with
-dictionaries and sets.</p>
-<p><strong>Some immutable objects</strong></p>
-<ul class="simple">
-<li>numbers (integers, floating-point numbers, complex numbers)</li>
-<li>strings</li>
-<li>tuples</li>
-<li>boolean values</li>
-<li>“frozen”-sets</li>
-</ul>
-<p><strong>Some mutable objects</strong></p>
-<ul class="simple">
-<li>lists</li>
-<li>dictionaries</li>
-<li>sets</li>
-<li>NumPy arrays</li>
-</ul>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Understanding References</strong></p>
 <p>Based on our discussion of mutable and immutable objects, predict what
@@ -476,7 +507,7 @@ list produces a copy of the appropriate subsequence of the list:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.15.0',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

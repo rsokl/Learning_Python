@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Module 2: The Essentials of Python &mdash; Python Like You Mean It 0.15.0 documentation</title>
+  <title>Module 2: The Essentials of Python &mdash; Python Like You Mean It 1.0.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Python Like You Mean It 0.15.0 documentation" href="index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="index.html"/>
         <link rel="next" title="Basic Object Types" href="Module2_EssentialsOfPython/Basic_Objects.html"/>
         <link rel="prev" title="Setting Up a Development Environment" href="Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html"/> 
 
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                0.15.0
+                1.0
               </div>
             
           
@@ -113,7 +113,9 @@
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="module_2_problems.html">Module 2: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_3_problems.html">Module 3: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module_4.html">Module 4: Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module_5.html">Module 5: Odds and Ends</a></li>
 </ul>
@@ -215,13 +217,13 @@
 </style>
 <div class="section" id="module-2-the-essentials-of-python">
 <h1>Module 2: The Essentials of Python<a class="headerlink" href="#module-2-the-essentials-of-python" title="Permalink to this headline">¶</a></h1>
-<p>This module is designed to introduce you to the essential elements of Python. We will begin by studying the basic types of objects that are built-in to Python, which will enable us to work with numbers, text, and “containers” that can store a collection of objects. Lists, tuples, and strings all store <em>sequences</em> of objects (characters, in the case of strings), as such Python provides a common interface for working with these types; your ability to manipulate sequences of data will be a cornerstone for nearly all STEM work that you do in Python.</p>
-<p>Having introduced Python’s basic types of objects and the means for working with sequences, we will formally discuss the process of assigning variables to these objects. It is not uncommon to assign multiple variables to the same object; Python’s treatment of multiple “references” to a single object will be resolved here, and in doing so we will distinguish “mutable” objects from “immutable” objects.</p>
-<p>Armed with our growing toolkit of Python objects, and our newfound understanding of how to “reference” them with variables, we proceed to learn how to control the “flow” of logic within our code. “if”, “else”, and “else-if” statements are defined so that we can have branches of code be executed only if user-specified conditions are met (e.g. if a student’s grade is below 65, execute code to email that student a warning). “while-loops” and “for-loops” permit us to execute blocks of code repeatedly (e.g. for each student in this list, execute the code to compute that student’s average score). These “control-flow” tools will greatly improve our ability to write useful code.</p>
-<p>Coming off our discussion of “for-loops”, we take the opportunity to discuss some niceties of the Python language that arise when working with objects that are “iterable” (e.g. can be iterated over in a for-loop). “Niceties” is actually an understatement; these tricks of the trade will greatly bolster our ability to write clean, concise, and efficient code. We will pay particular attention to “generator comprehension” statements, which will allow us to process long sequences of data without having to hold all of the data in memory. You will be glad to have these tricks and tools in your repertoire.</p>
+<p>This module is designed to introduce you to the essential elements of Python. We will begin by studying the basic types of objects that are built-in to Python, which will enable us to work with numbers, text, and containers that can store a collection of objects. Lists, tuples, and strings all store <em>sequences</em> of objects (characters, in the case of strings), as such Python provides a common interface for working with these types; your ability to manipulate sequences of data will be a cornerstone for nearly all STEM work that you do in Python.</p>
+<p>Having introduced Python’s basic types of objects and the means for working with sequences, we will formally discuss the process of assigning variables to these objects. It is not uncommon to assign multiple variables to the same object; Python’s treatment of multiple “references” to a single object will be resolved here, and in doing so we will distinguish <em>mutable</em> objects from <em>immutable</em> objects.</p>
+<p>Armed with our growing toolkit of Python objects, and our newfound understanding of how to reference them with variables, we proceed to learn how to control the flow of logic within our code. “if”, “else”, and “else-if” statements are defined so that we can have branches of code be executed only if user-specified conditions are met (e.g. if a student’s grade is below 65, execute code to email that student a warning). “while-loops” and “for-loops” permit us to execute blocks of code repeatedly (e.g. for each student in this list, execute the code to compute that student’s average score). These so-called control-flow tools will greatly improve our ability to write useful code.</p>
+<p>Coming off our discussion of for-loops, we take the opportunity to discuss some niceties of the Python language that arise when working with objects that are iterable (e.g. can be iterated over in a for-loop). Niceties is actually an understatement; these tricks of the trade will greatly bolster our ability to write clean, concise, and efficient code. We will pay particular attention to generator comprehension statements, which will allow us to process long sequences of data without having to hold all of the data in memory. You will be glad to have these tricks and tools in your repertoire.</p>
 <p>Returning to a more traditional paradigm of programming languages, we will learn how to define our own functions. This will allow us to encapsulate code for reuse and invoke the code on-demand by “calling” the function that contains that code. Functions enable us to write code that is modular and to construct powerful algorithms by relying on these functions.</p>
-<p>Finally, we will return to our initial endeavor of learning about the various types of objects that are built-in to Python, adding dictionaries, sets to our inventory. Now that we are much more familiar with the language as a whole, we can concern ourselves with more nuanced, but extremely important matters. This involves discussing the efficiency of the algorithms used “under the hood” by its different data structures. For example, it will become clear that checking if an object is contained in a set is <em>much</em> more efficient than checking for membership in a list. Using the right tool for a given task is of manifest importance.</p>
-<p>Although far from comprehensive, this module will acquaint you with the many of the essential elements of Python, along with the niceties that make the language easy to use. The objective here is to equip the reader with the tools needed to write clear and efficient code, that is particularly effective for data science applications. It is paramount that writing code in Python does not feel like stacking a bunch “black boxes” together; for this reason, a considerable amount of detail is included here. I hope that a reasonable balance has been struck such that this text is still easy to read and that its key “takeaways” are readily distilled.</p>
+<p>Finally, we will return to our initial endeavor of learning about the various types of objects that are built-in to Python, adding dictionaries, sets, and other types of collections to our inventory. Now that we are much more familiar with the language as a whole, we can concern ourselves with more nuanced, but extremely important matters. This involves discussing the efficiency of the algorithms used under the hood by its different data structures. For example, it will become clear that checking if an object is contained in a set is <em>much</em> more efficient than checking for membership in a list. Using the right tool for a given task is of manifest importance.</p>
+<p>Although far from comprehensive, this module will acquaint you with the many of the essential elements of Python, along with the niceties that make the language easy to use. The objective here is to equip the reader with the tools needed to write clear and efficient code, that is particularly effective for data science applications. It is paramount that writing code in Python does not feel like stacking a bunch black boxes together; for this reason, a considerable amount of detail is included here. I hope that a reasonable balance has been struck such that this text is still easy to read and that its key “takeaways” are readily distilled.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -245,8 +247,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Module2_EssentialsOfPython/Variables_and_Assignment.html">Variables &amp; Assignment</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Variables_and_Assignment.html#Valid-Names-for-Variables">Valid Names for Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Variables_and_Assignment.html#Mutable-and-Immutable-Objects">Mutable and Immutable Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Variables_and_Assignment.html#Referencing-a-Mutable-Object-with-Multiple-Variables">Referencing a Mutable Object with Multiple Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Variables_and_Assignment.html#Mutable-&amp;-Immutable-Types-of-Objects">Mutable &amp; Immutable Types of Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/Variables_and_Assignment.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
 </li>
@@ -255,6 +257,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#Comparison-Operations">Comparison Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#bool-and-Truth-Values-of-Non-Boolean-Objects"><code class="docutils literal"><span class="pre">bool</span></code> and Truth Values of Non-Boolean Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#if,-else,-and-elif"><code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and <code class="docutils literal"><span class="pre">elif</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#Short-Circuiting-Logical-Expressions">Short-Circuiting Logical Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module2_EssentialsOfPython/ConditionalStatements.html#Reading-Comprehension-Exercise-Solutions:">Reading Comprehension Exercise Solutions:</a></li>
 </ul>
@@ -370,7 +373,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.15.0',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
