@@ -1,0 +1,16 @@
+Module 5: Odds and Ends
+=====================================
+This module contains materials that are extraneous to the essentials of Python as a language and of NumPy, but are nonetheless critical to doing day-to-day work using these tools. The first section introduces matplotlib, a library that allows us to plot and visually inspect data. The next section presents the "best practices" for working with files in Python; this includes reading from and writing to files.
+
+More sections will be added to this module down the road.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   Module5_OddsAndEnds/Matplotlib.ipynb
+   Module5_OddsAndEnds/WorkingWithFiles.ipynb
+   Module5_OddsAndEnds/Modules_and_Packages.ipynb
+
+
+   
