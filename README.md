@@ -3,10 +3,10 @@ View this content as hosted on [Python Like You Mean It](https://www.pythonlikey
 
 This repository contains the source material for the website [Python Like You Mean It](pythonlikeyoumeanit.com). The site is written primarily in [Jupyter notebooks](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html) (which are transformed into html using [nbsphinx](https://nbsphinx.readthedocs.io/en/0.3.4/)). A huge perk of this of this is that you simply need to be familiar with Jupyter notebooks and some [markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in order to contribute to this project!
 
-# Asking Questions
+## Asking Questions
 Please feel free to post questions (or point out mistakes) about the reading by opening a [GitHub issue](https://github.com/rsokl/Learning_Python/issues). Someone from the PLYMI team will respond ASAP!
 
-# How To Contribute
+## How To Contribute
 Contributions to this project are very welcome!  I will be sure to credit any/all contributions (unless your want to remain anonymous). Some great ways to help out are to:
 - proofread 
 - add reading comprehension exercises to existing sections
