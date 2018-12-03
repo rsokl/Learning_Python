@@ -1,12 +1,11 @@
+# Python Like You Mean It
 View this content as hosted on [Python Like You Mean It](https://www.pythonlikeyoumeanit.com/)
 
-This site is written primarily in Jupyter notebooks, which are transformed into html using [nbsphinx](https://nbsphinx.readthedocs.io/en/0.3.4/). The positive aspect of this is that you simply need to be familiar with Jupyter notebooks and some [markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in order to contribute to this project!
+This repository contains the source material for the website [Python Like You Mean It](pythonlikeyoumeanit.com). The site is written primarily in Jupyter notebooks, which are transformed into html using [nbsphinx](https://nbsphinx.readthedocs.io/en/0.3.4/). The positive aspect of this is that you simply need to be familiar with Jupyter notebooks and some [markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in order to contribute to this project!
 
-**NOTE**: This content is not meant for public release. If you are reading this, then I have added you as a contributor to this project. Please do not distribute this work to others.
+# Asking Questions
+Please feel free to post questions (or point out mistakes) about the reading by opening a [GitHub issue](https://github.com/rsokl/Learning_Python/issues). Someone from the PLYMI team will respond ASAP!
 
-# Python Like You Mean It
-This repository contains the source material for the website [Python Like You Mean It](pythonlikeyoumeanit.com). It is not yet at 1.0 (stable public release). See the issues section to find tasks that need doing. Please share this website with others, but not this source material. This is a private repo, and I have added people in good faith that they will not distribute the source material.
- 
 # How To Contribute
 Contributions to this project are very welcome!  I will be sure to credit any/all contributions (unless your want to remain anonymous). Some great ways to help out are to:
 - proofread 
@@ -16,7 +15,7 @@ Contributions to this project are very welcome!  I will be sure to credit any/al
  
 You can either open an issue to provide feedback or point out errors, or you can create a [pull request](https://help.github.com/articles/creating-a-pull-request/)) if you want to submit new/modified materials. The other maintainers of PLYMI and I are happy to help you refine your issues and PRs, so please do not be discouraged if you are new to Git/GitHub.
 
-I have posted a number of "To-Do" tasks in this project's [issues](https://github.com/LLrsokl/BWSI_2018/issues) page, and I will be adding to these as this project progresses. Included are requests for proofreading and exercises. Please post within an issue if you are working on a to-do item, so multiple people don't end up working on the same task. General feedback on content is also hugely valuable, so feel free to open a new issue to provide your feedback on any of the material.
+I have posted a number of "To-Do" tasks in this project's [issues](https://github.com/rsokl/Learning_Python/issues) page, and I will be adding to these as this project progresses. Included are requests for proofreading and exercises. Please post within an issue if you are working on a to-do item, so multiple people don't end up working on the same task. General feedback on content is also hugely valuable, so feel free to open a new issue to provide your feedback on any of the material.
 
 [Here is a nice Markdown "cheat sheet"](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for looking up how to make tables, code-blocks, etc., in Markdown.
 
