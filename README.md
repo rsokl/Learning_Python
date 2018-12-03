@@ -4,7 +4,7 @@ View this content as hosted on [Python Like You Mean It](https://www.pythonlikey
 This repository contains the source material for the website [Python Like You Mean It](pythonlikeyoumeanit.com). The site is written primarily in [Jupyter notebooks](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html) (which are transformed into html using [nbsphinx](https://nbsphinx.readthedocs.io/en/0.3.4/)). A huge perk of this of this is that you simply need to be familiar with Jupyter notebooks and some [markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in order to contribute to this project!
 
 ## Asking Questions
-Please feel free to post questions (or point out mistakes) about the reading by opening a [GitHub issue](https://github.com/rsokl/Learning_Python/issues). Someone from the PLYMI team will respond ASAP!
+Please feel free to post questions (or point out mistakes) about the reading by opening a [GitHub issue](https://github.com/rsokl/Learning_Python/issues). Someone from the PLYMI team will respond ASAP! Refer to [this reference](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code-and-syntax-highlighting) to see how to include python-codeblocks  in your post. This will make it much easier for us to discuss code with each other. 
 
 ## How To Contribute
 Contributions to this project are very welcome!  I will be sure to credit any/all contributions (unless your want to remain anonymous). Some great ways to help out are to:
@@ -12,6 +12,7 @@ Contributions to this project are very welcome!  I will be sure to credit any/al
 - add reading comprehension exercises to existing sections
 - provide general feedback about the organization of the website, the consistency of the material, etc.
 - create lengthier standalone problems to serve as holistic examples of how to apply the concepts presented in the reading 
+- recommend new sections to be added to PLYMI
  
 You can either open an issue to provide feedback or point out errors, or you can create a [pull request](https://help.github.com/articles/creating-a-pull-request/)) if you want to submit new/modified materials. The other maintainers of PLYMI and I are happy to help you refine your issues and PRs, so please do not be discouraged if you are new to Git/GitHub.
 
