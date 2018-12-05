@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Defining a New Class of Object &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Defining a New Class of Object &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
         <link rel="next" title="Instances of a Class" href="ClassInstances.html"/>
         <link rel="prev" title="Introduction to Object Oriented Programming" href="Introduction_to_OOP.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -221,14 +221,14 @@
 <div class="section" id="Defining-a-New-Class-of-Object">
 <h1>Defining a New Class of Object<a class="headerlink" href="#Defining-a-New-Class-of-Object" title="Permalink to this headline">¶</a></h1>
 <p>This section will introduce the basic syntax for defining a new class
-(a.k.a. type) of Python object. Recall that the phrase <code class="docutils literal"><span class="pre">def</span></code> is used
-to denote the definition of a function. Similarly, <code class="docutils literal"><span class="pre">class</span></code> is used to
+(a.k.a. type) of Python object. Recall that the phrase <code class="docutils literal notranslate"><span class="pre">def</span></code> is used
+to denote the definition of a function. Similarly, <code class="docutils literal notranslate"><span class="pre">class</span></code> is used to
 denote the beginning of a class definition. The body of the class
-definition, which is the indented region below a <code class="docutils literal"><span class="pre">class</span></code> statement, is
+definition, which is the indented region below a <code class="docutils literal notranslate"><span class="pre">class</span></code> statement, is
 used to define the class’ various <strong>attributes</strong>.</p>
-<p>The following defines a new class of object, named <code class="docutils literal"><span class="pre">MyGuy</span></code>, specifying
-four attributes <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code>, <code class="docutils literal"><span class="pre">z</span></code>, and <code class="docutils literal"><span class="pre">f</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># defining a new class/type of object</span>
+<p>The following defines a new class of object, named <code class="docutils literal notranslate"><span class="pre">MyGuy</span></code>, specifying
+four attributes <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>, and <code class="docutils literal notranslate"><span class="pre">f</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># defining a new class/type of object</span>
 <span class="k">class</span> <span class="nc">MyGuy</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
     <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
@@ -242,8 +242,8 @@ four attributes <code class="docutils literal"><span class="pre">x</span></code>
 </div>
 <p>Once this definition for a new class of object is executed, you can
 proceed to reference that object in your code. Here, we will access the
-various attributes of <code class="docutils literal"><span class="pre">MyGuy</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">x</span>
+various attributes of <code class="docutils literal notranslate"><span class="pre">MyGuy</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">x</span>
 <span class="go">3</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">y</span>
@@ -257,27 +257,27 @@ various attributes of <code class="docutils literal"><span class="pre">MyGuy</sp
 </pre></div>
 </div>
 <p>See that all of the attributes can be accessed using the “dot” syntax:
-<code class="docutils literal"><span class="pre">object.attribute_name</span></code>. The attribute <code class="docutils literal"><span class="pre">f</span></code> is a function, thus we
+<code class="docutils literal notranslate"><span class="pre">object.attribute_name</span></code>. The attribute <code class="docutils literal notranslate"><span class="pre">f</span></code> is a function, thus we
 can call it and it will evaluate as expected:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># calling the attribute f</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># calling the attribute f</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">MyGuy</span><span class="o">.</span><span class="n">f</span><span class="p">()</span>
 <span class="mi">3</span>
 </pre></div>
 </div>
 <p>An object attribute that is also a function is referred to as a
-<strong>method</strong>. Thus <code class="docutils literal"><span class="pre">f</span></code> is a method of <code class="docutils literal"><span class="pre">MyGuy</span></code>.</p>
-<p><code class="docutils literal"><span class="pre">MyGuy</span></code> is the singular class object that embodies our class
-definition. It is akin to <code class="docutils literal"><span class="pre">list</span></code>, <code class="docutils literal"><span class="pre">str</span></code>, and <code class="docutils literal"><span class="pre">int</span></code>. We will use
-<code class="docutils literal"><span class="pre">MyGuy</span></code> to create objects that are <em>instances</em> of our class, in the
-same way that <code class="docutils literal"><span class="pre">&quot;cat&quot;</span></code> is an instance of <code class="docutils literal"><span class="pre">str</span></code>. More on this soon.</p>
+<strong>method</strong>. Thus <code class="docutils literal notranslate"><span class="pre">f</span></code> is a method of <code class="docutils literal notranslate"><span class="pre">MyGuy</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">MyGuy</span></code> is the singular class object that embodies our class
+definition. It is akin to <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, and <code class="docutils literal notranslate"><span class="pre">int</span></code>. We will use
+<code class="docutils literal notranslate"><span class="pre">MyGuy</span></code> to create objects that are <em>instances</em> of our class, in the
+same way that <code class="docutils literal notranslate"><span class="pre">&quot;cat&quot;</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">str</span></code>. More on this soon.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
-<p class="last">The <code class="docutils literal"><span class="pre">class</span></code> expression denotes the definition of a new class of
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">class</span></code> expression denotes the definition of a new class of
 object, which entails defining the attributes of that class. An
 attribute can “bind” to that class other Python objects (integers,
 strings, lists, etc), including functions. Attributes that are functions
-are called <em>methods</em>. The syntax <code class="docutils literal"><span class="pre">obj.attr</span></code> is the dot syntax for
-“getting” the attribute named <code class="docutils literal"><span class="pre">attr</span></code> from the object named <code class="docutils literal"><span class="pre">obj</span></code>.</p>
+are called <em>methods</em>. The syntax <code class="docutils literal notranslate"><span class="pre">obj.attr</span></code> is the dot syntax for
+“getting” the attribute named <code class="docutils literal notranslate"><span class="pre">attr</span></code> from the object named <code class="docutils literal notranslate"><span class="pre">obj</span></code>.</p>
 </div>
 <div class="section" id="The-General-Form-of-a-Class-Definition">
 <h2>The General Form of a Class Definition<a class="headerlink" href="#The-General-Form-of-a-Class-Definition" title="Permalink to this headline">¶</a></h2>
@@ -285,7 +285,7 @@ are called <em>methods</em>. The syntax <code class="docutils literal"><span cla
 attribute definitions, which either take the form of variable
 assignments or function definitions, resulting in the formation of a new
 class of object, with its attributes and methods:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; class docstring &quot;&quot;&quot;</span>
     <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span>
     <span class="o">.</span>
@@ -294,15 +294,15 @@ class of object, with its attributes and methods:</p>
     <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="n">N</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>where each <code class="docutils literal"><span class="pre">&lt;statement-j&gt;</span></code> defines an attribute (e.g. <code class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">&quot;hi&quot;</span></code>
-defines the attribute <code class="docutils literal"><span class="pre">z</span></code>, or a function definition creates a method)
+<p>where each <code class="docutils literal notranslate"><span class="pre">&lt;statement-j&gt;</span></code> defines an attribute (e.g. <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">&quot;hi&quot;</span></code>
+defines the attribute <code class="docutils literal notranslate"><span class="pre">z</span></code>, or a function definition creates a method)
 for that class of object.</p>
 <p>Similar to function definitions, class definitions can contain
 effectively arbitrary Python code, and the definition has its own
 <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html">scope</a>;
 however, <em>any</em> variables assigned within the class definition will be
 available as attributes.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Any variable assigned within a class definition becomes</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Any variable assigned within a class definition becomes</span>
 <span class="c1"># available as an attribute for that class of object, even</span>
 <span class="c1"># a variable defined in a for-loop becomes an attribute of</span>
 <span class="c1"># that class.</span>
@@ -321,7 +321,7 @@ available as attributes.</p>
     <span class="c1"># thus i is an attribute of Dummy with value 10</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Dummy</span><span class="o">.</span><span class="n">cnt</span>  <span class="c1"># cnt = 0 + 5 + 6 + 7 + 8 + 9 + 10</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Dummy</span><span class="o">.</span><span class="n">cnt</span>  <span class="c1"># cnt = 0 + 5 + 6 + 7 + 8 + 9 + 10</span>
 <span class="go">45</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Dummy</span><span class="o">.</span><span class="n">i</span>
@@ -332,32 +332,32 @@ available as attributes.</p>
 <p class="first fa fa-exclamation-circle"><strong>Naming Classes of Objects:</strong></p>
 <p class="last">The convention for naming a new class/type of object is to use
 “camel-casing”. Thus if I wanted to call my class of objects “pizza
-shop”, I would use the name <code class="docutils literal"><span class="pre">PizzaShop</span></code>. This is in contrast to
+shop”, I would use the name <code class="docutils literal notranslate"><span class="pre">PizzaShop</span></code>. This is in contrast to
 variable names, function names, and <em>instances</em> of a class object (still
 to be introduced), where convention dictates the use of lower-case
 letters and underscores in place of spaces (snake-case).</p>
 </div>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Create Your Own Class of Object</strong></p>
-<p class="last">Create a definition for the class of object named <code class="docutils literal"><span class="pre">Dog</span></code>. This class
+<p class="last">Create a definition for the class of object named <code class="docutils literal notranslate"><span class="pre">Dog</span></code>. This class
 should have two attributes: “name” and “speak”. The “name” attribute
 should bind a string to the object (the name of the dog). The “speak”
 attribute should be a <em>method</em>, that takes a string as an input argument
-and returns that string with <code class="docutils literal"><span class="pre">&quot;*woof*&quot;</span></code> added to either end of it
-(e.g. <code class="docutils literal"><span class="pre">&quot;hello&quot;</span></code> -&gt; <code class="docutils literal"><span class="pre">&quot;*woof*</span> <span class="pre">hello</span> <span class="pre">*woof*&quot;</span></code>)</p>
+and returns that string with <code class="docutils literal notranslate"><span class="pre">&quot;*woof*&quot;</span></code> added to either end of it
+(e.g. <code class="docutils literal notranslate"><span class="pre">&quot;hello&quot;</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">&quot;*woof*</span> <span class="pre">hello</span> <span class="pre">*woof*&quot;</span></code>)</p>
 </div>
 </div>
 <div class="section" id="Working-with-Object-Attributes">
 <h2>Working with Object Attributes<a class="headerlink" href="#Working-with-Object-Attributes" title="Permalink to this headline">¶</a></h2>
 <p>Attempting to access an undefined attribute from an object will raise an
-<code class="docutils literal"><span class="pre">AttributeError</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">apple</span>
+<code class="docutils literal notranslate"><span class="pre">AttributeError</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MyGuy</span><span class="o">.</span><span class="n">apple</span>
 <span class="go">AttributeError: type object &#39;MyGuy&#39; has no attribute &#39;apple&#39;</span>
 </pre></div>
 </div>
-<p>We can use built-in function <code class="docutils literal"><span class="pre">hasattr</span></code> to inspect if an object
+<p>We can use built-in function <code class="docutils literal notranslate"><span class="pre">hasattr</span></code> to inspect if an object
 possesses a particular attribute:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `hasattr`</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `hasattr`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">MyGuy</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">)</span>  <span class="c1"># MyGuy.apple is not defined</span>
 <span class="bp">False</span>
 
@@ -366,8 +366,8 @@ possesses a particular attribute:</p>
 </pre></div>
 </div>
 <p>In addition to using the dot-syntax for accessing attributes, the
-built-in function <code class="docutils literal"><span class="pre">getattr</span></code> can be used to the same effect:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `getattr`</span>
+built-in function <code class="docutils literal notranslate"><span class="pre">getattr</span></code> can be used to the same effect:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `getattr`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">MyGuy</span><span class="o">.</span><span class="n">x</span>
 <span class="mi">3</span>
 
@@ -377,8 +377,8 @@ built-in function <code class="docutils literal"><span class="pre">getattr</span
 </div>
 <p>It may be surprising to discover that new attributes can be bound (or
 “set”) to the object <em>after</em> that class of object has already been
-defined. This can be done using the builtin-function <code class="docutils literal"><span class="pre">setattr</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># use `setattr` to bind the attribute `apple` to `MyGuy`</span>
+defined. This can be done using the builtin-function <code class="docutils literal notranslate"><span class="pre">setattr</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># use `setattr` to bind the attribute `apple` to `MyGuy`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">MyGuy</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">)</span>  <span class="c1"># MyGuy.apple is not defined</span>
 <span class="bp">False</span>
 
@@ -389,7 +389,7 @@ defined. This can be done using the builtin-function <code class="docutils liter
 </div>
 <p>Attributes can be defined/set even less formally, using a simple
 assignment syntax:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">MyGuy</span><span class="p">,</span> <span class="s2">&quot;grape&quot;</span><span class="p">)</span>  <span class="c1"># MyGuy.grape is not defined</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">MyGuy</span><span class="p">,</span> <span class="s2">&quot;grape&quot;</span><span class="p">)</span>  <span class="c1"># MyGuy.grape is not defined</span>
 <span class="go">False</span>
 
 <span class="go"># set the attribute `grape` to `MyGuy`</span>
@@ -409,7 +409,7 @@ is generally bad form to create attributes for a class of object outside
 of its designated definition.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
-<p class="last"><code class="docutils literal"><span class="pre">hasattr</span></code>, <code class="docutils literal"><span class="pre">getattr</span></code>, and <code class="docutils literal"><span class="pre">setattr</span></code> are built-in functions that
+<p class="last"><code class="docutils literal notranslate"><span class="pre">hasattr</span></code>, <code class="docutils literal notranslate"><span class="pre">getattr</span></code>, and <code class="docutils literal notranslate"><span class="pre">setattr</span></code> are built-in functions that
 allow us to, by the name of an attribute, check to see if it exists,
 access its value, and set its value, respectively. Python’s objects are
 shockingly flexible in that their attributes can be created outside of
@@ -428,13 +428,13 @@ Objects</a></li>
 <div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>Set Creation: Solution</strong></p>
-<p>Create a definition for the class of object named <code class="docutils literal"><span class="pre">Dog</span></code>. This class
+<p>Create a definition for the class of object named <code class="docutils literal notranslate"><span class="pre">Dog</span></code>. This class
 should have two attributes: “name” and “speak”. The “name” attribute
 should bind a string to the object (the name of the dog). The “speak”
 attribute should be a <em>method</em>, that takes a string as an input argument
-and returns that string with <code class="docutils literal"><span class="pre">&quot;*woof*&quot;</span></code> added to either end of it
-(e.g. <code class="docutils literal"><span class="pre">&quot;hello&quot;</span></code> -&gt; <code class="docutils literal"><span class="pre">&quot;*woof*</span> <span class="pre">hello</span> <span class="pre">*woof*&quot;</span></code>)</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+and returns that string with <code class="docutils literal notranslate"><span class="pre">&quot;*woof*&quot;</span></code> added to either end of it
+(e.g. <code class="docutils literal notranslate"><span class="pre">&quot;hello&quot;</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">&quot;*woof*</span> <span class="pre">hello</span> <span class="pre">*woof*&quot;</span></code>)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Charlie&quot;</span>
 
     <span class="k">def</span> <span class="nf">speak</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
@@ -488,7 +488,7 @@ and returns that string with <code class="docutils literal"><span class="pre">&q
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

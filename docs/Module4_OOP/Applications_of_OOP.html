@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Applications of Object Oriented Programming &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Applications of Object Oriented Programming &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
         <link rel="next" title="Special Methods" href="Special_Methods.html"/>
         <link rel="prev" title="Methods" href="Methods.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -227,7 +227,7 @@ recommendations when one should and shouldn’t define their own classes.</p>
 <h2>Shopping List<a class="headerlink" href="#Shopping-List" title="Permalink to this headline">¶</a></h2>
 <p>Let’s create a shopping list class, where an instance of this class
 stores a list of item-names (strings) to be purchased and a list of
-names that have already been purchased. We will write an <code class="docutils literal"><span class="pre">__init__</span></code>
+names that have already been purchased. We will write an <code class="docutils literal notranslate"><span class="pre">__init__</span></code>
 function that accepts one or more strings, which will be added to the
 shopping list. Then, we will create methods that will allow us to:</p>
 <ul class="simple">
@@ -249,7 +249,7 @@ list/tuple/iterable of strings). To accommodate this, if we receive a
 sole string as an input, we will place it in a list before carrying on.
 This will ensure that we are always working with an iterable containing
 a string.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Parameters</span>
 <span class="sd">            ----------</span>
@@ -295,7 +295,7 @@ a string.</p>
 </pre></div>
 </div>
 <p>Let’s create a shopping list with a few items on it:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># creating a shopping list</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a shopping list</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">([</span><span class="s2">&quot;apples&quot;</span><span class="p">,</span> <span class="s2">&quot;apples&quot;</span><span class="p">,</span> <span class="s2">&quot;grapes&quot;</span><span class="p">,</span> <span class="s2">&quot;peaches&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;bread&quot;</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="o">.</span><span class="n">list_unpurchased_items</span><span class="p">()</span>
 <span class="p">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span> <span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;grapes&#39;</span><span class="p">,</span> <span class="s1">&#39;milk&#39;</span><span class="p">,</span> <span class="s1">&#39;peaches&#39;</span><span class="p">]</span>
@@ -307,7 +307,7 @@ a string.</p>
 of sets under the hood handles this gracefully, reducing all redundant
 entries automatically. Supposing that we are carrying on with our
 shopping and we purchase several items, let’s mark them as such.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># mark items as purchased on our list</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mark items as purchased on our list</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="o">.</span><span class="n">mark_purchased_items</span><span class="p">([</span><span class="s2">&quot;grapes&quot;</span><span class="p">,</span> <span class="s2">&quot;pineapples&quot;</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="o">.</span><span class="n">list_purchased_items</span><span class="p">()</span>
 <span class="p">[</span><span class="s1">&#39;grapes&#39;</span><span class="p">]</span>
@@ -319,16 +319,16 @@ shopping and we purchase several items, let’s mark them as such.</p>
 and added to our purchased set. Additionally, our implementation
 gracefully ignores our request to mark pineapples as being purchased, as
 pineapples weren’t even on our list to begin with.</p>
-<p>In the next section we will augment our <code class="docutils literal"><span class="pre">ShoppingList</span></code> class with some
+<p>In the next section we will augment our <code class="docutils literal notranslate"><span class="pre">ShoppingList</span></code> class with some
 special methods to make it easier to view the items, purchased and not,
 on our list.</p>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Caution: Using Class Definitions Responsibly</strong></p>
-<p>Our <code class="docutils literal"><span class="pre">ShoppingList</span></code> class’ main utility is that it coordinates two sets
+<p>Our <code class="docutils literal notranslate"><span class="pre">ShoppingList</span></code> class’ main utility is that it coordinates two sets
 of items for us, making the logic of tracking unpurchased and purchased
 items intuitive and simple. If we did not care about keeping track of
 purchased items, then we ought not define a class at all. We should
-instead just store our items in a <code class="docutils literal"><span class="pre">list</span></code> and use its methods to add
+instead just store our items in a <code class="docutils literal notranslate"><span class="pre">list</span></code> and use its methods to add
 and remove items.</p>
 <p class="last">When possible, it is preferable to use Python’s built-in types in lieu
 of defining a new class. Doing so will help keep your code simple,
@@ -381,7 +381,7 @@ portable, and compatible with other code.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

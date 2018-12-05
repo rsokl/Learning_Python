@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Module 3: The Essentials of NumPy &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Module 3: The Essentials of NumPy &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="index.html"/>
         <link rel="next" title="Introducing the ND-array" href="Module3_IntroducingNumpy/IntroducingTheNDarray.html"/>
         <link rel="prev" title="Encode as String" href="Module2_EssentialsOfPython/Problems/EncodeAsString.html"/> 
 
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -212,6 +212,9 @@
 </style>
 <div class="section" id="module-3-the-essentials-of-numpy">
 <h1>Module 3: The Essentials of NumPy<a class="headerlink" href="#module-3-the-essentials-of-numpy" title="Permalink to this headline">¶</a></h1>
+<p>NumPy is the reason why Python stands among the ranks of R, Matlab, and Julia, as one of the most popular languages for doing STEM-related computing. It is a third-party library (i.e. it is not part of Python’s standard library) that facilitates numerical computing in Python by providing users with a versatile N-dimensional array object for storing data, and powerful mathematical functions for operating on those arrays of numbers. NumPy implements its features in ways that are highly optimized, via a process known as vectorization, that enables a degree of computational efficiency that is otherwise unachievable by the Python language.</p>
+<p>The impact that NumPy has had on the landscape of numerical computing in Python is hard to overstate. Whether you are plotting data in matplotlib, analyzing tabular data via <a class="reference external" href="https://pandas.pydata.org">pandas</a> and <a class="reference external" href="https://xarray.pydata.org/en/stable">xarray</a>, using <a class="reference external" href="https://opencv.org">OpenCV</a> for image and video processing, doing astrophysics research with the help of <a class="reference external" href="www.astropy.org">astropy</a>, or trying out machine learning with <a class="reference external" href="https://scikit-learn.org/stable/index.html">Scikit-Learn</a> and <a class="reference external" href="https://mygrad.readthedocs.io">MyGrad</a>, you are using Python libraries that bare the indelible mark of NumPy. At their core, each of these libraries depend on NumPy’s N-dimensional array and its efficient vectorization capabilities. NumPy also fundamentally impacts the designs of these libraries and the way that they interface with their users. Thus, one cannot leverage these tools effectively, and cannot do STEM work in Python in general, without having a solid foundation in NumPy.</p>
+<p>This module presents to us the essentials of NumPy. We will first define what the term dimensionality means and will develop an intuition for what zero, one, two, and N-dimensional arrays are, and why they are invaluable for data science applications. Next, we will discuss the ambiguities of array traversal-order and NumPy’s default use of row-major ordering. We will then arrive at the critical topic of vectorization, which prescribes the ways in which NumPy dispatches mathematical operations over arrays of numbers. This will also give us keen insight into how NumPy achieves its tremendous computational efficiency. Finally, we will dive into some of NumPy’s more advanced features. These include its rules for broadcasting mathematical operations between arrays of different shapes, as well as its mechanisms for accessing and updating an array’s contents via basic and advanced indexing. Armed with these techniques, we will be able to write concise and powerful numerical code using NumPy and Python’s many other STEM libraries!</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -235,8 +238,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.html">Functions for Creating NumPy Arrays</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.html#Creating-Arrays-from-Python-Sequences">Creating Arrays from Python Sequences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.html#Creating-Constant-Arrays:-zeros-and-ones">Creating Constant Arrays: <code class="docutils literal"><span class="pre">zeros</span></code> and <code class="docutils literal"><span class="pre">ones</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.html#Creating-Sequential-Arrays:-arange-and-linspace">Creating Sequential Arrays: <code class="docutils literal"><span class="pre">arange</span></code> and <code class="docutils literal"><span class="pre">linspace</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.html#Creating-Constant-Arrays:-zeros-and-ones">Creating Constant Arrays: <code class="docutils literal notranslate"><span class="pre">zeros</span></code> and <code class="docutils literal notranslate"><span class="pre">ones</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.html#Creating-Sequential-Arrays:-arange-and-linspace">Creating Sequential Arrays: <code class="docutils literal notranslate"><span class="pre">arange</span></code> and <code class="docutils literal notranslate"><span class="pre">linspace</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.html#Creating-Arrays-Using-Random-Sampling">Creating Arrays Using Random Sampling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.html#Creating-an-Array-with-a-Specified-Data-Type">Creating an Array with a Specified Data Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.html#Joining-Arrays-Together">Joining Arrays Together</a></li>
@@ -262,7 +265,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Module3_IntroducingNumpy/Broadcasting.html">Array Broadcasting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/Broadcasting.html#Rules-of-Broadcasting">Rules of Broadcasting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/Broadcasting.html#A-Simple-Application-of-Array-Broadcasting">A Simple Application of Array Broadcasting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/Broadcasting.html#Size-1-Axes-&amp;-The-newaxis-Object">Size-1 Axes &amp; The <code class="docutils literal"><span class="pre">newaxis</span></code> Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/Broadcasting.html#Size-1-Axes-&amp;-The-newaxis-Object">Size-1 Axes &amp; The <code class="docutils literal notranslate"><span class="pre">newaxis</span></code> Object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/Broadcasting.html#An-Advanced-Application-of-Broadcasting:-Pairwise-Distances">An Advanced Application of Broadcasting: Pairwise Distances</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/Broadcasting.html#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/Broadcasting.html#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
@@ -333,7 +336,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

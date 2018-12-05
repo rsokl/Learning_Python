@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>A Brief Summary of Terms and Concepts &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>A Brief Summary of Terms and Concepts &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
         <link rel="next" title="Methods" href="Methods.html"/>
         <link rel="prev" title="Instances of a Class" href="ClassInstances.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -216,24 +216,24 @@
 <h1>A Brief Summary of Terms and Concepts<a class="headerlink" href="#A-Brief-Summary-of-Terms-and-Concepts" title="Permalink to this headline">¶</a></h1>
 <p>Let’s do a quick rundown of some of the concepts and terms discussed
 thus far. The following code is a <em>class definition</em>, which specifies
-the <em>attributes</em> of objects that belong to the class/type <code class="docutils literal"><span class="pre">Example</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
+the <em>attributes</em> of objects that belong to the class/type <code class="docutils literal notranslate"><span class="pre">Example</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
     <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
 </pre></div>
 </div>
-<p>Once executed, this code produces the <em>class object</em> <code class="docutils literal"><span class="pre">Example</span></code>, which
+<p>Once executed, this code produces the <em>class object</em> <code class="docutils literal notranslate"><span class="pre">Example</span></code>, which
 encapsulates the above definition and can be used to create objects that
-are instances of this class/type. <code class="docutils literal"><span class="pre">Example.a</span></code> and <code class="docutils literal"><span class="pre">Example.__init__</span></code>
-are both attributes of this class. <code class="docutils literal"><span class="pre">Example.__init__</span></code> is more
+are instances of this class/type. <code class="docutils literal notranslate"><span class="pre">Example.a</span></code> and <code class="docutils literal notranslate"><span class="pre">Example.__init__</span></code>
+are both attributes of this class. <code class="docutils literal notranslate"><span class="pre">Example.__init__</span></code> is more
 specifically a special method, which is automatically invoked whenever
 an instance of this class is created.</p>
-<p>The following code creates an <em>instance</em> of <code class="docutils literal"><span class="pre">Example</span></code>, assigning that
-instance to the variable <code class="docutils literal"><span class="pre">ex</span></code>. This means that the object belongs to
-the type (a.k.a class) <code class="docutils literal"><span class="pre">Example</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
+<p>The following code creates an <em>instance</em> of <code class="docutils literal notranslate"><span class="pre">Example</span></code>, assigning that
+instance to the variable <code class="docutils literal notranslate"><span class="pre">ex</span></code>. This means that the object belongs to
+the type (a.k.a class) <code class="docutils literal notranslate"><span class="pre">Example</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Example</span><span class="o">.</span><span class="n">a</span>
 <span class="go">(1, 2, 3)</span>
@@ -248,12 +248,12 @@ the type (a.k.a class) <code class="docutils literal"><span class="pre">Example<
 <span class="go">__main__.Example</span>
 </pre></div>
 </div>
-<p>Upon this instantiation, the instance-level attribute <code class="docutils literal"><span class="pre">b</span></code> was defined
-via execution of the <code class="docutils literal"><span class="pre">__init__</span></code> method, wherein Python passed the
-instance object being created as the argument <code class="docutils literal"><span class="pre">self</span></code> to the method.
-Thus <code class="docutils literal"><span class="pre">b</span></code> is an <em>instance-level</em> attribute, which is not possessed by
-<code class="docutils literal"><span class="pre">Example</span></code> itself.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Example</span><span class="o">.</span><span class="n">b</span>
+<p>Upon this instantiation, the instance-level attribute <code class="docutils literal notranslate"><span class="pre">b</span></code> was defined
+via execution of the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, wherein Python passed the
+instance object being created as the argument <code class="docutils literal notranslate"><span class="pre">self</span></code> to the method.
+Thus <code class="docutils literal notranslate"><span class="pre">b</span></code> is an <em>instance-level</em> attribute, which is not possessed by
+<code class="docutils literal notranslate"><span class="pre">Example</span></code> itself.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Example</span><span class="o">.</span><span class="n">b</span>
 <span class="go">AttributeError: type object &#39;Example&#39; has no attribute &#39;b&#39;</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ex</span><span class="o">.</span><span class="n">b</span>
@@ -306,7 +306,7 @@ Thus <code class="docutils literal"><span class="pre">b</span></code> is an <em>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

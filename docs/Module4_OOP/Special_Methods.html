@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Special Methods &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Special Methods &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
         <link rel="next" title="Inheritance" href="Inheritance.html"/>
         <link rel="prev" title="Applications of Object Oriented Programming" href="Applications_of_OOP.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -223,11 +223,11 @@
 <p>In this section, we will learn about a variety of instance methods that
 are reserved by Python, which affect an object’s high level behavior and
 its interactions with operators. These are known as special methods.
-<code class="docutils literal"><span class="pre">__init__</span></code> is an example of a special method; recall that it controls
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code> is an example of a special method; recall that it controls
 the process of creating instances of a class. Similarly, we will see
-that <code class="docutils literal"><span class="pre">__add__</span></code> controls the behavior of an object when it is operated
-on by the <code class="docutils literal"><span class="pre">+</span></code> symbol, for example. In general, the names of special
-methods take the form of <code class="docutils literal"><span class="pre">__&lt;name&gt;__</span></code>, where the two underscores
+that <code class="docutils literal notranslate"><span class="pre">__add__</span></code> controls the behavior of an object when it is operated
+on by the <code class="docutils literal notranslate"><span class="pre">+</span></code> symbol, for example. In general, the names of special
+methods take the form of <code class="docutils literal notranslate"><span class="pre">__&lt;name&gt;__</span></code>, where the two underscores
 preceed and succeed the name. Accordingly, special methods can also be
 referred to as “dunder” (double-underscore) methods. Learning to
 leverage special methods will enable us to design elegant and powerful
@@ -236,7 +236,7 @@ classes of objects.</p>
 interfaces that we use to interact with objects. Let’s make a simple
 class with nonsensical behavior to demonstrate our ability to shape how
 our class behaves:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating (mis)use of special methods</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating (mis)use of special methods</span>
 <span class="k">class</span> <span class="nc">SillyClass</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Determines behavior of `self[key]` &quot;&quot;&quot;</span>
@@ -247,7 +247,7 @@ our class behaves:</p>
         <span class="k">return</span> <span class="s2">&quot;Python Like You Mean It&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">silly</span> <span class="o">=</span> <span class="n">SillyClass</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">silly</span> <span class="o">=</span> <span class="n">SillyClass</span><span class="p">()</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">silly</span><span class="p">[</span><span class="bp">None</span><span class="p">]</span>
 <span class="go">[True, False, True, False]</span>
@@ -272,18 +272,18 @@ a string in various contexts. For example, this text consistently
 utilizes the fact that passing an object to the Python console will
 prompt the console to print out a representation of that object as a
 string. That is,</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">[&#39;a&#39;, 1, True]</span>
 </pre></div>
 </div>
-<p>Under the hood, the special method <code class="docutils literal"><span class="pre">x.__repr__</span></code> is being called to
+<p>Under the hood, the special method <code class="docutils literal notranslate"><span class="pre">x.__repr__</span></code> is being called to
 obtain this string representation whenever an object is displayed in a
 console/notebook like this. The method returns the string
-<code class="docutils literal"><span class="pre">&quot;['a',</span> <span class="pre">1,</span> <span class="pre">True]&quot;</span></code>, which is then printed out to the console. This is
+<code class="docutils literal notranslate"><span class="pre">&quot;['a',</span> <span class="pre">1,</span> <span class="pre">True]&quot;</span></code>, which is then printed out to the console. This is
 an extremely useful for creating classes whose objects can be inspected
 conveniently in a Python console or in a Jupyter notebook. Similarly
-<code class="docutils literal"><span class="pre">__str__</span></code> returns the string that will be produced when <code class="docutils literal"><span class="pre">str</span></code> is
+<code class="docutils literal notranslate"><span class="pre">__str__</span></code> returns the string that will be produced when <code class="docutils literal notranslate"><span class="pre">str</span></code> is
 called on the object.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -302,9 +302,9 @@ called on the object.</p>
 printable
 representation of
 object</td>
-<td><code class="docutils literal"><span class="pre">__repr__(self)</span></code></td>
-<td><code class="docutils literal"><span class="pre">repr(x)</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__repr__()</span></code>,
+<td><code class="docutils literal notranslate"><span class="pre">__repr__(self)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">repr(x)</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__repr__()</span></code>,
 this is also invoked
 when an object is
 returned by a console</td>
@@ -312,18 +312,18 @@ returned by a console</td>
 <tr class="row-odd"><td>Returns string
 representation of an
 object</td>
-<td><code class="docutils literal"><span class="pre">__str__(self)</span></code></td>
-<td><code class="docutils literal"><span class="pre">str(x)</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__str__()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">__str__(self)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">str(x)</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__str__()</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>A well-implemented <code class="docutils literal"><span class="pre">__repr__</span></code> method can greatly improve the
+<p>A well-implemented <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> method can greatly improve the
 convenience of working with a class. For example, let’s add this method
-to our <code class="docutils literal"><span class="pre">ShoppingList</span></code> class that we wrote in the preceding section;
-the <code class="docutils literal"><span class="pre">__repr__</span></code> will create a string with our shopping items on a
+to our <code class="docutils literal notranslate"><span class="pre">ShoppingList</span></code> class that we wrote in the preceding section;
+the <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> will create a string with our shopping items on a
 bulleted list with purchased items crossed out:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">strike</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">strike</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Renders string with strike-through characters through it.</span>
 
 <span class="sd">        `strike(&#39;hello world&#39;)` -&gt; &#39;̶h̶e̶l̶l̶o̶ ̶w̶o̶r̶l̶d&#39;</span>
@@ -361,7 +361,7 @@ bulleted list with purchased items crossed out:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">_needed</span><span class="o">.</span><span class="n">difference_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_purchased</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span># demonstrating `ShoppingList.__repr__`
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># demonstrating `ShoppingList.__repr__`
 &gt;&gt;&gt; l = ShoppingList([&quot;grapes&quot;, &quot;beets&quot;, &quot;apples&quot;, &quot;milk&quot;, &quot;melon&quot;, &quot;coffee&quot;])
 &gt;&gt;&gt; l.mark_purchased_items([&quot;grapes&quot;, &quot;beets&quot;, &quot;milk&quot;])
 &gt;&gt;&gt; l
@@ -380,7 +380,7 @@ environment.</p>
 <div class="section" id="Interfacing-with-Mathematical-Operators">
 <h2>Interfacing with Mathematical Operators<a class="headerlink" href="#Interfacing-with-Mathematical-Operators" title="Permalink to this headline">¶</a></h2>
 <p>The following special methods control how an object interacts with
-<code class="docutils literal"><span class="pre">+</span></code>, <code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">**</span></code>, and other mathematical operators. A full listing
+<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, and other mathematical operators. A full listing
 of all the special methods used to emulate numeric types can be found
 <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">here</a></p>
 <table border="1" class="docutils">
@@ -397,49 +397,49 @@ of all the special methods used to emulate numeric types can be found
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Add</td>
-<td><code class="docutils literal"><span class="pre">__add__(self,</span> <span class="pre">other</span>
+<td><code class="docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">other</span>
 <span class="pre">)</span></code></td>
-<td><code class="docutils literal"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__add__(y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__add__(y)</span></code></td>
 </tr>
 <tr class="row-odd"><td>Subtract</td>
-<td><code class="docutils literal"><span class="pre">__sub__(self,</span> <span class="pre">other</span>
+<td><code class="docutils literal notranslate"><span class="pre">__sub__(self,</span> <span class="pre">other</span>
 <span class="pre">)</span></code></td>
-<td><code class="docutils literal"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__sub__(y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__sub__(y)</span></code></td>
 </tr>
 <tr class="row-even"><td>Multiply</td>
-<td><code class="docutils literal"><span class="pre">__mul__(self,</span> <span class="pre">other</span>
+<td><code class="docutils literal notranslate"><span class="pre">__mul__(self,</span> <span class="pre">other</span>
 <span class="pre">)</span></code></td>
-<td><code class="docutils literal"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__mul__(y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__mul__(y)</span></code></td>
 </tr>
 <tr class="row-odd"><td>Divide</td>
-<td><code class="docutils literal"><span class="pre">__truediv__(self,</span> <span class="pre">o</span>
+<td><code class="docutils literal notranslate"><span class="pre">__truediv__(self,</span> <span class="pre">o</span>
 <span class="pre">ther)</span></code></td>
-<td><code class="docutils literal"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__truediv__(y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__truediv__(y)</span></code></td>
 </tr>
 <tr class="row-even"><td>Power</td>
-<td><code class="docutils literal"><span class="pre">__pow__(self,</span> <span class="pre">other</span>
+<td><code class="docutils literal notranslate"><span class="pre">__pow__(self,</span> <span class="pre">other</span>
 <span class="pre">)</span></code></td>
-<td><code class="docutils literal"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__pow__(y)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__pow__(y)</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>You may be wondering why division has the peculiar name <code class="docutils literal"><span class="pre">__truediv__</span></code>,
+<p>You may be wondering why division has the peculiar name <code class="docutils literal notranslate"><span class="pre">__truediv__</span></code>,
 whereas the other operators have more sensible names. This is an
 artifact of the transition from Python 2 to Python 3; <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Number-Types">the default
 integer-division was replaced by
 float-division</a>,
-and thus <code class="docutils literal"><span class="pre">__div__</span></code> was replaced by <code class="docutils literal"><span class="pre">__truediv__</span></code> for the sake of 2-3
+and thus <code class="docutils literal notranslate"><span class="pre">__div__</span></code> was replaced by <code class="docutils literal notranslate"><span class="pre">__truediv__</span></code> for the sake of 2-3
 compatibility.</p>
-<p>Let’s give <code class="docutils literal"><span class="pre">ShoppingList</span></code> an <code class="docutils literal"><span class="pre">__add__</span></code> method so that we can merge
-shopping lists using the <code class="docutils literal"><span class="pre">+</span></code> operator. Rather than redefine the entire
-<code class="docutils literal"><span class="pre">ShoppingList</span></code> class, we can simply define this as a function and use
-<code class="docutils literal"><span class="pre">setattr</span></code> to set it as a method to our existing class.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<p>Let’s give <code class="docutils literal notranslate"><span class="pre">ShoppingList</span></code> an <code class="docutils literal notranslate"><span class="pre">__add__</span></code> method so that we can merge
+shopping lists using the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator. Rather than redefine the entire
+<code class="docutils literal notranslate"><span class="pre">ShoppingList</span></code> class, we can simply define this as a function and use
+<code class="docutils literal notranslate"><span class="pre">setattr</span></code> to set it as a method to our existing class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Add the unpurchased and purchased items from another shopping</span>
 <span class="sd">        list to the present one.</span>
 
@@ -462,12 +462,12 @@ shopping lists using the <code class="docutils literal"><span class="pre">+</spa
     <span class="k">return</span> <span class="n">new_list</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># set `__add__` as a method of `ShoppingList`</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># set `__add__` as a method of `ShoppingList`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">setattr</span><span class="p">(</span><span class="n">ShoppingList</span><span class="p">,</span> <span class="s2">&quot;__add__&quot;</span><span class="p">,</span> <span class="fm">__add__</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now let’s create a few shopping lists and combine them:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">food</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">([</span><span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;flour&quot;</span><span class="p">,</span> <span class="s2">&quot;salt&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">food</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">([</span><span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;flour&quot;</span><span class="p">,</span> <span class="s2">&quot;salt&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">food</span><span class="o">.</span><span class="n">mark_purchased_items</span><span class="p">([</span><span class="s2">&quot;flour&quot;</span><span class="p">,</span> <span class="s2">&quot;salt&quot;</span><span class="p">])</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">office_supplies</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">([</span><span class="s2">&quot;staples&quot;</span><span class="p">,</span> <span class="s2">&quot;pens&quot;</span><span class="p">,</span> <span class="s2">&quot;pencils&quot;</span><span class="p">])</span>
@@ -488,10 +488,10 @@ shopping lists using the <code class="docutils literal"><span class="pre">+</spa
 <span class="go">• ̶p̶e̶n̶c̶i̶l̶s</span>
 </pre></div>
 </div>
-<p>Overloading the <code class="docutils literal"><span class="pre">+</span></code> operator provides us with a sleek interface for
+<p>Overloading the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator provides us with a sleek interface for
 merging multiple shopping lists in a sleek, readable way.
-<code class="docutils literal"><span class="pre">food</span> <span class="pre">+</span> <span class="pre">office_supplies</span> <span class="pre">+</span> <span class="pre">clothes</span></code> is equivalent to calling
-<code class="docutils literal"><span class="pre">(food.__add__(office_supplies)).__add__(clothes)</span></code>. It is obvious that
+<code class="docutils literal notranslate"><span class="pre">food</span> <span class="pre">+</span> <span class="pre">office_supplies</span> <span class="pre">+</span> <span class="pre">clothes</span></code> is equivalent to calling
+<code class="docutils literal notranslate"><span class="pre">(food.__add__(office_supplies)).__add__(clothes)</span></code>. It is obvious that
 the former expression is far superior.</p>
 </div>
 <div class="section" id="Creating-a-Container-Like-Class">
@@ -514,41 +514,41 @@ listing and discussion of these methods can be found
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Length</td>
-<td><code class="docutils literal"><span class="pre">__len__(self)</span></code></td>
-<td><code class="docutils literal"><span class="pre">len(x)</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__len__()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">__len__(self)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">len(x)</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__len__()</span></code></td>
 </tr>
 <tr class="row-odd"><td>Get Item</td>
-<td><code class="docutils literal"><span class="pre">__getitem__(self,</span> <span class="pre">k</span>
+<td><code class="docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">k</span>
 <span class="pre">ey)</span></code></td>
-<td><code class="docutils literal"><span class="pre">x[key]</span></code> invokes
+<td><code class="docutils literal notranslate"><span class="pre">x[key]</span></code> invokes
 <a href="#id1"><span class="problematic" id="id2">``</span></a>x.__getitem__(key)`
 `</td>
 </tr>
 <tr class="row-even"><td>Set Item</td>
-<td><code class="docutils literal"><span class="pre">__setitem__(self,</span> <span class="pre">k</span>
+<td><code class="docutils literal notranslate"><span class="pre">__setitem__(self,</span> <span class="pre">k</span>
 <span class="pre">ey,</span> <span class="pre">item)</span></code></td>
-<td><code class="docutils literal"><span class="pre">x[key]</span> <span class="pre">=</span> <span class="pre">item</span></code>
+<td><code class="docutils literal notranslate"><span class="pre">x[key]</span> <span class="pre">=</span> <span class="pre">item</span></code>
 invokes
-<code class="docutils literal"><span class="pre">x.__setitem__(key,</span>
+<code class="docutils literal notranslate"><span class="pre">x.__setitem__(key,</span>
 <span class="pre">item)</span></code></td>
 </tr>
 <tr class="row-odd"><td>Contains</td>
-<td><code class="docutils literal"><span class="pre">__contains__(self,</span>
+<td><code class="docutils literal notranslate"><span class="pre">__contains__(self,</span>
 <span class="pre">item)</span></code></td>
-<td><code class="docutils literal"><span class="pre">item</span> <span class="pre">in</span> <span class="pre">x</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__contains__(item</span>
+<td><code class="docutils literal notranslate"><span class="pre">item</span> <span class="pre">in</span> <span class="pre">x</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__contains__(item</span>
 <span class="pre">)</span></code></td>
 </tr>
 <tr class="row-even"><td>Iterator</td>
-<td><code class="docutils literal"><span class="pre">__iter__(self)</span></code></td>
-<td><code class="docutils literal"><span class="pre">iter(x)</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__iter__()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">__iter__(self)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">iter(x)</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__iter__()</span></code></td>
 </tr>
 <tr class="row-odd"><td>Next</td>
-<td><code class="docutils literal"><span class="pre">__next__(self)</span></code></td>
-<td><code class="docutils literal"><span class="pre">next(x)</span></code> invokes
-<code class="docutils literal"><span class="pre">x.__next__()</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">__next__(self)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">next(x)</span></code> invokes
+<code class="docutils literal notranslate"><span class="pre">x.__next__()</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -556,7 +556,7 @@ invokes
 aspects of a list’s interface. We will store a list as an attribute of
 our class to keep track of the contents, but will implement special
 methods that “echo” the interface of the list.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyList</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyList</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;__iter__&#39;</span><span class="p">):</span>
             <span class="c1"># handles `MyList([1, 2, 3])</span>
@@ -593,7 +593,7 @@ methods that “echo” the interface of the list.</p>
 </pre></div>
 </div>
 <p>Let’s appreciate the rich behavior that we get out of this simple class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># MyList can accept any iterable as its</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># MyList can accept any iterable as its</span>
 <span class="c1"># first (and only) input argument</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">MyList</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
@@ -687,7 +687,7 @@ Types</a></li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

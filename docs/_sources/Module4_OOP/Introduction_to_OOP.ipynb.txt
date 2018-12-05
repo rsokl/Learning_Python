@@ -49,7 +49,7 @@
     "```python\n",
     "class Rectangle:\n",
     "    \"\"\" A Python object that describes the properties of a rectangle \"\"\"\n",
-    "    def __init__(self, width, height, center=(0, 0)):\n",
+    "    def __init__(self, width, height, center=(0.0, 0.0)):\n",
     "        \"\"\" Sets the attributes of a particular instance of `Rectangle`.\n",
     "\n",
     "            Parameters\n",
@@ -89,8 +89,8 @@
     "            -------\n",
     "            List[Tuple[float, float], Tuple[float, float], Tuple[float, float], Tuple[float, float]]\"\"\"\n",
     "        cx, cy = self.center\n",
-    "        dx = self.width / 2\n",
-    "        dy = self.height / 2\n",
+    "        dx = self.width / 2.0\n",
+    "        dy = self.height / 2.0\n",
     "        return [(cx + x, cy + y) for x,y in ((dx, dy), (dx, -dy), (-dx, -dy), (-dx, dy))]\n",
     "```\n",
     "\n",
@@ -127,7 +127,7 @@
    "source": [
     "Just like any other Python object that we have encountered, we can put our `Rectangle`s in lists, store them as values in dictionaries, pass them to functions, reference them with multiple variables, and so on.\n",
     "\n",
-    "Popular STEM, data analysis, and machine learning Python libraries rely heavily on the ability to define custom classes of Python objects. For example, [pandas](https://pandas.pydata.org/) defines a spreadsheet-like `DataFrame` class; [PyTorch](https://pytorch.org/), [MXNet](https://mxnet.incubator.apache.org/), and [TensorFlow](https://www.tensorflow.org/) each define tensor classes that are capable of [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation), which is critically important for training neural networks. Understanding Python's class system will greatly improve your ability to leverage libraries like these (Shameless plug: refer to [MyGrad](https://github.com/rsokl/MyGrad) if you are interested in seeing a simple pure-Python/NumPy implementation of an auto-differentiation library). \n",
+    "Popular STEM, data analysis, and machine learning Python libraries rely heavily on the ability to define custom classes of Python objects. For example, [pandas](https://pandas.pydata.org/) defines a spreadsheet-like `DataFrame` class; [PyTorch](https://pytorch.org/), [MXNet](https://mxnet.incubator.apache.org/), and [TensorFlow](https://www.tensorflow.org/) each define tensor classes that are capable of [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation), which is critically important for training neural networks. Understanding Python's class system will greatly improve your ability to leverage libraries like these (Shameless plug: refer to [MyGrad](https://mygrad.readthedocs.io) if you are interested in seeing a simple pure-Python/NumPy implementation of an auto-differentiation library). \n",
     "\n",
     "Moving forward, we will discuss the essential *class definition*, which will permit us to  define our own class (a.k.a. type) of object. Next, we will learn about creating distinct *instances* of a given object type and about defining methods. This will lead to our first encounter with *special methods*, which enable us to affect how our object type behaves with Python's various operators. For example, we can define how the `+` operator interacts with our objects. Lastly, we will briefly discuss the concept of class inheritance. \n",
     "\n",
@@ -184,7 +184,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.3"
+   "version": "3.6.7"
   }
  },
  "nbformat": 4,

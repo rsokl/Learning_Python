@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Exercises &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Exercises &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../../index.html"/> 
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../../index.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -362,11 +362,11 @@ div.nboutput div.output_area.stderr {
 }
 </style>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># RUN THIS CELL</span>
 <span class="kn">from</span> <span class="nn">grader</span> <span class="k">import</span> <span class="n">grade_3d_index</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -377,12 +377,12 @@ div.nboutput div.output_area.stderr {
 <h1>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Indexing-a-3D-array">
 <h2>Indexing a 3D array<a class="headerlink" href="#Indexing-a-3D-array" title="Permalink to this headline">¶</a></h2>
-<p>Use the following code to initialize the 3-dimensional array <code class="docutils literal"><span class="pre">x</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<p>Use the following code to initialize the 3-dimensional array <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
         <span class="p">[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
         <span class="p">[</span> <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">]],</span>
 
@@ -396,29 +396,29 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <p>In the following questions, you will be asked to access specific items
-od sub-arrays within <code class="docutils literal"><span class="pre">x</span></code>, using indexing and slicing. You will be
+od sub-arrays within <code class="docutils literal notranslate"><span class="pre">x</span></code>, using indexing and slicing. You will be
 asked to provide your answer in the form of a function.</p>
-<p>For example, if you were asked to access the element <code class="docutils literal"><span class="pre">0</span></code> in the array,
+<p>For example, if you were asked to access the element <code class="docutils literal notranslate"><span class="pre">0</span></code> in the array,
 your solution would simply be:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">solution_example</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">solution_example</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li>Given <code class="docutils literal"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
+<li>Given <code class="docutils literal notranslate"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
 return the 2D sub-array:</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="k">def</span> <span class="nf">solution_1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="c1"># Delete `pass` and include your solution here</span>
@@ -427,11 +427,11 @@ return the 2D sub-array:</li>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Run this cell to grade your solution</span>
 <span class="n">grade_3d_index</span><span class="p">(</span><span class="n">solution_1</span><span class="p">,</span> <span class="n">problem_no</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -450,20 +450,20 @@ Make sure that you have included a `return` statement in your function.
 </div>
 <hr class="docutils" />
 <ol class="arabic simple" start="2">
-<li>Given <code class="docutils literal"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
+<li>Given <code class="docutils literal notranslate"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
 return the 2D sub-array:</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span>
        <span class="p">[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">24</span><span class="p">]])</span>
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">solution_2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="c1"># Delete `pass` and include your solution here</span>
     <span class="k">pass</span>
@@ -471,11 +471,11 @@ return the 2D sub-array:</li>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Run this cell to grade your solution</span>
 <span class="n">grade_3d_index</span><span class="p">(</span><span class="n">solution_2</span><span class="p">,</span> <span class="n">problem_no</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -483,19 +483,19 @@ return the 2D sub-array:</li>
 </div>
 <hr class="docutils" />
 <ol class="arabic simple" start="3">
-<li>Given <code class="docutils literal"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
+<li>Given <code class="docutils literal notranslate"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
 return the 2D sub-array:</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">solution_3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="c1"># Delete `pass` and include your solution here</span>
     <span class="k">pass</span>
@@ -503,11 +503,11 @@ return the 2D sub-array:</li>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Run this cell to grade your solution</span>
 <span class="n">grade_3d_index</span><span class="p">(</span><span class="n">solution_3</span><span class="p">,</span> <span class="n">problem_no</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
@@ -515,10 +515,10 @@ return the 2D sub-array:</li>
 </div>
 <hr class="docutils" />
 <ol class="arabic simple" start="4">
-<li>Given <code class="docutils literal"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
+<li>Given <code class="docutils literal notranslate"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
 return the 3D sub-array:</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
         <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
         <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">]],</span>
 
@@ -532,11 +532,11 @@ return the 3D sub-array:</li>
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">solution_4</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="c1"># Delete `pass` and include your solution here</span>
     <span class="k">pass</span>
@@ -544,11 +544,11 @@ return the 3D sub-array:</li>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Run this cell to grade your solution</span>
 <span class="n">grade_3d_index</span><span class="p">(</span><span class="n">solution_4</span><span class="p">,</span> <span class="n">problem_no</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
@@ -556,19 +556,19 @@ return the 3D sub-array:</li>
 </div>
 <hr class="docutils" />
 <ol class="arabic simple" start="5">
-<li>Given <code class="docutils literal"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
+<li>Given <code class="docutils literal notranslate"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
 return the 2D sub-array:</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">]])</span>
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [37]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">solution_5</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="c1"># Delete `pass` and include your solution here</span>
     <span class="k">pass</span>
@@ -576,11 +576,11 @@ return the 2D sub-array:</li>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Run this cell to grade your solution</span>
 <span class="n">grade_3d_index</span><span class="p">(</span><span class="n">solution_5</span><span class="p">,</span> <span class="n">problem_no</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
@@ -588,18 +588,18 @@ return the 2D sub-array:</li>
 </div>
 <hr class="docutils" />
 <ol class="arabic simple" start="6">
-<li>Given <code class="docutils literal"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
+<li>Given <code class="docutils literal notranslate"><span class="pre">x</span></code>, write a function that uses indexes and/or slices to
 return the number:</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">17</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">17</span>
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [43]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">solution_6</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="c1"># Delete `pass` and include your solution here</span>
     <span class="k">pass</span>
@@ -607,11 +607,11 @@ return the number:</li>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Run this cell to grade your solution</span>
 <span class="n">grade_3d_index</span><span class="p">(</span><span class="n">solution_6</span><span class="p">,</span> <span class="n">problem_no</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
@@ -655,7 +655,7 @@ return the number:</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

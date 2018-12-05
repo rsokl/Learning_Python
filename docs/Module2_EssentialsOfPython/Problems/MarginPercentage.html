@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Within Margin Percentage &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Within Margin Percentage &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Module 2: Problems" href="../../module_2_problems.html"/>
         <link rel="next" title="Difference Fanout" href="DifferenceFanout.html"/>
         <link rel="prev" title="Is Palindrome" href="Palindrome.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -221,19 +221,19 @@ design specifications. Given a list of values recording the metrics
 of the manufactured parts, a list of values representing the desired
 metrics required by the design, and a margin of error allowed by the
 design, compute what fraction of the values are within the safety
-margin (<code class="docutils literal"><span class="pre">&lt;=</span></code>)</div></blockquote>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
+margin (<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>)</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="o">=</span><span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
 <span class="o">...</span>                          <span class="n">actual</span><span class="o">=</span> <span class="p">[</span><span class="mf">10.3</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mf">8.4</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span>
 <span class="o">...</span>                          <span class="n">margin</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="mf">0.8</span>
 </pre></div>
 </div>
-<p>See that <span class="math">\(4/5\)</span> of the values fall within the margin of error:
-<span class="math">\(1.2\)</span> deviates from <span class="math">\(2\)</span> by more than <span class="math">\(0.5\)</span>.</p>
+<p>See that <span class="math notranslate nohighlight">\(4/5\)</span> of the values fall within the margin of error:
+<span class="math notranslate nohighlight">\(1.2\)</span> deviates from <span class="math notranslate nohighlight">\(2\)</span> by more than <span class="math notranslate nohighlight">\(0.5\)</span>.</p>
 <p>Complete the following function; consider the edge case where
-<code class="docutils literal"><span class="pre">desired</span></code> and <code class="docutils literal"><span class="pre">actual</span></code> are empty lists.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
+<code class="docutils literal notranslate"><span class="pre">desired</span></code> and <code class="docutils literal notranslate"><span class="pre">actual</span></code> are empty lists.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Compute the percentage of values that fall within</span>
 <span class="sd">        a margin of error of the desired values</span>
 
@@ -269,7 +269,7 @@ lists to solve this problem.</p>
 <h2>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h2>
 <p>This problem can solved by simply looping over the pairs of actual and
 desired values and tallying the pairs that fall within the margin:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Compute the percentage of values that fall within</span>
 <span class="sd">        a margin of error of the desired values</span>
 
@@ -297,25 +297,25 @@ desired values and tallying the pairs that fall within the margin:</p>
     <span class="k">return</span> <span class="n">count</span> <span class="o">/</span> <span class="n">total</span> <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1.0</span>
 </pre></div>
 </div>
-<p>See that we handle the edge case where <code class="docutils literal"><span class="pre">desired</span></code> and <code class="docutils literal"><span class="pre">actual</span></code> are
+<p>See that we handle the edge case where <code class="docutils literal notranslate"><span class="pre">desired</span></code> and <code class="docutils literal notranslate"><span class="pre">actual</span></code> are
 empty lists: the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ConditionalStatements.html#Inline-if-else-statements">inline if-else
 statement</a>
-<code class="docutils literal"><span class="pre">count</span> <span class="pre">/</span> <span class="pre">total</span> <span class="pre">if</span> <span class="pre">total</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">else</span> <span class="pre">1</span></code> will return <code class="docutils literal"><span class="pre">1</span></code> when <code class="docutils literal"><span class="pre">total</span></code>
+<code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">/</span> <span class="pre">total</span> <span class="pre">if</span> <span class="pre">total</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">else</span> <span class="pre">1</span></code> will return <code class="docutils literal notranslate"><span class="pre">1</span></code> when <code class="docutils literal notranslate"><span class="pre">total</span></code>
 is 0:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">within_margin_percentage</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">margin</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">within_margin_percentage</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">margin</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="go">1.0</span>
 </pre></div>
 </div>
 <p>which is arguably the appropriate behavior for this scenario (no values
 fall outside of the margin). Had we not anticipated this edge case,
-<code class="docutils literal"><span class="pre">within_margin_percentage([],</span> <span class="pre">[],</span> <span class="pre">margin=0.5)</span></code> would raise
-<code class="docutils literal"><span class="pre">ZeroDivisionError</span></code>.</p>
-<p>It is also possible to write this solution using the built-in <code class="docutils literal"><span class="pre">sum</span></code>
+<code class="docutils literal notranslate"><span class="pre">within_margin_percentage([],</span> <span class="pre">[],</span> <span class="pre">margin=0.5)</span></code> would raise
+<code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>.</p>
+<p>It is also possible to write this solution using the built-in <code class="docutils literal notranslate"><span class="pre">sum</span></code>
 function and a <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#Creating-your-own-generator:-generator-comprehensions">generator
 comprehension</a>
 that filters out those pairs of items that fall outside of the desired
 margin:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
     <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">desired</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total</span><span class="p">)</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">actual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">desired</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">margin</span><span class="p">)</span>
     <span class="k">return</span>  <span class="n">count</span> <span class="o">/</span> <span class="n">total</span> <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1.0</span>
@@ -372,7 +372,7 @@ syntax.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
