@@ -8,9 +8,9 @@ Python Like You Mean It
 
 What this is
 ------------
-Python Like You Mean It is a free resource for learning the basics of Python & NumPy, and moreover, becoming a competent Python user. The features of the Python language that are emphasized here were chosen to help those who are particularly interested in STEM applications (data analysis, machine learning, numerical work, etc.).
+Python Like You Mean It (PLYMI) is a free resource for learning the basics of Python & NumPy, and moreover, becoming a competent Python user. The features of the Python language that are emphasized here were chosen to help those who are particularly interested in STEM applications (data analysis, machine learning, numerical work, etc.).
 
-I want this to be a lean, one-stop resource for learning the essentials of Python from scratch. The reader will begin by learning about what Python is and what installing Python even means, and will hopefully walk away with a solid understanding of a substantial core of the language and its premiere numerical library, NumPy. I am also placing an emphasis on best practices throughout this site and am teaching to the latest version of Python (version 3.6, as of writing this).
+I want this to be a lean, one-stop resource for learning the essentials of Python from scratch. The reader will begin by learning about what Python is and what installing Python even means, and will hopefully walk away with a solid understanding of a substantial core of the language and its premiere numerical library, NumPy. I am also placing an emphasis on best practices throughout this site and am teaching to the latest version of Python (version 3.7, as of writing this).
 
 
 What this isn't
@@ -30,6 +30,10 @@ Python shouldn't be *too* easy
 Python is a relatively easy language to pick up, and it doesn't require much rigor to make code work. Unfortunately, this means that there are many Python users out there who know enough to just get by, but lack a sound understanding of the language. You don't want to get caught in the "know enough Python to be dangerous" zone; therein lies complacency, stagnation, and the genesis of a lot of bad code. You've got to Python like you mean it!
 
 
+PLYMI is on GitHub
+------------------
+If you have questions about the reading, think that you have spotted some mistakes, or would like to contribute to PLYMI, please visit `our GitHub page <https://github.com/rsokl/Learning_Python>`_. You will need to create a GitHub account in order to post an issue; this process is free and easy. We would love for you to join us to discuss the website!
+
 Contributors
 ------------
 The following people made significant contributions to PLYMI, adding problems with worked solutions and valuable feedback on the text:
@@ -43,4 +47,4 @@ The following people made significant contributions to PLYMI, adding problems wi
 
 About Me
 --------
-I started learning to use Python in graduate school for my physics research, and I was *so* bad at using it. Fortunately, one of my labmates was more experienced and had the good sense to tell me that my code and workflow was terrible. He pointed me to tooling, style guides, and documentation pages so that I could improve (I'd like to think that this resource would have been a huge help to me back then). I've been coding in Python for at least six years now, and I've taken to following the language, along with its new features and changes, quite closely. Currently I do machine learning research, and have served as a core developer for a machine learning library. I also love to teach, so this has been a fun project for me to take on!
+I started learning to use Python in graduate school for my physics research, and I was *so* bad at using it. Fortunately, one of my labmates was more experienced and had the good sense to tell me that my code and work flow was terrible. He pointed me to tooling, style guides, and documentation pages so that I could improve (I'd like to think that this resource would have been a huge help to me back then). I've been coding in Python for at least six years now, and I've taken to following the language, along with its new features and changes, quite closely. Currently I do machine learning research, and have served as a core developer for a machine learning library. I also love to teach, so this has been a fun project for me to take on!
