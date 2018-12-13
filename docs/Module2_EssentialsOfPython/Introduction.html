@@ -101,7 +101,10 @@
 <li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Introducing Control Flow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introducing Control Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Python-Uses-Whitespace-to-Delimit-Scope">Python Uses Whitespace to Delimit Scope</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
@@ -248,10 +251,11 @@ between m and n are divisible by 3</p>
     <span class="sd">&quot;&quot;&quot; Counts how many numbers in the interval [m, n] are divisible by 3. &quot;&quot;&quot;</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># x % y  gives the remainder of x / y</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># recall: x % y  gives the remainder of x / y</span>
             <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">pass</span>
+            <span class="k">pass</span> <span class="c1"># this `else-pass` statement is not really necessary</span>
+                 <span class="c1"># it is included for the sake of clarity in this introduction</span>
     <span class="k">return</span> <span class="n">count</span>
 </pre></div>
 </div>
@@ -271,6 +275,100 @@ executed conditionally - only if a specified condition is met.</li>
 <p>In the following sections, you will be formally introduced to
 if-elif-else blocks, for-loops &amp; iterables, and functions, all so that
 you can implement effective “control flow” in your code.</p>
+<p>Before embarking on these sections, we must take a moment to study
+Python’s syntax for delimiting scope for these various control flow
+constructs.</p>
+<div class="section" id="Python-Uses-Whitespace-to-Delimit-Scope">
+<h2>Python Uses Whitespace to Delimit Scope<a class="headerlink" href="#Python-Uses-Whitespace-to-Delimit-Scope" title="Permalink to this headline">¶</a></h2>
+<p>While the concepts of function definitions, loops, and conditional
+statements are shared across the majority of modern programming
+languages, the languages often differ in their syntax for delimiting the
+<em>bodies</em> of these constructs. For example, where C++ uses “curly braces”
+as delimiters, e.g.:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// example showing that C++ uses curly braces to delimit scope</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="c1">// we are inside the if-block, as delimited by the curly-brackets</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="c1">// we are outside of the if-block</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Python <strong>uses whitespace (i.e.&nbsp;indentation) to delimit scope</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example showing that Python uses whitespace to delimit scope</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="c1"># we are inside the if-block; this line starts with four blank spaces</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1"># we are outside of the if-block; there are no leading whitespace characters</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>Look to the example at the beginning of this section to see the bodies
+of the function definition, the for-loop, and the subsequent if-else
+block were all separated by increasing levels of indentation.</p>
+<p>Python’s syntax is quite flexible in terms of what it defines as a
+whitespace delimiter. Its rules are that:</p>
+<ul class="simple">
+<li>One or more whitespace characters (spaces or tabs) is sufficient to
+serve as indentation.</li>
+<li>A given indented block must use a uniform level of indentation. E.g.
+if the first line of an indented block has two leading spaces, all
+subsequent lines in that block must lead with exactly two white
+spaces.</li>
+</ul>
+<p>While Python’s syntax is relatively forgiving, I am not: the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#indentation">standard
+style</a> for
+indenting in Python is to <strong>use four space characters</strong> for each level
+of indentation. It is strongly advised that you adhere to this standard.
+Most IDEs and consoles (including Jupyter notebooks) will automatically
+add a four-space indentation for you when you enter into the body of one
+of the aforementioned constructs.</p>
+<p>Let’s review these ruled by considering a few simple examples (including
+incorrect examples) of delimiting scope in Python.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OK, but gross: The use of a single whitespace</span>
+<span class="c1"># makes the indentation hard to see. Use four spaces.</span>
+<span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
+ <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># one space</span>
+ <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># one space</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD: the inconsistent level of indentation in this</span>
+<span class="c1"># single block will cause this code to raise an IndentationError</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># four spaces</span>
+       <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># eight spaces</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>  <span class="c1"># four spaces</span>
+    <span class="k">return</span> <span class="n">z</span>   <span class="c1"># four spaces</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OK, but gross: The if-block uses four spaces as a delimiter.</span>
+<span class="c1"># The else-block uses two spaces as a delimiter. This is technically</span>
+<span class="c1"># okay since indentation is consistent within each block. One should</span>
+<span class="c1"># always use four spaces for indentation.</span>
+<span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># four spaces</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># four spaces</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># two spaces</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># two spaces</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good! The for-loop&#39;s body is defined by one level</span>
+<span class="c1"># of four-space indentation, and the contained if-else</span>
+<span class="c1"># blocks each have their own additional four-space indentations.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>  <span class="c1"># four spaces</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;even&quot;</span>        <span class="c1"># eight spaces</span>
+    <span class="k">else</span><span class="p">:</span>                 <span class="c1"># four spaces</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;odd&quot;</span>         <span class="c1"># eight spaces</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

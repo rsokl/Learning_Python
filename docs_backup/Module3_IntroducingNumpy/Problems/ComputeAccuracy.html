@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Measuring the Accuracy of a Classification Model &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Measuring the Accuracy of a Classification Model &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Module 3: Problems" href="../../module_3_problems.html"/>
         <link rel="next" title="Module 4: Object Oriented Programming" href="../../module_4.html"/>
         <link rel="prev" title="Module 3: Problems" href="../../module_3_problems.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -213,41 +213,41 @@
 <h1>Measuring the Accuracy of a Classification Model<a class="headerlink" href="#Measuring-the-Accuracy-of-a-Classification-Model" title="Permalink to this headline">¶</a></h1>
 <p>Suppose that we are working on a project in which we have some model
 that can process an image and classify its content. For example, my
-<code class="docutils literal"><span class="pre">cat_dog_goose_other</span></code> function tries to classify whether a picture is
+<code class="docutils literal notranslate"><span class="pre">cat_dog_goose_other</span></code> function tries to classify whether a picture is
 of a cat (class 0), a dog (class 1), a goose (class 2), or something
 else (class 3). We want to measure the <em>accuracy</em> of our classifier.
 That is, we want to feed it a series of images whose contents are known
 and tally the number of times the model’s prediction matches the true
 content of an image. The accuracy is the fraction of images that the
 model classifies correctly.</p>
-<p>For each image we feed the <code class="docutils literal"><span class="pre">cat_dog_goose_other</span></code> model, it will
+<p>For each image we feed the <code class="docutils literal notranslate"><span class="pre">cat_dog_goose_other</span></code> model, it will
 produce four <strong>scores</strong> - one score for each class. The model was
 designed such that the class with the highest score corresponds to its
 prediction. There are no constraints on the values the scores can take.
 For example, if the model processes one image it will return a
-shape-<span class="math">\((1, 4)\)</span> score-array:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scores</span> <span class="o">=</span> <span class="n">cat_dog_goose_other</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+shape-<span class="math notranslate nohighlight">\((1, 4)\)</span> score-array:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scores</span> <span class="o">=</span> <span class="n">cat_dog_goose_other</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 <span class="go"># processing one image produces a 1x4 array of classification scores</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">scores</span>
 <span class="go">array([[-10, 33, 580, 100]])</span>
 </pre></div>
 </div>
 <p>Here, our model has predicted that this is a picture of a goose, since
-the score associate with class 2 (<code class="docutils literal"><span class="pre">scores[2]</span></code>) is the largest value.
-In general, if we pass <code class="docutils literal"><span class="pre">cat_dog_goose_other</span></code> an array of <span class="math">\(N\)</span>
-images, it will return a shape-<span class="math">\((N, 4)\)</span> array of classification
-scores - each of the <span class="math">\(N\)</span> images has <span class="math">\(4\)</span> scores associated
+the score associate with class 2 (<code class="docutils literal notranslate"><span class="pre">scores[2]</span></code>) is the largest value.
+In general, if we pass <code class="docutils literal notranslate"><span class="pre">cat_dog_goose_other</span></code> an array of <span class="math notranslate nohighlight">\(N\)</span>
+images, it will return a shape-<span class="math notranslate nohighlight">\((N, 4)\)</span> array of classification
+scores - each of the <span class="math notranslate nohighlight">\(N\)</span> images has <span class="math notranslate nohighlight">\(4\)</span> scores associated
 with it.</p>
 <p>Because we are measuring our model’s accuracy, we have curated a set of
 images whose contents are known. That is, we have a true <strong>label</strong> for
 each image, which is encoded as a class-ID. For example, a picture of a
-cat would have the label <code class="docutils literal"><span class="pre">0</span></code> associated with it, a picture of a dog
-would have the label <code class="docutils literal"><span class="pre">1</span></code> and so on. Thus, a stack of <span class="math">\(N\)</span> images
-would have associated with it a shape-<span class="math">\((N,)\)</span> array of integer
-labels, each label is within <span class="math">\([0, 4)\)</span>.</p>
+cat would have the label <code class="docutils literal notranslate"><span class="pre">0</span></code> associated with it, a picture of a dog
+would have the label <code class="docutils literal notranslate"><span class="pre">1</span></code> and so on. Thus, a stack of <span class="math notranslate nohighlight">\(N\)</span> images
+would have associated with it a shape-<span class="math notranslate nohighlight">\((N,)\)</span> array of integer
+labels, each label is within <span class="math notranslate nohighlight">\([0, 4)\)</span>.</p>
 <p>Suppose we have passed our model five images, and it produced the
 following scores:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Classification scores produced by `cat_dog_goose_other`</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classification scores produced by `cat_dog_goose_other`</span>
 <span class="c1"># on five images. A shape-(5, 4) array.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">30</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>  <span class="mi">10</span><span class="p">,</span>  <span class="mi">80</span><span class="p">],</span>  <span class="c1"># prediction: other</span>
@@ -258,22 +258,22 @@ following scores:</p>
 </pre></div>
 </div>
 <p>And suppose that the true labels for these five images are:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># truth: cat, dog, dog, goose, other</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># truth: cat, dog, dog, goose, other</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Our model classified three out of five images correctly; thus, our
 accuracy function should return 0.6:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classification_accuracy</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classification_accuracy</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 <span class="go">0.6</span>
 </pre></div>
 </div>
 <p>To generalize this problem, assume that your classifier is dealing with
-<span class="math">\(K\)</span> classes (instead of <span class="math">\(4\)</span>). Complete the following
+<span class="math notranslate nohighlight">\(K\)</span> classes (instead of <span class="math notranslate nohighlight">\(4\)</span>). Complete the following
 function.</p>
 <p><strong>Tip:</strong> You will find it useful to leverage <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html#numpy.argmax">numpy’s argmax
 function</a>`f</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">classification_accuracy</span><span class="p">(</span><span class="n">classification_scores</span><span class="p">,</span> <span class="n">true_labels</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">classification_accuracy</span><span class="p">(</span><span class="n">classification_scores</span><span class="p">,</span> <span class="n">true_labels</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the fractional classification accuracy for a batch of N predictions.</span>
 
@@ -304,13 +304,13 @@ highest score in that row gives us the predicted label for that data
 point (e.g.&nbsp;image in our hypothetical use-case). We can then directly
 compare these predicted labels with the true labels to compute the
 accuracy.</p>
-<p>We can use the function <code class="docutils literal"><span class="pre">numpy.argmax</span></code> to get the index of the highest
+<p>We can use the function <code class="docutils literal notranslate"><span class="pre">numpy.argmax</span></code> to get the index of the highest
 score, and thus the predicted class-ID, for each data point. Recall that
 NumPy arrays use <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/ArrayTraversal.html#How-to-Traverse-an-Array:-Row-major-%28C%29-vs-Column-major-%28F%29-Traversal-Ordering">row-major traversal
 ordering</a>,
-so performing a for-loop over <code class="docutils literal"><span class="pre">classification_scores</span></code> will yield one
+so performing a for-loop over <code class="docutils literal notranslate"><span class="pre">classification_scores</span></code> will yield one
 row of the array at a time.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pred_labels</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Will store the N predicted class-IDs</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pred_labels</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Will store the N predicted class-IDs</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">classification_scores</span><span class="p">:</span>
     <span class="c1"># store the index associated with the highest score for each datum</span>
     <span class="n">pred_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
@@ -318,7 +318,7 @@ row of the array at a time.</p>
 </div>
 <p>Next, we need to count the fraction of predicted class-IDs that match
 the true labels classification matches the true classification.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">num_correct</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_correct</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pred_labels</span><span class="p">)):</span>
     <span class="k">if</span> <span class="n">pred_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">true_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
         <span class="n">num_correct</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -329,12 +329,12 @@ comprehension</a>
 and
 <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Itertools.html">itertools</a>
 to be much more succinct:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># recall: int(True) -&gt; 1, int(False) -&gt; 0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># recall: int(True) -&gt; 1, int(False) -&gt; 0</span>
 <span class="n">num_correct</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="n">t</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pred_labels</span><span class="p">,</span> <span class="n">true_labels</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>We can formally write this out into the following function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unvectorized_accuracy</span><span class="p">(</span><span class="n">classification_scores</span><span class="p">,</span> <span class="n">true_labels</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unvectorized_accuracy</span><span class="p">(</span><span class="n">classification_scores</span><span class="p">,</span> <span class="n">true_labels</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the fractional classification accuracy for a batch of N predictions.</span>
 
@@ -364,7 +364,7 @@ to be much more succinct:</p>
 </pre></div>
 </div>
 <p>Testing against our example from above:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">unvectorized_accuracy</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">unvectorized_accuracy</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 <span class="go">0.6</span>
 </pre></div>
 </div>
@@ -375,34 +375,34 @@ it.</p>
 </div>
 <div class="section" id="Vectorized-Solution">
 <h2>Vectorized Solution<a class="headerlink" href="#Vectorized-Solution" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">numpy.argmax</span></code> is one of NumPy’s <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html#Sequential-Functions">vectorized sequential
+<p><code class="docutils literal notranslate"><span class="pre">numpy.argmax</span></code> is one of NumPy’s <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html#Sequential-Functions">vectorized sequential
 functions</a>.
 As such, it accepts <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html#Specifying-the-axis-Keyword-Argument-in-Sequential-NumPy-Functions">axis as a keyword
 argument</a>.
-This means that, instead of calling <code class="docutils literal"><span class="pre">np.argmax</span></code> on each row of
-<code class="docutils literal"><span class="pre">classification_scores</span></code> in a for-loop, we can simply instruct
-<code class="docutils literal"><span class="pre">np.argmax</span></code> to operate <em>across the columns of each row of the array</em>
-by specifying <code class="docutils literal"><span class="pre">axis=1</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># returns the column-index of the max value</span>
+This means that, instead of calling <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> on each row of
+<code class="docutils literal notranslate"><span class="pre">classification_scores</span></code> in a for-loop, we can simply instruct
+<code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> to operate <em>across the columns of each row of the array</em>
+by specifying <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># returns the column-index of the max value</span>
 <span class="c1"># within each row of `classification_scores`</span>
 <span class="n">pred_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">classification_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This simple expression eliminates our first for-loop entirely.</p>
 <p>Next, we can use NumPy’s <em>vectorized logical operations</em>, specifically
-<code class="docutils literal"><span class="pre">==</span></code>, to get a boolean-valued array that stores <code class="docutils literal"><span class="pre">True</span></code> wherever the
-predicted labels match the true labels and <code class="docutils literal"><span class="pre">False</span></code> everywhere else.
-Recall that <code class="docutils literal"><span class="pre">True</span></code> behaves like <code class="docutils literal"><span class="pre">1</span></code> and <code class="docutils literal"><span class="pre">False</span></code> like <code class="docutils literal"><span class="pre">0</span></code>. Thus,
-we can call <code class="docutils literal"><span class="pre">np.mean</span></code> on our resulting boolean-valued array to compute
+<code class="docutils literal notranslate"><span class="pre">==</span></code>, to get a boolean-valued array that stores <code class="docutils literal notranslate"><span class="pre">True</span></code> wherever the
+predicted labels match the true labels and <code class="docutils literal notranslate"><span class="pre">False</span></code> everywhere else.
+Recall that <code class="docutils literal notranslate"><span class="pre">True</span></code> behaves like <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> like <code class="docutils literal notranslate"><span class="pre">0</span></code>. Thus,
+we can call <code class="docutils literal notranslate"><span class="pre">np.mean</span></code> on our resulting boolean-valued array to compute
 the number of correct predictions divided by the total number of
 predictions. We can thus vectorize our second for-loop with:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># computes the fraction of correctly predicted labels</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># computes the fraction of correctly predicted labels</span>
 <span class="n">frac_correct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pred_labels</span> <span class="o">==</span> <span class="n">true_labels</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>All together, making keen use of vectorization allows us to write our
 classification accuracy function <em>in a single line of code</em>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">classification_accuracy</span><span class="p">(</span><span class="n">classification_scores</span><span class="p">,</span> <span class="n">true_labels</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">classification_accuracy</span><span class="p">(</span><span class="n">classification_scores</span><span class="p">,</span> <span class="n">true_labels</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the fractional classification accuracy for a batch of N predictions.</span>
 
@@ -425,23 +425,23 @@ classification accuracy function <em>in a single line of code</em>.</p>
 </div>
 <p>Not only is this cleaner to look at, but it was also simpler and less
 error-prone to write. Moreover, it is much faster than our unvectorized
-solution - given <span class="math">\(N=10,000\)</span> data points and <span class="math">\(K=100\)</span> classes,
-our vectorized solution is roughly <span class="math">\(40\times\)</span> faster</p>
+solution - given <span class="math notranslate nohighlight">\(N=10,000\)</span> data points and <span class="math notranslate nohighlight">\(K=100\)</span> classes,
+our vectorized solution is roughly <span class="math notranslate nohighlight">\(40\times\)</span> faster</p>
 <p>(The following “time-it” code blocks must be run in independent cells in
-a Jupyter notebook or IPython console - <code class="docutils literal"><span class="pre">%%timeit</span></code> must be the topmost
+a Jupyter notebook or IPython console - <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code> must be the topmost
 command in the cell)</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">K</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">K</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">%%</span><span class="n">timeit</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">%%</span><span class="n">timeit</span>
 <span class="gp">... </span><span class="n">unvectorized_accuracy</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 <span class="go">39.5 ms ± 1.2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">%%</span><span class="n">timeit</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">%%</span><span class="n">timeit</span>
 <span class="gp">... </span><span class="n">classification_accuracy</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 <span class="go">1.6 ms ± 7.04 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span>
 </pre></div>
@@ -493,7 +493,7 @@ command in the cell)</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

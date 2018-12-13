@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Instances of a Class &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Instances of a Class &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
         <link rel="next" title="A Brief Summary of Terms and Concepts" href="Brief_Review.html"/>
         <link rel="prev" title="Defining a New Class of Object" href="ClassDefinition.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -106,7 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ClassDefinition.html">Defining a New Class of Object</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Instances of a Class</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Object-Identity-and-Creating-an-Instance">Object Identity and Creating an Instance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Defining-Instance-Level-Attributes:-the-__init__-Method">Defining Instance-Level Attributes: the <code class="docutils literal"><span class="pre">__init__</span></code> Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Defining-Instance-Level-Attributes:-the-__init__-Method">Defining Instance-Level Attributes: the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> Method</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
 </ul>
 </li>
@@ -221,22 +221,23 @@
 <h1>Instances of a Class<a class="headerlink" href="#Instances-of-a-Class" title="Permalink to this headline">¶</a></h1>
 <p>Thus far we have learned about the syntax for defining a new class of
 object, specifying its name, attributes, and methods (which are
-attributes that are functions). The resulting <em>class object</em> is the
-singular object that encapsulates our class definition. We seldom will
-want to pass around or manipulate this class object once it is created.
-Rather, we will want to use it to create individual <em>instances</em> of that
-class. To be more concrete, <code class="docutils literal"><span class="pre">list</span></code> is a class object (remember that
-“class” and “type” are synonymous) - it is the same sort of object that
-is produced when a <code class="docutils literal"><span class="pre">class</span></code> definition is executed. As you saw in
+attributes that are functions). Once we leave the scope of the class
+definition, a class object is formed - the resulting <em>class object</em> is
+the singular object that encapsulates our class definition. We seldom
+will want to pass around or manipulate this class object once it is
+created. Rather, we will want to use it to create individual <em>instances</em>
+of that class. To be more concrete, <code class="docutils literal notranslate"><span class="pre">list</span></code> is a class object (remember
+that “class” and “type” are synonymous) - it is the same sort of object
+that is produced when a <code class="docutils literal notranslate"><span class="pre">class</span></code> definition is executed. As you saw in
 <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Lists">Module
 2</a>,
 we can use this class object to create individual <em>instances</em> of the
 list class, each one containing its own sequence of items.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the class object `list` to create list-instances</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using the class object `list` to create list-instances</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">()</span>  <span class="c1"># create a `list`-instance that is empty</span>
 <span class="p">[]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># create a `list`-instance containing 1, 2, and 3</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="c1"># `a` and `b` are distinct instances of the list class/type</span>
@@ -262,20 +263,20 @@ list class, each one containing its own sequence of items.</p>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Each of these instances share the common attributes <code class="docutils literal"><span class="pre">append</span></code>,
-<code class="docutils literal"><span class="pre">count</span></code>, <code class="docutils literal"><span class="pre">reverse</span></code>, and so on, as specified in the definition of
-Python’s list class, which is encapsulated by the <code class="docutils literal"><span class="pre">list</span></code> class object.
+<p>Each of these instances share the common attributes <code class="docutils literal notranslate"><span class="pre">append</span></code>,
+<code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">reverse</span></code>, and so on, as specified in the definition of
+Python’s list class, which is encapsulated by the <code class="docutils literal notranslate"><span class="pre">list</span></code> class object.
 That being said, the specific content of any given list is an attribute
 of that particular list instance; that is, the content of a particular
 list is an <em>instance attribute</em> rather than a class attribute. Thus far,
 we do not have the ability to create instance-level attributes. Let’s
 change that.</p>
-<p>Suppose that we want to make our own <code class="docutils literal"><span class="pre">Person</span></code> class. Each person
+<p>Suppose that we want to make our own <code class="docutils literal notranslate"><span class="pre">Person</span></code> class. Each person
 should have her/his own name, thus the name should be an instance-level
 attribute. We will learn to define a special initialization method that
 allows us to define and set instance-level attributes. In the context of
-<code class="docutils literal"><span class="pre">Person</span></code>, this will allow us to give each person their own name:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+<code class="docutils literal notranslate"><span class="pre">Person</span></code>, this will allow us to give each person their own name:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
 <span class="gp">... </span>   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="gp">... </span>       <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 
@@ -292,32 +293,32 @@ allows us to define and set instance-level attributes. In the context of
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>We will learn about the <code class="docutils literal"><span class="pre">__init__</span></code> method and that peculiar <code class="docutils literal"><span class="pre">self</span></code>
+<p>We will learn about the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method and that peculiar <code class="docutils literal notranslate"><span class="pre">self</span></code>
 argument momentarily. First, we will learn about creating an instance
 object from a class object.</p>
 <div class="section" id="Object-Identity-and-Creating-an-Instance">
 <h2>Object Identity and Creating an Instance<a class="headerlink" href="#Object-Identity-and-Creating-an-Instance" title="Permalink to this headline">¶</a></h2>
 <p>Here we will learn the basic mechanism for creating an instance of a
 class. Consider the following trivial class definition:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p>We can use the “call” syntax on <code class="docutils literal"><span class="pre">Dummy</span></code>, <code class="docutils literal"><span class="pre">Dummy()</span></code>, to create
+<p>We can use the “call” syntax on <code class="docutils literal notranslate"><span class="pre">Dummy</span></code>, <code class="docutils literal notranslate"><span class="pre">Dummy()</span></code>, to create
 individual instances of this class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># create an object that is an instance of our Dummy class</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create an object that is an instance of our Dummy class</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d1</span> <span class="o">=</span> <span class="n">Dummy</span><span class="p">()</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">Dummy</span><span class="p">)</span>
 <span class="bp">True</span>
 </pre></div>
 </div>
-<p>Recall that the <code class="docutils literal"><span class="pre">is</span></code> operator checks to see if two items reference the
+<p>Recall that the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator checks to see if two items reference the
 exact same object in your computer’s memory. Also recall that the
-built-in <code class="docutils literal"><span class="pre">isinstance</span></code> function checks to see if an object is an
+built-in <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> function checks to see if an object is an
 instance of a class/type. These will help us understand the relationship
 between class objects, their instances, and references to objects.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `Dummy` is the class object that encapsulates</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `Dummy` is the class object that encapsulates</span>
 <span class="c1"># our class definition</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Dummy</span>
 <span class="n">__main__</span><span class="o">.</span><span class="n">Dummy</span>
@@ -335,11 +336,11 @@ between class objects, their instances, and references to objects.</p>
 <span class="bp">True</span>
 </pre></div>
 </div>
-<p>See that <code class="docutils literal"><span class="pre">Dummy</span></code> is to <code class="docutils literal"><span class="pre">d1</span></code> as <code class="docutils literal"><span class="pre">list</span></code> is to <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">4,</span> <span class="pre">&quot;a&quot;]</span></code></p>
-<p>Let’s create another instance of <code class="docutils literal"><span class="pre">Dummy</span></code>. It is important to
+<p>See that <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> is to <code class="docutils literal notranslate"><span class="pre">d1</span></code> as <code class="docutils literal notranslate"><span class="pre">list</span></code> is to <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">4,</span> <span class="pre">&quot;a&quot;]</span></code></p>
+<p>Let’s create another instance of <code class="docutils literal notranslate"><span class="pre">Dummy</span></code>. It is important to
 understand that this new instance is <em>distinct</em> from the one that we
 already created.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `d2` is a new instance of our Dummy class.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `d2` is a new instance of our Dummy class.</span>
 <span class="c1"># It resides at a distinct memory address (0x2ae8f666f60)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d2</span> <span class="o">=</span> <span class="n">Dummy</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d2</span>
@@ -358,7 +359,7 @@ still apply here: assigning an object to a variable, be it a class
 object or an instance, does not create a distinct copy of that object.
 The variable merely references that object, serving only as an alias for
 it.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `A` references `Dummy`</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `A` references `Dummy`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="n">Dummy</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">A</span> <span class="ow">is</span> <span class="n">Dummy</span>
@@ -387,19 +388,19 @@ it.</p>
 </div>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Class Initialization</strong></p>
-<p>Using the <code class="docutils literal"><span class="pre">Dummy</span></code> class defined above, create a list consisting of 10
+<p>Using the <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> class defined above, create a list consisting of 10
 <em>distinct</em> instances of this type. Write code to explicitly verify that
 each entry is distinct from the other, and that each entry is an
-instance of the <code class="docutils literal"><span class="pre">Dummy</span></code> class.</p>
-<p class="last">Then, create a tuple that contains a <em>single</em> instance of <code class="docutils literal"><span class="pre">Dummy</span></code>
+instance of the <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> class.</p>
+<p class="last">Then, create a tuple that contains a <em>single</em> instance of <code class="docutils literal notranslate"><span class="pre">Dummy</span></code>
 stored ten times. Write code to explicitly verify that the entries all
 reference the exact same object, and that each entry is an instance of
-the <code class="docutils literal"><span class="pre">Dummy</span></code> class.</p>
+the <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> class.</p>
 </div>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Terminology</strong></p>
 <p>Given:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">pass</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Cat</span>
@@ -409,18 +410,19 @@ the <code class="docutils literal"><span class="pre">Dummy</span></code> class.<
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y1</span> <span class="o">=</span> <span class="n">y</span>
 </pre></div>
 </div>
-<p>What relationship do <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> share?</p>
-<p>What relationship do <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">Cat</span></code> share?</p>
-<p>What relationship do <code class="docutils literal"><span class="pre">x2</span></code> and <code class="docutils literal"><span class="pre">y</span></code> share?</p>
-<p>What relationship do <code class="docutils literal"><span class="pre">y</span></code> and <code class="docutils literal"><span class="pre">y1</span></code> share?</p>
+<p>What relationship do <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">Cat</span></code> share?</p>
+<p>What relationship do <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">Cat</span></code> share?</p>
+<p>What relationship do <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> share?</p>
+<p>What relationship do <code class="docutils literal notranslate"><span class="pre">x2</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> share?</p>
+<p>What relationship do <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">y1</span></code> share?</p>
 <p>Next, identify each of the following objects as a class object or an
 instance (and if instance, an instance of what)</p>
 <ul class="last simple">
-<li><code class="docutils literal"><span class="pre">&quot;hello</span> <span class="pre">world&quot;</span></code></li>
-<li><code class="docutils literal"><span class="pre">True</span></code></li>
-<li><code class="docutils literal"><span class="pre">int</span></code></li>
-<li><code class="docutils literal"><span class="pre">{&quot;a&quot;</span> <span class="pre">:</span> <span class="pre">22}</span></code></li>
-<li><code class="docutils literal"><span class="pre">tuple</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;hello</span> <span class="pre">world&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">True</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">int</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">{&quot;a&quot;</span> <span class="pre">:</span> <span class="pre">22}</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">tuple</span></code></li>
 </ul>
 </div>
 <p>Now that we know the basics of how to create an instance of a class,
@@ -430,18 +432,18 @@ one another, we can move on to learning about creating instance-level
 attributes for our class.</p>
 </div>
 <div class="section" id="Defining-Instance-Level-Attributes:-the-__init__-Method">
-<h2>Defining Instance-Level Attributes: the <code class="docutils literal"><span class="pre">__init__</span></code> Method<a class="headerlink" href="#Defining-Instance-Level-Attributes:-the-__init__-Method" title="Permalink to this headline">¶</a></h2>
-<p>As demonstrated in the <code class="docutils literal"><span class="pre">Person</span></code> class that we defined earlier in this
-section, and the <code class="docutils literal"><span class="pre">Rectangle</span></code> class that we defined in this module’s
-introduction section, there is a special method, <code class="docutils literal"><span class="pre">__init__</span></code>, that
+<h2>Defining Instance-Level Attributes: the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> Method<a class="headerlink" href="#Defining-Instance-Level-Attributes:-the-__init__-Method" title="Permalink to this headline">¶</a></h2>
+<p>As demonstrated in the <code class="docutils literal notranslate"><span class="pre">Person</span></code> class that we defined earlier in this
+section, and the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class that we defined in this module’s
+introduction section, there is a special method, <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, that
 allows us to define instance-level attributes for our class. This is a
 critically-important method, which we will leverage often. Note that the
 name of this is: “underscore-underscore-init-underscore-underscore”,
 which can be pronounced as “dunder-init” (where “dunder” stands for
 double-underscore).</p>
-<p>Consider the slightly-modified definition of <code class="docutils literal"><span class="pre">Person</span></code>, which also
-includes the class-attribute <code class="docutils literal"><span class="pre">x</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+<p>Consider the slightly-modified definition of <code class="docutils literal notranslate"><span class="pre">Person</span></code>, which also
+includes the class-attribute <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># this sets a class-level attribute, common to all instances of `Person`</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -453,17 +455,17 @@ includes the class-attribute <code class="docutils literal"><span class="pre">x<
         <span class="c1"># `self`, the instance of `Person` that is being created.</span>
 </pre></div>
 </div>
-<p>Invoking <code class="docutils literal"><span class="pre">Person()</span></code> actually calls <code class="docutils literal"><span class="pre">__init__()</span></code> “under the hood”,
-and any argument that we feed to <code class="docutils literal"><span class="pre">Person()</span></code> gets passed to
-<code class="docutils literal"><span class="pre">__init__</span></code>. Looking at our definition of <code class="docutils literal"><span class="pre">__init__</span></code> it looks like we
-must pass two values to this method: <code class="docutils literal"><span class="pre">self</span></code> and <code class="docutils literal"><span class="pre">name</span></code>. This first
-argument, <code class="docutils literal"><span class="pre">self</span></code>, actually represents the object instance of
-<code class="docutils literal"><span class="pre">Person</span></code> that is being created. Python will pass the appropriate
-object for <code class="docutils literal"><span class="pre">self</span></code> to <code class="docutils literal"><span class="pre">__init__</span></code> automatically, thus we need only
-worry about passing a value for <code class="docutils literal"><span class="pre">name</span></code>.</p>
-<p>Let’s make an instance of our <code class="docutils literal"><span class="pre">Person</span></code> class, passing the string
-<code class="docutils literal"><span class="pre">&quot;Kamasi&quot;</span></code> as the name:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Creates the instance `self`,  passes it</span>
+<p>Invoking <code class="docutils literal notranslate"><span class="pre">Person()</span></code> actually calls <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> “under the hood”,
+and any argument that we feed to <code class="docutils literal notranslate"><span class="pre">Person()</span></code> gets passed to
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code>. Looking at our definition of <code class="docutils literal notranslate"><span class="pre">__init__</span></code> it looks like we
+must pass two values to this method: <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code>. This first
+argument, <code class="docutils literal notranslate"><span class="pre">self</span></code>, actually represents the object instance of
+<code class="docutils literal notranslate"><span class="pre">Person</span></code> that is being created. Python will pass the appropriate
+object for <code class="docutils literal notranslate"><span class="pre">self</span></code> to <code class="docutils literal notranslate"><span class="pre">__init__</span></code> automatically, thus we need only
+worry about passing a value for <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p>Let’s make an instance of our <code class="docutils literal notranslate"><span class="pre">Person</span></code> class, passing the string
+<code class="docutils literal notranslate"><span class="pre">&quot;Kamasi&quot;</span></code> as the name:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates the instance `self`,  passes it</span>
 <span class="c1"># and `&quot;Kamasi&quot;` to `Person.__init__`, and then</span>
 <span class="c1"># returns the instance-object that was created</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Kamasi&quot;</span><span class="p">)</span>
@@ -475,27 +477,27 @@ worry about passing a value for <code class="docutils literal"><span class="pre"
 </pre></div>
 </div>
 <p>Here is what is going on “under the hood” when we create this instance
-of <code class="docutils literal"><span class="pre">Person</span></code> (<strong>this is very important</strong>):</p>
+of <code class="docutils literal notranslate"><span class="pre">Person</span></code> (<strong>this is very important</strong>):</p>
 <ul class="simple">
-<li>Invoking <code class="docutils literal"><span class="pre">Person(&quot;Kamasi&quot;)</span></code> first creates an instance of <code class="docutils literal"><span class="pre">Person</span></code>
-as if there was no <code class="docutils literal"><span class="pre">__init__</span></code> method specified. The resulting
-object does not yet have a <code class="docutils literal"><span class="pre">name</span></code> attribute. It only has the
-class-level attribute <code class="docutils literal"><span class="pre">x</span></code>.</li>
-<li>Next, that instance of <code class="docutils literal"><span class="pre">Person</span></code> is passed to <code class="docutils literal"><span class="pre">__init__</span></code> as the
-argument <code class="docutils literal"><span class="pre">self</span></code>, and <code class="docutils literal"><span class="pre">&quot;Kamasi&quot;</span></code>, which we provided explicitly, is
-passed as the argument <code class="docutils literal"><span class="pre">name</span></code>.</li>
-<li>With these arguments, <code class="docutils literal"><span class="pre">Person.__init__(self,</span> <span class="pre">&quot;Kamasi&quot;)</span></code> executes
-its body of instructions. Specifically, <code class="docutils literal"><span class="pre">self.name</span> <span class="pre">=</span> <span class="pre">name</span></code> sets the
-attribute <code class="docutils literal"><span class="pre">name</span></code> on <code class="docutils literal"><span class="pre">self</span></code>, using the value <code class="docutils literal"><span class="pre">&quot;Kamasi&quot;</span></code>.</li>
-<li>Having finished executing the <code class="docutils literal"><span class="pre">__init__</span></code> method,
-<code class="docutils literal"><span class="pre">Person(&quot;Kamasi&quot;)</span></code> resolves by returning the instance-object that
+<li>Invoking <code class="docutils literal notranslate"><span class="pre">Person(&quot;Kamasi&quot;)</span></code> first creates an instance of <code class="docutils literal notranslate"><span class="pre">Person</span></code>
+as if there was no <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method specified. The resulting
+object does not yet have a <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute. It only has the
+class-level attribute <code class="docutils literal notranslate"><span class="pre">x</span></code>.</li>
+<li>Next, that instance of <code class="docutils literal notranslate"><span class="pre">Person</span></code> is passed to <code class="docutils literal notranslate"><span class="pre">__init__</span></code> as the
+argument <code class="docutils literal notranslate"><span class="pre">self</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;Kamasi&quot;</span></code>, which we provided explicitly, is
+passed as the argument <code class="docutils literal notranslate"><span class="pre">name</span></code>.</li>
+<li>With these arguments, <code class="docutils literal notranslate"><span class="pre">Person.__init__(self,</span> <span class="pre">&quot;Kamasi&quot;)</span></code> executes
+its body of instructions. Specifically, <code class="docutils literal notranslate"><span class="pre">self.name</span> <span class="pre">=</span> <span class="pre">name</span></code> sets the
+attribute <code class="docutils literal notranslate"><span class="pre">name</span></code> on <code class="docutils literal notranslate"><span class="pre">self</span></code>, using the value <code class="docutils literal notranslate"><span class="pre">&quot;Kamasi&quot;</span></code>.</li>
+<li>Having finished executing the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method,
+<code class="docutils literal notranslate"><span class="pre">Person(&quot;Kamasi&quot;)</span></code> resolves by returning the instance-object that
 was created.</li>
 </ul>
 <p>We now have the ability to define and set attributes on an
 instance-level! Understanding this process is critical to mastering
 object oriented programming in Python. Let’s create several
-<code class="docutils literal"><span class="pre">Person</span></code>-instances, all stored in a list:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># creating several instances of `Person`</span>
+<code class="docutils literal notranslate"><span class="pre">Person</span></code>-instances, all stored in a list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating several instances of `Person`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">list_of_people</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Noether&quot;</span><span class="p">,</span> <span class="s2">&quot;Euler&quot;</span><span class="p">)]</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">list_of_people</span><span class="p">:</span>
@@ -509,9 +511,9 @@ object oriented programming in Python. Let’s create several
 <span class="mi">1</span>
 </pre></div>
 </div>
-<p>Updating the class-level attribute <code class="docutils literal"><span class="pre">x</span></code> of <code class="docutils literal"><span class="pre">Person</span></code> affects all
-instances of <code class="docutils literal"><span class="pre">Person</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># setting a new value to the class-attribute `x`</span>
+<p>Updating the class-level attribute <code class="docutils literal notranslate"><span class="pre">x</span></code> of <code class="docutils literal notranslate"><span class="pre">Person</span></code> affects all
+instances of <code class="docutils literal notranslate"><span class="pre">Person</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># setting a new value to the class-attribute `x`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Person</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">22</span>
 
 <span class="c1"># this affects all instances of `Person`</span>
@@ -528,12 +530,12 @@ instances of <code class="docutils literal"><span class="pre">Person</span></cod
 </div>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Instance Attributes</strong></p>
-<p>Define a class, <code class="docutils literal"><span class="pre">Tmp</span></code>, that has three instance attributes: <code class="docutils literal"><span class="pre">x</span></code>,
-<code class="docutils literal"><span class="pre">y</span></code>, and <code class="docutils literal"><span class="pre">z</span></code>. <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> should be numbers that are set
-according to values passed to the instance creation, and <code class="docutils literal"><span class="pre">z</span></code> should be
+<p>Define a class, <code class="docutils literal notranslate"><span class="pre">Tmp</span></code>, that has three instance attributes: <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+<code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>. <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> should be numbers that are set
+according to values passed to the instance creation, and <code class="docutils literal notranslate"><span class="pre">z</span></code> should be
 the product of these two values.</p>
 <p>For example:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tmp</span> <span class="o">=</span> <span class="n">Tmp</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
+<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tmp</span> <span class="o">=</span> <span class="n">Tmp</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tmp</span><span class="o">.</span><span class="n">x</span>
 <span class="go">2.1</span>
 
@@ -545,23 +547,23 @@ the product of these two values.</p>
 </pre></div>
 </div>
 </div>
-<p>You should now have a grasp of how the special <code class="docutils literal"><span class="pre">__init__</span></code> method can
+<p>You should now have a grasp of how the special <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method can
 be used to define and set instance-level attributes for your classes.
 Furthermore, the basic process by which invoking class instantiation
 produces an instance object which then automatically gets passed to
-<code class="docutils literal"><span class="pre">__init__</span></code> as the <code class="docutils literal"><span class="pre">self</span></code> argument, should be salient. In the
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code> as the <code class="docutils literal notranslate"><span class="pre">self</span></code> argument, should be salient. In the
 following section, we will encounter three varieties of methods:
 instance methods, class methods, and static methods. Additionally, we
 will encounter even more so-called “special methods”, similar to
-<code class="docutils literal"><span class="pre">__init__</span></code>, which can be used to more broadly specify how your class
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code>, which can be used to more broadly specify how your class
 behaves and interacts with Python’s operators.</p>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>Solution: Class Initialization</strong></p>
-<p>Using the <code class="docutils literal"><span class="pre">Dummy</span></code> class defined above, create a list consisting of 10
+<p>Using the <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> class defined above, create a list consisting of 10
 <em>distinct</em> instances of this type</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># will call `Dummy()` once for each iteration</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># will call `Dummy()` once for each iteration</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">list_of_dummies</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dummy</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 
 <span class="c1"># note the distinct memory addresses</span>
@@ -579,8 +581,8 @@ behaves and interacts with Python’s operators.</p>
 </pre></div>
 </div>
 <p>Write code to explicitly verify that each entry is distinct from the
-other, and that each entry is an instance of the <code class="docutils literal"><span class="pre">Dummy</span></code> class.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+other, and that each entry is an instance of the <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
 <span class="go"># `combinations(list_of_dummies, 2)` loops over all pairs of entries</span>
 <span class="go"># in `list_of_dummies`</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">list_of_dummies</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -590,10 +592,10 @@ other, and that each entry is an instance of the <code class="docutils literal">
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>Create a tuple contains a <em>single</em> instance of <code class="docutils literal"><span class="pre">Dummy</span></code> ten times. Note
-here that we initialize <code class="docutils literal"><span class="pre">Dummy</span></code> once, and that the tuple-comprehension
+<p>Create a tuple contains a <em>single</em> instance of <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> ten times. Note
+here that we initialize <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> once, and that the tuple-comprehension
 merely populates the tuple with that same instance ten times.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dummy</span> <span class="o">=</span> <span class="n">Dummy</span><span class="p">()</span>  <span class="c1"># a single instance of `Dummy`</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dummy</span> <span class="o">=</span> <span class="n">Dummy</span><span class="p">()</span>  <span class="c1"># a single instance of `Dummy`</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tuple_of_dummy</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">dummy</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="go"># note that the memory addresses are identical</span>
@@ -611,8 +613,8 @@ merely populates the tuple with that same instance ten times.</p>
 </pre></div>
 </div>
 <p>Write code to explicitly verify that the entries all reference the exact
-same object, and that each entry is an instance of the <code class="docutils literal"><span class="pre">Dummy</span></code> class.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">dummy</span> <span class="ow">is</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tuple_of_dummy</span><span class="p">)</span>
+same object, and that each entry is an instance of the <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">dummy</span> <span class="ow">is</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tuple_of_dummy</span><span class="p">)</span>
 <span class="go">True</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Dummy</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">tuple_of_dummy</span><span class="p">)</span>
@@ -621,7 +623,7 @@ same object, and that each entry is an instance of the <code class="docutils lit
 </div>
 <p><strong>Reading Comprehension: Terminology</strong></p>
 <p>Given:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">pass</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Cat</span>
@@ -631,38 +633,38 @@ same object, and that each entry is an instance of the <code class="docutils lit
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y1</span> <span class="o">=</span> <span class="n">y</span>
 </pre></div>
 </div>
-<p>What relationship do <code class="docutils literal"><span class="pre">Cat</span></code> and <code class="docutils literal"><span class="pre">y</span></code> share?: <code class="docutils literal"><span class="pre">y</span></code> is in instance of
-<code class="docutils literal"><span class="pre">Cat</span></code>.</p>
-<p>What relationship do <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> share?: <code class="docutils literal"><span class="pre">x</span></code> references <code class="docutils literal"><span class="pre">Cat</span></code>,
-and <code class="docutils literal"><span class="pre">y</span></code> is an instance of <code class="docutils literal"><span class="pre">Cat</span></code>.</p>
-<p>What relationship do <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">Cat</span></code> share?: <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">Cat</span></code>
+<p>What relationship do <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">Cat</span></code> share?: <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">Cat</span></code>
 reference the same class object.</p>
-<p>What relationship do <code class="docutils literal"><span class="pre">x2</span></code> and <code class="docutils literal"><span class="pre">y</span></code> share?: They are independent
-instances of <code class="docutils literal"><span class="pre">Cat</span></code></p>
-<p>What relationship do <code class="docutils literal"><span class="pre">y</span></code> and <code class="docutils literal"><span class="pre">y1</span></code> share?: They reference the same
-instance of <code class="docutils literal"><span class="pre">Cat</span></code>.</p>
+<p>What relationship do <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">Cat</span></code> share?: <code class="docutils literal notranslate"><span class="pre">y</span></code> is an instance of
+the <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class.</p>
+<p>What relationship do <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> share?: <code class="docutils literal notranslate"><span class="pre">x</span></code> references <code class="docutils literal notranslate"><span class="pre">Cat</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">y</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">Cat</span></code>. Thus <code class="docutils literal notranslate"><span class="pre">y</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>What relationship do <code class="docutils literal notranslate"><span class="pre">x2</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> share?: They are independent
+instances of <code class="docutils literal notranslate"><span class="pre">Cat</span></code></p>
+<p>What relationship do <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">y1</span></code> share?: They reference the same
+instance of <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
 <p>Identify each of the following objects as a class object or an instance
 (and if so, an instance of what)</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">&quot;hello</span> <span class="pre">world&quot;</span></code>: An instances of the <code class="docutils literal"><span class="pre">str</span></code> type (a.k.a class)</li>
-<li><code class="docutils literal"><span class="pre">True</span></code>: an instance of the <code class="docutils literal"><span class="pre">bool</span></code> type</li>
-<li><code class="docutils literal"><span class="pre">int</span></code>: a class object describing integers</li>
-<li><code class="docutils literal"><span class="pre">{&quot;a&quot;</span> <span class="pre">:</span> <span class="pre">22}</span></code>: an instance of the <code class="docutils literal"><span class="pre">dict</span></code> type</li>
-<li><code class="docutils literal"><span class="pre">tuple</span></code>: a class object describing tuples</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;hello</span> <span class="pre">world&quot;</span></code>: An instance of the <code class="docutils literal notranslate"><span class="pre">str</span></code> type (a.k.a class)</li>
+<li><code class="docutils literal notranslate"><span class="pre">True</span></code>: an instance of the <code class="docutils literal notranslate"><span class="pre">bool</span></code> type</li>
+<li><code class="docutils literal notranslate"><span class="pre">int</span></code>: a class object describing integers</li>
+<li><code class="docutils literal notranslate"><span class="pre">{&quot;a&quot;</span> <span class="pre">:</span> <span class="pre">22}</span></code>: an instance of the <code class="docutils literal notranslate"><span class="pre">dict</span></code> type</li>
+<li><code class="docutils literal notranslate"><span class="pre">tuple</span></code>: a class object describing tuples</li>
 </ul>
 <p><strong>Reading Comprehension: Instance Attributes</strong></p>
-<p>Define a class, <code class="docutils literal"><span class="pre">Tmp</span></code>, that has three instance attributes: <code class="docutils literal"><span class="pre">x</span></code>,
-<code class="docutils literal"><span class="pre">y</span></code>, and <code class="docutils literal"><span class="pre">z</span></code>. <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> should be numbers that are set
-according to values passed to the instance creation, and <code class="docutils literal"><span class="pre">z</span></code> should be
+<p>Define a class, <code class="docutils literal notranslate"><span class="pre">Tmp</span></code>, that has three instance attributes: <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+<code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>. <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> should be numbers that are set
+according to values passed to the instance creation, and <code class="docutils literal notranslate"><span class="pre">z</span></code> should be
 the product of these two values.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Tmp</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Tmp</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Tmp</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Tmp</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">x</span>
 <span class="go">8</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">y</span>
@@ -718,7 +720,7 @@ the product of these two values.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Import: Modules and Packages &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Import: Modules and Packages &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 5: Odds and Ends" href="../module_5.html"/>
         <link rel="prev" title="Working with Files" href="WorkingWithFiles.html"/> 
 
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -227,21 +227,21 @@
 <div class="section" id="Import:-Modules-and-Packages">
 <h1>Import: Modules and Packages<a class="headerlink" href="#Import:-Modules-and-Packages" title="Permalink to this headline">¶</a></h1>
 <p>Our tour through the essentials of Python and NumPy required us to
-regularly make use of <code class="docutils literal"><span class="pre">import</span></code> statements. This allowed us to access
+regularly make use of <code class="docutils literal notranslate"><span class="pre">import</span></code> statements. This allowed us to access
 the functions and objects that are provided by the standard library and
 by NumPy.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># accessing `defaultdict` from the standard library&#39;s `collections` package</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># accessing `defaultdict` from the standard library&#39;s `collections` package</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
 <span class="c1"># import the entire numpy package, giving it the alias &#39;np&#39;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>Despite our regular use of the <code class="docutils literal"><span class="pre">import</span></code> statement, we have thus far
+<p>Despite our regular use of the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement, we have thus far
 swept its details under the rug. Here, we will finally pay our due
 diligence and discuss Python’s import system, which entails
 understanding the way that code can be organized into modules and
-packages. Modules are individual <code class="docutils literal"><span class="pre">.py</span></code> files from which we can import
+packages. Modules are individual <code class="docutils literal notranslate"><span class="pre">.py</span></code> files from which we can import
 functions and objects, and packages are collections of such modules.
 Detailing this packaging system will not only provide us with insight
 into the organization of the standard library and other collections of
@@ -260,7 +260,7 @@ concern ourselves with here.</p>
 <p class="first fa fa-exclamation-circle"><strong>Auto-reload</strong>:</p>
 <p>As you follow along with this section in a Jupyter notebook include the
 following code at the top of you notebook:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
 <span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
 </pre></div>
 </div>
@@ -272,7 +272,7 @@ you restart the kernel for that notebook.</p>
 </div>
 <div class="section" id="Modules">
 <h2>Modules<a class="headerlink" href="#Modules" title="Permalink to this headline">¶</a></h2>
-<p>A Python ‘module’ refers to a single <code class="docutils literal"><span class="pre">.py</span></code> file that contains function
+<p>A Python ‘module’ refers to a single <code class="docutils literal notranslate"><span class="pre">.py</span></code> file that contains function
 definitions and variable-assignment statements. Importing a module will
 execute these statements, rendering the resulting objects available via
 the imported module.</p>
@@ -281,9 +281,9 @@ session. Open a Jupyter notebook or IPython console in a known directory
 on your computer. Now, with an
 <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html#Integrated-Development-Environments">IDE</a>
 or simple text editor (not software like Microsoft Word!) create a text
-file named <code class="docutils literal"><span class="pre">my_module.py</span></code> in the same directory as you Python session.
-The contents of <code class="docutils literal"><span class="pre">my_module.py</span></code> should be:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+file named <code class="docutils literal notranslate"><span class="pre">my_module.py</span></code> in the same directory as you Python session.
+The contents of <code class="docutils literal notranslate"><span class="pre">my_module.py</span></code> should be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Our first Python module. This initial string is a module-level documentation string.</span>
 <span class="sd">It is not a necessary component of the module. It is a useful way to describe the</span>
 <span class="sd">purpose of your module.</span>
@@ -302,12 +302,12 @@ The contents of <code class="docutils literal"><span class="pre">my_module.py</s
 </div>
 <p>Returning to our interactive Python session we can import this module
 into our session. Python is able to “find” this module because it is in
-the present directory - more on this later. Importing <code class="docutils literal"><span class="pre">my_module.py</span></code>
+the present directory - more on this later. Importing <code class="docutils literal notranslate"><span class="pre">my_module.py</span></code>
 will execute all of its code in order from top to bottom, and will
-produce a Python object named <code class="docutils literal"><span class="pre">my_module</span></code>; this is an instance of the
-built-in <code class="docutils literal"><span class="pre">module</span></code> type. Note that we do not include the <code class="docutils literal"><span class="pre">.py</span></code> suffix
+produce a Python object named <code class="docutils literal notranslate"><span class="pre">my_module</span></code>; this is an instance of the
+built-in <code class="docutils literal notranslate"><span class="pre">module</span></code> type. Note that we do not include the <code class="docutils literal notranslate"><span class="pre">.py</span></code> suffix
 in our import statement.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span># importing my_module in our interactive session
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># importing my_module in our interactive session
 &gt;&gt;&gt; import my_module
 I am being executed!
 
@@ -319,12 +319,12 @@ I am being executed!
 module
 </pre></div>
 </div>
-<p>As expected, importing our module causes our <code class="docutils literal"><span class="pre">print</span></code> statement to be
-executed, which explains why <code class="docutils literal"><span class="pre">'I</span> <span class="pre">am</span> <span class="pre">being</span> <span class="pre">executed!'</span></code> is printed to
-the console. Next, the objects <code class="docutils literal"><span class="pre">some_list</span></code>, <code class="docutils literal"><span class="pre">square</span></code>, and <code class="docutils literal"><span class="pre">cube</span></code>
+<p>As expected, importing our module causes our <code class="docutils literal notranslate"><span class="pre">print</span></code> statement to be
+executed, which explains why <code class="docutils literal notranslate"><span class="pre">'I</span> <span class="pre">am</span> <span class="pre">being</span> <span class="pre">executed!'</span></code> is printed to
+the console. Next, the objects <code class="docutils literal notranslate"><span class="pre">some_list</span></code>, <code class="docutils literal notranslate"><span class="pre">square</span></code>, and <code class="docutils literal notranslate"><span class="pre">cube</span></code>
 are defined as the remaining code is executed. <em>These are made available
 as attributes of our module object</em>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># all of the variables assigned in the module are made</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># all of the variables assigned in the module are made</span>
 <span class="c1"># available as attributes of the module object</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_module</span><span class="o">.</span><span class="n">some_list</span>
 <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
@@ -345,9 +345,9 @@ was imported. In this vein, a good way to get to know the contents of a
 module is to make use of the
 <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Informal_Intro_Python.html#Dabbling-with-Numbers">auto-completion</a>
 feature provided by IDEs and interactive consoles to list all of the
-attributes of a module object. The built-in <code class="docutils literal"><span class="pre">help</span></code> function can also
+attributes of a module object. The built-in <code class="docutils literal notranslate"><span class="pre">help</span></code> function can also
 be used to summarize a module’s contents:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">my_module</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">my_module</span><span class="p">)</span>
 <span class="go">Help on module my_module:</span>
 
 <span class="go">NAME</span>
@@ -380,11 +380,11 @@ import are bound as attributes to that object.</p>
 </div>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Creating a simple module</strong></p>
-<p>Create a simple math module named <code class="docutils literal"><span class="pre">basic_math.py</span></code>. It should make
-available the irrational numbers <span class="math">\(\pi\)</span> and <span class="math">\(e\)</span>, and the
-function <code class="docutils literal"><span class="pre">deg_to_rad</span></code>, which converts an angle from degrees to
+<p>Create a simple math module named <code class="docutils literal notranslate"><span class="pre">basic_math.py</span></code>. It should make
+available the irrational numbers <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(e\)</span>, and the
+function <code class="docutils literal notranslate"><span class="pre">deg_to_rad</span></code>, which converts an angle from degrees to
 radians.</p>
-<p class="last">Next, import this module and compute <span class="math">\(e^{i\pi}\)</span> and compute 45
+<p class="last">Next, import this module and compute <span class="math notranslate nohighlight">\(e^{i\pi}\)</span> and compute 45
 degrees in radians.</p>
 </div>
 </div>
@@ -394,19 +394,19 @@ degrees in radians.</p>
 members of a module. We have already seen in our work with NumPy that we
 can specify an <em>alias</em> in our import statement; this can be especially
 convenient for import modules with long names:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># the module object for numpy is returned with the variable name `np`</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the module object for numpy is returned with the variable name `np`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
 <span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>In general we can perform an alias for an import via:
-<code class="docutils literal"><span class="pre">import</span> <span class="pre">&lt;module_name&gt;</span> <span class="pre">as</span> <span class="pre">&lt;alias_name&gt;</span></code>.</p>
-<p>Next, the pattern <code class="docutils literal"><span class="pre">from</span> <span class="pre">&lt;module_name&gt;</span> <span class="pre">import</span> <span class="pre">&lt;thing1&gt;,</span> <span class="pre">&lt;thing2&gt;,</span> <span class="pre">...</span></code>
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;module_name&gt;</span> <span class="pre">as</span> <span class="pre">&lt;alias_name&gt;</span></code>.</p>
+<p>Next, the pattern <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">&lt;module_name&gt;</span> <span class="pre">import</span> <span class="pre">&lt;thing1&gt;,</span> <span class="pre">&lt;thing2&gt;,</span> <span class="pre">...</span></code>
 permits us to import specific objects from the module instead of the
-importing the entire module as a whole. Let’s import <code class="docutils literal"><span class="pre">square</span></code> and
-<code class="docutils literal"><span class="pre">some_list</span></code> from basic_module.py:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="n">square</span><span class="p">,</span> <span class="n">some_list</span>
+importing the entire module as a whole. Let’s import <code class="docutils literal notranslate"><span class="pre">square</span></code> and
+<code class="docutils literal notranslate"><span class="pre">some_list</span></code> from basic_module.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="n">square</span><span class="p">,</span> <span class="n">some_list</span>
 <span class="go">I am being executed!</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">some_list</span>
@@ -417,23 +417,23 @@ importing the entire module as a whole. Let’s import <code class="docutils lit
 </pre></div>
 </div>
 <p>Note that the module is still being executed in full, however instead of
-producing the module-instance <code class="docutils literal"><span class="pre">my_module</span></code>, this imort statement
+producing the module-instance <code class="docutils literal notranslate"><span class="pre">my_module</span></code>, this imort statement
 instead only returns the specified objects that were defined in the
 module.</p>
-<p>Lastly, you can specify <code class="docutils literal"><span class="pre">*</span></code> to refer to all of the module’s
+<p>Lastly, you can specify <code class="docutils literal notranslate"><span class="pre">*</span></code> to refer to all of the module’s
 attributes.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># import all of the contents of `my_module`</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import all of the contents of `my_module`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-<p>You can include in your module a list named <code class="docutils literal"><span class="pre">__all__</span></code>, which stores
+<p>You can include in your module a list named <code class="docutils literal notranslate"><span class="pre">__all__</span></code>, which stores
 attribute names as strings, to restrict those attributes that are
-referred to by <code class="docutils literal"><span class="pre">*</span></code>. That is, if we included
-<code class="docutils literal"><span class="pre">__all__</span> <span class="pre">=</span> <span class="pre">[&quot;cube&quot;,</span> <span class="pre">&quot;some_list&quot;]</span></code> within <code class="docutils literal"><span class="pre">my_module.py</span></code>, then
-<code class="docutils literal"><span class="pre">from</span> <span class="pre">my_module</span> <span class="pre">import</span> <span class="pre">*</span></code> will only import <code class="docutils literal"><span class="pre">cube</span></code> and <code class="docutils literal"><span class="pre">some_list</span></code>,
-and not <code class="docutils literal"><span class="pre">square</span></code>.</p>
+referred to by <code class="docutils literal notranslate"><span class="pre">*</span></code>. That is, if we included
+<code class="docutils literal notranslate"><span class="pre">__all__</span> <span class="pre">=</span> <span class="pre">[&quot;cube&quot;,</span> <span class="pre">&quot;some_list&quot;]</span></code> within <code class="docutils literal notranslate"><span class="pre">my_module.py</span></code>, then
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">my_module</span> <span class="pre">import</span> <span class="pre">*</span></code> will only import <code class="docutils literal notranslate"><span class="pre">cube</span></code> and <code class="docutils literal notranslate"><span class="pre">some_list</span></code>,
+and not <code class="docutils literal notranslate"><span class="pre">square</span></code>.</p>
 <p>Lastly, we can also make use of aliasing for this style of import:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="n">cube</span> <span class="k">as</span> <span class="n">my_cube</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="n">cube</span> <span class="k">as</span> <span class="n">my_cube</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">my_cube</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">8</span>
 </pre></div>
@@ -449,23 +449,23 @@ storing a model-class capable of detecting faces, and a database module
 that is used to store and update “seen” faces. These modules can be
 stored in a collective <em>package</em>.</p>
 <p>A Python package is a directory containing a file with the name
-<code class="docutils literal"><span class="pre">__init__.py</span></code>, along with other Python modules and subpackages
-(i.e.&nbsp;subdirectories, each with its own <code class="docutils literal"><span class="pre">__init__.py</span></code> file and
-associated modules). The <code class="docutils literal"><span class="pre">__init__.py</span></code> file is of special importance -
+<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>, along with other Python modules and subpackages
+(i.e.&nbsp;subdirectories, each with its own <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file and
+associated modules). The <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file is of special importance -
 it serves as the indicator that its housing directory is to be treated
 as a package. For example, let’s build a bare-bones package with the
 following directory structure:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">your</span> <span class="n">current</span> <span class="n">Jupyter</span> <span class="n">notebook</span> <span class="o">/</span> <span class="n">console</span> <span class="n">session</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">your</span> <span class="n">current</span> <span class="n">Jupyter</span> <span class="n">notebook</span> <span class="o">/</span> <span class="n">console</span> <span class="n">session</span>
 <span class="o">-</span> <span class="n">a_dir</span><span class="o">/</span>
     <span class="o">|--</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>Note that your interactive Python session (e.g.&nbsp;Jupyter notebook) should
-be in active in the same directory as <code class="docutils literal"><span class="pre">a_dir/</span></code>. The name of the
-directory containing the <code class="docutils literal"><span class="pre">__init__.py</span></code> file is the name of the
-package, thus the name of this package is <code class="docutils literal"><span class="pre">a_dir</span></code>. Suppose the
-contents of <code class="docutils literal"><span class="pre">__init__.py</span></code> is as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+be in active in the same directory as <code class="docutils literal notranslate"><span class="pre">a_dir/</span></code>. The name of the
+directory containing the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file is the name of the
+package, thus the name of this package is <code class="docutils literal notranslate"><span class="pre">a_dir</span></code>. Suppose the
+contents of <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 
 <span class="k">def</span> <span class="nf">divide_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -473,20 +473,20 @@ contents of <code class="docutils literal"><span class="pre">__init__.py</span><
 </pre></div>
 </div>
 <p>As with a module, importing this package will execute the contents of
-<code class="docutils literal"><span class="pre">__init__.py</span></code> and make available <code class="docutils literal"><span class="pre">sum_func</span></code> and <code class="docutils literal"><span class="pre">divide_func</span></code> as
+<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> and make available <code class="docutils literal notranslate"><span class="pre">sum_func</span></code> and <code class="docutils literal notranslate"><span class="pre">divide_func</span></code> as
 attributes of the resulting module object:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># importing a python package</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing a python package</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">a_dir</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a_dir</span><span class="o">.</span><span class="n">divide_func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="mf">0.5</span>
 </pre></div>
 </div>
 <p>Let’s graduate to a more fleshed out package, which contains modules and
-subpackages. The following package, <code class="docutils literal"><span class="pre">face_detection</span></code>, possesses the
-modules <code class="docutils literal"><span class="pre">utils</span></code>, <code class="docutils literal"><span class="pre">database</span></code>, and <code class="docutils literal"><span class="pre">model</span></code>. It also contains the
-subpackage <code class="docutils literal"><span class="pre">camera</span></code>, which contains the <code class="docutils literal"><span class="pre">config</span></code> module and the
-<code class="docutils literal"><span class="pre">calibration</span></code> module.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">face_detection</span><span class="o">/</span>
+subpackages. The following package, <code class="docutils literal notranslate"><span class="pre">face_detection</span></code>, possesses the
+modules <code class="docutils literal notranslate"><span class="pre">utils</span></code>, <code class="docutils literal notranslate"><span class="pre">database</span></code>, and <code class="docutils literal notranslate"><span class="pre">model</span></code>. It also contains the
+subpackage <code class="docutils literal notranslate"><span class="pre">camera</span></code>, which contains the <code class="docutils literal notranslate"><span class="pre">config</span></code> module and the
+<code class="docutils literal notranslate"><span class="pre">calibration</span></code> module.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">face_detection</span><span class="o">/</span>
     <span class="o">|--</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
     <span class="o">|--</span> <span class="n">utils</span><span class="o">.</span><span class="n">py</span>
     <span class="o">|--</span> <span class="n">database</span><span class="o">.</span><span class="n">py</span>
@@ -497,10 +497,10 @@ subpackage <code class="docutils literal"><span class="pre">camera</span></code>
         <span class="o">|--</span> <span class="n">config</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>We can access the contents of these modules via <code class="docutils literal"><span class="pre">&lt;package&gt;.&lt;module&gt;</span></code>,
-<code class="docutils literal"><span class="pre">&lt;package&gt;.&lt;subpackage&gt;.&lt;module&gt;</span></code> and so on. Consider the following
+<p>We can access the contents of these modules via <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;.&lt;module&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;package&gt;.&lt;subpackage&gt;.&lt;module&gt;</span></code> and so on. Consider the following
 examples:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># importing a function from the `database` module</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing a function from the `database` module</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">face_detection.database</span> <span class="kn">import</span> <span class="n">load_database</span>
 
 <span class="c1"># importing the entire `model` module</span>
@@ -510,20 +510,20 @@ examples:</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">face_detection.camera.config</span> <span class="kn">import</span> <span class="n">restore_default</span>
 </pre></div>
 </div>
-<p>See that the <code class="docutils literal"><span class="pre">.</span></code> syntax allows us to drill progressively deeper down
+<p>See that the <code class="docutils literal notranslate"><span class="pre">.</span></code> syntax allows us to drill progressively deeper down
 into modules and subpackages, relative to our top-level package.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Packages</strong></p>
-<p>Suppose that we are working with a package named <code class="docutils literal"><span class="pre">mail</span></code>. The <code class="docutils literal"><span class="pre">mail/</span></code>
-directory contains an <code class="docutils literal"><span class="pre">__init__.py</span></code> module whose contents are:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">send_mail</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<p>Suppose that we are working with a package named <code class="docutils literal notranslate"><span class="pre">mail</span></code>. The <code class="docutils literal notranslate"><span class="pre">mail/</span></code>
+directory contains an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> module whose contents are:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">send_mail</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span>
 
 <span class="n">phrase_of_the_day</span> <span class="o">=</span> <span class="s2">&quot;get that package delievered!&quot;</span>
 </pre></div>
 </div>
-<p>It also contains the module <code class="docutils literal"><span class="pre">delivery.py</span></code> with the contents:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_zip</span><span class="p">():</span>
+<p>It also contains the module <code class="docutils literal notranslate"><span class="pre">delivery.py</span></code> with the contents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_zip</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;just a dummy function&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mi">871092</span>
 </pre></div>
@@ -538,10 +538,10 @@ directory contains an <code class="docutils literal"><span class="pre">__init__.
 <div class="section" id="Intra-Module-Imports">
 <h2>Intra-Module Imports<a class="headerlink" href="#Intra-Module-Imports" title="Permalink to this headline">¶</a></h2>
 <p>Modules within a package can import from one another; suppose, for
-instance, that both <code class="docutils literal"><span class="pre">face_detection.database</span></code> and
-<code class="docutils literal"><span class="pre">face_detection.camera.calibration</span></code> both want to leverage the
-<code class="docutils literal"><span class="pre">face_detection.utils</span></code> module. Recall the layout of this package:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">face_detection</span><span class="o">/</span>
+instance, that both <code class="docutils literal notranslate"><span class="pre">face_detection.database</span></code> and
+<code class="docutils literal notranslate"><span class="pre">face_detection.camera.calibration</span></code> both want to leverage the
+<code class="docutils literal notranslate"><span class="pre">face_detection.utils</span></code> module. Recall the layout of this package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">face_detection</span><span class="o">/</span>
     <span class="o">|--</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
     <span class="o">|--</span> <span class="n">utils</span><span class="o">.</span><span class="n">py</span>
     <span class="o">|--</span> <span class="n">database</span><span class="o">.</span><span class="n">py</span>
@@ -558,53 +558,53 @@ inter-module imports: absolute imports and relative imports.</p>
 <h3>Absolute Imports<a class="headerlink" href="#Absolute-Imports" title="Permalink to this headline">¶</a></h3>
 <p>The absolute import style works by specifying all modules in terms of
 their absolute position in relation to the topmost package. Suppose that
-we want to import the <code class="docutils literal"><span class="pre">utils</span></code> module in our <code class="docutils literal"><span class="pre">model</span></code> module, stated
+we want to import the <code class="docutils literal notranslate"><span class="pre">utils</span></code> module in our <code class="docutils literal notranslate"><span class="pre">model</span></code> module, stated
 as an absolute import, this would be:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">face_detection.utils</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">face_detection.utils</span>
 </pre></div>
 </div>
 <p>or, using an alias</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">face_detection.utils</span> <span class="kn">as</span> <span class="nn">utils</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">face_detection.utils</span> <span class="kn">as</span> <span class="nn">utils</span>
 </pre></div>
 </div>
-<p>Suppose that we want to import the <code class="docutils literal"><span class="pre">utils</span></code> module in
-<code class="docutils literal"><span class="pre">face_detection.camera.calibration</span></code> as well; the absolute import would
-look identical since the absolute location of <code class="docutils literal"><span class="pre">utils</span></code> relative to the
+<p>Suppose that we want to import the <code class="docutils literal notranslate"><span class="pre">utils</span></code> module in
+<code class="docutils literal notranslate"><span class="pre">face_detection.camera.calibration</span></code> as well; the absolute import would
+look identical since the absolute location of <code class="docutils literal notranslate"><span class="pre">utils</span></code> relative to the
 top-level package does not change based on where we are using this
 import statement.</p>
 <p>As an additional example, to import the camera configuration module
 anywhere in the package, the absolute import statement would appear as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">face_detection.camera.config</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">face_detection.camera.config</span>
 </pre></div>
 </div>
 <p>The absolute import syntax supports all of the variations the we
 enumerated above, such as aliased imports and
-<code class="docutils literal"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">&lt;object&gt;</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">&lt;object&gt;</span></code>.</p>
 </div>
 <div class="section" id="Relative-Imports">
 <h3>Relative Imports<a class="headerlink" href="#Relative-Imports" title="Permalink to this headline">¶</a></h3>
 <p>Relative imports use dots to indicate the relative position of the
 imported module, based on the location of the module doing the
-importing. For example, suppose that we want to import the <code class="docutils literal"><span class="pre">utils</span></code>
-module in our <code class="docutils literal"><span class="pre">model</span></code> module using a relative import statement:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">utils</span>
+importing. For example, suppose that we want to import the <code class="docutils literal notranslate"><span class="pre">utils</span></code>
+module in our <code class="docutils literal notranslate"><span class="pre">model</span></code> module using a relative import statement:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">utils</span>
 </pre></div>
 </div>
-<p>See that <code class="docutils literal"><span class="pre">.</span></code> serves to represent “the current package”. <code class="docutils literal"><span class="pre">..</span></code> then
+<p>See that <code class="docutils literal notranslate"><span class="pre">.</span></code> serves to represent “the current package”. <code class="docutils literal notranslate"><span class="pre">..</span></code> then
 refers to “one package above the current one”. Thus a relative import of
-<code class="docutils literal"><span class="pre">utils</span></code> from <code class="docutils literal"><span class="pre">face_detection/camera/calibration.py</span></code> would look like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">utils</span>
+<code class="docutils literal notranslate"><span class="pre">utils</span></code> from <code class="docutils literal notranslate"><span class="pre">face_detection/camera/calibration.py</span></code> would look like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">utils</span>
 </pre></div>
 </div>
-<p>We use <code class="docutils literal"><span class="pre">..</span></code> because <code class="docutils literal"><span class="pre">utils</span></code> is not in the same package as
-<code class="docutils literal"><span class="pre">calibration.py</span></code>, but is one package above it. We can also import
+<p>We use <code class="docutils literal notranslate"><span class="pre">..</span></code> because <code class="docutils literal notranslate"><span class="pre">utils</span></code> is not in the same package as
+<code class="docutils literal notranslate"><span class="pre">calibration.py</span></code>, but is one package above it. We can also import
 specific contents from a module in this way:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">some_util_func</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">some_util_func</span>
 </pre></div>
 </div>
 <p>The relative import style is more restricted than the absolute import
 style. It is only able to embody the
-<code class="docutils literal"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">&lt;thing1&gt;,</span> <span class="pre">&lt;thing2&gt;</span></code> form of import statements.
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">&lt;thing1&gt;,</span> <span class="pre">&lt;thing2&gt;</span></code> form of import statements.
 Despite their limited form, relative imports can be nice to use if you
 are dealing with a project with deeply nested sub-packages.</p>
 </div>
@@ -619,11 +619,11 @@ directory as our interactive Python session. How is it that we are able
 to import NumPy in any session or module, without any knowledge of where
 that package is located? This is because we have installed <em>NumPy</em>,
 which means that the package has been placed in our “Python path”, which
-is indicated as <code class="docutils literal"><span class="pre">PYTHONPATH</span></code>.</p>
-<p>The <code class="docutils literal"><span class="pre">PYTHONPATH</span></code> specifies the directories that the Python interpreter
-will look in when importing modules. You can check your <code class="docutils literal"><span class="pre">PYTHONPATH</span></code>
-using <code class="docutils literal"><span class="pre">sys.path</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># looking up `PYTHONPATH`</span>
+is indicated as <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> specifies the directories that the Python interpreter
+will look in when importing modules. You can check your <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>
+using <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># looking up `PYTHONPATH`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
 <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
@@ -635,21 +635,21 @@ using <code class="docutils literal"><span class="pre">sys.path</span></code>:</
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>Note that the first entry in <code class="docutils literal"><span class="pre">PYTHONPATH</span></code> is <code class="docutils literal"><span class="pre">''</span></code>, meaning that the
+<p>Note that the first entry in <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> is <code class="docutils literal notranslate"><span class="pre">''</span></code>, meaning that the
 Python interpreter will first look in the current directory when trying
 to do an import. If it does not find any package or module that
 satisfies the import statement, then it will proceed to check the next
-entry in <code class="docutils literal"><span class="pre">PYTHONPATH</span></code>. This is why we took care to create our modules
+entry in <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>. This is why we took care to create our modules
 and packages in the same directory as our active Python session.</p>
-<p>Now note the last directory in <code class="docutils literal"><span class="pre">PYTHONPATH</span></code>: site-packages.
+<p>Now note the last directory in <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>: site-packages.
 <em>Site-packages is the target directory in which all installed Python
 packages are placed by default</em>. We can import NumPy wherever we’d like
 because it was placed in site-packages when it was installed, and the
 Python interpreter will always look in site-packages when attempting to
 fulfill an import statement.</p>
-<p>In lieu of printing out your <code class="docutils literal"><span class="pre">PYTHONPATH</span></code>, you can look up the
+<p>In lieu of printing out your <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>, you can look up the
 location of your site-packages directly:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># looking up your site-packages</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># looking up your site-packages</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">site</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">site</span><span class="o">.</span><span class="n">getsitepackages</span><span class="p">()</span>
 <span class="p">[</span><span class="s1">&#39;/home/TerranceWasabi/miniconda3/lib/python3.6/site-packages&#39;</span><span class="p">]</span>
@@ -665,7 +665,7 @@ where our Python interpreter looks to import them.</p>
 <div class="section" id="Installing-Your-Own-Python-Package">
 <h3>Installing Your Own Python Package<a class="headerlink" href="#Installing-Your-Own-Python-Package" title="Permalink to this headline">¶</a></h3>
 <p>Suppose that we are happy with the work we have done on our
-<code class="docutils literal"><span class="pre">face_detector</span></code> project. We will want to install this package -
+<code class="docutils literal notranslate"><span class="pre">face_detector</span></code> project. We will want to install this package -
 placing it in our site-packages directory so that we can import it
 irrespective of our Python interpreter’s working directory. Here we will
 construct a basic setup script that will allow us to accomplish this.</p>
@@ -677,10 +677,10 @@ Distutils</a>
 and <a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project">Packaging Your
 Project</a>
 for a deeper treatment of this topic.</p>
-<p>Carrying on, we will want to create a setup-script, <code class="docutils literal"><span class="pre">setup.py</span></code>, <em>in
+<p>Carrying on, we will want to create a setup-script, <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, <em>in
 the same directory as our package</em>. That is, our directory structure
 should look like:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span>
 <span class="o">-</span> <span class="n">face_detection</span><span class="o">/</span>
     <span class="o">|--</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
     <span class="o">|--</span> <span class="n">utils</span><span class="o">.</span><span class="n">py</span>
@@ -693,8 +693,8 @@ should look like:</p>
 </pre></div>
 </div>
 <p>The bare bones build script for preparing your package for installation,
-<code class="docutils literal"><span class="pre">setup.py</span></code>, is as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># contents of setup.py</span>
+<code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># contents of setup.py</span>
 <span class="kn">import</span> <span class="nn">setuptools</span>
 
 <span class="n">setuptools</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span>
@@ -711,14 +711,14 @@ requirements that the package has, and more.</p>
 <p>Armed with this script, we are ready to install our package locally on
 our machine! In your terminal, navigate to the directory containing this
 setup script and your package that it being installed. Run</p>
-<div class="highlight-shell"><div class="highlight"><pre><span></span>python setup.py install
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python setup.py install
 </pre></div>
 </div>
-<p>and voilà, your package <code class="docutils literal"><span class="pre">face_detection</span></code> will have been installed to
+<p>and voilà, your package <code class="docutils literal notranslate"><span class="pre">face_detection</span></code> will have been installed to
 site-packages. You are now free to import this package from any
 directory on your machine. In order to uninstall this package from your
 machine execute the following from your terminal:</p>
-<div class="highlight-shell"><div class="highlight"><pre><span></span>pip uninstall face_detection
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip uninstall face_detection
 </pre></div>
 </div>
 <p>One final but important detail. The installed version of your package
@@ -728,9 +728,9 @@ package before your will see the effects system-wide. Instead you can
 install your package in develop mode, such that a symbolic link to your
 source code is placed in your site-packages. Thus any changes that you
 make to your code will immediately be reflected in your system-wide
-installation. Thus, instead of running <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>,
+installation. Thus, instead of running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>,
 execute the following to install a package in develop mode:</p>
-<div class="highlight-shell"><div class="highlight"><pre><span></span>python setup.py develop
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python setup.py develop
 </pre></div>
 </div>
 </div>
@@ -738,48 +738,48 @@ execute the following to install a package in develop mode:</p>
 <div class="section" id="pip-and-conda:-Package-Managers">
 <h2>pip and conda: Package Managers<a class="headerlink" href="#pip-and-conda:-Package-Managers" title="Permalink to this headline">¶</a></h2>
 <p>Python packages can be shared worldwide. There are two widely-used
-Python package managers, <code class="docutils literal"><span class="pre">pip</span></code> and <code class="docutils literal"><span class="pre">conda</span></code>. <code class="docutils literal"><span class="pre">pip</span></code> downloads and
+Python package managers, <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span></code>. <code class="docutils literal notranslate"><span class="pre">pip</span></code> downloads and
 installs packages from <a class="reference external" href="https://pypi.org/">The Python Package Index
-(PyPI)</a>, whereas <code class="docutils literal"><span class="pre">conda</span></code> downloads and installs
-packages from the Anaconda Cloud. Both <code class="docutils literal"><span class="pre">conda</span></code> and <code class="docutils literal"><span class="pre">pip</span></code> are
+(PyPI)</a>, whereas <code class="docutils literal notranslate"><span class="pre">conda</span></code> downloads and installs
+packages from the Anaconda Cloud. Both <code class="docutils literal notranslate"><span class="pre">conda</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span></code> are
 installed as part of the <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#Installing-Anaconda">Anaconda
 distribution</a>.</p>
-<p>To install a package via <code class="docutils literal"><span class="pre">pip</span></code>, you execute</p>
-<div class="highlight-shell"><div class="highlight"><pre><span></span>pip install &lt;package_name&gt;
+<p>To install a package via <code class="docutils literal notranslate"><span class="pre">pip</span></code>, you execute</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install &lt;package_name&gt;
 </pre></div>
 </div>
-<p>To install a package via <code class="docutils literal"><span class="pre">conda</span></code>, you execute</p>
-<div class="highlight-shell"><div class="highlight"><pre><span></span>conda install &lt;package_name&gt;
+<p>To install a package via <code class="docutils literal notranslate"><span class="pre">conda</span></code>, you execute</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda install &lt;package_name&gt;
 </pre></div>
 </div>
 <p>Both managers will install packages to your site-packages directory.</p>
-<p>There are substantial benefits for using <code class="docutils literal"><span class="pre">conda</span></code> rather than <code class="docutils literal"><span class="pre">pip</span></code>
-to install packages. First and foremost, <code class="docutils literal"><span class="pre">conda</span></code> has a powerful
+<p>There are substantial benefits for using <code class="docutils literal notranslate"><span class="pre">conda</span></code> rather than <code class="docutils literal notranslate"><span class="pre">pip</span></code>
+to install packages. First and foremost, <code class="docutils literal notranslate"><span class="pre">conda</span></code> has a powerful
 “environment solver”, which tracks the inter-dependencies of Python
 packages. Thus it will attempt to install, upgrade, and downgrade
 packages as needed to accommodate your installations. Additionally, the
-default list of packages available via <code class="docutils literal"><span class="pre">conda</span></code> are curated and
+default list of packages available via <code class="docutils literal notranslate"><span class="pre">conda</span></code> are curated and
 maintained by Continuum Analytics, the creators of Anaconda. To
-elucidate one of the benefits of this, installing NumPy via <code class="docutils literal"><span class="pre">pip</span></code> will
-deliver the vanilla version of NumPy to you; <code class="docutils literal"><span class="pre">conda</span></code> will install an
+elucidate one of the benefits of this, installing NumPy via <code class="docutils literal notranslate"><span class="pre">pip</span></code> will
+deliver the vanilla version of NumPy to you; <code class="docutils literal notranslate"><span class="pre">conda</span></code> will install an
 <a class="reference external" href="https://software.intel.com/en-us/articles/numpyscipy-with-intel-mkl">mkl-optimized version of
 NumPy</a>,
-which can execute routines substantially faster. Finally, <code class="docutils literal"><span class="pre">conda</span></code> also
+which can execute routines substantially faster. Finally, <code class="docutils literal notranslate"><span class="pre">conda</span></code> also
 serves as <a class="reference external" href="https://conda.io/docs/user-guide/tasks/manage-environments.html">an environment
 manager</a>,
 which allows you to maintain multiple, non-conflicting environments that
 can house different configurations of installed Python packages and even
 different versions of Python itself.</p>
-<p>That being said, there are some benefits to using <code class="docutils literal"><span class="pre">pip</span></code>. PyPi is
+<p>That being said, there are some benefits to using <code class="docutils literal notranslate"><span class="pre">pip</span></code>. PyPi is
 accessible and easy to upload packages to; this is likely the easiest
-means for distributing a Python package worldwide. As such, <code class="docutils literal"><span class="pre">pip</span></code>
+means for distributing a Python package worldwide. As such, <code class="docutils literal notranslate"><span class="pre">pip</span></code>
 provides access to a wider range of Python packages. That being said,
-<code class="docutils literal"><span class="pre">conda</span></code> can also be directed to install packages from custom channels
+<code class="docutils literal notranslate"><span class="pre">conda</span></code> can also be directed to install packages from custom channels
 - providing access to packages outside of the curated Anaconda
 distribution. This has become a popular method of installation for
 machine learning libraries like PyTorch and TensorFlow.</p>
-<p>You are free to install some packages using <code class="docutils literal"><span class="pre">conda</span></code> and others with
-<code class="docutils literal"><span class="pre">pip</span></code>. Just take care not to accidentally install the same package
+<p>You are free to install some packages using <code class="docutils literal notranslate"><span class="pre">conda</span></code> and others with
+<code class="docutils literal notranslate"><span class="pre">pip</span></code>. Just take care not to accidentally install the same package
 with both - this can lead to a real mess.</p>
 </div>
 <div class="section" id="Links-to-Official-Documentation">
@@ -797,12 +797,12 @@ Project</a></li>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Creating a simple module: Solution</strong></p>
-<p>Create a simple math module named <code class="docutils literal"><span class="pre">basic_math.py</span></code>. It should make
-available the irrational numbers <span class="math">\(\pi\)</span> and <span class="math">\(e\)</span>, and the
-function <code class="docutils literal"><span class="pre">deg_to_rad</span></code>, which converts an angle from degrees to
+<p>Create a simple math module named <code class="docutils literal notranslate"><span class="pre">basic_math.py</span></code>. It should make
+available the irrational numbers <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(e\)</span>, and the
+function <code class="docutils literal notranslate"><span class="pre">deg_to_rad</span></code>, which converts an angle from degrees to
 radians.</p>
-<p>The contents of <code class="docutils literal"><span class="pre">basic_math.py</span></code> should be:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Basic math constants and functions&quot;&quot;&quot;</span>
+<p>The contents of <code class="docutils literal notranslate"><span class="pre">basic_math.py</span></code> should be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Basic math constants and functions&quot;&quot;&quot;</span>
 
 <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592653589793</span>
 <span class="n">e</span> <span class="o">=</span> <span class="mf">2.718281828459045</span>
@@ -811,7 +811,7 @@ radians.</p>
     <span class="k">return</span> <span class="p">(</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">)</span> <span class="o">*</span> <span class="n">angle</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">basic_math</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">basic_math</span>
 
 <span class="go"># Euler&#39;s formula: e**(i * pi) = -1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">basic_math</span><span class="o">.</span><span class="n">e</span> <span class="o">**</span> <span class="p">(</span><span class="n">basic_math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
@@ -825,7 +825,7 @@ radians.</p>
 <ol class="arabic simple">
 <li>Create this package.</li>
 </ol>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mail</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mail</span><span class="o">/</span>
     <span class="o">|--</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
     <span class="o">|--</span> <span class="n">delivery</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
@@ -833,13 +833,13 @@ radians.</p>
 <ol class="arabic simple" start="2">
 <li>Import the send_mail function</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li>Import the delivery module and then execute it’s get-zip function</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mail</span> <span class="kn">import</span> <span class="n">delivery</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mail</span> <span class="kn">import</span> <span class="n">delivery</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">delivery</span><span class="o">.</span><span class="n">get_zip</span><span class="p">()</span>
 <span class="go">871092</span>
 </pre></div>
@@ -889,7 +889,7 @@ radians.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

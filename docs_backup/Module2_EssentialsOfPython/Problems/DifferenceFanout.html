@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Difference Fanout &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Difference Fanout &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Module 2: Problems" href="../../module_2_problems.html"/>
         <link rel="next" title="Encode as String" href="EncodeAsString.html"/>
         <link rel="prev" title="Within Margin Percentage" href="MarginPercentage.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -217,21 +217,21 @@
 <div class="section" id="Difference-Fanout">
 <h1>Difference Fanout<a class="headerlink" href="#Difference-Fanout" title="Permalink to this headline">¶</a></h1>
 <p>Given a list of numbers, for each number generate a list of the
-differences between it and <span class="math">\(n_{fanout}\)</span> (known as the <strong>fanout</strong>
+differences between it and <span class="math notranslate nohighlight">\(n_{fanout}\)</span> (known as the <strong>fanout</strong>
 value) following numbers in the list. Return a list of all the lists
 generated for each number. For members in the list that have fewer than
-<span class="math">\(n_{fanout}\)</span> following members, calculate as many differences as
+<span class="math notranslate nohighlight">\(n_{fanout}\)</span> following members, calculate as many differences as
 possible. For example, suppose we want to compute the difference fanout
-on the list <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">1]</span></code> with a fanout value of 3. Then we would
+on the list <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">1]</span></code> with a fanout value of 3. Then we would
 compute:</p>
 <ul class="simple">
-<li><span class="math">\(3 \rightarrow [2 - 3, 4 - 3, 6 - 3]\)</span></li>
-<li><span class="math">\(2 \rightarrow [4 - 2, 6 - 2, 1 - 2]\)</span></li>
-<li><span class="math">\(4 \rightarrow [6 - 4, 1 - 4]\)</span></li>
-<li><span class="math">\(6 \rightarrow [1 - 6]\)</span></li>
-<li><span class="math">\(1 \rightarrow []\)</span></li>
+<li><span class="math notranslate nohighlight">\(3 \rightarrow [2 - 3, 4 - 3, 6 - 3]\)</span></li>
+<li><span class="math notranslate nohighlight">\(2 \rightarrow [4 - 2, 6 - 2, 1 - 2]\)</span></li>
+<li><span class="math notranslate nohighlight">\(4 \rightarrow [6 - 4, 1 - 4]\)</span></li>
+<li><span class="math notranslate nohighlight">\(6 \rightarrow [1 - 6]\)</span></li>
+<li><span class="math notranslate nohighlight">\(1 \rightarrow []\)</span></li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">difference_fanout</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
 <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">],</span> <span class="p">[]]</span>
 </pre></div>
@@ -252,11 +252,11 @@ comprehension</a>.</p>
 The outermost for-loop will loop over each number in the list. We will
 refer to this number as the “base number”. We will want the inner
 for-loop to iterate ahead of the base number so that we can compute the
-differences between it and its <span class="math">\(n_{fanout}\)</span> neighbors. We will
+differences between it and its <span class="math notranslate nohighlight">\(n_{fanout}\)</span> neighbors. We will
 need to take care re-initialize our intermediate list of differences for
 each new base number, otherwise each subtraction will get appended to
 one long list.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Return a list of differences for</span>
 <span class="sd">        each value with its following terms</span>
 
@@ -287,24 +287,24 @@ one long list.</p>
 <p>Note our use of
 <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Iterables.html#Enumerating-iterables">enumerate</a>;
 this permits us to simultaneously access our base number, which we use
-in the subtraction, as well as its index-position within the list <code class="docutils literal"><span class="pre">l</span></code>,
+in the subtraction, as well as its index-position within the list <code class="docutils literal notranslate"><span class="pre">l</span></code>,
 which we use to determine the neighbors.</p>
 <p>Next, you may be concerned that our inner-loop will attempt to iterate
-beyond the end of the list. Consider the case in which <code class="docutils literal"><span class="pre">base_number</span></code>
-is the final element in <code class="docutils literal"><span class="pre">l</span></code>, thus <code class="docutils literal"><span class="pre">l[i+1:</span> <span class="pre">i+1+fanout]</span></code> would be
-equivalent to <code class="docutils literal"><span class="pre">l[len(l):</span> <span class="pre">len(l)+fanout]</span></code> - the stopping point for this
-slice clearly reaches beyond the extent of <code class="docutils literal"><span class="pre">l</span></code> (assuming
-<code class="docutils literal"><span class="pre">fanout</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>). Fortunately, this is not an oversight on our part.
+beyond the end of the list. Consider the case in which <code class="docutils literal notranslate"><span class="pre">base_number</span></code>
+is the final element in <code class="docutils literal notranslate"><span class="pre">l</span></code>, thus <code class="docutils literal notranslate"><span class="pre">l[i+1:</span> <span class="pre">i+1+fanout]</span></code> would be
+equivalent to <code class="docutils literal notranslate"><span class="pre">l[len(l):</span> <span class="pre">len(l)+fanout]</span></code> - the stopping point for this
+slice clearly reaches beyond the extent of <code class="docutils literal notranslate"><span class="pre">l</span></code> (assuming
+<code class="docutils literal notranslate"><span class="pre">fanout</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>). Fortunately, this is not an oversight on our part.
 While indexing a list outside of its bounds will raise an error, recall
 that <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Handling-out-of-bounds-indices">a slice will automatically limit itself to be within bounds of a
 given
 sequence</a>.
-That is, <code class="docutils literal"><span class="pre">l[i+1:</span> <span class="pre">i+1+fanout]</span></code> actually behaves like
-<code class="docutils literal"><span class="pre">l[min(i,</span> <span class="pre">len(l)-1):</span> <span class="pre">min(len(l),</span> <span class="pre">i+1+fanout)]</span></code> (assuming we are
+That is, <code class="docutils literal notranslate"><span class="pre">l[i+1:</span> <span class="pre">i+1+fanout]</span></code> actually behaves like
+<code class="docutils literal notranslate"><span class="pre">l[min(i,</span> <span class="pre">len(l)-1):</span> <span class="pre">min(len(l),</span> <span class="pre">i+1+fanout)]</span></code> (assuming we are
 dealing only with positive indices and non-empty lists). Thus our
-inner-loop will naturally limit itself. In the case that <code class="docutils literal"><span class="pre">base_number</span></code>
-is the final element in <code class="docutils literal"><span class="pre">l</span></code>, the inner-loop will exit immediately,
-leaving <code class="docutils literal"><span class="pre">base_fanout</span></code> empty. Although somewhat obscure, this is an
+inner-loop will naturally limit itself. In the case that <code class="docutils literal notranslate"><span class="pre">base_number</span></code>
+is the final element in <code class="docutils literal notranslate"><span class="pre">l</span></code>, the inner-loop will exit immediately,
+leaving <code class="docutils literal notranslate"><span class="pre">base_fanout</span></code> empty. Although somewhat obscure, this is an
 important aspect of Python’s slicing mechanism to keep in mind.</p>
 </div>
 <div class="section" id="Solution:-difference_fanout-using-list-comprehensions">
@@ -315,7 +315,7 @@ to simplify our solution. Although the syntax may appear to be
 convoluted at first glance, it permits us proceed without worrying about
 initializing multiple empty lists and appending to them at the right
 points in our nested for-loops</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Return a list of differences for</span>
 <span class="sd">        each value with its following terms</span>
 
@@ -357,7 +357,7 @@ we can apply <strong>any</strong> <em>binary operation</em>. Instead of finding 
 difference, we can calculate the sum or product or even concatenate two
 strings for a list of string. The possibilities are limitless.</p>
 <p>Armed with this knowledge, we can generalize the code.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">,</span> <span class="n">op</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">,</span> <span class="n">op</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Return a list of outputs for each value</span>
 <span class="sd">        after applying a binary operation between</span>
 <span class="sd">        the value and its following terms</span>
@@ -382,15 +382,15 @@ strings for a list of string. The possibilities are limitless.</p>
             <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">base</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p>Now, we can rewrite <code class="docutils literal"><span class="pre">difference_fanout</span></code> simply as</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<p>Now, we can rewrite <code class="docutils literal notranslate"><span class="pre">difference_fanout</span></code> simply as</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
 
 <span class="k">def</span> <span class="nf">difference_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">apply_fanout</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">fanout</span><span class="p">,</span> <span class="n">subtract</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>We can easily change <code class="docutils literal"><span class="pre">subtract</span></code> to some other function for a totally
+<p>We can easily change <code class="docutils literal notranslate"><span class="pre">subtract</span></code> to some other function for a totally
 different use.</p>
 </div>
 </div>
@@ -439,7 +439,7 @@ different use.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introducing the ND-array &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Introducing the ND-array &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
         <link rel="next" title="Accessing Data Along Multiple Dimensions in an Array" href="AccessingDataAlongMultipleDimensions.html"/>
         <link rel="prev" title="Module 3: The Essentials of NumPy" href="../module_3.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -221,10 +221,10 @@
 <p>It is time to start familiarizing ourselves with NumPy, the premiere
 library for doing numerical work in Python. To use this package, we need
 to be sure to “import” the NumPy module into our code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>You could have run <code class="docutils literal"><span class="pre">import</span> <span class="pre">numpy</span></code> instead, but the prescribed method
+<p>You could have run <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span></code> instead, but the prescribed method
 allows us to use the abbreviation ‘np’ throughout our code, instead of
 having to write ‘numpy’. This is a very common abbreviation to use.</p>
 <p>The ND-array (N-dimensional array) is the star of the show for NumPy.
@@ -243,12 +243,12 @@ instead of Python; this is a process called vectorization.</li>
 </ol>
 <p>Let’s take a sneak peek to see at what this module has in store. The
 following code creates an ND-array containing the numbers 0-8:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>This object is belongs to the NumPy-defined type <code class="docutils literal"><span class="pre">numpy.ndarray</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># An ND-array belongs to the type `numpy.ndarray`</span>
+<p>This object is belongs to the NumPy-defined type <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># An ND-array belongs to the type `numpy.ndarray`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span>
 
@@ -258,7 +258,7 @@ following code creates an ND-array containing the numbers 0-8:</p>
 </div>
 <p>We can “reshape” this array so that its contents can be accessed along 2
 dimensions:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">array([[0, 1, 2],</span>
 <span class="go">       [3, 4, 5],</span>
@@ -267,35 +267,35 @@ dimensions:</p>
 </div>
 <p>We will utilize one of NumPy’s “vectorized” functions to square each
 entry in the array (without us needing to write a for-loop)</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># can also be calculated using the shorthand: x**2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># can also be calculated using the shorthand: x**2</span>
 <span class="go">array([[ 0,  1,  4],</span>
 <span class="go">       [ 9, 16, 25],</span>
 <span class="go">       [36, 49, 64]], dtype=int32)</span>
 </pre></div>
 </div>
 <p>Let’s take the mean value over the three distinct columns in our data:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">array([ 1.,  4.,  7.])</span>
 </pre></div>
 </div>
-<p>We can use broadcasting to raise each column of <code class="docutils literal"><span class="pre">x</span></code> to a different
+<p>We can use broadcasting to raise each column of <code class="docutils literal notranslate"><span class="pre">x</span></code> to a different
 power:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
 <span class="go">array([[  1.,   1.,   4.],</span>
 <span class="go">       [  1.,   4.,  25.],</span>
 <span class="go">       [  1.,   7.,  64.]])</span>
 </pre></div>
 </div>
-<p>Basic indexing allows us to access multi-dimensional slices of <code class="docutils literal"><span class="pre">x</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<p>Basic indexing allows us to access multi-dimensional slices of <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 <span class="go">array([[0, 1, 2],</span>
 <span class="go">       [3, 4, 5]])</span>
 </pre></div>
 </div>
 <p>Advanced indexing can be used to access all even-valued entries of
-<code class="docutils literal"><span class="pre">x</span></code>; let’s update <code class="docutils literal"><span class="pre">x</span></code> so that all of its even-valued entries are
+<code class="docutils literal notranslate"><span class="pre">x</span></code>; let’s update <code class="docutils literal notranslate"><span class="pre">x</span></code> so that all of its even-valued entries are
 multiplied by -1:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">array([[ 0,  1, -2],</span>
 <span class="go">       [ 3, -4,  5],</span>
@@ -361,7 +361,7 @@ reference</a></li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

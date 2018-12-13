@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Iterables &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Iterables &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Generators &amp; Comprehension Expressions" href="Generators_and_Comprehensions.html"/>
         <link rel="prev" title="For-Loops and While-Loops" href="ForLoops.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -250,8 +250,8 @@ code.</p>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
 <p class="last">“Under the hood”, an iterable is any Python object with an
-<code class="docutils literal"><span class="pre">__iter__()</span></code> method or with a <code class="docutils literal"><span class="pre">__getitem__()</span></code> method that implements
-<code class="docutils literal"><span class="pre">Sequence</span></code> semantics. These details will become salient if you read
+<code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> method or with a <code class="docutils literal notranslate"><span class="pre">__getitem__()</span></code> method that implements
+<code class="docutils literal notranslate"><span class="pre">Sequence</span></code> semantics. These details will become salient if you read
 through the Object Oriented Programming module.</p>
 </div>
 <div class="section" id="Functions-that-act-on-iterables">
@@ -259,21 +259,21 @@ through the Object Oriented Programming module.</p>
 <p>Here are some useful built-in functions that accept iterables as
 arguments:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">list</span></code>, <code class="docutils literal"><span class="pre">tuple</span></code>, <code class="docutils literal"><span class="pre">dict</span></code>, <code class="docutils literal"><span class="pre">set</span></code>: construct a list, tuple,
+<li><code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>: construct a list, tuple,
 <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html">dictionary</a>,
 or
 <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure">set</a>,
 respectively, from the contents of an iterable</li>
-<li><code class="docutils literal"><span class="pre">sum</span></code>: sum the contents of an iterable.</li>
-<li><code class="docutils literal"><span class="pre">sorted</span></code>: return a list of the sorted contents of an interable</li>
-<li><code class="docutils literal"><span class="pre">any</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> and ends the iteration immediately if
-<code class="docutils literal"><span class="pre">bool(item)</span></code> was <code class="docutils literal"><span class="pre">True</span></code> for <em>any</em> item in the iterable.</li>
-<li><code class="docutils literal"><span class="pre">all</span></code>: returns <code class="docutils literal"><span class="pre">True</span></code> only if <code class="docutils literal"><span class="pre">bool(item)</span></code> was <code class="docutils literal"><span class="pre">True</span></code> for
+<li><code class="docutils literal notranslate"><span class="pre">sum</span></code>: sum the contents of an iterable.</li>
+<li><code class="docutils literal notranslate"><span class="pre">sorted</span></code>: return a list of the sorted contents of an interable</li>
+<li><code class="docutils literal notranslate"><span class="pre">any</span></code>: returns <code class="docutils literal notranslate"><span class="pre">True</span></code> and ends the iteration immediately if
+<code class="docutils literal notranslate"><span class="pre">bool(item)</span></code> was <code class="docutils literal notranslate"><span class="pre">True</span></code> for <em>any</em> item in the iterable.</li>
+<li><code class="docutils literal notranslate"><span class="pre">all</span></code>: returns <code class="docutils literal notranslate"><span class="pre">True</span></code> only if <code class="docutils literal notranslate"><span class="pre">bool(item)</span></code> was <code class="docutils literal notranslate"><span class="pre">True</span></code> for
 <em>all</em> items in the iterable.</li>
-<li><code class="docutils literal"><span class="pre">max</span></code>: return the largest value in an iterable.</li>
-<li><code class="docutils literal"><span class="pre">min</span></code>: return the smallest value in an iterable.</li>
+<li><code class="docutils literal notranslate"><span class="pre">max</span></code>: return the largest value in an iterable.</li>
+<li><code class="docutils literal notranslate"><span class="pre">min</span></code>: return the smallest value in an iterable.</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Examples of built-in functions that act on iterables</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Examples of built-in functions that act on iterables</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;I am a cow&quot;</span><span class="p">)</span>
 <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">]</span>
 
@@ -314,7 +314,7 @@ be introduced in the coming sections.</p>
 <p>Suppose that you have three values stored in a list, and that you want
 to assign each value to a distinct variable. Given the lessons that we
 have covered thus far, you would likely write the following code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># simple script for assigning contents of a list to variables</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># simple script for assigning contents of a list to variables</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -324,7 +324,7 @@ have covered thus far, you would likely write the following code:</p>
 </div>
 <p>Python provides an extremely useful functionality, known as <strong>iterable
 unpacking</strong>, which allows us to write the simple, elegant code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># assigning contents of a list to variables using iterable unpacking</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># assigning contents of a list to variables using iterable unpacking</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">my_list</span>
@@ -340,17 +340,17 @@ improves the readability of code!</p>
 <p>Iterable unpacking is particularly useful in the context of performing
 for-loops over iterables-of-iterables. For example, suppose we have a
 list containing tuples of name-grade pairs:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grades</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Ashley&quot;</span><span class="p">,</span> <span class="mi">93</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Brad&quot;</span><span class="p">,</span> <span class="mi">95</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Cassie&quot;</span><span class="p">,</span> <span class="mi">84</span><span class="p">)]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grades</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Ashley&quot;</span><span class="p">,</span> <span class="mi">93</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Brad&quot;</span><span class="p">,</span> <span class="mi">95</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Cassie&quot;</span><span class="p">,</span> <span class="mi">84</span><span class="p">)]</span>
 </pre></div>
 </div>
 <p>Recall from the preceding section that if we loop over this list, that
 the iterate-variable will be assigned to each of these tuples:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">grades</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">grades</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>will print:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;Ashley&#39;</span><span class="p">,</span> <span class="mi">93</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;Ashley&#39;</span><span class="p">,</span> <span class="mi">93</span><span class="p">)</span>
 <span class="p">(</span><span class="s1">&#39;Brad&#39;</span><span class="p">,</span> <span class="mi">95</span><span class="p">)</span>
 <span class="p">(</span><span class="s1">&#39;Cassie&#39;</span><span class="p">,</span> <span class="mi">84</span><span class="p">)</span>
 </pre></div>
@@ -358,13 +358,13 @@ the iterate-variable will be assigned to each of these tuples:</p>
 <p>It is likely that we will want to work with the student’s name and their
 grade independently (e.g.&nbsp;use the name to access a log, and add the
 grade-value to our class statistics); thus we will need to index into
-<code class="docutils literal"><span class="pre">entry</span></code> twice to assign its contents to two separate variables.
+<code class="docutils literal notranslate"><span class="pre">entry</span></code> twice to assign its contents to two separate variables.
 However, because each iteration of the for-loop involves an assignment
-of the form <code class="docutils literal"><span class="pre">entry</span> <span class="pre">=</span> <span class="pre">(&quot;Ashley&quot;,</span> <span class="pre">93)</span></code>, we can make use of iterable
-unpacking! That is, we can replace <code class="docutils literal"><span class="pre">entry</span></code> with <code class="docutils literal"><span class="pre">name,</span> <span class="pre">grade</span></code> and
+of the form <code class="docutils literal notranslate"><span class="pre">entry</span> <span class="pre">=</span> <span class="pre">(&quot;Ashley&quot;,</span> <span class="pre">93)</span></code>, we can make use of iterable
+unpacking! That is, we can replace <code class="docutils literal notranslate"><span class="pre">entry</span></code> with <code class="docutils literal notranslate"><span class="pre">name,</span> <span class="pre">grade</span></code> and
 Python will intuitively do an unpacking upon each assignment of the
 for-loop.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># The first iteration of this for-loop performs</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first iteration of this for-loop performs</span>
 <span class="c1"># the unpacking assignment: name, grade = (&quot;Ashley&quot;, 93)</span>
 <span class="c1"># then the second iteration: name, grade = (&quot;Brad&quot;, 95)</span>
 <span class="c1"># and so-on</span>
@@ -375,7 +375,7 @@ for-loop.</p>
 </pre></div>
 </div>
 <p>prints:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Ashley</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ashley</span>
 <span class="mi">93</span>
 
 <span class="n">Brad</span>
@@ -409,7 +409,7 @@ collection of iterables.</p>
 <a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a>
 function allows us to iterate over an iterable, while keeping track of
 the iteration count:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># basic usage of `enumerate`</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># basic usage of `enumerate`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">):</span>
 <span class="o">...</span>    <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
 <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
@@ -418,14 +418,14 @@ the iteration count:</p>
 <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In general, the <code class="docutils literal"><span class="pre">enumerate</span></code> function accepts an iterable as an input,
+<p>In general, the <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function accepts an iterable as an input,
 and returns a new iterable that produces a tuple of the iteration-count
 and the corresponding item from the original iterable. Thus the items in
 the iterable are being enumerated. To see the utility of this, suppose
 that we want to record all of the positions in a list where the value
-<code class="docutils literal"><span class="pre">None</span></code> is stored. We can achieve this by tracking the iteration count
+<code class="docutils literal notranslate"><span class="pre">None</span></code> is stored. We can achieve this by tracking the iteration count
 of a for-loop over the list.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># track which entries of an iterable store the value `None`</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># track which entries of an iterable store the value `None`</span>
 <span class="n">none_indices</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">iter_cnt</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># manually track iteration-count</span>
 
@@ -438,9 +438,9 @@ of a for-loop over the list.</p>
 </pre></div>
 </div>
 <p>We can simplify this code, and avoid having to initialize or increment
-the <code class="docutils literal"><span class="pre">iter_cnt</span></code> variable, by utilizing <code class="docutils literal"><span class="pre">enumerate</span></code> along with
+the <code class="docutils literal notranslate"><span class="pre">iter_cnt</span></code> variable, by utilizing <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> along with
 tuple-unpacking.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using the `enumerate` function to keep iteration-count</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using the `enumerate` function to keep iteration-count</span>
 <span class="n">none_indices</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># note the use of iterable unpacking!</span>
@@ -461,25 +461,25 @@ is valuable to use this in conjunction with tuple unpacking.</p>
 </div>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: enumerate</strong></p>
-<p class="last">Use the iterable <code class="docutils literal"><span class="pre">&quot;abcd&quot;</span></code>, the <code class="docutils literal"><span class="pre">enumerate</span></code> function, and
+<p class="last">Use the iterable <code class="docutils literal notranslate"><span class="pre">&quot;abcd&quot;</span></code>, the <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function, and
 tuple-unpacking in a for-loop to create the list:
-<code class="docutils literal"><span class="pre">[(0,</span> <span class="pre">'a'),</span> <span class="pre">(1,</span> <span class="pre">'b'),</span> <span class="pre">(2,</span> <span class="pre">'c'),</span> <span class="pre">(3,</span> <span class="pre">'d')]</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">[(0,</span> <span class="pre">'a'),</span> <span class="pre">(1,</span> <span class="pre">'b'),</span> <span class="pre">(2,</span> <span class="pre">'c'),</span> <span class="pre">(3,</span> <span class="pre">'d')]</span></code></p>
 </div>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Is it sorted?</strong></p>
 <p>Use control flow and looping tools to see if an iterable of numbers is
 sorted.</p>
-<p>The variable <code class="docutils literal"><span class="pre">unsorted_index</span></code> should be initialized to <code class="docutils literal"><span class="pre">None</span></code>. If
-the iterable is <em>not</em> sorted, <code class="docutils literal"><span class="pre">unsorted_index</span></code> should store the index
+<p>The variable <code class="docutils literal notranslate"><span class="pre">unsorted_index</span></code> should be initialized to <code class="docutils literal notranslate"><span class="pre">None</span></code>. If
+the iterable is <em>not</em> sorted, <code class="docutils literal notranslate"><span class="pre">unsorted_index</span></code> should store the index
 of the where the sequence <em>first</em> fell out of order. If the iterable is
-sorted, then <code class="docutils literal"><span class="pre">unsorted_index</span></code> should remain <code class="docutils literal"><span class="pre">None</span></code> and your code
+sorted, then <code class="docutils literal notranslate"><span class="pre">unsorted_index</span></code> should remain <code class="docutils literal notranslate"><span class="pre">None</span></code> and your code
 should print “sorted!”.</p>
 <p>For instance:</p>
 <ul class="last simple">
-<li>given the iterable <code class="docutils literal"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">-10,</span> <span class="pre">2]</span></code>, <code class="docutils literal"><span class="pre">unsorted_index</span></code>
-should take the value <code class="docutils literal"><span class="pre">2</span></code>.</li>
-<li>given the iterable <code class="docutils literal"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[-1,</span> <span class="pre">0,</span> <span class="pre">3,</span> <span class="pre">6]</span></code>, <code class="docutils literal"><span class="pre">unsorted_index</span></code>
-should be <code class="docutils literal"><span class="pre">None</span></code> and your code should print “sorted!”.</li>
+<li>given the iterable <code class="docutils literal notranslate"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">-10,</span> <span class="pre">2]</span></code>, <code class="docutils literal notranslate"><span class="pre">unsorted_index</span></code>
+should take the value <code class="docutils literal notranslate"><span class="pre">2</span></code>.</li>
+<li>given the iterable <code class="docutils literal notranslate"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[-1,</span> <span class="pre">0,</span> <span class="pre">3,</span> <span class="pre">6]</span></code>, <code class="docutils literal notranslate"><span class="pre">unsorted_index</span></code>
+should be <code class="docutils literal notranslate"><span class="pre">None</span></code> and your code should print “sorted!”.</li>
 </ul>
 </div>
 </div>
@@ -497,13 +497,13 @@ iterables</a></li>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>enumerate: Solution</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">letter</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">):</span>
     <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">num</span><span class="p">,</span> <span class="n">letter</span><span class="p">))</span>
 </pre></div>
 </div>
 <p><strong>Is it sorted?: Solution</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">unsorted_index</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">current_num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
@@ -563,7 +563,7 @@ iterables</a></li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

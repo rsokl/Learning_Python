@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction to Object Oriented Programming &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Introduction to Object Oriented Programming &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
         <link rel="next" title="Defining a New Class of Object" href="ClassDefinition.html"/>
         <link rel="prev" title="Module 4: Object Oriented Programming" href="../module_4.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -228,7 +228,7 @@ functions that are bound to them. Functions bound to objects are known
 as <strong>methods</strong>. For example, where a string possesses methods designed
 to manipulate its sequence of characters, a NumPy array possesses
 methods for operating on the numerical data bound to that array.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Different types of objects can possess different methods</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Different types of objects can possess different methods</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">string</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="c1"># use the string-method `capitalize`</span>
@@ -243,9 +243,9 @@ methods for operating on the numerical data bound to that array.</p>
 </div>
 <p>More generally, an object can possess data, known as <strong>attributes</strong>,
 which summarize information about that object. For example, the
-array-attributes <code class="docutils literal"><span class="pre">ndim</span></code> and <code class="docutils literal"><span class="pre">shape</span></code> provide information about the
+array-attributes <code class="docutils literal notranslate"><span class="pre">ndim</span></code> and <code class="docutils literal notranslate"><span class="pre">shape</span></code> provide information about the
 indexing-layout of that array’s numerical data.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># accessing an object&#39;s attributes</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># accessing an object&#39;s attributes</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span>
 <span class="mi">2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span>
@@ -258,10 +258,10 @@ will be using Python as an “objected oriented” programming language;
 this will greatly expand our capabilities as Python users, and deepen
 our understanding of the language itself.</p>
 <p>As a sneak peek example, let’s create our own class of objects known as
-<code class="docutils literal"><span class="pre">Rectangle</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
+<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; A Python object that describes the properties of a rectangle &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)):</span>
         <span class="sd">&quot;&quot;&quot; Sets the attributes of a particular instance of `Rectangle`.</span>
 
 <span class="sd">            Parameters</span>
@@ -301,16 +301,16 @@ our understanding of the language itself.</p>
 <span class="sd">            -------</span>
 <span class="sd">            List[Tuple[float, float], Tuple[float, float], Tuple[float, float], Tuple[float, float]]&quot;&quot;&quot;</span>
         <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">center</span>
-        <span class="n">dx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span>
-        <span class="n">dy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mf">2.0</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mf">2.0</span>
         <span class="k">return</span> <span class="p">[(</span><span class="n">cx</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="n">cy</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="p">((</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">),</span> <span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="o">-</span><span class="n">dy</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">dx</span><span class="p">,</span> <span class="o">-</span><span class="n">dy</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">))]</span>
 </pre></div>
 </div>
-<p>An instance of this <code class="docutils literal"><span class="pre">Rectangle</span></code> class is an individual rectangle whose
+<p>An instance of this <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class is an individual rectangle whose
 <em>attributes</em> include its width, height, and center-location.
 Additionally, we can use the rectangle’s <em>methods</em> (its attributes that
 are functions) to compute its area and the locations of its corners.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># create a rectangle of width 4, height 10, centered at (0, 0)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a rectangle of width 4, height 10, centered at (0, 0)</span>
 <span class="c1"># here __init__ is executed and the width/height/center attributes are set</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">rect1</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
@@ -329,13 +329,13 @@ are functions) to compute its area and the locations of its corners.</p>
 </pre></div>
 </div>
 <p>Just like any other Python object that we have encountered, we can put
-our <code class="docutils literal"><span class="pre">Rectangle</span></code>s in lists, store them as values in dictionaries,
+our <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>s in lists, store them as values in dictionaries,
 pass them to functions, reference them with multiple variables, and so
 on.</p>
 <p>Popular STEM, data analysis, and machine learning Python libraries rely
 heavily on the ability to define custom classes of Python objects. For
 example, <a class="reference external" href="https://pandas.pydata.org/">pandas</a> defines a
-spreadsheet-like <code class="docutils literal"><span class="pre">DataFrame</span></code> class;
+spreadsheet-like <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> class;
 <a class="reference external" href="https://pytorch.org/">PyTorch</a>,
 <a class="reference external" href="https://mxnet.incubator.apache.org/">MXNet</a>, and
 <a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a> each define tensor classes
@@ -344,7 +344,7 @@ differentiation</a>,
 which is critically important for training neural networks.
 Understanding Python’s class system will greatly improve your ability to
 leverage libraries like these (Shameless plug: refer to
-<a class="reference external" href="https://github.com/rsokl/MyGrad">MyGrad</a> if you are interested in
+<a class="reference external" href="https://mygrad.readthedocs.io">MyGrad</a> if you are interested in
 seeing a simple pure-Python/NumPy implementation of an
 auto-differentiation library).</p>
 <p>Moving forward, we will discuss the essential <em>class definition</em>, which
@@ -353,7 +353,7 @@ will learn about creating distinct <em>instances</em> of a given object type
 and about defining methods. This will lead to our first encounter with
 <em>special methods</em>, which enable us to affect how our object type behaves
 with Python’s various operators. For example, we can define how the
-<code class="docutils literal"><span class="pre">+</span></code> operator interacts with our objects. Lastly, we will briefly
+<code class="docutils literal notranslate"><span class="pre">+</span></code> operator interacts with our objects. Lastly, we will briefly
 discuss the concept of class inheritance.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
@@ -367,16 +367,16 @@ fully leverage all of Python’s features.</p>
 <p>Before proceeding any further, it is worthwhile to draw our attention to
 the fact that the terms “type” and “class” are practically synonymous in
 Python. Thus far, we have only encountered the term “type” to
-distinguish objects from one another, e.g. <code class="docutils literal"><span class="pre">1</span></code> belongs to the type
-<code class="docutils literal"><span class="pre">int</span></code> and <code class="docutils literal"><span class="pre">&quot;cat&quot;</span></code> belongs to the type <code class="docutils literal"><span class="pre">str</span></code>. However, we will soon
+distinguish objects from one another, e.g. <code class="docutils literal notranslate"><span class="pre">1</span></code> belongs to the type
+<code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;cat&quot;</span></code> belongs to the type <code class="docutils literal notranslate"><span class="pre">str</span></code>. However, we will soon
 study <em>class</em> definitions for making new types objects, and soon
-introduce functions like <code class="docutils literal"><span class="pre">issubclass</span></code> into our lexicon. That being
+introduce functions like <code class="docutils literal notranslate"><span class="pre">issubclass</span></code> into our lexicon. That being
 said, know that <em>class</em> and <em>type</em> mean the same thing! There are
 historical reasons for the coexistence of these two terms, but <a class="reference external" href="https://www.python.org/download/releases/2.2/descrintro/">since
 Python 2.2</a>
 concepts of type and class have been unified.</p>
 <p>In practice, people tend to reserve the word “type” to refer to built-in
-types (e.g. <code class="docutils literal"><span class="pre">int</span></code> and <code class="docutils literal"><span class="pre">str</span></code>) and “class” to refer to user-defined
+types (e.g. <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">str</span></code>) and “class” to refer to user-defined
 types. Again, in the modern versions of Python, these terms carry no
 practical distinction.</p>
 <div class="admonition note">
@@ -385,8 +385,8 @@ practical distinction.</p>
 encapsulating definition of a specific type/class of Python object, with
 all of its attributes. Although they are not treated synonymously within
 the Python language - we will write class definitions, not type
-definitions, and we will use <code class="docutils literal"><span class="pre">type</span></code> to inspect an object and not
-<code class="docutils literal"><span class="pre">class</span></code> - these distinctions are merely relics of versions of Python
+definitions, and we will use <code class="docutils literal notranslate"><span class="pre">type</span></code> to inspect an object and not
+<code class="docutils literal notranslate"><span class="pre">class</span></code> - these distinctions are merely relics of versions of Python
 long passed.</p>
 </div>
 </div>
@@ -443,7 +443,7 @@ Classes</a></li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

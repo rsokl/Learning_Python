@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Inheritance &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Inheritance &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
         <link rel="next" title="Module 5: Odds and Ends" href="../module_5.html"/>
         <link rel="prev" title="Special Methods" href="Special_Methods.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -223,9 +223,9 @@ programming is the concept of inheritance. Working with inheritance
 provides powerful abstractions and elegant code re-use - it permits a
 class to inherit and build off of the attributes of another class.</p>
 <p>Let’s immediately consider an example of inheritance in action. Let’s
-revisit the <code class="docutils literal"><span class="pre">Rectangle</span></code> class that we wrote in the introduction to
+revisit the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class that we wrote in the introduction to
 this module.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; A class of Python object that describes the properties of a rectangle&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
@@ -241,33 +241,33 @@ this module.</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
 </pre></div>
 </div>
-<p>Now suppose that we also want to write a <code class="docutils literal"><span class="pre">Square</span></code> class, such that
+<p>Now suppose that we also want to write a <code class="docutils literal notranslate"><span class="pre">Square</span></code> class, such that
 only a single side length need be specified to determine its size.
 Recognize that a square is a special type of rectangle - one whose width
 and height are equal. In light of this, we ought to leverage the code
-that we already wrote for <code class="docutils literal"><span class="pre">Rectangle</span></code>. We can do this by defining a
-<code class="docutils literal"><span class="pre">Square</span></code> class that is a <em>subclass</em> of <code class="docutils literal"><span class="pre">Rectangle</span></code>. This means that
-<code class="docutils literal"><span class="pre">Square</span></code> will <em>inherit</em> all of the attributes of <code class="docutils literal"><span class="pre">Rectangle</span></code>,
+that we already wrote for <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. We can do this by defining a
+<code class="docutils literal notranslate"><span class="pre">Square</span></code> class that is a <em>subclass</em> of <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. This means that
+<code class="docutils literal notranslate"><span class="pre">Square</span></code> will <em>inherit</em> all of the attributes of <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>,
 including its methods. Let’s proceed with writing this subclass:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Creating Square, a subclass of Rectangle</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating Square, a subclass of Rectangle</span>
 <span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
         <span class="c1"># equivalent to `Rectangle.__init__(self, side, side, center)`</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">side</span><span class="p">,</span> <span class="n">side</span><span class="p">,</span> <span class="n">center</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Specifying <code class="docutils literal"><span class="pre">class</span> <span class="pre">Square(Rectangle)</span></code> signals that <code class="docutils literal"><span class="pre">Square</span></code> is a
-subclass of <code class="docutils literal"><span class="pre">Rectangle</span></code> and thus it will have inherited the attributes
-of <code class="docutils literal"><span class="pre">Rectangle</span></code>. Next, see that we overwrote the <code class="docutils literal"><span class="pre">__init__</span></code> method
-that <code class="docutils literal"><span class="pre">Square</span></code> inherited; instead of accepting a height and a width,
-<code class="docutils literal"><span class="pre">Square</span></code> should by specified by a single side length. Within this new
-<code class="docutils literal"><span class="pre">__init__</span></code> method, we pass in that single side length as both the
-width and height to <code class="docutils literal"><span class="pre">Rectangle.__init__</span></code>. <code class="docutils literal"><span class="pre">super</span></code> always refers to
-the “super class” or “parent class” of a given class, thus <code class="docutils literal"><span class="pre">super</span></code> is
-<code class="docutils literal"><span class="pre">Rectangle</span></code> here.</p>
+<p>Specifying <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Square(Rectangle)</span></code> signals that <code class="docutils literal notranslate"><span class="pre">Square</span></code> is a
+subclass of <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> and thus it will have inherited the attributes
+of <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. Next, see that we overwrote the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method
+that <code class="docutils literal notranslate"><span class="pre">Square</span></code> inherited; instead of accepting a height and a width,
+<code class="docutils literal notranslate"><span class="pre">Square</span></code> should by specified by a single side length. Within this new
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, we pass in that single side length as both the
+width and height to <code class="docutils literal notranslate"><span class="pre">Rectangle.__init__</span></code>. <code class="docutils literal notranslate"><span class="pre">super</span></code> always refers to
+the “super class” or “parent class” of a given class, thus <code class="docutils literal notranslate"><span class="pre">super</span></code> is
+<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> here.</p>
 <p>Having defined our subclass, we can leverage the other methods of
-<code class="docutils literal"><span class="pre">Rectangle</span></code> as-is. Let’s see <code class="docutils literal"><span class="pre">Square</span></code> in action:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># create a square of side-length 2</span>
+<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> as-is. Let’s see <code class="docutils literal notranslate"><span class="pre">Square</span></code> in action:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a square of side-length 2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_square</span> <span class="o">=</span> <span class="n">Square</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># using the inherited `get_area` method</span>
@@ -282,9 +282,9 @@ the “super class” or “parent class” of a given class, thus <code class="
 <span class="bp">True</span>
 </pre></div>
 </div>
-<p>The built-in <code class="docutils literal"><span class="pre">issubclass</span></code> function allows us to verify the
-relationship between <code class="docutils literal"><span class="pre">Square</span></code> and <code class="docutils literal"><span class="pre">Rectangle</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `Square` and `Rectangle` are distinct classes</span>
+<p>The built-in <code class="docutils literal notranslate"><span class="pre">issubclass</span></code> function allows us to verify the
+relationship between <code class="docutils literal notranslate"><span class="pre">Square</span></code> and <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `Square` and `Rectangle` are distinct classes</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Square</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">Rectangle</span>
 <span class="bp">True</span>
 
@@ -302,9 +302,9 @@ relationship between <code class="docutils literal"><span class="pre">Square</sp
 </div>
 <div class="section" id="Summary-of-Inheritance">
 <h2>Summary of Inheritance<a class="headerlink" href="#Summary-of-Inheritance" title="Permalink to this headline">¶</a></h2>
-<p>In general, if you have a class <code class="docutils literal"><span class="pre">A</span></code>, then you can define a subclass of
-<code class="docutils literal"><span class="pre">A</span></code> via:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<p>In general, if you have a class <code class="docutils literal notranslate"><span class="pre">A</span></code>, then you can define a subclass of
+<code class="docutils literal notranslate"><span class="pre">A</span></code> via:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="n">attr</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -320,12 +320,12 @@ relationship between <code class="docutils literal"><span class="pre">Square</sp
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">B</span></code> will have inherited all of the attributes and methods of <code class="docutils literal"><span class="pre">A</span></code>.
-Defining attributes and methods within the definition of <code class="docutils literal"><span class="pre">B</span></code> will
-overwrite those that already exist in <code class="docutils literal"><span class="pre">A</span></code>. <code class="docutils literal"><span class="pre">B</span></code> is also free to have
+<p><code class="docutils literal notranslate"><span class="pre">B</span></code> will have inherited all of the attributes and methods of <code class="docutils literal notranslate"><span class="pre">A</span></code>.
+Defining attributes and methods within the definition of <code class="docutils literal notranslate"><span class="pre">B</span></code> will
+overwrite those that already exist in <code class="docutils literal notranslate"><span class="pre">A</span></code>. <code class="docutils literal notranslate"><span class="pre">B</span></code> is also free to have
 its own distinct attributes and methods be defined, irrespective of
-<code class="docutils literal"><span class="pre">A</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
 <span class="go">True</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">attr</span>
@@ -401,7 +401,7 @@ Inheritance</a></li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

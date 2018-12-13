@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Scope &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Scope &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
         <link rel="next" title="Data Structures (Part I): Introduction" href="DataStructures.html"/>
         <link rel="prev" title="Basics of Functions" href="Functions.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -241,7 +241,7 @@ the same file. Variables with file scope can even be accessed <em>within
 functions</em>. By contrast, the variables defined within a function or as
 input arguments to a function have a <strong>restricted scope</strong> - they can
 only be accessed within the context of the function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># `x` has file scope. It can be even be accessed</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># `x` has file scope. It can be even be accessed</span>
        <span class="c1"># within a function, even if it isn&#39;t passed to</span>
        <span class="c1"># the function as an argument</span>
 
@@ -262,7 +262,7 @@ scope. Let’s briefly survey the various contexts in which variables are
 defined, along with their corresponding scoping rules. Assume that the
 following code represents the entire contents of the Python script
 “example_scope.py”:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># this demonstrates scope of variables in different contexts</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># this demonstrates scope of variables in different contexts</span>
 <span class="c1"># nothing meaningful is computed in this file</span>
 
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>  <span class="c1"># `combinations` has file scope</span>
@@ -298,23 +298,23 @@ following code represents the entire contents of the Python script
 </div>
 <p>In the preceding code, the following variables have <em>file scope</em>:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">combinations</span></code></li>
-<li><code class="docutils literal"><span class="pre">my_func</span></code></li>
-<li><code class="docutils literal"><span class="pre">file_var</span></code></li>
-<li><code class="docutils literal"><span class="pre">if_block</span></code></li>
-<li><code class="docutils literal"><span class="pre">it_var</span></code></li>
-<li><code class="docutils literal"><span class="pre">for_block</span></code></li>
-<li><code class="docutils literal"><span class="pre">while_block</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">combinations</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">my_func</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">file_var</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">if_block</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">it_var</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">for_block</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">while_block</span></code></li>
 </ul>
 <p>whereas the following variables have <em>restricted scope</em>:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">in_arg1</span></code></li>
-<li><code class="docutils literal"><span class="pre">in_arg2</span></code></li>
-<li><code class="docutils literal"><span class="pre">func_block</span></code></li>
-<li><code class="docutils literal"><span class="pre">comp_var</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">in_arg1</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">in_arg2</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">func_block</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">comp_var</span></code></li>
 </ul>
-<p>In C++, the variables <code class="docutils literal"><span class="pre">if_block</span></code>, <code class="docutils literal"><span class="pre">it_var</span></code>, <code class="docutils literal"><span class="pre">for_block</span></code>, and
-<code class="docutils literal"><span class="pre">while_block</span></code> all would have had restricted scopes - these variables
+<p>In C++, the variables <code class="docutils literal notranslate"><span class="pre">if_block</span></code>, <code class="docutils literal notranslate"><span class="pre">it_var</span></code>, <code class="docutils literal notranslate"><span class="pre">for_block</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">while_block</span></code> all would have had restricted scopes - these variables
 would not be defined outside of their respective if/for/while blocks.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
@@ -330,7 +330,7 @@ their definition).</p>
 share the same name? This type of circumstance is known as <strong>variable
 shadowing</strong>. Python resolves this by giving precedence to the variable
 <em>with the most restricted scope</em>, when inside that scope:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -346,7 +346,7 @@ shadowing</strong>. Python resolves this by giving precedence to the variable
 </pre></div>
 </div>
 <p>and similarly,</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="s2">&quot;cow&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="s2">&quot;cow&quot;</span>
 
 <span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
     <span class="n">it</span> <span class="o">=</span> <span class="s2">&quot;dog&quot;</span> <span class="c1"># overrides file-scope version of `it`</span>
@@ -413,7 +413,7 @@ model</a></li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Methods &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Methods &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
         <link rel="next" title="Applications of Object Oriented Programming" href="Applications_of_OOP.html"/>
         <link rel="prev" title="A Brief Summary of Terms and Concepts" href="Brief_Review.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -108,7 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Brief_Review.html">A Brief Summary of Terms and Concepts</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Methods</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Instance-Methods">Instance Methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#The-self-Argument">The <code class="docutils literal"><span class="pre">self</span></code> Argument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#The-self-Argument">The <code class="docutils literal notranslate"><span class="pre">self</span></code> Argument</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Class-Methods">Class Methods</a></li>
@@ -224,9 +224,9 @@
 <div class="section" id="Methods">
 <h1>Methods<a class="headerlink" href="#Methods" title="Permalink to this headline">¶</a></h1>
 <p>Recall that a method is an attribute of a class that is a function. For
-example, “append” is a method that is defined for the <code class="docutils literal"><span class="pre">list</span></code> class and
-“capitalize” is a method of the <code class="docutils literal"><span class="pre">str</span></code> (string) class.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># create an instance of the `list` class/type</span>
+example, “append” is a method that is defined for the <code class="docutils literal notranslate"><span class="pre">list</span></code> class and
+“capitalize” is a method of the <code class="docutils literal notranslate"><span class="pre">str</span></code> (string) class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create an instance of the `list` class/type</span>
 <span class="c1"># and invoke the instance method `append`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -250,13 +250,13 @@ example, “append” is a method that is defined for the <code class="docutils 
 The functions “append” and “capitalize” are both examples of instance
 methods, specifically, as they are designed to be invoked by a
 particular list instance and string instance, respectively.</p>
-<p>We have already worked with the instance method <code class="docutils literal"><span class="pre">__init__</span></code>, which is
+<p>We have already worked with the instance method <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, which is
 special in that it is reserved by Python to be executed whenever
 class-initialization is invoked. Similarly, the special instance method
-<code class="docutils literal"><span class="pre">__add__</span></code> informs how an object interacts with the <code class="docutils literal"><span class="pre">+</span></code> operator. For
-example, <code class="docutils literal"><span class="pre">float.__add__</span></code> specifies that <code class="docutils literal"><span class="pre">+</span></code> will sum the values of
-<code class="docutils literal"><span class="pre">float</span></code> instances, whereas <code class="docutils literal"><span class="pre">list.__add__</span></code> specifies that <code class="docutils literal"><span class="pre">+</span></code> will
-concatenate <code class="docutils literal"><span class="pre">list</span></code> instances together. We will conclude our discussion
+<code class="docutils literal notranslate"><span class="pre">__add__</span></code> informs how an object interacts with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator. For
+example, <code class="docutils literal notranslate"><span class="pre">float.__add__</span></code> specifies that <code class="docutils literal notranslate"><span class="pre">+</span></code> will sum the values of
+<code class="docutils literal notranslate"><span class="pre">float</span></code> instances, whereas <code class="docutils literal notranslate"><span class="pre">list.__add__</span></code> specifies that <code class="docutils literal notranslate"><span class="pre">+</span></code> will
+concatenate <code class="docutils literal notranslate"><span class="pre">list</span></code> instances together. We will conclude our discussion
 of methods by surveying a number of these special methods - they will
 greatly bolster our ability to define convenient, user-friendly classes.</p>
 <div class="section" id="Instance-Methods">
@@ -264,28 +264,28 @@ greatly bolster our ability to define convenient, user-friendly classes.</p>
 <p>An <em>instance method</em> is defined whenever a function definition is
 specified within the body of a class. This may seem trivial but there is
 still a significant nuance that must be cleared up, which is that
-‘<code class="docutils literal"><span class="pre">self</span></code>’ is the defacto first-argument for any instance method. This
-is something that we encountered when working with <code class="docutils literal"><span class="pre">__init__</span></code>. Let’s
+‘<code class="docutils literal notranslate"><span class="pre">self</span></code>’ is the defacto first-argument for any instance method. This
+is something that we encountered when working with <code class="docutils literal notranslate"><span class="pre">__init__</span></code>. Let’s
 proceed naively so that we will hit a very common error, which will
 bring this matter to light. We begin by creating a class with an
 instance method that simply accepts one argument and then returns that
 argument unchanged:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; An instance method that returns `x` unchanged.</span>
 <span class="sd">            This is a bad version of this instance method!&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 </div>
-<p>We can call this method from the class object <code class="docutils literal"><span class="pre">Dummy</span></code> itself, and it
+<p>We can call this method from the class object <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> itself, and it
 will behave as-expected:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Dummy</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Dummy</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">2</span>
 </pre></div>
 </div>
-<p>but something strange happens when we try to call <code class="docutils literal"><span class="pre">func</span></code> from an
-instance of <code class="docutils literal"><span class="pre">Dummy</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># calling `func` from an instance of `Dummy` produces</span>
+<p>but something strange happens when we try to call <code class="docutils literal notranslate"><span class="pre">func</span></code> from an
+instance of <code class="docutils literal notranslate"><span class="pre">Dummy</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># calling `func` from an instance of `Dummy` produces</span>
 <span class="c1"># an unexpected error</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">inst</span> <span class="o">=</span> <span class="n">Dummy</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">inst</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -293,26 +293,26 @@ instance of <code class="docutils literal"><span class="pre">Dummy</span></code>
 </pre></div>
 </div>
 <p>At first glance, this error message doesn’t seem to make any sense. It
-is indeed true that <code class="docutils literal"><span class="pre">func</span></code> only accepts one argument - we specified
-that it should accept the argument <code class="docutils literal"><span class="pre">x</span></code> in its function definition. How
-is it that <code class="docutils literal"><span class="pre">inst.func(2)</span></code> specifies <em>two</em> arguments? It seems like we
-are solely passing <code class="docutils literal"><span class="pre">2</span></code> to our method. Herein lies an extremely
+is indeed true that <code class="docutils literal notranslate"><span class="pre">func</span></code> only accepts one argument - we specified
+that it should accept the argument <code class="docutils literal notranslate"><span class="pre">x</span></code> in its function definition. How
+is it that <code class="docutils literal notranslate"><span class="pre">inst.func(2)</span></code> specifies <em>two</em> arguments? It seems like we
+are solely passing <code class="docutils literal notranslate"><span class="pre">2</span></code> to our method. Herein lies an extremely
 important detail:</p>
 <div class="admonition warning">
 <p class="first fa fa-exclamation-circle"><strong>Important!</strong></p>
-<p class="last">When you call an instance method (e.g. <code class="docutils literal"><span class="pre">func</span></code>) from an instance object
-(e.g. <code class="docutils literal"><span class="pre">inst</span></code>), Python automatically passes that instance object as the
+<p class="last">When you call an instance method (e.g. <code class="docutils literal notranslate"><span class="pre">func</span></code>) from an instance object
+(e.g. <code class="docutils literal notranslate"><span class="pre">inst</span></code>), Python automatically passes that instance object as the
 first argument, in addition to any other arguments that were passd in by
 the user.</p>
 </div>
-<p>So according to this, <code class="docutils literal"><span class="pre">inst</span></code> is being passed as the argument <code class="docutils literal"><span class="pre">x</span></code> and
-we are attempting to pass <code class="docutils literal"><span class="pre">2</span></code> as a second argument to the method; this
-explains the error message complaining about passing <code class="docutils literal"><span class="pre">func</span></code> two
-arguments. By this logic we should be able to call <code class="docutils literal"><span class="pre">a.func()</span></code> and see
-that <code class="docutils literal"><span class="pre">inst</span></code> is being passed as the argument <code class="docutils literal"><span class="pre">x</span></code> - recall that
-<code class="docutils literal"><span class="pre">func</span></code> is defined to simply return <code class="docutils literal"><span class="pre">x</span></code> unchanged. Let’s confirm
+<p>So according to this, <code class="docutils literal notranslate"><span class="pre">inst</span></code> is being passed as the argument <code class="docutils literal notranslate"><span class="pre">x</span></code> and
+we are attempting to pass <code class="docutils literal notranslate"><span class="pre">2</span></code> as a second argument to the method; this
+explains the error message complaining about passing <code class="docutils literal notranslate"><span class="pre">func</span></code> two
+arguments. By this logic we should be able to call <code class="docutils literal notranslate"><span class="pre">a.func()</span></code> and see
+that <code class="docutils literal notranslate"><span class="pre">inst</span></code> is being passed as the argument <code class="docutils literal notranslate"><span class="pre">x</span></code> - recall that
+<code class="docutils literal notranslate"><span class="pre">func</span></code> is defined to simply return <code class="docutils literal notranslate"><span class="pre">x</span></code> unchanged. Let’s confirm
 this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># verifying that `inst` is being passed as the first argument</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># verifying that `inst` is being passed as the first argument</span>
 <span class="c1"># of the instance-method `func`</span>
 
 <span class="c1"># note the memory address of the Dummy-instance `inst`</span>
@@ -333,31 +333,31 @@ this:</p>
 </div>
 <p><em>Note that this “under the hood” behavior only occurs when the method is
 being called from an instance</em>; this is why we didn’t face this issue
-when invoking <code class="docutils literal"><span class="pre">func</span></code> from <code class="docutils literal"><span class="pre">Dummy</span></code> - <code class="docutils literal"><span class="pre">Dummy</span></code> is a class object, not
-an instance. Thus, <code class="docutils literal"><span class="pre">inst.func()</span></code> is equivalent to
-<code class="docutils literal"><span class="pre">Dummy.func(inst)</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span> <span class="o">=</span> <span class="n">Dummy</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span>
+when invoking <code class="docutils literal notranslate"><span class="pre">func</span></code> from <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> - <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> is a class object, not
+an instance. Thus, <code class="docutils literal notranslate"><span class="pre">inst.func()</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">Dummy.func(inst)</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span> <span class="o">=</span> <span class="n">Dummy</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">out</span> <span class="ow">is</span> <span class="n">inst</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <p>In its current form, there is no way for us to pass an argument to
-<code class="docutils literal"><span class="pre">func</span></code> when we are calling it from an instance of <code class="docutils literal"><span class="pre">Dummy</span></code>. To solve
-this issue, we will refactor our definition of <code class="docutils literal"><span class="pre">func</span></code> to anticipate
+<code class="docutils literal notranslate"><span class="pre">func</span></code> when we are calling it from an instance of <code class="docutils literal notranslate"><span class="pre">Dummy</span></code>. To solve
+this issue, we will refactor our definition of <code class="docutils literal notranslate"><span class="pre">func</span></code> to anticipate
 the passing of the instance object as the first argument.</p>
 <div class="section" id="The-self-Argument">
-<h3>The <code class="docutils literal"><span class="pre">self</span></code> Argument<a class="headerlink" href="#The-self-Argument" title="Permalink to this headline">¶</a></h3>
+<h3>The <code class="docutils literal notranslate"><span class="pre">self</span></code> Argument<a class="headerlink" href="#The-self-Argument" title="Permalink to this headline">¶</a></h3>
 <p>We will want to define our instance methods in a way that anticipates
 that Python will automatically pass an instance object as the first
-argument. Thus if we want our method to accept <span class="math">\(N\)</span> external
-argument, we should define its signature to have <span class="math">\(N+1\)</span> arguments,
+argument. Thus if we want our method to accept <span class="math notranslate nohighlight">\(N\)</span> external
+argument, we should define its signature to have <span class="math notranslate nohighlight">\(N+1\)</span> arguments,
 with the understanding that Python will pass the instance object as the
 first argument. The accepted convention is to call this first argument
-<code class="docutils literal"><span class="pre">self</span></code>. There is no significance to this name beyond it being the
+<code class="docutils literal notranslate"><span class="pre">self</span></code>. There is no significance to this name beyond it being the
 widely-adopted convention among Python users; “self” is meant to
 indicate that the instance object is passing itself as the first
 argument of the method. Consider the following example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the use of `self` in instance arguments</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the use of `self` in instance arguments</span>
 <span class="k">class</span> <span class="nc">Number</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
@@ -366,7 +366,7 @@ argument of the method. Consider the following example:</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">new_value</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># calls __init__, setting self.value = 4.0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># calls __init__, setting self.value = 4.0</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
 
 <span class="c1"># `x` gets passed to `self`</span>
@@ -379,10 +379,10 @@ argument of the method. Consider the following example:</p>
 <span class="mf">6.0</span>
 </pre></div>
 </div>
-<p>Note the utility of having <code class="docutils literal"><span class="pre">self</span></code> be automatically passed in as an
-argument to both <code class="docutils literal"><span class="pre">__init__</span></code> and <code class="docutils literal"><span class="pre">add</span></code>. An instance method is meant
+<p>Note the utility of having <code class="docutils literal notranslate"><span class="pre">self</span></code> be automatically passed in as an
+argument to both <code class="docutils literal notranslate"><span class="pre">__init__</span></code> and <code class="docutils literal notranslate"><span class="pre">add</span></code>. An instance method is meant
 to have access to the instance object that is calling it - when you call
-<code class="docutils literal"><span class="pre">capitalize</span></code> from a string instance, it is obvious that you want to
+<code class="docutils literal notranslate"><span class="pre">capitalize</span></code> from a string instance, it is obvious that you want to
 capitalize <em>that</em> specific string. It would be tedious and redundant if
 Python did not manage that automatically.</p>
 <p>Next, we will see that we can also define class-methods, which
@@ -391,13 +391,13 @@ and static methods, which do not have any objects passed to them under
 the hood.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Invoking Instance Methods</strong></p>
-<p class="last">Rewrite <code class="docutils literal"><span class="pre">Dummy</span></code> so that its instance method <code class="docutils literal"><span class="pre">func</span></code> accepts two
+<p class="last">Rewrite <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> so that its instance method <code class="docutils literal notranslate"><span class="pre">func</span></code> accepts two
 arguments: the instance object that Python automatically passes and the
-argument <code class="docutils literal"><span class="pre">x</span></code>, which we want <code class="docutils literal"><span class="pre">func</span></code> to return unchanged. Create an
-instance of <code class="docutils literal"><span class="pre">Dummy</span></code> and call <code class="docutils literal"><span class="pre">func</span></code> from this instance and pass it
-the string <code class="docutils literal"><span class="pre">&quot;hi&quot;</span></code>, what will be returned? What will happen if you try
-to call <code class="docutils literal"><span class="pre">Dummy.func(&quot;hi&quot;)</span></code>? Why? How can we modify this call from
-<code class="docutils literal"><span class="pre">Dummy</span></code> itself so that the method will work as desired?</p>
+argument <code class="docutils literal notranslate"><span class="pre">x</span></code>, which we want <code class="docutils literal notranslate"><span class="pre">func</span></code> to return unchanged. Create an
+instance of <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> and call <code class="docutils literal notranslate"><span class="pre">func</span></code> from this instance and pass it
+the string <code class="docutils literal notranslate"><span class="pre">&quot;hi&quot;</span></code>, what will be returned? What will happen if you try
+to call <code class="docutils literal notranslate"><span class="pre">Dummy.func(&quot;hi&quot;)</span></code>? Why? How can we modify this call from
+<code class="docutils literal notranslate"><span class="pre">Dummy</span></code> itself so that the method will work as desired?</p>
 </div>
 </div>
 </div>
@@ -409,14 +409,14 @@ method is called from an instance object, that instance object is
 automatically passed as the first argument to the method. By contrast,
 when a <em>class method</em> is called from a either a class object or an
 instance object, the class object is automatically passed as the first
-argument to the method. Instead of calling this first argument <code class="docutils literal"><span class="pre">self</span></code>,
-the convention is to name it <code class="docutils literal"><span class="pre">cls</span></code>.</p>
+argument to the method. Instead of calling this first argument <code class="docutils literal notranslate"><span class="pre">self</span></code>,
+the convention is to name it <code class="docutils literal notranslate"><span class="pre">cls</span></code>.</p>
 <p>To define a class method you must <em>decorate</em> the method definition with
-a special built-in decorator <code class="docutils literal"><span class="pre">classmethod</span></code>. We have not discussed
+a special built-in decorator <code class="docutils literal notranslate"><span class="pre">classmethod</span></code>. We have not discussed
 decorators. Suffice it to know that this simply “tags” the method, so
 that Python knows to treat it like a class method instead of an instance
 method. The following demonstrates this decoration process:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">class_func</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
@@ -425,7 +425,7 @@ method. The following demonstrates this decoration process:</p>
         <span class="k">return</span> <span class="bp">cls</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># `Dummy` gets passed as `cls` automatically.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `Dummy` gets passed as `cls` automatically.</span>
 <span class="c1">#  We defined `class_func` to return `cls` unchanged</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Dummy</span><span class="o">.</span><span class="n">class_func</span><span class="p">()</span>
 <span class="n">__main__</span><span class="o">.</span><span class="n">Dummy</span>
@@ -443,15 +443,52 @@ method. The following demonstrates this decoration process:</p>
 <span class="n">__main__</span><span class="o">.</span><span class="n">Dummy</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">dict.fromkeys</span></code> is an example of a class method that takes in an
+iterable, and returns a dictionary whose keys are the elements of that
+iterable, and whose values all default to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
+<span class="go">{&#39;a&#39;: 2.3, &#39;b&#39;: 2.3, &#39;c&#39;: 2.3, &#39;d&#39;: 2.3}</span>
+</pre></div>
+</div>
+<p>It is sensible that this is a class method rather than an instance
+method, as the method creates a brand new dictionary from scratch. It
+need only have access to the <code class="docutils literal notranslate"><span class="pre">dict</span></code> object (i.e.&nbsp;the <code class="docutils literal notranslate"><span class="pre">cls</span></code> argument)
+so that it can construct the dictionary. The following is what an
+implementation of <code class="docutils literal notranslate"><span class="pre">fromkeys</span></code> could look like, were we to define
+<code class="docutils literal notranslate"><span class="pre">dict</span></code> ourselves:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">dict</span><span class="p">:</span>
+    <span class="c1"># assume all other dictionary methods are defined here</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">fromkeys</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Creates a dictionary whose keys are the elements of `iterable`. All</span>
+<span class="sd">        keys map to `value`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        iterable: Iterable[Hashable]</span>
+<span class="sd">            An iterable of valid dictionary keys (i.e. any object that is hashable).</span>
+
+<span class="sd">        value : Optional[Any]</span>
+<span class="sd">            The value that all of the keys will map to. Defaults to `None`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict &quot;&quot;&quot;</span>
+        <span class="n">new_dict</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>  <span class="c1"># equivalent to `dict()`: creates a new dictionary instance</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+            <span class="n">new_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">new_dict</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="Static-Methods">
 <h2>Static Methods<a class="headerlink" href="#Static-Methods" title="Permalink to this headline">¶</a></h2>
 <p>A static method is simply a method whose arguments must all be passed
 explicitly by the user. That is, Python doesn’t pass anything to a
-static method automatically. The built-in decorator <code class="docutils literal"><span class="pre">staticmethod</span></code> is
+static method automatically. The built-in decorator <code class="docutils literal notranslate"><span class="pre">staticmethod</span></code> is
 used to distinguish a method as being static rather than an instance
 method.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">static_func</span><span class="p">():</span>
@@ -460,7 +497,7 @@ method.</p>
         <span class="k">return</span> <span class="s1">&#39;hi&#39;</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># A static method can be called from a class object</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A static method can be called from a class object</span>
 <span class="c1"># or an instance object; nothing gets passed to it</span>
 <span class="c1"># automatically.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Dummy</span><span class="o">.</span><span class="n">static_func</span><span class="p">()</span>
@@ -475,27 +512,27 @@ method.</p>
 <div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>Invoking Instance Methods: Solution</strong></p>
-<p>Rewrite <code class="docutils literal"><span class="pre">Dummy</span></code> so that its instance method <code class="docutils literal"><span class="pre">func</span></code> accepts two
+<p>Rewrite <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> so that its instance method <code class="docutils literal notranslate"><span class="pre">func</span></code> accepts two
 arguments: the instance object that Python automatically passes and the
-argument <code class="docutils literal"><span class="pre">x</span></code>, which we want <code class="docutils literal"><span class="pre">func</span></code> to return unchanged.</p>
+argument <code class="docutils literal notranslate"><span class="pre">x</span></code>, which we want <code class="docutils literal notranslate"><span class="pre">func</span></code> to return unchanged.</p>
 <blockquote>
 <div>We will rewite func to accept an argument called ‘self’, which will
 accept the instance object that is passed “under the hood” , and
 ‘x’. As you will see in the reading, the name argument ‘self’ is
 simply used by convention.</div></blockquote>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 </div>
-<p>Create an instance of <code class="docutils literal"><span class="pre">Dummy</span></code> and call <code class="docutils literal"><span class="pre">func</span></code> from this instance and
-pass it the string <code class="docutils literal"><span class="pre">&quot;hi&quot;</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span> <span class="o">=</span> <span class="n">Dummy</span><span class="p">()</span>
+<p>Create an instance of <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> and call <code class="docutils literal notranslate"><span class="pre">func</span></code> from this instance and
+pass it the string <code class="docutils literal notranslate"><span class="pre">&quot;hi&quot;</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span> <span class="o">=</span> <span class="n">Dummy</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>  <span class="c1"># `inst` is passed to the argument `self`</span>
 <span class="go">&#39;hi&#39;</span>
 </pre></div>
 </div>
-<p>What will happen if you try to call <code class="docutils literal"><span class="pre">Dummy.func(&quot;hi&quot;)</span></code>? Why?</p>
+<p>What will happen if you try to call <code class="docutils literal notranslate"><span class="pre">Dummy.func(&quot;hi&quot;)</span></code>? Why?</p>
 <blockquote>
 <div>This will raise an error, which complains that func expects two
 arguments, and that we have only passed it one. Indeed, we will have
@@ -505,7 +542,7 @@ special “under the hood” when we call Dummy.func. We must pass
 something to the self argument. Because this particular method
 doesn’t do anything with self, we can just pass it None, or any
 other object, really.</div></blockquote>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Dummy.func(&quot;hi&quot;) would raise an error</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dummy.func(&quot;hi&quot;) would raise an error</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Dummy</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">)</span>
 <span class="s1">&#39;hi&#39;</span>
 </pre></div>
@@ -557,7 +594,7 @@ other object, really.</div></blockquote>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

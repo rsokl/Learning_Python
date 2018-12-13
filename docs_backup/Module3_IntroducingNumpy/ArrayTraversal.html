@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Iterating Over Arrays &amp; Array-Traversal Order &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Iterating Over Arrays &amp; Array-Traversal Order &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../index.html"/>
         <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
         <link rel="next" title="“Vectorized” Operations: Optimized Computations on NumPy Arrays" href="VectorizedOperations.html"/>
         <link rel="prev" title="Functions for Creating NumPy Arrays" href="FunctionsForCreatingNumpyArrays.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -230,10 +230,10 @@ by default.</li>
 </ul>
 <p>NumPy provides valuable tools for iterating over any array, such that
 each element can be visited in the array, regardless of the array’s
-shape. For example, recall that Python’s built-in <code class="docutils literal"><span class="pre">enumerate</span></code> function
+shape. For example, recall that Python’s built-in <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function
 permits us to produce each item in an iterable, along with its index of
 iteration:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># enumerating the items in an iterable</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># enumerating the items in an iterable</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;abcdef&quot;</span><span class="p">)]</span>
 <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">)]</span>
 </pre></div>
@@ -242,7 +242,7 @@ iteration:</p>
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndenumerate.html#numpy.ndenumerate">ndenumerate</a>
 function, which enumerates each element in an N-dimensional array,
 specifying the N-dimensional index for each element.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="go"># Demonstrating `np.ndenumerate`.</span>
 <span class="go"># A shape-(2, 2, 3) array</span>
@@ -269,7 +269,7 @@ specifying the N-dimensional index for each element.</p>
 </div>
 <p>See that each triplet of integers specifies the index for the
 corresponding array element:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="go">25</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
@@ -293,15 +293,15 @@ the default ordering that NumPy uses when traversing a N-dimensional
 array.</p>
 <div class="section" id="How-to-Traverse-an-Array:-Row-major-(C)-vs-Column-major-(F)-Traversal-Ordering">
 <h2>How to Traverse an Array: Row-major (C) vs Column-major (F) Traversal Ordering<a class="headerlink" href="#How-to-Traverse-an-Array:-Row-major-(C)-vs-Column-major-(F)-Traversal-Ordering" title="Permalink to this headline">¶</a></h2>
-<p>Note the order in which <code class="docutils literal"><span class="pre">np.ndenumerate</span></code> iterated over <code class="docutils literal"><span class="pre">x</span></code>. It first
-traversed the columns within row-0 of sheet-0 of <code class="docutils literal"><span class="pre">x</span></code>, and then it
+<p>Note the order in which <code class="docutils literal notranslate"><span class="pre">np.ndenumerate</span></code> iterated over <code class="docutils literal notranslate"><span class="pre">x</span></code>. It first
+traversed the columns within row-0 of sheet-0 of <code class="docutils literal notranslate"><span class="pre">x</span></code>, and then it
 traversed the columns within the row-1 of sheet-0, and so on. What is
 special about this traversal order? Why, for instance, didn’t it
 traverse the rows within a given column instead? We can also see that
-there is not a unique ordering for a <code class="docutils literal"><span class="pre">reshape</span></code> function to adhere to.
+there is not a unique ordering for a <code class="docutils literal notranslate"><span class="pre">reshape</span></code> function to adhere to.
 For example, the following reshape operation could sensibly return
 either of the following results:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>  <span class="ow">or</span>   <span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>  <span class="ow">or</span>   <span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
                                                     <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>             <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 </pre></div>
 </div>
@@ -341,14 +341,14 @@ so on.</li>
 the traversal method utilized in the C language. “Column-major”
 ordering, on the other hand, is also referred to as “F-ordering”,
 because it is used by the Fortran language. NumPy functions, like
-<code class="docutils literal"><span class="pre">reshape</span></code> allow you to specify either <code class="docutils literal"><span class="pre">order=&quot;C&quot;</span></code> (which is the
-default) or <code class="docutils literal"><span class="pre">order=&quot;F&quot;</span></code> to control the order in which an array is
+<code class="docutils literal notranslate"><span class="pre">reshape</span></code> allow you to specify either <code class="docutils literal notranslate"><span class="pre">order=&quot;C&quot;</span></code> (which is the
+default) or <code class="docutils literal notranslate"><span class="pre">order=&quot;F&quot;</span></code> to control the order in which an array is
 traversed; these options thus correspond to row-major and column-major
 ordering.</p>
 </div>
 <p>To make this more concrete, let’s consider how NumPy reshapes a
 shape-(24,) array into a shape-(2,3,4) array:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># reshape a shape-(24,) array into a shape-(2,3,4) array</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># reshape a shape-(24,) array into a shape-(2,3,4) array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
         <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
@@ -375,7 +375,7 @@ the preceding axis. Go back to 3.</li>
 <hr class="docutils" />
 <p><strong>Reshaping a shape-(24,) array to a shape-(2,3,4) array, using NumPy’s
 default “row-major” ordering</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>Input Array     Output Array
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Input Array     Output Array
 -----------    ---------------
  entry: 0  -&gt;  entry: (0, 0, 0)
  entry: 1  -&gt;  entry: (0, 0, 1)
@@ -413,7 +413,7 @@ a shape-(6,4) array. This process would be carried out as follows:</p>
 <hr class="docutils" />
 <p><strong>Reshaping a shape-(2,3,4) into a shape(6,4) array using NumPy’s
 default “row-major” ordering</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>   <span class="n">Input</span> <span class="n">Array</span>       <span class="n">Output</span> <span class="n">Array</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">Input</span> <span class="n">Array</span>       <span class="n">Output</span> <span class="n">Array</span>
 <span class="o">----------------</span>    <span class="o">---------------</span>
 <span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">entry</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -435,9 +435,9 @@ traversal is critical to understanding more advanced concepts like
 array-broadcasting and advanced indexing.</p>
 <div class="admonition note">
 <p class="first fa fa-exclamation-circle"><strong>Reshape is its own inverse</strong>:</p>
-<p class="last">According to this discussion, <code class="docutils literal"><span class="pre">reshape</span></code> can effectively “undo” itself:
-<code class="docutils literal"><span class="pre">np.arange(10).reshape(5,2).reshape(10)</span></code> will return
-<code class="docutils literal"><span class="pre">array([0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9])</span></code>. Take some time to consider
+<p class="last">According to this discussion, <code class="docutils literal notranslate"><span class="pre">reshape</span></code> can effectively “undo” itself:
+<code class="docutils literal notranslate"><span class="pre">np.arange(10).reshape(5,2).reshape(10)</span></code> will return
+<code class="docutils literal notranslate"><span class="pre">array([0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9])</span></code>. Take some time to consider
 why this will always be true, no matter how many intermediary reshapes
 are performed.</p>
 </div>
@@ -501,7 +501,7 @@ iteration</a></li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Merging Two Dictionaries &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Merging Two Dictionaries &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Module 2: Problems" href="../../module_2_problems.html"/>
         <link rel="next" title="Is Palindrome" href="Palindrome.html"/>
         <link rel="prev" title="Module 2: Problems" href="../../module_2_problems.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -229,7 +229,7 @@
 together such that the resulting dictionary always retain the
 <em>greater</em> value among mappings with common keys.</div></blockquote>
 <p>Here’s an example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># merging two dictionaries, retaining the greatest value among</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># merging two dictionaries, retaining the greatest value among</span>
 <span class="c1"># common keys</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bananas&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;apples&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pears&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">dict2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bananas&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;apples&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;grapes&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
@@ -241,7 +241,7 @@ together such that the resulting dictionary always retain the
 fashion shown above. The <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html#What-Can-a-Dictionary-Store?">dictionaries’ keys need not be
 strings</a>,
 and the values should be any data type that can be ordered (e.g.&nbsp;can be
-compared using the inequality operators <code class="docutils literal"><span class="pre">&lt;</span></code>, <code class="docutils literal"><span class="pre">&gt;</span></code>, etc.).</p>
+compared using the inequality operators <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, etc.).</p>
 <div class="section" id="A-Simple,-Buggy-Solution">
 <h2>A Simple, Buggy Solution<a class="headerlink" href="#A-Simple,-Buggy-Solution" title="Permalink to this headline">¶</a></h2>
 <p>Let’s begin by writing a straightforward but flawed solution to our
@@ -249,7 +249,7 @@ problem. The following function will correctly merge its two input
 dictionaries and is generally well-written, however, something insidious
 is afoot… Can you identify the bad behavior that will result from this
 function?</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">buggy_merge_max_mappings</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">buggy_merge_max_mappings</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
     <span class="c1"># create the output dictionary, which contains all</span>
     <span class="c1"># the mappings from `dict1`</span>
     <span class="n">merged</span> <span class="o">=</span> <span class="n">dict1</span>
@@ -266,36 +266,36 @@ function?</p>
 <p>Let’s first see what this function does right. Recall that <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html#Inspecting-a-Dictionary">iterating
 over a
 dictionary</a>
-will produce each of its keys one-by-one. Thus <code class="docutils literal"><span class="pre">for</span> <span class="pre">key</span> <span class="pre">in</span> <span class="pre">dict2</span></code>
-loops over every key in <code class="docutils literal"><span class="pre">dict2</span></code>. We then set a key-value from
-<code class="docutils literal"><span class="pre">dict2</span></code> mapping in <code class="docutils literal"><span class="pre">merged</span></code> if that key doesn’t exist in merged or
+will produce each of its keys one-by-one. Thus <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">key</span> <span class="pre">in</span> <span class="pre">dict2</span></code>
+loops over every key in <code class="docutils literal notranslate"><span class="pre">dict2</span></code>. We then set a key-value from
+<code class="docutils literal notranslate"><span class="pre">dict2</span></code> mapping in <code class="docutils literal notranslate"><span class="pre">merged</span></code> if that key doesn’t exist in merged or
 if the value is larger than the one stored in existing mapping. Given
-that <code class="docutils literal"><span class="pre">merged</span></code> is initialized to have the same mappings as <code class="docutils literal"><span class="pre">dict1</span></code>,
+that <code class="docutils literal notranslate"><span class="pre">merged</span></code> is initialized to have the same mappings as <code class="docutils literal notranslate"><span class="pre">dict1</span></code>,
 this is a correct algorithm for merging our two dictionaries based on
 max-value.</p>
-<p>The problem with our function is that we inadvertently merge <code class="docutils literal"><span class="pre">dict2</span></code>
-<em>into</em> <code class="docutils literal"><span class="pre">dict1</span></code>, rather than merging the two dictionaries into a <em>new</em>
+<p>The problem with our function is that we inadvertently merge <code class="docutils literal notranslate"><span class="pre">dict2</span></code>
+<em>into</em> <code class="docutils literal notranslate"><span class="pre">dict1</span></code>, rather than merging the two dictionaries into a <em>new</em>
 dictionary. Recall that dictionaries are
 <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Variables_and_Assignment.html#Referencing-a-Mutable-Object-with-Multiple-Variables">mutable</a>
-objects and that the statement <code class="docutils literal"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict1</span></code> simply assigns a
-variable that references <code class="docutils literal"><span class="pre">dict1</span></code> rather than creating a new copy of
+objects and that the statement <code class="docutils literal notranslate"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict1</span></code> simply assigns a
+variable that references <code class="docutils literal notranslate"><span class="pre">dict1</span></code> rather than creating a new copy of
 the dictionary. Thus calling this function will <em>mutate</em> (change) the
-state of <code class="docutils literal"><span class="pre">dict1</span></code>, as demonstrated here:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exam_1</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">Alice</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">Bob</span><span class="o">=</span><span class="mi">87</span><span class="p">,</span> <span class="n">Cindy</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span>  <span class="c1"># equivalent to {&#39;Alice&#39;: 99, &#39;Bob&#39;: 87, &#39;Cindy&#39;: 65}</span>
+state of <code class="docutils literal notranslate"><span class="pre">dict1</span></code>, as demonstrated here:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exam_1</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">Alice</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">Bob</span><span class="o">=</span><span class="mi">87</span><span class="p">,</span> <span class="n">Cindy</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span>  <span class="c1"># equivalent to {&#39;Alice&#39;: 99, &#39;Bob&#39;: 87, &#39;Cindy&#39;: 65}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exam_2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">Alice</span><span class="o">=</span><span class="mi">77</span><span class="p">,</span> <span class="n">Bob</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">Cindy</span><span class="o">=</span><span class="mi">78</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">buggy_merge_max_mappings</span><span class="p">(</span><span class="n">exam_1</span><span class="p">,</span> <span class="n">exam_2</span><span class="p">)</span>
 <span class="go">{&#39;Alice&#39;: 99, &#39;Bob&#39;: 90, &#39;Cindy&#39;: 78}</span>
 </pre></div>
 </div>
-<p>See that the value of <code class="docutils literal"><span class="pre">exam_1</span></code> has changed, and that it matches the
+<p>See that the value of <code class="docutils literal notranslate"><span class="pre">exam_1</span></code> has changed, and that it matches the
 output of our function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exam_1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exam_1</span>
 <span class="go">{&#39;Alice&#39;: 99, &#39;Bob&#39;: 90, &#39;Cindy&#39;: 78}</span>
 </pre></div>
 </div>
-<p>To reiterate, this is because the statement <code class="docutils literal"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict1</span></code> found at
-the beginning of our function <em>merely creates a reference to</em> <code class="docutils literal"><span class="pre">dict1</span></code>,
-not a copy of it. In the above example <code class="docutils literal"><span class="pre">exam_1</span></code> stored a class’ exam-1
+<p>To reiterate, this is because the statement <code class="docutils literal notranslate"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict1</span></code> found at
+the beginning of our function <em>merely creates a reference to</em> <code class="docutils literal notranslate"><span class="pre">dict1</span></code>,
+not a copy of it. In the above example <code class="docutils literal notranslate"><span class="pre">exam_1</span></code> stored a class’ exam-1
 scores for each student. After passing it to our function, it now stores
 the max score for each student across two exams!</p>
 <p>While we are likely to have tested that our function properly merges
@@ -316,10 +316,10 @@ mutate its inputs.</li>
 <div class="section" id="A-Simple,-Correct-Solution">
 <h2>A Simple, Correct Solution<a class="headerlink" href="#A-Simple,-Correct-Solution" title="Permalink to this headline">¶</a></h2>
 <p>We can easily stomp the bug in the previous function; updating
-<code class="docutils literal"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict1</span></code> with either <code class="docutils literal"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict(dict1)</span></code> or
-<code class="docutils literal"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict1.copy()</span></code> will ensure that <code class="docutils literal"><span class="pre">merged</span></code> references a <em>new</em>
+<code class="docutils literal notranslate"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict1</span></code> with either <code class="docutils literal notranslate"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict(dict1)</span></code> or
+<code class="docutils literal notranslate"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict1.copy()</span></code> will ensure that <code class="docutils literal notranslate"><span class="pre">merged</span></code> references a <em>new</em>
 dictionary, which we are free to update:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simple_merge_max_mappings</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simple_merge_max_mappings</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Merges two dictionaries based on the largest value in a given mapping.</span>
 
 <span class="sd">    Parameters</span>
@@ -340,7 +340,7 @@ dictionary, which we are free to update:</p>
 </pre></div>
 </div>
 <p>Note the use of simple and descriptive variables (e.g.&nbsp;we use the
-variable name <code class="docutils literal"><span class="pre">key</span></code> when we iterate over the keys of a dictionary).
+variable name <code class="docutils literal notranslate"><span class="pre">key</span></code> when we iterate over the keys of a dictionary).
 This, along with a good docstring, makes our code easy to read,
 understand, and debug. Also note that our code is general: it makes no
 presumptions about the dictionaries’ keys - they need not be strings nor
@@ -348,20 +348,20 @@ of any other particular type. Similarly, the only constraint on the
 dictionaries’ values is that they can be compared against one another.
 This is reflected in the docstring of our function.</p>
 <p>Consider the importance of the ordering of the conditional statement:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">merged</span> <span class="ow">or</span> <span class="n">dict2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">merged</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">merged</span> <span class="ow">or</span> <span class="n">dict2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">merged</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
 </pre></div>
 </div>
 <p>What is different if we flip the ordering of the terms? I.e.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dict2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">merged</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="ow">or</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">merged</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dict2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">merged</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="ow">or</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">merged</span><span class="p">:</span>
 </pre></div>
 </div>
 <p>The problem with this flipped ordering is that the given key may not
-exist in <code class="docutils literal"><span class="pre">merged</span></code> yet, thus <code class="docutils literal"><span class="pre">dict2[key]</span> <span class="pre">&gt;</span> <span class="pre">merged[key]</span></code> will raise a
-<code class="docutils literal"><span class="pre">KeyError</span></code>. Using the original ordering, such a case would cause
-<code class="docutils literal"><span class="pre">key</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">merged</span></code> to return <code class="docutils literal"><span class="pre">True</span></code>, and the overall expression
-will return <code class="docutils literal"><span class="pre">True</span></code> without evaluating the second part of the
-expression (convince yourself that <code class="docutils literal"><span class="pre">False</span> <span class="pre">or</span> <span class="pre">&lt;whatever&gt;</span></code> should will
-always return <code class="docutils literal"><span class="pre">False</span></code>).</p>
+exist in <code class="docutils literal notranslate"><span class="pre">merged</span></code> yet, thus <code class="docutils literal notranslate"><span class="pre">dict2[key]</span> <span class="pre">&gt;</span> <span class="pre">merged[key]</span></code> will raise a
+<code class="docutils literal notranslate"><span class="pre">KeyError</span></code>. Using the original ordering, such a case would cause
+<code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">merged</span></code> to return <code class="docutils literal notranslate"><span class="pre">True</span></code>, and the overall expression
+will return <code class="docutils literal notranslate"><span class="pre">True</span></code> without evaluating the second part of the
+expression (convince yourself that <code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">or</span> <span class="pre">&lt;whatever&gt;</span></code> should will
+always return <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
 </div>
 <div class="section" id="A-Minor-Optimization">
 <h2>A Minor Optimization<a class="headerlink" href="#A-Minor-Optimization" title="Permalink to this headline">¶</a></h2>
@@ -369,12 +369,12 @@ always return <code class="docutils literal"><span class="pre">False</span></cod
 its performance is a bottleneck for the overall performance of your
 code, then there is a minor optimization that we can implement.</p>
 <p>Consider a case of extreme imbalance in the sizes of our dictionaries;
-suppose <code class="docutils literal"><span class="pre">dict1</span></code> is contains one key while <code class="docutils literal"><span class="pre">dict2</span></code> contains 10,000.
+suppose <code class="docutils literal notranslate"><span class="pre">dict1</span></code> is contains one key while <code class="docutils literal notranslate"><span class="pre">dict2</span></code> contains 10,000.
 It would be preferable for our solution to manually iterate over the
 smaller of these two dictionaries. We can easily accommodate this in our
-function by choosing <code class="docutils literal"><span class="pre">merged</span></code> to be the longer of the two dictionaries
+function by choosing <code class="docutils literal notranslate"><span class="pre">merged</span></code> to be the longer of the two dictionaries
 and iterating over the other dictionary:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">opt_merge_max_mappings</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">opt_merge_max_mappings</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Merges two dictionaries based on the largest value in a given mapping.</span>
 
 <span class="sd">    Parameters</span>
@@ -403,11 +403,11 @@ and <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Modu
 unpacking</a>,
 which helps keep our code succinct despite the logic that we have added
 to it. See that</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">merged</span><span class="p">,</span> <span class="n">other</span> <span class="o">=</span> <span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">dict2</span><span class="p">)</span> <span class="k">else</span> <span class="p">(</span><span class="n">dict2</span><span class="p">,</span> <span class="n">dict1</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">merged</span><span class="p">,</span> <span class="n">other</span> <span class="o">=</span> <span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">dict2</span><span class="p">)</span> <span class="k">else</span> <span class="p">(</span><span class="n">dict2</span><span class="p">,</span> <span class="n">dict1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>is equivalent to:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">dict2</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">dict2</span><span class="p">):</span>
     <span class="n">merged</span> <span class="o">=</span> <span class="n">dict1</span>
     <span class="n">other</span> <span class="o">=</span> <span class="n">dict2</span>
 <span class="k">else</span><span class="p">:</span>
@@ -415,21 +415,21 @@ to it. See that</p>
     <span class="n">other</span> <span class="o">=</span> <span class="n">dict1</span>
 </pre></div>
 </div>
-<p>We can use the <code class="docutils literal"><span class="pre">timeit</span></code> <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">timeit</span></code> <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic
 command</a>
 in either a Jupyter notebook or an IPython console to time our functions
-(Note: each <code class="docutils literal"><span class="pre">timeit</span></code> must be run in a separate notebook cell, and
-<code class="docutils literal"><span class="pre">%%timeit</span></code> must be the topmost command in the cell).</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{}</span>
+(Note: each <code class="docutils literal notranslate"><span class="pre">timeit</span></code> must be run in a separate notebook cell, and
+<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code> must be the topmost command in the cell).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)))</span>  <span class="c1"># {1 : 1, 2: 2, ..., 9999:9999}</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span>%%timeit
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%%timeit
 simple_merge_max_mappings(a, b)
 2.05 ms ± 90.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span>%%timeit
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%%timeit
 opt_merge_max_mappings(a, b)
 455 µs ± 12.9 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </pre></div>
@@ -442,7 +442,7 @@ cooked up.</p>
 <p>There is no reason that our function should only be able to merge two
 dictionaries, it should be easy to accommodate an arbitrary number of
 inputs:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">d</span><span class="o">=-</span><span class="mi">70</span><span class="p">)</span>
@@ -458,20 +458,20 @@ about one input?</p>
 </div>
 <div class="section" id="Generalized-Solution">
 <h2>Generalized Solution<a class="headerlink" href="#Generalized-Solution" title="Permalink to this headline">¶</a></h2>
-<p>Addressing point #1, we will want to use the <code class="docutils literal"><span class="pre">*args</span></code> syntax in our
+<p>Addressing point #1, we will want to use the <code class="docutils literal notranslate"><span class="pre">*args</span></code> syntax in our
 function signature so that <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#Accommodating-an-Arbitrary-Number-of-Positional-Arguments">it can accommodate an arbitrary number of
 dictionaries</a>.
 Thus all of the dictionaries fed to our function will be packed into a
-tuple that can be accessed via <code class="docutils literal"><span class="pre">args</span></code> (or whatever variable name we
+tuple that can be accessed via <code class="docutils literal notranslate"><span class="pre">args</span></code> (or whatever variable name we
 use in our signature).</p>
 <p>Regarding point #2, we can handle the case of receiving no inputs by
 simply returning an empty dictionary. We will also see that handling the
 case of a single input is more subtle than one might guess. This point
 will be discussed further once the solution is presented.</p>
-<p>Our solution is to create an empty dictionary, <code class="docutils literal"><span class="pre">merged</span></code>, and to simply
+<p>Our solution is to create an empty dictionary, <code class="docutils literal notranslate"><span class="pre">merged</span></code>, and to simply
 iterate over each mapping of each input dictionary and perform our
 merging as we did above:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_max_mappings</span><span class="p">(</span><span class="o">*</span><span class="n">dicts</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_max_mappings</span><span class="p">(</span><span class="o">*</span><span class="n">dicts</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Merges an arbitrary number of dictionaries based on the</span>
 <span class="sd">    maximum value in a given mapping.</span>
 
@@ -495,14 +495,14 @@ merging as we did above:</p>
 <div class="section" id="Handling-Zero-Inputs">
 <h3>Handling Zero Inputs<a class="headerlink" href="#Handling-Zero-Inputs" title="Permalink to this headline">¶</a></h3>
 <p>See that our function returns an empty dictionary if it is not passed
-any inputs, this is because <code class="docutils literal"><span class="pre">dicts</span></code> will be an empty tuple and thus
+any inputs, this is because <code class="docutils literal notranslate"><span class="pre">dicts</span></code> will be an empty tuple and thus
 our loop over it will immediately exit, returning an unpopulated
-<code class="docutils literal"><span class="pre">merged</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">merge_max_mappings</span><span class="p">()</span>
+<code class="docutils literal notranslate"><span class="pre">merged</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">merge_max_mappings</span><span class="p">()</span>
 <span class="go">{}</span>
 </pre></div>
 </div>
-<p>While you may have thought to have returned <code class="docutils literal"><span class="pre">None</span></code> in the case of
+<p>While you may have thought to have returned <code class="docutils literal notranslate"><span class="pre">None</span></code> in the case of
 there being no dictionaries to merge, returning an empty dictionary is
 much better behavior as code downstream from our function will only need
 to accommodate one type of output. Additionally, our function’s
@@ -515,7 +515,7 @@ abide by this contract.</p>
 function effectively makes a (shallow) copy of that dictionary and
 returns it. Suppose we tried to be clever and wrote our function to pass
 a single dictionary through; e.g.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bad_merge_max_mappings</span><span class="p">(</span><span class="o">*</span><span class="n">dicts</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bad_merge_max_mappings</span><span class="p">(</span><span class="o">*</span><span class="n">dicts</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dicts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">dicts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">merged</span> <span class="o">=</span> <span class="p">{}</span>
@@ -551,7 +551,7 @@ defined, are objects just like integers and strings - they can be
 passed as arguments into other functions.</li>
 </ul>
 <p>The following code is correct, but really bad:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gross_merge_max_mappings</span><span class="p">(</span><span class="o">*</span><span class="n">dicts</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gross_merge_max_mappings</span><span class="p">(</span><span class="o">*</span><span class="n">dicts</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;merges dicts&quot;&quot;&quot;</span>
     <span class="n">merged</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dicts</span><span class="p">)):</span>
@@ -616,7 +616,7 @@ you will not write code like this.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

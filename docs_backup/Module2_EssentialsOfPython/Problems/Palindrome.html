@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Is Palindrome &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Is Palindrome &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Module 2: Problems" href="../../module_2_problems.html"/>
         <link rel="next" title="Within Margin Percentage" href="MarginPercentage.html"/>
         <link rel="prev" title="Merging Two Dictionaries" href="MergeMaxDicts.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -217,12 +217,12 @@
 <h1>Is Palindrome<a class="headerlink" href="#Is-Palindrome" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div>A palindrome is a string that reads the same from left to right and
-from right to left. Strings like <code class="docutils literal"><span class="pre">racecar</span></code> and
-<code class="docutils literal"><span class="pre">Live</span> <span class="pre">on</span> <span class="pre">time,</span> <span class="pre">emit</span> <span class="pre">no</span> <span class="pre">evil</span></code> are palindromes. Notice that only
+from right to left. Strings like <code class="docutils literal notranslate"><span class="pre">racecar</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Live</span> <span class="pre">on</span> <span class="pre">time,</span> <span class="pre">emit</span> <span class="pre">no</span> <span class="pre">evil</span></code> are palindromes. Notice that only
 valid alphanumeric characters are accounted for and that palindromes
 are not case-sensitive. Given a string, return whether or not it is
 a palindrome.</div></blockquote>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="s2">&quot;Step on no pets!&quot;</span><span class="p">)</span>
 <span class="bp">True</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="s2">&quot;&#39;Tis not a palindrome&quot;</span><span class="p">)</span>
@@ -236,22 +236,22 @@ a palindrome.</div></blockquote>
 <p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.isalnum">str.isalnum</a>
 returns whether or not a string has purely alphanumeric characters (it
 works for single-character strings too).</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;I love Python&quot;</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;I love Python&quot;</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
 <span class="go">False</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;IlovePython&quot;</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>Consider using this along with <code class="docutils literal"><span class="pre">str.lower</span></code> to filter out ignored
+<p>Consider using this along with <code class="docutils literal notranslate"><span class="pre">str.lower</span></code> to filter out ignored
 characters and to normalize all of the character casing in the string
 before assessing whether or not it is a palindrome.</p>
 </div>
 <div class="section" id="Solution">
 <h2>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h2>
 <p>The simplest solution to this problem is the following, where we make
-use of the <code class="docutils literal"><span class="pre">str.join</span></code> function as well as slicing with a negative
+use of the <code class="docutils literal notranslate"><span class="pre">str.join</span></code> function as well as slicing with a negative
 step:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">input_str</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">input_str</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Given a string, determine if it is a palindrome.</span>
 <span class="sd">        Whitespaces, character-casing, and non-alphanumeric</span>
 <span class="sd">        characters are all ignored.</span>
@@ -269,33 +269,33 @@ step:</p>
     <span class="k">return</span> <span class="n">filtered_str</span> <span class="o">==</span> <span class="n">filtered_str</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>See that <code class="docutils literal"><span class="pre">(c.lower()</span> <span class="pre">for</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">input_str</span> <span class="pre">if</span> <span class="pre">c.isalnum())</span></code> has the form
+<p>See that <code class="docutils literal notranslate"><span class="pre">(c.lower()</span> <span class="pre">for</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">input_str</span> <span class="pre">if</span> <span class="pre">c.isalnum())</span></code> has the form
 of a <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#Creating-your-own-generator:-generator-comprehensions">filtering generator
 comprehension</a>.
 Thus,</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">input_str</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">input_str</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>is equivalent to the long-form code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">filtered_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">input_str</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">char</span><span class="o">.</span><span class="n">isalnum</span><span class="p">():</span>
         <span class="n">filtered_str</span> <span class="o">+=</span> <span class="n">char</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The generator comprehension expression is not only more concise and
-readable, but its use of <code class="docutils literal"><span class="pre">str.join</span></code> also makes it a more efficient
+readable, but its use of <code class="docutils literal notranslate"><span class="pre">str.join</span></code> also makes it a more efficient
 means for constructing a new list. Each call to
-<code class="docutils literal"><span class="pre">filtered_str</span> <span class="pre">+=</span> <span class="pre">c.lower()</span></code> in the long-form code creates a new string
-in memory, whereas <code class="docutils literal"><span class="pre">str.join</span></code> forms a single string as it consumes the
+<code class="docutils literal notranslate"><span class="pre">filtered_str</span> <span class="pre">+=</span> <span class="pre">c.lower()</span></code> in the long-form code creates a new string
+in memory, whereas <code class="docutils literal notranslate"><span class="pre">str.join</span></code> forms a single string as it consumes the
 input iterable.</p>
 <p>Next, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Slicing">recall
 that</a>
-<code class="docutils literal"><span class="pre">seq[::-1]</span></code> slices a sequence with a step of -1, which produces the
-sequence in <em>reverse order</em>. Thus <code class="docutils literal"><span class="pre">filtered_str</span> <span class="pre">==</span> <span class="pre">filtered_str[::-1]</span></code>
-allows us to compare the first character in <code class="docutils literal"><span class="pre">filtered_str</span></code> with the
+<code class="docutils literal notranslate"><span class="pre">seq[::-1]</span></code> slices a sequence with a step of -1, which produces the
+sequence in <em>reverse order</em>. Thus <code class="docutils literal notranslate"><span class="pre">filtered_str</span> <span class="pre">==</span> <span class="pre">filtered_str[::-1]</span></code>
+allows us to compare the first character in <code class="docutils literal notranslate"><span class="pre">filtered_str</span></code> with the
 last and so on. This is equivalent to:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">is_equal</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">is_equal</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filtered_str</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">):</span> <span class="c1"># recall:  5//2 -&gt; 2, 6//2 -&gt; 3</span>
     <span class="k">if</span> <span class="n">filtered_str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">filtered_str</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]:</span>
         <span class="n">is_equal</span> <span class="o">=</span> <span class="bp">False</span>
@@ -303,10 +303,10 @@ last and so on. This is equivalent to:</p>
 </pre></div>
 </div>
 <p>The only downside to using slicing to perform this comparison is that it
-requires that a copy of <code class="docutils literal"><span class="pre">filtered_str</span></code> be created, whereas using the
+requires that a copy of <code class="docutils literal notranslate"><span class="pre">filtered_str</span></code> be created, whereas using the
 explicit for-loop does not.</p>
 <p>We must note that the performance differences pointed out here should
-only concern us if <code class="docutils literal"><span class="pre">is_palindrome</span></code> is potentially a performance
+only concern us if <code class="docutils literal notranslate"><span class="pre">is_palindrome</span></code> is potentially a performance
 bottleneck for our code. Although we want the reader to develop an
 intuition for writing efficient Python code, we discourage mangling code
 for the sake of premature optimization.</p>
@@ -357,7 +357,7 @@ for the sake of premature optimization.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

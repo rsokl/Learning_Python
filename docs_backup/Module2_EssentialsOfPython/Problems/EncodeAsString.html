@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Encode as String &mdash; Python Like You Mean It 1.0.0 documentation</title>
+  <title>Encode as String &mdash; Python Like You Mean It 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.0.0 documentation" href="../../index.html"/>
+    <link rel="top" title="Python Like You Mean It 1.1.0 documentation" href="../../index.html"/>
         <link rel="up" title="Module 2: Problems" href="../../module_2_problems.html"/>
         <link rel="next" title="Module 3: The Essentials of NumPy" href="../../module_3.html"/>
         <link rel="prev" title="Difference Fanout" href="DifferenceFanout.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -221,25 +221,25 @@ of types, control-flow, dictionaries, and more.</p>
 <div>We want to encode a sequence of Python objects as a single string.
 The following describes the encoding method that we want to use for
 each type of object. Each object’s transcription in should be
-separated by <code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">|</span> <span class="pre">&quot;</span></code>, and the result should be one large string.</div></blockquote>
+separated by <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">|</span> <span class="pre">&quot;</span></code>, and the result should be one large string.</div></blockquote>
 <ul class="simple">
 <li>If the object is an integer, convert it into a string by spelling out
-each digit in base-10 in this format: <code class="docutils literal"><span class="pre">142</span></code> <span class="math">\(\rightarrow\)</span>
-<code class="docutils literal"><span class="pre">one-four-two</span></code>; <code class="docutils literal"><span class="pre">-12</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">neg-one-two</span></code>.</li>
+each digit in base-10 in this format: <code class="docutils literal notranslate"><span class="pre">142</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span>
+<code class="docutils literal notranslate"><span class="pre">one-four-two</span></code>; <code class="docutils literal notranslate"><span class="pre">-12</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">neg-one-two</span></code>.</li>
 <li>If the object is a float, just append its integer part (obtained by
-rounding down) the same way and the string <code class="docutils literal"><span class="pre">&quot;and</span> <span class="pre">float&quot;</span></code>:
-<code class="docutils literal"><span class="pre">12.324</span></code> <span class="math">\(\rightarrow\)</span> <code class="docutils literal"><span class="pre">one-two</span> <span class="pre">and</span> <span class="pre">float</span></code>.</li>
+rounding down) the same way and the string <code class="docutils literal notranslate"><span class="pre">&quot;and</span> <span class="pre">float&quot;</span></code>:
+<code class="docutils literal notranslate"><span class="pre">12.324</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">one-two</span> <span class="pre">and</span> <span class="pre">float</span></code>.</li>
 <li>If the object is a string, keep it as is.</li>
-<li>If the object is of any other type, return <code class="docutils literal"><span class="pre">'&lt;OTHER&gt;'</span></code>.</li>
+<li>If the object is of any other type, return <code class="docutils literal notranslate"><span class="pre">'&lt;OTHER&gt;'</span></code>.</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">concat_to_str</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span><span class="o">-</span><span class="mf">14.23</span><span class="p">,</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span>
 <span class="o">...</span>                    <span class="s2">&quot;Aha&quot;</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
 <span class="s1">&#39;one-two | neg-one-four and float | hello | &lt;OTHER&gt; | Aha | one-zero and float | &lt;OTHER&gt; | five&#39;</span>
 </pre></div>
 </div>
-<p><strong>Tips</strong>: check out the <code class="docutils literal"><span class="pre">isinstance</span></code> function introduced
+<p><strong>Tips</strong>: check out the <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> function introduced
 <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html">here</a>
 for handling different types. Also, consider creating a helper function
 for the conversion from integer to our special-format string, since we
@@ -248,15 +248,15 @@ functions. You’ll also need to hard-code the conversion from each digit
 to its English spell-out.</p>
 <div class="section" id="Solution">
 <h2>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h2>
-<p>Our solution is broken down into three simple functions. <code class="docutils literal"><span class="pre">int_to_str</span></code>
-is used to map signed integers to English words. <code class="docutils literal"><span class="pre">item_to_transcript</span></code>
+<p>Our solution is broken down into three simple functions. <code class="docutils literal notranslate"><span class="pre">int_to_str</span></code>
+is used to map signed integers to English words. <code class="docutils literal notranslate"><span class="pre">item_to_transcript</span></code>
 is capable of mapping an object of any type to its string
 representation, in accordance with the prescription made by the problem
-statement. Finally, <code class="docutils literal"><span class="pre">concat_to_str</span></code> orchestrates these two helper
+statement. Finally, <code class="docutils literal notranslate"><span class="pre">concat_to_str</span></code> orchestrates these two helper
 functions, looping over each object in our input list, mapping each
 object to its string representation, and joining these strings with
-<code class="docutils literal"><span class="pre">'</span> <span class="pre">|</span> <span class="pre">'</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">int_to_str</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">|</span> <span class="pre">'</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">int_to_str</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Takes an integer and formats it into a special string</span>
 <span class="sd">        e.g. 142 -&gt; &quot;one-four-two&quot;</span>
@@ -297,24 +297,24 @@ object to its string representation, and joining these strings with
     <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">item_to_transcript</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>We use the <code class="docutils literal"><span class="pre">str.join</span></code> function along with a generator comprehensions
+<p>We use the <code class="docutils literal notranslate"><span class="pre">str.join</span></code> function along with a generator comprehensions
 in a couple places in our solution. Recall that</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s2">&quot;&lt;hi&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">some_iterable_of_strings</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;&lt;hi&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">some_iterable_of_strings</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>is equivalent to the long-form code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">some_iterable_of_strings</span><span class="p">:</span>
     <span class="n">out</span> <span class="o">+=</span> <span class="s2">&quot;&lt;hi&gt;&quot;</span> <span class="o">+</span> <span class="n">x</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">int_to_str</span></code> plays a clever trick to convert each integer,
-digit-by-digit, into its string form - it calls <code class="docutils literal"><span class="pre">str</span></code> on the integer.
+<p><code class="docutils literal notranslate"><span class="pre">int_to_str</span></code> plays a clever trick to convert each integer,
+digit-by-digit, into its string form - it calls <code class="docutils literal notranslate"><span class="pre">str</span></code> on the integer.
 This converts the integer into a string, which is a
 <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html">sequence</a>.
 This permits us to access each digit of the integer and even iterate
 over them:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># casting an integer to a string makes its</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># casting an integer to a string makes its</span>
 <span class="c1"># sign and digits accessible via indexing/iteration</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="mi">123</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
@@ -325,14 +325,14 @@ over them:</p>
 <span class="s1">&#39;3&#39;</span>
 </pre></div>
 </div>
-<p>Thus, in total <code class="docutils literal"><span class="pre">&quot;-&quot;.join(mapping[digit]</span> <span class="pre">for</span> <span class="pre">digit</span> <span class="pre">in</span> <span class="pre">str(n))</span></code> is
+<p>Thus, in total <code class="docutils literal notranslate"><span class="pre">&quot;-&quot;.join(mapping[digit]</span> <span class="pre">for</span> <span class="pre">digit</span> <span class="pre">in</span> <span class="pre">str(n))</span></code> is
 responsible for casting an integer to a string, iterating over each of
 its digits and mapping them to their corresponding word using the
 <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html">dictionary</a>
 that we defined in the function.</p>
-<p><code class="docutils literal"><span class="pre">item_to_transcript</span></code> it an especially slick function. First, let’s
+<p><code class="docutils literal notranslate"><span class="pre">item_to_transcript</span></code> it an especially slick function. First, let’s
 make clear the fancy use of the inline syntax here. This function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">item_to_transcript</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">item_to_transcript</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Any -&gt; str &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span> <span class="k">return</span> <span class="s1">&#39;&lt;OTHER&gt;&#39;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
@@ -342,7 +342,7 @@ make clear the fancy use of the inline syntax here. This function:</p>
 </pre></div>
 </div>
 <p>is entirely equivalent to this function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">item_to_transcript_alt</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">item_to_transcript_alt</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Any -&gt; str &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;&lt;OTHER&gt;&#39;</span>
@@ -361,47 +361,47 @@ make clear the fancy use of the inline syntax here. This function:</p>
 statements and makes for a completely satisfactory version of the
 function. See, however, that each of the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#Multiple-return-Statements">multiple return
 statements</a>
-in <code class="docutils literal"><span class="pre">item_to_transcript</span></code> guarantees the same logic, in that if a
+in <code class="docutils literal notranslate"><span class="pre">item_to_transcript</span></code> guarantees the same logic, in that if a
 condition is meant a value will be returned by the function and none of
-its subsequent code can be visited. That is, if <code class="docutils literal"><span class="pre">item</span></code> is an integer
-the second if-condition will evaluate to <code class="docutils literal"><span class="pre">True</span></code> and
-<code class="docutils literal"><span class="pre">int_to_str(item)</span></code> will be returned, immediately expelling the point
+its subsequent code can be visited. That is, if <code class="docutils literal notranslate"><span class="pre">item</span></code> is an integer
+the second if-condition will evaluate to <code class="docutils literal notranslate"><span class="pre">True</span></code> and
+<code class="docutils literal notranslate"><span class="pre">int_to_str(item)</span></code> will be returned, immediately expelling the point
 of execution from the body of the function.</p>
 <p>Ultimately, the preference of one function over the other is merely a
 matter of stylistic preference. You also have likely noted the peculiar
-in-line <code class="docutils literal"><span class="pre">if-return</span></code> expressions. These too are only stylistic choices;</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+in-line <code class="docutils literal notranslate"><span class="pre">if-return</span></code> expressions. These too are only stylistic choices;</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>is no different from</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">int_to_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The use of in-line <code class="docutils literal"><span class="pre">if-return</span></code> expressions in <code class="docutils literal"><span class="pre">item_to_transcript</span></code>
+<p>The use of in-line <code class="docutils literal notranslate"><span class="pre">if-return</span></code> expressions in <code class="docutils literal notranslate"><span class="pre">item_to_transcript</span></code>
 does a nice job emphasizing the dictionary-like mapping behavior of the
 function: the form of the code suits its functionality nicely. That
 being said, these should generally be used sparingly. Some may call this
 a “cute” trick. And it is. This code is cute. I write cute code.</p>
 <p>Finally, you may have noticed what looks like a redundancy in our code:
-our first <code class="docutils literal"><span class="pre">if</span></code> statement returns <code class="docutils literal"><span class="pre">'&lt;OTHER&gt;'</span></code> if <code class="docutils literal"><span class="pre">item</span></code> is <code class="docutils literal"><span class="pre">True</span></code>
-or <code class="docutils literal"><span class="pre">False</span></code>, and our final line of code returns <code class="docutils literal"><span class="pre">'&lt;OTHER&gt;'</span></code> if none
-of the preceding conditions were met (i.e. <code class="docutils literal"><span class="pre">item</span></code> is not a <code class="docutils literal"><span class="pre">bool</span></code>,
-<code class="docutils literal"><span class="pre">int</span></code>, <code class="docutils literal"><span class="pre">float</span></code>, or <code class="docutils literal"><span class="pre">str</span></code> type object). Why then did we not just
-merge our first <code class="docutils literal"><span class="pre">if</span></code> clause with this ultimate catch-all? The reason
-is that <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code> are not only instances of the boolean
-type, they are also integers! <code class="docutils literal"><span class="pre">True</span></code> behaves like the integer <code class="docutils literal"><span class="pre">1</span></code>
-and <code class="docutils literal"><span class="pre">False</span></code> like <code class="docutils literal"><span class="pre">0</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+our first <code class="docutils literal notranslate"><span class="pre">if</span></code> statement returns <code class="docutils literal notranslate"><span class="pre">'&lt;OTHER&gt;'</span></code> if <code class="docutils literal notranslate"><span class="pre">item</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>
+or <code class="docutils literal notranslate"><span class="pre">False</span></code>, and our final line of code returns <code class="docutils literal notranslate"><span class="pre">'&lt;OTHER&gt;'</span></code> if none
+of the preceding conditions were met (i.e. <code class="docutils literal notranslate"><span class="pre">item</span></code> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code>,
+<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, or <code class="docutils literal notranslate"><span class="pre">str</span></code> type object). Why then did we not just
+merge our first <code class="docutils literal notranslate"><span class="pre">if</span></code> clause with this ultimate catch-all? The reason
+is that <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> are not only instances of the boolean
+type, they are also integers! <code class="docutils literal notranslate"><span class="pre">True</span></code> behaves like the integer <code class="docutils literal notranslate"><span class="pre">1</span></code>
+and <code class="docutils literal notranslate"><span class="pre">False</span></code> like <code class="docutils literal notranslate"><span class="pre">0</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
 <span class="go">True</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span><span class="o">*</span><span class="bp">True</span> <span class="o">+</span> <span class="bp">True</span> <span class="o">-</span> <span class="bp">False</span>
 <span class="go">4</span>
 </pre></div>
 </div>
-<p>Thus, had we not taken care to check for booleans up front, <code class="docutils literal"><span class="pre">True</span></code> and
-<code class="docutils literal"><span class="pre">False</span></code> would have been mapped to <code class="docutils literal"><span class="pre">'one'</span></code> and <code class="docutils literal"><span class="pre">'zero'</span></code>,
-respectively, rather than <code class="docutils literal"><span class="pre">'&lt;OTHER&gt;'</span></code>. This is a relatively subtle
+<p>Thus, had we not taken care to check for booleans up front, <code class="docutils literal notranslate"><span class="pre">True</span></code> and
+<code class="docutils literal notranslate"><span class="pre">False</span></code> would have been mapped to <code class="docutils literal notranslate"><span class="pre">'one'</span></code> and <code class="docutils literal notranslate"><span class="pre">'zero'</span></code>,
+respectively, rather than <code class="docutils literal notranslate"><span class="pre">'&lt;OTHER&gt;'</span></code>. This is a relatively subtle
 edge case to catch.</p>
 </div>
 </div>
@@ -450,7 +450,7 @@ edge case to catch.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.0.0',
+            VERSION:'1.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
