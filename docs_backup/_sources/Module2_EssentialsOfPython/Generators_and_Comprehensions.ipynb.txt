@@ -148,7 +148,7 @@
     "\n",
     "for item in example_gen:\n",
     "    print(item)\n",
-    "# prints: 0.5.. 4.5.. 10.5.. 16.0\n",
+    "# prints: 0.0.. 4.5.. 10.5.. 16.0\n",
     "```\n",
     "\n",
     "`<expression>` can be any valid single-line of Python code that returns an object:\n",
@@ -190,7 +190,7 @@
     "\n",
     "**Note**:  \n",
     "\n",
-    "Generator comprehensions are **not** the only method for defining generators in Python. We will briefly introduced a more fully-fledged syntax for defining generators. One can define a generator similar to the way one can define a function (which we will encounter soon). [See this section of the official Python tutorial](https://docs.python.org/3/tutorial/classes.html#generators) if you are interested in diving deeper into generators.\n",
+    "Generator comprehensions are **not** the only method for defining generators in Python. One can define a generator similar to the way one can define a function (which we will encounter soon). [See this section of the official Python tutorial](https://docs.python.org/3/tutorial/classes.html#generators) if you are interested in diving deeper into generators.\n",
     "</div>"
    ]
   },
@@ -305,8 +305,20 @@
     ">>> gen_1 = (i**2 for i in [-20, -10, 0, 10, 20])\n",
     "\n",
     "# sums the generated numbers, excluding any numbers whose absolute value is greater than 150\n",
-    ">>> sum(i for i in gen_1 if abs(i) <= 150)\n",
+    ">>> sum(j for j in gen_1 if abs(j) <= 150)\n",
     "200\n",
+    "```\n",
+    "\n",
+    "This is equivalent to:\n",
+    "\n",
+    "```python\n",
+    "total = 0\n",
+    "for i in [-20, -10, 0, 10, 20]:\n",
+    "    j = i ** 2\n",
+    "    if j <= 150:\n",
+    "        total += j\n",
+    "\n",
+    "# total is now 200\n",
     "```"
    ]
   },
@@ -741,7 +753,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.3"
+   "version": "3.6.7"
   }
  },
  "nbformat": 4,
