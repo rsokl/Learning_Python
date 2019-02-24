@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setting Up a Development Environment &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Setting Up a Development Environment &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 1: Getting Started with Python" href="../module_1.html"/>
-        <link rel="next" title="Module 2: The Essentials of Python" href="../module_2.html"/>
-        <link rel="prev" title="Jupyter Notebooks" href="Jupyter_Notebooks.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module 2: The Essentials of Python" href="../module_2.html" />
+    <link rel="prev" title="Jupyter Notebooks" href="Jupyter_Notebooks.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -129,7 +125,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -137,9 +133,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -170,7 +167,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -198,23 +195,13 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Setting-Up-a-Development-Environment">
@@ -222,49 +209,28 @@
 <div class="section" id="What-You-Will-Learn">
 <h2>What You Will Learn<a class="headerlink" href="#What-You-Will-Learn" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>An IDE is a sophisticated text editor that allows you edit, run, and
-debug code.</li>
-<li>The Python shell is an interface for typing Python code and executing
-it directly in your computer’s terminal.</li>
-<li>The IPython shell is a much nicer version of the Python shell - it
-provides syntax highlighting, autocompletion, and other features.</li>
-<li>The Jupyter Notebook is a powerful tool for prototyping and
-experimenting with code, as well as visualizing data and writing
-nicely-formatted text. We will be using this throughout the course.</li>
+<li>An IDE is a sophisticated text editor that allows you edit, run, and debug code.</li>
+<li>The Python shell is an interface for typing Python code and executing it directly in your computer’s terminal.</li>
+<li>The IPython shell is a much nicer version of the Python shell - it provides syntax highlighting, autocompletion, and other features.</li>
+<li>The Jupyter Notebook is a powerful tool for prototyping and experimenting with code, as well as visualizing data and writing nicely-formatted text. We will be using this throughout the course.</li>
 </ul>
 </div>
 <div class="section" id="Integrated-Development-Environments">
 <h2>Integrated Development Environments<a class="headerlink" href="#Integrated-Development-Environments" title="Permalink to this headline">¶</a></h2>
-<p>In Section 1 of this module, we learned that a Python script is simply a
-text file that contains Python code. Aside from using a <code class="docutils literal notranslate"><span class="pre">.py</span></code> suffix
-for the filename, there is nothing that differentiates this sort of file
-from any other text file. That being said, it is not a good idea to use
-a simple text editor to write Python code (and it is a big mistake use
-word-processing software, like Microsoft Word, to do so). Instead we
-want an “integrated development environment” (IDE) that will facilitate
+<p>In Section 1 of this module, we learned that a Python script is simply a text file that contains Python code. Aside from using a <code class="docutils literal notranslate"><span class="pre">.py</span></code> suffix for the filename, there is nothing that differentiates this sort of file from any other text file. That being said, it is not a good idea to use a simple text editor to write Python code (and it is a big mistake use word-processing software, like Microsoft Word, to do so). Instead we want an “integrated development environment” (IDE) that will facilitate
 our code-writing.</p>
 <p>First and foremost, a good IDE will provide a text editor that will:</p>
 <ul class="simple">
-<li>check your code for syntax errors (a misspelled function name, a
-reference to an undefined variable, etc)</li>
-<li>colorize your code so that it is easy to distinguish, for instance,
-numbers from character strings.</li>
-<li>enable you to easily look up documentation and definitions for
-functions that you are using.</li>
-<li>autocomplete the names of variables and functions as you are typing
-them.</li>
+<li>check your code for syntax errors (a misspelled function name, a reference to an undefined variable, etc)</li>
+<li>colorize your code so that it is easy to distinguish, for instance, numbers from character strings.</li>
+<li>enable you to easily look up documentation and definitions for functions that you are using.</li>
+<li>autocomplete the names of variables and functions as you are typing them.</li>
 </ul>
-<p>An IDE also often provides debugging tools so that you can test your
-code; it will also typically interface with version-control software,
-like Git, so that you can keep track of versions of your code as you
-modify it. We will not discuss these useful, but more advanced features
-here.</p>
+<p>An IDE also often provides debugging tools so that you can test your code; it will also typically interface with version-control software, like Git, so that you can keep track of versions of your code as you modify it. We will not discuss these useful, but more advanced features here.</p>
 <div class="section" id="Recommended-IDEs">
 <h3>Recommended IDEs<a class="headerlink" href="#Recommended-IDEs" title="Permalink to this headline">¶</a></h3>
-<p>There are many excellent IDEs that can be configured to work well with
-Python. Two IDEs that we endorse are:</p>
-<p><a class="reference external" href="https://www.jetbrains.com/pycharm/download">PyCharm</a>: A powerful IDE
-dedicated to Python.</p>
+<p>There are many excellent IDEs that can be configured to work well with Python. Two IDEs that we endorse are:</p>
+<p><a class="reference external" href="https://www.jetbrains.com/pycharm/download">PyCharm</a>: A powerful IDE dedicated to Python.</p>
 <p><strong>Pros</strong></p>
 <ul class="simple">
 <li>works well out-of-the-box</li>
@@ -275,44 +241,27 @@ dedicated to Python.</p>
 <p><strong>Cons</strong></p>
 <ul class="simple">
 <li>can be resource-heavy, especially for a laptop</li>
-<li>may be overwhelming to new users (but has good documentation and
-tutorials)</li>
+<li>may be overwhelming to new users (but has good documentation and tutorials)</li>
 </ul>
-<p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> with the <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">Python
-extension</a>: A
-lightweight, highly customizable IDE.</p>
+<p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> with the <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">Python extension</a>: A lightweight, highly customizable IDE.</p>
 <p><strong>Pros</strong></p>
 <ul class="simple">
 <li>lightweight and elegant</li>
-<li>works with many different languages, so you only need to familiarize
-yourself with one IDE</li>
-<li>a huge number of extensions can be downloaded to add functionality to
-the editor; these are created by a large community of open-source
-developers.</li>
+<li>works with many different languages, so you only need to familiarize yourself with one IDE</li>
+<li>a huge number of extensions can be downloaded to add functionality to the editor; these are created by a large community of open-source developers.</li>
 </ul>
 <p><strong>Cons</strong></p>
 <ul class="simple">
-<li>currently less polished and less powerful than PyCharm, although
-Microsoft is now formally supporting the Python extension</li>
+<li>currently less polished and less powerful than PyCharm, although Microsoft is now formally supporting the Python extension</li>
 <li>can require some tinkering to get features working</li>
 </ul>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">Integrated Development Environments (IDEs) provide powerful tools for
-helping you write well-formatted and typo-free code. We recommend using
-PyCharm Community Edition or Visual Studio Code (with the Python
-extension installed) for your Python IDE.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p>Integrated Development Environments (IDEs) provide powerful tools for helping you write well-formatted and typo-free code. We recommend using PyCharm Community Edition or Visual Studio Code (with the Python extension installed) for your Python IDE.</p>
 </div>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Jupyter Lab</strong>:</p>
-<p class="last"><a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">Jupyter
-Lab</a>
-is a new IDE that is being developed by the same team that develops the
-Jupyter Notebook. It aims to mix the polish and power of a traditional
-IDE, along with the convenience and great utility of the notebook
-environment. As of writing this, Jupyter Lab is still in the beta
-release phase. Given the massive popularity of Jupyter Notebook, Jupyter
-Lab will likely become a widely used IDE, quickly.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Jupyter Lab</strong>:</p>
+<p><a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">Jupyter Lab</a> is a new IDE that is being developed by the same team that develops the Jupyter Notebook. It aims to mix the polish and power of a traditional IDE, along with the convenience and great utility of the notebook environment. As of writing this, Jupyter Lab is still in the beta release phase. Given the massive popularity of Jupyter Notebook, Jupyter Lab will likely become a widely used IDE, quickly.</p>
 </div>
 </div>
 </div>
@@ -320,9 +269,7 @@ Lab will likely become a widely used IDE, quickly.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -331,7 +278,7 @@ Lab will likely become a widely used IDE, quickly.</p>
         <a href="../module_2.html" class="btn btn-neutral float-right" title="Module 2: The Essentials of Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Jupyter_Notebooks.html" class="btn btn-neutral" title="Jupyter Notebooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Jupyter_Notebooks.html" class="btn btn-neutral float-left" title="Jupyter Notebooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -340,11 +287,11 @@ Lab will likely become a widely used IDE, quickly.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -357,39 +304,15 @@ Lab will likely become a widely used IDE, quickly.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

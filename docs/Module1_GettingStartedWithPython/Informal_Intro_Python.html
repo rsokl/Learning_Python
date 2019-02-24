@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>An Informal Introduction to Python &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>An Informal Introduction to Python &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 1: Getting Started with Python" href="../module_1.html"/>
-        <link rel="next" title="Jupyter Notebooks" href="Jupyter_Notebooks.html"/>
-        <link rel="prev" title="Installing Python" href="Installing_Python.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Jupyter Notebooks" href="Jupyter_Notebooks.html" />
+    <link rel="prev" title="Installing Python" href="Installing_Python.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -127,7 +123,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -135,9 +131,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -168,7 +165,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module1_GettingStartedWithPython/Informal_Intro_Python.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module1_GettingStartedWithPython/Informal_Intro_Python.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -236,18 +233,18 @@ div.nblast {
 
 /* input prompt */
 div.nbinput div.prompt pre {
-    color: #303F9F;
+    color: #307FC1;
 }
 
 /* output prompt */
 div.nboutput div.prompt pre {
-    color: #D84315;
+    color: #BF5B3D;
 }
 
 /* all prompts */
 div.nbinput div.prompt,
 div.nboutput div.prompt {
-    min-width: 8ex;
+    min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
     text-align: right;
@@ -287,9 +284,9 @@ div.nboutput div.output_area {
 
 /* input area */
 div.nbinput div.input_area {
-    border: 1px solid #cfcfcf;
+    border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f7f7f7;
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -297,7 +294,7 @@ div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
-/* override sphinx.ext.pngmath center alignment in output cells */
+/* override sphinx.ext.imgmath center alignment in output cells */
 div.nboutput div.math p {
     text-align: left;
 }
@@ -347,6 +344,40 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -360,71 +391,37 @@ div.nboutput div.output_area.stderr {
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="An-Informal-Introduction-to-Python">
 <h1>An Informal Introduction to Python<a class="headerlink" href="#An-Informal-Introduction-to-Python" title="Permalink to this headline">¶</a></h1>
-<p>Now that you have the Anaconda distribution of Python installed on your
-machine, let’s write some simple Python code! We are going to forego
-writing a full Python script for now, and instead make use of a
-convenient tool for doing quick code scratchwork. The IPython console
-was installed as a part of Anaconda; it will allow us to build
-incrementally off of snippets of code, instead of having to execute an
-entire script all at once.</p>
-<p>To start the IPython console, open your terminal (Mac/Linux) or
-<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code> (Windows), type <code class="docutils literal notranslate"><span class="pre">ipython</span></code> into it, and hit <code class="docutils literal notranslate"><span class="pre">&lt;Enter&gt;</span></code>.
-You should see the following display on your screen:</p>
-<div class="figure" id="id1">
-<img alt="IPython console example" src="../_images/ipython_0.PNG" />
-<p class="caption"><span class="caption-text">IPython console example</span></p>
-</div>
-<p>We can type small pieces of Python code into this console, and then
-simply hit <code class="docutils literal notranslate"><span class="pre">&lt;Enter&gt;</span></code> to have the CPython interpreter execute our code
-immediately within the IPython console!</p>
-<p>Let’s acquaint ourselves with Python’s numbers, strings, and lists. In
-doing so, we will learn about the Python standard library, and how to
-make use of its modules, like the math module. IPython’s autocompletion
-and documentation-display utilities will provide a nice means for
-exploring the library and the functionality built into the different
-types of Python objects. A quick glimpse at Python’s strings and lists
-will hint at the common interface Python provides for working with
-sequences of objects, while highlighting some of the nice features of
-these all-important data types.</p>
+<p>Now that you have the Anaconda distribution of Python installed on your machine, let’s write some simple Python code! We are going to forego writing a full Python script for now, and instead make use of a convenient tool for doing quick code scratchwork. The IPython console was installed as a part of Anaconda; it will allow us to build incrementally off of snippets of code, instead of having to execute an entire script all at once.</p>
+<p>Let’s open an IPython console. Open your terminal if you are a Mac/Linux user, or start <code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code> if you are a Windows user. Now type <code class="docutils literal notranslate"><span class="pre">ipython</span></code> into the console and hit <code class="docutils literal notranslate"><span class="pre">&lt;Enter&gt;</span></code>. You should see the following display on your screen:</p>
+<p><img alt="IPython console example" src="../_images/ipython_0.PNG" /></p>
+<p>We can type small pieces of Python code into this console, and then simply hit <code class="docutils literal notranslate"><span class="pre">&lt;Enter&gt;</span></code> to have the CPython interpreter execute our code immediately within the IPython console!</p>
+<p>Let’s acquaint ourselves with Python’s numbers, strings, and lists. In doing so, we will learn about the Python standard library, and how to make use of its modules, like the math module. IPython’s autocompletion and documentation-display utilities will provide a nice means for exploring the library and the functionality built into the different types of Python objects. A quick glimpse at Python’s strings and lists will hint at the common interface Python provides for working with sequences of
+objects, while highlighting some of the nice features of these all-important data types.</p>
 <div class="section" id="Dabbling-with-Numbers">
 <h2>Dabbling with Numbers<a class="headerlink" href="#Dabbling-with-Numbers" title="Permalink to this headline">¶</a></h2>
-<p>Time to execute some Python code that performs simple arithmetic. Typing
-<code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span></code> into the IPython console and hitting the <code class="docutils literal notranslate"><span class="pre">&lt;ENTER&gt;</span></code> key, you
-should see the following input and output in the console:</p>
+<p>Time to execute some Python code that performs simple arithmetic. Typing <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span></code> into the IPython console and hitting the <code class="docutils literal notranslate"><span class="pre">&lt;ENTER&gt;</span></code> key, you should see the following input and output in the console:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>2 + 3
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -432,35 +429,28 @@ should see the following input and output in the console:</p>
 </pre></div>
 </div>
 </div>
-<p>This console session is persistent, meaning that we can define a
-variable and then reference it in our code later on within this console
-session. Let’s define the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and assign it to the integer
-<code class="docutils literal notranslate"><span class="pre">10</span></code> (please follow along in the IPython console)</p>
+<p>This console session is persistent, meaning that we can define a variable and then reference it in our code later on within this console session. Let’s define the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and assign it to the integer <code class="docutils literal notranslate"><span class="pre">10</span></code> (please follow along in the IPython console)</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>x = 10
 </pre></div>
 </div>
 </div>
-<p>We can check the contents of <code class="docutils literal notranslate"><span class="pre">x</span></code> in this console by simply entering
-<code class="docutils literal notranslate"><span class="pre">x</span></code> in the next line and hitting <code class="docutils literal notranslate"><span class="pre">&lt;ENTER&gt;</span></code>:</p>
+<p>We can check the contents of <code class="docutils literal notranslate"><span class="pre">x</span></code> in this console by simply entering <code class="docutils literal notranslate"><span class="pre">x</span></code> in the next line and hitting <code class="docutils literal notranslate"><span class="pre">&lt;ENTER&gt;</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>x
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -468,21 +458,18 @@ session. Let’s define the variable <code class="docutils literal notranslate">
 </pre></div>
 </div>
 </div>
-<p>Now, let’s use <code class="docutils literal notranslate"><span class="pre">x</span></code> in a quadratic equation <span class="math notranslate nohighlight">\(x^{2} + 2x + 3\)</span>, and
-compute this total.</p>
+<p>Now, let’s use <code class="docutils literal notranslate"><span class="pre">x</span></code> in a quadratic equation <span class="math notranslate nohighlight">\(x^{2} + 2x + 3\)</span>, and compute this total.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>x**2 + 2*x + 3
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -490,50 +477,31 @@ compute this total.</p>
 </pre></div>
 </div>
 </div>
-<p>Python’s “standard library”, the various tools and functions that come
-packaged as part of the core language, includes plenty of familiar
-mathematical functions. As a matter of organization, Python stores these
-mathematical functions away in a module named “math”. To make use of
-this math module, we must import it into our code.</p>
+<p>Python’s “standard library”, the various tools and functions that come packaged as part of the core language, includes plenty of familiar mathematical functions. As a matter of organization, Python stores these mathematical functions away in a module named “math”. To make use of this math module, we must import it into our code.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>import math
 </pre></div>
 </div>
 </div>
-<p>Having imported it, the term <code class="docutils literal notranslate"><span class="pre">math</span></code> now refers to the math module in
-our code. IPython provides a nice way for us to see a list of all the
-functions that are provided by the math module. To utilize this, type
-into the console <code class="docutils literal notranslate"><span class="pre">math.</span></code> (note the trailing period) and then hit
-<code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</span></code>. You should see this list appear:</p>
-<div class="figure" id="id2">
-<img alt="Displaying the contents of the math module" src="../_images/ipython_math.PNG" />
-<p class="caption"><span class="caption-text">Displaying the contents of the math module</span></p>
-</div>
-<p>In general, hitting <code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</span></code> will cue IPython to try to autocomplete
-code for you. This menu displays all the valid things that you could
-type after <code class="docutils literal notranslate"><span class="pre">math.</span></code>. Looking at the functions starting with “s”, we see
-<code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>. This is the square root function. To see autocompletion in
-action, type <code class="docutils literal notranslate"><span class="pre">math.sq</span></code> and then hit <code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</span></code>. You should see the code
-autocomplete to <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code>.</p>
+<p>Having imported it, the term <code class="docutils literal notranslate"><span class="pre">math</span></code> now refers to the math module in our code. IPython provides a nice way for us to see a list of all the functions that are provided by the math module. To utilize this, type into the console <code class="docutils literal notranslate"><span class="pre">math.</span></code> (note the trailing period) and then hit <code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</span></code>. You should see this list appear:</p>
+<p><img alt="Displaying the contents of the math module" src="../_images/ipython_math.PNG" /></p>
+<p>In general, hitting <code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</span></code> will cue IPython to try to autocomplete code for you. This menu displays all the valid things that you could type after <code class="docutils literal notranslate"><span class="pre">math.</span></code>. Looking at the functions starting with “s”, we see <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>. This is the square root function. To see autocompletion in action, type <code class="docutils literal notranslate"><span class="pre">math.sq</span></code> and then hit <code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</span></code>. You should see the code autocomplete to <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code>.</p>
 <p>Let’s use this function to compute <span class="math notranslate nohighlight">\(\sqrt{100}\)</span>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>math.sqrt(100)
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -541,42 +509,29 @@ autocomplete to <code class="docutils literal notranslate"><span class="pre">mat
 </pre></div>
 </div>
 </div>
-<p>You might wonder why the result displayed as <code class="docutils literal notranslate"><span class="pre">10.0</span></code> and not simply as
-<code class="docutils literal notranslate"><span class="pre">10</span></code>; in Module 2 we will see that these are two different <em>types</em> of
-numbers in the Python language. The former is called a floating-point
-number, indicating the presence of its decimal point, whereas the latter
-is an integer. The <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code> function is defined such that it always
-returns its results as floating-point numbers.</p>
-<p>In the case that we want to make frequent use of a certain function from
-the math module, it’d be nice to avoid having to type out the math
-module prefix, <code class="docutils literal notranslate"><span class="pre">math.</span></code>, repeatedly. We can accomplish this by
-importing an individual function from the math module. Let’s import the
-factorial function from the math module.</p>
+<p>You might wonder why the result displayed as <code class="docutils literal notranslate"><span class="pre">10.0</span></code> and not simply as <code class="docutils literal notranslate"><span class="pre">10</span></code>; in Module 2 we will see that these are two different <em>types</em> of numbers in the Python language. The former is called a floating-point number, indicating the presence of its decimal point, whereas the latter is an integer. The <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code> function is defined such that it always returns its results as floating-point numbers.</p>
+<p>In the case that we want to make frequent use of a certain function from the math module, it’d be nice to avoid having to type out the math module prefix, <code class="docutils literal notranslate"><span class="pre">math.</span></code>, repeatedly. We can accomplish this by importing an individual function from the math module. Let’s import the factorial function from the math module.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">factorial</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>from math import factorial
 </pre></div>
 </div>
 </div>
-<p>We can now make use of the <code class="docutils literal notranslate"><span class="pre">factorial</span></code> function in our code. Recall
-that 5-factorial is <span class="math notranslate nohighlight">\(5! = 5\times 4\times 3\times 2\times 1 = 120\)</span></p>
+<p>We can now make use of the <code class="docutils literal notranslate"><span class="pre">factorial</span></code> function in our code. Recall that 5-factorial is <span class="math notranslate nohighlight">\(5! = 5\times 4\times 3\times 2\times 1 = 120\)</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>factorial(5)
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -587,25 +542,19 @@ that 5-factorial is <span class="math notranslate nohighlight">\(5! = 5\times 4\
 </div>
 <div class="section" id="Messing-with-Strings">
 <h2>Messing with Strings<a class="headerlink" href="#Messing-with-Strings" title="Permalink to this headline">¶</a></h2>
-<p>In the context of code, written text is referred to as a string of
-characters, or string for short. Python is an excellent language for
-doing text-processing work as it provides many convenient, efficient
-functions for working with strings.</p>
-<p>To begin, we simply form a string by typing characters between quotation
-marks:</p>
+<p>In the context of code, written text is referred to as a string of characters, or string for short. Python is an excellent language for doing text-processing work as it provides many convenient, efficient functions for working with strings.</p>
+<p>To begin, we simply form a string by typing characters between quotation marks:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="s2">&quot;the cat in the hat&quot;</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&quot;the cat in the hat&quot;
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -615,18 +564,16 @@ marks:</p>
 </div>
 <p>Single quotes also work:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;the dog in the sash&#39;</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&#39;the dog in the sash&#39;
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -634,21 +581,18 @@ marks:</p>
 </pre></div>
 </div>
 </div>
-<p>If you use single quotes to form a string, then that string is able to
-contain the double-quote as a character (and vice versa):</p>
+<p>If you use single quotes to form a string, then that string is able to contain the double-quote as a character (and vice versa):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="s1">&#39;He picked up the phone, &quot;Hello? What do you want?&quot; Bob was a rather impolite dude.&#39;</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&#39;He picked up the phone, &quot;Hello? What do you want?&quot; Bob was a rather impolite dude.&#39;
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -656,21 +600,14 @@ contain the double-quote as a character (and vice versa):</p>
 </pre></div>
 </div>
 </div>
-<p>There are designated special characters that allow us to affect the way
-a string is formatted when it is printed to the string. For example, if
-<code class="docutils literal notranslate"><span class="pre">\n</span></code> ever occurs in a string, it is treated as a single character that
-indicates a line-break. This will only manifest if such a string is fed
-to the built-in <code class="docutils literal notranslate"><span class="pre">print</span></code> function, which informs the computer to print
-text to a user’s screen.</p>
-<p>Let’s create a string that will display as three separate lines, when
-printed to the screen.</p>
+<p>There are designated special characters that allow us to affect the way a string is formatted when it is printed to the string. For example, if <code class="docutils literal notranslate"><span class="pre">\n</span></code> ever occurs in a string, it is treated as a single character that indicates a line-break. This will only manifest if such a string is fed to the built-in <code class="docutils literal notranslate"><span class="pre">print</span></code> function, which informs the computer to print text to a user’s screen.</p>
+<p>Let’s create a string that will display as three separate lines, when printed to the screen.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I like to talk to dogs.</span><span class="se">\n</span><span class="s2">I like to talk to cats.</span><span class="se">\n</span><span class="s2">What&#39;s my deal?&quot;</span><span class="p">)</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>print(&quot;I like to talk to dogs.\nI like to talk to cats.\nWhat&#39;s my deal?&quot;)
 </pre></div>
 </div>
 </div>
@@ -684,34 +621,28 @@ I like to talk to cats.
 What&#39;s my deal?
 </pre></div></div>
 </div>
-<p>Of course, strings are useful beyond merely containing text! Let’s
-explore some ways to manipulate strings. First, we’ll write a string and
-assign it to a variable named <code class="docutils literal notranslate"><span class="pre">sentence</span></code>:</p>
+<p>Of course, strings are useful beyond merely containing text! Let’s explore some ways to manipulate strings. First, we’ll write a string and assign it to a variable named <code class="docutils literal notranslate"><span class="pre">sentence</span></code>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Who would have thought that we were robots all along?&quot;</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>sentence = &quot;Who would have thought that we were robots all along?&quot;
 </pre></div>
 </div>
 </div>
-<p>Let’s see how many characters are in this string by checking the
-“length” of this sequence of characters:</p>
+<p>Let’s see how many characters are in this string by checking the “length” of this sequence of characters:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>len(sentence)
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -719,21 +650,18 @@ assign it to a variable named <code class="docutils literal notranslate"><span c
 </pre></div>
 </div>
 </div>
-<p>We can access the first 4 characters in the string, the last 6
-characters, or a few characters in the middle by “slicing” the string:</p>
+<p>We can access the first 4 characters in the string, the last 6 characters, or a few characters in the middle by “slicing” the string:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sentence</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>sentence[:4]
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -742,18 +670,16 @@ characters, or a few characters in the middle by “slicing” the string:</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sentence</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>sentence[-6:]
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -762,18 +688,16 @@ characters, or a few characters in the middle by “slicing” the string:</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sentence</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">22</span><span class="p">]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>sentence[5:22]
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -781,21 +705,18 @@ characters, or a few characters in the middle by “slicing” the string:</p>
 </pre></div>
 </div>
 </div>
-<p>We can also check to see if some other string is contained within our
-string. Is the string <code class="docutils literal notranslate"><span class="pre">&quot;robot&quot;</span></code> contained within <code class="docutils literal notranslate"><span class="pre">sentence</span></code>?</p>
+<p>We can also check to see if some other string is contained within our string. Is the string <code class="docutils literal notranslate"><span class="pre">&quot;robot&quot;</span></code> contained within <code class="docutils literal notranslate"><span class="pre">sentence</span></code>?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="s2">&quot;robot&quot;</span> <span class="ow">in</span> <span class="n">sentence</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&quot;robot&quot; in sentence
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -803,29 +724,20 @@ string. Is the string <code class="docutils literal notranslate"><span class="pr
 </pre></div>
 </div>
 </div>
-<p>As a quick way to check out the built-in functions that strings have
-available to them, we can make use of IPython’s autocompletion feature
-once again. Type <code class="docutils literal notranslate"><span class="pre">sentence.</span></code> (including the trailing period) and then
-hit <code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</span></code>. A menu of functions should appear as so:</p>
-<div class="figure" id="id3">
-<img alt="Built-in functions for a string" src="../_images/ipython_string.PNG" />
-<p class="caption"><span class="caption-text">Built-in functions for a string</span></p>
-</div>
-<p>Let’s use the count function to tally the number of lowercase w’s in
-<code class="docutils literal notranslate"><span class="pre">sentence</span></code></p>
+<p>As a quick way to check out the built-in functions that strings have available to them, we can make use of IPython’s autocompletion feature once again. Type <code class="docutils literal notranslate"><span class="pre">sentence.</span></code> (including the trailing period) and then hit <code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</span></code>. A menu of functions should appear as so:</p>
+<p><img alt="Built-in functions for a string" src="../_images/ipython_string.PNG" /></p>
+<p>Let’s use the count function to tally the number of lowercase w’s in <code class="docutils literal notranslate"><span class="pre">sentence</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sentence</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>sentence.count(&#39;w&#39;)
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -833,28 +745,20 @@ hit <code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</sp
 </pre></div>
 </div>
 </div>
-<p>Let’s see what the replace function does. IPython provides a great
-utility for looking up the documentation for a function by simply
-putting two question marks after the function name. For example:</p>
-<div class="figure" id="id4">
-<img alt="Looking up documentation for a function" src="../_images/ipython_doc1.PNG" />
-<p class="caption"><span class="caption-text">Looking up documentation for a function</span></p>
-</div>
-<p>Putting our newfound understanding of the string’s replace function,
-let’s replace “robot” with “computer”:</p>
+<p>Let’s see what the replace function does. IPython provides a great utility for looking up the documentation for a function by simply putting two question marks after the function name. For example:</p>
+<p><img alt="Looking up documentation for a function" src="../_images/ipython_doc1.PNG" /></p>
+<p>Putting our newfound understanding of the string’s replace function, let’s replace “robot” with “computer”:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sentence</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;robot&quot;</span><span class="p">,</span> <span class="s2">&quot;computer&quot;</span><span class="p">)</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>sentence.replace(&quot;robot&quot;, &quot;computer&quot;)
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -865,22 +769,18 @@ let’s replace “robot” with “computer”:</p>
 </div>
 <div class="section" id="Playing-with-Lists">
 <h2>Playing with Lists<a class="headerlink" href="#Playing-with-Lists" title="Permalink to this headline">¶</a></h2>
-<p>A list is one of several types of containers that are built into
-Python’s standard library. It can hold a sequence of Python objects. We
-can create a list of numbers:</p>
+<p>A list is one of several types of containers that are built into Python’s standard library. It can hold a sequence of Python objects. We can create a list of numbers:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>[-1, 1/3, 10*2, 7-1]
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -888,21 +788,18 @@ can create a list of numbers:</p>
 </pre></div>
 </div>
 </div>
-<p>A list can contain any type of Python object; it can store a mix of
-numbers, strings, other lists, and much more!</p>
+<p>A list can contain any type of Python object; it can store a mix of numbers, strings, other lists, and much more!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;apple and orange&quot;</span><span class="p">]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>[1, 2, &quot;a&quot;, 0.5, &quot;apple and orange&quot;]
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -912,18 +809,16 @@ numbers, strings, other lists, and much more!</p>
 </div>
 <p>You can join lists together, which is known as concatenation.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>[1, 2, 3] + [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -931,33 +826,27 @@ numbers, strings, other lists, and much more!</p>
 </pre></div>
 </div>
 </div>
-<p>Like a string, a list is sequential in nature and we can access the
-items in a list by specifying its position in the sequence. This is
-known as “indexing” the list; the index of the first item in a sequence
-is always 0.</p>
+<p>Like a string, a list is sequential in nature and we can access the items in a list by specifying its position in the sequence. This is known as “indexing” the list; the index of the first item in a sequence is always 0.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list = [10, 20, 30, 40, 50, 60]
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list[0]
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -966,18 +855,16 @@ is always 0.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list[1]
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -985,21 +872,18 @@ is always 0.</p>
 </pre></div>
 </div>
 </div>
-<p>Negative integers can be used to index relative to the end (right-side)
-of the list.</p>
+<p>Negative integers can be used to index relative to the end (right-side) of the list.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list[-1]
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1009,18 +893,16 @@ of the list.</p>
 </div>
 <p>You can change an entry in a list by assigning it to a new value.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">-</span><span class="mi">5</span> <span class="ow">in</span> <span class="n">my_list</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>-5 in my_list
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1029,28 +911,25 @@ of the list.</p>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list[1] = -5
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1059,18 +938,16 @@ of the list.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">-</span><span class="mi">5</span> <span class="ow">in</span> <span class="n">my_list</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>-5 in my_list
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1078,21 +955,18 @@ of the list.</p>
 </pre></div>
 </div>
 </div>
-<p>We can also access multiple items in a list at once by slicing the list,
-like we did with the string.</p>
+<p>We can also access multiple items in a list at once by slicing the list, like we did with the string.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list[:3]
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1102,28 +976,25 @@ like we did with the string.</p>
 </div>
 <p>This slice can be used to update the first three entries of the list</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list[:3] = &quot;abc&quot;
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1131,31 +1002,27 @@ like we did with the string.</p>
 </pre></div>
 </div>
 </div>
-<p>To wrap up this quick demo, let’s append an new entry to the end of this
-list.</p>
+<p>To wrap up this quick demo, let’s append an new entry to the end of this list.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;moo&quot;</span><span class="p">)</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list.append(&quot;moo&quot;)
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_list</span>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>my_list
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1168,9 +1035,7 @@ list.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -1179,7 +1044,7 @@ list.</p>
         <a href="Jupyter_Notebooks.html" class="btn btn-neutral float-right" title="Jupyter Notebooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Installing_Python.html" class="btn btn-neutral" title="Installing Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Installing_Python.html" class="btn btn-neutral float-left" title="Installing Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1188,11 +1053,11 @@ list.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1205,39 +1070,15 @@ list.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

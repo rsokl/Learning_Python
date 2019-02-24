@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Object Oriented Programming &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Object Oriented Programming &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,42 +17,39 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -66,7 +63,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -111,7 +108,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -119,9 +116,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -150,7 +148,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module4_OOP/ObjectOrientedProgramming.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module4_OOP/ObjectOrientedProgramming.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -165,6 +163,204 @@
             
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -178,40 +374,22 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Object-Oriented-Programming">
 <h1>Object Oriented Programming<a class="headerlink" href="#Object-Oriented-Programming" title="Permalink to this headline">¶</a></h1>
-<p>Up until now, we’ve written functions that encapsulate code for easy
-re-use. We can pass data to our functions, which may operate on them and
-return results. However, we have been limited in the types of data we
-can work with. This section introduces the concept of object-oriented
-programming (often referred to as OOP).</p>
-<p>An <em>object</em> bundles together data and functions. For example, a Python
-<a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">List</a> is an
-object. It contains data (its elements) and functions (such as <code class="docutils literal notranslate"><span class="pre">sort</span></code>,
-<code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">count</span></code>).</p>
+<p>Up until now, we’ve written functions that encapsulate code for easy re-use. We can pass data to our functions, which may operate on them and return results. However, we have been limited in the types of data we can work with. This section introduces the concept of object-oriented programming (often referred to as OOP).</p>
+<p>An <em>object</em> bundles together data and functions. For example, a Python <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">List</a> is an object. It contains data (its elements) and functions (such as <code class="docutils literal notranslate"><span class="pre">sort</span></code>, <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">count</span></code>).</p>
 <div class="section" id="Defining-Objects">
 <h2>Defining Objects<a class="headerlink" href="#Defining-Objects" title="Permalink to this headline">¶</a></h2>
-<p>When we define our own objects, we will write a <em>class</em> containing data
-and functions. Let’s start with a simple example:</p>
+<p>When we define our own objects, we will write a <em>class</em> containing data and functions. Let’s start with a simple example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
@@ -221,20 +399,11 @@ and functions. Let’s start with a simple example:</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
 </pre></div>
 </div>
-<p>We’ve defined a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> object, which has two pieces of data that
-it keeps track of: <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>. It also has a function
-<code class="docutils literal notranslate"><span class="pre">get_area</span></code> that we can invoke, in much the same way we would create a
-list and call its <code class="docutils literal notranslate"><span class="pre">append</span></code> function. We can create a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> in
-much the same way we might create a list:</p>
+<p>We’ve defined a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> object, which has two pieces of data that it keeps track of: <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>. It also has a function <code class="docutils literal notranslate"><span class="pre">get_area</span></code> that we can invoke, in much the same way we would create a list and call its <code class="docutils literal notranslate"><span class="pre">append</span></code> function. We can create a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> in much the same way we might create a list:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function is a special function that is executed when we
-create an object. Its purpose is to perform any <em>initialization</em> (hence
-its name) that ought to occur when the object is being created. In our
-case, we initialize the width and height of our <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. Note that
-a parameter of our <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is <code class="docutils literal notranslate"><span class="pre">self</span></code>, which refers to the
-object we are creating.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function is a special function that is executed when we create an object. Its purpose is to perform any <em>initialization</em> (hence its name) that ought to occur when the object is being created. In our case, we initialize the width and height of our <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. Note that a parameter of our <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is <code class="docutils literal notranslate"><span class="pre">self</span></code>, which refers to the object we are creating.</p>
 <p>We can call functions that our <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> has associated with it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rect</span><span class="o">.</span><span class="n">get_area</span><span class="p">()</span>
 <span class="go">6</span>
@@ -243,9 +412,7 @@ object we are creating.</p>
 </div>
 <div class="section" id="Inheritance">
 <h2>Inheritance<a class="headerlink" href="#Inheritance" title="Permalink to this headline">¶</a></h2>
-<p>Working with objects provides powerful abstractions and an incredible
-amount of code re-use. For example, let’s implement a <code class="docutils literal notranslate"><span class="pre">Square</span></code> class.
-One way to write <code class="docutils literal notranslate"><span class="pre">Square</span></code> would be the following:</p>
+<p>Working with objects provides powerful abstractions and an incredible amount of code re-use. For example, let’s implement a <code class="docutils literal notranslate"><span class="pre">Square</span></code> class. One way to write <code class="docutils literal notranslate"><span class="pre">Square</span></code> would be the following:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Square</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">=</span> <span class="n">side</span>
@@ -254,18 +421,13 @@ One way to write <code class="docutils literal notranslate"><span class="pre">Sq
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
-<p>However, we can take advantage of the code we’ve already written for
-<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. We know that a square is a rectangle. Inheritance exactly
-follows this <em>is a</em> relationship. We can thus write our <code class="docutils literal notranslate"><span class="pre">Square</span></code> class
-to <em>inherit from</em> our <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class:</p>
+<p>However, we can take advantage of the code we’ve already written for <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. We know that a square is a rectangle. Inheritance exactly follows this <em>is a</em> relationship. We can thus write our <code class="docutils literal notranslate"><span class="pre">Square</span></code> class to <em>inherit from</em> our <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">side</span><span class="p">,</span> <span class="n">side</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here we’re saying that a <code class="docutils literal notranslate"><span class="pre">Square</span></code> <em>is a</em> <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. This means
-that <code class="docutils literal notranslate"><span class="pre">Square</span></code> <em>inherits</em> all of the data and functions inside
-<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. Let’s make sure:</p>
+<p>Here we’re saying that a <code class="docutils literal notranslate"><span class="pre">Square</span></code> <em>is a</em> <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. This means that <code class="docutils literal notranslate"><span class="pre">Square</span></code> <em>inherits</em> all of the data and functions inside <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. Let’s make sure:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_square</span> <span class="o">=</span> <span class="n">Square</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">my_square</span><span class="o">.</span><span class="n">get_area</span><span class="p">()</span>
 <span class="go">4</span>
@@ -274,14 +436,8 @@ that <code class="docutils literal notranslate"><span class="pre">Square</span><
 <span class="go">2</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">super()</span></code> call refers to <code class="docutils literal notranslate"><span class="pre">Square</span></code>’s <em>super</em> class, or <em>parent</em>
-class, which is <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. We’re calling the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method of
-<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, and passing it <code class="docutils literal notranslate"><span class="pre">side</span></code> for both <code class="docutils literal notranslate"><span class="pre">width</span></code> and
-<code class="docutils literal notranslate"><span class="pre">height</span></code>.</p>
-<p>In this way, we’re able to re-use all the code that we already wrote for
-<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> so that we don’t have to re-implement our <code class="docutils literal notranslate"><span class="pre">get_area</span></code>
-function. We can also show that our square is a rectangle, but our
-rectangle is not a square:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">super()</span></code> call refers to <code class="docutils literal notranslate"><span class="pre">Square</span></code>’s <em>super</em> class, or <em>parent</em> class, which is <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. We’re calling the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method of <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, and passing it <code class="docutils literal notranslate"><span class="pre">side</span></code> for both <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>.</p>
+<p>In this way, we’re able to re-use all the code that we already wrote for <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> so that we don’t have to re-implement our <code class="docutils literal notranslate"><span class="pre">get_area</span></code> function. We can also show that our square is a rectangle, but our rectangle is not a square:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">my_square</span><span class="p">,</span> <span class="n">Square</span><span class="p">)</span>
 <span class="go">True</span>
 
@@ -298,8 +454,7 @@ rectangle is not a square:</p>
 </div>
 <div class="section" id="Operator-Overloading">
 <h2>Operator Overloading<a class="headerlink" href="#Operator-Overloading" title="Permalink to this headline">¶</a></h2>
-<p>Recall a few operators in Python: <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, and so on.
-As you know, these operators behave differently depending on context:</p>
+<p>Recall a few operators in Python: <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, and so on. As you know, these operators behave differently depending on context:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="go">5</span>
 
@@ -307,113 +462,101 @@ As you know, these operators behave differently depending on context:</p>
 <span class="go">&#39;ab&#39;</span>
 </pre></div>
 </div>
-<p>This is because the string and integer classes have <em>overloaded</em> these
-operators. Observe what happens when we try to use the subtraction
-operator on a string:</p>
+<p>This is because the string and integer classes have <em>overloaded</em> these operators. Observe what happens when we try to use the subtraction operator on a string:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;a&#39;</span> <span class="o">-</span> <span class="s1">&#39;b&#39;</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">TypeError</span>: <span class="n">unsupported operand type(s) for -: &#39;str&#39; and &#39;str&#39;</span>
 </pre></div>
 </div>
-<p>What’s really going on here is the subtraction operator is a <em>function</em>
-that takes two parameters. The string class does not implement the
-subtraction function, so the operand type <code class="docutils literal notranslate"><span class="pre">str</span></code> is unrecognized. You
-can think of what’s going on under the hood as this:</p>
+<p>What’s really going on here is the subtraction operator is a <em>function</em> that takes two parameters. The string class does not implement the subtraction function, so the operand type <code class="docutils literal notranslate"><span class="pre">str</span></code> is unrecognized. You can think of what’s going on under the hood as this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">=&gt;</span> <span class="n">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Implementing an operator inside your own class is called <em>overloading</em>
-that operator. Here we will define a <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class that keeps track
-of rational numbers. We’ll overload several common operators so we can
-perform common functions on our <code class="docutils literal notranslate"><span class="pre">Rational</span></code>s.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; Greatest Common denom (GCD)</span>
+<p>Implementing an operator inside your own class is called <em>overloading</em> that operator. Here we will define a <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class that keeps track of rational numbers. We’ll overload several common operators so we can perform common functions on our <code class="docutils literal notranslate"><span class="pre">Rational</span></code>s.</p>
+<p>```python def gcd(a, b): ’’’ Greatest Common denom (GCD)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Parameters
+----------
+a : Integral
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    a : Integral</span>
+b : Integral
 
-<span class="sd">    b : Integral</span>
+Returns
+-------
+int
+    The greatest common denom of `a` and `b`.
+&#39;&#39;&#39;
+if a == 0:
+    return b
+if b == 0:
+    return a
+if a == 1:
+    return 1
+if b == 1:
+    return 1
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    int</span>
-<span class="sd">        The greatest common denom of `a` and `b`.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">b</span>
-    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">a</span>
-    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-
-    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="k">else</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">%</span> <span class="n">a</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">Rational</span><span class="p">:</span>
-    <span class="sd">&#39;&#39;&#39; A rational number (a/b, where a and b are integers) &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">denom</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">denom</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Cannot have zero in the denom&quot;</span>
-
-        <span class="k">if</span> <span class="n">denom</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">num</span> <span class="o">=</span> <span class="o">-</span><span class="n">num</span>
-            <span class="n">denom</span> <span class="o">=</span> <span class="o">-</span><span class="n">denom</span>
-
-        <span class="n">factor</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">//</span> <span class="n">factor</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">=</span> <span class="n">denom</span> <span class="o">//</span> <span class="n">factor</span>
-
-
-    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `+` operator for `self` on the left &#39;&#39;&#39;</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
-        <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
-        <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `+` operator for `self` on the right &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `-` operator &#39;&#39;&#39;</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
-        <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
-        <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `-` operator when `self` is on the right&#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span> <span class="o">+</span> <span class="n">other</span>
-
-    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `&lt;` operator &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
-
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `==` operator &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `str()` operator; useful for printing &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="s1">&#39;{} / {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the repr, which is used in the console:</span>
-<span class="sd">        &gt;&gt;&gt; rat = Rational(1, 2)</span>
-<span class="sd">        &gt;&gt;&gt; rat</span>
-<span class="sd">        Rational(1, 2)</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="s1">&#39;Rational({}, {})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span>
+if a &gt; 0 and b &gt; 0:
+    return gcd(b, a % b) if a &gt;= b else gcd(a, b % a)
+if a &lt; 0 and b &lt; 0:
+    return gcd(-a, -b)
+if a &lt; b:
+    return gcd(-a, b)
+return gcd(a, -b)
 </pre></div>
 </div>
+<p>class Rational: ’’‘A rational number (a/b, where a and b are integers)’’’ def <strong>init</strong>(self, num=0, denom=1): assert denom != 0, “Cannot have zero in the denom”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">denom</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="o">-</span><span class="n">num</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="o">-</span><span class="n">denom</span>
+
+<span class="n">factor</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">//</span> <span class="n">factor</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">=</span> <span class="n">denom</span> <span class="o">//</span> <span class="n">factor</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `+` operator for `self` on the left &#39;&#39;&#39;</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
+    <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `+` operator for `self` on the right &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `-` operator &#39;&#39;&#39;</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
+    <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `-` operator when `self` is on the right&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span> <span class="o">+</span> <span class="n">other</span>
+
+<span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `&lt;` operator &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
+
+<span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `==` operator &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
+
+<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `str()` operator; useful for printing &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> / </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the repr, which is used in the console:</span>
+<span class="sd">    &gt;&gt;&gt; rat = Rational(1, 2)</span>
+<span class="sd">    &gt;&gt;&gt; rat</span>
+<span class="sd">    Rational(1, 2)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;Rational(</span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>```</p>
 <p>We can now create <code class="docutils literal notranslate"><span class="pre">Rational</span></code>s and operate on them:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -424,49 +567,31 @@ perform common functions on our <code class="docutils literal notranslate"><span
 <span class="go">-1 / 4</span>
 </pre></div>
 </div>
-<p>We’ll take some time now to walk through some of the details behind what
-we implemented. By now, the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function should look pretty
-familiar to you. A <code class="docutils literal notranslate"><span class="pre">Rational</span></code> object can take 0 parameters (which
-gives you the <code class="docutils literal notranslate"><span class="pre">Rational</span></code> <span class="math notranslate nohighlight">\(\frac{0}{1}\)</span>), 1 parameter (which
-gives you <span class="math notranslate nohighlight">\(\frac{a}{1}\)</span>), or 2 parameters (which gives you
-<span class="math notranslate nohighlight">\(\frac{a}{b}\)</span>). We’ve overloaded several common operators:</p>
+<p>We’ll take some time now to walk through some of the details behind what we implemented. By now, the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function should look pretty familiar to you. A <code class="docutils literal notranslate"><span class="pre">Rational</span></code> object can take 0 parameters (which gives you the <code class="docutils literal notranslate"><span class="pre">Rational</span></code> <span class="math notranslate nohighlight">\(\frac{0}{1}\)</span>), 1 parameter (which gives you <span class="math notranslate nohighlight">\(\frac{a}{1}\)</span>), or 2 parameters (which gives you <span class="math notranslate nohighlight">\(\frac{a}{b}\)</span>). We’ve overloaded several common operators:</p>
 <div class="section" id="add">
 <h3><strong>add</strong><a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h3>
-<p>By overloading the <code class="docutils literal notranslate"><span class="pre">__add__</span></code> function, we allow the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator to
-be used with <code class="docutils literal notranslate"><span class="pre">Rational</span></code>s. For example, we can add two
-<code class="docutils literal notranslate"><span class="pre">Rational</span></code>s together:</p>
+<p>By overloading the <code class="docutils literal notranslate"><span class="pre">__add__</span></code> function, we allow the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator to be used with <code class="docutils literal notranslate"><span class="pre">Rational</span></code>s. For example, we can add two <code class="docutils literal notranslate"><span class="pre">Rational</span></code>s together:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Rational</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="go">Rational(51, 14)</span>
 </pre></div>
 </div>
 <div class="section" id="radd">
 <h4><strong>radd</strong><a class="headerlink" href="#radd" title="Permalink to this headline">¶</a></h4>
-<p>This may look a little strage at first; especially when you see that
-this function just calls <code class="docutils literal notranslate"><span class="pre">__add__</span></code>. Under the hood, our <code class="docutils literal notranslate"><span class="pre">__add__</span></code>
-function call really looks like this:</p>
+<p>This may look a little strage at first; especially when you see that this function just calls <code class="docutils literal notranslate"><span class="pre">__add__</span></code>. Under the hood, our <code class="docutils literal notranslate"><span class="pre">__add__</span></code> function call really looks like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r1</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r2</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r1</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>  <span class="c1"># same as r1 + r2</span>
 <span class="go">Rational(11, 15)</span>
 </pre></div>
 </div>
-<p>That call is made because <code class="docutils literal notranslate"><span class="pre">r1</span></code> appears before the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator. In
-some cases, the operand on the left might not have a <code class="docutils literal notranslate"><span class="pre">+</span></code> operator
-defined that is compatible with the type of operand on the right:</p>
+<p>That call is made because <code class="docutils literal notranslate"><span class="pre">r1</span></code> appears before the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator. In some cases, the operand on the left might not have a <code class="docutils literal notranslate"><span class="pre">+</span></code> operator defined that is compatible with the type of operand on the right:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r1</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span>
 <span class="go">NotImplemented</span>
 </pre></div>
 </div>
-<p>Now, an <code class="docutils literal notranslate"><span class="pre">int</span></code> doesn’t know anything about our <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class.
-Python is unable to resolve the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator in that scenario.
-However, it will then look to see whether our <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class has the
-<code class="docutils literal notranslate"><span class="pre">__radd__</span></code> function implemented, which means “add on the right” and is
-called when our object is on the right of the <code class="docutils literal notranslate"><span class="pre">+</span></code>. Now, our
-<code class="docutils literal notranslate"><span class="pre">Rational</span></code> class doesn’t have an <code class="docutils literal notranslate"><span class="pre">__radd__</span></code> function that works with
-an <code class="docutils literal notranslate"><span class="pre">int</span></code> so unfortunately this won’t work either. However, we can
-still observe that this is what’s happening by examining the error
-message:</p>
+<p>Now, an <code class="docutils literal notranslate"><span class="pre">int</span></code> doesn’t know anything about our <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class. Python is unable to resolve the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator in that scenario. However, it will then look to see whether our <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class has the <code class="docutils literal notranslate"><span class="pre">__radd__</span></code> function implemented, which means “add on the right” and is called when our object is on the right of the <code class="docutils literal notranslate"><span class="pre">+</span></code>. Now, our <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class doesn’t have an <code class="docutils literal notranslate"><span class="pre">__radd__</span></code> function that works with an <code class="docutils literal notranslate"><span class="pre">int</span></code> so unfortunately this won’t work either. However, we can still observe that
+this is what’s happening by examining the error message:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="go">AttributeError: &#39;int&#39; object has no attribute &#39;denom&#39;</span>
 </pre></div>
@@ -475,14 +600,8 @@ message:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
 </pre></div>
 </div>
-<p>in our <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class. Python unsuccessfully tries to resolve the
-<code class="docutils literal notranslate"><span class="pre">int</span></code> class’s <code class="docutils literal notranslate"><span class="pre">__add__</span></code> operator, then attempts to use our
-<code class="docutils literal notranslate"><span class="pre">Rational</span></code>’s <code class="docutils literal notranslate"><span class="pre">__radd__</span></code>.</p>
-<p>Since addition is commutative, we can simply call the <code class="docutils literal notranslate"><span class="pre">__add__</span></code>
-function from <code class="docutils literal notranslate"><span class="pre">__radd__</span></code> and things work like we expect them to.
-Notice that our <code class="docutils literal notranslate"><span class="pre">__rsub__</span></code> implementation is different from our
-<code class="docutils literal notranslate"><span class="pre">__sub__</span></code> implementation, since subtraction is not commutative. We can
-observe that these give different results, as they should:</p>
+<p>in our <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class. Python unsuccessfully tries to resolve the <code class="docutils literal notranslate"><span class="pre">int</span></code> class’s <code class="docutils literal notranslate"><span class="pre">__add__</span></code> operator, then attempts to use our <code class="docutils literal notranslate"><span class="pre">Rational</span></code>’s <code class="docutils literal notranslate"><span class="pre">__radd__</span></code>.</p>
+<p>Since addition is commutative, we can simply call the <code class="docutils literal notranslate"><span class="pre">__add__</span></code> function from <code class="docutils literal notranslate"><span class="pre">__radd__</span></code> and things work like we expect them to. Notice that our <code class="docutils literal notranslate"><span class="pre">__rsub__</span></code> implementation is different from our <code class="docutils literal notranslate"><span class="pre">__sub__</span></code> implementation, since subtraction is not commutative. We can observe that these give different results, as they should:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="go">Rational(2, 3)</span>
 
@@ -496,12 +615,10 @@ observe that these give different results, as they should:</p>
 <span class="go">Raitonal(-2, 3)</span>
 </pre></div>
 </div>
-<p>For an exhaustive list of available operators, see <a class="reference external" href="https://docs.python.org/3/library/operator.html">the
-documentation</a></p>
+<p>For an exhaustive list of available operators, see <a class="reference external" href="https://docs.python.org/3/library/operator.html">the documentation</a></p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Operator Overloading</strong></p>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">__add__</span></code> and <code class="docutils literal notranslate"><span class="pre">__sub__</span></code> implementations as a base,
-implement the operators:</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Operator Overloading</strong></p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">__add__</span></code> and <code class="docutils literal notranslate"><span class="pre">__sub__</span></code> implementations as a base, implement the operators:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">*</span></code> (<code class="docutils literal notranslate"><span class="pre">__mul__</span></code>)</li>
 <li><code class="docutils literal notranslate"><span class="pre">/</span></code> (<code class="docutils literal notranslate"><span class="pre">__truediv__</span></code>)</li>
@@ -511,132 +628,136 @@ implement the operators:</p>
 <li><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> (<code class="docutils literal notranslate"><span class="pre">__gt__</span></code>)</li>
 <li><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> (<code class="docutils literal notranslate"><span class="pre">__ge__</span></code>)</li>
 </ul>
-<p class="last">for the <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class.</p>
+<p>for the <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class.</p>
 </div>
 </div>
 <div class="section" id="Reading-Comprehension-Solution">
 <h4>Reading Comprehension Solution<a class="headerlink" href="#Reading-Comprehension-Solution" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rational</span><span class="p">:</span>
-    <span class="sd">&#39;&#39;&#39; A rational number (a/b, where a and b are integers) &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">denom</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">denom</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Cannot have zero in the denom&quot;</span>
+<p>```python class Rational: ’’‘A rational number (a/b, where a and b are integers)’’’ def <strong>init</strong>(self, num=0, denom=1): assert denom != 0, “Cannot have zero in the denom”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">denom</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="o">-</span><span class="n">num</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="o">-</span><span class="n">demoninator</span>
 
-        <span class="k">if</span> <span class="n">denom</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">num</span> <span class="o">=</span> <span class="o">-</span><span class="n">num</span>
-            <span class="n">denom</span> <span class="o">=</span> <span class="o">-</span><span class="n">demoninator</span>
+<span class="n">factor</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-        <span class="n">factor</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">//</span> <span class="n">factor</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">=</span> <span class="n">denom</span> <span class="o">//</span> <span class="n">factor</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `+` operator</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">//</span> <span class="n">factor</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">=</span> <span class="n">denom</span> <span class="o">//</span> <span class="n">factor</span>
+<span class="sd">    Note that this works with non-Rationals if `self` is on the left, as in:</span>
+<span class="sd">        &gt;&gt;&gt; Rational(1, 3) + 1</span>
+<span class="sd">        Rational(4, 3)</span>
+<span class="sd">    but does not with `self` on the right:</span>
+<span class="sd">        &gt;&gt;&gt; 1 + Rational(1, 3)</span>
+<span class="sd">        # error!</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
+    <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
+<span class="k">def</span> <span class="nf">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `+` operator</span>
 
-    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `+` operator</span>
+<span class="sd">    This works with non-Rationals for `self` on the right:</span>
+<span class="sd">        &gt;&gt;&gt; 1 + Rational(1, 2)</span>
+<span class="sd">        Rational(3, 2)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-<span class="sd">        Note that this works with non-Rationals if `self` is on the left, as in:</span>
-<span class="sd">            &gt;&gt;&gt; Rational(1, 3) + 1</span>
-<span class="sd">            Rational(4, 3)</span>
-<span class="sd">        but does not with `self` on the right:</span>
-<span class="sd">            &gt;&gt;&gt; 1 + Rational(1, 3)</span>
-<span class="sd">            # error!</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
-        <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
-        <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `-` operator &#39;&#39;&#39;</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
+    <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `+` operator</span>
+<span class="k">def</span> <span class="nf">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `-` operator when `self` is on the right&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span> <span class="o">+</span> <span class="n">other</span>
 
-<span class="sd">        This works with non-Rationals for `self` on the right:</span>
-<span class="sd">            &gt;&gt;&gt; 1 + Rational(1, 2)</span>
-<span class="sd">            Rational(3, 2)</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `*` operator &#39;&#39;&#39;</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
+    <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `-` operator &#39;&#39;&#39;</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
-        <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
-        <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `*` operator for `self` on the right &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `-` operator when `self` is on the right&#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span> <span class="o">+</span> <span class="n">other</span>
+<span class="k">def</span> <span class="nf">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `/` operator &#39;&#39;&#39;</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
+    <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `*` operator &#39;&#39;&#39;</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
-        <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
-        <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">__rtruediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `/` overator for `self` on the right &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span> <span class="o">*</span> <span class="n">other</span>
 
-    <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `*` operator for `self` on the right &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `**` operator &#39;&#39;&#39;</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">**</span> <span class="n">power</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">**</span> <span class="n">power</span>
+    <span class="k">return</span> <span class="n">Rationa</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `/` operator &#39;&#39;&#39;</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
-        <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
-        <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `&lt;` operator &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
 
-    <span class="k">def</span> <span class="fm">__rtruediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `/` overator for `self` on the right &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span> <span class="o">*</span> <span class="n">other</span>
+<span class="k">def</span> <span class="nf">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `&lt;=` operator &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
 
-    <span class="k">def</span> <span class="fm">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `**` operator &#39;&#39;&#39;</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">**</span> <span class="n">power</span>
-        <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">**</span> <span class="n">power</span>
-        <span class="k">return</span> <span class="n">Rationa</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `==` operator &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
 
-    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `&lt;` operator &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
+<span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `!=` operator &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span>
 
-    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `&lt;=` operator &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
+<span class="k">def</span> <span class="nf">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `&gt;` operator &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
 
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `==` operator &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
+<span class="k">def</span> <span class="nf">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `&gt;=` operator &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
 
-    <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `!=` operator &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span>
+<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the `str()` operator; useful for printing &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> / </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `&gt;` operator &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
-
-    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `&gt;=` operator &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the `str()` operator; useful for printing &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="s1">&#39;{} / {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; Overload the repr, which is used in the console:</span>
-<span class="sd">        &gt;&gt;&gt; rat = Rational(1, 2)</span>
-<span class="sd">        &gt;&gt;&gt; rat</span>
-<span class="sd">        Rational(1, 2)</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="s1">&#39;Rational({}, {})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Overload the repr, which is used in the console:</span>
+<span class="sd">    &gt;&gt;&gt; rat = Rational(1, 2)</span>
+<span class="sd">    &gt;&gt;&gt; rat</span>
+<span class="sd">    Rational(1, 2)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;Rational(</span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>```</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
+</div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -645,11 +766,11 @@ implement the operators:</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -662,39 +783,15 @@ implement the operators:</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

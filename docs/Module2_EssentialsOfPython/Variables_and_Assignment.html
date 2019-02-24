@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Variables &amp; Assignment &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Variables &amp; Assignment &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
-        <link rel="next" title="Introducing Control Flow" href="Introduction.html"/>
-        <link rel="prev" title="Sequence Types" href="SequenceTypes.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introducing Control Flow" href="Introduction.html" />
+    <link rel="prev" title="Sequence Types" href="SequenceTypes.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -139,7 +135,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -147,9 +143,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -180,7 +177,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module2_EssentialsOfPython/Variables_and_Assignment.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module2_EssentialsOfPython/Variables_and_Assignment.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -208,54 +205,28 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Variables-&amp;-Assignment">
 <h1>Variables &amp; Assignment<a class="headerlink" href="#Variables-&-Assignment" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
-<p class="last">There are reading-comprehension exercises included throughout the text.
-These are meant to help you put your reading to practice. Solutions for
-the exercises are included at the bottom of this page.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p>There are reading-comprehension exercises included throughout the text. These are meant to help you put your reading to practice. Solutions for the exercises are included at the bottom of this page.</p>
 </div>
-<p>Variables permit us to write code that is flexible and amendable to
-repurpose. Suppose we want to write code that logs a student’s grade on
-an exam. The logic behind this process should not depend on whether we
-are logging Brian’s score of 92% versus Ashley’s score of 94%. As such,
-we can utilize variables, say <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">grade</span></code>, to serve as
-placeholders for this information. In this subsection, we will
-demonstrate how to define variables in Python.</p>
-<p>In Python, the <code class="docutils literal notranslate"><span class="pre">=</span></code> symbol represents the “assignment” operator. The
-variable goes to the left of <code class="docutils literal notranslate"><span class="pre">=</span></code>, and the object that is being
-assigned to the variable goes to the right:</p>
+<p>Variables permit us to write code that is flexible and amendable to repurpose. Suppose we want to write code that logs a student’s grade on an exam. The logic behind this process should not depend on whether we are logging Brian’s score of 92% versus Ashley’s score of 94%. As such, we can utilize variables, say <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">grade</span></code>, to serve as placeholders for this information. In this subsection, we will demonstrate how to define variables in Python.</p>
+<p>In Python, the <code class="docutils literal notranslate"><span class="pre">=</span></code> symbol represents the “assignment” operator. The variable goes to the left of <code class="docutils literal notranslate"><span class="pre">=</span></code>, and the object that is being assigned to the variable goes to the right:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>  <span class="c1"># the variable `name` is being assigned the string &quot;Brian&quot;</span>
 <span class="n">grade</span> <span class="o">=</span> <span class="mi">92</span>      <span class="c1"># the variable `grade` is being assigned the integer 92</span>
 </pre></div>
 </div>
-<p>Attempting to reverse the assignment order (e.g. <code class="docutils literal notranslate"><span class="pre">92</span> <span class="pre">=</span> <span class="pre">name</span></code>) will
-result in a syntax error. When a variable is assigned an object (like a
-number or a string), it is common to say that the variable <strong>is a
-reference to</strong> that object. For example, the variable <code class="docutils literal notranslate"><span class="pre">name</span></code>
-references the string <code class="docutils literal notranslate"><span class="pre">&quot;Brian&quot;</span></code>. This means that, once a variable is
-assigned an object, it can be used elsewhere in your code as a reference
-to (or placeholder for) that object:</p>
+<p>Attempting to reverse the assignment order (e.g. <code class="docutils literal notranslate"><span class="pre">92</span> <span class="pre">=</span> <span class="pre">name</span></code>) will result in a syntax error. When a variable is assigned an object (like a number or a string), it is common to say that the variable <strong>is a reference to</strong> that object. For example, the variable <code class="docutils literal notranslate"><span class="pre">name</span></code> references the string <code class="docutils literal notranslate"><span class="pre">&quot;Brian&quot;</span></code>. This means that, once a variable is assigned an object, it can be used elsewhere in your code as a reference to (or placeholder for) that object:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the use of variables in code</span>
 <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Brian&quot;</span>
 <span class="n">grade</span> <span class="o">=</span> <span class="mi">92</span>
@@ -272,9 +243,7 @@ to (or placeholder for) that object:</p>
 </div>
 <div class="section" id="Valid-Names-for-Variables">
 <h2>Valid Names for Variables<a class="headerlink" href="#Valid-Names-for-Variables" title="Permalink to this headline">¶</a></h2>
-<p>A variable name may consist of alphanumeric characters (<code class="docutils literal notranslate"><span class="pre">a-z</span></code>,
-<code class="docutils literal notranslate"><span class="pre">A-Z</span></code>, <code class="docutils literal notranslate"><span class="pre">0-9</span></code>) and the underscore symbol (<code class="docutils literal notranslate"><span class="pre">_</span></code>); a valid name cannot
-begin with a numerical value.</p>
+<p>A variable name may consist of alphanumeric characters (<code class="docutils literal notranslate"><span class="pre">a-z</span></code>, <code class="docutils literal notranslate"><span class="pre">A-Z</span></code>, <code class="docutils literal notranslate"><span class="pre">0-9</span></code>) and the underscore symbol (<code class="docutils literal notranslate"><span class="pre">_</span></code>); a valid name cannot begin with a numerical value.</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">var</span></code>: valid</li>
 <li><code class="docutils literal notranslate"><span class="pre">_var2</span></code>: valid</li>
@@ -282,9 +251,7 @@ begin with a numerical value.</p>
 <li><code class="docutils literal notranslate"><span class="pre">2cool</span></code>: <strong>invalid</strong> (begins with a numerical character)</li>
 <li><code class="docutils literal notranslate"><span class="pre">I.am.the.best</span></code>: <strong>invalid</strong> (contains <code class="docutils literal notranslate"><span class="pre">.</span></code>)</li>
 </ul>
-<p>They also cannot conflict with character sequences that are reserved by
-the Python language. As such, the following cannot be used as variable
-names:</p>
+<p>They also cannot conflict with character sequences that are reserved by the Python language. As such, the following cannot be used as variable names:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">pass</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code></li>
@@ -293,17 +260,11 @@ names:</p>
 <li><code class="docutils literal notranslate"><span class="pre">import</span></code>, <code class="docutils literal notranslate"><span class="pre">from</span></code>, <code class="docutils literal notranslate"><span class="pre">as</span></code>, <code class="docutils literal notranslate"><span class="pre">with</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">except</span></code>, <code class="docutils literal notranslate"><span class="pre">finally</span></code></li>
 </ul>
-<p>There are other unicode characters that are permitted as valid
-characters in a Python variable name, but it is not worthwhile to delve
-into those details here.</p>
+<p>There are other unicode characters that are permitted as valid characters in a Python variable name, but it is not worthwhile to delve into those details here.</p>
 </div>
 <div class="section" id="Mutable-and-Immutable-Objects">
 <h2>Mutable and Immutable Objects<a class="headerlink" href="#Mutable-and-Immutable-Objects" title="Permalink to this headline">¶</a></h2>
-<p>The <strong>mutability</strong> of an object refers to its ability to have its state
-changed. A <strong>mutable object</strong> can have its state changed, whereas an
-<strong>immutable object</strong> cannot. For instance, a list is an example of a
-mutable object. Once formed, we are able to update the contents of a
-list - replacing, adding to, and removing its elements.</p>
+<p>The <strong>mutability</strong> of an object refers to its ability to have its state changed. A <strong>mutable object</strong> can have its state changed, whereas an <strong>immutable object</strong> cannot. For instance, a list is an example of a mutable object. Once formed, we are able to update the contents of a list - replacing, adding to, and removing its elements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the mutability of a list</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>  <span class="c1"># replace element-0 of `x` with -4</span>
@@ -314,18 +275,11 @@ list - replacing, adding to, and removing its elements.</p>
 <p>To spell out what is transpiring here, we:</p>
 <ol class="arabic simple">
 <li>Create (initialize) a list with the state <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>.</li>
-<li>Assign this list to the variable <code class="docutils literal notranslate"><span class="pre">x</span></code>; <code class="docutils literal notranslate"><span class="pre">x</span></code> is now a reference to
-that list.</li>
-<li>Using our referencing variable, <code class="docutils literal notranslate"><span class="pre">x</span></code>, update element-0 of the list
-to store the integer <code class="docutils literal notranslate"><span class="pre">-4</span></code>.</li>
+<li>Assign this list to the variable <code class="docutils literal notranslate"><span class="pre">x</span></code>; <code class="docutils literal notranslate"><span class="pre">x</span></code> is now a reference to that list.</li>
+<li>Using our referencing variable, <code class="docutils literal notranslate"><span class="pre">x</span></code>, update element-0 of the list to store the integer <code class="docutils literal notranslate"><span class="pre">-4</span></code>.</li>
 </ol>
-<p>This does not create a new list object, rather it <em>mutates</em> our original
-list. This is why printing <code class="docutils literal notranslate"><span class="pre">x</span></code> in the console displays <code class="docutils literal notranslate"><span class="pre">[-4,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>
-and not <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>.</p>
-<p>A tuple is an example of an immutable object. Once formed, there is no
-mechanism by which one can change of the state of a tuple; and any code
-that appears to be updating a tuple is in fact creating an entirely new
-tuple.</p>
+<p>This does not create a new list object, rather it <em>mutates</em> our original list. This is why printing <code class="docutils literal notranslate"><span class="pre">x</span></code> in the console displays <code class="docutils literal notranslate"><span class="pre">[-4,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> and not <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>.</p>
+<p>A tuple is an example of an immutable object. Once formed, there is no mechanism by which one can change of the state of a tuple; and any code that appears to be updating a tuple is in fact creating an entirely new tuple.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating to the immutability of a tuple</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>  <span class="c1"># attempt to replace element-0 of `x` with -4</span>
@@ -340,13 +294,10 @@ tuple.</p>
 </div>
 <div class="section" id="Mutable-&amp;-Immutable-Types-of-Objects">
 <h3>Mutable &amp; Immutable Types of Objects<a class="headerlink" href="#Mutable-&-Immutable-Types-of-Objects" title="Permalink to this headline">¶</a></h3>
-<p>The following are some common immutable and mutable objects in Python.
-These will be important to have in mind as we start to work with
-dictionaries and sets.</p>
+<p>The following are some common immutable and mutable objects in Python. These will be important to have in mind as we start to work with dictionaries and sets.</p>
 <p><strong>Some immutable objects</strong></p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Number-Types">numbers</a>
-(integers, floating-point numbers, complex numbers)</li>
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Number-Types">numbers</a> (integers, floating-point numbers, complex numbers)</li>
 <li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Strings">strings</a></li>
 <li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Tuples">tuples</a></li>
 <li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#The-Boolean-Type">booleans</a></li>
@@ -363,8 +314,7 @@ dictionaries and sets.</p>
 </div>
 <div class="section" id="Referencing-a-Mutable-Object-with-Multiple-Variables">
 <h2>Referencing a Mutable Object with Multiple Variables<a class="headerlink" href="#Referencing-a-Mutable-Object-with-Multiple-Variables" title="Permalink to this headline">¶</a></h2>
-<p>It is possible to assign variables to other, existing variables. Doing
-so will cause the variables to reference the same object:</p>
+<p>It is possible to assign variables to other, existing variables. Doing so will cause the variables to reference the same object:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the behavior of variables</span>
 <span class="c1"># referencing the same object</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list1` references [1, 2, 3]</span>
@@ -377,28 +327,19 @@ so will cause the variables to reference the same object:</p>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>What this entails is that these common variables will reference the
-<em>same instance</em> of the list. Meaning that if the list changes, all of
-the variables referencing that list will reflect this change:</p>
+<p>What this entails is that these common variables will reference the <em>same instance</em> of the list. Meaning that if the list changes, all of the variables referencing that list will reflect this change:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># append 4 to the end of [1, 2, 3]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
 <span class="go">[1, 2, 3, 4]</span>
 </pre></div>
 </div>
-<p>We can see that <code class="docutils literal notranslate"><span class="pre">list2</span></code> is still assigned to reference the <em>same,
-updated</em> list as <code class="docutils literal notranslate"><span class="pre">list1</span></code>:</p>
+<p>We can see that <code class="docutils literal notranslate"><span class="pre">list2</span></code> is still assigned to reference the <em>same, updated</em> list as <code class="docutils literal notranslate"><span class="pre">list1</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
 <span class="go">[1, 2, 3, 4]</span>
 </pre></div>
 </div>
-<p>In general, assigning a variable <code class="docutils literal notranslate"><span class="pre">b</span></code> to a variable <code class="docutils literal notranslate"><span class="pre">a</span></code> will cause
-the variables to reference the <em>same</em> object in the system’s memory, and
-assigning <code class="docutils literal notranslate"><span class="pre">c</span></code> to <code class="docutils literal notranslate"><span class="pre">a</span></code> or <code class="docutils literal notranslate"><span class="pre">b</span></code> will simply have a third variable
-reference this same object. Then any change (a.k.a <em>mutation</em>) of the
-object will be reflected in all of the variables that reference it
-(<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>).</p>
-<p>Of course, assigning two variables to identical but <em>distinct</em> lists
-means that a change to one list will not affect the other:</p>
+<p>In general, assigning a variable <code class="docutils literal notranslate"><span class="pre">b</span></code> to a variable <code class="docutils literal notranslate"><span class="pre">a</span></code> will cause the variables to reference the <em>same</em> object in the system’s memory, and assigning <code class="docutils literal notranslate"><span class="pre">c</span></code> to <code class="docutils literal notranslate"><span class="pre">a</span></code> or <code class="docutils literal notranslate"><span class="pre">b</span></code> will simply have a third variable reference this same object. Then any change (a.k.a <em>mutation</em>) of the object will be reflected in all of the variables that reference it (<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>).</p>
+<p>Of course, assigning two variables to identical but <em>distinct</em> lists means that a change to one list will not affect the other:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list1` references [1, 2, 3]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">#  `list2` references a *separate* list, whose value is [1, 2, 3]</span>
 
@@ -411,19 +352,13 @@ means that a change to one list will not affect the other:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Does slicing a list produce a reference to that
-list?</strong></p>
-<p class="last">Suppose <code class="docutils literal notranslate"><span class="pre">x</span></code> is assigned a list, and that <code class="docutils literal notranslate"><span class="pre">y</span></code> is assigned a “slice”
-of <code class="docutils literal notranslate"><span class="pre">x</span></code>. Do <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> reference the same list? That is, if you
-update part of the subsequence common to <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, does that
-change show up in both of them? Write some simple code to investigate
-this.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Does slicing a list produce a reference to that list?</strong></p>
+<p>Suppose <code class="docutils literal notranslate"><span class="pre">x</span></code> is assigned a list, and that <code class="docutils literal notranslate"><span class="pre">y</span></code> is assigned a “slice” of <code class="docutils literal notranslate"><span class="pre">x</span></code>. Do <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> reference the same list? That is, if you update part of the subsequence common to <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, does that change show up in both of them? Write some simple code to investigate this.</p>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Understanding References</strong></p>
-<p>Based on our discussion of mutable and immutable objects, predict what
-the value of <code class="docutils literal notranslate"><span class="pre">y</span></code> will be in the following circumstance:</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Understanding References</strong></p>
+<p>Based on our discussion of mutable and immutable objects, predict what the value of <code class="docutils literal notranslate"><span class="pre">y</span></code> will be in the following circumstance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
 
 <span class="go"># shorthand for: `x = x * 3`</span>
@@ -440,9 +375,7 @@ the value of <code class="docutils literal notranslate"><span class="pre">y</spa
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Does slicing a list produce a reference to that list?: Solution</strong></p>
-<p>Based on the following behavior, we can conclude that slicing a list
-does <strong>not</strong> produce a reference to the original list. Rather, slicing a
-list produces a copy of the appropriate subsequence of the list:</p>
+<p>Based on the following behavior, we can conclude that slicing a list does <strong>not</strong> produce a reference to the original list. Rather, slicing a list produces a copy of the appropriate subsequence of the list:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
@@ -458,16 +391,13 @@ list produces a copy of the appropriate subsequence of the list:</p>
 </pre></div>
 </div>
 <p><strong>Understanding References: Solutions</strong></p>
-<p>Integers are immutable, thus <code class="docutils literal notranslate"><span class="pre">x</span></code> must reference an entirely new object
-(<code class="docutils literal notranslate"><span class="pre">9</span></code>), and <code class="docutils literal notranslate"><span class="pre">y</span></code> still references <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<p>Integers are immutable, thus <code class="docutils literal notranslate"><span class="pre">x</span></code> must reference an entirely new object (<code class="docutils literal notranslate"><span class="pre">9</span></code>), and <code class="docutils literal notranslate"><span class="pre">y</span></code> still references <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -476,7 +406,7 @@ list produces a copy of the appropriate subsequence of the list:</p>
         <a href="Introduction.html" class="btn btn-neutral float-right" title="Introducing Control Flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="SequenceTypes.html" class="btn btn-neutral" title="Sequence Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="SequenceTypes.html" class="btn btn-neutral float-left" title="Sequence Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -485,11 +415,11 @@ list produces a copy of the appropriate subsequence of the list:</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -502,39 +432,15 @@ list produces a copy of the appropriate subsequence of the list:</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

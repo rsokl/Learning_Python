@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Within Margin Percentage &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Within Margin Percentage &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Module 2: Problems" href="../../module_2_problems.html"/>
-        <link rel="next" title="Difference Fanout" href="DifferenceFanout.html"/>
-        <link rel="prev" title="Is Palindrome" href="Palindrome.html"/> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Difference Fanout" href="DifferenceFanout.html" />
+    <link rel="prev" title="Is Palindrome" href="Palindrome.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -124,7 +120,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Python Like You Mean It</a>
@@ -132,9 +128,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -165,7 +162,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/Module2_EssentialsOfPython/Problems/MarginPercentage.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/Module2_EssentialsOfPython/Problems/MarginPercentage.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -193,35 +190,19 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Within-Margin-Percentage">
 <h1>Within Margin Percentage<a class="headerlink" href="#Within-Margin-Percentage" title="Permalink to this headline">¶</a></h1>
 <blockquote>
-<div>An algorithm is required to test out what percentage of the parts
-that a factory is producing fall within a safety margin of the
-design specifications. Given a list of values recording the metrics
-of the manufactured parts, a list of values representing the desired
-metrics required by the design, and a margin of error allowed by the
-design, compute what fraction of the values are within the safety
-margin (<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>)</div></blockquote>
+<div>An algorithm is required to test out what percentage of the parts that a factory is producing fall within a safety margin of the design specifications. Given a list of values recording the metrics of the manufactured parts, a list of values representing the desired metrics required by the design, and a margin of error allowed by the design, compute what fraction of the values are within the safety margin (<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>)</div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="o">=</span><span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
 <span class="o">...</span>                          <span class="n">actual</span><span class="o">=</span> <span class="p">[</span><span class="mf">10.3</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mf">8.4</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span>
@@ -229,10 +210,8 @@ margin (<code class="docutils literal notranslate"><span class="pre">&lt;=</span
 <span class="mf">0.8</span>
 </pre></div>
 </div>
-<p>See that <span class="math notranslate nohighlight">\(4/5\)</span> of the values fall within the margin of error:
-<span class="math notranslate nohighlight">\(1.2\)</span> deviates from <span class="math notranslate nohighlight">\(2\)</span> by more than <span class="math notranslate nohighlight">\(0.5\)</span>.</p>
-<p>Complete the following function; consider the edge case where
-<code class="docutils literal notranslate"><span class="pre">desired</span></code> and <code class="docutils literal notranslate"><span class="pre">actual</span></code> are empty lists.</p>
+<p>See that <span class="math notranslate nohighlight">\(4/5\)</span> of the values fall within the margin of error: <span class="math notranslate nohighlight">\(1.2\)</span> deviates from <span class="math notranslate nohighlight">\(2\)</span> by more than <span class="math notranslate nohighlight">\(0.5\)</span>.</p>
+<p>Complete the following function; consider the edge case where <code class="docutils literal notranslate"><span class="pre">desired</span></code> and <code class="docutils literal notranslate"><span class="pre">actual</span></code> are empty lists.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Compute the percentage of values that fall within</span>
 <span class="sd">        a margin of error of the desired values</span>
@@ -258,17 +237,10 @@ margin (<code class="docutils literal notranslate"><span class="pre">&lt;=</span
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p>You will want to be familiar with <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ConditionalStatements.html#Comparison-Operations">comparison
-operators</a>,
-<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Introduction.html">control
-flow</a>,
-and <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Introducing-Indexing-and-Slicing">indexing
-lists</a>
-lists to solve this problem.</p>
+<p>You will want to be familiar with <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ConditionalStatements.html#Comparison-Operations">comparison operators</a>, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Introduction.html">control flow</a>, and <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Introducing-Indexing-and-Slicing">indexing lists</a> lists to solve this problem.</p>
 <div class="section" id="Solution">
 <h2>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h2>
-<p>This problem can solved by simply looping over the pairs of actual and
-desired values and tallying the pairs that fall within the margin:</p>
+<p>This problem can solved by simply looping over the pairs of actual and desired values and tallying the pairs that fall within the margin:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Compute the percentage of values that fall within</span>
 <span class="sd">        a margin of error of the desired values</span>
@@ -297,42 +269,26 @@ desired values and tallying the pairs that fall within the margin:</p>
     <span class="k">return</span> <span class="n">count</span> <span class="o">/</span> <span class="n">total</span> <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1.0</span>
 </pre></div>
 </div>
-<p>See that we handle the edge case where <code class="docutils literal notranslate"><span class="pre">desired</span></code> and <code class="docutils literal notranslate"><span class="pre">actual</span></code> are
-empty lists: the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ConditionalStatements.html#Inline-if-else-statements">inline if-else
-statement</a>
-<code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">/</span> <span class="pre">total</span> <span class="pre">if</span> <span class="pre">total</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">else</span> <span class="pre">1</span></code> will return <code class="docutils literal notranslate"><span class="pre">1</span></code> when <code class="docutils literal notranslate"><span class="pre">total</span></code>
-is 0:</p>
+<p>See that we handle the edge case where <code class="docutils literal notranslate"><span class="pre">desired</span></code> and <code class="docutils literal notranslate"><span class="pre">actual</span></code> are empty lists: the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ConditionalStatements.html#Inline-if-else-statements">inline if-else statement</a> <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">/</span> <span class="pre">total</span> <span class="pre">if</span> <span class="pre">total</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">else</span> <span class="pre">1</span></code> will return <code class="docutils literal notranslate"><span class="pre">1</span></code> when <code class="docutils literal notranslate"><span class="pre">total</span></code> is 0:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">within_margin_percentage</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">margin</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="go">1.0</span>
 </pre></div>
 </div>
-<p>which is arguably the appropriate behavior for this scenario (no values
-fall outside of the margin). Had we not anticipated this edge case,
-<code class="docutils literal notranslate"><span class="pre">within_margin_percentage([],</span> <span class="pre">[],</span> <span class="pre">margin=0.5)</span></code> would raise
-<code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>.</p>
-<p>It is also possible to write this solution using the built-in <code class="docutils literal notranslate"><span class="pre">sum</span></code>
-function and a <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#Creating-your-own-generator:-generator-comprehensions">generator
-comprehension</a>
-that filters out those pairs of items that fall outside of the desired
-margin:</p>
+<p>which is arguably the appropriate behavior for this scenario (no values fall outside of the margin). Had we not anticipated this edge case, <code class="docutils literal notranslate"><span class="pre">within_margin_percentage([],</span> <span class="pre">[],</span> <span class="pre">margin=0.5)</span></code> would raise <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>.</p>
+<p>It is also possible to write this solution using the built-in <code class="docutils literal notranslate"><span class="pre">sum</span></code> function and a <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#Creating-your-own-generator:-generator-comprehensions">generator comprehension</a> that filters out those pairs of items that fall outside of the desired margin:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">within_margin_percentage</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
     <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">desired</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total</span><span class="p">)</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">actual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">desired</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">margin</span><span class="p">)</span>
     <span class="k">return</span>  <span class="n">count</span> <span class="o">/</span> <span class="n">total</span> <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1.0</span>
 </pre></div>
 </div>
-<p>It is debatable whether this refactored solution is superior to the
-original one - it depends largely on how comfortable you, and anyone
-else who will be reading your code, are with the generator comprehension
-syntax.</p>
+<p>It is debatable whether this refactored solution is superior to the original one - it depends largely on how comfortable you, and anyone else who will be reading your code, are with the generator comprehension syntax.</p>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -341,7 +297,7 @@ syntax.</p>
         <a href="DifferenceFanout.html" class="btn btn-neutral float-right" title="Difference Fanout" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Palindrome.html" class="btn btn-neutral" title="Is Palindrome" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Palindrome.html" class="btn btn-neutral float-left" title="Is Palindrome" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -350,11 +306,11 @@ syntax.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -367,39 +323,15 @@ syntax.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

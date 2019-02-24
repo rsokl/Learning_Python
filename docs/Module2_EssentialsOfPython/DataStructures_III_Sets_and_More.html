@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Structures (Part III): Sets &amp; the Collections Module &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Data Structures (Part III): Sets &amp; the Collections Module &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
-        <link rel="next" title="Module 2: Problems" href="../module_2_problems.html"/>
-        <link rel="prev" title="Data Structures (Part II): Dictionaries" href="DataStructures_II_Dictionaries.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module 2: Problems" href="../module_2_problems.html" />
+    <link rel="prev" title="Data Structures (Part II): Dictionaries" href="DataStructures_II_Dictionaries.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -146,7 +142,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -154,9 +150,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -187,7 +184,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -215,55 +212,30 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Data-Structures-(Part-III):-Sets-&amp;-the-Collections-Module">
 <h1>Data Structures (Part III): Sets &amp; the Collections Module<a class="headerlink" href="#Data-Structures-(Part-III):-Sets-&-the-Collections-Module" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="The-“Set”-Data-Structure">
 <h2>The “Set” Data Structure<a class="headerlink" href="#The-“Set”-Data-Structure" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">set</span></code> type describes an <em>unordered</em> collection of <em>unique</em>
-objects. It is useful for:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">set</span></code> type describes an <em>unordered</em> collection of <em>unique</em> objects. It is useful for:</p>
 <ul class="simple">
-<li>Filtering out “repeat” objects in a collection, producing only its
-unique members.</li>
-<li>Quickly checking for membership, as a <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>
-operation.</li>
-<li>Efficiently comparing two sets of objects; e.g.&nbsp;if one set is a
-“subset” of another.</li>
+<li>Filtering out “repeat” objects in a collection, producing only its unique members.</li>
+<li>Quickly checking for membership, as a <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> operation.</li>
+<li>Efficiently comparing two sets of objects; e.g.&nbsp;if one set is a “subset” of another.</li>
 </ul>
-<p>A set uses a “hashing” scheme for keeping track of its contents. Thus,
-like a dictionary’s keys, a set can only store <em>immutable</em> objects so
-that its hashes will never become invalid. Unlike the other data
-structures that we have encountered, <em>there is no mechanism for
-retrieving an individual item from a set</em>. That is, there is no index or
-key that can be used to retrieve an individual member from a set.</p>
-<p>Python’s sets also support many familiar set-algebra operations, like
-taking the union or intersection of sets, as we will see below. For an
-exhaustive listing of the functions available to sets, please consult
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">the official documentation on
-sets</a>.</p>
+<p>A set uses a “hashing” scheme for keeping track of its contents. Thus, like a dictionary’s keys, a set can only store <em>immutable</em> objects so that its hashes will never become invalid. Unlike the other data structures that we have encountered, <em>there is no mechanism for retrieving an individual item from a set</em>. That is, there is no index or key that can be used to retrieve an individual member from a set.</p>
+<p>Python’s sets also support many familiar set-algebra operations, like taking the union or intersection of sets, as we will see below. For an exhaustive listing of the functions available to sets, please consult <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">the official documentation on sets</a>.</p>
 <div class="section" id="Creating-a-set">
 <h3>Creating a set<a class="headerlink" href="#Creating-a-set" title="Permalink to this headline">¶</a></h3>
-<p>You can initialize a set using the syntax: <code class="docutils literal notranslate"><span class="pre">{item1,</span> <span class="pre">item2,</span> <span class="pre">...}</span></code>.
-Please note that this is distinct from the the dictionary-initialization
-syntax, which uses a colon to indicate key-value pairs:</p>
+<p>You can initialize a set using the syntax: <code class="docutils literal notranslate"><span class="pre">{item1,</span> <span class="pre">item2,</span> <span class="pre">...}</span></code>. Please note that this is distinct from the the dictionary-initialization syntax, which uses a colon to indicate key-value pairs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initializing a set containing various immutable objects</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)}</span>
 <span class="p">{</span><span class="bp">False</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mf">3.4</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">}</span>
@@ -275,10 +247,7 @@ syntax, which uses a colon to indicate key-value pairs:</p>
 <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>And, like the <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, and <code class="docutils literal notranslate"><span class="pre">dict</span></code> types, the <code class="docutils literal notranslate"><span class="pre">set</span></code> type
-can be used to construct a set from an iterable. Note that you must use
-<code class="docutils literal notranslate"><span class="pre">set()</span></code> if you want to create an empty set, using <code class="docutils literal notranslate"><span class="pre">{}</span></code> creates an
-empty <em>dictionary</em>:</p>
+<p>And, like the <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, and <code class="docutils literal notranslate"><span class="pre">dict</span></code> types, the <code class="docutils literal notranslate"><span class="pre">set</span></code> type can be used to construct a set from an iterable. Note that you must use <code class="docutils literal notranslate"><span class="pre">set()</span></code> if you want to create an empty set, using <code class="docutils literal notranslate"><span class="pre">{}</span></code> creates an empty <em>dictionary</em>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># introducing the `set` type</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">({</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">})</span>
 <span class="nb">set</span>
@@ -292,9 +261,7 @@ empty <em>dictionary</em>:</p>
 <span class="nb">set</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Redundant items are “ignored” when constructing or adding to a set. Thus
-<em>constructing a set is a great way to extract the unique items from a
-collection</em>:</p>
+<p>Redundant items are “ignored” when constructing or adding to a set. Thus <em>constructing a set is a great way to extract the unique items from a collection</em>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter repeat-items from a collection by feeding it into a set</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -302,17 +269,13 @@ collection</em>:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Set Creation</strong></p>
-<p class="last">Use a set to find all of the unique letters in the string
-<code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">cat</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">hat&quot;</span></code>. Ignore all non-letter characters and lowercase
-all letters.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Set Creation</strong></p>
+<p>Use a set to find all of the unique letters in the string <code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">cat</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">hat&quot;</span></code>. Ignore all non-letter characters and lowercase all letters.</p>
 </div>
 </div>
 <div class="section" id="Set-operations">
 <h3>Set operations<a class="headerlink" href="#Set-operations" title="Permalink to this headline">¶</a></h3>
-<p>Sets support membership-checking (<span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>) along with
-iteration (<span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>). Note that sets are unordered; thus
-the order of iteration is effectively random:</p>
+<p>Sets support membership-checking (<span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>) along with iteration (<span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>). Note that sets are unordered; thus the order of iteration is effectively random:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking membership in a set</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="bp">True</span>
@@ -322,13 +285,8 @@ the order of iteration is effectively random:</p>
 <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Python also provides the set-theoretic operations of union,
-intersection, and the relations of set equality and set inclusion. These
-can be invoked using operator symbols or by calling functions on the set
-explicitly.</p>
-<p>For an exhaustive list of the functions available to the set, please
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">refer to the official Python
-documentation</a>.</p>
+<p>Python also provides the set-theoretic operations of union, intersection, and the relations of set equality and set inclusion. These can be invoked using operator symbols or by calling functions on the set explicitly.</p>
+<p>For an exhaustive list of the functions available to the set, please <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">refer to the official Python documentation</a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating set-comparison operations</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}</span>
@@ -373,28 +331,20 @@ documentation</a>.</p>
 <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Because it is mutable, a set cannot be used as a dictionary-key, nor can
-a set be a member of another set. Python provides an immutable version
-of the set, <code class="docutils literal notranslate"><span class="pre">frozenset</span></code>, which has all of the functions of a set other
-than those that mutate the set:</p>
+<p>Because it is mutable, a set cannot be used as a dictionary-key, nor can a set be a member of another set. Python provides an immutable version of the set, <code class="docutils literal notranslate"><span class="pre">frozenset</span></code>, which has all of the functions of a set other than those that mutate the set:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `frozenset` is an immutable version of a Python set</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">frozenset</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">Python’s set is an unordered collection of unique, immutable objects. It
-is an excellent tool for extracting the unique members from a collection
-of items. The set provides <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> membership-checking
-along with a suite of set-algebra operations for comparing sets.
-<code class="docutils literal notranslate"><span class="pre">frozenset</span></code> is an immutable version of the set.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p>Python’s set is an unordered collection of unique, immutable objects. It is an excellent tool for extracting the unique members from a collection of items. The set provides <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> membership-checking along with a suite of set-algebra operations for comparing sets. <code class="docutils literal notranslate"><span class="pre">frozenset</span></code> is an immutable version of the set.</p>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Set Comparisons</strong></p>
-<p>Given the enrollment lists for class-A and class-B, find the students
-enrolled in both classes. Produce the result as a sorted list of names.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classA</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Curie&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Euler&quot;</span><span class="p">,</span> <span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Feynman&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Heisenberg&quot;</span><span class="p">,</span> <span class="s2">&quot;Noether&quot;</span><span class="p">]</span>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Set Comparisons</strong></p>
+<p>Given the enrollment lists for class-A and class-B, find the students enrolled in both classes. Produce the result as a sorted list of names.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classA</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Curie&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Euler&quot;</span><span class="p">,</span> <span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Feynman&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Heisenberg&quot;</span><span class="p">,</span> <span class="s2">&quot;Noether&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classB</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohm&quot;</span><span class="p">,</span> <span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Einstein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Hopper&quot;</span><span class="p">,</span> <span class="s2">&quot;Montalcini&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -403,25 +353,12 @@ enrolled in both classes. Produce the result as a sorted list of names.</p>
 </div>
 <div class="section" id="The-Collections-Module">
 <h2>The Collections Module<a class="headerlink" href="#The-Collections-Module" title="Permalink to this headline">¶</a></h2>
-<p>Python provides a number of valuable, optimized data structures in its
-<a class="reference external" href="https://docs.python.org/3/library/collections.html">“collections”
-module</a>. It is
-recommended that the reader take some time to peruse this module. Here,
-we will briefly show off some of the utilities of its data structures.</p>
-<p>Refer to the <a class="reference external" href="https://docs.python.org/3/library/collections.html">official
-documentation</a>
-for a complete listing of the functions available to these data
-structures.</p>
+<p>Python provides a number of valuable, optimized data structures in its <a class="reference external" href="https://docs.python.org/3/library/collections.html">“collections” module</a>. It is recommended that the reader take some time to peruse this module. Here, we will briefly show off some of the utilities of its data structures.</p>
+<p>Refer to the <a class="reference external" href="https://docs.python.org/3/library/collections.html">official documentation</a> for a complete listing of the functions available to these data structures.</p>
 <div class="section" id="Named-Tuple">
 <h3>Named-Tuple<a class="headerlink" href="#Named-Tuple" title="Permalink to this headline">¶</a></h3>
-<p>A named tuple allows you to form a tuple whose members are named. Thus
-the user can access a member by name or via index. Otherwise the named
-tuple behaves just like a typical tuple. This facilitates clean,
-readable code.</p>
-<p>Suppose, for instance, you want to keep track of the 3D-position and
-time of an event. You can use a named-tuple so that each space and time
-coordinate can be referenced “by name”. In this way, the reader doesn’t
-have to keep in mind that element-3 of your tuple corresponds to time:</p>
+<p>A named tuple allows you to form a tuple whose members are named. Thus the user can access a member by name or via index. Otherwise the named tuple behaves just like a typical tuple. This facilitates clean, readable code.</p>
+<p>Suppose, for instance, you want to keep track of the 3D-position and time of an event. You can use a named-tuple so that each space and time coordinate can be referenced “by name”. In this way, the reader doesn’t have to keep in mind that element-3 of your tuple corresponds to time:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the use of named tuple</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
 
@@ -456,12 +393,7 @@ have to keep in mind that element-3 of your tuple corresponds to time:</p>
 </div>
 <div class="section" id="Default-Dictionary">
 <h3>Default Dictionary<a class="headerlink" href="#Default-Dictionary" title="Permalink to this headline">¶</a></h3>
-<p>A default dictionary allows you to specify a Python function, <span class="math notranslate nohighlight">\(f\)</span>
-that will be used as a “default value” for that dictionary. The default
-value will be whatever <span class="math notranslate nohighlight">\(f()\)</span> returns. That is, whenever you try to
-access a key that does not exist in the dictionary, instead of raising
-<code class="docutils literal notranslate"><span class="pre">KeyError</span></code>, the mapping <span class="math notranslate nohighlight">\(key \rightarrow f()\)</span> will be created in
-the dictionary:</p>
+<p>A default dictionary allows you to specify a Python function, <span class="math notranslate nohighlight">\(f\)</span> that will be used as a “default value” for that dictionary. The default value will be whatever <span class="math notranslate nohighlight">\(f()\)</span> returns. That is, whenever you try to access a key that does not exist in the dictionary, instead of raising <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>, the mapping <span class="math notranslate nohighlight">\(key \rightarrow f()\)</span> will be created in the dictionary:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the behavior of the `defaultdict`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
@@ -479,9 +411,7 @@ the dictionary:</p>
 <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="p">[]})</span>
 </pre></div>
 </div>
-<p>Suppose you want to use a dictionary as a grade book, which maps
-<span class="math notranslate nohighlight">\(name \rightarrow grades\)</span>. With a standard dictionary, you have to
-worry about encountering a student for the first time:</p>
+<p>Suppose you want to use a dictionary as a grade book, which maps <span class="math notranslate nohighlight">\(name \rightarrow grades\)</span>. With a standard dictionary, you have to worry about encountering a student for the first time:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using a vanilla dictionary to store: name -&gt; list of grades</span>
 <span class="n">student</span> <span class="o">=</span> <span class="s2">&quot;Ryan&quot;</span>
 <span class="n">grade</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># I failed the test...</span>
@@ -497,9 +427,7 @@ worry about encountering a student for the first time:</p>
 <span class="n">gradebook</span><span class="p">[</span><span class="n">student</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>  <span class="c1"># append the grade to that student&#39;s list of grades</span>
 </pre></div>
 </div>
-<p>The default dictionary’s behavior exactly accommodates this
-initialization process (when providing <code class="docutils literal notranslate"><span class="pre">list</span></code> as the initialization
-function):</p>
+<p>The default dictionary’s behavior exactly accommodates this initialization process (when providing <code class="docutils literal notranslate"><span class="pre">list</span></code> as the initialization function):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using a default dictionary to store: name -&gt; list of grades</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">gradebook</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 
@@ -515,11 +443,7 @@ function):</p>
 </div>
 <div class="section" id="Counter">
 <h3>Counter<a class="headerlink" href="#Counter" title="Permalink to this headline">¶</a></h3>
-<p>Python’s counter data structure is designed for tallying the unique
-objects that it encounters. It essentially creates a dictionary that
-maps: <span class="math notranslate nohighlight">\(obj \rightarrow count\)</span>. Suppose you want to study the
-distribution of words used in a body of text; counter is perfect for
-this application:</p>
+<p>Python’s counter data structure is designed for tallying the unique objects that it encounters. It essentially creates a dictionary that maps: <span class="math notranslate nohighlight">\(obj \rightarrow count\)</span>. Suppose you want to study the distribution of words used in a body of text; counter is perfect for this application:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the `Counter` data structure</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 
@@ -556,28 +480,17 @@ this application:</p>
 <span class="go">Counter({(None, None): 3, 0: 2, &#39;moo&#39;: 1})</span>
 </pre></div>
 </div>
-<p>Refer to the <a class="reference external" href="https://docs.python.org/3/library/collections.html#counter-objects">official
-documentation</a>
-for a complete listing of all the nice functions that <code class="docutils literal notranslate"><span class="pre">Counter</span></code> has
-access to.</p>
+<p>Refer to the <a class="reference external" href="https://docs.python.org/3/library/collections.html#counter-objects">official documentation</a> for a complete listing of all the nice functions that <code class="docutils literal notranslate"><span class="pre">Counter</span></code> has access to.</p>
 </div>
 <div class="section" id="The-deque">
 <h3>The deque<a class="headerlink" href="#The-deque" title="Permalink to this headline">¶</a></h3>
-<p>Like the list, Python’s deque is a mutable, sequential data structure.
-What distinguishes the deque is that:</p>
+<p>Like the list, Python’s deque is a mutable, sequential data structure. What distinguishes the deque is that:</p>
 <ul class="simple">
-<li>Mutating either the beginning or the end of a deque is
-<span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>, whereas mutating the beginning of a list is
-<span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>. As such, the deque has unique functions to
-take advantage of this, like <code class="docutils literal notranslate"><span class="pre">appendleft</span></code>.</li>
-<li>The downside of the preceding feature is that <em>accessing items near
-the middle of the deque is</em> <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>, whereas it is
-<span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> for lists and tuples.</li>
+<li>Mutating either the beginning or the end of a deque is <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>, whereas mutating the beginning of a list is <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>. As such, the deque has unique functions to take advantage of this, like <code class="docutils literal notranslate"><span class="pre">appendleft</span></code>.</li>
+<li>The downside of the preceding feature is that <em>accessing items near the middle of the deque is</em> <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>, whereas it is <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> for lists and tuples.</li>
 </ul>
-<p>A complete rundown of the deque’s functionality can be found
-<a class="reference external" href="https://docs.python.org/3/library/collections.html#deque-objects">here</a>.</p>
-<p>The deque is included in Python’s <code class="docutils literal notranslate"><span class="pre">collections</span></code> module, and thus must
-be imported:</p>
+<p>A complete rundown of the deque’s functionality can be found <a class="reference external" href="https://docs.python.org/3/library/collections.html#deque-objects">here</a>.</p>
+<p>The deque is included in Python’s <code class="docutils literal notranslate"><span class="pre">collections</span></code> module, and thus must be imported:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">my_deque</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">my_deque</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -590,44 +503,30 @@ be imported:</p>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">Sets and frozen
-sets</a><ul>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#sets">Tutorial on
-sets</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">Sets and frozen sets</a><ul>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#sets">Tutorial on sets</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="https://docs.python.org/3/library/collections.html">The collections
-module</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/collections.html">The collections module</a></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>Set Creation: Solution</strong></p>
-<p>Use a set to find all of the unique letters in the string
-<code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">cat</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">hat&quot;</span></code>. Ignore all non-letter characters and lowercase
-all letters.</p>
-<p>We can use the built-in string functions
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.isalpha">isalpha</a>
-and
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.lower">lower</a> to
-filter out non-letter characters, and to lowercase the letters.</p>
+<p>Use a set to find all of the unique letters in the string <code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">cat</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">hat&quot;</span></code>. Ignore all non-letter characters and lowercase all letters.</p>
+<p>We can use the built-in string functions <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.isalpha">isalpha</a> and <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.lower">lower</a> to filter out non-letter characters, and to lowercase the letters.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;The cat in the hat&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="n">char</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">sentence</span> <span class="k">if</span> <span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()}</span>
 <span class="go">{&#39;a&#39;, &#39;c&#39;, &#39;e&#39;, &#39;h&#39;, &#39;i&#39;, &#39;n&#39;, &#39;t&#39;}</span>
 </pre></div>
 </div>
 <p><strong>Set Comparisons: Solution</strong></p>
-<p>Given the roster for class-A and class-B, find the students enrolled in
-both classes. Produce the result as a sorted list.</p>
+<p>Given the roster for class-A and class-B, find the students enrolled in both classes. Produce the result as a sorted list.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classA</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Curie&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Euler&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Heisenberg&quot;</span><span class="p">,</span> <span class="s2">&quot;Noether&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classB</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohm&quot;</span><span class="p">,</span> <span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Einstein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Hopper&quot;</span><span class="p">,</span> <span class="s2">&quot;Montalcini&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>We can find the entries common to both lists by constructing sets from
-them, and then taking the intersection of those sets. The result is a
-set, which is an iterable. Thus it can be fed to the built-in function
-<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Iterables.html#Functions-that-act-on-iterables">sorted</a>,
-to produce a sorted list of names.</p>
+<p>We can find the entries common to both lists by constructing sets from them, and then taking the intersection of those sets. The result is a set, which is an iterable. Thus it can be fed to the built-in function <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Iterables.html#Functions-that-act-on-iterables">sorted</a>, to produce a sorted list of names.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">classA</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">classB</span><span class="p">))</span>
 <span class="go">[&#39;Bohr&#39;, &#39;Gauss&#39;]</span>
 </pre></div>
@@ -637,9 +536,7 @@ to produce a sorted list of names.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -648,7 +545,7 @@ to produce a sorted list of names.</p>
         <a href="../module_2_problems.html" class="btn btn-neutral float-right" title="Module 2: Problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="DataStructures_II_Dictionaries.html" class="btn btn-neutral" title="Data Structures (Part II): Dictionaries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="DataStructures_II_Dictionaries.html" class="btn btn-neutral float-left" title="Data Structures (Part II): Dictionaries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -657,11 +554,11 @@ to produce a sorted list of names.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -674,39 +571,15 @@ to produce a sorted list of names.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

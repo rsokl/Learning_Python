@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Functions for Creating NumPy Arrays &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Functions for Creating NumPy Arrays &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
-        <link rel="next" title="Iterating Over Arrays &amp; Array-Traversal Order" href="ArrayTraversal.html"/>
-        <link rel="prev" title="Basic Array Attributes" href="BasicArrayAttributes.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Iterating Over Arrays &amp; Array-Traversal Order" href="ArrayTraversal.html" />
+    <link rel="prev" title="Basic Array Attributes" href="BasicArrayAttributes.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -134,7 +130,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -142,9 +138,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -175,7 +172,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -203,30 +200,18 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Functions-for-Creating-NumPy-Arrays">
 <h1>Functions for Creating NumPy Arrays<a class="headerlink" href="#Functions-for-Creating-NumPy-Arrays" title="Permalink to this headline">¶</a></h1>
-<p>This section presents standard methods for creating NumPy arrays of
-varying shapes and contents. NumPy provides a laundry list of functions
-for creating arrays:</p>
+<p>This section presents standard methods for creating NumPy arrays of varying shapes and contents. NumPy provides a laundry list of functions for creating arrays:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="go"># creating an array from a Python sequence</span>
@@ -256,32 +241,20 @@ for creating arrays:</p>
 </div>
 <div class="section" id="Creating-Arrays-from-Python-Sequences">
 <h2>Creating Arrays from Python Sequences<a class="headerlink" href="#Creating-Arrays-from-Python-Sequences" title="Permalink to this headline">¶</a></h2>
-<p>You can create an array from a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> or <code class="docutils literal notranslate"><span class="pre">tuple</span></code> by using
-NumPy’s <code class="docutils literal notranslate"><span class="pre">array</span></code> function. NumPy will interpret the structure of the
-data it receives to determine the dimensionality and shape of the array.
-For example, a single list of numbers will be used to create a
-1-dimensional array:</p>
+<p>You can create an array from a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> or <code class="docutils literal notranslate"><span class="pre">tuple</span></code> by using NumPy’s <code class="docutils literal notranslate"><span class="pre">array</span></code> function. NumPy will interpret the structure of the data it receives to determine the dimensionality and shape of the array. For example, a single list of numbers will be used to create a 1-dimensional array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a list of numbers will become a 1D-array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>  <span class="c1"># shape: (3,)</span>
 <span class="n">array</span><span class="p">([</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Nested lists/tuples will be used to construct multidimensional arrays.
-For example, a “list of equal-length lists of numbers” will lead to a
-2-dimensional array; each of the inner-lists comprises a row of the
-array. Thus a list of two, length-three lists will produce a
-(2,3)-shaped array:</p>
+<p>Nested lists/tuples will be used to construct multidimensional arrays. For example, a “list of equal-length lists of numbers” will lead to a 2-dimensional array; each of the inner-lists comprises a row of the array. Thus a list of two, length-three lists will produce a (2,3)-shaped array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a list of lists of numbers will produce a 2D-array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">]])</span>  <span class="c1"># shape: (2, 3)</span>
 <span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">],</span>
        <span class="p">[</span> <span class="mf">4.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">,</span>  <span class="mf">6.</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>A “list of equal-length lists, of equal-length lists of numbers” creates
-a 3D-array, and so on. Recall that using repeated concatenation,
-<code class="docutils literal notranslate"><span class="pre">[0]*3</span></code> will produce <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code>. Using this, let’s create two
-lists, each containing three lists, each containing four zeros; feeding
-this to <code class="docutils literal notranslate"><span class="pre">np.array</span></code> thus produces a 2x3x4 array of zeros:</p>
+<p>A “list of equal-length lists, of equal-length lists of numbers” creates a 3D-array, and so on. Recall that using repeated concatenation, <code class="docutils literal notranslate"><span class="pre">[0]*3</span></code> will produce <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code>. Using this, let’s create two lists, each containing three lists, each containing four zeros; feeding this to <code class="docutils literal notranslate"><span class="pre">np.array</span></code> thus produces a 2x3x4 array of zeros:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of lists of lists of zeros creates a 3D-array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
@@ -293,25 +266,15 @@ this to <code class="docutils literal notranslate"><span class="pre">np.array</s
         <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]])</span>
 </pre></div>
 </div>
-<p>You will seldom use lists to form high-dimensional arrays like this.
-Instead, there are other array-creation functions that are more
-amendable to generating high-dimensional data, which we will introduce
-next. For example, we will see that the <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> function is a much
-more civilized way to create a high-dimensional array of zeros.</p>
+<p>You will seldom use lists to form high-dimensional arrays like this. Instead, there are other array-creation functions that are more amendable to generating high-dimensional data, which we will introduce next. For example, we will see that the <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> function is a much more civilized way to create a high-dimensional array of zeros.</p>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Warning!</strong></p>
-<p class="last">You actually <em>can</em> create an array from lists of <em>unequal</em> lengths. The
-resulting array is <strong>not</strong> an ND-array as it has no well-defined
-dimensionality. Instead, something called an <em>object-array</em> is produced,
-which does not benefit from the majority of NumPy’s features. This is a
-relatively obscure feature of the NumPy library, and should be avoided
-unless you really know what you’re doing!</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning!</strong></p>
+<p>You actually <em>can</em> create an array from lists of <em>unequal</em> lengths. The resulting array is <strong>not</strong> an ND-array as it has no well-defined dimensionality. Instead, something called an <em>object-array</em> is produced, which does not benefit from the majority of NumPy’s features. This is a relatively obscure feature of the NumPy library, and should be avoided unless you really know what you’re doing!</p>
 </div>
 </div>
 <div class="section" id="Creating-Constant-Arrays:-zeros-and-ones">
 <h2>Creating Constant Arrays: <code class="docutils literal notranslate"><span class="pre">zeros</span></code> and <code class="docutils literal notranslate"><span class="pre">ones</span></code><a class="headerlink" href="#Creating-Constant-Arrays:-zeros-and-ones" title="Permalink to this headline">¶</a></h2>
-<p>NumPy provides the functions <code class="docutils literal notranslate"><span class="pre">zeros</span></code> and <code class="docutils literal notranslate"><span class="pre">ones</span></code>, which will fill an
-array of user-specified shape with 0s and 1s, respectively:</p>
+<p>NumPy provides the functions <code class="docutils literal notranslate"><span class="pre">zeros</span></code> and <code class="docutils literal notranslate"><span class="pre">ones</span></code>, which will fill an array of user-specified shape with 0s and 1s, respectively:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a 3x4 array of zeros</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
@@ -323,20 +286,11 @@ array of user-specified shape with 0s and 1s, respectively:</p>
 <span class="n">array</span><span class="p">([</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>NumPy provides additional functions for creating constant-valued arrays.
-Please refer to <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#ones-and-zeros">the official
-documentation</a>
-for a complete listing.</p>
+<p>NumPy provides additional functions for creating constant-valued arrays. Please refer to <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#ones-and-zeros">the official documentation</a> for a complete listing.</p>
 </div>
 <div class="section" id="Creating-Sequential-Arrays:-arange-and-linspace">
 <h2>Creating Sequential Arrays: <code class="docutils literal notranslate"><span class="pre">arange</span></code> and <code class="docutils literal notranslate"><span class="pre">linspace</span></code><a class="headerlink" href="#Creating-Sequential-Arrays:-arange-and-linspace" title="Permalink to this headline">¶</a></h2>
-<p>The
-<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html#numpy.arange">arange</a>
-function allows you to initialize a sequence of integers based on a
-starting point (inclusive), stopping point (exclusive), and step size.
-This is very similar to the <code class="docutils literal notranslate"><span class="pre">range</span></code> function; however <code class="docutils literal notranslate"><span class="pre">arange</span></code>
-immediately creates this sequence as an array, whereas <code class="docutils literal notranslate"><span class="pre">range</span></code>
-produces a generator.</p>
+<p>The <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html#numpy.arange">arange</a> function allows you to initialize a sequence of integers based on a starting point (inclusive), stopping point (exclusive), and step size. This is very similar to the <code class="docutils literal notranslate"><span class="pre">range</span></code> function; however <code class="docutils literal notranslate"><span class="pre">arange</span></code> immediately creates this sequence as an array, whereas <code class="docutils literal notranslate"><span class="pre">range</span></code> produces a generator.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># start (included): 0, stop (excluded): 10, step:1</span>
 <span class="go">array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
 
@@ -349,14 +303,7 @@ produces a generator.</p>
 <span class="go">array([-5, -3, -1,  1,  3,  5])</span>
 </pre></div>
 </div>
-<p>The
-<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html">linspace</a>
-function allows you to generate <span class="math notranslate nohighlight">\(N\)</span> <em>evenly-spaced</em> points within
-a user-specified interval <span class="math notranslate nohighlight">\([i, j]\)</span> (<span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are
-included in the interval). This is often used to generate a domain of
-values on which to evaluate a mathematical function (e.g.&nbsp;if you want to
-the sine function from <span class="math notranslate nohighlight">\(-\pi\)</span> to <span class="math notranslate nohighlight">\(\pi\)</span> on a finely-divided
-grid).</p>
+<p>The <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html">linspace</a> function allows you to generate <span class="math notranslate nohighlight">\(N\)</span> <em>evenly-spaced</em> points within a user-specified interval <span class="math notranslate nohighlight">\([i, j]\)</span> (<span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are included in the interval). This is often used to generate a domain of values on which to evaluate a mathematical function (e.g.&nbsp;if you want to the sine function from <span class="math notranslate nohighlight">\(-\pi\)</span> to <span class="math notranslate nohighlight">\(\pi\)</span> on a finely-divided grid).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate five evenly-spaced points on the interval [-1, 1]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.</span> <span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">1.</span> <span class="p">])</span>
@@ -370,17 +317,11 @@ grid).</p>
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">3.14159265</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mf">3.14159265</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Numpy has other functions for creating sequential arrays, such as
-producing an array spaced evenly on a log-scaled interval. See the
-<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#numerical-ranges">official
-documentation</a>
-for a complete listing.</p>
+<p>Numpy has other functions for creating sequential arrays, such as producing an array spaced evenly on a log-scaled interval. See the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#numerical-ranges">official documentation</a> for a complete listing.</p>
 </div>
 <div class="section" id="Creating-Arrays-Using-Random-Sampling">
 <h2>Creating Arrays Using Random Sampling<a class="headerlink" href="#Creating-Arrays-Using-Random-Sampling" title="Permalink to this headline">¶</a></h2>
-<p>Several functions can be accessed from <code class="docutils literal notranslate"><span class="pre">np.random</span></code>, which populate
-arrays of a user-specified shape by drawing randomly from a specified
-statistical distribution:</p>
+<p>Several functions can be accessed from <code class="docutils literal notranslate"><span class="pre">np.random</span></code>, which populate arrays of a user-specified shape by drawing randomly from a specified statistical distribution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a shape-(3,3) array by drawing its entries randomly</span>
 <span class="c1"># from the uniform distribution [0, 1)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -394,17 +335,11 @@ statistical distribution:</p>
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.11262121</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.35392007</span><span class="p">,</span>  <span class="mf">0.4245215</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.81995588</span><span class="p">,</span>  <span class="mf">0.65412323</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>There are <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.random.html#distributions">many more
-functions</a>
-to read about that allow you to draw from a wide variety of statistical
-distributions. This only scratches the surface of random number
-generation in NumPy.</p>
+<p>There are <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.random.html#distributions">many more functions</a> to read about that allow you to draw from a wide variety of statistical distributions. This only scratches the surface of random number generation in NumPy.</p>
 </div>
 <div class="section" id="Creating-an-Array-with-a-Specified-Data-Type">
 <h2>Creating an Array with a Specified Data Type<a class="headerlink" href="#Creating-an-Array-with-a-Specified-Data-Type" title="Permalink to this headline">¶</a></h2>
-<p>Each of the preceding functions used to create an array can be passed a
-so-called ‘keyword’ argument, <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, which instructs NumPy to use a
-specified data type when producing the contents of the array.</p>
+<p>Each of the preceding functions used to create an array can be passed a so-called ‘keyword’ argument, <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, which instructs NumPy to use a specified data type when producing the contents of the array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># populate an array using 32-bit floating point numbers</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
@@ -425,15 +360,11 @@ specified data type when producing the contents of the array.</p>
        <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.j</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">complex64</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Refer to <a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.types.html#array-types-and-conversions-between-types">the official NumPy
-documentation</a>
-for the complete list of available array datatypes.</p>
+<p>Refer to <a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.types.html#array-types-and-conversions-between-types">the official NumPy documentation</a> for the complete list of available array datatypes.</p>
 </div>
 <div class="section" id="Joining-Arrays-Together">
 <h2>Joining Arrays Together<a class="headerlink" href="#Joining-Arrays-Together" title="Permalink to this headline">¶</a></h2>
-<p>Similar to Python lists and tuples, NumPy arrays can be concatenated
-together. However, because NumPy’s arrays can be multi-dimensional, we
-can choose the dimension along which arrays are joined.</p>
+<p>Similar to Python lists and tuples, NumPy arrays can be concatenated together. However, because NumPy’s arrays can be multi-dimensional, we can choose the dimension along which arrays are joined.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating methods for joining arrays</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
@@ -448,35 +379,24 @@ can choose the dimension along which arrays are joined.</p>
 <span class="n">array</span><span class="p">([</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>A complete listing of functions for joining arrays can be <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html#joining-arrays">found in the
-official NumPy
-documentation</a>.
-There are also corresponding functions for splitting an array into
-independent arrays.</p>
+<p>A complete listing of functions for joining arrays can be <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html#joining-arrays">found in the official NumPy documentation</a>. There are also corresponding functions for splitting an array into independent arrays.</p>
 </div>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#ones-and-zeros">Constant
-arrays</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#ones-and-zeros">Constant arrays</a></li>
 <li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy-array">numpy.array</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#numerical-ranges">Sequential
-arrays</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.random.html#distributions">Random
-distributions</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.types.html#array-types-and-conversions-between-types">Array
-types</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html#joining-arrays">Joining
-arrays</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#numerical-ranges">Sequential arrays</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.random.html#distributions">Random distributions</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.types.html#array-types-and-conversions-between-types">Array types</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html#joining-arrays">Joining arrays</a></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -485,7 +405,7 @@ arrays</a></li>
         <a href="ArrayTraversal.html" class="btn btn-neutral float-right" title="Iterating Over Arrays &amp; Array-Traversal Order" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="BasicArrayAttributes.html" class="btn btn-neutral" title="Basic Array Attributes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="BasicArrayAttributes.html" class="btn btn-neutral float-left" title="Basic Array Attributes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -494,11 +414,11 @@ arrays</a></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -511,39 +431,15 @@ arrays</a></li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

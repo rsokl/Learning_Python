@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introducing the Python Programming Language &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Introducing the Python Programming Language &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 1: Getting Started with Python" href="../module_1.html"/>
-        <link rel="next" title="Installing Python" href="Installing_Python.html"/>
-        <link rel="prev" title="A Quick Guide to Formatting" href="SiteFormatting.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installing Python" href="Installing_Python.html" />
+    <link rel="prev" title="A Quick Guide to Formatting" href="SiteFormatting.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -129,7 +125,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -137,9 +133,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -170,7 +167,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module1_GettingStartedWithPython/GettingStartedWithPython.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module1_GettingStartedWithPython/GettingStartedWithPython.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -198,23 +195,13 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Introducing-the-Python-Programming-Language">
@@ -227,13 +214,7 @@
 </ul>
 <div class="section" id="What-is-Python?">
 <h2>What is Python?<a class="headerlink" href="#What-is-Python?" title="Permalink to this headline">¶</a></h2>
-<p><strong>Python is a programming language</strong>. That is, it provides us with a
-strict set of grammatical rules that correspond to well-defined
-instructions that a computer will obey. The tremendous value of this is
-that we can write text documents that are relatively simple and inuitive
-for humans to read, and yet can inform the computer to perform precise
-operations. Python <strong>code</strong> is simply text that conforms to the Python
-language.</p>
+<p><strong>Python is a programming language</strong>. That is, it provides us with a strict set of grammatical rules that correspond to well-defined instructions that a computer will obey. The tremendous value of this is that we can write text documents that are relatively simple and inuitive for humans to read, and yet can inform the computer to perform precise operations. Python <strong>code</strong> is simply text that conforms to the Python language.</p>
 <p>For example, the following text obeys the rules of the Python language:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;2 + 3 = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -243,142 +224,68 @@ language.</p>
 <ul class="simple">
 <li>compute 2 + 3</li>
 <li>assign the resulting value (5) to a variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, in memory</li>
-<li>access the value of <code class="docutils literal notranslate"><span class="pre">x</span></code>, and print to the computer’s screen: ‘2 + 3
-= 5’</li>
+<li>access the value of <code class="docutils literal notranslate"><span class="pre">x</span></code>, and print to the computer’s screen: ‘2 + 3 = 5’</li>
 </ul>
 <p>An example of code that <strong>does not</strong> obey Python’s rules is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">~</span> <span class="mi">3</span>
 </pre></div>
 </div>
-<p>because character <code class="docutils literal notranslate"><span class="pre">~</span></code> has no meaning in the Python language when it is
-placed between two integers.</p>
-<p>To “learn Python” thus entails learning the grammatical rules specified
-by the Python language, and the computer instuctions that they map to.
-Additionally, you will want to familiarize yourself with many of the
-convenient tools that are “pre-written” and come with the Python
-language; they are part of the so-called standard library.</p>
-<p>Given this basic understanding of what the Python programming language
-is, we now want to know how to use our Python code to send instructions
-to the computer. The most basic way of doing this is to:</p>
+<p>because character <code class="docutils literal notranslate"><span class="pre">~</span></code> has no meaning in the Python language when it is placed between two integers.</p>
+<p>To “learn Python” thus entails learning the grammatical rules specified by the Python language, and the computer instuctions that they map to. Additionally, you will want to familiarize yourself with many of the convenient tools that are “pre-written” and come with the Python language; they are part of the so-called standard library.</p>
+<p>Given this basic understanding of what the Python programming language is, we now want to know how to use our Python code to send instructions to the computer. The most basic way of doing this is to:</p>
 <ul class="simple">
 <li>Write a Python “script”: a text file containing Python code.</li>
-<li>Pass this text file to a <strong>Python interpreter</strong>, which will instruct
-the computer to carry out the operations described by the code.</li>
+<li>Pass this text file to a <strong>Python interpreter</strong>, which will instruct the computer to carry out the operations described by the code.</li>
 </ul>
 </div>
 <div class="section" id="Python-Scripts">
 <h2>Python Scripts<a class="headerlink" href="#Python-Scripts" title="Permalink to this headline">¶</a></h2>
-<p>You can save the the valid code from the preceding section in a text
-file using a simple text editor, and <em>voilà</em> you have written a <strong>Python
-script</strong>: a text file containing Python code. It is standard to save
-this text file using the suffix <code class="docutils literal notranslate"><span class="pre">.py</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">my_code.py</span></code>), rather
-than the familiar <code class="docutils literal notranslate"><span class="pre">.txt</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">my_text.txt</span></code>). There is nothing
-special about the <code class="docutils literal notranslate"><span class="pre">.py</span></code> suffix; it simply helps differentiate files
-that contain Python code from run-of-the-mill text files, which contain
-plain English.</p>
-<p>Although you can use simple text editors to write Python scripts
-(e.g.&nbsp;notepad (Win), TextEdit (Mac), nano (Linux)), there are much more
-sophisticated editors that provide an “integrated development
-environment” (IDE) for writing code. An IDE, configured to support
-Python, will warn you if you have written code that violates Python’s
-grammar rules, similar to the way word processing software warns you if
-you have made a spelling mistake. More on IDEs in a later section.</p>
+<p>You can save the the valid code from the preceding section in a text file using a simple text editor, and <em>voilà</em> you have written a <strong>Python script</strong>: a text file containing Python code. It is standard to save this text file using the suffix <code class="docutils literal notranslate"><span class="pre">.py</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">my_code.py</span></code>), rather than the familiar <code class="docutils literal notranslate"><span class="pre">.txt</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">my_text.txt</span></code>). There is nothing special about the <code class="docutils literal notranslate"><span class="pre">.py</span></code> suffix; it simply helps differentiate files that contain Python code from run-of-the-mill text files, which contain plain
+English.</p>
+<p>Although you can use simple text editors to write Python scripts (e.g.&nbsp;notepad (Win), TextEdit (Mac), nano (Linux)), there are much more sophisticated editors that provide an “integrated development environment” (IDE) for writing code. An IDE, configured to support Python, will warn you if you have written code that violates Python’s grammar rules, similar to the way word processing software warns you if you have made a spelling mistake. More on IDEs in a later section.</p>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>WARNING</strong>:</p>
-<p class="last">Do not use word processing programs, like Microsoft Word, to write code.
-They will “silently” change the characters written in your file, such as
-the type of quotation marks being used. This will cause errors in your
-code.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING</strong>:</p>
+<p>Do not use word processing programs, like Microsoft Word, to write code. They will “silently” change the characters written in your file, such as the type of quotation marks being used. This will cause errors in your code.</p>
 </div>
-<p>Now that you have a Python script, how do you get the computer to read
-it and follow its instructions? You will need to install a <strong>Python
-interpreter</strong> on your computer to accomplish this. This is what people
-mean, whether they know it or not, when they tell you to “install
-Python” on your computer.</p>
+<p>Now that you have a Python script, how do you get the computer to read it and follow its instructions? You will need to install a <strong>Python interpreter</strong> on your computer to accomplish this. This is what people mean, whether they know it or not, when they tell you to “install Python” on your computer.</p>
 </div>
 <div class="section" id="What-is-a-Python-Interpreter-and-What-Does-it-Mean-to-“Install-Python”?">
 <h2>What is a Python Interpreter and What Does it Mean to “Install Python”?<a class="headerlink" href="#What-is-a-Python-Interpreter-and-What-Does-it-Mean-to-“Install-Python”?" title="Permalink to this headline">¶</a></h2>
-<p>A Python interpreter is any computer program that is capable of doing
-the following:</p>
+<p>A Python interpreter is any computer program that is capable of doing the following:</p>
 <ul class="simple">
 <li>Read in a text file (e.g. <code class="docutils literal notranslate"><span class="pre">my_code.py</span></code>).</li>
-<li>Parse the text and determine if it obeys the rules of the Python
-language (the interpreter will raise an error if the rules are not
-obeyed).</li>
-<li>Translate the parsed text into instructions, according to the Python
-language’s specifications.</li>
+<li>Parse the text and determine if it obeys the rules of the Python language (the interpreter will raise an error if the rules are not obeyed).</li>
+<li>Translate the parsed text into instructions, according to the Python language’s specifications.</li>
 <li>Instruct the computer to carry out the tasks.</li>
-<li>As a whole, a Python script is executed from top-to-bottom by the
-interpreter.</li>
+<li>As a whole, a Python script is executed from top-to-bottom by the interpreter.</li>
 </ul>
-<p>The first Python interpeter was written in the programming language C,
-and is known as CPython. Accordingly, <strong>the CPython interpreter is the
-official interpreter of the Python language</strong>. Any new rules/features
-that are introduced to the Python language are guaranteed be implemented
-in the <a class="reference external" href="https://github.com/python/cpython">CPython code base</a>.</p>
+<p>The first Python interpeter was written in the programming language C, and is known as CPython. Accordingly, <strong>the CPython interpreter is the official interpreter of the Python language</strong>. Any new rules/features that are introduced to the Python language are guaranteed be implemented in the <a class="reference external" href="https://github.com/python/cpython">CPython code base</a>.</p>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
-<p class="last">Python interpreters have been in written programming languages other
-than C, like in Java (Jython) and Go (Grumpy). These are not guaranteed
-to be up-to-date with the latest specifications of the Python language,
-and are rarely used in comparison to the CPython interpreter.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p>Python interpreters have been in written programming languages other than C, like in Java (Jython) and Go (Grumpy). These are not guaranteed to be up-to-date with the latest specifications of the Python language, and are rarely used in comparison to the CPython interpreter.</p>
 </div>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>About Installing Python</strong>:</p>
-<p class="last">Do not download and install Python from python.org. There isn’t anything
-wrong with this, but a later section will provide you with explicit
-instructions for installing Python on your machine.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>About Installing Python</strong>:</p>
+<p>Do not download and install Python from python.org. There isn’t anything wrong with this, but a later section will provide you with explicit instructions for installing Python on your machine.</p>
 </div>
-<p>If you “install Python on your computer” from
-<a class="reference external" href="https://www.python.org/downloads/release/python-363/">python.org</a>,
-you are essentially downloading an executable program onto your machine
-that operates as a Python interpreter. On Windows, for instance, this
-program is called <code class="docutils literal notranslate"><span class="pre">python.exe</span></code>. This program is the result of the
-aforementioned CPython code, and it is capable of performing the all of
-the tasks of a Python interpreter. Additionally, you are downloading a
-large suite of useful tools and functions that you can utilize in your
-code. This is known as the Python standard library; take a moment to
-look over its contents
-<a class="reference external" href="https://docs.python.org/3/library/index.html#the-python-standard-library">here</a>.</p>
-<p>Once you have a Python interpreter installed on your machine, using it
-to execute a Python script is quite simple. Assume for the sake of
-simplicity that the <code class="docutils literal notranslate"><span class="pre">python</span></code> interpreter program and <code class="docutils literal notranslate"><span class="pre">my_script.py</span></code>
-are in the same directory (a.k.a ‘folder’) in your computer. Then, in a
-terminal (<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code> for Windows) you can execute the following
-command:</p>
+<p>If you “install Python on your computer” from <a class="reference external" href="https://www.python.org/downloads/release/python-363/">python.org</a>, you are essentially downloading an executable program onto your machine that operates as a Python interpreter. On Windows, for instance, this program is called <code class="docutils literal notranslate"><span class="pre">python.exe</span></code>. This program is the result of the aforementioned CPython code, and it is capable of performing the all of the tasks of a Python interpreter. Additionally, you are downloading a large suite of useful tools
+and functions that you can utilize in your code. This is known as the Python standard library; take a moment to look over its contents <a class="reference external" href="https://docs.python.org/3/library/index.html#the-python-standard-library">here</a>.</p>
+<p>Once you have a Python interpreter installed on your machine, using it to execute a Python script is quite simple. Assume for the sake of simplicity that the <code class="docutils literal notranslate"><span class="pre">python</span></code> interpreter program and <code class="docutils literal notranslate"><span class="pre">my_script.py</span></code> are in the same directory (a.k.a ‘folder’) in your computer. Then, in a terminal (<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code> for Windows) you can execute the following command:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python my_script.py
 </pre></div>
 </div>
-<p>this will instruct the Python interpreter program <code class="docutils literal notranslate"><span class="pre">python</span></code> to read
-your text file <code class="docutils literal notranslate"><span class="pre">my_script.py</span></code>, ensure that your code obeys all of the
-grammatical rules specified by the Python language, and then send
-instructions to your computer in accordance with the code that it reads.
-If your script simply contains the code <code class="docutils literal notranslate"><span class="pre">print(&quot;hello</span> <span class="pre">world&quot;)</span></code>, then
-the text <code class="docutils literal notranslate"><span class="pre">hello</span> <span class="pre">world</span></code> will appear in your terminal window, as
-expected.</p>
-<p>In practice, you will be able to simply execute <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my_script.py</span></code>
-in any directory, and your computer will know where to look to find the
-<code class="docutils literal notranslate"><span class="pre">python</span></code> program. This will be set up during the installation process.</p>
-<p>It may be confusing to think that the Python language is interpreted by
-using a program written in another language. How, then, is that language
-interpreted? The answer, in the case of CPython, is that C code need not
-be interpreted; programs exist for Windows, Mac, and Linux that can
-translate C code directly into machine instructions.</p>
+<p>this will instruct the Python interpreter program <code class="docutils literal notranslate"><span class="pre">python</span></code> to read your text file <code class="docutils literal notranslate"><span class="pre">my_script.py</span></code>, ensure that your code obeys all of the grammatical rules specified by the Python language, and then send instructions to your computer in accordance with the code that it reads. If your script simply contains the code <code class="docutils literal notranslate"><span class="pre">print(&quot;hello</span> <span class="pre">world&quot;)</span></code>, then the text <code class="docutils literal notranslate"><span class="pre">hello</span> <span class="pre">world</span></code> will appear in your terminal window, as expected.</p>
+<p>In practice, you will be able to simply execute <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my_script.py</span></code> in any directory, and your computer will know where to look to find the <code class="docutils literal notranslate"><span class="pre">python</span></code> program. This will be set up during the installation process.</p>
+<p>It may be confusing to think that the Python language is interpreted by using a program written in another language. How, then, is that language interpreted? The answer, in the case of CPython, is that C code need not be interpreted; programs exist for Windows, Mac, and Linux that can translate C code directly into machine instructions.</p>
 </div>
 <div class="section" id="Why-Python?">
 <h2>Why Python?<a class="headerlink" href="#Why-Python?" title="Permalink to this headline">¶</a></h2>
-<p>Python has become a hugely popular programming language. In fact, it is
-likely the <a class="reference external" href="https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-u-s-universities/fulltext">most popular introductory language at
-universities</a>.
-First and foremost, its syntax is designed to be intuitive and readable.
-For example, the following Python code sums the numbers 0-9, and prints
-the result:</p>
+<p>Python has become a hugely popular programming language. In fact, it is likely the <a class="reference external" href="https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-u-s-universities/fulltext">most popular introductory language at universities</a>. First and foremost, its syntax is designed to be intuitive and readable. For example, the following Python code sums the numbers 0-9, and prints the result:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>This can be reproduced by the following C++ code, which is arguably
-less-intuitive:</p>
+<p>This can be reproduced by the following C++ code, which is arguably less-intuitive:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;numeric&gt;</span><span class="cp"></span>
@@ -389,43 +296,26 @@ less-intuitive:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>As such, Python is a language that is conducive to rapidly prototyping
-and testing code. Additionally, it is open-sourced: it is free to use,
-anyone can participate in improving/maintaining the language, and many
-people create new libraries that add tremendous functionality to the
-language. Thus, Python has become exceptionally popular especially among
-scientists, engineers, and other researchers.</p>
-<p>We will be relying heavily on Python and a library for doing optimized
-numerical computations, called NumPy, throughout this course.</p>
+<p>As such, Python is a language that is conducive to rapidly prototyping and testing code. Additionally, it is open-sourced: it is free to use, anyone can participate in improving/maintaining the language, and many people create new libraries that add tremendous functionality to the language. Thus, Python has become exceptionally popular especially among scientists, engineers, and other researchers.</p>
+<p>We will be relying heavily on Python and a library for doing optimized numerical computations, called NumPy, throughout this course.</p>
 </div>
 <div class="section" id="Summary">
 <h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Python is a programming language - it provides us with a simple set
-of grammatical rules that allow us to write human-readable text,
-which can be translated unambiguously to instruct a computer to
-perform tasks.</li>
+<li>Python is a programming language - it provides us with a simple set of grammatical rules that allow us to write human-readable text, which can be translated unambiguously to instruct a computer to perform tasks.</li>
 <li>Python code is text that conforms to the Python language.</li>
-<li>A Python script is a text file containing Python code. Traditionally
-such a file will be saved using the suffix <code class="docutils literal notranslate"><span class="pre">.py</span></code>.</li>
-<li>A Python interpreter is a program that is capable of reading and
-parsing a text file, and translating the code into machine
-instructions, as specified by the Python language.</li>
-<li>To “install Python” onto you machine boils down to saving a
-functioning Python interpreter onto your machine.</li>
-<li>The official Python interpreter is a program written in the language
-C, and is known as the CPython interpreter.</li>
-<li>The “standard library” is a large collection of tools and functions
-that comes packaged with the CPython interpreter.</li>
+<li>A Python script is a text file containing Python code. Traditionally such a file will be saved using the suffix <code class="docutils literal notranslate"><span class="pre">.py</span></code>.</li>
+<li>A Python interpreter is a program that is capable of reading and parsing a text file, and translating the code into machine instructions, as specified by the Python language.</li>
+<li>To “install Python” onto you machine boils down to saving a functioning Python interpreter onto your machine.</li>
+<li>The official Python interpreter is a program written in the language C, and is known as the CPython interpreter.</li>
+<li>The “standard library” is a large collection of tools and functions that comes packaged with the CPython interpreter.</li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -434,7 +324,7 @@ that comes packaged with the CPython interpreter.</li>
         <a href="Installing_Python.html" class="btn btn-neutral float-right" title="Installing Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="SiteFormatting.html" class="btn btn-neutral" title="A Quick Guide to Formatting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="SiteFormatting.html" class="btn btn-neutral float-left" title="A Quick Guide to Formatting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -443,11 +333,11 @@ that comes packaged with the CPython interpreter.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -460,39 +350,15 @@ that comes packaged with the CPython interpreter.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

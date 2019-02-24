@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introducing the ND-array &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Introducing the ND-array &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
-        <link rel="next" title="Accessing Data Along Multiple Dimensions in an Array" href="AccessingDataAlongMultipleDimensions.html"/>
-        <link rel="prev" title="Module 3: The Essentials of NumPy" href="../module_3.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Accessing Data Along Multiple Dimensions in an Array" href="AccessingDataAlongMultipleDimensions.html" />
+    <link rel="prev" title="Module 3: The Essentials of NumPy" href="../module_3.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -128,7 +124,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -136,9 +132,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -169,7 +166,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module3_IntroducingNumpy/IntroducingTheNDarray.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module3_IntroducingNumpy/IntroducingTheNDarray.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -197,52 +194,28 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Introducing-the-ND-array">
 <h1>Introducing the ND-array<a class="headerlink" href="#Introducing-the-ND-array" title="Permalink to this headline">¶</a></h1>
-<p>It is time to start familiarizing ourselves with NumPy, the premiere
-library for doing numerical work in Python. To use this package, we need
-to be sure to “import” the NumPy module into our code:</p>
+<p>It is time to start familiarizing ourselves with NumPy, the premiere library for doing numerical work in Python. To use this package, we need to be sure to “import” the NumPy module into our code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>You could have run <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span></code> instead, but the prescribed method
-allows us to use the abbreviation ‘np’ throughout our code, instead of
-having to write ‘numpy’. This is a very common abbreviation to use.</p>
-<p>The ND-array (N-dimensional array) is the star of the show for NumPy.
-This array simply stores a sequence of numbers. Like a Python list, you
-can access individual entries in this array by “indexing” into the
-array, and you can access a sub-sequence of the array by “slicing” it.
-So what distinguishes NumPy’s ND-array from a Python list, and why is
-there a whole numerical library that revolves around this array? There
-are two major features that makes the ND-array special. It can:</p>
+<p>You could have run <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span></code> instead, but the prescribed method allows us to use the abbreviation ‘np’ throughout our code, instead of having to write ‘numpy’. This is a very common abbreviation to use.</p>
+<p>The ND-array (N-dimensional array) is the star of the show for NumPy. This array simply stores a sequence of numbers. Like a Python list, you can access individual entries in this array by “indexing” into the array, and you can access a sub-sequence of the array by “slicing” it. So what distinguishes NumPy’s ND-array from a Python list, and why is there a whole numerical library that revolves around this array? There are two major features that makes the ND-array special. It can:</p>
 <ol class="arabic simple">
-<li>Provide an interface for its underlying data to be accessed along
-multiple dimensions.</li>
-<li>Rapidly perform mathematical operations over all of its elements, or
-over patterned subsequences of its elements, using compiled C code
-instead of Python; this is a process called vectorization.</li>
+<li>Provide an interface for its underlying data to be accessed along multiple dimensions.</li>
+<li>Rapidly perform mathematical operations over all of its elements, or over patterned subsequences of its elements, using compiled C code instead of Python; this is a process called vectorization.</li>
 </ol>
-<p>Let’s take a sneak peek to see at what this module has in store. The
-following code creates an ND-array containing the numbers 0-8:</p>
+<p>Let’s take a sneak peek to see at what this module has in store. The following code creates an ND-array containing the numbers 0-8:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 </pre></div>
@@ -256,8 +229,7 @@ following code creates an ND-array containing the numbers 0-8:</p>
 <span class="bp">True</span>
 </pre></div>
 </div>
-<p>We can “reshape” this array so that its contents can be accessed along 2
-dimensions:</p>
+<p>We can “reshape” this array so that its contents can be accessed along 2 dimensions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">array([[0, 1, 2],</span>
@@ -265,8 +237,7 @@ dimensions:</p>
 <span class="go">       [6, 7, 8]])</span>
 </pre></div>
 </div>
-<p>We will utilize one of NumPy’s “vectorized” functions to square each
-entry in the array (without us needing to write a for-loop)</p>
+<p>We will utilize one of NumPy’s “vectorized” functions to square each entry in the array (without us needing to write a for-loop)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># can also be calculated using the shorthand: x**2</span>
 <span class="go">array([[ 0,  1,  4],</span>
 <span class="go">       [ 9, 16, 25],</span>
@@ -278,8 +249,7 @@ entry in the array (without us needing to write a for-loop)</p>
 <span class="go">array([ 1.,  4.,  7.])</span>
 </pre></div>
 </div>
-<p>We can use broadcasting to raise each column of <code class="docutils literal notranslate"><span class="pre">x</span></code> to a different
-power:</p>
+<p>We can use broadcasting to raise each column of <code class="docutils literal notranslate"><span class="pre">x</span></code> to a different power:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
 <span class="go">array([[  1.,   1.,   4.],</span>
 <span class="go">       [  1.,   4.,  25.],</span>
@@ -292,9 +262,7 @@ power:</p>
 <span class="go">       [3, 4, 5]])</span>
 </pre></div>
 </div>
-<p>Advanced indexing can be used to access all even-valued entries of
-<code class="docutils literal notranslate"><span class="pre">x</span></code>; let’s update <code class="docutils literal notranslate"><span class="pre">x</span></code> so that all of its even-valued entries are
-multiplied by -1:</p>
+<p>Advanced indexing can be used to access all even-valued entries of <code class="docutils literal notranslate"><span class="pre">x</span></code>; let’s update <code class="docutils literal notranslate"><span class="pre">x</span></code> so that all of its even-valued entries are multiplied by -1:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">array([[ 0,  1, -2],</span>
@@ -302,26 +270,20 @@ multiplied by -1:</p>
 <span class="go">       [-6,  7, -8]])</span>
 </pre></div>
 </div>
-<p>By the end of this module, these code snippets should make good sense,
-and NumPy’s tremendous utility should be clear.</p>
+<p>By the end of this module, these code snippets should make good sense, and NumPy’s tremendous utility should be clear.</p>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">The N-dimensional
-array</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.html#numpy-basics">NumPy
-Basics</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html">NumPy
-reference</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">The N-dimensional array</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.html#numpy-basics">NumPy Basics</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html">NumPy reference</a></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -330,7 +292,7 @@ reference</a></li>
         <a href="AccessingDataAlongMultipleDimensions.html" class="btn btn-neutral float-right" title="Accessing Data Along Multiple Dimensions in an Array" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../module_3.html" class="btn btn-neutral" title="Module 3: The Essentials of NumPy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../module_3.html" class="btn btn-neutral float-left" title="Module 3: The Essentials of NumPy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -339,11 +301,11 @@ reference</a></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -356,39 +318,15 @@ reference</a></li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
