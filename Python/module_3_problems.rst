@@ -10,7 +10,7 @@ These problems were written by former students of mine and PLYMI readers. Have y
    :caption: Contents:
 
    Module3_IntroducingNumpy/Problems/ComputeAccuracy.md
-   Module3_IntroducingNumpy/Problems/Approximating_pi.md
+   Module3_IntroducingNumpy/Problems/Approximating_pi.ipynb
 
 
 

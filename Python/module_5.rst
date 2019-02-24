@@ -18,7 +18,7 @@ More sections will be added to this module down the road.
    :caption: Contents:
 
    Module5_OddsAndEnds/Writing_Good_Code.md
-   Module5_OddsAndEnds/Matplotlib.md
+   Module5_OddsAndEnds/Matplotlib.ipynb
    Module5_OddsAndEnds/WorkingWithFiles.md
    Module5_OddsAndEnds/Modules_and_Packages.md
 
