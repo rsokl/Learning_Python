@@ -12,12 +12,12 @@ This module presents to us the essentials of NumPy. We will first define what th
    :maxdepth: 2
    :caption: Contents:
 
-   Module3_IntroducingNumpy/IntroducingTheNDarray.ipynb
-   Module3_IntroducingNumpy/AccessingDataAlongMultipleDimensions.ipynb
-   Module3_IntroducingNumpy/BasicArrayAttributes.ipynb
-   Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.ipynb
-   Module3_IntroducingNumpy/ArrayTraversal.ipynb
-   Module3_IntroducingNumpy/VectorizedOperations.ipynb
-   Module3_IntroducingNumpy/Broadcasting.ipynb
-   Module3_IntroducingNumpy/BasicIndexing.ipynb
-   Module3_IntroducingNumpy/AdvancedIndexing.ipynb
+   Module3_IntroducingNumpy/IntroducingTheNDarray.md
+   Module3_IntroducingNumpy/AccessingDataAlongMultipleDimensions.md
+   Module3_IntroducingNumpy/BasicArrayAttributes.md
+   Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.md
+   Module3_IntroducingNumpy/ArrayTraversal.md
+   Module3_IntroducingNumpy/VectorizedOperations.md
+   Module3_IntroducingNumpy/Broadcasting.md
+   Module3_IntroducingNumpy/BasicIndexing.md
+   Module3_IntroducingNumpy/AdvancedIndexing.md
