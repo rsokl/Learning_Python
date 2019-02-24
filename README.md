@@ -1,7 +1,7 @@
 # Python Like You Mean It
 View this content as hosted on [Python Like You Mean It](https://www.pythonlikeyoumeanit.com/)
 
-This repository contains the source material for the website [Python Like You Mean It](pythonlikeyoumeanit.com). The site is written primarily in [Jupyter notebooks](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html) (which are transformed into html using [nbsphinx](https://nbsphinx.readthedocs.io/en/0.3.4/)). A huge perk of this of this is that you simply need to be familiar with Jupyter notebooks and some [markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in order to contribute to this project!
+This repository contains the source material for the website [Python Like You Mean It](pythonlikeyoumeanit.com). The site is written primarily in markdown ~[Jupyter notebooks](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html)~ (which are transformed into html using [nbsphinx](https://nbsphinx.readthedocs.io/en/0.3.4/)). A huge perk of this of this is that you simply need to be familiar with Jupyter notebooks and some [markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in order to contribute to this project!
 
 ## Asking Questions
 Please feel free to post questions (or point out mistakes) about the reading by opening a [GitHub issue](https://github.com/rsokl/Learning_Python/issues). Someone from the PLYMI team will respond ASAP! Refer to [this reference](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code-and-syntax-highlighting) to see how to include python-codeblocks  in your post. This will make it much easier for us to discuss code with each other. 
