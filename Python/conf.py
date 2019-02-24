@@ -37,6 +37,12 @@ extensions = ['sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages']
 
+import jupytext
+
+nbsphinx_custom_formats = {
+    '.md': lambda s: jupytext.reads(s, '.md'),
+}
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

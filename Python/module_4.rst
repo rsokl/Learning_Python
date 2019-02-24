@@ -8,11 +8,11 @@ We being this module by establishing some key terminology for discussing object-
    :maxdepth: 2
    :caption: Contents:
 
-   Module4_OOP/Introduction_to_OOP.ipynb
-   Module4_OOP/ClassDefinition.ipynb
-   Module4_OOP/ClassInstances.ipynb
-   Module4_OOP/Brief_Review.ipynb
-   Module4_OOP/Methods.ipynb
-   Module4_OOP/Applications_of_OOP.ipynb
-   Module4_OOP/Special_Methods.ipynb
-   Module4_OOP/Inheritance.ipynb
+   Module4_OOP/Introduction_to_OOP.md
+   Module4_OOP/ClassDefinition.md
+   Module4_OOP/ClassInstances.md
+   Module4_OOP/Brief_Review.md
+   Module4_OOP/Methods.md
+   Module4_OOP/Applications_of_OOP.md
+   Module4_OOP/Special_Methods.md
+   Module4_OOP/Inheritance.md

@@ -5,7 +5,7 @@ This module contains materials that are extraneous to the essentials of Python a
 The first section introduces some general guidelines for writing "good code". Specifically, it points you, the reader, to a style guide that many people in the Python community abide by. It also introduces a relatively new and increasingly-popular feature of Python, called type-hinting, which permits us to enhance our code with type-documentation annotations. The reader will also be introduced to NumPy's and Google's respective specifications for writing good docstrings.  
 
 
-The second section of this module intoduces matplotlib, a library that allows us to plot and visually inspect data. Here, we will specifically learn how to leverage matplotlib's object-oriented API, as opposed to its functional API, for creating scatter plots, line plots, histograms, and image plots.
+The second section of this module introduces matplotlib, a library that allows us to plot and visually inspect data. Here, we will specifically learn how to leverage matplotlib's object-oriented API, as opposed to its functional API, for creating scatter plots, line plots, histograms, and image plots.
 
 The next section presents the "best practices" for working with files in Python. This includes reading from and writing to files within a context manager. We will learn to leverage the powerful :code:`pathlib.Path` class to work with paths in elegant and platform-independent ways. Finally, we review some critical file utilities, like searching for files with :code:`glob`, saving files with :code:`pickle`, and saving NumPy arrays.
 
@@ -17,10 +17,8 @@ More sections will be added to this module down the road.
    :maxdepth: 2
    :caption: Contents:
 
-   Module5_OddsAndEnds/Writing_Good_Code.ipynb
-   Module5_OddsAndEnds/Matplotlib.ipynb
-   Module5_OddsAndEnds/WorkingWithFiles.ipynb
-   Module5_OddsAndEnds/Modules_and_Packages.ipynb
+   Module5_OddsAndEnds/Writing_Good_Code.md
+   Module5_OddsAndEnds/Matplotlib.md
+   Module5_OddsAndEnds/WorkingWithFiles.md
+   Module5_OddsAndEnds/Modules_and_Packages.md
 
-
-   

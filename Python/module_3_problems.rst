@@ -9,8 +9,8 @@ These problems were written by former students of mine and PLYMI readers. Have y
    :maxdepth: 2
    :caption: Contents:
 
-   Module3_IntroducingNumpy/Problems/ComputeAccuracy.ipynb
-   Module3_IntroducingNumpy/Problems/Approximating_pi.ipynb
+   Module3_IntroducingNumpy/Problems/ComputeAccuracy.md
+   Module3_IntroducingNumpy/Problems/Approximating_pi.md
 
 
 
