@@ -81,8 +81,6 @@ Basic indexing allows us to access multi-dimensional slices of `x`:
 >>> x[:2, :3]
 array([[0, 1, 2],
        [3, 4, 5]])
-
-
 # ```
 
 Advanced indexing can be used to access all even-valued entries of `x`; let's update `x` so that all of its even-valued entries are multiplied by -1:

@@ -276,12 +276,9 @@ phrase_of_the_day = "get that package delievered!"
 It also contains the module `delivery.py` with the contents:
 
 # ```python
-
 def get_zip():
     """just a dummy function"""
     return 871092
-
-
 # ```
 
 1. Create this package.
