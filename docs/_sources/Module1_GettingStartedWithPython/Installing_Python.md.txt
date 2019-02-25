@@ -55,7 +55,7 @@ For Linux and Mac users, it is very likely that your system already has a versio
 
 **An important note for people who code in languages other than Python:**  Anaconda has its own `lib` and `bin` directories that it uses to store library files and binary files as needed. While this makes it very easy for users to install sophisticated Python packages that leverage C-libraries without having to manually build those libraries, it also means that your system will prioritize Anaconda's files before your system-level files. This can be a big problem if you work in languages other than Python.
 
-The simple solution to this is to *not* have the Anaconda-installer include Anaconda in your path. Instead, you can create an alias that will allows you manually prepend Anaconda to your path. E.g., in Linux you can add the following alias to your `~/.bashrc` file:
+The simple solution to this is to *not* have the Anaconda-installer include Anaconda in your path. Instead, you can create an alias that will allow you manually prepend Anaconda to your path. E.g., in Linux you can add the following alias to your `~/.bashrc` file:
 
 # ```shell
 alias anaconda="export PATH=/home/<your_username>/anaconda3/bin:$PATH"

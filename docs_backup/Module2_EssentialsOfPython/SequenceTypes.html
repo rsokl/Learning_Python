@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Sequence Types &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Sequence Types &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
-        <link rel="next" title="Variables &amp; Assignment" href="Variables_and_Assignment.html"/>
-        <link rel="prev" title="Basic Object Types" href="Basic_Objects.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Variables &amp; Assignment" href="Variables_and_Assignment.html" />
+    <link rel="prev" title="Basic Object Types" href="Basic_Objects.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -141,7 +137,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -149,9 +145,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -182,7 +179,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module2_EssentialsOfPython/SequenceTypes.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module2_EssentialsOfPython/SequenceTypes.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -210,32 +207,20 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Sequence-Types">
 <h1>Sequence Types<a class="headerlink" href="#Sequence-Types" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
-<p class="last">There are reading-comprehension exercises included throughout the text.
-These are meant to help you put your reading to practice. Solutions for
-the exercises are included at the bottom of this page.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p>There are reading-comprehension exercises included throughout the text. These are meant to help you put your reading to practice. Solutions for the exercises are included at the bottom of this page.</p>
 </div>
 <p>The following objects are all example of sequences:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># examples of sequences</span>
@@ -253,32 +238,17 @@ the exercises are included at the bottom of this page.</p>
 <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Being able to work with sequences of objects/data is so important that
-it warrants us to take our first (relatively) deep dive into Python. The
-preceding reading introduced Python lists and strings, two important
-objects that are built into the Python language. Although quite distinct
-from one another in terms of what they can contain, <em>lists and strings
-are both types of sequences</em> - they store a finite collection of objects
-whose ordering matters (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;cat&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;tac&quot;</span></code> should be
-considered distinct strings). As such, lists, strings, and the other
-sequence types in Python all share a common interface for allowing users
-to inspect, retrieve, and summarize their contents.</p>
+<p>Being able to work with sequences of objects/data is so important that it warrants us to take our first (relatively) deep dive into Python. The preceding reading introduced Python lists and strings, two important objects that are built into the Python language. Although quite distinct from one another in terms of what they can contain, <em>lists and strings are both types of sequences</em> - they store a finite collection of objects whose ordering matters (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;cat&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;tac&quot;</span></code> should be
+considered distinct strings). As such, lists, strings, and the other sequence types in Python all share a common interface for allowing users to inspect, retrieve, and summarize their contents.</p>
 <p>In this section, we will:</p>
 <ul class="simple">
-<li>Introduce tuples, the last built-in sequence type that we have yet to
-encounter.</li>
-<li>Demonstrate the common interface that can be used to inspect and
-summarize the contents of a sequence.</li>
-<li>Detail the all-important indexing scheme used by Python, which will
-allow us to access specific items or subsequences from a sequence.</li>
+<li>Introduce tuples, the last built-in sequence type that we have yet to encounter.</li>
+<li>Demonstrate the common interface that can be used to inspect and summarize the contents of a sequence.</li>
+<li>Detail the all-important indexing scheme used by Python, which will allow us to access specific items or subsequences from a sequence.</li>
 </ul>
 <div class="section" id="Tuples">
 <h2>Tuples<a class="headerlink" href="#Tuples" title="Permalink to this headline">¶</a></h2>
-<p>The last built-in sequence type that we have yet to encounter is the
-<code class="docutils literal notranslate"><span class="pre">tuple</span></code> type. A tuple is very similar to a list, in that it can store
-a sequence of arbitrary objects (a mix of numbers, strings, lists, other
-tuples, etc.). Where lists are constructed using square-brackets, tuples
-use parentheses:</p>
+<p>The last built-in sequence type that we have yet to encounter is the <code class="docutils literal notranslate"><span class="pre">tuple</span></code> type. A tuple is very similar to a list, in that it can store a sequence of arbitrary objects (a mix of numbers, strings, lists, other tuples, etc.). Where lists are constructed using square-brackets, tuples use parentheses:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a tuple</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># tuple with 3 entries</span>
 
@@ -295,19 +265,14 @@ use parentheses:</p>
 </pre></div>
 </div>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Checking multiple types</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">isinstance</span></code> can be used to check multiple types at once, by supplying
-it a tuple of types. That is,</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Checking multiple types</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">isinstance</span></code> can be used to check multiple types at once, by supplying it a tuple of types. That is,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
 </pre></div>
 </div>
-<p class="last">Will check if <code class="docutils literal notranslate"><span class="pre">x</span></code> is a tuple <em>or</em> a list <em>or</em> a string.</p>
+<p>Will check if <code class="docutils literal notranslate"><span class="pre">x</span></code> is a tuple <em>or</em> a list <em>or</em> a string.</p>
 </div>
-<p>Unlike a list, <em>once a tuple is formed, it cannot be changed</em>. That is,
-a tuple is <em>immutable</em>, whereas a list is <em>mutable</em>. Tuples generally
-consume less memory than do lists, since it is known that a tuple will
-not change in size. Furthermore, tuples come in handy when you want to
-ensure that a sequence of data cannot be changed by subsequent code.</p>
+<p>Unlike a list, <em>once a tuple is formed, it cannot be changed</em>. That is, a tuple is <em>immutable</em>, whereas a list is <em>mutable</em>. Tuples generally consume less memory than do lists, since it is known that a tuple will not change in size. Furthermore, tuples come in handy when you want to ensure that a sequence of data cannot be changed by subsequent code.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the contents of a list can be changed: it is &quot;mutable&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
@@ -320,8 +285,7 @@ ensure that a sequence of data cannot be changed by subsequent code.</p>
 <span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;tuple&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">tuple</span></code> can be used to convert other sequences (other iterables, more
-generally) into tuples. <code class="docutils literal notranslate"><span class="pre">str</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span></code> behave similarly.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tuple</span></code> can be used to convert other sequences (other iterables, more generally) into tuples. <code class="docutils literal notranslate"><span class="pre">str</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span></code> behave similarly.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `tuple` can create a tuple out of other sequences</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -336,10 +300,7 @@ generally) into tuples. <code class="docutils literal notranslate"><span class="
 </div>
 <div class="section" id="Working-with-sequences">
 <h2>Working with sequences<a class="headerlink" href="#Working-with-sequences" title="Permalink to this headline">¶</a></h2>
-<p>The following summarizes the common interface that is shared by Python’s
-different types of sequence, which includes lists, tuples, and strings.
-This interface allows you to inspect, summarize, join, and retrieve
-members from any variety of sequence.</p>
+<p>The following summarizes the common interface that is shared by Python’s different types of sequence, which includes lists, tuples, and strings. This interface allows you to inspect, summarize, join, and retrieve members from any variety of sequence.</p>
 <p><strong>Checking if an object is contained within a sequence:</strong> <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">seq</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using &#39;in&#39; and &#39;not in&#39; for membership checking</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -398,8 +359,7 @@ members from any variety of sequence.</p>
 <span class="mi">0</span>
 </pre></div>
 </div>
-<p><strong>Getting the index of the first occurrence of</strong> <code class="docutils literal notranslate"><span class="pre">x</span></code> <strong>in a
-sequence</strong>: <code class="docutils literal notranslate"><span class="pre">seq.index(x)</span></code></p>
+<p><strong>Getting the index of the first occurrence of</strong> <code class="docutils literal notranslate"><span class="pre">x</span></code> <strong>in a sequence</strong>: <code class="docutils literal notranslate"><span class="pre">seq.index(x)</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;cat cat cat&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>  <span class="c1"># &#39;t&#39; first occurs at index-2</span>
 <span class="go">2</span>
 
@@ -409,8 +369,7 @@ sequence</strong>: <code class="docutils literal notranslate"><span class="pre">
 <span class="go">ValueError: &#39;m&#39; is not in list</span>
 </pre></div>
 </div>
-<p><strong>Counting the number of occurrences of</strong> <code class="docutils literal notranslate"><span class="pre">x</span></code> <strong>in a sequence</strong>:
-<code class="docutils literal notranslate"><span class="pre">seq.count(x)</span></code></p>
+<p><strong>Counting the number of occurrences of</strong> <code class="docutils literal notranslate"><span class="pre">x</span></code> <strong>in a sequence</strong>: <code class="docutils literal notranslate"><span class="pre">seq.count(x)</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;the cat in the hat&quot;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">)</span>
 <span class="go">3</span>
 
@@ -421,20 +380,15 @@ sequence</strong>: <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Basics of sequences</strong></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Basics of sequences</strong></p>
 <ol class="arabic simple">
 <li>Change the list <code class="docutils literal notranslate"><span class="pre">[True,</span> <span class="pre">None,</span> <span class="pre">22]</span></code> into a tuple.</li>
+<li>How many sequence-types have we discussed thus far? Which of these produce objects that are immutable? Which of these produce objects that are mutable? For those types that are mutable, write a piece of example code that mutates an object.</li>
 </ol>
-<p class="last">2. How many sequence-types have we discussed thus far? Which of these
-produce objects that are immutable? Which of these produce objects that
-are mutable? For those types that are mutable, write a piece of example
-code that mutates an object.</p>
 </div>
 <div class="section" id="Introducing-Indexing-and-Slicing">
 <h3>Introducing Indexing and Slicing<a class="headerlink" href="#Introducing-Indexing-and-Slicing" title="Permalink to this headline">¶</a></h3>
-<p>We can access individual items from a sequence by specifying the <em>index</em>
-of that item. Python ascribes the 1st entry in a sequence index-0, the
-second entry index-1, and so on.</p>
+<p>We can access individual items from a sequence by specifying the <em>index</em> of that item. Python ascribes the 1st entry in a sequence index-0, the second entry index-1, and so on.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># accessing individual items from a sequence via indexing</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -444,28 +398,17 @@ second entry index-1, and so on.</p>
 <span class="s2">&quot;c&quot;</span>
 </pre></div>
 </div>
-<p>We can also “slice” a sequence, specifying a start-index and stop-index,
-and return a subsequence of the items contained within the slice:</p>
+<p>We can also “slice” a sequence, specifying a start-index and stop-index, and return a subsequence of the items contained within the slice:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;slicing&quot; a sequence produces a subsequence of its contents</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># include items 0, 1, 2 (3 is excluded)</span>
 <span class="s2">&quot;abc&quot;</span>
 </pre></div>
 </div>
-<p>It is critical to have a good grasp of how to access a sequence’s
-members and subsequences by using indexing and slicing. This indexing
-scheme will also appear in our work with NumPy arrays. We will proceed
-by providing a detailed rundown of Python’s indexing and slicing
-mechanisms.</p>
+<p>It is critical to have a good grasp of how to access a sequence’s members and subsequences by using indexing and slicing. This indexing scheme will also appear in our work with NumPy arrays. We will proceed by providing a detailed rundown of Python’s indexing and slicing mechanisms.</p>
 </div>
 <div class="section" id="Indexing">
 <h3>Indexing<a class="headerlink" href="#Indexing" title="Permalink to this headline">¶</a></h3>
-<p>Python allows you to retrieve individual members of a sequence by
-specifying the <em>index</em> of that member, which is the integer that
-uniquely identifies that member’s position in the sequence. <em>Python
-implements 0-based indexing for its sequences</em>, and also permits the use
-of negative integers to count from the end of the sequence. Consider the
-string <code class="docutils literal notranslate"><span class="pre">&quot;Python&quot;</span></code>. The following diagram displays the indices for this
-sequence:</p>
+<p>Python allows you to retrieve individual members of a sequence by specifying the <em>index</em> of that member, which is the integer that uniquely identifies that member’s position in the sequence. <em>Python implements 0-based indexing for its sequences</em>, and also permits the use of negative integers to count from the end of the sequence. Consider the string <code class="docutils literal notranslate"><span class="pre">&quot;Python&quot;</span></code>. The following diagram displays the indices for this sequence:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+---+---+---+---+---+---+</span>
 <span class="o">|</span> <span class="n">P</span> <span class="o">|</span> <span class="n">y</span> <span class="o">|</span> <span class="n">t</span> <span class="o">|</span> <span class="n">h</span> <span class="o">|</span> <span class="n">o</span> <span class="o">|</span> <span class="n">n</span> <span class="o">|</span>
 <span class="o">+---+---+---+---+---+---+</span>
@@ -473,8 +416,7 @@ sequence:</p>
  <span class="o">-</span><span class="mi">6</span>  <span class="o">-</span><span class="mi">5</span>  <span class="o">-</span><span class="mi">4</span>  <span class="o">-</span><span class="mi">3</span>  <span class="o">-</span><span class="mi">2</span>  <span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>The first row of numbers gives the position of the indices 0…5 in the
-string; the second row gives the corresponding negative indices.</p>
+<p>The first row of numbers gives the position of the indices 0…5 in the string; the second row gives the corresponding negative indices.</p>
 <p><strong>Positive Indices</strong></p>
 <ul class="simple">
 <li>0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> P</li>
@@ -493,9 +435,7 @@ string; the second row gives the corresponding negative indices.</p>
 <li>-2 <span class="math notranslate nohighlight">\(\rightarrow\)</span> o</li>
 <li>-1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> n</li>
 </ul>
-<p>Given this indexing scheme, Python reserves the use of square brackets
-following a variable name or object, as the “get-item” syntax:
-<code class="docutils literal notranslate"><span class="pre">seq[index]</span></code>.</p>
+<p>Given this indexing scheme, Python reserves the use of square brackets following a variable name or object, as the “get-item” syntax: <code class="docutils literal notranslate"><span class="pre">seq[index]</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating indexing into sequences</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
@@ -517,32 +457,19 @@ following a variable name or object, as the “get-item” syntax:
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">To “index into” a sequence is to retrieve a single member by specifying
-an integer index, that indicates the place of that member in the
-sequence: <code class="docutils literal notranslate"><span class="pre">seq[index]</span></code>. Python uses a zero-based indexing system,
-meaning that the first element in a sequence is located at position 0.
-Negative indices allow you to refer to an item’s position relative to
-the end of the list.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p>To “index into” a sequence is to retrieve a single member by specifying an integer index, that indicates the place of that member in the sequence: <code class="docutils literal notranslate"><span class="pre">seq[index]</span></code>. Python uses a zero-based indexing system, meaning that the first element in a sequence is located at position 0. Negative indices allow you to refer to an item’s position relative to the end of the list.</p>
 </div>
 </div>
 <div class="section" id="Slicing">
 <h3>Slicing<a class="headerlink" href="#Slicing" title="Permalink to this headline">¶</a></h3>
-<p>Slicing a sequence allows us to retrieve a subsequence of items, based
-on the indexing scheme that we reviewed in the preceeding subsection.
-Specifying a slice consists of:</p>
+<p>Slicing a sequence allows us to retrieve a subsequence of items, based on the indexing scheme that we reviewed in the preceeding subsection. Specifying a slice consists of:</p>
 <ul class="simple">
-<li>A start-index: the sequence-position where the slice begins (this
-item is <em>included</em> in the slice).</li>
-<li>A stop-index: the sequence-position where the slice ends (this item
-is <em>excluded</em> from the slice).</li>
-<li>A step-size, which permits us to take every item within the start &amp;
-stop bounds, or every <em>other</em> item, and so on. It is important to
-note that a negative step-size permits us to traverse a sequence <em>in
-reveresed order</em>.</li>
+<li>A start-index: the sequence-position where the slice begins (this item is <em>included</em> in the slice).</li>
+<li>A stop-index: the sequence-position where the slice ends (this item is <em>excluded</em> from the slice).</li>
+<li>A step-size, which permits us to take every item within the start &amp; stop bounds, or every <em>other</em> item, and so on. It is important to note that a negative step-size permits us to traverse a sequence <em>in reveresed order</em>.</li>
 </ul>
-<p>The basic syntax for slicing is: <code class="docutils literal notranslate"><span class="pre">seq[start:stop:step]</span></code>, using colons
-to separate the start, stop, and step values.</p>
+<p>The basic syntax for slicing is: <code class="docutils literal notranslate"><span class="pre">seq[start:stop:step]</span></code>, using colons to separate the start, stop, and step values.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the basics of slicing a sequence</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
 
@@ -564,16 +491,13 @@ to separate the start, stop, and step values.</p>
 <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
-<p>Slicing provides sensible default start, stop, and step values. Their
-default values are:</p>
+<p>Slicing provides sensible default start, stop, and step values. Their default values are:</p>
 <ul class="simple">
 <li>start: 0</li>
 <li>stop: <code class="docutils literal notranslate"><span class="pre">len(seq)</span></code></li>
 <li>step: 1</li>
 </ul>
-<p>You can omit any of these values or specify <code class="docutils literal notranslate"><span class="pre">None</span></code> in that entry to
-use the default value. You can omit the second colon entirely, and the
-slice will use a step-size of 1.</p>
+<p>You can omit any of these values or specify <code class="docutils literal notranslate"><span class="pre">None</span></code> in that entry to use the default value. You can omit the second colon entirely, and the slice will use a step-size of 1.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using default start, stop, and step values</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
 
@@ -586,18 +510,13 @@ slice will use a step-size of 1.</p>
 <span class="s1">&#39;aceg&#39;</span>
 </pre></div>
 </div>
-<p>Negative values can also be used in a slice. Specifying a negative
-step-value instructs the slice to traverse the sequence <em>in reverse
-order</em>. In this case, the default start and stop values will change so
-that <code class="docutils literal notranslate"><span class="pre">seq[::-1]</span></code> produces the sequence in reverse.</p>
+<p>Negative values can also be used in a slice. Specifying a negative step-value instructs the slice to traverse the sequence <em>in reverse order</em>. In this case, the default start and stop values will change so that <code class="docutils literal notranslate"><span class="pre">seq[::-1]</span></code> produces the sequence in reverse.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using a negative step size reverses the order of the sequence</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="s1">&#39;gfedcba&#39;</span>
 </pre></div>
 </div>
-<p>As we saw with using negative indices, specifying negative start/stop
-values in a slice permits us to indicate indices relative to the end of
-the list.</p>
+<p>As we saw with using negative indices, specifying negative start/stop values in a slice permits us to indicate indices relative to the end of the list.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a slice returning the last two values of the sequence</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
 <span class="s1">&#39;fg&#39;</span>
@@ -607,19 +526,14 @@ the list.</p>
 <span class="s1">&#39;abcde&#39;</span>
 </pre></div>
 </div>
-<p>Although the colon-syntax for slicing, <code class="docutils literal notranslate"><span class="pre">seq[start:stop:step]</span></code>, appears
-nearly ubiquitously in Python code, it is important to know that there
-is a built-in <code class="docutils literal notranslate"><span class="pre">slice</span></code> object that Python uses to form slices. It
-accepts the same start, stop, and step values, and produces the same
-sort of slicing behavior:</p>
+<p>Although the colon-syntax for slicing, <code class="docutils literal notranslate"><span class="pre">seq[start:stop:step]</span></code>, appears nearly ubiquitously in Python code, it is important to know that there is a built-in <code class="docutils literal notranslate"><span class="pre">slice</span></code> object that Python uses to form slices. It accepts the same start, stop, and step values, and produces the same sort of slicing behavior:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using the `slice` object explicitly</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
 <span class="s1">&#39;abc&#39;</span>
 </pre></div>
 </div>
-<p>This gives you the ability to work with slices in more creative ways in
-your code, since it allows you to assign a variable to a slice.</p>
+<p>This gives you the ability to work with slices in more creative ways in your code, since it allows you to assign a variable to a slice.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using the `slice` object to slice several sequences</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq1</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -638,18 +552,12 @@ your code, since it allows you to assign a variable to a slice.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">To “slice” a sequence is to retrieve a subsequence by specifying a
-start-index (included), a stop-index (excluded), and a step value.
-Negative values can be supplied for these, and default values are
-available as well. The common slicing syntax <code class="docutils literal notranslate"><span class="pre">seq[start:stop:step]</span></code> is
-actually just a nice shorthand for using a <code class="docutils literal notranslate"><span class="pre">slice</span></code> object:
-<code class="docutils literal notranslate"><span class="pre">seq[slice(start,</span> <span class="pre">stop,</span> <span class="pre">step)]</span></code>.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p>To “slice” a sequence is to retrieve a subsequence by specifying a start-index (included), a stop-index (excluded), and a step value. Negative values can be supplied for these, and default values are available as well. The common slicing syntax <code class="docutils literal notranslate"><span class="pre">seq[start:stop:step]</span></code> is actually just a nice shorthand for using a <code class="docutils literal notranslate"><span class="pre">slice</span></code> object: <code class="docutils literal notranslate"><span class="pre">seq[slice(start,</span> <span class="pre">stop,</span> <span class="pre">step)]</span></code>.</p>
 </div>
 <div class="section" id="Handling-out-of-bounds-indices">
 <h4>Handling out-of-bounds indices<a class="headerlink" href="#Handling-out-of-bounds-indices" title="Permalink to this headline">¶</a></h4>
-<p>Attempting to get a member from a sequence using an out-of-bounds index
-will raise an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>:</p>
+<p>Attempting to get a member from a sequence using an out-of-bounds index will raise an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1"># x only contains 6 items</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>  <span class="c1"># try to access the 7th item in `x`</span>
 <span class="go">IndexError: list index out of range</span>
@@ -658,35 +566,25 @@ will raise an <code class="docutils literal notranslate"><span class="pre">Index
 <span class="go">IndexError: list index out of range</span>
 </pre></div>
 </div>
-<p>However, specifying an out-of-bounds start or stop value for a slice
-does not raise an error. Instead, the nearest valid start/stop value is
-used instead:</p>
+<p>However, specifying an out-of-bounds start or stop value for a slice does not raise an error. Instead, the nearest valid start/stop value is used instead:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># no bounds checking is used for slicing</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[:</span><span class="mi">10000</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Warning!</strong></p>
-<p class="last">The lack of bounds-checking for slices can be a major source of errors
-when starting out with Python. Just because your code isn’t raising an
-error does not mean that you have computed the correct start/stop values
-for your slice!</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning!</strong></p>
+<p>The lack of bounds-checking for slices can be a major source of errors when starting out with Python. Just because your code isn’t raising an error does not mean that you have computed the correct start/stop values for your slice!</p>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Indexing and Slicing Sequences</strong></p>
-<p>In Python, a <strong>sequence</strong> is any ordered collection of objects whose
-contents can be accessed via “indexing”. A sub-sequence can be accessed
-by “slicing” the sequence. You saw, in the required reading, that
-Python’s lists and strings are both examples of sequences. The following
-questions will help you explore the power of sequence indexing and
-slicing.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Indexing and Slicing Sequences</strong></p>
+<p>In Python, a <strong>sequence</strong> is any ordered collection of objects whose contents can be accessed via “indexing”. A sub-sequence can be accessed by “slicing” the sequence. You saw, in the required reading, that Python’s lists and strings are both examples of sequences. The following questions will help you explore the power of sequence indexing and slicing.</p>
 <p>Given the tuple:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Slice or index into <code class="docutils literal notranslate"><span class="pre">x</span></code> to produce the following:</p>
-<ol class="last arabic simple">
+<ol class="arabic simple">
 <li><code class="docutils literal notranslate"><span class="pre">0</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">8</span></code> (using a negative index)</li>
 <li><code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">4,</span> <span class="pre">6)</span></code> (using a slice-object)</li>
@@ -699,21 +597,12 @@ slicing.</p>
 </ol>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Checking Your General Understanding</strong></p>
-<p>Write a piece of code for each of the following tasks. If the task is
-impossible/ill-posed explain why.</p>
-<ol class="last arabic simple">
-<li>Using the string “blogosphere”, slicing, and repeat-concatenation,
-create the string: ‘boopeeboopeeboopeeboopeeboopee’. (hint: how would
-you slice “blogosphere” to produce “boopee”, think step-size)</li>
-<li>Assume that a tuple, <code class="docutils literal notranslate"><span class="pre">x</span></code>, contains the item <code class="docutils literal notranslate"><span class="pre">5</span></code> in it at least
-once. Find where that first entry is, and change it to <code class="docutils literal notranslate"><span class="pre">-5</span></code>. For
-example <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">0,</span> <span class="pre">5)</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">-5,</span> <span class="pre">0,</span> <span class="pre">5)</span></code>.</li>
-<li>Given a sequence, <code class="docutils literal notranslate"><span class="pre">x</span></code>, and a valid negative index for <code class="docutils literal notranslate"><span class="pre">x</span></code>,
-<code class="docutils literal notranslate"><span class="pre">neg_index</span></code>, find the corresponding positive-value for that index.
-That is, if <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">&quot;cat&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">neg_index</span> <span class="pre">=</span> <span class="pre">-3</span></code>, which is the
-negative index that would return <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code>, then you would want to
-return the index <code class="docutils literal notranslate"><span class="pre">0</span></code>.</li>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Checking Your General Understanding</strong></p>
+<p>Write a piece of code for each of the following tasks. If the task is impossible/ill-posed explain why.</p>
+<ol class="arabic simple">
+<li>Using the string “blogosphere”, slicing, and repeat-concatenation, create the string: ‘boopeeboopeeboopeeboopeeboopee’. (hint: how would you slice “blogosphere” to produce “boopee”, think step-size)</li>
+<li>Assume that a tuple, <code class="docutils literal notranslate"><span class="pre">x</span></code>, contains the item <code class="docutils literal notranslate"><span class="pre">5</span></code> in it at least once. Find where that first entry is, and change it to <code class="docutils literal notranslate"><span class="pre">-5</span></code>. For example <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">0,</span> <span class="pre">5)</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">-5,</span> <span class="pre">0,</span> <span class="pre">5)</span></code>.</li>
+<li>Given a sequence, <code class="docutils literal notranslate"><span class="pre">x</span></code>, and a valid negative index for <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">neg_index</span></code>, find the corresponding positive-value for that index. That is, if <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">&quot;cat&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">neg_index</span> <span class="pre">=</span> <span class="pre">-3</span></code>, which is the negative index that would return <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code>, then you would want to return the index <code class="docutils literal notranslate"><span class="pre">0</span></code>.</li>
 </ol>
 </div>
 </div>
@@ -724,10 +613,8 @@ return the index <code class="docutils literal notranslate"><span class="pre">0<
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq">Sequences</a></li>
 <li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple">Tuples</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#immutable-sequence-types">Immutable Sequence
-Types</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types">Mutable Sequence
-Types</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#immutable-sequence-types">Immutable Sequence Types</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types">Mutable Sequence Types</a></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
@@ -738,10 +625,9 @@ Types</a></li>
 <span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>2. We have been introduced to three Python types that are sequential in
-nature: strings, lists, and tuples. Among these, lists are the only
-mutable objects. We can demonstrate this by simply appending a new
-element to the end of a list that has already been constructed.</p>
+<ol class="arabic simple" start="2">
+<li>We have been introduced to three Python types that are sequential in nature: strings, lists, and tuples. Among these, lists are the only mutable objects. We can demonstrate this by simply appending a new element to the end of a list that has already been constructed.</li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">[1, 2, 3]</span>
@@ -765,23 +651,16 @@ element to the end of a list that has already been constructed.</p>
 </ol>
 <p><strong>Checking Your General Understanding: Solutions</strong></p>
 <ol class="arabic simple">
-<li>“boopee” is every-other letter in “blogosphere”, thus slicing this
-sequence with a step-size of 2, <code class="docutils literal notranslate"><span class="pre">&quot;blogosphere&quot;[::2]</span></code>, returns
-“boopee”. We can then use <code class="docutils literal notranslate"><span class="pre">seq*n</span></code> to repeat this sequence five
-times. Thus the solution is</li>
+<li>“boopee” is every-other letter in “blogosphere”, thus slicing this sequence with a step-size of 2, <code class="docutils literal notranslate"><span class="pre">&quot;blogosphere&quot;[::2]</span></code>, returns “boopee”. We can then use <code class="docutils literal notranslate"><span class="pre">seq*n</span></code> to repeat this sequence five times. Thus the solution is</li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;blogosphere&quot;</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span>
 <span class="go">&#39;boopeeboopeeboopeeboopeeboopee&#39;</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Tuples are immutable objects. This means that their content cannot be
-changed once it is created. Thus this question is ill-posed! How
-clever am I for writing that question? I feel so clever. Wow. I’m
-great.</li>
+<li>Tuples are immutable objects. This means that their content cannot be changed once it is created. Thus this question is ill-posed! How clever am I for writing that question? I feel so clever. Wow. I’m great.</li>
 </ol>
-<p>If that question was posed in terms of a <em>list</em>, then the solution would
-be:</p>
+<p>If that question was posed in terms of a <em>list</em>, then the solution would be:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
@@ -789,9 +668,7 @@ be:</p>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Refer to the “index” diagram to see that this is the simple
-relationship between positive and negative indices for a given
-sequence:</li>
+<li>Refer to the “index” diagram to see that this is the simple relationship between positive and negative indices for a given sequence:</li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pos_index</span> <span class="o">=</span> <span class="n">neg_index</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
@@ -801,9 +678,7 @@ sequence:</li>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -812,7 +687,7 @@ sequence:</li>
         <a href="Variables_and_Assignment.html" class="btn btn-neutral float-right" title="Variables &amp; Assignment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Basic_Objects.html" class="btn btn-neutral" title="Basic Object Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Basic_Objects.html" class="btn btn-neutral float-left" title="Basic Object Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -821,11 +696,11 @@ sequence:</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -838,39 +713,15 @@ sequence:</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

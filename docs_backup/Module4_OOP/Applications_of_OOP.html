@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Applications of Object Oriented Programming &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Applications of Object Oriented Programming &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
-        <link rel="next" title="Special Methods" href="Special_Methods.html"/>
-        <link rel="prev" title="Methods" href="Methods.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Special Methods" href="Special_Methods.html" />
+    <link rel="prev" title="Methods" href="Methods.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -127,7 +123,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -135,9 +131,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -168,7 +165,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module4_OOP/Applications_of_OOP.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module4_OOP/Applications_of_OOP.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -196,59 +193,30 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Applications-of-Object-Oriented-Programming">
 <h1>Applications of Object Oriented Programming<a class="headerlink" href="#Applications-of-Object-Oriented-Programming" title="Permalink to this headline">¶</a></h1>
-<p>We have spent a considerable amount of time learning about the syntax
-and definitions of classes, class objects, instances, and methods. Let’s
-take a moment to gather our knowledge and create a useful class. This
-will help develop a sense for the ways in which object oriented
-programming can be useful for us. We will try to take care to make some
-recommendations when one should and shouldn’t define their own classes.</p>
+<p>We have spent a considerable amount of time learning about the syntax and definitions of classes, class objects, instances, and methods. Let’s take a moment to gather our knowledge and create a useful class. This will help develop a sense for the ways in which object oriented programming can be useful for us. We will try to take care to make some recommendations when one should and shouldn’t define their own classes.</p>
 <div class="section" id="Shopping-List">
 <h2>Shopping List<a class="headerlink" href="#Shopping-List" title="Permalink to this headline">¶</a></h2>
-<p>Let’s create a shopping list class, where an instance of this class
-stores a list of item-names (strings) to be purchased and a list of
-names that have already been purchased. We will write an <code class="docutils literal notranslate"><span class="pre">__init__</span></code>
-function that accepts one or more strings, which will be added to the
-shopping list. Then, we will create methods that will allow us to:</p>
+<p>Let’s create a shopping list class, where an instance of this class stores a list of item-names (strings) to be purchased and a list of names that have already been purchased. We will write an <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function that accepts one or more strings, which will be added to the shopping list. Then, we will create methods that will allow us to:</p>
 <ul class="simple">
 <li>add new items to the shopping list</li>
 <li>mark items on the list as “purchased”</li>
 <li>remove items, purchased or not, from the list</li>
 <li>list the name of the items to-be purchased (in alphabetical order)</li>
-<li>list the name of the items have been purchased (in alphabetical
-order)</li>
+<li>list the name of the items have been purchased (in alphabetical order)</li>
 </ul>
-<p>We do not want redundant items to be included on our shopping list - if
-someone enters “apples” twice, we should only list it once. Thus we will
-make use of
-<a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure">sets</a>,
-which store unique elements, to store the items on our list.</p>
-<p>Lastly, we will want our methods to accept a variable that is either a
-single item name (a string) or multiple item names (a
-list/tuple/iterable of strings). To accommodate this, if we receive a
-sole string as an input, we will place it in a list before carrying on.
-This will ensure that we are always working with an iterable containing
-a string.</p>
+<p>We do not want redundant items to be included on our shopping list - if someone enters “apples” twice, we should only list it once. Thus we will make use of <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure">sets</a>, which store unique elements, to store the items on our list.</p>
+<p>Lastly, we will want our methods to accept a variable that is either a single item name (a string) or multiple item names (a list/tuple/iterable of strings). To accommodate this, if we receive a sole string as an input, we will place it in a list before carrying on. This will ensure that we are always working with an iterable containing a string.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Parameters</span>
@@ -303,10 +271,7 @@ a string.</p>
 <span class="p">[]</span>
 </pre></div>
 </div>
-<p>Notice that I mistakenly placed apples on my list twice. However our use
-of sets under the hood handles this gracefully, reducing all redundant
-entries automatically. Supposing that we are carrying on with our
-shopping and we purchase several items, let’s mark them as such.</p>
+<p>Notice that I mistakenly placed apples on my list twice. However our use of sets under the hood handles this gracefully, reducing all redundant entries automatically. Supposing that we are carrying on with our shopping and we purchase several items, let’s mark them as such.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mark items as purchased on our list</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="o">.</span><span class="n">mark_purchased_items</span><span class="p">([</span><span class="s2">&quot;grapes&quot;</span><span class="p">,</span> <span class="s2">&quot;pineapples&quot;</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span><span class="o">.</span><span class="n">list_purchased_items</span><span class="p">()</span>
@@ -315,33 +280,19 @@ shopping and we purchase several items, let’s mark them as such.</p>
 <span class="p">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span> <span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;milk&#39;</span><span class="p">,</span> <span class="s1">&#39;peaches&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>See that “grapes” were appropriately removed from our unpurchased set
-and added to our purchased set. Additionally, our implementation
-gracefully ignores our request to mark pineapples as being purchased, as
-pineapples weren’t even on our list to begin with.</p>
-<p>In the next section we will augment our <code class="docutils literal notranslate"><span class="pre">ShoppingList</span></code> class with some
-special methods to make it easier to view the items, purchased and not,
-on our list.</p>
+<p>See that “grapes” were appropriately removed from our unpurchased set and added to our purchased set. Additionally, our implementation gracefully ignores our request to mark pineapples as being purchased, as pineapples weren’t even on our list to begin with.</p>
+<p>In the next section we will augment our <code class="docutils literal notranslate"><span class="pre">ShoppingList</span></code> class with some special methods to make it easier to view the items, purchased and not, on our list.</p>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Caution: Using Class Definitions Responsibly</strong></p>
-<p>Our <code class="docutils literal notranslate"><span class="pre">ShoppingList</span></code> class’ main utility is that it coordinates two sets
-of items for us, making the logic of tracking unpurchased and purchased
-items intuitive and simple. If we did not care about keeping track of
-purchased items, then we ought not define a class at all. We should
-instead just store our items in a <code class="docutils literal notranslate"><span class="pre">list</span></code> and use its methods to add
-and remove items.</p>
-<p class="last">When possible, it is preferable to use Python’s built-in types in lieu
-of defining a new class. Doing so will help keep your code simple,
-portable, and compatible with other code.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Caution: Using Class Definitions Responsibly</strong></p>
+<p>Our <code class="docutils literal notranslate"><span class="pre">ShoppingList</span></code> class’ main utility is that it coordinates two sets of items for us, making the logic of tracking unpurchased and purchased items intuitive and simple. If we did not care about keeping track of purchased items, then we ought not define a class at all. We should instead just store our items in a <code class="docutils literal notranslate"><span class="pre">list</span></code> and use its methods to add and remove items.</p>
+<p>When possible, it is preferable to use Python’s built-in types in lieu of defining a new class. Doing so will help keep your code simple, portable, and compatible with other code.</p>
 </div>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -350,7 +301,7 @@ portable, and compatible with other code.</p>
         <a href="Special_Methods.html" class="btn btn-neutral float-right" title="Special Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Methods.html" class="btn btn-neutral" title="Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Methods.html" class="btn btn-neutral float-left" title="Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -359,11 +310,11 @@ portable, and compatible with other code.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -376,39 +327,15 @@ portable, and compatible with other code.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introducing Basic and Advanced Indexing &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Introducing Basic and Advanced Indexing &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 3: The Essentials of NumPy" href="../module_3.html"/>
-        <link rel="next" title="Advanced Indexing" href="AdvancedIndexing.html"/>
-        <link rel="prev" title="Array Broadcasting" href="Broadcasting.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Advanced Indexing" href="AdvancedIndexing.html" />
+    <link rel="prev" title="Array Broadcasting" href="Broadcasting.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -143,7 +139,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -151,9 +147,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -184,7 +181,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module3_IntroducingNumpy/BasicIndexing.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module3_IntroducingNumpy/BasicIndexing.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -212,35 +209,19 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Introducing-Basic-and-Advanced-Indexing">
 <h1>Introducing Basic and Advanced Indexing<a class="headerlink" href="#Introducing-Basic-and-Advanced-Indexing" title="Permalink to this headline">¶</a></h1>
-<p>Thus far we have seen that we can access the contents of a NumPy array
-by specifying an integer or slice-object as an index for each one of its
-dimensions. Indexing into and slicing along the dimensions of an array
-are known as basic indexing. NumPy also provides a sophisticated system
-of “advanced indexing”, which permits us powerful means for accessing
-elements of an array that is flexible beyond specifying integers and
-slices along axes. For example, we can use advanced indexing to access
-all of the negative-valued elements from <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Thus far we have seen that we can access the contents of a NumPy array by specifying an integer or slice-object as an index for each one of its dimensions. Indexing into and slicing along the dimensions of an array are known as basic indexing. NumPy also provides a sophisticated system of “advanced indexing”, which permits us powerful means for accessing elements of an array that is flexible beyond specifying integers and slices along axes. For example, we can use advanced indexing to access all
+of the negative-valued elements from <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating basic indexing and advanced indexing</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>   <span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span>
@@ -261,51 +242,25 @@ all of the negative-valued elements from <code class="docutils literal notransla
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>We will see that, where basic indexing provides us with a <em>view</em> of the
-data within the array, without making a copy of it, advanced indexing
-requires that a copy of the accessed data be made. Here, we will define
-basic indexing and understand the nuances of working with views of
-arrays. The next section, then, is dedicated to understanding advanced
-indexing.</p>
+<p>We will see that, where basic indexing provides us with a <em>view</em> of the data within the array, without making a copy of it, advanced indexing requires that a copy of the accessed data be made. Here, we will define basic indexing and understand the nuances of working with views of arrays. The next section, then, is dedicated to understanding advanced indexing.</p>
 <div class="section" id="Basic-Indexing">
 <h2>Basic Indexing<a class="headerlink" href="#Basic-Indexing" title="Permalink to this headline">¶</a></h2>
-<p>We begin this subsection by defining precisely what basic indexing is.
-Next, we will touch on each component of this definition, and lastly we
-will delve into the significance of basic indexing in the way it permits
-us to reference the underlying data of an array without copying it.</p>
+<p>We begin this subsection by defining precisely what basic indexing is. Next, we will touch on each component of this definition, and lastly we will delve into the significance of basic indexing in the way it permits us to reference the underlying data of an array without copying it.</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Definition: Basic Indexing</strong>:</p>
-<p>Given an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">x[index]</span></code> invokes
-<strong>basic indexing</strong> whenever <code class="docutils literal notranslate"><span class="pre">index</span></code> is a <em>tuple</em> containing any
-combination of the following types of objects:</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Definition: Basic Indexing</strong>:</p>
+<p>Given an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">x[index]</span></code> invokes <strong>basic indexing</strong> whenever <code class="docutils literal notranslate"><span class="pre">index</span></code> is a <em>tuple</em> containing any combination of the following types of objects:</p>
 <ul class="simple">
 <li>integers</li>
-<li><a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Slicing">slice</a>
-objects</li>
-<li><a class="reference external" href="https://docs.python.org/3/library/constants.html#Ellipsis">Ellipsis</a>
-objects</li>
-<li><a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Inserting-Size-1-Dimensions-into-An-Array">numpy.newaxis</a>
-objects</li>
+<li><a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Slicing">slice</a> objects</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/constants.html#Ellipsis">Ellipsis</a> objects</li>
+<li><a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Inserting-Size-1-Dimensions-into-An-Array">numpy.newaxis</a> objects</li>
 </ul>
-<p class="last">Accessing the contents of an array via basic indexing <em>does not create a
-copy of those contents</em>. Rather, a “view” of the same underlying data is
-produced.</p>
+<p>Accessing the contents of an array via basic indexing <em>does not create a copy of those contents</em>. Rather, a “view” of the same underlying data is produced.</p>
 </div>
 <div class="section" id="Indexing-with-Integers-and-Slice-Objects">
 <h3>Indexing with Integers and Slice Objects<a class="headerlink" href="#Indexing-with-Integers-and-Slice-Objects" title="Permalink to this headline">¶</a></h3>
-<p>Our discussion of <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/AccessingDataAlongMultipleDimensions.html">accessing data along multiple dimensions of a NumPy
-array</a>
-already provided a comprehensive rundown on the use of integers and
-slices to access the contents of an array. According to the preceding
-definition, <em>these were all examples of basic indexing</em>.</p>
-<p>To review the material discussed in that section, recall that one can
-access an individual element or a “subsection” of an
-<span class="math notranslate nohighlight">\(N\)</span>-dimensional array by specifying <span class="math notranslate nohighlight">\(N\)</span> integers or
-slice-objects, or a combination of the two. We also saw that, when
-supplied fewer-than <span class="math notranslate nohighlight">\(N\)</span> indices, NumPy will automatically
-“fill-in” the remaining indices with trailing slices. Keep in mind that
-the indices start at 0, such that the 4th column in <code class="docutils literal notranslate"><span class="pre">x</span></code> corresponds to
-column-3.</p>
+<p>Our discussion of <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/AccessingDataAlongMultipleDimensions.html">accessing data along multiple dimensions of a NumPy array</a> already provided a comprehensive rundown on the use of integers and slices to access the contents of an array. According to the preceding definition, <em>these were all examples of basic indexing</em>.</p>
+<p>To review the material discussed in that section, recall that one can access an individual element or a “subsection” of an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array by specifying <span class="math notranslate nohighlight">\(N\)</span> integers or slice-objects, or a combination of the two. We also saw that, when supplied fewer-than <span class="math notranslate nohighlight">\(N\)</span> indices, NumPy will automatically “fill-in” the remaining indices with trailing slices. Keep in mind that the indices start at 0, such that the 4th column in <code class="docutils literal notranslate"><span class="pre">x</span></code> corresponds to column-3.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accessing the element located</span>
 <span class="c1"># at row-1, last-column of `x`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -325,9 +280,7 @@ column-3.</p>
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Recall that the familiar
-<a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Slicing">slicing</a>
-syntax actually forms <code class="docutils literal notranslate"><span class="pre">slice</span></code> objects “behind the scenes”.</p>
+<p>Recall that the familiar <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Slicing">slicing</a> syntax actually forms <code class="docutils literal notranslate"><span class="pre">slice</span></code> objects “behind the scenes”.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reviewing the `slice` object</span>
 
 <span class="c1"># equivalent: x[:2, :3]</span>
@@ -339,16 +292,8 @@ syntax actually forms <code class="docutils literal notranslate"><span class="pr
 </div>
 <div class="section" id="Using-a-Tuple-as-an-N-dimensional-Index">
 <h3>Using a Tuple as an N-dimensional Index<a class="headerlink" href="#Using-a-Tuple-as-an-N-dimensional-Index" title="Permalink to this headline">¶</a></h3>
-<p>According to its definition, we must supply our array-indices as a tuple
-in order to invoke basic indexing. As it turns out, we have been forming
-tuples of indices all along! That is, every time that we index into an
-array using the syntax <code class="docutils literal notranslate"><span class="pre">x[i,</span> <span class="pre">j,</span> <span class="pre">k]</span></code>, we are actually forming a
-<a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Tuples">tuple</a>
-containing those indices. That is, <code class="docutils literal notranslate"><span class="pre">x[i,</span> <span class="pre">j,</span> <span class="pre">k]</span></code> is equivalent to
-<code class="docutils literal notranslate"><span class="pre">x[(i,</span> <span class="pre">j,</span> <span class="pre">k)]</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">x[i,</span> <span class="pre">j,</span> <span class="pre">k]</span></code> forms the tuple <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j,</span> <span class="pre">k)</span></code> and passes that to the
-array’s “get-item” mechanism. Thus, <code class="docutils literal notranslate"><span class="pre">x[0,</span> <span class="pre">3]</span></code> is equivalent to
-<code class="docutils literal notranslate"><span class="pre">x[(0,</span> <span class="pre">3)]</span></code>.</p>
+<p>According to its definition, we must supply our array-indices as a tuple in order to invoke basic indexing. As it turns out, we have been forming tuples of indices all along! That is, every time that we index into an array using the syntax <code class="docutils literal notranslate"><span class="pre">x[i,</span> <span class="pre">j,</span> <span class="pre">k]</span></code>, we are actually forming a <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Tuples">tuple</a> containing those indices. That is, <code class="docutils literal notranslate"><span class="pre">x[i,</span> <span class="pre">j,</span> <span class="pre">k]</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">x[(i,</span> <span class="pre">j,</span> <span class="pre">k)]</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">x[i,</span> <span class="pre">j,</span> <span class="pre">k]</span></code> forms the tuple <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j,</span> <span class="pre">k)</span></code> and passes that to the array’s “get-item” mechanism. Thus, <code class="docutils literal notranslate"><span class="pre">x[0,</span> <span class="pre">3]</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">x[(0,</span> <span class="pre">3)]</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># N-dimensional indexing utilizes tuples:</span>
 <span class="c1"># `x[i, j, k]` is equivalent to `x[(i, j, k)]`</span>
 
@@ -366,15 +311,8 @@ array’s “get-item” mechanism. Thus, <code class="docutils literal notransl
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>All objects used in this “get-item” syntax are packed into a tuple. For
-instance, <code class="docutils literal notranslate"><span class="pre">x[0,</span> <span class="pre">(0,</span> <span class="pre">1)]</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">x[(0,</span> <span class="pre">(0,</span> <span class="pre">1))]</span></code>. You may
-be surprised to find that this is a valid index. However, see that <em>it
-does not invoke basic indexing</em>; the index used here is a tuple that
-contains an integer <em>and another tuple</em>, which is not permitted by the
-rules of basic indexing.</p>
-<p>Finally, note that the rules of basic indexing specifically call for a
-<em>tuple</em> of indices. Supplying a list of indices triggers advanced
-indexing rather than basic indexing!</p>
+<p>All objects used in this “get-item” syntax are packed into a tuple. For instance, <code class="docutils literal notranslate"><span class="pre">x[0,</span> <span class="pre">(0,</span> <span class="pre">1)]</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">x[(0,</span> <span class="pre">(0,</span> <span class="pre">1))]</span></code>. You may be surprised to find that this is a valid index. However, see that <em>it does not invoke basic indexing</em>; the index used here is a tuple that contains an integer <em>and another tuple</em>, which is not permitted by the rules of basic indexing.</p>
+<p>Finally, note that the rules of basic indexing specifically call for a <em>tuple</em> of indices. Supplying a list of indices triggers advanced indexing rather than basic indexing!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># basic indexing specifically requires a tuple</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
 <span class="mi">8</span>
@@ -388,10 +326,7 @@ indexing rather than basic indexing!</p>
 </div>
 <div class="section" id="Ellipsis-and-Newaxis-objects">
 <h3>Ellipsis and Newaxis objects<a class="headerlink" href="#Ellipsis-and-Newaxis-objects" title="Permalink to this headline">¶</a></h3>
-<p>Recall from our discussion of broadcasting, that the <code class="docutils literal notranslate"><span class="pre">numpy.newaxis</span></code>
-object can be passed as an index to an array, in order to <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Inserting-Size-1-Dimensions-into-An-Array">insert a
-size-1 dimension into the
-array</a>.</p>
+<p>Recall from our discussion of broadcasting, that the <code class="docutils literal notranslate"><span class="pre">numpy.newaxis</span></code> object can be passed as an index to an array, in order to <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Inserting-Size-1-Dimensions-into-An-Array">insert a size-1 dimension into the array</a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># inserting size-1 dimensions with `np.newaxis`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
 <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -404,11 +339,7 @@ array</a>.</p>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>We can also use the built-in <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> object in order to insert
-slices into our index such that the index has as many entries as the
-array has dimensions. In the same way that <code class="docutils literal notranslate"><span class="pre">:</span></code> can be used to
-represent a <code class="docutils literal notranslate"><span class="pre">slice</span></code> object, <code class="docutils literal notranslate"><span class="pre">...</span></code> can be used to represent an
-<code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> object.</p>
+<p>We can also use the built-in <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> object in order to insert slices into our index such that the index has as many entries as the array has dimensions. In the same way that <code class="docutils literal notranslate"><span class="pre">:</span></code> can be used to represent a <code class="docutils literal notranslate"><span class="pre">slice</span></code> object, <code class="docutils literal notranslate"><span class="pre">...</span></code> can be used to represent an <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> object.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="gp">... </span>               <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">]],</span>
 <span class="gp">...</span>
@@ -435,37 +366,25 @@ represent a <code class="docutils literal notranslate"><span class="pre">slice</
 <span class="go">array([1, 5])</span>
 </pre></div>
 </div>
-<p>An index cannot possess more than one <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> entry. This can be
-extremely useful when working with arrays of varying dimensionalities.
-To access column-0 along all dimensions of an array, <code class="docutils literal notranslate"><span class="pre">z</span></code>, would look
-like <code class="docutils literal notranslate"><span class="pre">z[:,</span> <span class="pre">0]</span></code> for a 2D array, <code class="docutils literal notranslate"><span class="pre">z[:,</span> <span class="pre">:,</span> <span class="pre">0]</span></code> for a 3D array, and so
-on. <code class="docutils literal notranslate"><span class="pre">z[...,</span> <span class="pre">0]</span></code> succinctly encapsulates all iterations of this.</p>
+<p>An index cannot possess more than one <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> entry. This can be extremely useful when working with arrays of varying dimensionalities. To access column-0 along all dimensions of an array, <code class="docutils literal notranslate"><span class="pre">z</span></code>, would look like <code class="docutils literal notranslate"><span class="pre">z[:,</span> <span class="pre">0]</span></code> for a 2D array, <code class="docutils literal notranslate"><span class="pre">z[:,</span> <span class="pre">:,</span> <span class="pre">0]</span></code> for a 3D array, and so on. <code class="docutils literal notranslate"><span class="pre">z[...,</span> <span class="pre">0]</span></code> succinctly encapsulates all iterations of this.</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
-<p class="last">Basic indexing is triggered whenever a tuple of: integer, <code class="docutils literal notranslate"><span class="pre">slice</span></code>,
-<code class="docutils literal notranslate"><span class="pre">numpy.newaxis</span></code>, and/or <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> objects, is used as an index for
-a NumPy array. An array produced via basic indexing is a <em>view</em> of the
-same underlying data as the array that was indexed into; no data is
-copied through basic indexing.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
+<p>Basic indexing is triggered whenever a tuple of: integer, <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.newaxis</span></code>, and/or <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> objects, is used as an index for a NumPy array. An array produced via basic indexing is a <em>view</em> of the same underlying data as the array that was indexed into; no data is copied through basic indexing.</p>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Ellipsis</strong></p>
-<p class="last">Given a <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, index into <code class="docutils literal notranslate"><span class="pre">x</span></code> such that
-you axis entry-0 of axis-0, the last entry of axis-<span class="math notranslate nohighlight">\(N-1\)</span>,
-slicing along all intermediate dimensions. <span class="math notranslate nohighlight">\(N\)</span> is at least
-<span class="math notranslate nohighlight">\(2\)</span>.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Ellipsis</strong></p>
+<p>Given a <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, index into <code class="docutils literal notranslate"><span class="pre">x</span></code> such that you axis entry-0 of axis-0, the last entry of axis-<span class="math notranslate nohighlight">\(N-1\)</span>, slicing along all intermediate dimensions. <span class="math notranslate nohighlight">\(N\)</span> is at least <span class="math notranslate nohighlight">\(2\)</span>.</p>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Basic Indexing</strong></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Basic Indexing</strong></p>
 <p>Given a shape-(4, 3) array,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="gp">... </span>                <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
 <span class="gp">... </span>                <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>which of the following indexing schemes perform basic indexing? That is,
-in which instances does the index satisfy the rules of basic indexing?</p>
-<ul class="last simple">
+<p>which of the following indexing schemes perform basic indexing? That is, in which instances does the index satisfy the rules of basic indexing?</p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">arr[0]</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">arr[:-1,</span> <span class="pre">0]</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">arr[(2,</span> <span class="pre">3)]</span></code></li>
@@ -480,10 +399,7 @@ in which instances does the index satisfy the rules of basic indexing?</p>
 </div>
 <div class="section" id="Producing-a-View-of-an-Array">
 <h2>Producing a View of an Array<a class="headerlink" href="#Producing-a-View-of-an-Array" title="Permalink to this headline">¶</a></h2>
-<p>As stated above, using basic indexing does not return a copy of the data
-being accessed, rather it produces a <em>view</em> of the underlying data.
-NumPy provides the function <code class="docutils literal notranslate"><span class="pre">numpy.shares_memory</span></code> to determine if two
-arrays refer to the same underlying data.</p>
+<p>As stated above, using basic indexing does not return a copy of the data being accessed, rather it produces a <em>view</em> of the underlying data. NumPy provides the function <code class="docutils literal notranslate"><span class="pre">numpy.shares_memory</span></code> to determine if two arrays refer to the same underlying data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">3.31</span><span class="p">,</span>  <span class="mf">4.71</span><span class="p">,</span>  <span class="mf">0.4</span> <span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.21</span><span class="p">,</span>  <span class="mf">2.85</span><span class="p">,</span>  <span class="mf">3.21</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span><span class="o">-</span><span class="mf">3.77</span><span class="p">,</span>  <span class="mf">4.53</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.15</span><span class="p">]])</span>
@@ -500,8 +416,7 @@ arrays refer to the same underlying data.</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>A single number returned by basic indexing <em>does not</em> share memory with
-the parent array.</p>
+<p>A single number returned by basic indexing <em>does not</em> share memory with the parent array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="go">3.31</span>
 
@@ -509,8 +424,7 @@ the parent array.</p>
 <span class="go">False</span>
 </pre></div>
 </div>
-<p>The function <code class="docutils literal notranslate"><span class="pre">numpy.copy</span></code> can be used to create a copy of an array,
-such that it no longer shares memory with any other array.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">numpy.copy</span></code> can be used to create a copy of an array, such that it no longer shares memory with any other array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a distinct copy of an array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">new_subarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">subarray</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">new_subarray</span>
@@ -520,34 +434,24 @@ such that it no longer shares memory with any other array.</p>
 <span class="bp">False</span>
 </pre></div>
 </div>
-<p>Utilizing an array in a mathematical expression involving the arithmetic
-operators (<code class="docutils literal notranslate"><span class="pre">+,</span> <span class="pre">-,</span> <span class="pre">*,</span> <span class="pre">/,</span> <span class="pre">//,</span> <span class="pre">**</span></code>) returns an entirely distinct array,
-that does not share memory with the original array.</p>
+<p>Utilizing an array in a mathematical expression involving the arithmetic operators (<code class="docutils literal notranslate"><span class="pre">+,</span> <span class="pre">-,</span> <span class="pre">*,</span> <span class="pre">/,</span> <span class="pre">//,</span> <span class="pre">**</span></code>) returns an entirely distinct array, that does not share memory with the original array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mathematical expressions like `subarray + 2`</span>
 <span class="c1"># produce distinct arrays, not views</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">subarray</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">subarray</span><span class="p">)</span>
 <span class="bp">False</span>
 </pre></div>
 </div>
-<p>Thus updating a variable <code class="docutils literal notranslate"><span class="pre">subarray</span></code> via <code class="docutils literal notranslate"><span class="pre">subarray</span> <span class="pre">=</span> <span class="pre">subarray</span> <span class="pre">+</span> <span class="pre">2</span></code>
-does <em>not</em> overwrite the original data referenced by <code class="docutils literal notranslate"><span class="pre">subarray</span></code>.
-Rather, <code class="docutils literal notranslate"><span class="pre">subarray</span> <span class="pre">+</span> <span class="pre">2</span></code> assigns that new array to the variable
-<code class="docutils literal notranslate"><span class="pre">subarray</span></code>. NumPy does provide mechanisms for performing mathematical
-operations to directly update the underlying data of an array without
-having to create a distinct array. We will discuss these mechanisms in
-the next subsection.</p>
+<p>Thus updating a variable <code class="docutils literal notranslate"><span class="pre">subarray</span></code> via <code class="docutils literal notranslate"><span class="pre">subarray</span> <span class="pre">=</span> <span class="pre">subarray</span> <span class="pre">+</span> <span class="pre">2</span></code> does <em>not</em> overwrite the original data referenced by <code class="docutils literal notranslate"><span class="pre">subarray</span></code>. Rather, <code class="docutils literal notranslate"><span class="pre">subarray</span> <span class="pre">+</span> <span class="pre">2</span></code> assigns that new array to the variable <code class="docutils literal notranslate"><span class="pre">subarray</span></code>. NumPy does provide mechanisms for performing mathematical operations to directly update the underlying data of an array without having to create a distinct array. We will discuss these mechanisms in the next subsection.</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Views</strong></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Views</strong></p>
 <p>Given,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
               <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
               <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Which of the following expressions create views of <code class="docutils literal notranslate"><span class="pre">x</span></code>? That is, in
-which cases do <code class="docutils literal notranslate"><span class="pre">x</span></code> and the created variable reference the same
-underlying array data? Check your work by using <code class="docutils literal notranslate"><span class="pre">np.shares_memory</span></code>.</p>
-<ul class="last simple">
+<p>Which of the following expressions create views of <code class="docutils literal notranslate"><span class="pre">x</span></code>? That is, in which cases do <code class="docutils literal notranslate"><span class="pre">x</span></code> and the created variable reference the same underlying array data? Check your work by using <code class="docutils literal notranslate"><span class="pre">np.shares_memory</span></code>.</p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">a1</span> <span class="pre">=</span> <span class="pre">x</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">a2</span> <span class="pre">=</span> <span class="pre">x[0,</span> <span class="pre">0]</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">a3</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span></code></li>
@@ -561,10 +465,7 @@ underlying array data? Check your work by using <code class="docutils literal no
 </div>
 <div class="section" id="Augmenting-the-Underlying-Data-of-an-Array">
 <h2>Augmenting the Underlying Data of an Array<a class="headerlink" href="#Augmenting-the-Underlying-Data-of-an-Array" title="Permalink to this headline">¶</a></h2>
-<p>Because basic indexing produces a <em>view</em> of an array’s underlying data,
-we must take time to understand the ways in which we can <em>augment</em> that
-underlying data, versus performing operations that produce an array with
-distinct data. Here we will see that:</p>
+<p>Because basic indexing produces a <em>view</em> of an array’s underlying data, we must take time to understand the ways in which we can <em>augment</em> that underlying data, versus performing operations that produce an array with distinct data. Here we will see that:</p>
 <ul class="simple">
 <li>in-place assignments</li>
 <li>augmented assignments</li>
@@ -573,16 +474,14 @@ distinct data. Here we will see that:</p>
 <p>can all be used to augment array data in-place.</p>
 <div class="section" id="In-Place-Assignments">
 <h3>In-Place Assignments<a class="headerlink" href="#In-Place-Assignments" title="Permalink to this headline">¶</a></h3>
-<p>The assignment operator, <code class="docutils literal notranslate"><span class="pre">=</span></code>, can be used to update an array’s data
-in-place. Consider the array <code class="docutils literal notranslate"><span class="pre">a</span></code>, and its view <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>The assignment operator, <code class="docutils literal notranslate"><span class="pre">=</span></code>, can be used to update an array’s data in-place. Consider the array <code class="docutils literal notranslate"><span class="pre">a</span></code>, and its view <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>Assigning a new array to <code class="docutils literal notranslate"><span class="pre">a</span></code> simply changes the data that <code class="docutils literal notranslate"><span class="pre">a</span></code>
-references, divorcing <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, and leaving <code class="docutils literal notranslate"><span class="pre">b</span></code> unchanged.</p>
+<p>Assigning a new array to <code class="docutils literal notranslate"><span class="pre">a</span></code> simply changes the data that <code class="docutils literal notranslate"><span class="pre">a</span></code> references, divorcing <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, and leaving <code class="docutils literal notranslate"><span class="pre">b</span></code> unchanged.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `a` is now assigned to reference a distinct array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">])</span>
 
@@ -594,8 +493,7 @@ references, divorcing <code class="docutils literal notranslate"><span class="pr
 <span class="bp">False</span>
 </pre></div>
 </div>
-<p>Performing an assignment on a <em>view</em> of <code class="docutils literal notranslate"><span class="pre">a</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">a[:]</span></code>, instructs
-NumPy to perform the assignment to replace <code class="docutils literal notranslate"><span class="pre">a</span></code>’s data in-place.</p>
+<p>Performing an assignment on a <em>view</em> of <code class="docutils literal notranslate"><span class="pre">a</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">a[:]</span></code>, instructs NumPy to perform the assignment to replace <code class="docutils literal notranslate"><span class="pre">a</span></code>’s data in-place.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># reinitialize `a` and `b`.</span>
 <span class="c1"># `b` is again a view of `a`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -616,8 +514,7 @@ NumPy to perform the assignment to replace <code class="docutils literal notrans
 <span class="bp">True</span>
 </pre></div>
 </div>
-<p>This view-assignment mechanism can be used update a subsection of an
-array in-place.</p>
+<p>This view-assignment mechanism can be used update a subsection of an array in-place.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
@@ -635,8 +532,7 @@ array in-place.</p>
 <span class="go">       [  8,   9,  -1,  -1]])</span>
 </pre></div>
 </div>
-<p>Again, this updates the underlying data, and thus all views of this data
-reflect this change.</p>
+<p>Again, this updates the underlying data, and thus all views of this data reflect this change.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `q` is still a view of row-0 of `p`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">q</span>
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span>   <span class="mi">3</span><span class="p">])</span>
@@ -645,26 +541,14 @@ reflect this change.</p>
 </div>
 <div class="section" id="Augmented-Assignments">
 <h3>Augmented Assignments<a class="headerlink" href="#Augmented-Assignments" title="Permalink to this headline">¶</a></h3>
-<p>Recall from our discussion of basic mathematical expressions in Python,
-that <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Augmented-Assignment-Statements">augmented assignment
-expressions</a>
-provide a nice shorthand notation for updating the value of a variable.
-For example, the assignment expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code> can be rewritten
-using the augmented assignment <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">5</span></code>.</p>
-<p>While <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">5</span></code> is truly only a shorthand in the context of basic
-Python objects (integer,s floats, etc.), <em>augmented assignments on NumPy
-arrays behave fundamentally different than their long-form
-counterparts</em>. Specifically, they directly update the underlying data
-referenced by the updated array, rather than creating a distinct array,
-thus affecting any arrays that are views of that data. We will
-demonstrate this here.</p>
+<p>Recall from our discussion of basic mathematical expressions in Python, that <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Augmented-Assignment-Statements">augmented assignment expressions</a> provide a nice shorthand notation for updating the value of a variable. For example, the assignment expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code> can be rewritten using the augmented assignment <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">5</span></code>.</p>
+<p>While <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">5</span></code> is truly only a shorthand in the context of basic Python objects (integer,s floats, etc.), <em>augmented assignments on NumPy arrays behave fundamentally different than their long-form counterparts</em>. Specifically, they directly update the underlying data referenced by the updated array, rather than creating a distinct array, thus affecting any arrays that are views of that data. We will demonstrate this here.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating that augmented assignments on NumPy</span>
 <span class="c1"># arrays update the underlying data reference by that</span>
 <span class="c1"># array.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="o">...</span>               <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
 <span class="o">...</span>               <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
-
 
 <span class="c1"># `b` and `c` are both views of row-0 of `a`, via basic indexing</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -701,13 +585,8 @@ demonstrate this here.</p>
 </div>
 <div class="section" id="Specifying-out-to-Perform-NumPy-Operations-In-Place">
 <h3>Specifying <code class="docutils literal notranslate"><span class="pre">out</span></code> to Perform NumPy Operations In-Place<a class="headerlink" href="#Specifying-out-to-Perform-NumPy-Operations-In-Place" title="Permalink to this headline">¶</a></h3>
-<p>There is no reason why we should only be able to augment data using
-arithmetic operations. Indeed, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html#NumPy%E2%80%99s-Mathematical-Functions">NumPy’s various mathematical
-functions</a>
-have an optional keyword argument, <code class="docutils literal notranslate"><span class="pre">out</span></code>, which can be used to specify
-where to “store” the result of the mathematical operation. By default,
-the operation will create a distinct array in memory, leaving the input
-data unaffected.</p>
+<p>There is no reason why we should only be able to augment data using arithmetic operations. Indeed, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html#NumPy%E2%80%99s-Mathematical-Functions">NumPy’s various mathematical functions</a> have an optional keyword argument, <code class="docutils literal notranslate"><span class="pre">out</span></code>, which can be used to specify where to “store” the result of the mathematical operation. By default, the operation will create a distinct array in memory, leaving the input data
+unaffected.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specifying the &#39;out&#39; argument in a `numpy.exp`</span>
 <span class="c1"># to augment the data of an array</span>
 
@@ -730,15 +609,8 @@ data unaffected.</p>
 </div>
 <div class="section" id="Benefits-and-Risks-of-Augmenting-Data-In-Place">
 <h3>Benefits and Risks of Augmenting Data In-Place<a class="headerlink" href="#Benefits-and-Risks-of-Augmenting-Data-In-Place" title="Permalink to this headline">¶</a></h3>
-<p>It is critical to understand the relationship between arrays and the
-underlying data that they reference. <em>Operations that augment data
-in-place are more efficient than their counterparts that must allocate
-memory for a new array.</em> That is, an expression like <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">+=</span> <span class="pre">3</span></code> is
-more efficient than <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">array</span> <span class="pre">+</span> <span class="pre">3</span></code>.</p>
-<p>That being said, to <em>unwittingly</em> augment the data of an array, and thus
-affect all views of that data, is a big mistake; this produces
-hard-to-find bugs in the code of novice NumPy users. See that the
-following function, <code class="docutils literal notranslate"><span class="pre">add_3</span></code>, will change the data of the input array.</p>
+<p>It is critical to understand the relationship between arrays and the underlying data that they reference. <em>Operations that augment data in-place are more efficient than their counterparts that must allocate memory for a new array.</em> That is, an expression like <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">+=</span> <span class="pre">3</span></code> is more efficient than <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">array</span> <span class="pre">+</span> <span class="pre">3</span></code>.</p>
+<p>That being said, to <em>unwittingly</em> augment the data of an array, and thus affect all views of that data, is a big mistake; this produces hard-to-find bugs in the code of novice NumPy users. See that the following function, <code class="docutils literal notranslate"><span class="pre">add_3</span></code>, will change the data of the input array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># updating an array in-place within a function</span>
 <span class="k">def</span> <span class="nf">add_3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">+=</span> <span class="mi">3</span>
@@ -754,10 +626,7 @@ following function, <code class="docutils literal notranslate"><span class="pre"
 <span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>This is hugely problematic unless you intended for <code class="docutils literal notranslate"><span class="pre">add_3</span></code> to affect
-the input array. To remedy this, you can simply begin the function by
-making a copy of the input array; afterwards you can freely augment this
-copied data.</p>
+<p>This is hugely problematic unless you intended for <code class="docutils literal notranslate"><span class="pre">add_3</span></code> to affect the input array. To remedy this, you can simply begin the function by making a copy of the input array; afterwards you can freely augment this copied data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">+=</span> <span class="mi">3</span>
@@ -765,7 +634,7 @@ copied data.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Augmenting Array Data In-Place</strong></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Augmenting Array Data In-Place</strong></p>
 <p>Given,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">],</span>
               <span class="p">[</span> <span class="mf">4.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">,</span>  <span class="mf">6.</span><span class="p">,</span>  <span class="mf">7.</span><span class="p">],</span>
@@ -774,8 +643,7 @@ copied data.</p>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<p>Which of the following expressions updates the data originally
-referenced by <code class="docutils literal notranslate"><span class="pre">x</span></code>?</p>
+<p>Which of the following expressions updates the data originally referenced by <code class="docutils literal notranslate"><span class="pre">x</span></code>?</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">+=</span> <span class="mi">3</span>
 </pre></div>
@@ -810,56 +678,40 @@ referenced by <code class="docutils literal notranslate"><span class="pre">x</sp
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 9.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 9.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">z</span><span class="p">):</span> <span class="n">z</span> <span class="o">/=</span> <span class="mi">3</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
-<p class="last">Assignments to views of an array, augmented assignments, and NumPy
-functions that provide an <code class="docutils literal notranslate"><span class="pre">out</span></code> argument, are all methods for
-augmenting the data of an array in-place. This will affect any arrays
-that are views of that data. Furthermore, these in-place operations are
-more efficient than their counterparts that allocate memory for a new
-array. That being said, in-place data augmentation must not be used
-haphazardly, for this will inevitably lead to treacherous bugs in one’s
-code.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
+<p>Assignments to views of an array, augmented assignments, and NumPy functions that provide an <code class="docutils literal notranslate"><span class="pre">out</span></code> argument, are all methods for augmenting the data of an array in-place. This will affect any arrays that are views of that data. Furthermore, these in-place operations are more efficient than their counterparts that allocate memory for a new array. That being said, in-place data augmentation must not be used haphazardly, for this will inevitably lead to treacherous bugs in one’s code.</p>
 </div>
 </div>
 </div>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#indexing">Basic
-indexing</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-view">Definition of
-‘view’</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#indexing">Basic indexing</a></li>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-view">Definition of ‘view’</a></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>Ellipsis: Solution</strong></p>
-<p>Given a <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, index into <code class="docutils literal notranslate"><span class="pre">x</span></code> such that
-you axis entry-0 of axis-0, the last entry of axis-<span class="math notranslate nohighlight">\((N-1)\)</span>,
-slicing along all intermediate dimensions. <span class="math notranslate nohighlight">\(N\)</span> is at least
-<span class="math notranslate nohighlight">\(2\)</span>.</p>
-<p>Using an <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> object in the index allows us to signal NumPy to
-insert the slices along the <span class="math notranslate nohighlight">\(N - 2\)</span> intermediate axis of <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
+<p>Given a <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, index into <code class="docutils literal notranslate"><span class="pre">x</span></code> such that you axis entry-0 of axis-0, the last entry of axis-<span class="math notranslate nohighlight">\((N-1)\)</span>, slicing along all intermediate dimensions. <span class="math notranslate nohighlight">\(N\)</span> is at least <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<p>Using an <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> object in the index allows us to signal NumPy to insert the slices along the <span class="math notranslate nohighlight">\(N - 2\)</span> intermediate axis of <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">x[0,</span> <span class="pre">...,</span> <span class="pre">-1]</span></code> or <code class="docutils literal notranslate"><span class="pre">x[0,</span> <span class="pre">Ellipsis,</span> <span class="pre">-1]</span></code></p>
 <p><strong>Basic Indexing: Solution</strong></p>
-<p>In which instances does the index used satisfy the rules of basic
-indexing?</p>
+<p>In which instances does the index used satisfy the rules of basic indexing?</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">arr[0]</span></code> ✔</li>
 <li><code class="docutils literal notranslate"><span class="pre">arr[:-1,</span> <span class="pre">0]</span></code> ✔</li>
 <li><code class="docutils literal notranslate"><span class="pre">arr[(2,</span> <span class="pre">3)]</span></code> ✔</li>
 <li><code class="docutils literal notranslate"><span class="pre">arr[[2,</span> <span class="pre">0]]</span></code> ✘ (index is a <code class="docutils literal notranslate"><span class="pre">list</span></code>, not a <code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[np.array([2,</span> <span class="pre">0])]</span></code> ✘ (index is a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, not a
-<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[:,</span> <span class="pre">(2,</span> <span class="pre">3)]</span></code> ✘ (index contains a tuple; only <code class="docutils literal notranslate"><span class="pre">int</span></code>,
-<code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code>, <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> allowed)</li>
+<li><code class="docutils literal notranslate"><span class="pre">arr[np.array([2,</span> <span class="pre">0])]</span></code> ✘ (index is a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, not a <code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">arr[:,</span> <span class="pre">(2,</span> <span class="pre">3)]</span></code> ✘ (index contains a tuple; only <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code>, <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> allowed)</li>
 <li><code class="docutils literal notranslate"><span class="pre">arr[slice(None),</span> <span class="pre">...]</span></code> ✔</li>
 <li><code class="docutils literal notranslate"><span class="pre">arr[(np.newaxis,</span> <span class="pre">0,</span> <span class="pre">slice(1,</span> <span class="pre">2),</span> <span class="pre">np.newaxis)]</span></code> ✔</li>
 </ul>
@@ -870,22 +722,16 @@ indexing?</p>
               <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Which of the following expressions create views <code class="docutils literal notranslate"><span class="pre">x</span></code>? That is, in which
-cases do <code class="docutils literal notranslate"><span class="pre">x</span></code> and the created variable reference the same underlying
-array data? Check your work by using <code class="docutils literal notranslate"><span class="pre">np.shares_memory</span></code>.</p>
+<p>Which of the following expressions create views <code class="docutils literal notranslate"><span class="pre">x</span></code>? That is, in which cases do <code class="docutils literal notranslate"><span class="pre">x</span></code> and the created variable reference the same underlying array data? Check your work by using <code class="docutils literal notranslate"><span class="pre">np.shares_memory</span></code>.</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">a1</span> <span class="pre">=</span> <span class="pre">x</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">a2</span> <span class="pre">=</span> <span class="pre">x[0,</span> <span class="pre">0]</span></code> ✘; when basic indexing returns a single number, that
-number does not share memory with the parent array.</li>
+<li><code class="docutils literal notranslate"><span class="pre">a2</span> <span class="pre">=</span> <span class="pre">x[0,</span> <span class="pre">0]</span></code> ✘; when basic indexing returns a single number, that number does not share memory with the parent array.</li>
 <li><code class="docutils literal notranslate"><span class="pre">a3</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">a4</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span> <span class="pre">+</span> <span class="pre">np.array([-1,</span> <span class="pre">-2,</span> <span class="pre">-3])</span></code> ✘; arithmetic operations on
-NumPy arrays create distinct arrays by default.</li>
-<li><code class="docutils literal notranslate"><span class="pre">a5</span> <span class="pre">=</span> <span class="pre">np.copy(x[:,</span> <span class="pre">0])</span></code> ✘; <code class="docutils literal notranslate"><span class="pre">numpy.copy</span></code> informs NumPy to create a
-distinct copy of an array.</li>
+<li><code class="docutils literal notranslate"><span class="pre">a4</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span> <span class="pre">+</span> <span class="pre">np.array([-1,</span> <span class="pre">-2,</span> <span class="pre">-3])</span></code> ✘; arithmetic operations on NumPy arrays create distinct arrays by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">a5</span> <span class="pre">=</span> <span class="pre">np.copy(x[:,</span> <span class="pre">0])</span></code> ✘; <code class="docutils literal notranslate"><span class="pre">numpy.copy</span></code> informs NumPy to create a distinct copy of an array.</li>
 <li><code class="docutils literal notranslate"><span class="pre">a6</span> <span class="pre">=</span> <span class="pre">x[np.newaxis]</span></code> ✔</li>
 <li><code class="docutils literal notranslate"><span class="pre">a7</span> <span class="pre">=</span> <span class="pre">x.reshape(2,</span> <span class="pre">3,</span> <span class="pre">2)</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">a8</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">x</span></code> ✘; arithmetic operations on NumPy arrays create
-distinct arrays by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">a8</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">x</span></code> ✘; arithmetic operations on NumPy arrays create distinct arrays by default.</li>
 </ul>
 <p><strong>Augmenting Array Data In-Place: Solution</strong></p>
 <p>Given,</p>
@@ -896,8 +742,7 @@ distinct arrays by default.</li>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<p>Which of the following expressions updates the data originally
-referenced by <code class="docutils literal notranslate"><span class="pre">x</span></code>?</p>
+<p>Which of the following expressions updates the data originally referenced by <code class="docutils literal notranslate"><span class="pre">x</span></code>?</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span># 1.
 &gt;&gt;&gt; x += 3 ✔
 </pre></div>
@@ -945,9 +790,7 @@ referenced by <code class="docutils literal notranslate"><span class="pre">x</sp
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -956,7 +799,7 @@ referenced by <code class="docutils literal notranslate"><span class="pre">x</sp
         <a href="AdvancedIndexing.html" class="btn btn-neutral float-right" title="Advanced Indexing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Broadcasting.html" class="btn btn-neutral" title="Array Broadcasting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Broadcasting.html" class="btn btn-neutral float-left" title="Array Broadcasting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -965,11 +808,11 @@ referenced by <code class="docutils literal notranslate"><span class="pre">x</sp
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -982,39 +825,15 @@ referenced by <code class="docutils literal notranslate"><span class="pre">x</sp
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

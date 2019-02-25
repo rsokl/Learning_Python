@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>A Brief Summary of Terms and Concepts &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>A Brief Summary of Terms and Concepts &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 4: Object Oriented Programming" href="../module_4.html"/>
-        <link rel="next" title="Methods" href="Methods.html"/>
-        <link rel="prev" title="Instances of a Class" href="ClassInstances.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Methods" href="Methods.html" />
+    <link rel="prev" title="Instances of a Class" href="ClassInstances.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -124,7 +120,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -132,9 +128,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -165,7 +162,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module4_OOP/Brief_Review.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module4_OOP/Brief_Review.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -193,30 +190,18 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="A-Brief-Summary-of-Terms-and-Concepts">
 <h1>A Brief Summary of Terms and Concepts<a class="headerlink" href="#A-Brief-Summary-of-Terms-and-Concepts" title="Permalink to this headline">¶</a></h1>
-<p>Let’s do a quick rundown of some of the concepts and terms discussed
-thus far. The following code is a <em>class definition</em>, which specifies
-the <em>attributes</em> of objects that belong to the class/type <code class="docutils literal notranslate"><span class="pre">Example</span></code>.</p>
+<p>Let’s do a quick rundown of some of the concepts and terms discussed thus far. The following code is a <em>class definition</em>, which specifies the <em>attributes</em> of objects that belong to the class/type <code class="docutils literal notranslate"><span class="pre">Example</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
     <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
@@ -224,15 +209,8 @@ the <em>attributes</em> of objects that belong to the class/type <code class="do
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
 </pre></div>
 </div>
-<p>Once executed, this code produces the <em>class object</em> <code class="docutils literal notranslate"><span class="pre">Example</span></code>, which
-encapsulates the above definition and can be used to create objects that
-are instances of this class/type. <code class="docutils literal notranslate"><span class="pre">Example.a</span></code> and <code class="docutils literal notranslate"><span class="pre">Example.__init__</span></code>
-are both attributes of this class. <code class="docutils literal notranslate"><span class="pre">Example.__init__</span></code> is more
-specifically a special method, which is automatically invoked whenever
-an instance of this class is created.</p>
-<p>The following code creates an <em>instance</em> of <code class="docutils literal notranslate"><span class="pre">Example</span></code>, assigning that
-instance to the variable <code class="docutils literal notranslate"><span class="pre">ex</span></code>. This means that the object belongs to
-the type (a.k.a class) <code class="docutils literal notranslate"><span class="pre">Example</span></code>.</p>
+<p>Once executed, this code produces the <em>class object</em> <code class="docutils literal notranslate"><span class="pre">Example</span></code>, which encapsulates the above definition and can be used to create objects that are instances of this class/type. <code class="docutils literal notranslate"><span class="pre">Example.a</span></code> and <code class="docutils literal notranslate"><span class="pre">Example.__init__</span></code> are both attributes of this class. <code class="docutils literal notranslate"><span class="pre">Example.__init__</span></code> is more specifically a special method, which is automatically invoked whenever an instance of this class is created.</p>
+<p>The following code creates an <em>instance</em> of <code class="docutils literal notranslate"><span class="pre">Example</span></code>, assigning that instance to the variable <code class="docutils literal notranslate"><span class="pre">ex</span></code>. This means that the object belongs to the type (a.k.a class) <code class="docutils literal notranslate"><span class="pre">Example</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Example</span><span class="o">.</span><span class="n">a</span>
@@ -248,11 +226,7 @@ the type (a.k.a class) <code class="docutils literal notranslate"><span class="p
 <span class="go">__main__.Example</span>
 </pre></div>
 </div>
-<p>Upon this instantiation, the instance-level attribute <code class="docutils literal notranslate"><span class="pre">b</span></code> was defined
-via execution of the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, wherein Python passed the
-instance object being created as the argument <code class="docutils literal notranslate"><span class="pre">self</span></code> to the method.
-Thus <code class="docutils literal notranslate"><span class="pre">b</span></code> is an <em>instance-level</em> attribute, which is not possessed by
-<code class="docutils literal notranslate"><span class="pre">Example</span></code> itself.</p>
+<p>Upon this instantiation, the instance-level attribute <code class="docutils literal notranslate"><span class="pre">b</span></code> was defined via execution of the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, wherein Python passed the instance object being created as the argument <code class="docutils literal notranslate"><span class="pre">self</span></code> to the method. Thus <code class="docutils literal notranslate"><span class="pre">b</span></code> is an <em>instance-level</em> attribute, which is not possessed by <code class="docutils literal notranslate"><span class="pre">Example</span></code> itself.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Example</span><span class="o">.</span><span class="n">b</span>
 <span class="go">AttributeError: type object &#39;Example&#39; has no attribute &#39;b&#39;</span>
 
@@ -264,9 +238,7 @@ Thus <code class="docutils literal notranslate"><span class="pre">b</span></code
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -275,7 +247,7 @@ Thus <code class="docutils literal notranslate"><span class="pre">b</span></code
         <a href="Methods.html" class="btn btn-neutral float-right" title="Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ClassInstances.html" class="btn btn-neutral" title="Instances of a Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ClassInstances.html" class="btn btn-neutral float-left" title="Instances of a Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -284,11 +256,11 @@ Thus <code class="docutils literal notranslate"><span class="pre">b</span></code
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -301,39 +273,15 @@ Thus <code class="docutils literal notranslate"><span class="pre">b</span></code
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Structures (Part II): Dictionaries &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Data Structures (Part II): Dictionaries &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
-        <link rel="next" title="Data Structures (Part III): Sets &amp; the Collections Module" href="DataStructures_III_Sets_and_More.html"/>
-        <link rel="prev" title="Data Structures (Part I): Introduction" href="DataStructures.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Structures (Part III): Sets &amp; the Collections Module" href="DataStructures_III_Sets_and_More.html" />
+    <link rel="prev" title="Data Structures (Part I): Introduction" href="DataStructures.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -147,7 +143,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -155,9 +151,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -188,7 +185,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -216,32 +213,18 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Data-Structures-(Part-II):-Dictionaries">
 <h1>Data Structures (Part II): Dictionaries<a class="headerlink" href="#Data-Structures-(Part-II):-Dictionaries" title="Permalink to this headline">¶</a></h1>
-<p>Python’s dictionary allows you to store key-value pairs, and then pass
-the dictionary a key to quickly retrieve its corresponding value.
-Specifically, you construct the dictionary by specifying one-way
-mappings from key-objects to value-objects. <strong>Each key must map to
-exactly one value</strong>, meaning that a key must be unique.</p>
+<p>Python’s dictionary allows you to store key-value pairs, and then pass the dictionary a key to quickly retrieve its corresponding value. Specifically, you construct the dictionary by specifying one-way mappings from key-objects to value-objects. <strong>Each key must map to exactly one value</strong>, meaning that a key must be unique.</p>
 <p>Let’s create the following mapping of grocery-to-price:</p>
 <ul class="simple">
 <li>“cheese” <span class="math notranslate nohighlight">\(\rightarrow\)</span> 2.53,</li>
@@ -256,9 +239,7 @@ exactly one value</strong>, meaning that a key must be unique.</p>
 <span class="mf">8.01</span>
 </pre></div>
 </div>
-<p>Python’s dictionary is a shining star among its data structures; it is
-compact, fast, versatile, and extremely useful. It can be used to create
-a wide variety of mappings.</p>
+<p>Python’s dictionary is a shining star among its data structures; it is compact, fast, versatile, and extremely useful. It can be used to create a wide variety of mappings.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># keep track of whether or not a 3D coordinate fell into some region in space</span>
 <span class="c1"># map (x, y, z) coordinates to &quot;is in a region&quot;: (x, y, z) -&gt; True/False</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">point_to_region</span> <span class="o">=</span> <span class="p">{(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span><span class="bp">False</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">):</span><span class="bp">True</span><span class="p">,</span> <span class="p">(</span><span class="mf">4.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">):</span><span class="bp">False</span><span class="p">}</span>
@@ -271,30 +252,18 @@ a wide variety of mappings.</p>
 <span class="p">[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>It is important to note outright that the time it takes for dictionary
-to take a key and retrieve a value <em>does not depend on the size of the
-dictionary.</em> That is the complexity for a dictionary look-up is
-<span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>! It accomplishes this by making use of a
-technique known as
-<a class="reference external" href="https://en.wikipedia.org/wiki/Hash_function">hashing</a>.</p>
+<p>It is important to note outright that the time it takes for dictionary to take a key and retrieve a value <em>does not depend on the size of the dictionary.</em> That is the complexity for a dictionary look-up is <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>! It accomplishes this by making use of a technique known as <a class="reference external" href="https://en.wikipedia.org/wiki/Hash_function">hashing</a>.</p>
 <p>These are all instances of the built-in <code class="docutils literal notranslate"><span class="pre">dict</span></code> type:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">items_to_prices</span><span class="p">)</span>
 <span class="go">dict</span>
 </pre></div>
 </div>
-<p>We will be discussing the essentials of the dictionary. It is highly
-recommended that you refer to the official Python documentation for a
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict">complete rundown of all the functions available to the
-dictionary</a>.</p>
+<p>We will be discussing the essentials of the dictionary. It is highly recommended that you refer to the official Python documentation for a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict">complete rundown of all the functions available to the dictionary</a>.</p>
 <div class="section" id="Dictionary-Basics">
 <h2>Dictionary Basics<a class="headerlink" href="#Dictionary-Basics" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Constructing-a-dictionary">
 <h3>Constructing a dictionary<a class="headerlink" href="#Constructing-a-dictionary" title="Permalink to this headline">¶</a></h3>
-<p>A nice syntax for creating a dictionary is to specify key-value pairs
-inside “curly braces”: <code class="docutils literal notranslate"><span class="pre">{key1:value1,</span> <span class="pre">key2:value2,</span> <span class="pre">...}</span></code>. As an
-example, let’s construct a dictionary that maps types of foods to
-“fruit” or “vegetable”. We’ll start by mapping “apple” to “fruit”, and
-“carrot” to “vegetable”</p>
+<p>A nice syntax for creating a dictionary is to specify key-value pairs inside “curly braces”: <code class="docutils literal notranslate"><span class="pre">{key1:value1,</span> <span class="pre">key2:value2,</span> <span class="pre">...}</span></code>. As an example, let’s construct a dictionary that maps types of foods to “fruit” or “vegetable”. We’ll start by mapping “apple” to “fruit”, and “carrot” to “vegetable”</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># use `{key1:value1, key2:value2, ...} to create a dictionary that maps:</span>
 <span class="c1">#  &quot;apple&quot; -&gt; &quot;fruit&quot;</span>
 <span class="c1"># &quot;carrot&quot; -&gt; &quot;vegetable</span>
@@ -305,9 +274,7 @@ example, let’s construct a dictionary that maps types of foods to
 <span class="p">{}</span>
 </pre></div>
 </div>
-<p>You can also use <code class="docutils literal notranslate"><span class="pre">dict</span></code> as a constructor to create the dictionary. It
-can be fed an iterable of key-value pairs, each of which is packed in a
-sequence, such as a tuple.</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">dict</span></code> as a constructor to create the dictionary. It can be fed an iterable of key-value pairs, each of which is packed in a sequence, such as a tuple.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># use `dict` to create a dictionary that maps:</span>
 <span class="c1">#  &quot;apple&quot; -&gt; &quot;fruit&quot;</span>
 <span class="c1"># &quot;carrot&quot; -&gt; &quot;vegetable</span>
@@ -318,9 +285,7 @@ sequence, such as a tuple.</p>
 <span class="p">{}</span>
 </pre></div>
 </div>
-<p>Lastly, Python also supports a dictionary-comprehension syntax, which
-mirrors the generator/list comprehension syntax covered earlier in this
-module:</p>
+<p>Lastly, Python also supports a dictionary-comprehension syntax, which mirrors the generator/list comprehension syntax covered earlier in this module:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">key</span><span class="p">:</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterable</span> <span class="n">of</span> <span class="n">key</span><span class="o">-</span><span class="n">value</span> <span class="n">pairs</span><span class="o">&gt;</span> <span class="p">[</span><span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">)]}</span>
 </pre></div>
 </div>
@@ -334,16 +299,13 @@ module:</p>
 </div>
 <div class="section" id="Retrieving-a-value,-given-a-key">
 <h3>Retrieving a value, given a key<a class="headerlink" href="#Retrieving-a-value,-given-a-key" title="Permalink to this headline">¶</a></h3>
-<p>Now we can use this dictionary to “look up” if an item is a fruit or a
-veggie. Dictionaries support the same square-bracket “get-item” syntax
-as a list/tuple, but here a valid key is used as the index:</p>
+<p>Now we can use this dictionary to “look up” if an item is a fruit or a veggie. Dictionaries support the same square-bracket “get-item” syntax as a list/tuple, but here a valid key is used as the index:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the value associated with the key &quot;apple&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span><span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">]</span>
 <span class="s2">&quot;fruit&quot;</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">KeyError</span></code> will be raised if you try to look-up a key that doesn’t
-exist:</p>
+<p><code class="docutils literal notranslate"><span class="pre">KeyError</span></code> will be raised if you try to look-up a key that doesn’t exist:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;grape&quot; hasn&#39;t been specified as a key</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span><span class="p">[</span><span class="s2">&quot;grape&quot;</span><span class="p">]</span>
 <span class="o">---------------------------------------------------------------------------</span>
@@ -357,19 +319,15 @@ exist:</p>
 </div>
 <div class="section" id="Adding-more-key-value-mappings">
 <h3>Adding more key-value mappings<a class="headerlink" href="#Adding-more-key-value-mappings" title="Permalink to this headline">¶</a></h3>
-<p>Once created, a dictionary can have a new key-value pair be “set” using
-<code class="docutils literal notranslate"><span class="pre">my_dict[new_key]</span> <span class="pre">=</span> <span class="pre">new_value</span></code>:</p>
+<p>Once created, a dictionary can have a new key-value pair be “set” using <code class="docutils literal notranslate"><span class="pre">my_dict[new_key]</span> <span class="pre">=</span> <span class="pre">new_value</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the mapping &quot;banana&quot; -&gt; &quot;fruit&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span><span class="p">[</span><span class="s2">&quot;banana&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;fruit&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span>
 <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="s1">&#39;fruit&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">:</span> <span class="s1">&#39;fruit&#39;</span><span class="p">,</span> <span class="s1">&#39;carrot&#39;</span><span class="p">:</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>If the key already exists, the mapping for that key will simply be
-updated.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">update</span></code> function can be used to add multiple key-value pairs at
-once. This function can be passed another dictionary or an iterable of
-key-value sequences</p>
+<p>If the key already exists, the mapping for that key will simply be updated.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">update</span></code> function can be used to add multiple key-value pairs at once. This function can be passed another dictionary or an iterable of key-value sequences</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># adding multiple key-value pairs to the dictionary</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span><span class="o">.</span><span class="n">update</span><span class="p">([(</span><span class="s2">&quot;grape&quot;</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;onion&quot;</span><span class="p">,</span> <span class="s2">&quot;vegetable&quot;</span><span class="p">)])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">fruit_or_veggie</span>
@@ -381,20 +339,14 @@ key-value sequences</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Dictionary Basics</strong></p>
-<p class="last">Given the tuple of student names
-<code class="docutils literal notranslate"><span class="pre">(&quot;Ashley&quot;,</span> <span class="pre">&quot;David&quot;,</span> <span class="pre">&quot;Edward&quot;,</span> <span class="pre">&quot;Zoe&quot;)</span></code>, and their corresponding exam
-grades <code class="docutils literal notranslate"><span class="pre">(0.92,</span> <span class="pre">0.72,</span> <span class="pre">0.88,</span> <span class="pre">0.77)</span></code>, create a dictionary that maps: name
-<span class="math notranslate nohighlight">\(\rightarrow\)</span> grade. Then, update Zoe’s grade to <code class="docutils literal notranslate"><span class="pre">.79</span></code>. Lastly,
-add a new student, Ryan, whose grade it 0.34.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Dictionary Basics</strong></p>
+<p>Given the tuple of student names <code class="docutils literal notranslate"><span class="pre">(&quot;Ashley&quot;,</span> <span class="pre">&quot;David&quot;,</span> <span class="pre">&quot;Edward&quot;,</span> <span class="pre">&quot;Zoe&quot;)</span></code>, and their corresponding exam grades <code class="docutils literal notranslate"><span class="pre">(0.92,</span> <span class="pre">0.72,</span> <span class="pre">0.88,</span> <span class="pre">0.77)</span></code>, create a dictionary that maps: name <span class="math notranslate nohighlight">\(\rightarrow\)</span> grade. Then, update Zoe’s grade to <code class="docutils literal notranslate"><span class="pre">.79</span></code>. Lastly, add a new student, Ryan, whose grade is 0.34.</p>
 </div>
 </div>
 </div>
 <div class="section" id="What-Can-a-Dictionary-Store?">
 <h2>What Can a Dictionary Store?<a class="headerlink" href="#What-Can-a-Dictionary-Store?" title="Permalink to this headline">¶</a></h2>
-<p>Although the preceding example only involves a mappings from strings to
-strings, <em>the keys and values of a dictionary can be heterogeneous in
-type</em>:</p>
+<p>Although the preceding example only involves a mappings from strings to strings, <em>the keys and values of a dictionary can be heterogeneous in type</em>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrates the wide variety of object types that can be used as</span>
 <span class="c1"># keys and values in a dictionary</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span><span class="k">print</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">:</span><span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">:[]}</span>
@@ -414,39 +366,25 @@ type</em>:</p>
 <span class="p">[]</span>
 </pre></div>
 </div>
-<p>To be specific, a dictionary’s contents are dictated by the following
-rules:</p>
+<p>To be specific, a dictionary’s contents are dictated by the following rules:</p>
 <ul class="simple">
-<li>A dictionary <em>key</em> must be an <em>immutable</em> object (more precisely, it
-must be
-<a class="reference external" href="https://docs.python.org/3/glossary.html#term-hashable">hashable</a>;
-don’t worry about this detail).</li>
-<li>A dictionary <em>value</em> can be any object (even the dictionary itself!
-Try this, it’s cool!)</li>
+<li>A dictionary <em>key</em> must be an <em>immutable</em> object (more precisely, it must be <a class="reference external" href="https://docs.python.org/3/glossary.html#term-hashable">hashable</a>; don’t worry about this detail).</li>
+<li>A dictionary <em>value</em> can be any object (even the dictionary itself! Try this, it’s cool!)</li>
 </ul>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Recall</strong>:</p>
-<p class="last">A mutable object can be changed after it is created. An immutable object
-cannot be changed.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Recall</strong>:</p>
+<p>A mutable object can be changed after it is created. An immutable object cannot be changed.</p>
 </div>
 <p>Thus valid keys can be the following types:</p>
 <ul class="simple">
 <li>numbers (integers, floating-point numbers, complex numbers)</li>
 <li>strings</li>
-<li>tuples (if the tuple contains anything, it must be other immutable
-objects)</li>
+<li>tuples (if the tuple contains anything, it must be other immutable objects)</li>
 <li>boolean values</li>
-<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#Set-operations">frozenset</a>
-objects</li>
+<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#Set-operations">frozenset</a> objects</li>
 </ul>
-<p>Trying to use a mutable object as a key is problematic since that object
-could be changed <em>after</em> it was already used as a key. Thus the
-dictionary would have to “detect” this change and recreate its “lookup
-scheme” for the changed key. Values, on the other hand, can be mutable
-because the details of a given value-object have no impact on how the
-dictionary retrieves it.</p>
-<p>In accordance with this discussion will get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> if you try
-to use a list as a key, since lists are mutable:</p>
+<p>Trying to use a mutable object as a key is problematic since that object could be changed <em>after</em> it was already used as a key. Thus the dictionary would have to “detect” this change and recreate its “lookup scheme” for the changed key. Values, on the other hand, can be mutable because the details of a given value-object have no impact on how the dictionary retrieves it.</p>
+<p>In accordance with this discussion will get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> if you try to use a list as a key, since lists are mutable:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># trying to use a list as a key</span>
 <span class="c1"># this raises an error because lists are mutable</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bad_dict</span> <span class="o">=</span> <span class="p">{[]:</span><span class="mi">1</span><span class="p">}</span>
@@ -460,12 +398,7 @@ to use a list as a key, since lists are mutable:</p>
 </div>
 <div class="section" id="Numerical-Precision-&amp;-Dictionary-Keys">
 <h3>Numerical Precision &amp; Dictionary Keys<a class="headerlink" href="#Numerical-Precision-&-Dictionary-Keys" title="Permalink to this headline">¶</a></h3>
-<p>Care must be taken when using floating-point numbers as a key in a
-dictionary, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">due to its limited numerical
-precision</a>.
-For the same reason that you ought not rely on two floats being equal,
-you should not assume that two floats will produce the same hash, when
-stored as a key:</p>
+<p>Care must be taken when using floating-point numbers as a key in a dictionary, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">due to its limited numerical precision</a>. For the same reason that you ought not rely on two floats being equal, you should not assume that two floats will produce the same hash, when stored as a key:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the folly of using a floating-point number as a key</span>
 <span class="c1"># in a dictionary</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{}</span>
@@ -474,9 +407,7 @@ stored as a key:</p>
 <span class="ne">KeyError</span><span class="p">:</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>An acceptable way of accommodating the use of a float as a key,
-depending on the use case, is to first round the floating point number
-to normalize it to a lower precision:</p>
+<p>An acceptable way of accommodating the use of a float as a key, depending on the use case, is to first round the floating point number to normalize it to a lower precision:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># rounding a float before using it as a key</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -488,15 +419,13 @@ to normalize it to a lower precision:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">A dictionary key must be an immutable object. A dictionary value can be
-any object.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p>A dictionary key must be an immutable object. A dictionary value can be any object.</p>
 </div>
 </div>
 <div class="section" id="Inspecting-a-Dictionary">
 <h3>Inspecting a Dictionary<a class="headerlink" href="#Inspecting-a-Dictionary" title="Permalink to this headline">¶</a></h3>
-<p>The dictionary provides tooling for inspecting and iterating over its
-keys and values. We will use the following dictionary for our examples:</p>
+<p>The dictionary provides tooling for inspecting and iterating over its keys and values. We will use the following dictionary for our examples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span><span class="s2">&quot;value3&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -522,89 +451,65 @@ keys and values. We will use the following dictionary for our examples:</p>
 <span class="go">3</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">example_dict.keys()</span></code> also returns an iterable over the dictionary’s
-keys, and thus can be used to exactly the same effect as the dictionary
-itself in these preceding examples.</p>
+<p><code class="docutils literal notranslate"><span class="pre">example_dict.keys()</span></code> also returns an iterable over the dictionary’s keys, and thus can be used to exactly the same effect as the dictionary itself in these preceding examples.</p>
 <p><strong>Inspecting a dictionary’s values</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">example_dict.values()</span></code> can be iterated over to produce that
-dictionary’s values:</p>
+<p><code class="docutils literal notranslate"><span class="pre">example_dict.values()</span></code> can be iterated over to produce that dictionary’s values:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># iterating over a dictionary&#39;s values</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
 <span class="p">[</span><span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;value3&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>You can also use this to test for membership among the dictionary’s
-values:</p>
+<p>You can also use this to test for membership among the dictionary’s values:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking if an object is among a dictionary&#39;s values</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;value1&quot;</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 <span class="bp">True</span>
 </pre></div>
 </div>
 <p><strong>Inspecting a dictionary’s key-value pairs</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">example_dict.items()</span></code> can be iterated over to produce that
-dictionary’s key-value pairs (which are packed into tuples):</p>
+<p><code class="docutils literal notranslate"><span class="pre">example_dict.items()</span></code> can be iterated over to produce that dictionary’s key-value pairs (which are packed into tuples):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># iterating over a dictionary produces its keys</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
 <span class="p">[(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;value1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key2&#39;</span><span class="p">,</span> <span class="s1">&#39;value2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key3&#39;</span><span class="p">,</span> <span class="s1">&#39;value3&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p>You can also use this to test for membership among the dictionary’s
-key-value pairs:</p>
+<p>You can also use this to test for membership among the dictionary’s key-value pairs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking if a key-value pair exists in a dictionary</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;value1&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 <span class="bp">True</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Inverting a Dictionary</strong></p>
-<p class="last">Given the dictionary <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">{'k1':</span> <span class="pre">'v1',</span> <span class="pre">'k2':</span> <span class="pre">'v2',</span> <span class="pre">'k3':</span> <span class="pre">'v3'}</span></code>,
-create a dictionary with the opposite mapping. I.e. Create the
-dictionary <code class="docutils literal notranslate"><span class="pre">inverted_x</span> <span class="pre">=</span> <span class="pre">{'v1':</span> <span class="pre">'k1',</span> <span class="pre">'v2':</span> <span class="pre">'k2',</span> <span class="pre">'v3':</span> <span class="pre">'k3'}</span></code>.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Inverting a Dictionary</strong></p>
+<p>Write a function that inverts a dictionary. For example, if you were given <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">{'k1':</span> <span class="pre">'v1',</span> <span class="pre">'k2':</span> <span class="pre">'v2',</span> <span class="pre">'k3':</span> <span class="pre">'v3'}</span></code>, you would produce the dictionary <code class="docutils literal notranslate"><span class="pre">inverted_x</span> <span class="pre">=</span> <span class="pre">{'v1':</span> <span class="pre">'k1',</span> <span class="pre">'v2':</span> <span class="pre">'k2',</span> <span class="pre">'v3':</span> <span class="pre">'k3'}</span></code>.</p>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Inspecting a Dictionary</strong></p>
-<p class="last">Assume we are working with a dictionary whose values are all numbers.
-Write a function that returns the <em>key</em> that maps to the <em>largest</em> value
-in the dictionary.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Inspecting a Dictionary</strong></p>
+<p>Assume we are working with a dictionary whose values are all <em>unique</em> numbers. Write a function that returns the <em>key</em> that maps to the <em>largest</em> value in the dictionary.</p>
+<p>Next, generalize your solution for a dictionary whose values are not necessarily unique. Return a tuple of all of the keys that map to that max value.</p>
 </div>
 </div>
 <div class="section" id="Time-Complexities-of-the-Dictionary’s-Functions">
 <h3>Time Complexities of the Dictionary’s Functions<a class="headerlink" href="#Time-Complexities-of-the-Dictionary’s-Functions" title="Permalink to this headline">¶</a></h3>
-<p>In addition to being flexible and versatile, the dictionary’s functions
-manage to be quite efficient as well. The following is a summary of the
-time complexities associated with various common operations using a
-dictionary (according to its implementation in CPython) - note all the
-<span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> operations!</p>
-<p>Let <code class="docutils literal notranslate"><span class="pre">example_dict</span></code> represent a dictionary with <span class="math notranslate nohighlight">\(n\)</span> key-value
-pair mappings.</p>
+<p>In addition to being flexible and versatile, the dictionary’s functions manage to be quite efficient as well. The following is a summary of the time complexities associated with various common operations using a dictionary (according to its implementation in CPython) - note all the <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> operations!</p>
+<p>Let <code class="docutils literal notranslate"><span class="pre">example_dict</span></code> represent a dictionary with <span class="math notranslate nohighlight">\(n\)</span> key-value pair mappings.</p>
 <p>The following are <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> operations:</p>
 <ul class="simple">
 <li>Return the number of keys in the dictionary: <code class="docutils literal notranslate"><span class="pre">len(example_dict)</span></code></li>
-<li>Check if the key is in the dictionary, and return the value if it is:
-<code class="docutils literal notranslate"><span class="pre">example_dict[key]</span></code></li>
+<li>Check if the key is in the dictionary, and return the value if it is: <code class="docutils literal notranslate"><span class="pre">example_dict[key]</span></code></li>
 <li>Set a key-value mapping: <code class="docutils literal notranslate"><span class="pre">example_dict[key]</span> <span class="pre">=</span> <span class="pre">value</span></code></li>
-<li>Check if an object is among the dictionary’s keys:
-<code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict</span></code></li>
-<li>Check if a pair of objects are among the dictionary’s key-value
-pairs: <code class="docutils literal notranslate"><span class="pre">(obj1,</span> <span class="pre">obj2)</span> <span class="pre">in</span> <span class="pre">example_dict.items()</span></code></li>
+<li>Check if an object is among the dictionary’s keys: <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict</span></code></li>
+<li>Check if a pair of objects are among the dictionary’s key-value pairs: <code class="docutils literal notranslate"><span class="pre">(obj1,</span> <span class="pre">obj2)</span> <span class="pre">in</span> <span class="pre">example_dict.items()</span></code></li>
 </ul>
 <p>The following are <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span> operations:</p>
 <ul class="simple">
-<li>Check if an object is among the dictionary’s values:
-<code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict.values()</span></code></li>
+<li>Check if an object is among the dictionary’s values: <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict.values()</span></code></li>
 <li>Iterate over the dictionary’s keys/values/key-value pairs</li>
 </ul>
 </div>
 <div class="section" id="Are-Dictionaries-Ordered?-A-Word-of-Warning">
 <h3>Are Dictionaries Ordered? A Word of Warning<a class="headerlink" href="#Are-Dictionaries-Ordered?-A-Word-of-Warning" title="Permalink to this headline">¶</a></h3>
-<p>Unlike Python’s sequences, the dictionary has no inherent ordering… that
-is, until Python 3.6 came out.</p>
-<p>Prior to Python 3.6, a dictionary had no ordering associated with it. If
-you iterated over a dictionary’s keys, values, or key-value pairs, you
-had no guarantee about the <em>order</em> in which these items would be
-produced. <code class="docutils literal notranslate"><span class="pre">[i</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">example_dict]</span></code> could produce a list of keys
-with different ordering each time the code was run; you were only
-guaranteed that the list would contain all of the dictionary’s keys:</p>
+<p>Unlike Python’s sequences, the dictionary has no inherent ordering… that is, until Python 3.6 came out.</p>
+<p>Prior to Python 3.6, a dictionary had no ordering associated with it. If you iterated over a dictionary’s keys, values, or key-value pairs, you had no guarantee about the <em>order</em> in which these items would be produced. <code class="docutils literal notranslate"><span class="pre">[i</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">example_dict]</span></code> could produce a list of keys with different ordering each time the code was run; you were only guaranteed that the list would contain all of the dictionary’s keys:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># in Python 3.5 and earlier, dictionaries were unordered</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span><span class="s2">&quot;value3&quot;</span><span class="p">}</span>
 
@@ -621,13 +526,7 @@ guaranteed that the list would contain all of the dictionary’s keys:</p>
 <span class="o">...</span>
 </pre></div>
 </div>
-<p>The dictionary was <a class="reference external" href="https://docs.python.org/3/whatsnew/3.6.html#new-dict-implementation">reimplemented in Python
-3.6</a>
-so that it will consume roughly 25% less memory than before (which is a
-big deal!). The catch is that this new implementation entails that the
-dictionary’s various iterables (e.g. <code class="docutils literal notranslate"><span class="pre">dict.keys()</span></code>, <code class="docutils literal notranslate"><span class="pre">dict.values()</span></code>,
-<code class="docutils literal notranslate"><span class="pre">dict.items()</span></code>) will always yield their items according to the order
-in which they were added to the dictionary.</p>
+<p>The dictionary was <a class="reference external" href="https://docs.python.org/3/whatsnew/3.6.html#new-dict-implementation">reimplemented in Python 3.6</a> so that it will consume roughly 25% less memory than before (which is a big deal!). The catch is that this new implementation entails that the dictionary’s various iterables (e.g. <code class="docutils literal notranslate"><span class="pre">dict.keys()</span></code>, <code class="docutils literal notranslate"><span class="pre">dict.values()</span></code>, <code class="docutils literal notranslate"><span class="pre">dict.items()</span></code>) will always yield their items according to the order in which they were added to the dictionary.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># in Python 3.6 and beyond dictionaries are ordered according to the order in</span>
 <span class="c1"># which key-value pairs were added to the dictionary by the user</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span><span class="s2">&quot;value3&quot;</span><span class="p">}</span>
@@ -637,19 +536,9 @@ in which they were added to the dictionary.</p>
 <span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>This is great, right? Wrong! If you write code in Python 3.6 that relies
-on the fact that dictionaries are ordered, your algorithm will almost
-certainly produce the wrong results if you run it using Python 3.5 or
-earlier! Worst of all, it very unlikely that this will raise any error
-in your code so the bug will persist silently - this is very tough to
-catch!</p>
-<p><strong>Unless you make explicit that your code is incompatible with versions
-of Python prior to Python 3.6, write your code as if the dictionary is
-unordered!</strong></p>
-<p>If you do want to use an ordered dictionary, make use of
-<code class="docutils literal notranslate"><span class="pre">collections.OrderedDict</span></code>, which behaves like just like the standard
-dictionary but is guaranteed to maintain ordering regardless of what
-version of Python you are using.</p>
+<p>This is great, right? Wrong! If you write code in Python 3.6 that relies on the fact that dictionaries are ordered, your algorithm will almost certainly produce the wrong results if you run it using Python 3.5 or earlier! Worst of all, it very unlikely that this will raise any error in your code so the bug will persist silently - this is very tough to catch!</p>
+<p><strong>Unless you make explicit that your code is incompatible with versions of Python prior to Python 3.6, write your code as if the dictionary is unordered!</strong></p>
+<p>If you do want to use an ordered dictionary, make use of <code class="docutils literal notranslate"><span class="pre">collections.OrderedDict</span></code>, which behaves like just like the standard dictionary but is guaranteed to maintain ordering regardless of what version of Python you are using.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">ordered</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;value1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key2&#39;</span><span class="p">,</span> <span class="s1">&#39;value2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;key3&#39;</span><span class="p">,</span> <span class="s1">&#39;value3&#39;</span><span class="p">)])</span>
 
@@ -660,10 +549,8 @@ version of Python you are using.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">No matter what version of Python you are using, write your code as if
-the Python dictionary is unordered. If you do want to use an ordered
-dictionary, your code should make use of <code class="docutils literal notranslate"><span class="pre">collections.OrderedDict</span></code>.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p>No matter what version of Python you are using, write your code as if the Python dictionary is unordered. If you do want to use an ordered dictionary, your code should make use of <code class="docutils literal notranslate"><span class="pre">collections.OrderedDict</span></code>.</p>
 </div>
 </div>
 </div>
@@ -671,30 +558,23 @@ dictionary, your code should make use of <code class="docutils literal notransla
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">Dictionaries</a><ul>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Dictionaries
-tutorial</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Dictionaries tutorial</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="https://docs.python.org/3/glossary.html#term-hashable">Definition of
-‘hashable’</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dictionary-view-objects">Dictionary view
-objects</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/glossary.html#term-hashable">Definition of ‘hashable’</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dictionary-view-objects">Dictionary view objects</a></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>Dictionary Basics: Solutions</strong></p>
-<p>Given the tuple of student names <code class="docutils literal notranslate"><span class="pre">(Ashley,</span> <span class="pre">David,</span> <span class="pre">Edward,</span> <span class="pre">Zoe)</span></code>, and
-their corresponding exam grades <code class="docutils literal notranslate"><span class="pre">(0.92,</span> <span class="pre">0.72,</span> <span class="pre">0.88,</span> <span class="pre">0.77)</span></code>, create a
-dictionary that maps: name <span class="math notranslate nohighlight">\(\rightarrow\)</span> grade.</p>
-<p>Then, update Zoe’s grade to <code class="docutils literal notranslate"><span class="pre">.79</span></code>. Lastly, add a new student, Ryan,
-whose grade it 0.34.</p>
+<p>Given the tuple of student names <code class="docutils literal notranslate"><span class="pre">(Ashley,</span> <span class="pre">David,</span> <span class="pre">Edward,</span> <span class="pre">Zoe)</span></code>, and their corresponding exam grades <code class="docutils literal notranslate"><span class="pre">(0.92,</span> <span class="pre">0.72,</span> <span class="pre">0.88,</span> <span class="pre">0.77)</span></code>, create a dictionary that maps: name <span class="math notranslate nohighlight">\(\rightarrow\)</span> grade.</p>
+<p>Then, update Zoe’s grade to <code class="docutils literal notranslate"><span class="pre">.79</span></code>. Lastly, add a new student, Ryan, whose grade is 0.34.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Ashley&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Edward&quot;</span><span class="p">,</span> <span class="s2">&quot;Zoe&quot;</span><span class="p">)</span>
 <span class="n">scores</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span> <span class="mf">0.77</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here is a basic, but verbose solution. It is too long and its logic is
-complicated by the use of <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p>Here is a basic, but verbose solution. It is too long and its logic is complicated by the use of <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># basic solution for creating `grades`</span>
 <span class="n">grades</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
@@ -703,10 +583,7 @@ complicated by the use of <code class="docutils literal notranslate"><span class
     <span class="n">grades</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 </pre></div>
 </div>
-<p>You should make use of the function
-<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Itertools.html#zip">zip</a>
-to pair the names and scores together in an iterable, and create the
-dictionary using a comprehension expression.</p>
+<p>You should make use of the function <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Itertools.html#zip">zip</a> to pair the names and scores together in an iterable, and create the dictionary using a comprehension expression.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># much better solution for creating `grades`</span>
 <span class="n">grades</span> <span class="o">=</span> <span class="p">{</span><span class="n">student</span><span class="p">:</span><span class="n">value</span> <span class="k">for</span> <span class="n">student</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">scores</span><span class="p">)}</span>
 
@@ -730,9 +607,7 @@ dictionary using a comprehension expression.</p>
 </pre></div>
 </div>
 <p><strong>Inspecting a Dictionary: Solution</strong></p>
-<p>Assume we are working with a dictionary whose values are all numbers.
-Write a function that returns the key that maps to the <em>largest</em> value
-in the dictionary.</p>
+<p>Assume we are working with a dictionary whose values are all <em>unique</em> numbers. Write a function that returns the key that maps to the <em>largest</em> value in the dictionary.</p>
 <p>The solution that you should be able to arrive at is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># solution</span>
 <span class="k">def</span> <span class="nf">max_key</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -746,21 +621,9 @@ in the dictionary.</p>
 <span class="go">&#39;c&#39;</span>
 </pre></div>
 </div>
-<p>The downside of this is that it iterates over <code class="docutils literal notranslate"><span class="pre">x</span></code> twice: once via
-<code class="docutils literal notranslate"><span class="pre">max</span></code> and once via the for-loop. The optimal solution for this only
-involves a single iteration, however it requires advanced concepts that
-are beyond the scope of the material presented here. We include the
-ideal solution for posterity:</p>
-<p>You can provide the <code class="docutils literal notranslate"><span class="pre">max</span></code> function with “key” argument, which accepts
-the function that should be used to evaluate the “value” for each
-iteration, which is used to discern the max element. Here, we pass it
-the built-in dictionary-function
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.get">get</a>,
-which takes in a dictionary’s key as an argument, and returns the
-corresponding value from the mapping. Thus <code class="docutils literal notranslate"><span class="pre">max</span></code> will iterate over
-each key of <code class="docutils literal notranslate"><span class="pre">x</span></code>, and discern the maximum value by comparing the value
-returned by each <code class="docutils literal notranslate"><span class="pre">x.get(key)</span></code> (which is effectively the same as
-<code class="docutils literal notranslate"><span class="pre">x[key]</span></code>).</p>
+<p>The downside of this is that it iterates over <code class="docutils literal notranslate"><span class="pre">x</span></code> twice: once via <code class="docutils literal notranslate"><span class="pre">max</span></code> and once via the for-loop. The optimal solution for this only involves a single iteration, however it requires advanced concepts that are beyond the scope of the material presented here. We include the ideal solution for posterity:</p>
+<p>You can provide the <code class="docutils literal notranslate"><span class="pre">max</span></code> function with “key” argument, which accepts the function that should be used to evaluate the “value” for each iteration, which is used to discern the max element. Here, we pass it the built-in dictionary-function <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.get">get</a>, which takes in a dictionary’s key as an argument, and returns the corresponding value from the mapping. Thus <code class="docutils literal notranslate"><span class="pre">max</span></code> will iterate over each key of <code class="docutils literal notranslate"><span class="pre">x</span></code>, and discern the maximum value by
+comparing the value returned by each <code class="docutils literal notranslate"><span class="pre">x.get(key)</span></code> (which is effectively the same as <code class="docutils literal notranslate"><span class="pre">x[key]</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># optimal solution (for the sake of completeness)</span>
 <span class="k">def</span> <span class="nf">max_key_optimal</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
@@ -770,16 +633,22 @@ returned by each <code class="docutils literal notranslate"><span class="pre">x.
 <span class="go">&#39;d&#39;</span>
 </pre></div>
 </div>
-<p>You can read more about this <code class="docutils literal notranslate"><span class="pre">key</span></code> parameter
-<a class="reference external" href="https://docs.python.org/3/howto/sorting.html#key-functions">here</a>.</p>
+<p>You can read more about this <code class="docutils literal notranslate"><span class="pre">key</span></code> parameter <a class="reference external" href="https://docs.python.org/3/howto/sorting.html#key-functions">here</a>.</p>
+<p>Next, generalize your solution for a dictionary whose values are not necessarily unique. Return a tuple of the keys that map to that max value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_maxes</span><span class="p">(</span><span class="n">dictionary</span><span class="p">):</span>
+    <span class="n">max_val</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dictionary</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="n">max_val</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">get_maxes</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -788,7 +657,7 @@ returned by each <code class="docutils literal notranslate"><span class="pre">x.
         <a href="DataStructures_III_Sets_and_More.html" class="btn btn-neutral float-right" title="Data Structures (Part III): Sets &amp; the Collections Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="DataStructures.html" class="btn btn-neutral" title="Data Structures (Part I): Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="DataStructures.html" class="btn btn-neutral float-left" title="Data Structures (Part I): Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -797,11 +666,11 @@ returned by each <code class="docutils literal notranslate"><span class="pre">x.
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -814,39 +683,15 @@ returned by each <code class="docutils literal notranslate"><span class="pre">x.
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

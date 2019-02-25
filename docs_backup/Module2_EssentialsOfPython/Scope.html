@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Scope &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Scope &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
-        <link rel="next" title="Data Structures (Part I): Introduction" href="DataStructures.html"/>
-        <link rel="prev" title="Basics of Functions" href="Functions.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Structures (Part I): Introduction" href="DataStructures.html" />
+    <link rel="prev" title="Basics of Functions" href="Functions.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -134,7 +130,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -142,9 +138,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -175,7 +172,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module2_EssentialsOfPython/Scope.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module2_EssentialsOfPython/Scope.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -203,44 +200,23 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Scope">
 <h1>Scope<a class="headerlink" href="#Scope" title="Permalink to this headline">¶</a></h1>
-<p>A valuable aspect of the “encapsulation” provided by functions is that
-the function’s input argument variables, and any variables defined
-within the function, cannot be “seen” nor accessed outside of the
-function. That is, these variables are said to have a restricted
-<strong>scope</strong>.</p>
+<p>A valuable aspect of the “encapsulation” provided by functions is that the function’s input argument variables, and any variables defined within the function, cannot be “seen” nor accessed outside of the function. That is, these variables are said to have a restricted <strong>scope</strong>.</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Definition</strong>:</p>
-<p class="last">The <strong>scope</strong> of a variable refers to the context in which that variable
-is visible/accessible to the Python interpreter.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Definition</strong>:</p>
+<p>The <strong>scope</strong> of a variable refers to the context in which that variable is visible/accessible to the Python interpreter.</p>
 </div>
-<p>Until our work with comprehension-statements and functions, we had only
-encountered variables that have <strong>file scope</strong>. This means that a
-variable, once defined, is visible to all parts of the code contained in
-the same file. Variables with file scope can even be accessed <em>within
-functions</em>. By contrast, the variables defined within a function or as
-input arguments to a function have a <strong>restricted scope</strong> - they can
-only be accessed within the context of the function:</p>
+<p>Until our work with comprehension-statements and functions, we had only encountered variables that have <strong>file scope</strong>. This means that a variable, once defined, is visible to all parts of the code contained in the same file. Variables with file scope can even be accessed <em>within functions</em>. By contrast, the variables defined within a function or as input arguments to a function have a <strong>restricted scope</strong> - they can only be accessed within the context of the function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># `x` has file scope. It can be even be accessed</span>
        <span class="c1"># within a function, even if it isn&#39;t passed to</span>
        <span class="c1"># the function as an argument</span>
@@ -256,12 +232,7 @@ only be accessed within the context of the function:</p>
 <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>         <span class="c1"># raises NameError: name `y` not defined</span>
 </pre></div>
 </div>
-<p>Python’s scoping rules are quite liberal compared to those of other
-languages, like C++. In most situations, Python will give variables file
-scope. Let’s briefly survey the various contexts in which variables are
-defined, along with their corresponding scoping rules. Assume that the
-following code represents the entire contents of the Python script
-“example_scope.py”:</p>
+<p>Python’s scoping rules are quite liberal compared to those of other languages, like C++. In most situations, Python will give variables file scope. Let’s briefly survey the various contexts in which variables are defined, along with their corresponding scoping rules. Assume that the following code represents the entire contents of the Python script “example_scope.py”:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># this demonstrates scope of variables in different contexts</span>
 <span class="c1"># nothing meaningful is computed in this file</span>
 
@@ -313,23 +284,14 @@ following code represents the entire contents of the Python script
 <li><code class="docutils literal notranslate"><span class="pre">func_block</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">comp_var</span></code></li>
 </ul>
-<p>In C++, the variables <code class="docutils literal notranslate"><span class="pre">if_block</span></code>, <code class="docutils literal notranslate"><span class="pre">it_var</span></code>, <code class="docutils literal notranslate"><span class="pre">for_block</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">while_block</span></code> all would have had restricted scopes - these variables
-would not be defined outside of their respective if/for/while blocks.</p>
+<p>In C++, the variables <code class="docutils literal notranslate"><span class="pre">if_block</span></code>, <code class="docutils literal notranslate"><span class="pre">it_var</span></code>, <code class="docutils literal notranslate"><span class="pre">for_block</span></code>, and <code class="docutils literal notranslate"><span class="pre">while_block</span></code> all would have had restricted scopes - these variables would not be defined outside of their respective if/for/while blocks.</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p class="last">Variables defined within a function have a <em>restricted scope</em> such that
-they do not exist outside of that function. Most other contexts for
-defining variables in Python produce variables with <em>file scope</em>
-(i.e.&nbsp;they can be accessed anywhere in the file’s code, subsequent to
-their definition).</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
+<p>Variables defined within a function have a <em>restricted scope</em> such that they do not exist outside of that function. Most other contexts for defining variables in Python produce variables with <em>file scope</em> (i.e.&nbsp;they can be accessed anywhere in the file’s code, subsequent to their definition).</p>
 </div>
 <div class="section" id="Variable-Shadowing">
 <h2>Variable Shadowing<a class="headerlink" href="#Variable-Shadowing" title="Permalink to this headline">¶</a></h2>
-<p>What happens when a file-scope variable and a function-scope variable
-share the same name? This type of circumstance is known as <strong>variable
-shadowing</strong>. Python resolves this by giving precedence to the variable
-<em>with the most restricted scope</em>, when inside that scope:</p>
+<p>What happens when a file-scope variable and a function-scope variable share the same name? This type of circumstance is known as <strong>variable shadowing</strong>. Python resolves this by giving precedence to the variable <em>with the most restricted scope</em>, when inside that scope:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
 
@@ -361,19 +323,15 @@ shadowing</strong>. Python resolves this by giving precedence to the variable
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces">Scopes and
-namespaces</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/reference/executionmodel.html">Python’s execution
-model</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces">Scopes and namespaces</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/reference/executionmodel.html">Python’s execution model</a></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -382,7 +340,7 @@ model</a></li>
         <a href="DataStructures.html" class="btn btn-neutral float-right" title="Data Structures (Part I): Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Functions.html" class="btn btn-neutral" title="Basics of Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Functions.html" class="btn btn-neutral float-left" title="Basics of Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -391,11 +349,11 @@ model</a></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -408,39 +366,15 @@ model</a></li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python’s “Itertools” &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Python’s “Itertools” &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 2: The Essentials of Python" href="../module_2.html"/>
-        <link rel="next" title="Basics of Functions" href="Functions.html"/>
-        <link rel="prev" title="Generators &amp; Comprehension Expressions" href="Generators_and_Comprehensions.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Basics of Functions" href="Functions.html" />
+    <link rel="prev" title="Generators &amp; Comprehension Expressions" href="Generators_and_Comprehensions.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -134,7 +130,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -142,9 +138,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -175,7 +172,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module2_EssentialsOfPython/Itertools.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module2_EssentialsOfPython/Itertools.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -203,42 +200,20 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Python’s-“Itertools”">
 <h1>Python’s “Itertools”<a class="headerlink" href="#Python’s-“Itertools”" title="Permalink to this headline">¶</a></h1>
-<p>Python has an <a class="reference external" href="https://docs.python.org/3/library/itertools.html">itertools
-module</a>, which
-provides a core set of fast, memory-efficient tools for creating
-iterators. We will briefly showcase a few itertools here. The majority
-of these functions create
-<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html">generators</a>,
-thus we will have to iterate over them in order to explicitly
-demonstrate their use. It is hard to overstate the utility of this
-module - it is strongly recommended that you take some time to see what
-it has in store.</p>
-<p>There are three built-in functions, <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">zip</span></code>, that belong in itertools, but they are so useful that they are
-made accessible immediately and do not need to be imported. It is
-essential that <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>, and <code class="docutils literal notranslate"><span class="pre">zip</span></code> become tools that
-you are comfortable using.</p>
+<p>Python has an <a class="reference external" href="https://docs.python.org/3/library/itertools.html">itertools module</a>, which provides a core set of fast, memory-efficient tools for creating iterators. We will briefly showcase a few itertools here. The majority of these functions create <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html">generators</a>, thus we will have to iterate over them in order to explicitly demonstrate their use. It is hard to overstate the utility of this
+module - it is strongly recommended that you take some time to see what it has in store.</p>
+<p>There are three built-in functions, <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>, and <code class="docutils literal notranslate"><span class="pre">zip</span></code>, that belong in itertools, but they are so useful that they are made accessible immediately and do not need to be imported. It is essential that <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>, and <code class="docutils literal notranslate"><span class="pre">zip</span></code> become tools that you are comfortable using.</p>
 <p><strong>range</strong></p>
 <p>Generate a sequence of integers in the specified “range”:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># will generate 0.. 1.. 2.. ... 8.. 9</span>
@@ -257,9 +232,7 @@ you are comfortable using.</p>
 </pre></div>
 </div>
 <p><strong>enumerate</strong></p>
-<p>Enumerates the items in an iterable: yielding a tuple containing the
-iteration count (starting with 0) and the corresponding item from the
-the iterable.</p>
+<p>Enumerates the items in an iterable: yielding a tuple containing the iteration count (starting with 0) and the corresponding item from the the iterable.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># will generate (0, &#39;apple&#39;).. (1, &#39;banana&#39;).. (2, &#39;cat&#39;).. (3, &#39;dog&#39;)]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">])</span>
 <span class="o">&lt;</span><span class="nb">enumerate</span> <span class="n">at</span> <span class="mh">0x23e3557b3f0</span><span class="o">&gt;</span>
@@ -269,9 +242,7 @@ the iterable.</p>
 </pre></div>
 </div>
 <p><strong>zip</strong></p>
-<p>Zips together the corresponding elements of several iterables into
-tuples. This is valuable for “pairing” corresponding items across
-multiple iterables.</p>
+<p>Zips together the corresponding elements of several iterables into tuples. This is valuable for “pairing” corresponding items across multiple iterables.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Angie&quot;</span><span class="p">,</span> <span class="s2">&quot;Brian&quot;</span><span class="p">,</span> <span class="s2">&quot;Cassie&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exam_1_scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">87</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exam_2_scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">95</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">91</span><span class="p">]</span>
@@ -285,11 +256,9 @@ multiple iterables.</p>
 </pre></div>
 </div>
 <hr class="docutils" />
-<p>The following are some of the many useful tools provided by the
-<code class="docutils literal notranslate"><span class="pre">itertools</span></code> module:</p>
+<p>The following are some of the many useful tools provided by the <code class="docutils literal notranslate"><span class="pre">itertools</span></code> module:</p>
 <p><strong>itertools.chain</strong></p>
-<p>Chains together multiple iterables, end-to-end, forming a single
-iterable:</p>
+<p>Chains together multiple iterables, end-to-end, forming a single iterable:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gen_1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>               <span class="c1"># 0.. 2.. 4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gen_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># 9.. 16.. 25</span>
@@ -301,8 +270,7 @@ iterable:</p>
 <span class="go">&lt;itertools.chain at 0x20de109ec18&gt;</span>
 </pre></div>
 </div>
-<p><strong>itertools.combinations</strong> Generate all length-n tuples storing
-“combinations” of items from an iterable:</p>
+<p><strong>itertools.combinations</strong> Generate all length-n tuples storing “combinations” of items from an iterable:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
 
 <span class="go"># will generate: (0, 1, 2).. (0, 1, 3).. (0, 2, 3).. (1, 2, 3)</span>
@@ -311,18 +279,12 @@ iterable:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Itertools I</strong></p>
-<p class="last">Using the <code class="docutils literal notranslate"><span class="pre">itertools.combinations</span></code> function, find the probability that
-two randomly drawn items from the list
-<code class="docutils literal notranslate"><span class="pre">[&quot;apples&quot;,</span> <span class="pre">&quot;bananas&quot;,</span> <span class="pre">&quot;pears&quot;,</span> <span class="pre">&quot;pears&quot;,</span> <span class="pre">&quot;oranges&quot;]</span></code> would yield a
-combination of “apples” and “pears”.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Itertools I</strong></p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">itertools.combinations</span></code> function, find the probability that two randomly drawn items from the list <code class="docutils literal notranslate"><span class="pre">[&quot;apples&quot;,</span> <span class="pre">&quot;bananas&quot;,</span> <span class="pre">&quot;pears&quot;,</span> <span class="pre">&quot;pears&quot;,</span> <span class="pre">&quot;oranges&quot;]</span></code> would yield a combination of “apples” and “pears”.</p>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Itertools II</strong></p>
-<p class="last">Given the list <code class="docutils literal notranslate"><span class="pre">x_vals</span> <span class="pre">=</span> <span class="pre">[0.1,</span> <span class="pre">0.3,</span> <span class="pre">0.6,</span> <span class="pre">0.9]</span></code>, create a generator,
-<code class="docutils literal notranslate"><span class="pre">y_gen</span></code>, that will generate the y-value <span class="math notranslate nohighlight">\(y = x^2\)</span> for each value
-of <span class="math notranslate nohighlight">\(x\)</span>. Then, using <code class="docutils literal notranslate"><span class="pre">zip</span></code>, create a list of the <span class="math notranslate nohighlight">\((x, y)\)</span>
-pairs, each pair stored in a tuple.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Itertools II</strong></p>
+<p>Given the list <code class="docutils literal notranslate"><span class="pre">x_vals</span> <span class="pre">=</span> <span class="pre">[0.1,</span> <span class="pre">0.3,</span> <span class="pre">0.6,</span> <span class="pre">0.9]</span></code>, create a generator, <code class="docutils literal notranslate"><span class="pre">y_gen</span></code>, that will generate the y-value <span class="math notranslate nohighlight">\(y = x^2\)</span> for each value of <span class="math notranslate nohighlight">\(x\)</span>. Then, using <code class="docutils literal notranslate"><span class="pre">zip</span></code>, create a list of the <span class="math notranslate nohighlight">\((x, y)\)</span> pairs, each pair stored in a tuple.</p>
 </div>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
@@ -350,9 +312,7 @@ pairs, each pair stored in a tuple.</p>
 <span class="go">[(0.1, 0.01), (0.3, 0.09), (0.6, 0.36), (0.9, 0.81)]</span>
 </pre></div>
 </div>
-<p>In this instance, the use of <code class="docutils literal notranslate"><span class="pre">zip</span></code> is a bit contrived. We could have
-foregone creating <code class="docutils literal notranslate"><span class="pre">y_gen</span></code> by just using the following
-list-comprehension:</p>
+<p>In this instance, the use of <code class="docutils literal notranslate"><span class="pre">zip</span></code> is a bit contrived. We could have foregone creating <code class="docutils literal notranslate"><span class="pre">y_gen</span></code> by just using the following list-comprehension:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x_vals</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">]</span>
 <span class="go">[(0.1, 0.01), (0.3, 0.09), (0.6, 0.36), (0.9, 0.81)]</span>
@@ -363,9 +323,7 @@ list-comprehension:</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -374,7 +332,7 @@ list-comprehension:</p>
         <a href="Functions.html" class="btn btn-neutral float-right" title="Basics of Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Generators_and_Comprehensions.html" class="btn btn-neutral" title="Generators &amp; Comprehension Expressions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Generators_and_Comprehensions.html" class="btn btn-neutral float-left" title="Generators &amp; Comprehension Expressions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -383,11 +341,11 @@ list-comprehension:</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -400,39 +358,15 @@ list-comprehension:</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

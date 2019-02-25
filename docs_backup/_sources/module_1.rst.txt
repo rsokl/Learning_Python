@@ -12,10 +12,10 @@ Lastly, we will take some time to survey some modern tools for writing and editi
    :maxdepth: 2
    :caption: Contents:
 	     
-   Module1_GettingStartedWithPython/SiteFormatting.ipynb
-   Module1_GettingStartedWithPython/GettingStartedWithPython.ipynb
-   Module1_GettingStartedWithPython/Installing_Python.ipynb
-   Module1_GettingStartedWithPython/Informal_Intro_Python.ipynb
-   Module1_GettingStartedWithPython/Jupyter_Notebooks.ipynb
-   Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.ipynb
+   Module1_GettingStartedWithPython/SiteFormatting.md
+   Module1_GettingStartedWithPython/GettingStartedWithPython.md
+   Module1_GettingStartedWithPython/Installing_Python.md
+   Module1_GettingStartedWithPython/Informal_Intro_Python.md
+   Module1_GettingStartedWithPython/Jupyter_Notebooks.md
+   Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.md
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Doing Numerical Work in Python &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Doing Numerical Work in Python &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,42 +17,39 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -66,7 +63,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -111,7 +108,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -119,9 +116,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -150,7 +148,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module1_GettingStartedWithPython/Numerical_Work_In_Python.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module1_GettingStartedWithPython/Numerical_Work_In_Python.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -178,47 +176,22 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Doing-Numerical-Work-in-Python">
 <h1>Doing Numerical Work in Python<a class="headerlink" href="#Doing-Numerical-Work-in-Python" title="Permalink to this headline">¶</a></h1>
-<p>Python’s elegant and flexible syntax makes it a particularly attractive
-language. However, this also makes Python considerably slower than
-other, more stringent languages (e.g., the C programming language). This
-is a non-issue in many circumstances. It is, however, a major roadblock
-when one is doing serious numerical work.</p>
-<p>Fortunately, there are several packages that you can use in Python,
-which allow you to do mathematical computations that are actually
-executed behind the scenes in a faster language. Offloading the work to
-a different language allows the computations to become blazingly fast,
-and we, the programmers, can stick to writing Python. The two best
-packages for this (both of which are already packaged in Anaconda) are:</p>
+<p>Python’s elegant and flexible syntax makes it a particularly attractive language. However, this also makes Python considerably slower than other, more stringent languages (e.g., the C programming language). This is a non-issue in many circumstances. It is, however, a major roadblock when one is doing serious numerical work.</p>
+<p>Fortunately, there are several packages that you can use in Python, which allow you to do mathematical computations that are actually executed behind the scenes in a faster language. Offloading the work to a different language allows the computations to become blazingly fast, and we, the programmers, can stick to writing Python. The two best packages for this (both of which are already packaged in Anaconda) are:</p>
 <div class="section" id="NumPy">
 <h2>NumPy<a class="headerlink" href="#NumPy" title="Permalink to this headline">¶</a></h2>
-<p>The fundamental package for scientific computing with Python. NumPy
-provides an N-dimensional array that can be used to represent, say, a
-large matrix of numbers. It also provides a huge number of mathematical
-functions that can operate on these arrays. It is crucial to note that
-these functions will actually be executed in C, so they are incredibly
-fast compared to the same functions written in vanilla Python. NumPy
-will be used throughout the machine learning component of the course.</p>
+<p>The fundamental package for scientific computing with Python. NumPy provides an N-dimensional array that can be used to represent, say, a large matrix of numbers. It also provides a huge number of mathematical functions that can operate on these arrays. It is crucial to note that these functions will actually be executed in C, so they are incredibly fast compared to the same functions written in vanilla Python. NumPy will be used throughout the machine learning component of the course.</p>
 <p>Here is example code for summing the numbers 1-100 in NumPy:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="n">numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span> <span class="c1"># an array storing the numbers 1-100</span>
@@ -226,24 +199,14 @@ will be used throughout the machine learning component of the course.</p>
 </pre></div>
 </div>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Note</strong>:</p>
-<p class="last">The version of NumPy that comes with Anaconda is further optimized with
-MKL. It is significantly faster than the version of NumPy that you would
-obtain by installing the package yourself.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
+<p>The version of NumPy that comes with Anaconda is further optimized with MKL. It is significantly faster than the version of NumPy that you would obtain by installing the package yourself.</p>
 </div>
 </div>
 <div class="section" id="Numba">
 <h2>Numba<a class="headerlink" href="#Numba" title="Permalink to this headline">¶</a></h2>
-<p>Numba gives you the power to speed up your applications with
-high-performance functions written directly in Python. Where NumPy
-restricts you to using NumPy functions on NumPy arrays, Numba allows you
-to write your own custom functions in Python and it will optimize your
-functions to get C-like efficiency. This isn’t a magic bullet - Numba
-can “translate” only a small subset of the Python language thus far. You
-have to tailor your code to be “compatible” with Numba, which can be
-limiting.</p>
-<p>We will not be using this package in this course, but it is a tremendous
-tool that is becoming instrumental for doing numerical work in Python.</p>
+<p>Numba gives you the power to speed up your applications with high-performance functions written directly in Python. Where NumPy restricts you to using NumPy functions on NumPy arrays, Numba allows you to write your own custom functions in Python and it will optimize your functions to get C-like efficiency. This isn’t a magic bullet - Numba can “translate” only a small subset of the Python language thus far. You have to tailor your code to be “compatible” with Numba, which can be limiting.</p>
+<p>We will not be using this package in this course, but it is a tremendous tool that is becoming instrumental for doing numerical work in Python.</p>
 <p>Here is example code for summing the numbers 1-100 in numba:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numba</span>
 <span class="nd">@numba.njit</span>
@@ -257,25 +220,16 @@ tool that is becoming instrumental for doing numerical work in Python.</p>
 </div>
 <div class="section" id="Ending-Remarks-and-Summary">
 <h3>Ending Remarks and Summary<a class="headerlink" href="#Ending-Remarks-and-Summary" title="Permalink to this headline">¶</a></h3>
-<p>Using these packages can speed up numerical computations by hundreds or
-even thousands of times compared to pure Python. Your calculation that
-was taking an hour to complete now takes 3 seconds!</p>
-<p>If you are interested in learning more about computational efficiency
-and Python, consider reading the article <a class="reference external" href="https://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/">Why Python is
-Slow</a>.
-Note that this is <strong>not required reading</strong>, and that the article is
-quite advanced.</p>
+<p>Using these packages can speed up numerical computations by hundreds or even thousands of times compared to pure Python. Your calculation that was taking an hour to complete now takes 3 seconds!</p>
+<p>If you are interested in learning more about computational efficiency and Python, consider reading the article <a class="reference external" href="https://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/">Why Python is Slow</a>. Note that this is <strong>not required reading</strong>, and that the article is quite advanced.</p>
 </div>
 </div>
 <div class="section" id="Summary">
 <h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Python is slow for large numerical computations.</li>
-<li>Tools like NumPy and Numba allow you do fast numerical computations
-in Python by “secretly” doing the numerical work behind the scenes in
-a fast language, like C.</li>
-<li>We will be working with NumPy (but Numba is fantastic and very
-worthwhile to learn if you do any serious numerical work in Python).</li>
+<li>Tools like NumPy and Numba allow you do fast numerical computations in Python by “secretly” doing the numerical work behind the scenes in a fast language, like C.</li>
+<li>We will be working with NumPy (but Numba is fantastic and very worthwhile to learn if you do any serious numerical work in Python).</li>
 <li>Both NumPy and Numba came with your installation of Anaconda</li>
 </ul>
 </div>
@@ -283,9 +237,7 @@ worthwhile to learn if you do any serious numerical work in Python).</li>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -294,11 +246,11 @@ worthwhile to learn if you do any serious numerical work in Python).</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -311,39 +263,15 @@ worthwhile to learn if you do any serious numerical work in Python).</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

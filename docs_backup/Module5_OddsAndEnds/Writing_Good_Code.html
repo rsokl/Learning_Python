@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Writing Good Code &mdash; Python Like You Mean It 1.2.0 documentation</title>
+  <title>Writing Good Code &mdash; Python Like You Mean It 1.3.0 documentation</title>
   
 
   
@@ -17,45 +17,41 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Python Like You Mean It 1.2.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module 5: Odds and Ends" href="../module_5.html"/>
-        <link rel="next" title="Matplotlib" href="Matplotlib.html"/>
-        <link rel="prev" title="Module 5: Odds and Ends" href="../module_5.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Matplotlib" href="Matplotlib.html" />
+    <link rel="prev" title="Module 5: Odds and Ends" href="../module_5.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -69,7 +65,7 @@
             
             
               <div class="version">
-                1.2
+                1.3
               </div>
             
           
@@ -118,9 +114,9 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Documentation-Styles">Documentation Styles</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#The-NumPy-Documentation-Style">The NumPy Documentation Style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#The-Google-Documentation-Style">The Google Documentation Style</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#The-Google-Documentation-Style">The Google Documentation Style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
 </ul>
@@ -141,7 +137,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
@@ -149,9 +145,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -182,7 +179,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Module5_OddsAndEnds/Writing_Good_Code.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Module5_OddsAndEnds/Writing_Good_Code.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -210,63 +207,32 @@
     margin-top: -19px;
 }
 
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
 }
 </style>
 <div class="section" id="Writing-Good-Code">
 <h1>Writing Good Code<a class="headerlink" href="#Writing-Good-Code" title="Permalink to this headline">¶</a></h1>
-<p>Throughout PLYMI we have been concerned with learning the rules for
-writing valid Python code. That is, we have taken care to ensure that
-our computers can understand the instructions that we have written for
-them. Here, we will discuss methods for making our code easier for
-<em>humans</em> to understand. Specifically, we will study:</p>
+<p>Throughout PLYMI we have been concerned with learning the rules for writing valid Python code. That is, we have taken care to ensure that our computers can understand the instructions that we have written for them. Here, we will discuss methods for making our code easier for <em>humans</em> to understand. Specifically, we will study:</p>
 <ul class="simple">
 <li>“PEP8”: the official style guide for Python code.</li>
 <li>Python’s system for adding so-called “type hints” to functions.</li>
-<li>Formal documentation specifications such as NumPy docs and Napolean
-docs.</li>
+<li>Formal documentation specifications such as NumPy docs and Napolean docs.</li>
 </ul>
-<p>The immediate purpose of discussing these items is that they will help
-us write code that is easy to understand and maintain. In the long term,
-they will serve to make our projects long-lived and useful to many more
-people. It can be surprising to see how quickly a code base can atrophy,
-becoming opaque and unusable even to its creator, when it wasn’t
-designed with a sufficient attention to detail and documentation.</p>
+<p>The immediate purpose of discussing these items is that they will help us write code that is easy to understand and maintain. In the long term, they will serve to make our projects long-lived and useful to many more people. It can be surprising to see how quickly a code base can atrophy, becoming opaque and unusable even to its creator, when it wasn’t designed with a sufficient attention to detail and documentation.</p>
 <p>It is difficult to overstate the importance of this material.</p>
 <div class="section" id="The-PEP8-Style-Guide-to-Python-Code">
 <h2>The PEP8 Style Guide to Python Code<a class="headerlink" href="#The-PEP8-Style-Guide-to-Python-Code" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>What is a PEP?</strong></p>
-<p class="last">We will be referencing several “PEPs” in this section. PEP stands for
-Python Enhancement Proposal. Any fundamental changes to the core Python
-language, the CPython interpreter, or the modules in Python’s standard
-library must first be submitted as a PEP, which goes through an approval
-process. You can read more about the purposes and guidelines of PEPs
-<a class="reference external" href="https://www.python.org/dev/peps/pep-0001/">here</a>. The complete index
-of PEPs is available <a class="reference external" href="https://www.python.org/dev/peps/">here</a>.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>What is a PEP?</strong></p>
+<p>We will be referencing several “PEPs” in this section. PEP stands for Python Enhancement Proposal. Any fundamental changes to the core Python language, the CPython interpreter, or the modules in Python’s standard library must first be submitted as a PEP, which goes through an approval process. You can read more about the purposes and guidelines of PEPs <a class="reference external" href="https://www.python.org/dev/peps/pep-0001/">here</a>. The complete index of PEPs is available <a class="reference external" href="https://www.python.org/dev/peps/">here</a>.</p>
 </div>
-<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#code-lay-out">PEP 8</a> is a
-design document that specifies a coherent code style guide for the
-Python community.. It touches on a wide array of “dos” and “don’ts” when
-making style decision in your code. Many of these items are exceedingly
-simple. For example, PEP 8 calls for the inclusion of a single
-whitespace around binary mathematical operators; e.g.:</p>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#code-lay-out">PEP 8</a> is a design document that specifies a coherent code style guide for the Python community.. It touches on a wide array of “dos” and “don’ts” when making style decision in your code. Many of these items are exceedingly simple. For example, PEP 8 calls for the inclusion of a single whitespace around binary mathematical operators; e.g.:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do:</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 
@@ -274,36 +240,18 @@ whitespace around binary mathematical operators; e.g.:</p>
 <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>The biggest impact that this document has is that it guides Python users
-to write similar-looking code. Thus, writing code that adheres to PEP8
-will ensure your code is easy for others to read, and vice versa. Note
-that the code you have encountered throughout PLYMI adheres to this
-style guide.</p>
-<p>We will make salient some of the PEP8 guidelines that are most pertinent
-to the variety of code that you have encountered in your reading thus
-far. That being said, you should take the time to read through <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#code-lay-out">PEP 8 in
-full</a>, and
-consult it regularly when you write code. It won’t take long for you to
-internalize most of its guidelines. Lastly, note that many
-<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">IDEs</a>
-have have tools called “linters” that will parse your code and warn you
-when your code is in violation of PEP8’s guidelines. This is an
-excellent mechanism for ensuring that your code adheres to this style
-specification.</p>
+<p>The biggest impact that this document has is that it guides Python users to write similar-looking code. Thus, writing code that adheres to PEP8 will ensure your code is easy for others to read, and vice versa. Note that the code you have encountered throughout PLYMI adheres to this style guide.</p>
+<p>We will make salient some of the PEP8 guidelines that are most pertinent to the variety of code that you have encountered in your reading thus far. That being said, you should take the time to read through <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#code-lay-out">PEP 8 in full</a>, and consult it regularly when you write code. It won’t take long for you to internalize most of its guidelines. Lastly, note that many
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">IDEs</a> have have tools called “linters” that will parse your code and warn you when your code is in violation of PEP8’s guidelines. This is an excellent mechanism for ensuring that your code adheres to this style specification.</p>
 <div class="section" id="Being-Pythonic">
 <h3>Being Pythonic<a class="headerlink" href="#Being-Pythonic" title="Permalink to this headline">¶</a></h3>
-<p>We will being by studying some guidelines for writing idiomatic Python
-code. That is, these guide us to follow the syntax that the creators of
-Python intended for us to use.</p>
-<p>First, always leverage the negated operators <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>.
-For example <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span> <span class="pre">is</span> <span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None</span></code> are functionally
-equivalent, but the latter is clearly preferable as it matches our
-native grammar.</p>
+<p>We will being by studying some guidelines for writing idiomatic Python code. That is, these guide us to follow the syntax that the creators of Python intended for us to use.</p>
+<p>First, always leverage the negated operators <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>. For example <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span> <span class="pre">is</span> <span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None</span></code> are functionally equivalent, but the latter is clearly preferable as it matches our native grammar.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do:</span>
 <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">collection</span>
 
 <span class="c1"># Don&#39;t</span>
-<span class="ow">not</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">collection</span>
+<span class="ow">not</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">collections</span>
 
 <span class="c1"># Do:</span>
 <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
@@ -312,10 +260,7 @@ native grammar.</p>
 <span class="ow">not</span> <span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span>
 </pre></div>
 </div>
-<p>Do not use parentheses to create unnecessary closures. Parentheses
-should be used for specifying function signatures, calling objects
-(e.g.&nbsp;calling a function), associating mathematical operations, defining
-generator-expressions, and grouping long multi-line expressions.</p>
+<p>Do not use parentheses to create unnecessary closures. Parentheses should be used for specifying function signatures, calling objects (e.g.&nbsp;calling a function), associating mathematical operations, defining generator-expressions, and grouping long multi-line expressions.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do:</span>
 <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -323,7 +268,6 @@ generator-expressions, and grouping long multi-line expressions.</p>
 <span class="c1"># Don&#39;t:</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-
 
 <span class="c1"># Do</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">long_variable_name</span> <span class="ow">in</span> <span class="n">a_long_list_name</span>
@@ -333,7 +277,6 @@ generator-expressions, and grouping long multi-line expressions.</p>
 <span class="c1"># Don&#39;t</span>
 <span class="k">if</span> <span class="n">long_variable_name</span> <span class="ow">in</span> <span class="n">a_long_list_name</span> <span class="ow">and</span> <span class="n">long_variable_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">another_long_name</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-
 
 <span class="c1"># Do:</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
@@ -345,11 +288,7 @@ generator-expressions, and grouping long multi-line expressions.</p>
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>Finally, make use of <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ConditionalStatements.html#bool-and-Truth-Values-of-Non-Boolean-Objects">boolean values for non-boolean
-objects</a>
-in conditional expressions. For example, you can rely on the fact that
-empty sequence-objects will evaluate to <code class="docutils literal notranslate"><span class="pre">False</span></code> in conditional
-statements.</p>
+<p>Finally, make use of <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ConditionalStatements.html#bool-and-Truth-Values-of-Non-Boolean-Objects">boolean values for non-boolean objects</a> in conditional expressions. For example, you can rely on the fact that empty sequence-objects will evaluate to <code class="docutils literal notranslate"><span class="pre">False</span></code> in conditional statements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do:</span>
 <span class="k">if</span> <span class="n">list_of_names</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -368,10 +307,7 @@ statements.</p>
 </div>
 <div class="section" id="Naming-Conventions">
 <h3>Naming Conventions<a class="headerlink" href="#Naming-Conventions" title="Permalink to this headline">¶</a></h3>
-<p>Class names should use the <code class="docutils literal notranslate"><span class="pre">CamelCase</span></code> (aka``CapWords``) formatting
-convention, whereas functions and variables should use all-lowercase
-characters in their names. Underscores can be used in longer lowercased
-names to make them easier to read (i.e. <code class="docutils literal notranslate"><span class="pre">snake_case</span></code>).</p>
+<p>Class names should use the <code class="docutils literal notranslate"><span class="pre">CamelCase</span></code> (aka``CapWords``) formatting convention, whereas functions and variables should use all-lowercase characters in their names. Underscores can be used in longer lowercased names to make them easier to read (i.e. <code class="docutils literal notranslate"><span class="pre">snake_case</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># naming conventions for classes</span>
 
 <span class="c1"># Do:</span>
@@ -392,23 +328,15 @@ names to make them easier to read (i.e. <code class="docutils literal notranslat
 <span class="k">def</span> <span class="nf">rotate_image</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
     <span class="k">pass</span>
 
-
 <span class="c1"># Don&#39;t</span>
-
 <span class="n">ListOfStudents</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Shmangela&quot;</span><span class="p">,</span> <span class="s2">&quot;Shmonathan&quot;</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">rotateimage</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p>To be clear, there is nothing fundamentally correct about using
-<code class="docutils literal notranslate"><span class="pre">CamelCasing</span></code> for class names and <code class="docutils literal notranslate"><span class="pre">snake_casing</span></code> for functions and
-variable names. That being said, most Python users expect code to adhere
-to these conventions and will struggle to understand and use your code
-if you do not adhere to them.</p>
-<p>Constants - variables whose values are not to be changed anywhere within
-the code - should be specified using ALL_CAPS. Underscores can be used
-for improving readability.</p>
+<p>To be clear, there is nothing fundamentally correct about using <code class="docutils literal notranslate"><span class="pre">CamelCasing</span></code> for class names and <code class="docutils literal notranslate"><span class="pre">snake_casing</span></code> for functions and variable names. That being said, most Python users expect code to adhere to these conventions and will struggle to understand and use your code if you do not adhere to them.</p>
+<p>Constants - variables whose values are not to be changed anywhere within the code - should be specified using ALL_CAPS. Underscores can be used for improving readability.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># naming conventions for constants</span>
 
 <span class="c1"># Do:</span>
@@ -418,20 +346,9 @@ for improving readability.</p>
 <span class="n">boiling_point</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># celsius</span>
 </pre></div>
 </div>
-<p>Variables that are only to be used internally within the code by
-developers can be identified using a leading underscore. For example, if
-you encounter the line of code <code class="docutils literal notranslate"><span class="pre">_use_gpu</span> <span class="pre">=</span> <span class="pre">True</span></code>, this means that the
-variable <code class="docutils literal notranslate"><span class="pre">_use_gpu</span></code> is only meant to be viewed and edited by the
-people who are actually writing the code. Note that this variable will
-not behave differently from <code class="docutils literal notranslate"><span class="pre">use_gpu</span></code> - the leading underscore is
-simply a visual indicator and nothing more.</p>
-<p>You can use a trailing underscore when your variable name would
-otherwise conflict with terms reserved by Python. For example you cannot
-name a variable <code class="docutils literal notranslate"><span class="pre">class</span></code>, as this term is reserved by Python for
-defining a new class-object. Instead you could name the variable
-<code class="docutils literal notranslate"><span class="pre">class_</span></code>. This should be used only sparingly.</p>
-<p>Paramount to all of this is that variables are given <em>descriptive</em>
-names.</p>
+<p>Variables that are only to be used internally within the code by developers can be identified using a leading underscore. For example, if you encounter the line of code <code class="docutils literal notranslate"><span class="pre">_use_gpu</span> <span class="pre">=</span> <span class="pre">True</span></code>, this means that the variable <code class="docutils literal notranslate"><span class="pre">_use_gpu</span></code> is only meant to be viewed and edited by the people who are actually writing the code. Note that this variable will not behave differently from <code class="docutils literal notranslate"><span class="pre">use_gpu</span></code> - the leading underscore is simply a visual indicator and nothing more.</p>
+<p>You can use a trailing underscore when your variable name would otherwise conflict with terms reserved by Python. For example you cannot name a variable <code class="docutils literal notranslate"><span class="pre">class</span></code>, as this term is reserved by Python for defining a new class-object. Instead you could name the variable <code class="docutils literal notranslate"><span class="pre">class_</span></code>. This should be used only sparingly.</p>
+<p>Paramount to all of this is that variables are given <em>descriptive</em> names.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do:</span>
 <span class="k">for</span> <span class="n">temperature</span> <span class="ow">in</span> <span class="n">list_of_temperatures</span><span class="p">:</span>
     <span class="n">pressure</span> <span class="o">=</span> <span class="n">gauge</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
@@ -448,9 +365,7 @@ names.</p>
 <div class="section" id="Indentations-and-Spacing">
 <h3>Indentations and Spacing<a class="headerlink" href="#Indentations-and-Spacing" title="Permalink to this headline">¶</a></h3>
 <p>You should use spaces, not tabs, when creating indentations.</p>
-<p><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Introduction.html#Python-Uses-Whitespace-to-Delimit-Scope">Scope-delimiting
-indentations</a>
-should always consist of four spaces.</p>
+<p><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Introduction.html#Python-Uses-Whitespace-to-Delimit-Scope">Scope-delimiting indentations</a> should always consist of four spaces.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using four spaces to delimit scope</span>
 
 <span class="c1"># Do:</span>
@@ -462,9 +377,7 @@ should always consist of four spaces.</p>
   <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>    <span class="c1"># indented by not-four spaces</span>
 </pre></div>
 </div>
-<p>Use hanging indentations to wrap a long line of code over two or more
-lines. That being said, you should ensure that contents within
-parentheses or brackets are aligned vertically:</p>
+<p>Use hanging indentations to wrap a long line of code over two or more lines. That being said, you should ensure that contents within parentheses or brackets are aligned vertically:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using hanging indents to manage long lines of code</span>
 
 <span class="c1"># Do: use whitespace to align multi-line arguments in</span>
@@ -478,8 +391,6 @@ parentheses or brackets are aligned vertically:</p>
     <span class="n">output</span> <span class="o">=</span> <span class="n">some_long_function_name</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">,</span>
              <span class="n">arg4</span><span class="p">,</span> <span class="n">arg5</span><span class="p">,</span> <span class="n">arg6</span><span class="p">)</span>
 
-
-
 <span class="c1"># Do:</span>
 <span class="n">grocery_list</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;chocolate&quot;</span><span class="p">:</span> <span class="mf">1e34</span><span class="p">,</span>
                 <span class="s2">&quot;toothpaste&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;shampoo&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
@@ -487,7 +398,6 @@ parentheses or brackets are aligned vertically:</p>
 <span class="c1"># Don&#39;t: second line is under-indented</span>
 <span class="n">grocery_list</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;chocolate&quot;</span><span class="p">:</span> <span class="mf">1e34</span><span class="p">,</span>
        <span class="s2">&quot;toothpaste&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;shampoo&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-
 
 <span class="c1"># Do</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_of_ages</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
@@ -506,11 +416,9 @@ parentheses or brackets are aligned vertically:</p>
     <span class="sd">&quot;&quot;&quot; I am function a&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mi">1</span>
 
-
 <span class="k">def</span> <span class="nf">func_b</span><span class="p">():</span>  <span class="c1"># separated from func_a by two blank lines</span>
     <span class="sd">&quot;&quot;&quot; I am function b&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mi">2</span>
-
 
 <span class="c1"># Don&#39;t:</span>
 <span class="k">def</span> <span class="nf">func_c</span><span class="p">():</span>
@@ -522,9 +430,7 @@ parentheses or brackets are aligned vertically:</p>
     <span class="k">return</span> <span class="mi">2</span>
 </pre></div>
 </div>
-<p>Default-values for arguments in functions should be specified without
-any surrounding whitespace. This also holds when calling a function
-using a named argument.</p>
+<p>Default-values for arguments in functions should be specified without any surrounding whitespace. This also holds when calling a function using a named argument.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># default values should not have whitespace around them</span>
 
 <span class="c1"># Do:</span>
@@ -535,19 +441,14 @@ using a named argument.</p>
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 
-
 <span class="c1"># Do:</span>
 <span class="n">grade</span> <span class="o">=</span> <span class="n">grade_lookup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Ryan&quot;</span><span class="p">)</span>
-
 
 <span class="c1"># Don&#39;t:</span>
 <span class="n">grade</span> <span class="o">=</span> <span class="n">grade_lookup</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Ryan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>As in written English, commas and colons should both follow a non-space
-character and should be followed by a whitespace. An exception to this
-is when there is a trailing comma/colon at the end of the line of code,
-or when a colon is used in a slice.</p>
+<p>As in written English, commas and colons should both follow a non-space character and should be followed by a whitespace. An exception to this is when there is a trailing comma/colon at the end of the line of code, or when a colon is used in a slice.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a comma/colon should be followed by a whitespace</span>
 
 <span class="c1"># Do:</span>
@@ -557,7 +458,6 @@ or when a colon is used in a slice.</p>
 <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">2</span> <span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
-
 <span class="c1"># Do:</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;c&quot;</span><span class="p">}</span>
 
@@ -565,7 +465,6 @@ or when a colon is used in a slice.</p>
 <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span> <span class="p">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="p">:</span> <span class="s2">&quot;c&quot;</span><span class="p">}</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s2">&quot;c&quot;</span><span class="p">}</span>
-
 
 <span class="c1"># Do:</span>
 <span class="c1"># (1,) is a tuple containing the integer 1.</span>
@@ -585,30 +484,16 @@ or when a colon is used in a slice.</p>
 <span class="n">sublist</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span> <span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>To conclude, consider that simply knowing that there exists a Python
-style guide, and that it is named PEP8, is the most important thing to
-take away from this section. Previously, you may not have even thought
-to search for such a document. That you consult PEP8 when you have
-code-style questions is the most important outcome here.</p>
+<p>To conclude, consider that simply knowing that there exists a Python style guide, and that it is named PEP8, is the most important thing to take away from this section. Previously, you may not have even thought to search for such a document. That you consult PEP8 when you have code-style questions is the most important outcome here.</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
-<p class="last"><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#code-lay-out">PEP8</a> is a
-design document for the Python community that specifies a coherent style
-guide for writing Python code. Adhering to this style guide will help to
-ensure that you write clean code that is organized in a consistent
-manner across projects. Furthermore, those who abide by PEP8 will find
-it easier to navigate other PEP8-adherent code bases.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#code-lay-out">PEP8</a> is a design document for the Python community that specifies a coherent style guide for writing Python code. Adhering to this style guide will help to ensure that you write clean code that is organized in a consistent manner across projects. Furthermore, those who abide by PEP8 will find it easier to navigate other PEP8-adherent code bases.</p>
 </div>
 </div>
 </div>
 <div class="section" id="Type-Hinting">
 <h2>Type-Hinting<a class="headerlink" href="#Type-Hinting" title="Permalink to this headline">¶</a></h2>
-<p>Type hinting is a syntax that was introduced in Python 3.5 (via <a class="reference external" href="https://www.python.org/dev/peps/pep-0484/">PEP
-484</a>), which permits users
-to annotate their function definitions to indicate the object-types of a
-function’s inputs and outputs. For example, let’s define a function that
-counts the number of vowels in a string and annotate the function
-signature with type-hints.</p>
+<p>Type hinting is a syntax that was introduced in Python 3.5 (via <a class="reference external" href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a>), which permits users to annotate their function definitions to indicate the object-types of a function’s inputs and outputs. For example, let’s define a function that counts the number of vowels in a string and annotate the function signature with type-hints.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A function signature that has been annotated with type-hints</span>
 
 <span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
@@ -617,24 +502,12 @@ signature with type-hints.</p>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here, we have “hinted” that <code class="docutils literal notranslate"><span class="pre">x</span></code> should be passed a string-type object,
-and that the function will return an integer-type object. The general
-form of an annotated function, with an arbitrary number of <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#Arguments">positional
-arguments</a>
-and <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#Default-Valued-Arguments">default-valued
-arguments</a>
-is as follows:</p>
+<p>Here, we have “hinted” that <code class="docutils literal notranslate"><span class="pre">x</span></code> should be passed a string-type object, and that the function will return an integer-type object. The general form of an annotated function, with an arbitrary number of <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#Arguments">positional arguments</a> and <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#Default-Valued-Arguments">default-valued arguments</a> is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func_name</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">],</span> <span class="n">kwarg</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">]))</span> <span class="o">-&gt;</span> <span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span><span class="p">:</span>
 </pre></div>
 </div>
-<p>See that each argument name is followed by a colon and the type-object
-that serves as the type-hint. The return type of the function comes
-after the closing parenthesis of the signature; it is preceded by the
-arrow <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> and is followed by the colon that ends the function
-signature. The same syntax can be used to annotate methods in a class
-definition.</p>
-<p>Let’s modify <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> and add a default-valued argument that
-permits users to optionally include ‘y’ as a vowel.</p>
+<p>See that each argument name is followed by a colon and the type-object that serves as the type-hint. The return type of the function comes after the closing parenthesis of the signature; it is preceded by the arrow <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> and is followed by the colon that ends the function signature. The same syntax can be used to annotate methods in a class definition.</p>
+<p>Let’s modify <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> and add a default-valued argument that permits users to optionally include ‘y’ as a vowel.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type-hinting a default-valued argument</span>
 
 <span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
@@ -645,18 +518,8 @@ permits users to optionally include ‘y’ as a vowel.</p>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here, we have hinted that <code class="docutils literal notranslate"><span class="pre">include_y</span></code> is expected to be passed a
-boolean-type object, and that it has a default value of <code class="docutils literal notranslate"><span class="pre">False</span></code>. It is
-important to take some time to grow accustomed to seeing the form
-<code class="docutils literal notranslate"><span class="pre">include_y:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></code>. This can be difficult to parse at first.
-Keep in mind that <code class="docutils literal notranslate"><span class="pre">:</span> <span class="pre">bool</span></code> is the type-hint here and <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">False</span></code>
-specifies the default argument. The ordering of these statements are
-<em>not</em> interchangeable - a type-hint must immediately follow the variable
-name.</p>
-<p>Python 3.6, via <a class="reference external" href="https://www.python.org/dev/peps/pep-0526/">PEP 526</a>,
-introduced a syntax for annotating standalone variables in your code.
-For example, suppose that you are initializing a list in your code that
-will store even numbers. You can annotate this variable as:</p>
+<p>Here, we have hinted that <code class="docutils literal notranslate"><span class="pre">include_y</span></code> is expected to be passed a boolean-type object, and that it has a default value of <code class="docutils literal notranslate"><span class="pre">False</span></code>. It is important to take some time to grow accustomed to seeing the form <code class="docutils literal notranslate"><span class="pre">include_y:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></code>. This can be difficult to parse at first. Keep in mind that <code class="docutils literal notranslate"><span class="pre">:</span> <span class="pre">bool</span></code> is the type-hint here and <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">False</span></code> specifies the default argument. The ordering of these statements are <em>not</em> interchangeable - a type-hint must immediately follow the variable name.</p>
+<p>Python 3.6, via <a class="reference external" href="https://www.python.org/dev/peps/pep-0526/">PEP 526</a>, introduced a syntax for annotating standalone variables in your code. For example, suppose that you are initializing a list in your code that will store even numbers. You can annotate this variable as:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># annotating a variable with a type-hint</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Set</span>
 
@@ -664,30 +527,16 @@ will store even numbers. You can annotate this variable as:</p>
 <span class="n">odd_numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
-<p>this permits us to document that the empty list will be used to store
-integers. You can also annotate a variable without providing an initial
-value.</p>
+<p>this permits us to document that the empty list will be used to store integers. You can also annotate a variable without providing an initial value.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># annotating a variable, without providing a value</span>
 <span class="n">max_num</span><span class="p">:</span> <span class="nb">int</span>
 </pre></div>
 </div>
-<p>Note that this variable-annotation syntax is <em>not</em> valid for versions of
-Python earlier than Python 3.6, and the function-annotation syntax is
-not valid for versions prior to Python 3.5. A formal theory of
-type-hinting is discussed in <a class="reference external" href="https://www.python.org/dev/peps/pep-0483/">PEP
-483</a>.</p>
+<p>Note that this variable-annotation syntax is <em>not</em> valid for versions of Python earlier than Python 3.6, and the function-annotation syntax is not valid for versions prior to Python 3.5. A formal theory of type-hinting is discussed in <a class="reference external" href="https://www.python.org/dev/peps/pep-0483/">PEP 483</a>.</p>
 <div class="section" id="What-is-It-Good-For?-(Absolutely-Nothing)">
 <h3>What is It Good For? (Absolutely Nothing)<a class="headerlink" href="#What-is-It-Good-For?-(Absolutely-Nothing)" title="Permalink to this headline">¶</a></h3>
-<p>As far as the Python interpreter is concerned, <strong>type-hints have no
-impact on your code other than adding documentation</strong>. That is, Python
-<strong>will not enforce any type-checking based on your type-hints</strong>. This is
-in stark contrast to strongly-typed languages, like C++, where you are
-required specify input and output types for a function as constraints
-that are strictly enforced by the compiler.</p>
-<p>Indeed, in Python we are free to pass whatever we want to our function
-regardless of its annotated type-hints. Let’s pass an empty list,
-instead of a string, to the <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function that we defined
-above.</p>
+<p>As far as the Python interpreter is concerned, <strong>type-hints have no impact on your code other than adding documentation</strong>. That is, Python <strong>will not enforce any type-checking based on your type-hints</strong>. This is in stark contrast to strongly-typed languages, like C++, where you are required specify input and output types for a function as constraints that are strictly enforced by the compiler.</p>
+<p>Indeed, in Python we are free to pass whatever we want to our function regardless of its annotated type-hints. Let’s pass an empty list, instead of a string, to the <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function that we defined above.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type-hints do not actually enforce type-checking.</span>
 <span class="c1"># Here we pass an empty list instead of a string without</span>
 <span class="c1"># any warnings/errors being raised</span>
@@ -695,79 +544,26 @@ above.</p>
 <span class="mi">0</span>
 </pre></div>
 </div>
-<p>See that our function pays no notice to the fact that we violated our
-type-hint, which suggests that we will be passing in a string. It
-happily loops over the empty list and sums over zeros entries, thus the
-function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>. This is why these annotations are merely called
-type <em>hints</em>, and not type <em>requirements</em>.</p>
-<p>While the CPython interpreter will never require or enforce type-hints
-during the lifetime of Python 3, there are 3rd party libraries and
-tooling that makes keen use of these annotations. <em>It is these 3rd-party
-capabilities that make type-hinting worth using</em>. <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">IDEs like PyCharm and
-VSCode</a>
-can leverage type hints to great effect. They will warn you when you
-pass objects to your function that do not abide by the type hints, and
-they will also leverage these annotations to keep track of the objects
-that are returned by the function.</p>
-<p>For example, suppose that we are using the <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function in
-a library of code that we are developing, and we mistakenly think that
-the output of this function is a string that we want to capitalize. Our
-IDE will see that we are trying to capitalize an integer and will thus
-warn us:</p>
-<div class="figure" id="id1">
-<img alt="PyCharm uses type-hints to check our code for consistency" src="../_images/pycharm1.png" />
-<p class="caption"><span class="caption-text">PyCharm uses type-hints to check our code for consistency</span></p>
-</div>
-<p>This saves us the trouble of having to run our code, hit an error, read
-through the stack trace, and debug our mistake. Instead, we immediately
-see our inconsistency get flagged. In fact, we probably never would have
-even made the mistake at all, as our IDE would have shown a list of
-integer-methods for us to choose from, and not string-methods. This
-would have likely alerted us to our misapprehension.</p>
-<p>It does not take long to experience the benefits of type-hinting through
-your IDE. This both accelerates your coding by informing you of the
-object types that you are working with on the fly, and helps to expose
-oversights in your code as soon as they are made.</p>
-<p>Finally, it is also worthwhile to highlight the
-<a class="reference external" href="http://mypy-lang.org/">mypy</a> project, which is used to perform
-static type-checking on your code based on your type-hints. That is,
-mypy will automatically traverse your code and find potential bugs by
-identifying type conflicts in your code (e.g.&nbsp;trying to capitalize an
-integer) by checking their annotated and inferred types. This tool is
-most useful for large-scale code bases. Companies like Dropbox make keen
-use of mypy to identify inconsistencies in their code without having to
-hit runtime errors. Keep mypy in mind as you mature as a Python
-developer and find yourself working on projects of growing complexity.</p>
+<p>See that our function pays no notice to the fact that we violated our type-hint, which suggests that we will be passing in a string. It happily loops over the empty list and sums over zeros entries, thus the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>. This is why these annotations are merely called type <em>hints</em>, and not type <em>requirements</em>.</p>
+<p>While the CPython interpreter will never require or enforce type-hints during the lifetime of Python 3, there are 3rd party libraries and tooling that makes keen use of these annotations. <em>It is these 3rd-party capabilities that make type-hinting worth using</em>. <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">IDEs like PyCharm and VSCode</a> can leverage type hints to great effect. They will warn you when you pass objects to your
+function that do not abide by the type hints, and they will also leverage these annotations to keep track of the objects that are returned by the function.</p>
+<p>For example, suppose that we are using the <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function in a library of code that we are developing, and we mistakenly think that the output of this function is a string that we want to capitalize. Our IDE will see that we are trying to capitalize an integer and will thus warn us:</p>
+<p><img alt="PyCharm uses type-hints to check our code for consistency" src="../_images/pycharm1.png" /></p>
+<p>This saves us the trouble of having to run our code, hit an error, read through the stack trace, and debug our mistake. Instead, we immediately see our inconsistency get flagged. In fact, we probably never would have even made the mistake at all, as our IDE would have shown a list of integer-methods for us to choose from, and not string-methods. This would have likely alerted us to our misapprehension.</p>
+<p>It does not take long to experience the benefits of type-hinting through your IDE. This both accelerates your coding by informing you of the object types that you are working with on the fly, and helps to expose oversights in your code as soon as they are made.</p>
+<p>Finally, it is also worthwhile to highlight the <a class="reference external" href="http://mypy-lang.org/">mypy</a> project, which is used to perform static type-checking on your code based on your type-hints. That is, mypy will automatically traverse your code and find potential bugs by identifying type conflicts in your code (e.g.&nbsp;trying to capitalize an integer) by checking their annotated and inferred types. This tool is most useful for large-scale code bases. Companies like Dropbox make keen use of mypy to identify
+inconsistencies in their code without having to hit runtime errors. Keep mypy in mind as you mature as a Python developer and find yourself working on projects of growing complexity.</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
-<p>There is a simple syntax for annotating functions, class-methods, and
-variables with type-hints; this is a formal mechanism for documenting
-the types of objects that are expected as inputs to the function, as
-well as the return type of the function. It is critical to note that
-that type-hints are <em>never</em> enforced by Python - they only serve as a
-form of documentation.</p>
-<p class="last">That being said, IDEs have powerful abilities to inspect type-hints and
-to highlight potential inconsistencies in your code. These capabilities
-can greatly facilitate your code-development. There are also third-party
-libraries like <a class="reference external" href="http://mypy-lang.org/">mypy</a> that can be used to
-provide more rigorous type enforcement in your code.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
+<p>There is a simple syntax for annotating functions, class-methods, and variables with type-hints; this is a formal mechanism for documenting the types of objects that are expected as inputs to the function, as well as the return type of the function. It is critical to note that that type-hints are <em>never</em> enforced by Python - they only serve as a form of documentation.</p>
+<p>That being said, IDEs have powerful abilities to inspect type-hints and to highlight potential inconsistencies in your code. These capabilities can greatly facilitate your code-development. There are also third-party libraries like <a class="reference external" href="http://mypy-lang.org/">mypy</a> that can be used to provide more rigorous type enforcement in your code.</p>
 </div>
 </div>
 <div class="section" id="Using-the-typing-Module">
 <h3>Using the <code class="docutils literal notranslate"><span class="pre">typing</span></code> Module<a class="headerlink" href="#Using-the-typing-Module" title="Permalink to this headline">¶</a></h3>
-<p>Although we can use Python’s built-in type objects (e.g. <code class="docutils literal notranslate"><span class="pre">list</span></code> and
-<code class="docutils literal notranslate"><span class="pre">dict</span></code>) for type-hinting, the standard library’s
-<a class="reference external" href="https://docs.python.org/3/library/typing.html">typing</a> module
-provides objects that are used to form more descriptive hints. For
-example, suppose that we want to write a function that takes in a list
-of integers as an input. Using the built-in <code class="docutils literal notranslate"><span class="pre">list</span></code> object for our
-type-hint prevents us from indicating that the list should house
-integers. Using <code class="docutils literal notranslate"><span class="pre">typing.List</span></code>, on the other hand, supports a richer
-syntax for type-hinting: <code class="docutils literal notranslate"><span class="pre">typing.List[int]</span></code> specifies “a list of
-integers.” Familiarizing yourself with the <code class="docutils literal notranslate"><span class="pre">typing</span></code> module is the
-first step to writing good type hints.</p>
-<p>The following is a summary some of the most critical members of the
-<code class="docutils literal notranslate"><span class="pre">typing</span></code> module, along with examples for using them.</p>
+<p>Although we can use Python’s built-in type objects (e.g. <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code>) for type-hinting, the standard library’s <a class="reference external" href="https://docs.python.org/3/library/typing.html">typing</a> module provides objects that are used to form more descriptive hints. For example, suppose that we want to write a function that takes in a list of integers as an input. Using the built-in <code class="docutils literal notranslate"><span class="pre">list</span></code> object for our type-hint prevents us from indicating that the list should house integers. Using <code class="docutils literal notranslate"><span class="pre">typing.List</span></code>, on the
+other hand, supports a richer syntax for type-hinting: <code class="docutils literal notranslate"><span class="pre">typing.List[int]</span></code> specifies “a list of integers.” Familiarizing yourself with the <code class="docutils literal notranslate"><span class="pre">typing</span></code> module is the first step to writing good type hints.</p>
+<p>The following is a summary some of the most critical members of the <code class="docutils literal notranslate"><span class="pre">typing</span></code> module, along with examples for using them.</p>
 <div class="section" id="Any">
 <h4><code class="docutils literal notranslate"><span class="pre">Any</span></code><a class="headerlink" href="#Any" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -784,10 +580,8 @@ first step to writing good type hints.</p>
 <div class="section" id="Optional[&lt;type&gt;]">
 <h4><code class="docutils literal notranslate"><span class="pre">Optional[&lt;type&gt;]</span></code><a class="headerlink" href="#Optional[<type>]" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><strong>What it hints:</strong> Either <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>, with <code class="docutils literal notranslate"><span class="pre">None</span></code> as
-the default</li>
-<li><strong>Examples:</strong> Hint an object that is <code class="docutils literal notranslate"><span class="pre">None</span></code> by default, but will be
-a string otherwise: <code class="docutils literal notranslate"><span class="pre">Optional[str]</span></code></li>
+<li><strong>What it hints:</strong> Either <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>, with <code class="docutils literal notranslate"><span class="pre">None</span></code> as the default</li>
+<li><strong>Examples:</strong> Hint an object that is <code class="docutils literal notranslate"><span class="pre">None</span></code> by default, but will be a string otherwise: <code class="docutils literal notranslate"><span class="pre">Optional[str]</span></code></li>
 </ul>
 </div>
 <div class="section" id="None">
@@ -799,13 +593,11 @@ a string otherwise: <code class="docutils literal notranslate"><span class="pre"
 <div class="section" id="List[&lt;type&gt;]">
 <h4><code class="docutils literal notranslate"><span class="pre">List[&lt;type&gt;]</span></code><a class="headerlink" href="#List[<type>]" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><strong>What it hints:</strong> A list containing an arbitrary number of objects
-of a given type</li>
+<li><strong>What it hints:</strong> A list containing an arbitrary number of objects of a given type</li>
 <li><strong>Examples:</strong><ul>
 <li>Hint a list of strings: <code class="docutils literal notranslate"><span class="pre">List[str]</span></code></li>
 <li>Hint a list of strings and integers: <code class="docutils literal notranslate"><span class="pre">List[Union[str,</span> <span class="pre">int]]</span></code></li>
-<li>Hint a list of lists of anything: <code class="docutils literal notranslate"><span class="pre">List[List[Any]]</span></code> or
-<code class="docutils literal notranslate"><span class="pre">List[List]</span></code></li>
+<li>Hint a list of lists of anything: <code class="docutils literal notranslate"><span class="pre">List[List[Any]]</span></code> or <code class="docutils literal notranslate"><span class="pre">List[List]</span></code></li>
 </ul>
 </li>
 </ul>
@@ -813,14 +605,10 @@ of a given type</li>
 <div class="section" id="Tuple[&lt;type&gt;,-...]">
 <h4><code class="docutils literal notranslate"><span class="pre">Tuple[&lt;type&gt;,</span> <span class="pre">...]</span></code><a class="headerlink" href="#Tuple[<type>,-...]" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><strong>What it hints:</strong> A tuple containing a specific number of objects of
-the specified types. <code class="docutils literal notranslate"><span class="pre">...</span></code> can be used to indicate an arbitrary
-number of objects in the tuple</li>
+<li><strong>What it hints:</strong> A tuple containing a specific number of objects of the specified types. <code class="docutils literal notranslate"><span class="pre">...</span></code> can be used to indicate an arbitrary number of objects in the tuple</li>
 <li><strong>Examples:</strong><ul>
-<li>Hint a tuple containing one string and one boolean:
-<code class="docutils literal notranslate"><span class="pre">Tuple[str,</span> <span class="pre">bool]</span></code></li>
-<li>Hint a tuple containing an arbitrary number of integers:
-<code class="docutils literal notranslate"><span class="pre">Tuple[int,</span> <span class="pre">...]</span></code></li>
+<li>Hint a tuple containing one string and one boolean: <code class="docutils literal notranslate"><span class="pre">Tuple[str,</span> <span class="pre">bool]</span></code></li>
+<li>Hint a tuple containing an arbitrary number of integers: <code class="docutils literal notranslate"><span class="pre">Tuple[int,</span> <span class="pre">...]</span></code></li>
 </ul>
 </li>
 </ul>
@@ -828,12 +616,10 @@ number of objects in the tuple</li>
 <div class="section" id="Set[&lt;type&gt;]">
 <h4><code class="docutils literal notranslate"><span class="pre">Set[&lt;type&gt;]</span></code><a class="headerlink" href="#Set[<type>]" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><strong>What it hints:</strong> A set containing an arbitrary number of objects of
-a given type</li>
+<li><strong>What it hints:</strong> A set containing an arbitrary number of objects of a given type</li>
 <li><strong>Examples:</strong><ul>
 <li>Hint a set of floats: <code class="docutils literal notranslate"><span class="pre">Set[float]</span></code></li>
-<li>Hint a set of tuples (each containing two integers):
-<code class="docutils literal notranslate"><span class="pre">Set[Tuple[int,</span> <span class="pre">int]]</span></code></li>
+<li>Hint a set of tuples (each containing two integers): <code class="docutils literal notranslate"><span class="pre">Set[Tuple[int,</span> <span class="pre">int]]</span></code></li>
 </ul>
 </li>
 </ul>
@@ -841,13 +627,10 @@ a given type</li>
 <div class="section" id="Dict[&lt;key-type&gt;,-&lt;value-type&gt;]">
 <h4><code class="docutils literal notranslate"><span class="pre">Dict[&lt;key-type&gt;,</span> <span class="pre">&lt;value-type&gt;]</span></code><a class="headerlink" href="#Dict[<key-type>,-<value-type>]" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><strong>What it hints:</strong> A dictionary that maps keys of a given type to
-values of a given type</li>
+<li><strong>What it hints:</strong> A dictionary that maps keys of a given type to values of a given type</li>
 <li><strong>Examples:</strong><ul>
-<li>Hint a dictionary that maps strings to integers:
-<code class="docutils literal notranslate"><span class="pre">Dict[str,</span> <span class="pre">int]</span></code></li>
-<li>Hint a dictionary that maps any hashable to booleans:
-<code class="docutils literal notranslate"><span class="pre">Dict[Hashable,</span> <span class="pre">bool]</span></code>|</li>
+<li>Hint a dictionary that maps strings to integers: <code class="docutils literal notranslate"><span class="pre">Dict[str,</span> <span class="pre">int]</span></code></li>
+<li>Hint a dictionary that maps any hashable to booleans: <code class="docutils literal notranslate"><span class="pre">Dict[Hashable,</span> <span class="pre">bool]</span></code>|</li>
 </ul>
 </li>
 </ul>
@@ -855,26 +638,20 @@ values of a given type</li>
 <div class="section" id="Callable[[&lt;arg-type&gt;],-...],-&lt;output-type&gt;">
 <h4><code class="docutils literal notranslate"><span class="pre">Callable[[&lt;arg-type&gt;],</span> <span class="pre">...],</span> <span class="pre">&lt;output-type&gt;</span></code><a class="headerlink" href="#Callable[[<arg-type>],-...],-<output-type>" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><strong>What it hints:</strong> A callable (e.g.&nbsp;a function or a method) that
-takes in arguments of specified types and returns the specified type</li>
+<li><strong>What it hints:</strong> A callable (e.g.&nbsp;a function or a method) that takes in arguments of specified types and returns the specified type</li>
 <li><strong>Examples:</strong><ul>
-<li>Hint a function that takes in a string and an integer and returns
-<code class="docutils literal notranslate"><span class="pre">None</span></code>: <code class="docutils literal notranslate"><span class="pre">Callable[[str,</span> <span class="pre">int],</span> <span class="pre">None]</span></code></li>
-<li>Hint a method that accepts arbitrary arguments and returns a
-boolean: <code class="docutils literal notranslate"><span class="pre">Callable[...,</span> <span class="pre">bool]</span></code></li>
+<li>Hint a function that takes in a string and an integer and returns <code class="docutils literal notranslate"><span class="pre">None</span></code>: <code class="docutils literal notranslate"><span class="pre">Callable[[str,</span> <span class="pre">int],</span> <span class="pre">None]</span></code></li>
+<li>Hint a method that accepts arbitrary arguments and returns a boolean: <code class="docutils literal notranslate"><span class="pre">Callable[...,</span> <span class="pre">bool]</span></code></li>
 </ul>
 </li>
 </ul>
 <p>Let’s take, for example, a function that takes in:</p>
 <ul class="simple">
-<li>a dictionary of student grades, which maps names (strings) to grades
-(list of floats)</li>
+<li>a dictionary of student grades, which maps names (strings) to grades (list of floats)</li>
 <li>a custom function for computing statistics over a list of numbers</li>
-<li>a list of names of students for whom we want to compute statistics,
-whose default is all students</li>
+<li>a list of names of students for whom we want to compute statistics, whose default is all students</li>
 </ul>
-<p>and returns a list of tuples, with each tuple containing a student’s
-name and their stat.</p>
+<p>and returns a list of tuples, with each tuple containing a student’s name and their stat.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span>
 
 <span class="k">def</span> <span class="nf">compute_student_stats</span><span class="p">(</span><span class="n">grade_book</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
@@ -904,33 +681,11 @@ name and their stat.</p>
     <span class="k">return</span> <span class="p">[(</span><span class="n">name</span><span class="p">,</span> <span class="n">stat_function</span><span class="p">(</span><span class="n">grade_book</span><span class="p">[</span><span class="n">name</span><span class="p">]))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">student_list</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>(Note that we have also included a detailed NumPy-style docstring; we
-will discuss this documentation style in detail in the following
-subsection).</p>
-<p>There are a few details to take note of here. First, see that we need
-not make any assumptions about what type of object is returned by
-<code class="docutils literal notranslate"><span class="pre">stat_function</span></code>. It might return the mean-value as a single floating
-point number, or perhaps a tuple of the mean, median, and mode, etc.
-Thus we document its output type as <code class="docutils literal notranslate"><span class="pre">Any</span></code>; this is reflected in our
-function’s return type as well: <code class="docutils literal notranslate"><span class="pre">List[Tuple[str,</span> <span class="pre">Any]]</span></code>. As we will
-discuss shortly, it is prudent to be discerning but general in one’s
-type-hints. Next, note that <code class="docutils literal notranslate"><span class="pre">Optional[List[str]]</span></code> is used to indicate
-that the default-value of <code class="docutils literal notranslate"><span class="pre">student_list</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, but that we can
-otherwise pass it a list-of-strings. This is cleaner to read than the
-equivalent hint <code class="docutils literal notranslate"><span class="pre">Union[None,</span> <span class="pre">List[str]]</span></code> and it indicates that
-<code class="docutils literal notranslate"><span class="pre">None</span></code> is indeed the default-value.</p>
-<p>In the case that you have <a class="reference external" href="http://www.pythonlikeyoumeanit.com/module_4.html">defined your own type
-(akaclass)</a>, you
-can simply provide the resulting class object in an annotation. This
-type-hints that a variable is expected to be an <em>instance</em> of that type.
-If, instead, you have the rare case of hinting that the class object
-itself (not an instance of the class) is expected, you can use
-<code class="docutils literal notranslate"><span class="pre">typing.Type</span></code> to indicate this.</p>
-<p>Let’s write a silly example to demonstrate these points. We will define
-our own <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class, and will write a function that expects the
-<code class="docutils literal notranslate"><span class="pre">Dog</span></code> class-object itself (type-hinted as <code class="docutils literal notranslate"><span class="pre">Type[Dog]</span></code>). The function
-will create several <em>instances</em> of the <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class (type-hinted simply
-as <code class="docutils literal notranslate"><span class="pre">Dog</span></code>), and will return them in a list.</p>
+<p>(Note that we have also included a detailed NumPy-style docstring; we will discuss this documentation style in detail in the following subsection).</p>
+<p>There are a few details to take note of here. First, see that we need not make any assumptions about what type of object is returned by <code class="docutils literal notranslate"><span class="pre">stat_function</span></code>. It might return the mean-value as a single floating point number, or perhaps a tuple of the mean, median, and mode, etc. Thus we document its output type as <code class="docutils literal notranslate"><span class="pre">Any</span></code>; this is reflected in our function’s return type as well: <code class="docutils literal notranslate"><span class="pre">List[Tuple[str,</span> <span class="pre">Any]]</span></code>. As we will discuss shortly, it is prudent to be discerning but general in one’s type-hints.
+Next, note that <code class="docutils literal notranslate"><span class="pre">Optional[List[str]]</span></code> is used to indicate that the default-value of <code class="docutils literal notranslate"><span class="pre">student_list</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, but that we can otherwise pass it a list-of-strings. This is cleaner to read than the equivalent hint <code class="docutils literal notranslate"><span class="pre">Union[None,</span> <span class="pre">List[str]]</span></code> and it indicates that <code class="docutils literal notranslate"><span class="pre">None</span></code> is indeed the default-value.</p>
+<p>In the case that you have <a class="reference external" href="http://www.pythonlikeyoumeanit.com/module_4.html">defined your own type (akaclass)</a>, you can simply provide the resulting class object in an annotation. This type-hints that a variable is expected to be an <em>instance</em> of that type. If, instead, you have the rare case of hinting that the class object itself (not an instance of the class) is expected, you can use <code class="docutils literal notranslate"><span class="pre">typing.Type</span></code> to indicate this.</p>
+<p>Let’s write a silly example to demonstrate these points. We will define our own <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class, and will write a function that expects the <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class-object itself (type-hinted as <code class="docutils literal notranslate"><span class="pre">Type[Dog]</span></code>). The function will create several <em>instances</em> of the <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class (type-hinted simply as <code class="docutils literal notranslate"><span class="pre">Dog</span></code>), and will return them in a list.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># type-hinting a custom class</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Type</span>
 <span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
@@ -943,12 +698,7 @@ as <code class="docutils literal notranslate"><span class="pre">Dog</span></code
     <span class="k">return</span> <span class="p">[</span><span class="bp">cls</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Lassie&quot;</span><span class="p">,</span> <span class="s2">&quot;Shadow&quot;</span><span class="p">,</span> <span class="s2">&quot;Air Bud&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>You can also create a <a class="reference external" href="https://docs.python.org/3/library/typing.html#type-aliases">type
-alias</a>,
-which you can define in your code and use in your annotations. For
-example, if you will regularly be passing around a tuple containing five
-<code class="docutils literal notranslate"><span class="pre">Dog</span></code>-instances, you can define an alias to help make your type-hints
-more succinct:</p>
+<p>You can also create a <a class="reference external" href="https://docs.python.org/3/library/typing.html#type-aliases">type alias</a>, which you can define in your code and use in your annotations. For example, if you will regularly be passing around a tuple containing five <code class="docutils literal notranslate"><span class="pre">Dog</span></code>-instances, you can define an alias to help make your type-hints more succinct:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating an alias for a type</span>
 <span class="n">Pack</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Dog</span><span class="p">,</span> <span class="n">Dog</span><span class="p">,</span> <span class="n">Dog</span><span class="p">,</span> <span class="n">Dog</span><span class="p">,</span> <span class="n">Dog</span><span class="p">]</span>
 
@@ -956,12 +706,7 @@ more succinct:</p>
     <span class="o">...</span>
 </pre></div>
 </div>
-<p>Object types defined in 3rd-party libraries, e.g.&nbsp;NumPy’s
-<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/IntroducingTheNDarray.html">ndarray</a>
-behave no differently from our own custom custom classes; simply provide
-the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module4_OOP/ClassDefinition.html#Defining-a-New-Class-of-Object">class
-object</a>
-in the type-hint annotation:</p>
+<p>Object types defined in 3rd-party libraries, e.g.&nbsp;NumPy’s <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/IntroducingTheNDarray.html">ndarray</a> behave no differently from our own custom custom classes; simply provide the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module4_OOP/ClassDefinition.html#Defining-a-New-Class-of-Object">class object</a> in the type-hint annotation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># type-hinting an nd-array from numpy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
@@ -969,34 +714,17 @@ in the type-hint annotation:</p>
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Eventually, popular 3rd party libraries like NumPy will contribute their
-own typing modules so that you can provide higher-fidelity hints that
-indicate things like data-type and array-shape. NumPy developers <a class="reference external" href="https://github.com/numpy/numpy/issues/7370">are
-currently working on
-this</a>.</p>
+<p>Eventually, popular 3rd party libraries like NumPy will contribute their own typing modules so that you can provide higher-fidelity hints that indicate things like data-type and array-shape. NumPy developers <a class="reference external" href="https://github.com/numpy/numpy/issues/7370">are currently working on this</a>.</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
-<p>Python’s <code class="docutils literal notranslate"><span class="pre">typing</span></code> module contains objects that are used to create
-descriptive type-hints. For example, whereas <code class="docutils literal notranslate"><span class="pre">list</span></code> can only be used
-to type-hint a list, <code class="docutils literal notranslate"><span class="pre">typing.List[str]</span></code> describes a list-of-strings.
-These can also be used to create concise aliases for convoluted
-type-hints that will be used frequently throughout your code.</p>
-<p class="last">In general, a <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module4_OOP/ClassDefinition.html#Defining-a-New-Class-of-Object">class
-object</a>
-can be used for type-hinting, and it indicates that a variable should be
-an <em>instance</em> of that class. For example, <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> hints that a
-variable should be passed an instance of the nd-array class.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
+<p>Python’s <code class="docutils literal notranslate"><span class="pre">typing</span></code> module contains objects that are used to create descriptive type-hints. For example, whereas <code class="docutils literal notranslate"><span class="pre">list</span></code> can only be used to type-hint a list, <code class="docutils literal notranslate"><span class="pre">typing.List[str]</span></code> describes a list-of-strings. These can also be used to create concise aliases for convoluted type-hints that will be used frequently throughout your code.</p>
+<p>In general, a <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module4_OOP/ClassDefinition.html#Defining-a-New-Class-of-Object">class object</a> can be used for type-hinting, and it indicates that a variable should be an <em>instance</em> of that class. For example, <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> hints that a variable should be passed an instance of the nd-array class.</p>
 </div>
 </div>
 </div>
 <div class="section" id="Writing-Good-Type-Hints-(quack-quack)">
 <h3>Writing Good Type-Hints (quack quack)<a class="headerlink" href="#Writing-Good-Type-Hints-(quack-quack)" title="Permalink to this headline">¶</a></h3>
-<p>You should strive to write type-hints that pass <a class="reference external" href="https://en.wikipedia.org/wiki/Duck_test">the duck
-test</a>: if your function is
-expecting a duck then hint for something that walks like a duck, quacks
-like a duck, etc. This will help you avoid writing type-hints that are
-overly narrow, and which are ultimately non-Pythonic in their
-strictness.</p>
+<p>You should strive to write type-hints that pass <a class="reference external" href="https://en.wikipedia.org/wiki/Duck_test">the duck test</a>: if your function is expecting a duck then hint for something that walks like a duck, quacks like a duck, etc. This will help you avoid writing type-hints that are overly narrow, and which are ultimately non-Pythonic in their strictness.</p>
 <p>To be more concrete, let’s revisit our <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
@@ -1006,11 +734,7 @@ strictness.</p>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Look carefully at how <code class="docutils literal notranslate"><span class="pre">x</span></code> is used in this function. We simply iterate
-over <code class="docutils literal notranslate"><span class="pre">x</span></code> in a for-loop - there is nothing string-specific about this.
-We could pass a string, a tuple, a list, or anything that supports
-iteration to this function, and it will happily count the vowels in
-<code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
+<p>Look carefully at how <code class="docutils literal notranslate"><span class="pre">x</span></code> is used in this function. We simply iterate over <code class="docutils literal notranslate"><span class="pre">x</span></code> in a for-loop - there is nothing string-specific about this. We could pass a string, a tuple, a list, or anything that supports iteration to this function, and it will happily count the vowels in <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `count_vowels` can operate on any iterable of strings</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">)</span>
 <span class="mi">2</span>
@@ -1025,13 +749,8 @@ iteration to this function, and it will happily count the vowels in
 <span class="mi">2</span>
 </pre></div>
 </div>
-<p>It is over-restrictive and un-Pythonic to type-hint <code class="docutils literal notranslate"><span class="pre">x</span></code> as <code class="docutils literal notranslate"><span class="pre">str</span></code>.
-Let’s make our type-hint more accommodating.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">typing</span></code> module provides a so-called <a class="reference external" href="https://docs.python.org/3/glossary.html#term-abstract-base-class">abstract base
-class</a>,
-<code class="docutils literal notranslate"><span class="pre">Iterable</span></code>, which is a generic type for any class that supports
-iteration. Thus we can improve our type-hint by making it more general.
-This encapsulates all of the above use-cases that we demonstrated.</p>
+<p>It is over-restrictive and un-Pythonic to type-hint <code class="docutils literal notranslate"><span class="pre">x</span></code> as <code class="docutils literal notranslate"><span class="pre">str</span></code>. Let’s make our type-hint more accommodating.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">typing</span></code> module provides a so-called <a class="reference external" href="https://docs.python.org/3/glossary.html#term-abstract-base-class">abstract base class</a>, <code class="docutils literal notranslate"><span class="pre">Iterable</span></code>, which is a generic type for any class that supports iteration. Thus we can improve our type-hint by making it more general. This encapsulates all of the above use-cases that we demonstrated.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span>
 
 <span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
@@ -1042,26 +761,12 @@ This encapsulates all of the above use-cases that we demonstrated.</p>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(To be completely general, we could have hinted <code class="docutils literal notranslate"><span class="pre">Iterable[Hashable]</span></code>,
-as we are relying on the entries of <code class="docutils literal notranslate"><span class="pre">x</span></code> to be hashable to check for
-their membership in the
-<a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure">set</a>
-of vowels. It is up to you to determine how abstract you want your ducks
-to be.)</p>
-<p>It is is important to review the <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes">abstract base classes (abc’s) for
-Python’s
-collections</a>
-(yes, I am encouraging you to learn your abc’s). This will help you
-classify categories of types generally, based on their <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module4_OOP/Special_Methods.html">special
-methods</a>.
-Two of the most common abc’s are <code class="docutils literal notranslate"><span class="pre">Iterable</span></code>: any class that supports
-the iteration protocol, and <code class="docutils literal notranslate"><span class="pre">Sequence</span></code>: any collection that has a
-length (via <code class="docutils literal notranslate"><span class="pre">__len__</span></code>) and supports the get-item syntax (via
-<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>).</p>
+<p>(To be completely general, we could have hinted <code class="docutils literal notranslate"><span class="pre">Iterable[Hashable]</span></code>, as we are relying on the entries of <code class="docutils literal notranslate"><span class="pre">x</span></code> to be hashable to check for their membership in the <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure">set</a> of vowels. It is up to you to determine how abstract you want your ducks to be.)</p>
+<p>It is is important to review the <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes">abstract base classes (abc’s) for Python’s collections</a> (yes, I am encouraging you to learn your abc’s). This will help you classify categories of types generally, based on their <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module4_OOP/Special_Methods.html">special methods</a>. Two of the most common abc’s are <code class="docutils literal notranslate"><span class="pre">Iterable</span></code>: any class that supports the iteration protocol, and
+<code class="docutils literal notranslate"><span class="pre">Sequence</span></code>: any collection that has a length (via <code class="docutils literal notranslate"><span class="pre">__len__</span></code>) and supports the get-item syntax (via <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>).</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Reading Comprehension: Type Hinting</strong></p>
-<p>Read through the following function and annotate its signature with
-type-hints. Try to make your type-hints sufficiently general here.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Type Hinting</strong></p>
+<p>Read through the following function and annotate its signature with type-hints. Try to make your type-hints sufficiently general here.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_first_and_last</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Returns the first and last elements of `x`. `x` is</span>
 <span class="sd">    assumed to be non-empty</span>
@@ -1069,9 +774,8 @@ type-hints. Try to make your type-hints sufficiently general here.</p>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Here are some examples of this function in action. Be sure that your
-type-hint captures all of this diversity.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_first_and_last</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<p>Here are some examples of this function in action. Be sure that your type-hint captures all of this diversity.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_first_and_last</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 <span class="go">(&#39;h&#39;, &#39;o&#39;)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">get_first_and_last</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -1083,56 +787,24 @@ type-hint captures all of this diversity.</p>
 </div>
 </div>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
-<p class="last">It is un-Pythonic to be overly strict when type hinting. Python handles
-typing flexibly - it uses <a class="reference external" href="https://en.wikipedia.org/wiki/Duck_typing">duck
-typing</a> - and our type
-hints should follow suit. Rely on abstract base classes when possible to
-provide the appropriate guidelines for a particular variable type.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
+<p>It is un-Pythonic to be overly strict when type hinting. Python handles typing flexibly - it uses <a class="reference external" href="https://en.wikipedia.org/wiki/Duck_typing">duck typing</a> - and our type hints should follow suit. Rely on abstract base classes when possible to provide the appropriate guidelines for a particular variable type.</p>
 </div>
 </div>
 </div>
 <div class="section" id="Documentation-Styles">
 <h2>Documentation Styles<a class="headerlink" href="#Documentation-Styles" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://twitter.com/nulhom?lang=en">Davis King</a>, a prolific and
-talented open source developer, is the creator of the <a class="reference external" href="http://dlib.net/">dlib C++
-library</a>. Among the library’s major features, like
-machine learning algorithms, Davis lists its <em>documentation</em> as the
-first and foremost feature. In fact, he says about dlib:</p>
+<p><a class="reference external" href="https://twitter.com/nulhom?lang=en">Davis King</a>, a prolific and talented open source developer, is the creator of the <a class="reference external" href="http://dlib.net/">dlib C++ library</a>. Among the library’s major features, like machine learning algorithms, Davis lists its <em>documentation</em> as the first and foremost feature. In fact, he says about dlib:</p>
 <blockquote>
-<div><em>I consider the documentation to be the most important part of the
-library.</em> So if you find anything that isn’t documented, isn’t
-clear, or has out of date documentation, tell me and I will fix it.</div></blockquote>
-<p>There is great wisdom in placing such a high value on documentation. In
-this section, we will learn about two popular docstring-style
-specifications for Python: the NumPy specification and the Google
-specification. Both of these are rich extensions of the rudimentary
-docstring conventions that are proposed in <a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP
-257</a>, and, critically,
-they both place an emphasis on documenting the variable types.</p>
-<p>PLYMI uses Numpy-style docstrings throughout most of the text (except
-for when we are trying to keep the functions brief). This is ultimately
-just a choice of style/aesthetics. Ultimately, the critical takeaway
-here is to <strong>pick a documentation style, learn it, and stick to it
-faithfully</strong>. Once again, it is hard to overstate how important it is to
-anchor your code with clear and consistent documentation. It will aid
-you in your code-writing process, it will enable users to adopt and
-perhaps contribute to your code, and it will ensure longevity for your
-hard work.</p>
+<div><em>I consider the documentation to be the most important part of the library.</em> So if you find anything that isn’t documented, isn’t clear, or has out of date documentation, tell me and I will fix it.</div></blockquote>
+<p>There is great wisdom in placing such a high value on documentation. In this section, we will learn about two popular docstring-style specifications for Python: the NumPy specification and the Google specification. Both of these are rich extensions of the rudimentary docstring conventions that are proposed in <a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP 257</a>, and, critically, they both place an emphasis on documenting the variable types.</p>
+<p>PLYMI uses Numpy-style docstrings throughout most of the text (except for when we are trying to keep the functions brief). This is ultimately just a choice of style/aesthetics. Ultimately, the critical takeaway here is to <strong>pick a documentation style, learn it, and stick to it faithfully</strong>. Once again, it is hard to overstate how important it is to anchor your code with clear and consistent documentation. It will aid you in your code-writing process, it will enable users to adopt and perhaps
+contribute to your code, and it will ensure longevity for your hard work.</p>
 <div class="section" id="The-NumPy-Documentation-Style">
 <h3>The NumPy Documentation Style<a class="headerlink" href="#The-NumPy-Documentation-Style" title="Permalink to this headline">¶</a></h3>
-<p>The NumPy documentation style is specified in full
-<a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard">here</a>.
-It is strongly recommended that you read through it in full. There are
-details in the specification that we will pass over here for the sake of
-simplicity and to avoid rewriting their specification. We will focus on
-the guidelines for documenting functions, but note that they specify
-rules for documenting
-<a class="reference external" href="https://www.pythonlikeyoumeanit.com/module_4.html">classes</a> and
-<a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Modules">modules</a>.</p>
-<p>A function’s docstring is divided up into several sections. Most of
-these sections are delimited with a header, e.g. “Parameters”, followed
-by a horizontal line of dashes:</p>
+<p>The NumPy documentation style is specified in full <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard">here</a>. It is strongly recommended that you read through it in full. There are details in the specification that we will pass over here for the sake of simplicity and to avoid rewriting their specification. We will focus on the guidelines for documenting functions, but note that they specify rules for documenting
+<a class="reference external" href="https://www.pythonlikeyoumeanit.com/module_4.html">classes</a> and <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Modules">modules</a>.</p>
+<p>A function’s docstring is divided up into several sections. Most of these sections are delimited with a header, e.g. “Parameters”, followed by a horizontal line of dashes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Parameters</span>
 <span class="o">----------</span>
 </pre></div>
@@ -1140,32 +812,18 @@ by a horizontal line of dashes:</p>
 <p>A docstring should at least consist of:</p>
 <ul class="simple">
 <li>A succinct, single-line description of the function.</li>
-<li>An extended summary of the function, which provides a more verbose
-description of things.</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">Parameters</span></code> section, which details the types of the input
-parameters along with descriptions of them. (This section is not
-necessary if your function is parameterless).</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">Returns</span></code> section (or <code class="docutils literal notranslate"><span class="pre">Yields</span></code> for a generator), which details
-the object that is returned by the function. (This is not necessary
-if your function always returns <code class="docutils literal notranslate"><span class="pre">None</span></code>).</li>
+<li>An extended summary of the function, which provides a more verbose description of things.</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">Parameters</span></code> section, which details the types of the input parameters along with descriptions of them. (This section is not necessary if your function is parameterless).</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">Returns</span></code> section (or <code class="docutils literal notranslate"><span class="pre">Yields</span></code> for a generator), which details the object that is returned by the function. (This is not necessary if your function always returns <code class="docutils literal notranslate"><span class="pre">None</span></code>).</li>
 </ul>
-<p>There are additional, optional sections that can be used to improve your
-documentation:</p>
+<p>There are additional, optional sections that can be used to improve your documentation:</p>
 <ul class="simple">
-<li>A <code class="docutils literal notranslate"><span class="pre">Notes</span></code> section, which can be used to discuss tertiary details of
-the function, such as a description of the algorithm that was used.
-You can also include mathematical formulae here, and cite primary
-materials</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">References</span></code> section, used to document any works that were cited
-in the “Notes” section. It is not very common to need to reference
-primary sources in your docstrings.</li>
-<li>An <code class="docutils literal notranslate"><span class="pre">Examples</span></code> section, which contains console-style code, similar
-to the code snippets that you see in PLYMI, for using your function.</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">Notes</span></code> section, which can be used to discuss tertiary details of the function, such as a description of the algorithm that was used. You can also include mathematical formulae here, and cite primary materials</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">References</span></code> section, used to document any works that were cited in the “Notes” section. It is not very common to need to reference primary sources in your docstrings.</li>
+<li>An <code class="docutils literal notranslate"><span class="pre">Examples</span></code> section, which contains console-style code, similar to the code snippets that you see in PLYMI, for using your function.</li>
 </ul>
-<p>There are additional, more obscure or technical sections that you can
-read about in the formal specification.</p>
-<p>The following function has a docstring that exemplifies all of these
-sections.</p>
+<p>There are additional, more obscure or technical sections that you can read about in the formal specification.</p>
+<p>The following function has a docstring that exemplifies all of these sections.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; Computes pairwise distances between the rows of ``x`` and ``y``.</span>
 
@@ -1213,20 +871,9 @@ sections.</p>
     <span class="o">...</span>
 </pre></div>
 </div>
-<p>See that we specify <strong>type information</strong> in the <code class="docutils literal notranslate"><span class="pre">Parameters</span></code> and the
-<code class="docutils literal notranslate"><span class="pre">Returns</span></code> section of the docstring, even though it is redundant with
-the function signature’s type-hints - it is useful to have this
-information in the docstring too. This is a good place to embellish the
-type information with pertinent information that is not conveyed by the
-formal type-hints. For example, we added shape information alongside the
-types in these sections.</p>
-<p>Variable names should be referenced using double back-ticks within the
-docstring; e.g. ``x``. It should also be noted that that including an
-<code class="docutils literal notranslate"><span class="pre">Examples</span></code> section is very useful for creating high-quality
-documentation. It is recommended that you include examples liberally
-throughout your code.</p>
-<p>Here is another example docstring that adheres to the NumPy-style, one
-without a <code class="docutils literal notranslate"><span class="pre">Notes</span></code> and <code class="docutils literal notranslate"><span class="pre">References</span></code> section:</p>
+<p>See that we specify <strong>type information</strong> in the <code class="docutils literal notranslate"><span class="pre">Parameters</span></code> and the <code class="docutils literal notranslate"><span class="pre">Returns</span></code> section of the docstring, even though it is redundant with the function signature’s type-hints - it is useful to have this information in the docstring too. This is a good place to embellish the type information with pertinent information that is not conveyed by the formal type-hints. For example, we added shape information alongside the types in these sections.</p>
+<p>Variable names should be referenced using double back-ticks within the docstring; e.g. ``x``. It should also be noted that that including an <code class="docutils literal notranslate"><span class="pre">Examples</span></code> section is very useful for creating high-quality documentation. It is recommended that you include examples liberally throughout your code.</p>
+<p>Here is another example docstring that adheres to the NumPy-style, one without a <code class="docutils literal notranslate"><span class="pre">Notes</span></code> and <code class="docutils literal notranslate"><span class="pre">References</span></code> section:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_student_stats</span><span class="p">(</span><span class="n">grade_book</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
                           <span class="n">stat_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span> <span class="n">Any</span><span class="p">],</span>
                           <span class="n">student_list</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
@@ -1266,30 +913,17 @@ without a <code class="docutils literal notranslate"><span class="pre">Notes</sp
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="The-Google-Documentation-Style">
-<h2>The Google Documentation Style<a class="headerlink" href="#The-Google-Documentation-Style" title="Permalink to this headline">¶</a></h2>
-<p>The Google documentation style is specified in full
-<a class="reference external" href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md#doc-function-args">here</a>;
-it is part of the complete <a class="reference external" href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md#google-python-style-guide">Google Python style
-guide</a>.
-The docstring style specified here is quite succinct in comparison to
-the NumPy spec. It consists of the following sections:</p>
+<h3>The Google Documentation Style<a class="headerlink" href="#The-Google-Documentation-Style" title="Permalink to this headline">¶</a></h3>
+<p>The Google documentation style is specified in full <a class="reference external" href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md#doc-function-args">here</a>; it is part of the complete <a class="reference external" href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md#google-python-style-guide">Google Python style guide</a>. The docstring style specified here is quite succinct in comparison to the NumPy spec. It consists of the following sections:</p>
 <ul class="simple">
 <li>A succinct, single-line description of the function.</li>
-<li>An extended summary of the function, which provides a more verbose
-description of things.</li>
-<li>An <code class="docutils literal notranslate"><span class="pre">Args</span></code> section, which details the types of the input parameters
-along with descriptions of them. (This section is not necessary if
-your function is parameterless).</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">Returns</span></code> section (or <code class="docutils literal notranslate"><span class="pre">Yields</span></code> for a generator), which details
-the object that is returned by the function. (This is not necessary
-if your function always returns <code class="docutils literal notranslate"><span class="pre">None</span></code>).</li>
+<li>An extended summary of the function, which provides a more verbose description of things.</li>
+<li>An <code class="docutils literal notranslate"><span class="pre">Args</span></code> section, which details the types of the input parameters along with descriptions of them. (This section is not necessary if your function is parameterless).</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">Returns</span></code> section (or <code class="docutils literal notranslate"><span class="pre">Yields</span></code> for a generator), which details the object that is returned by the function. (This is not necessary if your function always returns <code class="docutils literal notranslate"><span class="pre">None</span></code>).</li>
 </ul>
-<p>There is also a <code class="docutils literal notranslate"><span class="pre">Raises</span></code> section in the case that your function raises
-exceptions under known conditions.</p>
-<p>Let’s reproduce the docstrings for <code class="docutils literal notranslate"><span class="pre">pairwise_dists</span></code> and
-<code class="docutils literal notranslate"><span class="pre">compute_student_stats</span></code> using the Google style.</p>
+<p>There is also a <code class="docutils literal notranslate"><span class="pre">Raises</span></code> section in the case that your function raises exceptions under known conditions.</p>
+<p>Let’s reproduce the docstrings for <code class="docutils literal notranslate"><span class="pre">pairwise_dists</span></code> and <code class="docutils literal notranslate"><span class="pre">compute_student_stats</span></code> using the Google style.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; Computes pairwise distances between the rows of ``x`` and ``y``.</span>
 
@@ -1299,7 +933,6 @@ exceptions under known conditions.</p>
 <span class="sd">    Args:</span>
 <span class="sd">        x (numpy.ndarray) : A shape-(M, D) array</span>
 <span class="sd">        y (numpy.ndarray) : A shape-(N, D) array</span>
-
 
 <span class="sd">    Returns:</span>
 <span class="sd">        (numpy.ndarray): A shape-(M, N) array of the pairwise distances</span>
@@ -1335,68 +968,35 @@ exceptions under known conditions.</p>
     <span class="o">...</span>
 </pre></div>
 </div>
-<p>See that this style produces docstrings that are succinct, but are
-sometimes crowded horizontally given the successive levels of
-indentation within each docstring-section.</p>
-<p>It must also be noted that the <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html#napoleon-marching-toward-legible-docstrings">Napolean
-project</a>,
-which facilitates the automated generation of HTML documentation-pages
-from Python docstrings, has extended the Google specification to match
-the sections of the NumPy style. The Napolean version of the NumPy and
-Google docstring styles can be found
-<a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html#id1">here</a>.
-This resource also includes useful examples of docstrings for modules
-and classes.</p>
+<p>See that this style produces docstrings that are succinct, but are sometimes crowded horizontally given the successive levels of indentation within each docstring-section.</p>
+<p>It must also be noted that the <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html#napoleon-marching-toward-legible-docstrings">Napolean project</a>, which facilitates the automated generation of HTML documentation-pages from Python docstrings, has extended the Google specification to match the sections of the NumPy style. The Napolean version of the NumPy and Google docstring styles can be found <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html#id1">here</a>.
+This resource also includes useful examples of docstrings for modules and classes.</p>
 <div class="admonition note">
-<p class="first fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
-<p class="last">Take some time to review the NumPy and Google docstring specifications,
-pick one, and stick to it faithfully when documenting your code. If you
-plan to code with others, find out if they have already chosen a
-documentation style.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
+<p>Take some time to review the NumPy and Google docstring specifications, pick one, and stick to it faithfully when documenting your code. If you plan to code with others, find out if they have already chosen a documentation style.</p>
 </div>
 <div class="admonition warning">
-<p class="first fa fa-exclamation-circle"><strong>Documentation Tools:</strong></p>
-<p><a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> is a popular and
-hugely-powerful tool that will render documentation for your project in
-HTML by parsing the docstrings that are in your code. Python, NumPy, and
-almost all major 3rd party Python libraries use Sphinx to publish their
-documentation pages.
-<a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html#napoleon-marching-toward-legible-docstrings">Napolean</a>
-and <a class="reference external" href="https://github.com/numpy/numpydoc">numpydoc</a> are Sphinx
-extensions that allows Sphinx to parse and nicely render docstrings that
-adhere to the NumPy and Google docstring specifications.</p>
-<p class="last"><a class="reference external" href="https://github.com/meowklaski/custom_inherit">custom_inherit</a> is a
-lightweight tool for
-<a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module4_OOP/Inheritance.html">inheriting</a>
-and merging docstrings. It provides rich support for merging the various
-sections of docstrings, and supports NumPy and Google-style docstrings
-natively. It also supports custom documentation styles.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Documentation Tools:</strong></p>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> is a popular and hugely-powerful tool that will render documentation for your project in HTML by parsing the docstrings that are in your code. Python, NumPy, and almost all major 3rd party Python libraries use Sphinx to publish their documentation pages. <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html#napoleon-marching-toward-legible-docstrings">Napolean</a> and <a class="reference external" href="https://github.com/numpy/numpydoc">numpydoc</a> are Sphinx
+extensions that allows Sphinx to parse and nicely render docstrings that adhere to the NumPy and Google docstring specifications.</p>
+<p><a class="reference external" href="https://github.com/meowklaski/custom_inherit">custom_inherit</a> is a lightweight tool for <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module4_OOP/Inheritance.html">inheriting</a> and merging docstrings. It provides rich support for merging the various sections of docstrings, and supports NumPy and Google-style docstrings natively. It also supports custom documentation styles.</p>
+</div>
 </div>
 </div>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://www.python.org/dev/peps/">PEP 0: Index of Python Enhancement
-Proposals</a></li>
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0001/">PEP 1: Purpose and
-Guidelines</a></li>
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0008">PEP 8: Style Guide for Python
-Code</a></li>
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0483/">PEP 483: The Theory of Type
-Hints</a></li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/">PEP 0: Index of Python Enhancement Proposals</a></li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0001/">PEP 1: Purpose and Guidelines</a></li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0008">PEP 8: Style Guide for Python Code</a></li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0483/">PEP 483: The Theory of Type Hints</a></li>
 <li><a class="reference external" href="https://www.python.org/dev/peps/pep-0484/">PEP 484: Type-Hinting</a></li>
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0526/">PEP 526: Syntax for Variable
-Annotations</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/typing.html">The standard library’s typing
-module</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/glossary.html#term-abstract-base-class">Definition: abstract base
-class</a></li>
-<li><a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard">NumPy Documentation
-Specification</a></li>
-<li><a class="reference external" href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md#doc-function-args">Google Documentation
-Specification</a></li>
-<li><a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html#">Napolean: Marching Towards Legible
-Docstrings</a></li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0526/">PEP 526: Syntax for Variable Annotations</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/typing.html">The standard library’s typing module</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/glossary.html#term-abstract-base-class">Definition: abstract base class</a></li>
+<li><a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard">NumPy Documentation Specification</a></li>
+<li><a class="reference external" href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md#doc-function-args">Google Documentation Specification</a></li>
+<li><a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html#">Napolean: Marching Towards Legible Docstrings</a></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
@@ -1412,23 +1012,14 @@ Docstrings</a></li>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>This function only requires that <code class="docutils literal notranslate"><span class="pre">x</span></code> can be indexed into. Referring to
-the <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes">abc’s for Python’s
-collections</a>,
-<code class="docutils literal notranslate"><span class="pre">Sequence</span></code> is the simplest abstract base class that supports the
-<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> syntax. Indeed, this was a trait characteristic that we
-saw for all of <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html">Python’s sequence
-types</a>.
-Lastly, note that we make no assumptions about the contents of <code class="docutils literal notranslate"><span class="pre">x</span></code>,
-thus we use the generic <code class="docutils literal notranslate"><span class="pre">Any</span></code> type.</p>
+<p>This function only requires that <code class="docutils literal notranslate"><span class="pre">x</span></code> can be indexed into. Referring to the <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections-abstract-base-classes">abc’s for Python’s collections</a>, <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> is the simplest abstract base class that supports the <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> syntax. Indeed, this was a trait characteristic that we saw for all of <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html">Python’s sequence types</a>. Lastly, note that we make no
+assumptions about the contents of <code class="docutils literal notranslate"><span class="pre">x</span></code>, thus we use the generic <code class="docutils literal notranslate"><span class="pre">Any</span></code> type.</p>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -1437,7 +1028,7 @@ thus we use the generic <code class="docutils literal notranslate"><span class="
         <a href="Matplotlib.html" class="btn btn-neutral float-right" title="Matplotlib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../module_5.html" class="btn btn-neutral" title="Module 5: Odds and Ends" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../module_5.html" class="btn btn-neutral float-left" title="Module 5: Odds and Ends" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1446,11 +1037,11 @@ thus we use the generic <code class="docutils literal notranslate"><span class="
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Ryan Soklaski.
+        &copy; Copyright 2018, Ryan Soklaski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1463,39 +1054,15 @@ thus we use the generic <code class="docutils literal notranslate"><span class="
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-      <script type="text/javascript" src="../_static/gtag.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
