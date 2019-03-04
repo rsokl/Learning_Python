@@ -403,17 +403,17 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Playing-Darts-and-Estimating-Pi">
 <h1>Playing Darts and Estimating Pi<a class="headerlink" href="#Playing-Darts-and-Estimating-Pi" title="Permalink to this headline">¶</a></h1>
 <p>You and some friends are playing darts. You all are <strong>very</strong> bad at darts. Each throw is guaranteed to hit the square board depicted below, but otherwise each throw will land in a completely random position within the square. To entertain yourself during this pathetic display, you decide to use this as an opportunity to estimate the irrational number <span class="math notranslate nohighlight">\(\pi \approx 3.14159\)</span>.</p>
+<p><img alt="A dart board" src="../../_images/circle_square_small.png" /></p>
 <p>Because each throw falls randomly within the square, you realize that the probability of a dart landing within the circle is given by the ratio of the circle’s area to the square’s area:</p>
 <div class="math notranslate nohighlight">
 \begin{equation}
 P_{circle} = \frac{Area_{circle}}{Area_{square}} = \frac{\pi r^2}{(2r)^2}
-\end{equation}</div><p><img alt="image0" src="../../_images/circle_square_small.PNG" /> <a href="#id1"><span class="problematic" id="id2">|image1|</span></a></p>
+\end{equation}</div><p>Furthermore, we can interpret <span class="math notranslate nohighlight">\(P_{circle}\)</span> as being approximated by the fraction of darts thrown that land in the circle. Thus, we find:</p>
 <div class="math notranslate nohighlight">
 \begin{equation}
 \frac{N_{circle}}{N_{total}} \approx \frac{\pi r^2}{(2r)^2} = \frac{\pi}{4}
-\end{equation}
-
- where :math:`N_{total}` is the total number of darts thrown, and :math:`N_{circle}` is the number of darts that land within the circle. Thus simply by keeping tally of where the darts land, you can begin to estimate the value of :math:`\pi`!</div><div class="section" id="Problem-1">
+\end{equation}</div><p>where <span class="math notranslate nohighlight">\(N_{total}\)</span> is the total number of darts thrown, and <span class="math notranslate nohighlight">\(N_{circle}\)</span> is the number of darts that land within the circle. Thus simply by keeping tally of where the darts land, you can begin to estimate the value of <span class="math notranslate nohighlight">\(\pi\)</span>!</p>
+<div class="section" id="Problem-1">
 <h2>Problem 1<a class="headerlink" href="#Problem-1" title="Permalink to this headline">¶</a></h2>
 <p>Write code that simulates the dart throwing and tallying process, and keep a running estimate of <span class="math notranslate nohighlight">\(\pi\)</span> as “darts are being thrown”. For simplicity, you can assume that the board is centered at <span class="math notranslate nohighlight">\((0, 0)\)</span>, and that <span class="math notranslate nohighlight">\(r = 1\)</span> (the radius of the circle). Use <code class="docutils literal notranslate"><span class="pre">numpy.random.rand</span></code> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html">link to docs</a>) to randomly generate the positions on the board where the darts land. Do this for <span class="math notranslate nohighlight">\(N = 10,000\)</span> darts in
 total. For each dart thrown determine whether or not it landed within the circle, and update your estimate of <span class="math notranslate nohighlight">\(\pi\)</span> according to the formula: <span class="math notranslate nohighlight">\(N_{circle} / N_{total} \approx \pi / 4\)</span></p>
