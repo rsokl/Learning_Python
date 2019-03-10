@@ -258,5 +258,5 @@ for index, current_num in enumerate(my_list):
         break
     prev_num = current_num
 else:
-    print("sorted!") g
+    print("sorted!")
 # ```
