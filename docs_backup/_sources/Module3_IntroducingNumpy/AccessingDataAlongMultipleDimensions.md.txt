@@ -253,10 +253,9 @@ You can think of axis-0 denoting which of the 2x2 "sheets" to select from. Then 
 
                                            sheet 1:
                                                   [4, 5]
-                                                  [6, 7]
-                                                  
-
-
+                                                  [6, 7]                                             
+# ```
+# ```
                                         |       -- axis-2 ->
                                         |    |    
                                         |  axis-1 [0, 1]
