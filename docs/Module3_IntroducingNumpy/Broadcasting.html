@@ -783,6 +783,7 @@ needing to create a larger, intermediate array.</p>
 <li>Incompatible</li>
 </ol>
 <p><strong>Basic Broadcasting II: Solution</strong></p>
+<p>Normalize <code class="docutils literal notranslate"><span class="pre">x</span></code> such that <em>each of its rows, within each sheet, will sum to a value of 1</em>. Make use of the sequential function <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>, which should be called only once, and broadcast-division.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a shape-(2, 3, 4) array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="o">...</span>                <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
@@ -792,20 +793,22 @@ needing to create a larger, intermediate array.</p>
 <span class="o">...</span>                <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
 <span class="o">...</span>                <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
 
-<span class="c1"># sum over each row, within a sheet</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">summed_rows</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># sum along each of the three rows within each sheet</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">summed_rows</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">summed_rows</span>
-<span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">48</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">57</span><span class="p">]])</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">38</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">54</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">86</span><span class="p">]])</span>
 
-<span class="c1"># this shape-(2,4) array can be broadcast-divided</span>
-<span class="c1"># along the rows of `x`, if we insert a size-1 axis</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x_norm</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">summed_rows</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+<span class="c1"># this shape-(2, 3) array can be broadcast-divided</span>
+<span class="c1"># along the sheets and rows of `x`, if we insert a size-1 axis</span>
+<span class="c1"># at dimension-2 of the summed array, where the columns used to</span>
+<span class="c1"># be</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x_norm</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">summed_rows</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
 <span class="c1"># verifying the solution</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x_norm</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x_norm</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
 </pre></div>
 </div>
 <p><strong>Basic Broadcasting III: Solution</strong></p>

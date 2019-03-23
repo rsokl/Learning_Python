@@ -79,7 +79,7 @@ See [the official NumPy documentation](https://docs.scipy.org/doc/numpy/referenc
 ## How to Traverse an Array: Row-major (C) vs Column-major (F) Traversal Ordering
 Note the order in which `np.ndenumerate` iterated over `x`. It first traversed the columns within row-0 of sheet-0 of `x`, and then it traversed the columns within the row-1 of sheet-0, and so on. What is special about this traversal order? Why, for instance, didn't it traverse the rows within a given column instead? We can also see that there is not a unique ordering for a `reshape` function to adhere to. For example, the following reshape operation could sensibly return either of the following results:
 # ```
-  array([0, 1, 2, 3, 4, 5]).reshape(3, 2) -->  array([[0, 1, 2],  or   array([[0, 2, 4],
+  array([0, 1, 2, 3, 4, 5]).reshape(2, 3) -->  array([[0, 1, 2],  or   array([[0, 2, 4],
                                                       [3, 4, 5]])             [1, 3, 5]])
 # ```
 
