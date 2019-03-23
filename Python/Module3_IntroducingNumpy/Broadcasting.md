@@ -700,6 +700,8 @@ Generating the random array of 10,000, 2D points, and their "center-of-mass".
 
 **Basic Broadcasting II: Solution**
 
+Normalize `x` such that *each of its rows, within each sheet, will sum to a value of 1*. Make use of the sequential function `np.sum`, which should be called only once, and broadcast-division.
+
 # ```python
 # a shape-(2, 3, 4) array
 >>> x = np.array([[[ 0,  1,  2,  3],
@@ -711,19 +713,19 @@ Generating the random array of 10,000, 2D points, and their "center-of-mass".
 ...                [20, 21, 22, 23]]])
 
 # sum over each row, within a sheet
->>> summed_rows = x.sum(axis=1)
+>>> summed_rows = x.sum(axis=2)
 >>> summed_rows
-array([[12, 15, 18, 21],
-       [48, 51, 54, 57]])
+array([[ 6, 22, 38],
+       [54, 70, 86]])
 
 # this shape-(2,4) array can be broadcast-divided
 # along the rows of `x`, if we insert a size-1 axis
->>> x_norm = x / summed_rows[:, np.newaxis, :]
+>>> x_norm = x / summed_rows[:, :, np.newaxis]
 
 # verifying the solution
->>> x_norm.sum(axis=1)
-array([[ 1.,  1.,  1.,  1.],
-       [ 1.,  1.,  1.,  1.]])
+>>> x_norm.sum(axis=2)
+array([[1., 1., 1.],
+       [1., 1., 1.]])
 # ```
 
 
