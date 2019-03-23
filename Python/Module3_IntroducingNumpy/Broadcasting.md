@@ -712,14 +712,16 @@ Normalize `x` such that *each of its rows, within each sheet, will sum to a valu
 ...                [16, 17, 18, 19],
 ...                [20, 21, 22, 23]]])
 
-# sum over each row, within a sheet
+# sum along each of the three rows within each sheet
 >>> summed_rows = x.sum(axis=2)
 >>> summed_rows
 array([[ 6, 22, 38],
        [54, 70, 86]])
 
-# this shape-(2,4) array can be broadcast-divided
-# along the rows of `x`, if we insert a size-1 axis
+# this shape-(2, 3) array can be broadcast-divided
+# along the sheets and rows of `x`, if we insert a size-1 axis
+# at dimension-2 of the summed array, where the columns used to
+# be
 >>> x_norm = x / summed_rows[:, :, np.newaxis]
 
 # verifying the solution
