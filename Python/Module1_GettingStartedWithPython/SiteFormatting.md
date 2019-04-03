@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Overview of formatting in Python Like You Mean It, Difficulty: Easy, Category: Instructions
+   :keywords: overview, formatting, background, code block, console style
+```
+
 <!-- #region -->
 # A Quick Guide to Formatting
 This section provides a brief overview of the code formatting style that will be used throughout this text. You are not expected to understand the details of the code, here. This merely provides a guide for what is to come. 

@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Jupyter notebooks, Difficulty: Easy, Category: Tutorial
+   :keywords: jupyter, notebook, kernel, basics, server, console, command line, plot
+```
+
 # Jupyter Notebooks
 In recent years, the Jupyter Notebook has become a massively popular tool for doing research-oriented work in Python and other languages alike. Its emergence marked a paradigm shift in the way data science is conducted. 
 

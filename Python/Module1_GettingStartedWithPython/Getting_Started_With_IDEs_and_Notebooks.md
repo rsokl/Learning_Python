@@ -14,8 +14,8 @@ jupyter:
 
 ```raw_mimetype="text/restructuredtext"
 .. meta::
-   :description: Introducing integrated development environments (IDEs) for Python
-   :keywords: python, introduction, IDE, PyCharm, VSCode
+   :description: Topic: Integrated Development Environments, Difficulty: Easy, Category: Tools
+   :keywords: python, introduction, IDE, PyCharm, VSCode, Jupyter, recommendation, tools
 ```
 
 # Setting Up a Development Environment
