@@ -4,19 +4,20 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
+<!-- #region -->
 # Introduction to Object Oriented Programming
 
 Our first foray into the essentials of Python introduced us to the [basic object types: numbers, strings, and lists](http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html). Likewise, our discussion of NumPy was centered around the [N-dimensional array](http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/IntroducingTheNDarray.html). These types of objects are distinguished in large part by the different functions that are bound to them. Functions bound to objects are known as **methods**. For example, where a string possesses methods designed to manipulate its sequence of characters, a NumPy array possesses methods for operating on the numerical data bound to that array.
 
-# ```python
+```python
 # Different types of objects can possess different methods 
 
 >>> string = "hello world"
@@ -28,25 +29,27 @@ Our first foray into the essentials of Python introduced us to the [basic object
 ...                   [3, 4, 5]])
 >>> array.sum()  # use the array-method `sum`
 15
-# ```
+```
+<!-- #endregion -->
 
-
+<!-- #region -->
 More generally, an object can possess data, known as **attributes**, which summarize information about that object. For example, the array-attributes `ndim` and `shape` provide information about the indexing-layout of that array's numerical data.
 
-# ```python
+```python
 # accessing an object's attributes
 >>> array.ndim
 2
 >>> array.shape
 (2, 3)
-# ```
+```
+<!-- #endregion -->
 
-
+<!-- #region -->
 In this module, we will learn to define our own, customized object types with distinct collections of attributes and methods. In this way, we will be using Python as an "objected oriented" programming language; this will greatly expand our capabilities as Python users, and deepen our understanding of the language itself.
 
 As a sneak peek example, let's create our own class of objects known as `Rectangle`:
 
-# ```python
+```python
 class Rectangle:
     """ A Python object that describes the properties of a rectangle """
     def __init__(self, width, height, center=(0.0, 0.0)):
@@ -92,12 +95,12 @@ class Rectangle:
         dx = self.width / 2.0
         dy = self.height / 2.0
         return [(cx + x, cy + y) for x,y in ((dx, dy), (dx, -dy), (-dx, -dy), (-dx, dy))]
-# ```
+```
 
 An instance of this `Rectangle` class is an individual rectangle whose *attributes* include its width, height, and center-location. Additionally, we can use the rectangle's *methods* (its attributes that are functions) to compute its area and the locations of its corners. 
+<!-- #endregion -->
 
-
-# ```python
+```python
 # create a rectangle of width 4, height 10, centered at (0, 0)
 # here __init__ is executed and the width/height/center attributes are set
 >>> rect1 = Rectangle(4, 10)  
@@ -114,7 +117,7 @@ Rectangle(width=4, height=10, center=(0, 0))
 # compute the corner-locations of this rectangle
 >>> rect1.compute_corners()   
 [(2.0, 5.0), (2.0, -5.0), (-2.0, -5.0), (-2.0, 5.0)]
-# ```
+```
 
 
 Just like any other Python object that we have encountered, we can put our `Rectangle`s in lists, store them as values in dictionaries, pass them to functions, reference them with multiple variables, and so on.

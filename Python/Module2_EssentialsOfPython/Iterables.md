@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
@@ -33,7 +33,7 @@ The rest of this section is dedicated to working with iterables in your code.
 "Under the hood", an iterable is any Python object with an `__iter__()` method or with a `__getitem__()` method that implements `Sequence` semantics. These details will become salient if you read through the Object Oriented Programming module.
 </div>
 
-
+<!-- #region -->
 ## Functions that act on iterables
 Here are some useful built-in functions that accept iterables as arguments:
 
@@ -45,7 +45,7 @@ Here are some useful built-in functions that accept iterables as arguments:
  - `max`: return the largest value in an iterable.
  - `min`: return the smallest value in an iterable.
  
-# ```python
+```python
 # Examples of built-in functions that act on iterables
 >>> list("I am a cow")
 ['I', ' ', 'a', 'm', ' ', 'a', ' ', 'c', 'o', 'w']
@@ -69,59 +69,60 @@ True
 
 >>> min("hello")
 'e'
-# ```
+```
+<!-- #endregion -->
 
-
+<!-- #region -->
 ## Tricks for working with iterables
 Python provides some syntactic "tricks" for working with iterables: "unpacking" iterables and "enumerating" iterables. Although these may seem like inconsequential niceties at first glance, they deserve our attention because they will help us write clean, readable code. Writing clean, readable code leads to bug-free algorithms that are easy to understand. Furthermore, these tricks will also facilitate the use of other great Python features, like comprehension-statements, which will be introduced in the coming sections.
 
 ### "Unpacking" iterables
 Suppose that you have three values stored in a list, and that you want to assign each value to a distinct variable. Given the lessons that we have covered thus far, you would likely write the following code:
 
-# ```python
+```python
 # simple script for assigning contents of a list to variables
 >>> my_list = [7, 9, 11]
 
 >>> x = my_list[0]
 >>> y = my_list[1]
 >>> z = my_list[2]
-# ```
+```
 
 Python provides an extremely useful functionality, known as **iterable unpacking**, which allows us to write the simple, elegant code:
 
-# ```python
+```python
 # assigning contents of a list to variables using iterable unpacking
 >>> my_list = [7, 9, 11]
 
 >>> x, y, z = my_list
 >>> print(x, y, z)
 7 9 11
-# ```
+```
 
 That is, the Python interpreter "sees" the pattern of variables to the left of the assignment, and will "unpack" the iterable (which happens to be a list in this instance). It may not seem like it from this example, but this is an *extremely* useful feature of Python that greatly improves the readability of code! 
 
 Iterable unpacking is particularly useful in the context of performing for-loops over iterables-of-iterables. For example, suppose we have a list containing tuples of name-grade pairs:
 
-# ```python
+```python
 >>> grades = [("Ashley", 93), ("Brad", 95), ("Cassie", 84)]
-# ```
+```
 
 Recall from the preceding section that if we loop over this list, that the iterate-variable will be assigned to each of these tuples:
 
-# ```python
+```python
 for entry in grades:
     print(entry)
-# ```
+```
 will print:
-# ```
+```
 ('Ashley', 93)
 ('Brad', 95)
 ('Cassie', 84)
-# ```
+```
 
 It is likely that we will want to work with the student's name and their grade independently (e.g. use the name to access a log, and add the grade-value to our class statistics); thus we will need to index into `entry` twice to assign its contents to two separate variables. However, because each iteration of the for-loop involves an assignment of the form `entry = ("Ashley", 93)`, we can make use of iterable unpacking! That is, we can replace `entry` with `name, grade` and Python will intuitively do an unpacking upon each assignment of the for-loop.
 
-# ```python
+```python
 # The first iteration of this for-loop performs
 # the unpacking assignment: name, grade = ("Ashley", 93)
 # then the second iteration: name, grade = ("Brad", 95)
@@ -130,9 +131,9 @@ for name, grade in grades:
     print(name)
     print(grade)
     print("\n")
-# ```
+```
 prints:
-# ```
+```
 Ashley
 93
 
@@ -141,7 +142,7 @@ Brad
 
 Cassie 
 84
-# ```
+```
 This for-loop code is concise and supremely readable. It is highly recommended that you make use of iterable unpacking in such contexts.
 
 Iterable unpacking is not quite as simple as it might seem. What happens if you provide 4 variables to unpack into, but use an iterable containing 10 items? Although what we have covered thus far conveys the most essential use case, it is good to know that [Python provides an even more extensive syntax for unpacking iterables](https://www.python.org/dev/peps/pep-3132/#specification). We will also see that unpacking can be useful when creating and using functions.
@@ -152,12 +153,13 @@ Iterable unpacking is not quite as simple as it might seem. What happens if you 
 
 Python provides a sleek syntax for "unpacking" the contents of an iterable - assigning each item to its own variable. This allows us to write intuitive, highly-readable code when performing a for-loop over a collection of iterables. 
 </div>
+<!-- #endregion -->
 
-
+<!-- #region -->
 ### Enumerating iterables
 The built-in [enumerate](https://docs.python.org/3/library/functions.html#enumerate) function allows us to iterate over an iterable, while keeping track of the iteration count:
 
-# ```python
+```python
 # basic usage of `enumerate`
 >>> for entry in enumerate("abcd"):
 ...    print(entry)
@@ -165,11 +167,11 @@ The built-in [enumerate](https://docs.python.org/3/library/functions.html#enumer
 (1, 'b')
 (2, 'c')
 (3, 'd')
-# ```
+```
 
 In general, the `enumerate` function accepts an iterable as an input, and returns a new iterable that produces a tuple of the iteration-count and the corresponding item from the original iterable. Thus the items in the iterable are being enumerated. To see the utility of this, suppose that we want to record all of the positions in a list where the value `None` is stored. We can achieve this by tracking the iteration count of a for-loop over the list. 
 
-# ```python
+```python
 # track which entries of an iterable store the value `None`
 none_indices = []
 iter_cnt = 0  # manually track iteration-count
@@ -180,11 +182,11 @@ for item in [2, None, -10, None, 4, 8]:
     iter_cnt = iter_cnt + 1
 
 # `none_indices` now stores: [1, 3]
-# ```
+```
 
 We can simplify this code, and avoid having to initialize or increment the `iter_cnt` variable, by utilizing `enumerate` along with tuple-unpacking.
 
-# ```python
+```python
 # using the `enumerate` function to keep iteration-count
 none_indices = []
 
@@ -194,7 +196,7 @@ for iter_cnt, item in enumerate([2, None, -10, None, 4, 8]):
         none_indices.append(iter_cnt)
         
 # `none_indices` now stores: [1, 3]
-# ```
+```
 
 <div class="alert alert-info">
 
@@ -202,7 +204,7 @@ for iter_cnt, item in enumerate([2, None, -10, None, 4, 8]):
 
 The built-in [enumerate](https://docs.python.org/3/library/functions.html#enumerate) function should be used (in conjunction with iterator unpacking) whenever it is necessary to track the iteration count of a for-loop. It is valuable to use this in conjunction with tuple unpacking.  
 </div>
-
+<!-- #endregion -->
 
 <div class="alert alert-info">
 
@@ -235,18 +237,18 @@ For instance:
 - [Functions on iterables](https://docs.python.org/3/howto/functional.html#built-in-functions)
 - [enumerate](https://docs.python.org/3/library/functions.html#enumerate)
 
-
+<!-- #region -->
 ## Reading Comprehension Exercise Solutions:
 **enumerate: Solution**
 
-# ```python
+```python
 out = []
 for num, letter in enumerate("abcd"):
     out.append((num, letter))
-# ```
+```
 
 **Is it sorted?: Solution**
-# ```python
+```python
 my_list = [0, 1, -10, 2]
 unsorted_index = None
 
@@ -259,4 +261,5 @@ for index, current_num in enumerate(my_list):
     prev_num = current_num
 else:
     print("sorted!")
-# ```
+```
+<!-- #endregion -->

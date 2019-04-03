@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
@@ -23,21 +23,21 @@ In this section, we will introduce the essential "for-loop" control flow paradig
 There are reading-comprehension exercises included throughout the text. These are meant to help you put your reading to practice. Solutions for the exercises are included at the bottom of this page.
 </div>
 
-
+<!-- #region -->
 ## For-Loops
 A "for-loop" allows you to iterate over a collection of items, and execute a block of code once for each iteration. For example, the following code will sum up all the positive numbers in a tuple:
-# ```python
+```python
 total = 0
 for num in (-22.0, 3.5, 8.1, -10, 0.5):
     if num > 0:
         total = total + num
-# ```
+```
 The general syntax for a "for-loop" is:
 
-# ```
+```
 for <var> in <iterable>:
     block of code
-# ```
+```
 
 Where `<var>` is any valid variable-identifier and `<iterable>` is any **iterable**. We will discuss iterables more formally in the next section; suffice it to know that every sequence-type object is an iterable. The `for`statement must end in a colon character, and the body the for-loop is [whitespace-delimited](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Introduction.html#Python-Uses-Whitespace-to-Delimit-Scope).
 
@@ -50,7 +50,7 @@ The for-loop behaves as follows:
 - Go back to the first step.
 
 To be concrete, let's consider the example:
-# ```python
+```python
 # demonstrating a basic for-loop
 total = 0
 for item in [1, 3, 5]:
@@ -58,7 +58,7 @@ for item in [1, 3, 5]:
 
 print(total)  # `total` has the value 1 + 3 + 5 = 9
 # `item` is still defined here, and holds the value 5
-# ```
+```
 
 This code will perform the following steps:
 
@@ -75,14 +75,14 @@ This code will perform the following steps:
 #### Potential Pitfall
 Note that the variable `item` will persist after the for-loop block is exited. It will reference the last value from the for-loop iteration (in this case `item` has the value 5). That being said, *you should not write code that depends on the iterate-variable, outside of the context of the for-loop*. In the case that you try to loop over an *empty* iterable, the iterate-variable is never defined:
 
-# ```python
+```python
 for x in []:         # the iterable is empty - the iterate-variable `x` will not be defined
     print("Hello?")  # this code is never executed
 print(x)             # raises an error because `x` was never defined
-# ```
+```
 
 Because we are attempting to iterate over an empty list, `StopIteration` is raised immediately - before the variable `x` is even defined. Thus the code enclosed within the for-loop is never reached, and the subsequent `print(x)` statement will raise a `NameError`, because `x` was never defined!
-
+<!-- #endregion -->
 
 <div class="alert alert-info">
 
@@ -92,14 +92,14 @@ Using a for-loop and an if-statement, print each letter in the string `"abcdefgh
 
 </div>
 
-
+<!-- #region -->
 ## While-Loops
 A "while-loop" allows you to repeat a block of code until a condition is no longer true:
 
-# ```
+```
 while <condition>:
     block of code
-# ```
+```
 
 Where `<condition>` is an expression that returns `True` or `False`, or is any object on which `bool` can be called. The "body" of the while-loop is the code indented beneath the while-loop statement.
 
@@ -109,14 +109,14 @@ The while-loop behaves as follows:
 - If the indented block code is executed, go back to the first step.
 
 To be concrete, let's consider the example:
-# ```python
+```python
 # demonstrating a basic while-loop
 total = 0
 while total < 2:
     total += 1  # equivalent to: `total = total + 1`
 
 print(total)  # `total` has the value 2
-# ```
+```
 
 This code will perform the following steps:
 
@@ -136,7 +136,7 @@ Note that if we started off with `total = 3`, the condition-expression `3 < 2` w
 
 It is possible to write a while-loop such that its conditional statement is always True, in which case your code will run ceaselessly! If this ever happens to you in a Jupyter notebook, either interrupt or restart your kernel.
 </div>
-
+<!-- #endregion -->
 
 <div class="alert alert-info">
 
@@ -148,29 +148,29 @@ If you start with `x = [1]`, then by the end of your while-loop `x` should be `[
 
 </div>
 
-
+<!-- #region -->
 ## `break`, `continue`, & `else` clauses on loops
 The `continue` and `break` statements can be used within the bodies of both for-loops and while-loops. They provide added means for "short-circuiting" or prematurely exiting a given loop, respectively.
 
 Encountering `break` within a given loop causes that loop to be exited immediately:
 
-# ```ipython
+```ipython
 # breaking out of a loop early
 >>> for item in [1, 2, 3, 4, 5]:
 ...     if item == 3:
 ...         print(item, " ...break!")
 ...         break
 ...     print(item, " ...next iteration")
-# ```
-# ```
+```
+```
 1  ...next iteration
 2  ...next iteration
 3  ...break!
-# ```
+```
 
 An `else` clause can be added to the end of any loop. The body of this else-statement will be executed *only if the loop was not exited via a `break` statement*.
 
-# ```ipython
+```ipython
 # including an else-clause at the end of the loop
 >>> for item in [2, 4, 6]:
 ...     if item == 3:
@@ -179,16 +179,16 @@ An `else` clause can be added to the end of any loop. The body of this else-stat
 ...     print(item, " ...next iteration")
 ... else:
 ...     print("if you are reading this, then the loop completed without a 'break'")
-# ```
-# ```
+```
+```
 2  ...next iteration
 4  ...next iteration
 6  ...next iteration
 if you are reading this, then the loop completed without a 'break'
-# ```
+```
 
 The `continue` statement, when encountered within a loop, causes the loop-statement to be revisited immediately.
-# ```python
+```python
 # demonstrating a `continue` statement in a loop
 >>> x = 1
 >>> while x < 4:
@@ -199,16 +199,16 @@ The `continue` statement, when encountered within a loop, causes the loop-statem
 ...         continue
 ...     x += 1
 ...     print("--reached end of loop-body--")
-# ```
-# ```
+```
+```
 x =  1 >> enter loop-body <<
 --reached end of loop-body--
 x =  2 >> enter loop-body <<
 x =  2  continue...back to the top of the loop!
 x =  3 >> enter loop-body <<
 --reached end of loop-body--
-# ```
-
+```
+<!-- #endregion -->
 
 <div class="alert alert-info">
 
@@ -229,26 +229,28 @@ Loop over a list of integers repeatedly, summing up all of its even values, and 
 
 ## Reading Comprehension Exercise Solutions:
 
-
+<!-- #region -->
 **A basic for-loop: Solution**
-# ```python
+```python
 for letter in "abcdefghij":
     if letter in "aeiou":
         print(letter)
-# ```
+```
 
+<!-- #endregion -->
 
-
+<!-- #region -->
 **A basic while-loop: Solution**
-# ```python
+```python
 while x[-1] < 100:
     x.append(sum(x))
-# ```
+```
+<!-- #endregion -->
 
-
+<!-- #region -->
 **Conducting flow in a loop: Solution**
 
-# ```python
+```python
 x = [3, 4, 1, 2, 8, 10, -3, 0]
 num_loop = 0
 total = 0
@@ -269,5 +271,6 @@ while total < 100:
         break
 else:
     print(total)
-# ```
+```
 
+<!-- #endregion -->

@@ -4,14 +4,15 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
+<!-- #region -->
 # Data Structures (Part I): Introduction
 Here we survey Python's built-in data structures. You should already be familiar with its lists and tuples, two data structures that facilitate working with sequential data. Two other critical, built-in data structures to be introduced are:
 
@@ -20,17 +21,17 @@ Here we survey Python's built-in data structures. You should already be familiar
 
 These data structures are not merely convenient constructs with some nice pre-written functionality; they also provide an interface to some optimized core utilities that have been written in C (or whatever language your Python interpreter is written in). For example, let's write a function that checks if an item is contained within an iterable:
 
-# ```python
+```python
 def is_in(seq, target):
     """ Returns True if `target` is contained in `seq`."""
     for item in seq:
         if item == target:
             return True
     return False
-# ```
+```
 
 This function mirrors the C-algorithm that Python uses "under the hood" for checking for membership in a list (assuming you are using the CPython interpreter, which you almost definitely are). Because their function is implemented "at a lower level", and need not be interpreted, we expect it to be faster than ours:
-# ```python
+```python
 >>> x = [1, "moo", 3, True, 5, None, 7, 8]
 
 >>> is_in(x, -1)  # takes 980 nanoseconds on my machine
@@ -38,10 +39,10 @@ False
 
 >>> -1 in x       # takes 320 nanoseconds on my machine
 False
-# ```
+```
 Here, Python's built-in sequence-membership function is 3x faster than using our own function. Furthermore, it will be important to know the advantages provided by each of the data structures. For instance, testing for membership in a set is even faster than is checking for membership in a list:
 
-# ```python
+```python
 # test for membership in a list
 >>> -1 in [1, "moo", 3, True, 5, None, 7, 8]  # takes 295 nanoseconds on my machine
 False
@@ -49,7 +50,7 @@ False
 # test for membership in a set
 >>> -1 in {1, "moo", 3, True, 5, None, 7, 8}  # takes 65 nanoseconds on my machine
 False
-# ```
+```
 We get a 4.5x speedup in our membership test just by using a set instead of a list, because the use of a set permits Python to use an entirely different algorithm for checking for membership. On our end, we merely replaced square brackets with curly braces! Hopefully this is sufficient motivation for learning about Python's data structures and the algorithms that they utilize "under the hood".
 
 <div class="alert alert-info">
@@ -58,8 +59,9 @@ We get a 4.5x speedup in our membership test just by using a set instead of a li
 
 Python's data structures come with a wealth of built-in functionality. Furthermore, understanding where each data structure "shines" is critical for writing efficient Python code. It is not necessary to memorize this information, but you should know that it exists and should be referenced frequently.
 </div>
+<!-- #endregion -->
 
-
+<!-- #region -->
 ## Describing Algorithm Complexity
 In order to meaningfully compare the relative efficiency of algorithms, it is useful to summarize how algorithms "scale" with problem size. Two sorting algorithms may be comparable when sorting tens of items, and yet they may have wildly different performances when sorting thousands of items. 
 
@@ -69,7 +71,7 @@ Let's take, for instance, the `is_in` function that we wrote at the beginning of
 
 Now suppose we did a truly terrible job writing a membership algorithm, and performed a nested iteration over our collection:
 
-# ```python
+```python
 def is_in_slow(seq, target):
     """ Returns True if `target` is contained in `seq`."""
     for item in seq:
@@ -78,7 +80,7 @@ def is_in_slow(seq, target):
             if item == target:
                 return True
     return False
-# ```
+```
 
 For each item in `seq` we iterate over `seq` again, thus in the worst-case scenario we need to iterate over $n$ items, $n$ separate times - a total of $n^{2}$ "steps" in our algorithm. Thus we would say that `is_in_slow` is a $\mathcal{O}(n^{2})$ algorithm: whereas doubling size of `seq` would increase the run time of our $\mathcal{O}(n)$ algorithm by a factor of 2 (linear scaling), it would increase the run time of this $\mathcal{O}(n^{2})$ algorithm by 4 (quadratic scaling).
 
@@ -94,7 +96,7 @@ A few important notes:
 - An algorithm whose run time *does not depend on the size of its input* is a $\mathcal{O}(1)$ algorithm. 
   - Example: a function that returns the second element from a list.
 - There are more nuanced methods for analyzing algorithm complexity than solely considering the worst-case scenario, which can be overly pessimistic. Know that  "big-O" notation can be used to convey mean performance, [amortized](https://en.wikipedia.org/wiki/Amortized_analysis) performance, and other types of analysis. Here, we will simply stick to the worst-case analysis.
-
+<!-- #endregion -->
 
 <div class="alert alert-info">
 
