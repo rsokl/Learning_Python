@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Introducing integrated development environments (IDEs) for Python
+   :keywords: python, introduction, IDE, PyCharm, VSCode
+```
+
 # Setting Up a Development Environment
 ## What You Will Learn
 
