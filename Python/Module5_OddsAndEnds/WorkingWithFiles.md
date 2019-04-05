@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Working with aths and files, Difficulty: Medium, Category: Section
+   :keywords: open file, read file, pathlib, join directory, context manager, close file, rb, binary file, utf-8, encoding, pickle, numpy, load, archive, npy, npz, pkl, glob, read lines, write, save
+```
+
 # Working with Files
 This section will discuss the best practices for writing Python code that involves reading from and writing to files. We will learn about the built-in `pathlib.Path` object, which will help to ensure that the code that we write is portable across operating systems (OS) (e.g. Windows, MacOS, Linux). We will also be introduced to a *context manager*, `open`, which will permit us to read-from and write-to a file safely; by "safely" we mean that we will be assured that any file that we open will eventually be closed properly, so that it will not be corrupted even in the event that our code hits an error. Next, we will learn how to "glob" for files, meaning that we will learn to search for and list files whose names match specific patterns. Lastly, we will briefly encounter the `pickle` module which allows us to save (or "pickle") and load Python objects to and from your computer's file system.  
 

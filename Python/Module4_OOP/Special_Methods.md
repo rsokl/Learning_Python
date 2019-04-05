@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Controlling behavior with special methods, Difficulty: Medium, Category: Section
+   :keywords: dunder method, special method, operator overload, repr, getitem, custom syntax, __init__
+```
+
 <!-- #region -->
 # Special Methods
 In this section, we will learn about a variety of instance methods that are reserved by Python, which affect an object's high level behavior and its interactions with operators. These are known as special methods. `__init__` is an example of a special method; recall that it controls the process of creating instances of a class. Similarly, we will see that `__add__` controls the behavior of an object when it is operated on by the `+` symbol, for example. In general, the names of special methods take the form of `__<name>__`, where the two underscores preceed and succeed the name. Accordingly, special methods can also be referred to as "dunder" (double-underscore) methods. Learning to leverage special methods will enable us to design elegant and powerful classes of objects.

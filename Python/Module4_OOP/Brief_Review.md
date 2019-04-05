@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Brief review of object oriented programming, Difficulty: Easy, Category: Tutorial
+   :keywords: class definition, simple, examples, overview, init, initialize, type, object
+```
+
 <!-- #region -->
 ## A Brief Summary of Terms and Concepts
 

@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Class inheritance, Difficulty: Easy, Category: Section
+   :keywords: inherit, object oriented, overwrite, sub class, issubclass
+```
+
 <!-- #region -->
 # Inheritance
 A final topic for us to discuss in this introduction to object oriented programming is the concept of inheritance. Working with inheritance provides powerful abstractions and elegant code re-use - it permits a class to inherit and build off of the attributes of another class.

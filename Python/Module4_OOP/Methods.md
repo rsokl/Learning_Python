@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: The different kinds of class methods, Difficulty: Medium, Category: Section
+   :keywords: instance, class method, static method, property, abstract method, class funtion
+```
+
 <!-- #region -->
 # Methods
 

@@ -12,6 +12,13 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: The rules for defining classes in python, Difficulty: Easy, Category: Section
+   :keywords: class definition, scope, class object, attribute, method
+```
+
+
 <!-- #region -->
 # Defining a New Class of Object
 

@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Understanding imports modules and packages, Difficulty: Easy, Category: Section
+   :keywords: custom package, module, script, import, setup, pip, conda, relative import, absolute import 
+```
+
 <!-- #region -->
 # Import: Modules and Packages
 
