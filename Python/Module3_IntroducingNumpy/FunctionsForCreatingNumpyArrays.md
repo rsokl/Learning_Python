@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Creating numpy arrays, Difficulty: Easy, Category: Section
+   :keywords: create array, ndarray, ones, random, zeros, empty, examples, arange, linspace, reshape, hstack, vstack
+```
+
 <!-- #region -->
 # Functions for Creating NumPy Arrays 
 This section presents standard methods for creating NumPy arrays of varying shapes and contents. NumPy provides a laundry list of functions for creating arrays:

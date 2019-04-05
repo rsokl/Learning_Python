@@ -14,8 +14,8 @@ jupyter:
 
 ```raw_mimetype="text/restructuredtext"
 .. meta::
-   :description: 
-   :keywords: python, installation, script, introduction
+   :description: Topic: Informal Introduction to Python, Difficulty: Easy, Category: Tutorial
+   :keywords: python, installation, script, introduction, ipython, console, quick introduction
 ```
 
 # An Informal Introduction to Python

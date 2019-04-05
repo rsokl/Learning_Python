@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: variable naming and assignment, Difficulty: Medium, Category: Section
+   :keywords: variable naming, valid names, mutable, immutable, reference, pointer
+```
+
 # Variables & Assignment
 
 <div class="alert alert-warning">

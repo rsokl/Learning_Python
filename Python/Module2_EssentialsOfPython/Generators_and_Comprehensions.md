@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: generators comprehensions and efficiency, Difficulty: Easy, Category: Section
+   :keywords: generator, range, list comprehension, generator comprehension, nested comprehensions, inline for-loop, filtered, iterator
+```
+
 # Generators & Comprehension Expressions
 <div class="alert alert-warning">
 

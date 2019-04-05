@@ -15,7 +15,7 @@ jupyter:
 ```raw_mimetype="text/restructuredtext"
 .. meta::
    :description: Topic: String Encoding Exercise, Difficulty: Medium, Category: Practice Problem
-   :keywords: python, function, string, casting, practice problem
+   :keywords: function, string, casting, practice problem
 ```
 
 # Encode as String

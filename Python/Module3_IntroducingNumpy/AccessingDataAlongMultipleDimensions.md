@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Indexing into multi-dimensional numpy arrays, Difficulty: Easy, Category: Section
+   :keywords: numpy array, multidimensional, index, slice, negative index, rows, columns
+```
+
 <!-- #region -->
 #  Accessing Data Along Multiple Dimensions in an Array
 In this section, we will: 

@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Vectorized operations with numpy arrays, Difficulty: Easy, Category: Section
+   :keywords: vectorize, optimized, calculation, numpy, fast, C routine, MKL, sum, linear algebra, optimized
+```
+
 <!-- #region -->
 # "Vectorized" Operations: Optimized Computations on NumPy Arrays
 

@@ -12,6 +12,13 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Conditional Statements, Difficulty: Easy, Category: Section
+   :keywords: if, else, elif, inline if, switch statement, comparison operator, bool, truth, is operator
+```
+
+
 # Conditional Statements
 
 <div class="alert alert-warning">

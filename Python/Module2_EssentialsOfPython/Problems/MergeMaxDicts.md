@@ -15,7 +15,7 @@ jupyter:
 ```raw_mimetype="text/restructuredtext"
 .. meta::
    :description: Topic: Dictionary Merge Exercise, Difficulty: Easy, Category: Practice Problem
-   :keywords: python, dictionary, merge, practice problem
+   :keywords: dictionary, merge, practice problem
 ```
 
 <!-- #region -->

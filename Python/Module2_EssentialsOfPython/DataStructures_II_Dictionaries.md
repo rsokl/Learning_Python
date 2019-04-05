@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Introduction to Dictionaries, Difficulty: Medium, Category: Section
+   :keywords: dictionary, complexity, key, value, iteration, get item, hashing, lookup, interview preparation
+```
+
 #  Data Structures (Part II): Dictionaries
 Python's dictionary allows you to store key-value pairs, and then pass the dictionary a key to quickly retrieve its corresponding value. Specifically, you construct the dictionary by specifying one-way mappings from key-objects to value-objects. **Each key must map to exactly one value**, meaning that a key must be unique. 
 

@@ -15,7 +15,7 @@ jupyter:
 ```raw_mimetype="text/restructuredtext"
 .. meta::
    :description: Topic: Jupyter notebooks, Difficulty: Easy, Category: Tutorial
-   :keywords: jupyter, notebook, kernel, basics, server, console, command line, plot
+   :keywords: jupyter, notebook, kernel, basics, server, console, command line, plot, beginner, data science
 ```
 
 # Jupyter Notebooks

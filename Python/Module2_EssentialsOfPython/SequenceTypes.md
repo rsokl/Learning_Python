@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: understanding python sequences, Difficulty: Easy, Category: Section
+   :keywords: list, tuple, string, slice, index, negative index, get item, pop, append, examples
+```
+
 <!-- #region -->
 # Sequence Types
 

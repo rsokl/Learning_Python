@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Numpy array traversal ordering, Difficulty: Medium, Category: Section
+   :keywords: row-major order, c order, column-major order, f order, traversal, array iteration
+```
+
 # Iterating Over Arrays & Array-Traversal Order
 In this section, you will learn:
 

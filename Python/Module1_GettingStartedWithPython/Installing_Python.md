@@ -15,7 +15,7 @@ jupyter:
 ```raw_mimetype="text/restructuredtext"
 .. meta::
    :description: Topic: Installing Python with Anaconda, Difficulty: Easy, Category: Tutorial
-   :keywords: python, anaconda, instructions, environments
+   :keywords: python, anaconda, instructions, environments, beginner, data science, introduction
 ```
 
 ## Installing Python

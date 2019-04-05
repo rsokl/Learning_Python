@@ -15,7 +15,7 @@ jupyter:
 ```raw_mimetype="text/restructuredtext"
 .. meta::
    :description: Topic: Palindrome Exercise, Difficulty: Easy, Category: Practice Problem
-   :keywords: python, string, palindrome, practice problem
+   :keywords: string, palindrome, practice problem
 ```
 
 <!-- #region -->
