@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
@@ -19,17 +19,17 @@ In this section, you will learn:
 - That there is more than one valid way for NumPy to perform this operation, which amounts to how NumPy traverses a multidimensional array.
 - The row-major array traversal methodology, which is utilized by NumPy by default.
 
-
+<!-- #region -->
 NumPy provides valuable tools for iterating over any array, such that each element can be visited in the array, regardless of the array's shape. For example, recall that Python's built-in `enumerate` function permits us to produce each item in an iterable, along with its index of iteration:
 
-# ```python
+```python
 # enumerating the items in an iterable
 >>> [i for i in enumerate("abcdef")]
 [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd'), (4, 'e'), (5, 'f')]
-# ```
+```
 
 Similarly, NumPy provides the [ndenumerate](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndenumerate.html#numpy.ndenumerate) function, which enumerates each element in an N-dimensional array, specifying the N-dimensional index for each element.
-# ```python
+```python
 >>> import numpy as np
 
 # Demonstrating `np.ndenumerate`.
@@ -53,11 +53,11 @@ Similarly, NumPy provides the [ndenumerate](https://docs.scipy.org/doc/numpy/ref
  ((1, 1, 0), 17),
  ((1, 1, 1), 10),
  ((1, 1, 2), -45)]
-# ```
+```
 
 See that each triplet of integers specifies the index for the corresponding array element:
 
-# ```python
+```python
 >>> x[0, 0, 0]
 25
 
@@ -69,19 +69,20 @@ See that each triplet of integers specifies the index for the corresponding arra
 
 >>> x[0, 1, 0]
 9
-# ```
+```
 
 See [the official NumPy documentation](https://docs.scipy.org/doc/numpy/reference/routines.indexing.html#iterating-over-arrays) for a complete listing of functions that facilitate iterating over arrays. The official documentation also provides [a detailed treatment of array iteration](https://docs.scipy.org/doc/numpy/reference/arrays.nditer.html#iterating-over-arrays), which is far more detailed than is warranted here. Next, we must discuss the default ordering that NumPy uses when traversing a N-dimensional array.
 
 
+<!-- #endregion -->
 
-
+<!-- #region -->
 ## How to Traverse an Array: Row-major (C) vs Column-major (F) Traversal Ordering
 Note the order in which `np.ndenumerate` iterated over `x`. It first traversed the columns within row-0 of sheet-0 of `x`, and then it traversed the columns within the row-1 of sheet-0, and so on. What is special about this traversal order? Why, for instance, didn't it traverse the rows within a given column instead? We can also see that there is not a unique ordering for a `reshape` function to adhere to. For example, the following reshape operation could sensibly return either of the following results:
-# ```
+```
   array([0, 1, 2, 3, 4, 5]).reshape(2, 3) -->  array([[0, 1, 2],  or   array([[0, 2, 4],
                                                       [3, 4, 5]])             [1, 3, 5]])
-# ```
+```
 
 Both arrays are of the appropriate shape and preserve the ordering of the original sequence of numbers, depending on how you traverse them. The left array preserves the ordering of the original data if you traverse the columns within a row, and then proceed to the next row. This is known as **row-major** ordering. The array on the right preserves the ordering if you traverse the rows within a given column, and then transition to the next column. This is thus referred to as **column-major** ordering. One ordering is not inherently better than the other. That being said, *NumPy always defaults to row-major ordering whenever one of its functions involves array traversal*.
 
@@ -107,7 +108,7 @@ These two orderings are simple enough to follow for a 2D-array, but how do they 
 </div>
 
 To make this more concrete, let's consider how NumPy reshapes a shape-(24,) array into a shape-(2,3,4) array:
-# ```python
+```python
 # reshape a shape-(24,) array into a shape-(2,3,4) array
 >>> np.arange(2*3*4).reshape(2,3,4)
 array([[[ 0,  1,  2,  3],
@@ -117,7 +118,7 @@ array([[[ 0,  1,  2,  3],
        [[12, 13, 14, 15],
         [16, 17, 18, 19],
         [20, 21, 22, 23]]])
-# ```
+```
 
 Following NumPy's default row-major ordering, we can perform this reshaping by following these steps:
 
@@ -130,7 +131,7 @@ This traversal process is easier to understand when laid out explicitly:
 
 ***
 **Reshaping a shape-(24,) array to a shape-(2,3,4) array, using NumPy's default "row-major" ordering**
-# ```
+```
 
                                 Input Array     Output Array
                                 -----------    ---------------
@@ -159,7 +160,7 @@ This traversal process is easier to understand when laid out explicitly:
                                  entry:21  ->  entry: (1, 2, 1)
                                  entry:22  ->  entry: (1, 2, 2)
                                  entry:23  ->  entry: (1, 2, 3) *row-2 of sheet 1, filled. Done!*
-# ```
+```
 
 ***
 
@@ -167,7 +168,7 @@ The same process can be extended to reshape one multidimensional array into anot
 
 ***
 **Reshaping a shape-(2,3,4) into a shape(6,4) array using NumPy's default "row-major" ordering**
-# ```
+```
 
                                      Input Array       Output Array
                                   ----------------    ---------------
@@ -179,8 +180,8 @@ The same process can be extended to reshape one multidimensional array into anot
                                   ...
                                   ...
                                   entry: (1, 2, 3) -> entry: (5, 3)
-# ```
-
+```
+<!-- #endregion -->
 
 Although this bookkeeping may seem a bit tedious at first glance, you will likely find that you are able to build up enough intuition for row-major ordering, to the point where you never need to write out these tables in full! The ability to reshape an array to adjust the way you can access an array's data is commonly used in data science applications. Furthermore, understanding how NumPy handles array traversal is critical to understanding more advanced concepts like array-broadcasting and advanced indexing. 
 

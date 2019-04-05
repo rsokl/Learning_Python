@@ -4,14 +4,15 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
+<!-- #region -->
 # Difference Fanout
 
 Given a list of numbers, for each number generate a list of the differences between it and $n_{fanout}$ (known as the **fanout** value) following numbers in the list. Return a list of all the lists generated for each number. For members in the list that have fewer than $n_{fanout}$ following members, calculate as many differences as possible. For example, suppose we want to compute the difference fanout on the list `[3, 2, 4, 6, 1]` with a fanout value of 3. Then we would compute:
@@ -22,11 +23,11 @@ Given a list of numbers, for each number generate a list of the differences betw
  - $6 \rightarrow [1 - 6]$
  - $1 \rightarrow []$
  
-# ``` Python
+``` Python
 # example behavior
 >>> difference_fanout([3, 2, 4, 6, 1], 3)
 [[-1, 1, 3], [2, 4, -1], [2, -3], [-5], []]
-# ```
+```
 
 You will want to know about [lists](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Lists), [indexing & slicing](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Introducing-Indexing-and-Slicing) lists, and [for-loops](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ForLoops.html) to solve this problem.
 
@@ -35,7 +36,7 @@ For extra credits (and some extra fun!), try to write your function only using [
 ## Solution: difference_fanout using for-loops
 We will naturally tackle this problem by performing nested for-loops. The outermost for-loop will loop over each number in the list. We will refer to this number as the "base number". We will want the inner for-loop to iterate ahead of the base number so that we can compute the differences between it and its $n_{fanout}$ neighbors. We will need to take care re-initialize our intermediate list of differences for each new base number, otherwise each subtraction will get appended to one long list. 
 
-# ```python
+```python
 def difference_fanout(l, fanout):
     """ Return a list of differences for 
         each value with its following terms
@@ -62,7 +63,7 @@ def difference_fanout(l, fanout):
             
         all_fanouts.append(base_fanout)
     return all_fanouts
-# ```
+```
 
 Note our use of [enumerate](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Iterables.html#Enumerating-iterables); this permits us to simultaneously access our base number, which we use in the subtraction, as well as its index-position within the list `l`, which we use to determine the neighbors. 
 
@@ -71,7 +72,7 @@ Next, you may be concerned that our inner-loop will attempt to iterate beyond th
 ## Solution: difference_fanout using list comprehensions
 We can make judicious use of nested [list comprehensions](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#List-&-Tuple-Comprehensions) to simplify our solution. Although the syntax may appear to be convoluted at first glance, it permits us proceed without worrying about initializing multiple empty lists and appending to them at the right points in our nested for-loops
 
-# ``` Python
+``` Python
 def difference_fanout(l, fanout):
     """ Return a list of differences for 
         each value with its following terms
@@ -90,7 +91,7 @@ def difference_fanout(l, fanout):
     """
     return [[neighbor - base for neighbor in l[i+1:i+1+fanout]] 
             for i,base in enumerate(l)]
-# ```
+```
 
 See that the outermost list comprehension loops over the base number, as did the outer for-loop in the prior solution, and that the innermost list comprehension plays the same roll as the inner for-loop.
 
@@ -100,7 +101,7 @@ There are fewer potential points of failure in this solution, as its conciseness
 Recall from [earlier](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#Functions-are-Objects) that functions are, under the hood, just objects with some special operations that allow you to "call" a function. This means that you can pass other functions as parameters into a function. It is especially powerful, since it enables us to generalize the purposes of our functions. For example, we don't have to limit our function to just computing the **difference** between members and their following terms; we can apply **any** *binary operation*. Instead of finding the difference, we can calculate the sum or product or even concatenate two strings for a list of string. The possibilities are limitless. 
 
 Armed with this knowledge, we can generalize the code.
-# ```Python
+```Python
 def apply_fanout(l, fanout, op):
     """ Return a list of outputs for each value 
         after applying a binary operation between 
@@ -124,13 +125,14 @@ def apply_fanout(l, fanout, op):
     """
     return [[op(neighbor, base) for neighbor in l[i+1:i+1+fanout]] 
             for i,base in enumerate(l)]
-# ```
+```
 Now, we can rewrite `difference_fanout` simply as
-# ``` Python
+``` Python
 def subtract(a, b): 
     return a - b
 
 def difference_fanout(l, fanout):
     return apply_fanout(l, fanout, subtract)
-# ```
+```
 We can easily change `subtract` to some other function for a totally different use. 
+<!-- #endregion -->

@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
@@ -40,7 +40,7 @@ Some of the packages provided by Anaconda, like NumPy, have been [optimized](htt
 
 You will need to know how to open a terminal (cmd.exe for Windows users) on your computer, and how to navigate between directories in the terminal. If you do not know how to do this, read a 'how-to' for whatever operating system you are using.
 
-
+<!-- #region -->
 ### What did this just do to my computer?
 
 This created a directory called `Anaconda3` (or some variant of this) on your computer, which contains all of the files associated with the CPython interpreter, all of the modules in Python's standard library, the aforementioned 3rd party packages that come as part of the Anaconda distribution (e.g. NumPy, SciPy, Jupyter, iPython), and the `conda` package manager. It also contains the executable files for all of these applications. The default install location for Anaconda is:
@@ -57,9 +57,9 @@ For Linux and Mac users, it is very likely that your system already has a versio
 
 The simple solution to this is to *not* have the Anaconda-installer include Anaconda in your path. Instead, you can create an alias that will allow you manually prepend Anaconda to your path. E.g., in Linux you can add the following alias to your `~/.bashrc` file:
 
-# ```shell
+```shell
 alias anaconda="export PATH=/home/<your_username>/anaconda3/bin:$PATH"
-# ```
+```
 
 With this alias in place, you can simply invoke the command `anaconda` in your terminal to place Anaconda at the beginning of your path for that terminal session. 
 
@@ -71,36 +71,37 @@ With this alias in place, you can simply invoke the command `anaconda` in your t
 
 Assuming that your initial installation of Anaconda contained Python 3, then your *root* (i.e. default) conda environment is that Python 3 environment. You can now create a conda environment that instead includes Python 2.7 and all of the 3rd party packages that come with Anaconda. Execute the following command in your terminal:
 
-# ```shell
+```shell
 conda create -n py27 python=2.7 anaconda
-# ```
+```
 
 Once the installation process is complete, you will be able to activate this environment, which we have named `py27`, by executing the command (Linux, Mac): 
-# ```shell
+```shell
 source activate py27
-# ``` 
+``` 
 in your terminal. If you are in Windows, the command is: 
-# ```shell
+```shell
 activate py27
-# ```
+```
 Activating an environment simply updates your system's path, swapping the directory `Anaconda3` with `Anaconda3/envs/py27` in this instance. Thus your system will now find the Python 2.7 executable and its associated libraries in its path. Note that this path change only occurs effect in *that particular terminal session*. Any other terminal session will default to the root conda environment. 
 
 Having activated your `py27` environment, you can start a vanilla Python console, an iPython console, a Jupyter notebook, run a Python script, etc. These will now all use Python 2.7. You can also use `conda` (and `pip`) to install Python 2.7-compatible packages in this environment. As long as your path points to `Anaconda3/envs/py27` and not `Anaconda3`, it is as if this is the only version of Python that lives on your computer.
 
 Deactivating this environment will return you to the root Python 3 environment. That is, it will switch your path back to including `Anaconda3` instead of `Anaconda3/envs/py27`. Simply invoke the command (Mac, Linux):
 
-# ```shell
+```shell
 source deactivate
-# ```
+```
 
 On Windows, the command is:
 
-# ```shell
+```shell
 deactivate
-# ```
+```
 
 And like that, conda environments give you all of the powers of a necromancer, allowing you to nimbly cross back and forth between the land of the living (Python 3) and the dead (Python 2.7).
 
 Conda environments have more uses than simply switching back and forth between Python 3 and 2. Many people like to make a new conda environment for every major project that they work on, so that they can freely install any dependencies that are needed for that particular project, without worrying about conflicts with their other work. You should be keen on making regular use of conda environments.
 
 It is highly recommended that you take time to read through [this tutorial on managing conda environments](https://conda.io/docs/user-guide/tasks/manage-environments.html).
+<!-- #endregion -->

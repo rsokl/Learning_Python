@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
@@ -52,19 +52,19 @@ Although a Jupyter notebook opens in your browser, *everything is happening loca
 
 
 
-
+<!-- #region -->
 ## Notebook Cells 
 Whereas a Python console only allows you to work on one line of code at a time, a notebook allows you to write code within "cells" and to execute these chunks of code cell-by-cell. In the first cell, write the lines of code:
 
-# ```python
+```python
 x = 3
 y = 4
-# ```
+```
 then press `<SHIFT>+<ENTER>`. This will execute all of the code within the given cell (in this instance, assigning the variables `x` and `y` with the values 3 and 4, respectively) and then creates a new cell below. In the next cell type the code:
 
-# ```python
+```python
 x + y
-# ```
+```
 and hit `<SHIFT>+<ENTER>` to execute this code. The number 7 will appear beneath the cell - this, of course, is the value that is returned when `3 + 4` is evaluated: 
 
 ![jupyter notebook example](attachments/jupyter_early.png)
@@ -74,7 +74,7 @@ Notice that the notebook "knows" about its variables across its cells. This does
 Formally, the cells within a given notebook share a common "namespace": any variable defined in a cell can be referenced or redefined in any other cell within the notebook. On the other hand, separate notebooks are completely independent from one another. You can be working on multiple notebooks at once, and they will never "know" about one another. 
 
 A major value of using a notebook is that you can rapidly edit these cells (say, change `x = 3` to  `x = 10`), and re-execute them to nimbly tinker with whatever code you are developing. Although simple, this is a hugely powerful environment for prototyping code. 
-
+<!-- #endregion -->
 
 ## An Example Notebook
 To show off a more exciting use-case, let's create a notebook that plots some data for us. We'll use matplotlib, a Python library that is used for plotting data, and NumPy, the premiere library for doing numerical work in Python. We will import these libraries for use in our code. Next we'll define some mathematical functions. And finally, we'll plot these functions evaluated on a large number of closely-spaced points on the domain.
