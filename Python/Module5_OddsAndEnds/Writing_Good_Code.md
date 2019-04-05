@@ -19,7 +19,6 @@ jupyter:
    :keywords: pep8, code style, lint, format, best practices, type hint, documentation, numpydoc, sphinx, typing, annotation, whitespace
 ```
 
-
 # Writing Good Code
 
 Throughout PLYMI we have been concerned with learning the rules for writing valid Python code. That is, we have taken care to ensure that our computers can understand the instructions that we have written for them. Here, we will discuss methods for making our code easier for *humans* to understand. Specifically, we will study:
