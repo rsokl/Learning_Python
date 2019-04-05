@@ -4,17 +4,23 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: variable score and namespaces in python, Difficulty: Medium, Category: Section
+   :keywords: variable, namespace, function, scope, shadowing
+```
+
 # Scope
 
-
+<!-- #region -->
 A valuable aspect of the "encapsulation" provided by functions is that the function's input argument variables, and any variables defined within the function, cannot be "seen" nor accessed outside of the function. That is, these variables are said to have a restricted **scope**.
 
 <div class="alert alert-info">
@@ -26,7 +32,7 @@ The **scope** of a variable refers to the context in which that variable is visi
 
 Until our work with comprehension-statements and functions, we had only encountered variables that have **file scope**. This means that a variable, once defined, is visible to all parts of the code contained in the same file. Variables with file scope can even be accessed *within functions*. By contrast, the variables defined within a function or as input arguments to a function have a **restricted scope** - they can only be accessed within the context of the function:
 
-# ```python
+```python
 x = 3  # `x` has file scope. It can be even be accessed
        # within a function, even if it isn't passed to
        # the function as an argument
@@ -40,10 +46,10 @@ def my_func(y):
 # `func_var` and `y` do not exist here
 print(func_var)  # raises NameError: name `func_var` not defined
 print(y)         # raises NameError: name `y` not defined
-# ```
+```
 
 Python's scoping rules are quite liberal compared to those of other languages, like C++. In most situations, Python will give variables file scope. Let's briefly survey the various contexts in which variables are defined, along with their corresponding scoping rules. Assume that the following code represents the entire contents of the Python script "example_scope.py":
-# ```python
+```python
 # this demonstrates scope of variables in different contexts
 # nothing meaningful is computed in this file
 
@@ -76,7 +82,7 @@ for it_var in [1, 2, 3]:
 while True:
     while_block = None
     break
-# ```
+```
 
 In the preceding code, the following variables have *file scope*:
 
@@ -94,7 +100,7 @@ whereas the following variables have *restricted scope*:
 - `in_arg2`
 - `func_block`
 - `comp_var`
-
+<!-- #endregion -->
 
 In C++, the variables `if_block`, `it_var`, `for_block`, and `while_block` all would have had restricted scopes - these variables would not be defined outside of their respective if/for/while blocks.
 
@@ -105,11 +111,11 @@ In C++, the variables `if_block`, `it_var`, `for_block`, and `while_block` all w
 Variables defined within a function have a *restricted scope* such that they do not exist outside of that function. Most other contexts for defining variables in Python produce variables with *file scope* (i.e. they can be accessed anywhere in the file's code, subsequent to their definition). 
 </div>
 
-
+<!-- #region -->
 ## Variable Shadowing
 What happens when a file-scope variable and a function-scope variable share the same name? This type of circumstance is known as **variable shadowing**. Python resolves this by giving precedence to the variable *with the most restricted scope*, when inside that scope:
 
-# ```python
+```python
 x = 2
 y = 3
 
@@ -123,11 +129,11 @@ def func(x):
 
 print(func(-5))  # prints 0
 print(x, y)      # prints 2  3
-# ```
+```
 
 and similarly,
 
-# ```python
+```python
 it = "cow"
 
 def func():
@@ -137,8 +143,8 @@ def func():
     return None
 
 # `it` is "cow" here, once again
-# ```
-
+```
+<!-- #endregion -->
 
 ## Links to Official Documentation
 

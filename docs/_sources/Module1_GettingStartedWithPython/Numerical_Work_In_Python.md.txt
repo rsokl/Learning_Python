@@ -4,14 +4,15 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
+<!-- #region -->
 # Doing Numerical Work in Python
 
 Python's elegant and flexible syntax makes it a particularly attractive language. However, this also makes Python considerably slower than other, more stringent languages (e.g., the C programming language). This is a non-issue in many circumstances. It is, however, a major roadblock when one is doing serious numerical work.
@@ -23,11 +24,11 @@ Fortunately, there are several packages that you can use in Python, which allow 
 The fundamental package for scientific computing with Python. NumPy provides an N-dimensional array that can be used to represent, say, a large matrix of numbers. It also provides a huge number of mathematical functions that can operate on these arrays. It is crucial to note that these functions will actually be executed in C, so they are incredibly fast compared to the same functions written in vanilla Python. NumPy will be used throughout the machine learning component of the course.
 
 Here is example code for summing the numbers 1-100 in NumPy:
-# ```python
+```python
 import numpy as np
 numbers = np.arange(1, 101) # an array storing the numbers 1-100
 numpy_result = numbers.sum()
-# ```
+```
 <div class="alert alert-warning">
 
 **Note**:
@@ -42,7 +43,7 @@ Numba gives you the power to speed up your applications with high-performance fu
 We will not be using this package in this course, but it is a tremendous tool that is becoming instrumental for doing numerical work in Python.
 
 Here is example code for summing the numbers 1-100 in numba:
-# ```python
+```python
 import numba
 @numba.njit
 def sum_func():
@@ -51,7 +52,7 @@ def sum_func():
         result += i
     return result
 numba_result = sum_func()
-# ```
+```
 
 ## Ending Remarks and Summary
 Using these packages can speed up numerical computations by hundreds or even thousands of times compared to pure Python. Your calculation that was taking an hour to complete now takes 3 seconds!
@@ -64,3 +65,4 @@ If you are interested in learning more about computational efficiency and Python
 - Tools like NumPy and Numba allow you do fast numerical computations in Python by "secretly" doing the numerical work behind the scenes in a fast language, like C.
 - We will be working with NumPy (but Numba is fantastic and very worthwhile to learn if you do any serious numerical work in Python).
 - Both NumPy and Numba came with your installation of Anaconda
+<!-- #endregion -->

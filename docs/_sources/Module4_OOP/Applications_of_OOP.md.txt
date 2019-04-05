@@ -4,13 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.0'
-      jupytext_version: 1.0.1
+      format_version: '1.1'
+      jupytext_version: 1.1.0-rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
+
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Applications of object-oriented programming, Difficulty: Medium, Category: Section
+   :keywords: summary, tutorial, python shopping list, object oriented, method, attribute
+```
 
 # Applications of Object Oriented Programming
 
@@ -33,7 +39,7 @@ Lastly, we will want our methods to accept a variable that is either a single it
 
 
 
-# ```python
+```python
 class ShoppingList:
     def __init__(self, items):
         """ Parameters
@@ -77,35 +83,35 @@ class ShoppingList:
     def list_unpurchased_items(self):
         """ Return a sorted list of the items still on the list"""
         return sorted(self._needed)
-# ```
+```
 
-
+<!-- #region -->
 Let's create a shopping list with a few items on it:
 
-# ```python
+```python
 # creating a shopping list
 >>> my_list = ShoppingList(["apples", "apples", "grapes", "peaches", "milk", "bread"])
 >>> my_list.list_unpurchased_items()
 ['apples', 'bread', 'grapes', 'milk', 'peaches']
 >>> my_list.list_purchased_items()
 []
-# ```
+```
 
 Notice that I mistakenly placed apples on my list twice. However our use of sets under the hood handles this gracefully, reducing all redundant entries automatically. Supposing that we are carrying on with our shopping and we purchase several items, let's mark them as such.
 
-# ```python
+```python
 # mark items as purchased on our list
 >>> my_list.mark_purchased_items(["grapes", "pineapples"])
 >>> my_list.list_purchased_items()
 ['grapes']
 >>> my_list.list_unpurchased_items()
 ['apples', 'bread', 'milk', 'peaches']
-# ```
+```
 
 See that "grapes" were appropriately removed from our unpurchased set and added to our purchased set. Additionally, our implementation gracefully ignores our request to mark pineapples as being purchased, as pineapples weren't even on our list to begin with.
 
 In the next section we will augment our `ShoppingList` class with some special methods to make it easier to view the items, purchased and not, on our list.
-
+<!-- #endregion -->
 
 <div class="alert alert-warning">
 
