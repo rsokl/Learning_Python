@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Dictionary Merge Exercise, Difficulty: Easy, Category: Practice Problem
+   :keywords: python, dictionary, merge, practice problem
+```
+
 <!-- #region -->
 # Merging Two Dictionaries
 > Merge two [dictionaries](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html#Data-Structures-(Part-II):-Dictionaries) together such that the resulting dictionary always retain the *greater* value among mappings with common keys. 

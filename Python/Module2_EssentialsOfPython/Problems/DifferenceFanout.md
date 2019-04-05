@@ -14,7 +14,7 @@ jupyter:
 
 ```raw_mimetype="text/restructuredtext"
 .. meta::
-   :description: Topic: Exercise, Difficulty: Medium, Category: Practice Problem
+   :description: Topic: For-Loop Exercise, Difficulty: Easy, Category: Practice Problem
    :keywords: python, for loops, list, function, list comprehension, practice problem
 ```
 

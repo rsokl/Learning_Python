@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: String Encoding Exercise, Difficulty: Medium, Category: Practice Problem
+   :keywords: python, function, string, casting, practice problem
+```
+
 # Encode as String
 Sometimes it is very important to handle different input object types differently in a function. This problem will exercise your understanding of types, control-flow, dictionaries, and more.
 
