@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Basic description of the Python programming language, Difficulty: Easy, Category: Background
+   :keywords: python, install, basics, scripts, interpreter, foundations
+```
+
 <!-- #region -->
 # Introducing the Python Programming Language
 
@@ -22,7 +28,7 @@ In this section we will learn
  - How one writes and executes Python code.
 
 ## What is Python?
-**Python is a programming language**. That is, it provides us with a strict set of grammatical rules that correspond to well-defined instructions that a computer will obey. The tremendous value of this is that we can write text documents that are relatively simple and inuitive for humans to read, and yet can inform the computer to perform precise operations. Python **code** is simply text that conforms to the Python language.
+**Python is a programming language**. That is, it provides us with a strict set of grammatical rules that correspond to well-defined instructions that a computer will obey. The tremendous value of this is that we can write text documents that are relatively simple and intuitive for humans to read, and yet can inform the computer to perform precise operations. Python **code** is simply text that conforms to the Python language.
 
 For example, the following text obeys the rules of the Python language:
 

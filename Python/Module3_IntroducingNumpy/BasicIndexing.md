@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Numpy array basic indexing, Difficulty: Medium, Category: Section
+   :keywords: basic index, slice, no copy index, multidimensional array, nd array, view, reverse, axis
+```
+
 <!-- #region -->
 # Introducing Basic and Advanced Indexing
 

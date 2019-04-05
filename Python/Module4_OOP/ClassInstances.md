@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Class instances versus objects, Difficulty: Medium, Category: Section
+   :keywords: instance, class creation, init, self, isinstance
+```
+
 <!-- #region -->
 # Instances of a Class
 

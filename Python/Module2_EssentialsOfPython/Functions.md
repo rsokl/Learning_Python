@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Functions and Function Signatures, Difficulty: Medium, Category: Section
+   :keywords: functions, *args, **kwargs, signature, default parameter, docstring, return, vowel count, syntax, basics
+```
+
 <!-- #region -->
 # Basics of Functions
 <div class="alert alert-warning">

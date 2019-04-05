@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Advanced indexing with numpy arrays, Difficulty: Hard, Category: Section
+   :keywords: numpy array, integer array indexing, boolean array indexing, copy indexing, advanced
+```
+
 <!-- #region -->
 # Advanced Indexing
 

@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Numpy array broadcasting, Difficulty: Medium, Category: Section
+   :keywords: broadcasting, vectorization, rules, mismatched shapes, distances
+```
+
 <!-- #region -->
 # Array Broadcasting
 NumPy provides a mechanism for performing mathematical operations on arrays of *unequal* shapes:

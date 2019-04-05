@@ -12,6 +12,13 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: For-Loop Exercise, Difficulty: Easy, Category: Practice Problem
+   :keywords: for loops, list, function, list comprehension, practice problem
+```
+
+
 <!-- #region -->
 # Difference Fanout
 

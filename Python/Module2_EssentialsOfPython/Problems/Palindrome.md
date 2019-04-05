@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Palindrome Exercise, Difficulty: Easy, Category: Practice Problem
+   :keywords: string, palindrome, practice problem
+```
+
 <!-- #region -->
 # Is Palindrome
 > A palindrome is a string that reads the same from left to right and from right to left. Strings like `racecar` and `Live on time, emit no evil` are palindromes. Notice that only valid alphanumeric characters are accounted for and that palindromes are not case-sensitive. Given a string, return whether or not it is a palindrome. 

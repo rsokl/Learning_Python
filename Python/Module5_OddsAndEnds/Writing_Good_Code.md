@@ -12,6 +12,13 @@ jupyter:
     name: python3
 ---
 
+
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Writing good code, Difficulty: Easy, Category: Section
+   :keywords: pep8, code style, lint, format, best practices, type hint, documentation, numpydoc, sphinx, typing, annotation, whitespace
+```
+
 # Writing Good Code
 
 Throughout PLYMI we have been concerned with learning the rules for writing valid Python code. That is, we have taken care to ensure that our computers can understand the instructions that we have written for them. Here, we will discuss methods for making our code easier for *humans* to understand. Specifically, we will study:
@@ -489,7 +496,7 @@ The following is a summary some of the most critical members of the `typing` mod
   - Hint a dictionary that maps any hashable to booleans: `Dict[Hashable, bool]`|
 
 
-#### `Callable[[<arg-type>], ...], <output-type>` 
+#### `Callable[[<arg-type>], <output-type>`] 
 
 - **What it hints:** A callable (e.g. a function or a method) that takes in arguments of specified types and returns the specified type
 - **Examples:** 

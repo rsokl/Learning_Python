@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Data Structures, Difficulty: Medium, Category: Section
+   :keywords: Big-O, complexity, efficiency, algorithm, interview preparation, list, tuple, sequence
+```
+
 <!-- #region -->
 # Data Structures (Part I): Introduction
 Here we survey Python's built-in data structures. You should already be familiar with its lists and tuples, two data structures that facilitate working with sequential data. Two other critical, built-in data structures to be introduced are:

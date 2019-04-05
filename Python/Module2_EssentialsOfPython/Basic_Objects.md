@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Basics of Python Objects, Difficulty: Easy, Category: Section
+   :keywords: integers, booleans, floats, floating point precision, lists, strings, fundamentals
+```
+
 <!-- #region -->
 # Basic Object Types
 

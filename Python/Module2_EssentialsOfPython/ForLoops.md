@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Contorl flow with for-loops and while-loops, Difficulty: Easy, Category: Section
+   :keywords: for-loop, while-loop, break, control flow, basic programming
+```
+
 # For-Loops and While-Loops
 In this section, we will introduce the essential "for-loop" control flow paradigm along with the formal definition of an "iterable". The utility of these items cannot be understated. Moving forward, you will likely find use for these concepts in nearly every piece of Python code that you write!
 

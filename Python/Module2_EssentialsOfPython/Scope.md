@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: variable score and namespaces in python, Difficulty: Medium, Category: Section
+   :keywords: variable, namespace, function, scope, shadowing
+```
+
 # Scope
 
 <!-- #region -->

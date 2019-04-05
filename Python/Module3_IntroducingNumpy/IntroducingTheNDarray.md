@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Introduction to numpy arrays, Difficulty: Easy, Category: Section
+   :keywords: numpy array, ndarray, introduction, overview
+```
+
 <!-- #region -->
 # Introducing the ND-array
 It is time to start familiarizing ourselves with NumPy, the premiere library for doing numerical work in Python. To use this package, we need to be sure to "import" the NumPy module into our code:

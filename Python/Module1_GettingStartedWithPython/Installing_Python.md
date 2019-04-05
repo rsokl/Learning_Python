@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Installing Python with Anaconda, Difficulty: Easy, Category: Tutorial
+   :keywords: python, anaconda, instructions, environments, beginner, data science, introduction
+```
+
 ## Installing Python
 
 Without further adieu, we now provide instructions for installing Python and other useful Python libraries on your machine via the Anaconda platform. Installing the Anaconda platform will install the following:

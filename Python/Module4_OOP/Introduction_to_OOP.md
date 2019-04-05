@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Introducing object oriented programming in python, Difficulty: Easy, Category: Section
+   :keywords: class, type, creation, definition, intro, overview, basics, meaning
+```
+
 <!-- #region -->
 # Introduction to Object Oriented Programming
 

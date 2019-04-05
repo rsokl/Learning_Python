@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Measuring classification accuracy, Difficulty: Easy, Category: Practice Problem
+   :keywords: numpy, vectorization, practice, machine learning, classifier
+```
+
 <!-- #region -->
 # Measuring the Accuracy of a Classification Model
 Suppose that we are working on a project in which we have some model that can process an image and classify its content. For example, my `cat_dog_goose_other` function tries to classify whether a picture is of a cat (class 0), a dog (class 1), a goose (class 2), or something else (class 3). We want to measure the *accuracy* of our classifier. That is, we want to feed it a series of images whose contents are known and tally the number of times the model's prediction matches the true content of an image. The accuracy is the fraction of images that the model classifies correctly.

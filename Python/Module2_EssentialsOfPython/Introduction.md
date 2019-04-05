@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: introduction to control flow, Difficulty: Easy, Category: Section
+   :keywords: overview, summary, if, else, function, for-loop, if, else, control flow
+```
+
 <!-- #region -->
 # Introducing Control Flow
 Very simply put, to "control flow" in your code is to affect the order in which the 

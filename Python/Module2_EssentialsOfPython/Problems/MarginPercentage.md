@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Within Margin Exercise, Difficulty: Medium, Category: Practice Problem
+   :keywords: function, control flow, comparisons, practice problem
+```
+
 <!-- #region -->
 # Within Margin Percentage
 

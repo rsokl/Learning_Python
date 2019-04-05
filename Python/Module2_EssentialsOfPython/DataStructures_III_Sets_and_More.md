@@ -12,6 +12,13 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Introduction to Sets, Difficulty: Medium, Category: Section
+   :keywords: set, complexity, comparison, union, intersection, membership, hashing, lookup, interview preparation
+```
+
+
 # Data Structures (Part III): Sets & the Collections Module
 ## The "Set" Data Structure
 The `set` type describes an *unordered* collection of *unique* objects. It is useful for:

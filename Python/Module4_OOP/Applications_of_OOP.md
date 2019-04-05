@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Applications of object-oriented programming, Difficulty: Medium, Category: Section
+   :keywords: summary, tutorial, python shopping list, object oriented, method, attribute
+```
+
 # Applications of Object Oriented Programming
 
 We have spent a considerable amount of time learning about the syntax and definitions of classes, class objects, instances, and methods. Let's take a moment to gather our knowledge and create a useful class. This will help develop a sense for the ways in which object oriented programming can be useful for us. We will try to take care to make some recommendations when one should and shouldn't define their own classes. 

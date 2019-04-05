@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: the basics of iterables in python, Difficulty: Medium, Category: Section
+   :keywords: iterables, max, min, sum, all, any, itertools, enumerate, unpack
+```
+
 # Iterables
 Our encounter with for-loops introduced the term *iterable* - an object that can be "iterated over", such as in a for-loop.
 

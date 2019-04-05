@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: Numpy array attributes, Difficulty: Easy, Category: Section
+   :keywords: ndim, shape, size, itemsize, dtype, examples
+```
+
 <!-- #region -->
 # Basic Array Attributes
 Armed with our understanding of multidimensional NumPy arrays, we now look at methods for programmatically inspecting an array's attributes (e.g. its dimensionality). It is especially important to understand what an array's "shape" is.

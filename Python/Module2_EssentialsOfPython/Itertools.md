@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+```raw_mimetype="text/restructuredtext"
+.. meta::
+   :description: Topic: simple use cases of python itertools, Difficulty: Easy, Category: Tutorial
+   :keywords: itertools, examples, zip, range, enumerate, chain, combinations
+```
+
 <!-- #region -->
 # Python's "Itertools"
 Python has an [itertools module](https://docs.python.org/3/library/itertools.html), which provides a core set of fast, memory-efficient tools for creating iterators. We will briefly showcase a few itertools here. The majority of these functions create [generators](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html), thus we will have to iterate over them in order to explicitly demonstrate their use. It is hard to overstate the utility of this module - it is strongly recommended that you take some time to see what it has in store.
