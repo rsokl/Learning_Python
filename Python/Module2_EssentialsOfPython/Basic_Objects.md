@@ -730,13 +730,11 @@ In Python 3, you can leverage the `format` method towards this end:
 
 ```python
 # using `format` to replace placeholders with values
->>> name = "Bruce"
->>> age = 80
 >>> "{name} is {age} years old".format(name="Bruce", age=80)
 'Bruce is 80 years old'
 
-# padding a string with 4 leading spaces
->>> "{item:>4}".format(item="stew")
+# padding a string with leading-spaces so that it has at least 8 characters
+>>> "{item:>8}".format(item="stew")
 '   stew'
 ```
 Note that you may encounter the use of the cryptic `%` operator to format strings to the same effect:
