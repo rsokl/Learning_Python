@@ -768,7 +768,7 @@ See that an f-string has a special syntax; an f-string is denoted by preceding t
 ''
 ```
 
-An f-string is special because it permits us to write Python code *within* a string; any expression within curly brackets (`{}`) will be executed as Python code, and the resulting value will be converted to a string and inserted into the f-string at that position.
+An f-string is special because it permits us to write Python code *within* a string; any expression within curly brackets, `{}`, will be executed as Python code, and the resulting value will be converted to a string and inserted into the f-string at that position.
 
 ```python
 >>> x = 7.9
