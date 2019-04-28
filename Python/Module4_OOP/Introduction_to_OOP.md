@@ -106,6 +106,7 @@ class Rectangle:
 An instance of this `Rectangle` class is an individual rectangle whose *attributes* include its width, height, and center-location. Additionally, we can use the rectangle's *methods* (its attributes that are functions) to compute its area and the locations of its corners. 
 <!-- #endregion -->
 
+<!-- #region -->
 ```python
 # create a rectangle of width 4, height 10, centered at (0, 0)
 # here __init__ is executed and the width/height/center attributes are set
@@ -124,7 +125,7 @@ Rectangle(width=4, height=10, center=(0, 0))
 >>> rect1.compute_corners()   
 [(2.0, 5.0), (2.0, -5.0), (-2.0, -5.0), (-2.0, 5.0)]
 ```
-
+<!-- #endregion -->
 
 Just like any other Python object that we have encountered, we can put our `Rectangle`s in lists, store them as values in dictionaries, pass them to functions, reference them with multiple variables, and so on.
 

@@ -128,12 +128,13 @@ The instruction for accessing the contents of `y` in this way is straight-forwar
 
 This returns a *copy* of the data, as do all occurrences of advanced indexing.
 
-
+<!-- #region -->
 ```python
 # advanced indexing returns a copy
 >>> np.shares_memory(y, y[index])
 False
 ```
+<!-- #endregion -->
 
 <!-- #region -->
 The indexing array can have an arbitrary shape; *the resulting array will match that shape*.
