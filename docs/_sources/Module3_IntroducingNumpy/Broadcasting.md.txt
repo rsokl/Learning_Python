@@ -70,7 +70,6 @@ In effect, NumPy treated `y` as if its contents had been broadcasted along a new
 
 It is important to note that NumPy doesn't really create this broadcasted version of `y` behind the scenes; it is able to do the necessary computations without having to redundantly copy its contents into a shape-(3,4) array. Doing so would be a waste of memory and computation. That being said, this replication process conveys exactly the mathematics of broadcast operations between arrays; thus the preceding diagram reflects how you should always envision broadcasting.  
 
-<!-- #endregion -->
 
 Broadcasting is not reserved for operations between 1-D and 2-D arrays, and furthermore both arrays in an operation may undergo broadcasting. That being said, not all pairs of arrays are broadcast-compatible.
 
@@ -109,7 +108,7 @@ array([[[ 0,  0],
 >>> np.array([1, 2]) * np.array([0, 1, 2])
 ValueError: operands could not be broadcast together with shapes (2,) (3,) 
 ```
-
+<!-- #endregion -->
 
 <div class="alert alert-info"> 
 

@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                1.3
+                1.4
               </div>
             
           
@@ -115,6 +115,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Strings">Strings</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Introducing-the-string-type">Introducing the string type</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#String-essentials">String essentials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Formatting-strings">Formatting strings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Official-documentation-for-strings">Official documentation for strings</a></li>
 </ul>
 </li>
@@ -902,12 +903,64 @@ exact representations of rational numbers. Although we will not be using them he
 </pre></div>
 </div>
 </div>
+<div class="section" id="Formatting-strings">
+<h3>Formatting strings<a class="headerlink" href="#Formatting-strings" title="Permalink to this headline">¶</a></h3>
+<p>Python provides multiple syntaxes for formatting strings; these permit us to do things like programmatically inject the values of variables into strings, align fields using whitespace, and control the number of decimal places with which numbers are displayed in a string. This section is designed to simply expose the reader to the different varieties of string-formatting.</p>
+<p><a class="reference external" href="https://pyformat.info">pyformat.info</a> is the best resource to consult to see an exhaustive (but still intuitive) treatment of string-formatting in Python. You can also refer to the official documentation <a class="reference external" href="https://docs.python.org/3/library/string.html#format-examples">here</a>.</p>
+<p>In Python 3, you can leverage the <code class="docutils literal notranslate"><span class="pre">format</span></code> method towards this end:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using `format` to replace placeholders with values</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;{name} is {age} years old&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bruce&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="s1">&#39;Bruce is 80 years old&#39;</span>
+
+<span class="c1"># padding a string with leading-spaces so that it has at least 8 characters</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;{item:&gt;8}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="s2">&quot;stew&quot;</span><span class="p">)</span>
+<span class="s1">&#39;   stew&#39;</span>
+</pre></div>
+</div>
+<p>Note that you may encounter the use of the cryptic <code class="docutils literal notranslate"><span class="pre">%</span></code> operator to format strings to the same effect:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using `%` to  format strings (avoid this)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Selina&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;My name is </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">name</span>
+<span class="s1">&#39;My name is Selina&#39;</span>
+</pre></div>
+</div>
+<p>this is a relic of Python 2; it is recommend that you avoid this formatting syntax.</p>
+<p>If you are using Python 3.6 or beyond, then you have the luxury of being able to use f-strings, which provide a supremely convenient means for formatting strings. Here is an example of an f-string in action:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># an example of an &#39;f-string&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">batman</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">catwoman</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s2">&quot;Batman has {batman} apples. Catwoman has {catwoman} apples. Together, they have {batman + catwoman} apples&quot;</span>
+<span class="s1">&#39;Batman has 12 apples. Catwoman has 10 apples. Together, they have 22 apples&#39;</span>
+</pre></div>
+</div>
+<p>See that an f-string has a special syntax; an f-string is denoted by preceding the opening quotation mark with the lowercase f character:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is a typical empty string</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;&quot;</span>
+<span class="s1">&#39;&#39;</span>
+
+<span class="c1"># this is an empty f-string</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s2">&quot;&quot;</span>
+<span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+<p>An f-string is special because it permits us to write Python code <em>within</em> a string; any expression within curly brackets, <code class="docutils literal notranslate"><span class="pre">{}</span></code>, will be executed as Python code, and the resulting value will be converted to a string and inserted into the f-string at that position.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mf">7.9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="s2">&quot;x is a {type(x)}-number. Its value is {x}. The statement &#39;x is greater than 5&#39; is {x &gt; 5}&quot;</span>
+<span class="go">&quot;x is a &lt;class &#39;float&#39;&gt;-number. Its value is 7.9. The statement &#39;x is greater than 5&#39; is True&quot;</span>
+</pre></div>
+</div>
+<p>As seen in the preceding examples, this permits us to elegantly include variables in our strings and even do things like call functions within the string construction syntax.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>f-string Compatibility</strong>:</p>
+<p>The ‘f-string’ syntax was introduced in Python 3.6. It is not available in earlier versions of Python.</p>
+</div>
+</div>
 <div class="section" id="Official-documentation-for-strings">
 <h3>Official documentation for strings<a class="headerlink" href="#Official-documentation-for-strings" title="Permalink to this headline">¶</a></h3>
 <p>It is highly recommended that you take time to read over all of the functions that are built-in to a string.</p>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">Built-in functions for strings</a></li>
-<li><a class="reference external" href="https://docs.python.org/3.4/library/string.html#format-examples">Formatting strings</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/string.html#format-examples">Formatting strings</a></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Strings</strong></p>
@@ -924,6 +977,7 @@ exact representations of rational numbers. Although we will not be using them he
 </div>
 <ol class="arabic simple" start="5">
 <li>Convert the integer <code class="docutils literal notranslate"><span class="pre">12</span></code> to the string <code class="docutils literal notranslate"><span class="pre">&quot;12&quot;</span></code>.</li>
+<li>Only kids 13 and up are allowed to see Wayne’s World. Given the variables <code class="docutils literal notranslate"><span class="pre">name</span></code> (a string) and <code class="docutils literal notranslate"><span class="pre">age</span></code> (an integer), use an f-string that will display: “NAME is old enough to watch the movie: BOOL”, where NAME is to be replaced with the kid’s name, and BOOL should be <code class="docutils literal notranslate"><span class="pre">True</span></code> if the kid is at least 13 years old, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</li>
 </ol>
 </div>
 </div>
@@ -1227,6 +1281,18 @@ exact representations of rational numbers. Although we will not be using them he
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5. Convert the integer 12 to the string &quot;12&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="s1">&#39;12&#39;</span>
+</pre></div>
+</div>
+<p>Only kids 13 and up are allowed to see Wayne’s World. Given the variables <code class="docutils literal notranslate"><span class="pre">name</span></code> (a string) and <code class="docutils literal notranslate"><span class="pre">age</span></code> (an integer), use an f-string that will display: “NAME is old enough to watch the movie: BOOL”, where NAME is to be replaced with the kid’s name, and BOOL should be <code class="docutils literal notranslate"><span class="pre">True</span></code> if the kid is at least 13 years old, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. Use the example <code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">=</span> <span class="pre">&quot;Alfred&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">=</span> <span class="pre">10</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6. Use an f-string that will display:</span>
+<span class="c1"># &quot;NAME is old enough to watch the movie: BOOL&quot;,</span>
+<span class="c1"># where NAME is to be replaced with the kid&#39;s name,</span>
+<span class="c1"># and BOOL should be `True` if the kid is at least</span>
+<span class="c1"># 13 years old, and `False` otherwise.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alfred&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s2">&quot;{name} is old enough to watch the movie: {age &gt;= 13}&quot;</span>
+<span class="s1">&#39;Alfred is old enough to watch the movie: False&#39;</span>
 </pre></div>
 </div>
 <p><strong>Lists: Solutions</strong></p>
