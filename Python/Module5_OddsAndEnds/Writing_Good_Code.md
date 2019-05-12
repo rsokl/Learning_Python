@@ -58,7 +58,7 @@ We will make salient some of the PEP8 guidelines that are most pertinent to the 
 ### Being Pythonic
 We will being by studying some guidelines for writing idiomatic Python code. That is, these guide us to follow the syntax that the creators of Python intended for us to use. 
 
-First, always leverage the negated operators `is not` and `not in`. For example `not x is None` and `x is not None` are functionally equivalent, but the latter is clearly preferable as it matches our native grammar.  
+For instance, always leverage the negated operators `is not` and `not in`. For example `not x is None` and `x is not None` are functionally equivalent, but the latter is clearly preferable as it matches our native grammar.  
 
 ```python
 # Do:
@@ -124,7 +124,7 @@ result = "on" if integer_flag != 0 else "off
 
 ### Naming Conventions
 
-Class names should use the `CamelCase` (aka`CapWords`) formatting convention, whereas functions and variables should use all-lowercase characters in their names. Underscores can be used in longer lowercased names to make them easier to read (i.e. `snake_case`).
+Class names should use the `CamelCase` (aka `CapWords`) formatting convention, whereas functions and variables should use all-lowercase characters in their names. Underscores can be used in longer lowercased names to make them easier to read (i.e. `snake_case`).
 
 ```python
 # naming conventions for classes
@@ -250,21 +250,21 @@ Function and class definitions should be separated by two blank lines:
 
 # Do:
 def func_a():
-    """ I am function a"""
+    """I am function a"""
     return 1
 
 
 def func_b():  # separated from func_a by two blank lines
-    """ I am function b"""
+    """I am function b"""
     return 2
 
 # Don't:
 def func_c():
-    """ I am function c"""
+    """I am function c"""
     return 1
 
 def func_d():  # separated from func_c by one blank line
-    """ I am function d"""
+    """I am function d"""
     return 2
 ```
 
@@ -331,6 +331,22 @@ sublist = x[1: 4]
 To conclude, consider that simply knowing that there exists a Python style guide, and that it is named PEP8, is the most important thing to take away from this section. Previously, you may not have even thought to search for such a document. That you consult PEP8 when you have code-style questions is the most important outcome here.
 <!-- #endregion -->
 
+<div class="alert alert-warning">
+
+**Automating Style:**
+
+Although adhering to a clear and consistent style is critical for writing "good code," enforcing such standards can be tedious and labor-intensive. This is especially true when you begin collaborating with others and working on large projects. Fortunately,  several powerful tools exist that can help us automate good code styling.
+
+- [flake8](https://github.com/PyCQA/flake8): Analyzes your code to enforce the PEP8 standards and to catch bad code patterns, such as unused variables.
+  - IDEs like Visual Studio Code and PyCharm will automatically configure themselves to run flake8 or comparable [linters](https://en.wikipedia.org/wiki/Lint_(software)) on your code. They will add visual marks to your code to highlight problematic sections of code. This tool can also be run from the command line, or be configured to run automatically with other IDEs and text editors. 
+- [isort](https://isort.readthedocs.io/en/latest/): *"I sort your Python imports so you don't have to"*
+  - As promised, this tool manages the unruly stack of import statements that quickly accrue at the top of our code. It will sort import statements alphabetically, and will group them in accordance with PEP8.
+- [black](https://black.readthedocs.io/en/stable/): *"Any code style you like, as long as it is black"*
+  - Black is an uncompromising code formatter. You need not spend time formatting code correctly if you run black - it will format your code the same way every time. While this will take care of managing things like line-breaks, indentation, spacing, and brackets for you, it is still your responsibility to [write code that is Pythonic](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Being-Pythonic) and to [use good naming conventions](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Naming-Conventions).
+
+It is useful to know that these tools exist; consider integrating them into your workflow as you become an increasingly-prolific "Pythoneer".
+</div>
+
 <div class="alert alert-info">
 
 **Takeaway:**
@@ -347,7 +363,7 @@ Type hinting is a syntax that was introduced in Python 3.5 (via [PEP 484](https:
 # A function signature that has been annotated with type-hints
 
 def count_vowels(x: str) -> int:
-    """ Returns the number of vowels contained in `in_string`"""
+    """Returns the number of vowels contained in `in_string`"""
     vowels = set("aeiouAEIOU")
     return sum(1 for char in x if char in vowels)
 ```
@@ -366,7 +382,7 @@ Let's modify `count_vowels` and add a default-valued argument that permits users
 # Type-hinting a default-valued argument
 
 def count_vowels(x: str, include_y: bool = False) -> int:
-    """ Returns the number of vowels contained in `in_string`"""
+    """Returns the number of vowels contained in `in_string`"""
     vowels = set("aeiouAEIOU")
     if include_y:
         vowels.update("yY")
@@ -496,7 +512,7 @@ The following is a summary some of the most critical members of the `typing` mod
   - Hint a dictionary that maps any hashable to booleans: `Dict[Hashable, bool]`|
 
 
-#### `Callable[[<arg-type>], <output-type>`] 
+#### `Callable[[<arg-type>], <output-type>]` 
 
 - **What it hints:** A callable (e.g. a function or a method) that takes in arguments of specified types and returns the specified type
 - **Examples:** 
@@ -520,7 +536,7 @@ from typing import Dict, Callable, Optional, List, Tuple, Any
 def compute_student_stats(grade_book: Dict[str, List[float]],
                           stat_function: Callable[[List[float]], Any],
                           student_list: Optional[List[str]] = None) -> List[Tuple[str, Any]]:
-    """ Computes custom statistics over student's grades.
+    """Computes custom statistics over student's grades.
     
     Parameters
     ----------
@@ -611,7 +627,7 @@ To be more concrete, let's revisit our `count_vowels` function:
 
 ```python
 def count_vowels(x: str, include_y: bool = False) -> int:
-    """ Returns the number of vowels contained in `in_string`"""
+    """Returns the number of vowels contained in `in_string`"""
     vowels = set("aeiouAEIOU")
     if include_y:
         vowels.update("yY")
@@ -647,7 +663,7 @@ The `typing` module provides a so-called [abstract base class](https://docs.pyth
 from typing import Iterable
 
 def count_vowels(x: Iterable[str], include_y: bool = False) -> int:
-    """ Returns the number of vowels contained in `in_string`"""
+    """Returns the number of vowels contained in `in_string`"""
     vowels = set("aeiouAEIOU")
     if include_y:
         vowels.update("yY")
@@ -668,7 +684,7 @@ Read through the following function and annotate its signature with type-hints. 
 
 ```python
 def get_first_and_last(x):
-    """ Returns the first and last elements of `x`. `x` is 
+    """Returns the first and last elements of `x`. `x` is 
     assumed to be non-empty
     """ 
     return (x[0], x[-1])
@@ -742,7 +758,7 @@ The following function has a docstring that exemplifies all of these sections.
 
 ```python
 def pairwise_dists(x: np.ndarray, y: np.ndarray) -> np.ndarray:
-    """ Computes pairwise distances between the rows of ``x`` and ``y``.
+    """Computes pairwise distances between the rows of ``x`` and ``y``.
     
     Returns the shape-(M, N) array of Euclidean distances between 
     the M rows of ``x`` and the N rows of ``y``.
@@ -798,7 +814,7 @@ Here is another example docstring that adheres to the NumPy-style, one without a
 def compute_student_stats(grade_book: Dict[str, Iterable[float]],
                           stat_function: Callable[[Iterable[float]], Any],
                           student_list: Optional[List[str]] = None) -> List[Tuple[str, Any]]:
-    """ Computes custom statistics over students' grades.
+    """Computes custom statistics over students' grades.
 
     Applies ``stat_func`` over a list of each student's grades, 
     and accumulates name-stat tuple pairs in a list.
@@ -850,7 +866,7 @@ Let's reproduce the docstrings for `pairwise_dists` and `compute_student_stats` 
 
 ```python
 def pairwise_dists(x: np.ndarray, y: np.ndarray) -> np.ndarray:
-    """ Computes pairwise distances between the rows of ``x`` and ``y``.
+    """Computes pairwise distances between the rows of ``x`` and ``y``.
     
     Returns the shape-(M, N) array of Euclidean distances between 
     the M rows of ``x`` and the N rows of ``y``.
@@ -869,7 +885,7 @@ def pairwise_dists(x: np.ndarray, y: np.ndarray) -> np.ndarray:
 def compute_student_stats(grade_book: Dict[str, Iterable[float]],
                           stat_function: Callable[[Iterable[float]], Any],
                           student_list: Optional[List[str]] = None) -> List[Tuple[str, Any]]:
-    """ Computes custom statistics over students' grades.
+    """Computes custom statistics over students' grades.
 
     Applies ``stat_func`` over a list of each student's grades, 
     and accumulates name-stat tuple pairs in a list.
@@ -944,7 +960,7 @@ The following is a well-annotated version of `get_first_and_last`:
 from typing import Sequence, Tuple, Any
 
 def get_first_and_last(x: Sequence[Any]) -> Tuple[Any, Any]:
-    """ Returns the first and last elements of `x`. `x` is 
+    """Returns the first and last elements of `x`. `x` is 
     assumed to be non-empty
     """ 
     return (x[0], x[-1])
