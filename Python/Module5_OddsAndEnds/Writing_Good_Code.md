@@ -496,7 +496,7 @@ The following is a summary some of the most critical members of the `typing` mod
   - Hint a dictionary that maps any hashable to booleans: `Dict[Hashable, bool]`|
 
 
-#### `Callable[[<arg-type>], <output-type>`] 
+#### `Callable[[<arg-type>], <output-type>]` 
 
 - **What it hints:** A callable (e.g. a function or a method) that takes in arguments of specified types and returns the specified type
 - **Examples:** 
