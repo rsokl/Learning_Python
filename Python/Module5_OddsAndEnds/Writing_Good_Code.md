@@ -250,21 +250,21 @@ Function and class definitions should be separated by two blank lines:
 
 # Do:
 def func_a():
-    """ I am function a"""
+    """I am function a"""
     return 1
 
 
 def func_b():  # separated from func_a by two blank lines
-    """ I am function b"""
+    """I am function b"""
     return 2
 
 # Don't:
 def func_c():
-    """ I am function c"""
+    """I am function c"""
     return 1
 
 def func_d():  # separated from func_c by one blank line
-    """ I am function d"""
+    """I am function d"""
     return 2
 ```
 
@@ -363,7 +363,7 @@ Type hinting is a syntax that was introduced in Python 3.5 (via [PEP 484](https:
 # A function signature that has been annotated with type-hints
 
 def count_vowels(x: str) -> int:
-    """ Returns the number of vowels contained in `in_string`"""
+    """Returns the number of vowels contained in `in_string`"""
     vowels = set("aeiouAEIOU")
     return sum(1 for char in x if char in vowels)
 ```
@@ -382,7 +382,7 @@ Let's modify `count_vowels` and add a default-valued argument that permits users
 # Type-hinting a default-valued argument
 
 def count_vowels(x: str, include_y: bool = False) -> int:
-    """ Returns the number of vowels contained in `in_string`"""
+    """Returns the number of vowels contained in `in_string`"""
     vowels = set("aeiouAEIOU")
     if include_y:
         vowels.update("yY")
@@ -536,7 +536,7 @@ from typing import Dict, Callable, Optional, List, Tuple, Any
 def compute_student_stats(grade_book: Dict[str, List[float]],
                           stat_function: Callable[[List[float]], Any],
                           student_list: Optional[List[str]] = None) -> List[Tuple[str, Any]]:
-    """ Computes custom statistics over student's grades.
+    """Computes custom statistics over student's grades.
     
     Parameters
     ----------
@@ -627,7 +627,7 @@ To be more concrete, let's revisit our `count_vowels` function:
 
 ```python
 def count_vowels(x: str, include_y: bool = False) -> int:
-    """ Returns the number of vowels contained in `in_string`"""
+    """Returns the number of vowels contained in `in_string`"""
     vowels = set("aeiouAEIOU")
     if include_y:
         vowels.update("yY")
@@ -663,7 +663,7 @@ The `typing` module provides a so-called [abstract base class](https://docs.pyth
 from typing import Iterable
 
 def count_vowels(x: Iterable[str], include_y: bool = False) -> int:
-    """ Returns the number of vowels contained in `in_string`"""
+    """Returns the number of vowels contained in `in_string`"""
     vowels = set("aeiouAEIOU")
     if include_y:
         vowels.update("yY")
@@ -684,7 +684,7 @@ Read through the following function and annotate its signature with type-hints. 
 
 ```python
 def get_first_and_last(x):
-    """ Returns the first and last elements of `x`. `x` is 
+    """Returns the first and last elements of `x`. `x` is 
     assumed to be non-empty
     """ 
     return (x[0], x[-1])
@@ -758,7 +758,7 @@ The following function has a docstring that exemplifies all of these sections.
 
 ```python
 def pairwise_dists(x: np.ndarray, y: np.ndarray) -> np.ndarray:
-    """ Computes pairwise distances between the rows of ``x`` and ``y``.
+    """Computes pairwise distances between the rows of ``x`` and ``y``.
     
     Returns the shape-(M, N) array of Euclidean distances between 
     the M rows of ``x`` and the N rows of ``y``.
@@ -814,7 +814,7 @@ Here is another example docstring that adheres to the NumPy-style, one without a
 def compute_student_stats(grade_book: Dict[str, Iterable[float]],
                           stat_function: Callable[[Iterable[float]], Any],
                           student_list: Optional[List[str]] = None) -> List[Tuple[str, Any]]:
-    """ Computes custom statistics over students' grades.
+    """Computes custom statistics over students' grades.
 
     Applies ``stat_func`` over a list of each student's grades, 
     and accumulates name-stat tuple pairs in a list.
@@ -866,7 +866,7 @@ Let's reproduce the docstrings for `pairwise_dists` and `compute_student_stats` 
 
 ```python
 def pairwise_dists(x: np.ndarray, y: np.ndarray) -> np.ndarray:
-    """ Computes pairwise distances between the rows of ``x`` and ``y``.
+    """Computes pairwise distances between the rows of ``x`` and ``y``.
     
     Returns the shape-(M, N) array of Euclidean distances between 
     the M rows of ``x`` and the N rows of ``y``.
@@ -885,7 +885,7 @@ def pairwise_dists(x: np.ndarray, y: np.ndarray) -> np.ndarray:
 def compute_student_stats(grade_book: Dict[str, Iterable[float]],
                           stat_function: Callable[[Iterable[float]], Any],
                           student_list: Optional[List[str]] = None) -> List[Tuple[str, Any]]:
-    """ Computes custom statistics over students' grades.
+    """Computes custom statistics over students' grades.
 
     Applies ``stat_func`` over a list of each student's grades, 
     and accumulates name-stat tuple pairs in a list.
@@ -960,7 +960,7 @@ The following is a well-annotated version of `get_first_and_last`:
 from typing import Sequence, Tuple, Any
 
 def get_first_and_last(x: Sequence[Any]) -> Tuple[Any, Any]:
-    """ Returns the first and last elements of `x`. `x` is 
+    """Returns the first and last elements of `x`. `x` is 
     assumed to be non-empty
     """ 
     return (x[0], x[-1])
