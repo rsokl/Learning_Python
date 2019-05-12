@@ -58,7 +58,7 @@ We will make salient some of the PEP8 guidelines that are most pertinent to the 
 ### Being Pythonic
 We will being by studying some guidelines for writing idiomatic Python code. That is, these guide us to follow the syntax that the creators of Python intended for us to use. 
 
-First, always leverage the negated operators `is not` and `not in`. For example `not x is None` and `x is not None` are functionally equivalent, but the latter is clearly preferable as it matches our native grammar.  
+For instance, always leverage the negated operators `is not` and `not in`. For example `not x is None` and `x is not None` are functionally equivalent, but the latter is clearly preferable as it matches our native grammar.  
 
 ```python
 # Do:
@@ -124,7 +124,7 @@ result = "on" if integer_flag != 0 else "off
 
 ### Naming Conventions
 
-Class names should use the `CamelCase` (aka`CapWords`) formatting convention, whereas functions and variables should use all-lowercase characters in their names. Underscores can be used in longer lowercased names to make them easier to read (i.e. `snake_case`).
+Class names should use the `CamelCase` (aka `CapWords`) formatting convention, whereas functions and variables should use all-lowercase characters in their names. Underscores can be used in longer lowercased names to make them easier to read (i.e. `snake_case`).
 
 ```python
 # naming conventions for classes
@@ -330,6 +330,22 @@ sublist = x[1: 4]
 
 To conclude, consider that simply knowing that there exists a Python style guide, and that it is named PEP8, is the most important thing to take away from this section. Previously, you may not have even thought to search for such a document. That you consult PEP8 when you have code-style questions is the most important outcome here.
 <!-- #endregion -->
+
+<div class="alert alert-warning">
+
+**Automating Style:**
+
+Although adhering to a clear and consistent style is critical for writing "good code", enforcing such standards can be tedious and labor-intensive. This is especially-true when you begin collaborating with others and working on large projects. Fortunately, there exist several powerful tools that can help automate good code style.
+
+- [flake8](https://github.com/PyCQA/flake8): Analyzes your code to enforce the PEP8 standards and to catch bad code patterns, such as unused variables.
+  - IDEs like Visual Studio code and Pycharm will automatically configure themselves to run flake8 or comparable [linters](https://en.wikipedia.org/wiki/Lint_(software)) on your code. They will add visual marks to your code to highlight problematic sections of code. This tool can also be run from the command line, or be configured to run automatically with other IDEs and text editors. 
+- [isort](https://isort.readthedocs.io/en/latest/): *"I sort your Python imports so you don't have to"*
+  - As promised, this tool manages the unruly stack of import statements that quickly accrue at the top of our code. It will sort import statements alphabetically, and will group them in accordance with PEP8.
+- [black](https://black.readthedocs.io/en/stable/): *"Any code style you like, as long as it is black"*
+  - Black is an uncompromising code formatter. You need not spend time getting code formatting right if you run black - it will format your code the same way every time. While this will take care of managing things like line-breaks, indentation, spacing, and brackets for you, it is still your responsibility to [write code that is Pythonic](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Being-Pythonic) and to [use good naming conventions](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Naming-Conventions).
+
+It is useful to know that these tools exist; consider integrating them into your workflow as you become an increasingly-prolific "Pythoneer".
+</div>
 
 <div class="alert alert-info">
 
