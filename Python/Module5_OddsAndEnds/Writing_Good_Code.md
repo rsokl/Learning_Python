@@ -335,7 +335,7 @@ To conclude, consider that simply knowing that there exists a Python style guide
 
 **Automating Style:**
 
-Although adhering to a clear and consistent style is critical for writing "good code", enforcing such standards can be tedious and labor-intensive. This is especially-true when you begin collaborating with others and working on large projects. Fortunately, there exist several powerful tools that can help automate good code style.
+Although adhering to a clear and consistent style is critical for writing "good code", enforcing such standards can be tedious and labor-intensive. This is especially-true when you begin collaborating with others and working on large projects. Fortunately, there exist several powerful tools that can help us automate good code styling.
 
 - [flake8](https://github.com/PyCQA/flake8): Analyzes your code to enforce the PEP8 standards and to catch bad code patterns, such as unused variables.
   - IDEs like Visual Studio code and Pycharm will automatically configure themselves to run flake8 or comparable [linters](https://en.wikipedia.org/wiki/Lint_(software)) on your code. They will add visual marks to your code to highlight problematic sections of code. This tool can also be run from the command line, or be configured to run automatically with other IDEs and text editors. 
