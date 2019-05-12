@@ -721,11 +721,75 @@ True
 
 ```
 
+### Formatting strings
+Python provides multiple syntaxes for formatting strings; these permit us to do things like programmatically inject the values of variables into strings, align fields using whitespace, and control the number of decimal places with which numbers are displayed in a string. This section is designed to simply expose the reader to the different varieties of string-formatting. 
+
+[pyformat.info](https://pyformat.info) is the best resource to consult to see an exhaustive (but still intuitive) treatment of string-formatting in Python. You can also refer to the official documentation [here](https://docs.python.org/3/library/string.html#format-examples).
+
+In Python 3, you can leverage the `format` method towards this end:
+
+```python
+# using `format` to replace placeholders with values
+>>> "{name} is {age} years old".format(name="Bruce", age=80)
+'Bruce is 80 years old'
+
+# padding a string with leading-spaces so that it has at least 8 characters
+>>> "{item:>8}".format(item="stew")
+'   stew'
+```
+Note that you may encounter the use of the cryptic `%` operator to format strings to the same effect:
+
+```python
+# using `%` to  format strings (avoid this)
+>>> name = "Selina"
+>>> "My name is %s" % name
+'My name is Selina'
+```
+this is a relic of Python 2; it is recommend that you avoid this formatting syntax.
+
+If you are using Python 3.6 or beyond, then you have the luxury of being able to use f-strings, which provide a supremely convenient means for formatting strings. Here is an example of an f-string in action:
+
+```python
+# an example of an 'f-string'
+>>> batman = 12
+>>> catwoman = 10
+>>> f"Batman has {batman} apples. Catwoman has {catwoman} apples. Together, they have {batman + catwoman} apples"
+'Batman has 12 apples. Catwoman has 10 apples. Together, they have 22 apples'
+```
+
+See that an f-string has a special syntax; an f-string is denoted by preceding the opening quotation mark with the lowercase f character:
+```python
+# this is a typical empty string
+>>> ""
+''
+
+# this is an empty f-string
+>>> f""
+''
+```
+
+An f-string is special because it permits us to write Python code *within* a string; any expression within curly brackets, `{}`, will be executed as Python code, and the resulting value will be converted to a string and inserted into the f-string at that position.
+
+```python
+>>> x = 7.9
+>>> f"x is a {type(x)}-number. Its value is {x}. The statement 'x is greater than 5' is {x > 5}"
+"x is a <class 'float'>-number. Its value is 7.9. The statement 'x is greater than 5' is True"
+```
+
+As seen in the preceding examples, this permits us to elegantly include variables in our strings and even do things like call functions within the string construction syntax.
+
+<div class="alert alert-warning">
+
+**f-string Compatibility**: 
+
+The 'f-string' syntax was introduced in Python 3.6. It is not available in earlier versions of Python.
+</div>
+
 ### Official documentation for strings
 It is highly recommended that you take time to read over all of the functions that are built-in to a string.
 
 - [Built-in functions for strings](https://docs.python.org/3/library/stdtypes.html#string-methods)
-- [Formatting strings](https://docs.python.org/3.4/library/string.html#format-examples)
+- [Formatting strings](https://docs.python.org/3/library/string.html#format-examples)
 <!-- #endregion -->
 
 <div class="alert alert-info">
@@ -749,6 +813,8 @@ Hello
 ```
 
 5\. Convert the integer `12` to the string `"12"`.
+
+6\. Only kids 13 and up are allowed to see Wayne's World. Given the variables `name` (a string) and `age` (an integer), use an f-string that will display: "NAME is old enough to watch the movie: BOOL", where NAME is to be replaced with the kid's name, and BOOL should be `True` if the kid is at least 13 years old, and `False` otherwise.
 
 </div>
 <!-- #endregion -->
@@ -1079,6 +1145,21 @@ Hello
 >>> str(12)
 '12'
 ```
+
+Only kids 13 and up are allowed to see Wayne's World. Given the variables `name` (a string) and `age` (an integer), use an f-string that will display: "NAME is old enough to watch the movie: BOOL", where NAME is to be replaced with the kid's name, and BOOL should be `True` if the kid is at least 13 years old, and `False` otherwise. Use the example `name = "Alfred"`, `age = 10`.
+
+```python
+# 6. Use an f-string that will display: 
+# "NAME is old enough to watch the movie: BOOL", 
+# where NAME is to be replaced with the kid's name, 
+# and BOOL should be `True` if the kid is at least 
+# 13 years old, and `False` otherwise.
+>>> name = "Alfred"
+>>> age = 10
+>>> f"{name} is old enough to watch the movie: {age >= 13}"
+'Alfred is old enough to watch the movie: False'
+```
+
 <!-- #endregion -->
 
 <!-- #region -->

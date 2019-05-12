@@ -322,6 +322,7 @@ You *can* apply binary NumPy functions to arrays of unlike shapes. For instance,
 </div>
 
 
+<!-- #region -->
 ```python
 # example of a binary function operating on two 2D arrays
 >>> x = np.array([[10,  2],
@@ -338,7 +339,7 @@ array([[11,  2],
 >>> x[:, 0] + y[1, :]
 array([6, 2])
 ```
-
+<!-- #endregion -->
 
 <div class="alert alert-info"> 
 
@@ -378,7 +379,7 @@ array([ 1.,  4.,  9.])
 ```
 
 This process generalizes to an array of any dimensionality and shape. 
-<!-- #endregion -->
+
 
 ```python
 # examples of a binary function operating on a scalar & an array
@@ -401,6 +402,7 @@ array([[  0,  -2,  -4,  -6],
        [ -8, -10, -12, -14]])
 ```
 
+<!-- #endregion -->
 
 <div class="alert alert-info">
 

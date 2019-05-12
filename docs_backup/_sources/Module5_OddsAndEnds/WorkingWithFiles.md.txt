@@ -64,7 +64,7 @@ WindowsPath('data/data1.txt')
 See that the `/` operator, when used in conjunction with a `Path` instance, created a new path with the appropriate path-separator for the present OS. This is extremely convenient! 
 
 Let's proceed to explore some other useful methods that `Path` provides us with. These methods enable us to inspect directories and files, create new directories, list all of the files in a directory, open files to for reading/writing, and much more. A complete listing of these methods can be found [here](https://docs.python.org/3/library/pathlib.html#methods-and-properties) and [here](https://docs.python.org/3/library/pathlib.html#methods), collectively; it is highly recommended that you take time to look through them.
-<!-- #endregion -->
+
 
 ```python
 >>> root = Path(".")
@@ -99,6 +99,7 @@ WindowsPath('C:/Users/TerranceWasabi/Desktop/PLYMI/Module5_OddsAndEnds/data/data
 'data\\data1.txt'
 ```
 
+<!-- #endregion -->
 
 <div class="alert alert-info">
 
