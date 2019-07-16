@@ -296,8 +296,11 @@ Because generators are iterables, they can be fed into subsequent generator comp
 # generates 400.. 100.. 0.. 100.. 400 
 >>> gen_1 = (i**2 for i in [-20, -10, 0, 10, 20])
 
-# sums the generated numbers, excluding any numbers whose absolute value is greater than 150
->>> sum(j for j in gen_1 if abs(j) <= 150)
+# iterates through gen_1, excluding any numbers whose absolute value is greater than 150
+>>> gen_2 = (j for j in gen_1 if abs(j) <= 150)
+
+# computing 100 + 0 + 100
+>>> sum(gen_2)
 200
 ```
 
@@ -594,42 +597,49 @@ Is one expression preferable over the other? Why?
 **Using range: Solution**
 ```python
 # start=10, stop=0 (excluded), step-size=-1
-for i in range(10, 0, -1):
-    print(i)
+>>> for i in range(10, 0, -1):
+>>>     print(i, end=" ") # the "end" parameter is to avoid each value taking up a new line
+10 9 8 7 6 5 4 3 2 1 
 ```
 <!-- #endregion -->
 
 <!-- #region -->
 **Writing a Generator Comprehension: Solution**
 ```python
-((n, n+2) for n in range(6) if n != 3)
+>>> g = ((n, n+2) for n in range(6) if n != 3)
+>>> list(g) # convert into a list to print values
+[(0, 2), (1, 3), (2, 4), (4, 6), (5, 7)]
 ```
 <!-- #endregion -->
 
 <!-- #region -->
 **Using Generator Comprehensions on the Fly: Solution**
 ```python
-sum(range(1, 101, 2))
+>>> sum(range(1, 101, 2))
+2500
 ```
 
 or
 
 ```python
-sum(i for i in range(101) if i%2 != 0)
+>>> sum(i for i in range(101) if i%2 != 0)
+2500
 ```
 <!-- #endregion -->
 
 <!-- #region -->
 **List Comprehensions: Solution**
 ```python
-["hello" for i in range(100)]
+>>> ["hello" for i in range(100)]
+['hello', 'hello', ..., 'hello', 'hello'] # 100 hello's
 ```
 <!-- #endregion -->
 
 <!-- #region -->
 **Fancier List Comprehensions: Solution**
 ```python
-[("hello" if i%2 == 0 else "goodbye") for i in range(10)]
+>>> [("hello" if i%2 == 0 else "goodbye") for i in range(10)]
+['hello', 'goodbye', 'hello', 'goodbye', 'hello', 'goodbye', 'hello', 'goodbye', 'hello', 'goodbye']
 ```
 <!-- #endregion -->
 
@@ -645,7 +655,9 @@ sum(i for i in range(101) if i%2 != 0)
 <!-- #region -->
 **Translating a For-Loop: Solution**
 ```python
-out = [(1 if i is "o" else 0) for i in "Hello. How Are You?" if i.islower()]
+>>> out = [(1 if i is "o" else 0) for i in "Hello. How Are You?" if i.islower()]
+>>> out
+[0, 0, 0, 1, 1, 0, 0, 0, 1, 0]
 ```
 <!-- #endregion -->
 
