@@ -250,6 +250,102 @@ with open("a_poem.txt", mode="r") as my_open_file:
 <!-- #endregion -->
 
 <!-- #region -->
+## Working with Comma Seperated Value Files
+
+Comma Seperated Value (CSV) files are commonly used to store data that you might typically find in a table. These files can be formatted in many ways, but the typical format is to have each of the column values in the table be separated by commas while having a newline separate each row. Suppose we have the following table of test scores:
+
+|         | Exam 1 (%)           | Exam 2 (%) |
+| ------------- |:-------------:| -----:|
+| Ashley     | $93$ | $95$ |
+| Brad     | $84$      |   $100$ |
+| Cassie | $99$      |    $87$ |
+
+This table, which sourced for Module 3 of Python Like You Mean It, depicts the test scores of three students across 2 exams. Here is what the corresponding CSV file might look like:
+
+```python
+name,exam one score,exam two score
+Ashley,93,95
+Brad,84,100
+Cassie,99,87
+```
+In addition to the fact that the first line typically contains headers columns, you are also allowed to have spaces within each of columns as well.
+
+<div class="alert alert-warning">
+
+**Note**: 
+
+It is not guaranteed that all CSV files are actually comma separated. Non-standard CSV files will typically come with instructions on how the data is organized. In general, it is a good practice to open up the CSV file (using Notepad or a regular text editor) and look at the first few lines to get a sense of how it is organized (unless the file is too large).
+</div>
+
+### How to parse CSVs with Numpy
+
+We will first look into parsing and storing CSV data using our favorite package: Numpy!
+```python
+from numpy import genfromtxt # genfromtxt() allows for easy parsing of CSVs
+my_data = genfromtxt(r"path_to_csv/file.csv", delimiter=',') 
+```
+`genfromtxt()` takes in CSV file path and delimiter (what is used to split the data, typically comma for CSV).
+Let's check some properties:
+```python
+>>> type(my_data)
+numpy.ndarray
+
+>>> my_data.shape
+(numSamples, numAttributesPerSample)
+
+#Let's look at the actual data
+>>> my_data
+array([[    nan,     nan,     nan, ...,     nan,     nan,     nan],
+       [    nan, -99.9  , -99.9  , ..., -99.9  , -99.9  , -99.9  ],
+       [    nan,   0.875,   1.39 , ...,   4.506, -99.9  , -99.9  ],
+       ...,
+       [    nan,   2.157,   3.43 , ...,  12.89 ,  97.   ,  21.95 ],
+       [    nan,   2.087,   2.84 , ...,  10.963,  92.   ,  21.95 ],
+       [    nan,   1.926,   2.98 , ...,  12.228,  84.   ,  21.95 ]])
+```
+You may notice that there are some `nan` values present when we look at this perticular set of data. Typically, if there are non-numerical values in the file, such as headers and dates, importing it into a Numpy array will turn those values into `nan`.
+
+### How to parse CSVs with Pandas
+
+A really popular library for parsing through CSVs is the [Pandas](https://pandas.pydata.org/pandas-docs/stable/index.html "Pandas Documentation") library. Here is a quick way to parse through a CSV using Pandas:
+```Python
+import pandas as pd
+my_data =pd.read_csv(r"path_to_csv/file.csv", sep=',',header=None)
+```
+That's it! The method `read_csv()` imports the CSV into the variable `my_data`. This method has similar input parameters to `genfromtxt()` and many extra optional parameters as well. Look at the docstring to see more.
+
+ Let's look at some properties of an [example file](https://www.kaggle.com/account/login?returnUrl=%2Fjolasa%2Fwaves-measuring-buoys-data-mooloolaba%2Fversion%2F1 "Kaggle Dataset") that has data related to ocean waves:
+
+```Python
+>>> type(my_data)
+pandas.core.frame.DataFrame #Notice that this is a custom type
+
+>>> my_data.shape
+(numSamples, numAttributesPerSample)
+
+>>> my_data.values #This is how we access the values as an array
+array([['Date/Time', 'Hs', 'Hmax', ..., 'Tp', 'Peak Direction', 'SST'],
+       ['01/01/2017 00:00', '-99.9', '-99.9', ..., '-99.9', '-99.9',
+        '-99.9'],
+       ['01/01/2017 00:30', '0.875', '1.39', ..., '4.506', '-99.9',
+        '-99.9'],
+       ...,
+       ['30/06/2019 22:30', '2.157', '3.43', ..., '12.89', '97', '21.95'],
+       ['30/06/2019 23:00', '2.087', '2.84', ..., '10.963', '92',
+        '21.95'],
+       ['30/06/2019 23:30', '1.926', '2.98', ..., '12.228', '84',
+        '21.95']], dtype=object)
+```
+One of the coolest features of Pandas is how it nicely organizes the parsed CSV data for visualization. Here is how `my_data` is displayed in a jupyter notebook:
+```Python
+>>> my_data[0:21] #Prints out first 20 values in nice format
+```
+![Memory consumption figure](pics/Pandas_CSV.jpg)
+
+One of the main advantages of Pandas is that it **treats all the data as strings**, while Numpy only deals with numerical values. This allows Pandas to store information such as headers and date, while Numpy cannot. Read the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/index.html "Documentation Link") for more information.
+<!-- #endregion -->
+
+<!-- #region -->
 ## Globbing for Files
 
 There are many cases in which we may want to construct a list of files to iterate over. For example, if we have several data files, it would be useful to create a file list which we can iterate through and process in sequence. One way to do this would be to manually construct such a list of files:
