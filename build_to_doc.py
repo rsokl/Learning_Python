@@ -1,4 +1,4 @@
-# script for prepping docs/ from new phinx build
+# script for prepping docs/ from new sphinx build
 # docs/ -> docs_backup/
 # _build/ -> docs/
 # ensures nojekyll and CNAME are in place
