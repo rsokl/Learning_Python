@@ -38,7 +38,7 @@ Contributors
 ------------
 The following people made significant contributions to PLYMI, adding problems with worked solutions and valuable feedback on the text:
 
-- `@alexding123 <https://github.com/alexding123>`_
+- Alex Ding （GitHub:`@alexding123 <https://github.com/alexding123>`_)
 - AJ Federici (GitHub:`@Federici <https://github.com/AFederici>`_)
 - Annabelle Lew (GitHub:`@AnnabelleLew <https://github.com/AnnabelleLew>`_)
 - Petar Griggs (GitHub:`@petarmhg <https://github.com/petarmhg>`_)
