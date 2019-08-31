@@ -248,7 +248,7 @@
 <div class="section" id="Being-Pythonic">
 <h3>Being Pythonic<a class="headerlink" href="#Being-Pythonic" title="Permalink to this headline">¶</a></h3>
 <p>We will being by studying some guidelines for writing idiomatic Python code. That is, these guide us to follow the syntax that the creators of Python intended for us to use.</p>
-<p>First, always leverage the negated operators <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>. For example <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span> <span class="pre">is</span> <span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None</span></code> are functionally equivalent, but the latter is clearly preferable as it matches our native grammar.</p>
+<p>For instance, always leverage the negated operators <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>. For example <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span> <span class="pre">is</span> <span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None</span></code> are functionally equivalent, but the latter is clearly preferable as it matches our native grammar.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do:</span>
 <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">collection</span>
 
@@ -309,7 +309,7 @@
 </div>
 <div class="section" id="Naming-Conventions">
 <h3>Naming Conventions<a class="headerlink" href="#Naming-Conventions" title="Permalink to this headline">¶</a></h3>
-<p>Class names should use the <code class="docutils literal notranslate"><span class="pre">CamelCase</span></code> (aka``CapWords``) formatting convention, whereas functions and variables should use all-lowercase characters in their names. Underscores can be used in longer lowercased names to make them easier to read (i.e. <code class="docutils literal notranslate"><span class="pre">snake_case</span></code>).</p>
+<p>Class names should use the <code class="docutils literal notranslate"><span class="pre">CamelCase</span></code> (aka <code class="docutils literal notranslate"><span class="pre">CapWords</span></code>) formatting convention, whereas functions and variables should use all-lowercase characters in their names. Underscores can be used in longer lowercased names to make them easier to read (i.e. <code class="docutils literal notranslate"><span class="pre">snake_case</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># naming conventions for classes</span>
 
 <span class="c1"># Do:</span>
@@ -415,21 +415,21 @@
 
 <span class="c1"># Do:</span>
 <span class="k">def</span> <span class="nf">func_a</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot; I am function a&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;I am function a&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mi">1</span>
 
 
 <span class="k">def</span> <span class="nf">func_b</span><span class="p">():</span>  <span class="c1"># separated from func_a by two blank lines</span>
-    <span class="sd">&quot;&quot;&quot; I am function b&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;I am function b&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mi">2</span>
 
 <span class="c1"># Don&#39;t:</span>
 <span class="k">def</span> <span class="nf">func_c</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot; I am function c&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;I am function c&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mi">1</span>
 
 <span class="k">def</span> <span class="nf">func_d</span><span class="p">():</span>  <span class="c1"># separated from func_c by one blank line</span>
-    <span class="sd">&quot;&quot;&quot; I am function d&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;I am function d&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mi">2</span>
 </pre></div>
 </div>
@@ -488,6 +488,26 @@
 </pre></div>
 </div>
 <p>To conclude, consider that simply knowing that there exists a Python style guide, and that it is named PEP8, is the most important thing to take away from this section. Previously, you may not have even thought to search for such a document. That you consult PEP8 when you have code-style questions is the most important outcome here.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Automating Style:</strong></p>
+<p>Although adhering to a clear and consistent style is critical for writing “good code,” enforcing such standards can be tedious and labor-intensive. This is especially true when you begin collaborating with others and working on large projects. Fortunately, several powerful tools exist that can help us automate good code styling.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/PyCQA/flake8">flake8</a>: Analyzes your code to enforce the PEP8 standards and to catch bad code patterns, such as unused variables.<ul>
+<li>IDEs like Visual Studio Code and PyCharm will automatically configure themselves to run flake8 or comparable <a class="reference external" href="https://en.wikipedia.org/wiki/Lint_(software)">linters</a> on your code. They will add visual marks to your code to highlight problematic sections of code. This tool can also be run from the command line, or be configured to run automatically with other IDEs and text editors.</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://isort.readthedocs.io/en/latest/">isort</a>: <em>“I sort your Python imports so you don’t have to”</em><ul>
+<li>As promised, this tool manages the unruly stack of import statements that quickly accrue at the top of our code. It will sort import statements alphabetically, and will group them in accordance with PEP8.</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://black.readthedocs.io/en/stable/">black</a>: <em>“Any code style you like, as long as it is black”</em><ul>
+<li>Black is an uncompromising code formatter. You need not spend time formatting code correctly if you run black - it will format your code the same way every time. While this will take care of managing things like line-breaks, indentation, spacing, and brackets for you, it is still your responsibility to <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Being-Pythonic">write code that is Pythonic</a> and to <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Naming-Conventions">use good naming
+conventions</a>.</li>
+</ul>
+</li>
+</ul>
+<p>It is useful to know that these tools exist; consider integrating them into your workflow as you become an increasingly-prolific “Pythoneer”.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
 <p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#code-lay-out">PEP8</a> is a design document for the Python community that specifies a coherent style guide for writing Python code. Adhering to this style guide will help to ensure that you write clean code that is organized in a consistent manner across projects. Furthermore, those who abide by PEP8 will find it easier to navigate other PEP8-adherent code bases.</p>
@@ -500,7 +520,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A function signature that has been annotated with type-hints</span>
 
 <span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
     <span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
 </pre></div>
@@ -514,7 +534,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type-hinting a default-valued argument</span>
 
 <span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
     <span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">include_y</span><span class="p">:</span>
         <span class="n">vowels</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;yY&quot;</span><span class="p">)</span>
@@ -639,7 +659,7 @@ other hand, supports a richer syntax for type-hinting: <code class="docutils lit
 </ul>
 </div>
 <div class="section" id="Callable[[&lt;arg-type&gt;],-&lt;output-type&gt;]">
-<h4><code class="docutils literal notranslate"><span class="pre">Callable[[&lt;arg-type&gt;],</span> <span class="pre">&lt;output-type&gt;</span></code>]<a class="headerlink" href="#Callable[[<arg-type>],-<output-type>]" title="Permalink to this headline">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">Callable[[&lt;arg-type&gt;],</span> <span class="pre">&lt;output-type&gt;]</span></code><a class="headerlink" href="#Callable[[<arg-type>],-<output-type>]" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><strong>What it hints:</strong> A callable (e.g.&nbsp;a function or a method) that takes in arguments of specified types and returns the specified type</li>
 <li><strong>Examples:</strong><ul>
@@ -660,7 +680,7 @@ other hand, supports a richer syntax for type-hinting: <code class="docutils lit
 <span class="k">def</span> <span class="nf">compute_student_stats</span><span class="p">(</span><span class="n">grade_book</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
                           <span class="n">stat_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span> <span class="n">Any</span><span class="p">],</span>
                           <span class="n">student_list</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-    <span class="sd">&quot;&quot;&quot; Computes custom statistics over student&#39;s grades.</span>
+    <span class="sd">&quot;&quot;&quot;Computes custom statistics over student&#39;s grades.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -730,7 +750,7 @@ Next, note that <code class="docutils literal notranslate"><span class="pre">Opt
 <p>You should strive to write type-hints that pass <a class="reference external" href="https://en.wikipedia.org/wiki/Duck_test">the duck test</a>: if your function is expecting a duck then hint for something that walks like a duck, quacks like a duck, etc. This will help you avoid writing type-hints that are overly narrow, and which are ultimately non-Pythonic in their strictness.</p>
 <p>To be more concrete, let’s revisit our <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
     <span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">include_y</span><span class="p">:</span>
         <span class="n">vowels</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;yY&quot;</span><span class="p">)</span>
@@ -757,7 +777,7 @@ Next, note that <code class="docutils literal notranslate"><span class="pre">Opt
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span>
 
 <span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
     <span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">include_y</span><span class="p">:</span>
         <span class="n">vowels</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;yY&quot;</span><span class="p">)</span>
@@ -771,7 +791,7 @@ Next, note that <code class="docutils literal notranslate"><span class="pre">Opt
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Type Hinting</strong></p>
 <p>Read through the following function and annotate its signature with type-hints. Try to make your type-hints sufficiently general here.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_first_and_last</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Returns the first and last elements of `x`. `x` is</span>
+    <span class="sd">&quot;&quot;&quot;Returns the first and last elements of `x`. `x` is</span>
 <span class="sd">    assumed to be non-empty</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -828,7 +848,7 @@ contribute to your code, and it will ensure longevity for your hard work.</p>
 <p>There are additional, more obscure or technical sections that you can read about in the formal specification.</p>
 <p>The following function has a docstring that exemplifies all of these sections.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; Computes pairwise distances between the rows of ``x`` and ``y``.</span>
+    <span class="sd">&quot;&quot;&quot;Computes pairwise distances between the rows of ``x`` and ``y``.</span>
 
 <span class="sd">    Returns the shape-(M, N) array of Euclidean distances between</span>
 <span class="sd">    the M rows of ``x`` and the N rows of ``y``.</span>
@@ -880,7 +900,7 @@ contribute to your code, and it will ensure longevity for your hard work.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_student_stats</span><span class="p">(</span><span class="n">grade_book</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
                           <span class="n">stat_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span> <span class="n">Any</span><span class="p">],</span>
                           <span class="n">student_list</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-    <span class="sd">&quot;&quot;&quot; Computes custom statistics over students&#39; grades.</span>
+    <span class="sd">&quot;&quot;&quot;Computes custom statistics over students&#39; grades.</span>
 
 <span class="sd">    Applies ``stat_func`` over a list of each student&#39;s grades,</span>
 <span class="sd">    and accumulates name-stat tuple pairs in a list.</span>
@@ -928,7 +948,7 @@ contribute to your code, and it will ensure longevity for your hard work.</p>
 <p>There is also a <code class="docutils literal notranslate"><span class="pre">Raises</span></code> section in the case that your function raises exceptions under known conditions.</p>
 <p>Let’s reproduce the docstrings for <code class="docutils literal notranslate"><span class="pre">pairwise_dists</span></code> and <code class="docutils literal notranslate"><span class="pre">compute_student_stats</span></code> using the Google style.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; Computes pairwise distances between the rows of ``x`` and ``y``.</span>
+    <span class="sd">&quot;&quot;&quot;Computes pairwise distances between the rows of ``x`` and ``y``.</span>
 
 <span class="sd">    Returns the shape-(M, N) array of Euclidean distances between</span>
 <span class="sd">    the M rows of ``x`` and the N rows of ``y``.</span>
@@ -946,7 +966,7 @@ contribute to your code, and it will ensure longevity for your hard work.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_student_stats</span><span class="p">(</span><span class="n">grade_book</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
                           <span class="n">stat_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span> <span class="n">Any</span><span class="p">],</span>
                           <span class="n">student_list</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-    <span class="sd">&quot;&quot;&quot; Computes custom statistics over students&#39; grades.</span>
+    <span class="sd">&quot;&quot;&quot;Computes custom statistics over students&#39; grades.</span>
 
 <span class="sd">    Applies ``stat_func`` over a list of each student&#39;s grades,</span>
 <span class="sd">    and accumulates name-stat tuple pairs in a list.</span>
@@ -1009,7 +1029,7 @@ extensions that allows Sphinx to parse and nicely render docstrings that adhere 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span>
 
 <span class="k">def</span> <span class="nf">get_first_and_last</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot; Returns the first and last elements of `x`. `x` is</span>
+    <span class="sd">&quot;&quot;&quot;Returns the first and last elements of `x`. `x` is</span>
 <span class="sd">    assumed to be non-empty</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>

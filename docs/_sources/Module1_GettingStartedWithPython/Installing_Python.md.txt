@@ -81,28 +81,19 @@ Assuming that your initial installation of Anaconda contained Python 3, then you
 conda create -n py27 python=2.7 anaconda
 ```
 
-Once the installation process is complete, you will be able to activate this environment, which we have named `py27`, by executing the command (Linux, Mac): 
+Once the installation process is complete, you will be able to activate this environment, which we have named `py27`, by executing the command: 
 ```shell
-source activate py27
+conda activate py27
 ``` 
-in your terminal. If you are in Windows, the command is: 
-```shell
-activate py27
-```
+
 Activating an environment simply updates your system's path, swapping the directory `Anaconda3` with `Anaconda3/envs/py27` in this instance. Thus your system will now find the Python 2.7 executable and its associated libraries in its path. Note that this path change only occurs effect in *that particular terminal session*. Any other terminal session will default to the root conda environment. 
 
 Having activated your `py27` environment, you can start a vanilla Python console, an iPython console, a Jupyter notebook, run a Python script, etc. These will now all use Python 2.7. You can also use `conda` (and `pip`) to install Python 2.7-compatible packages in this environment. As long as your path points to `Anaconda3/envs/py27` and not `Anaconda3`, it is as if this is the only version of Python that lives on your computer.
 
-Deactivating this environment will return you to the root Python 3 environment. That is, it will switch your path back to including `Anaconda3` instead of `Anaconda3/envs/py27`. Simply invoke the command (Mac, Linux):
+Deactivating this environment will return you to the root Python 3 environment. That is, it will switch your path back to including `Anaconda3` instead of `Anaconda3/envs/py27`. Simply invoke the command:
 
 ```shell
-source deactivate
-```
-
-On Windows, the command is:
-
-```shell
-deactivate
+conda deactivate
 ```
 
 And like that, conda environments give you all of the powers of a necromancer, allowing you to nimbly cross back and forth between the land of the living (Python 3) and the dead (Python 2.7).

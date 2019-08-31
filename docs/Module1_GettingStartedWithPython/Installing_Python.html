@@ -257,22 +257,14 @@ than Python.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda create -n py27 <span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7 anaconda
 </pre></div>
 </div>
-<p>Once the installation process is complete, you will be able to activate this environment, which we have named <code class="docutils literal notranslate"><span class="pre">py27</span></code>, by executing the command (Linux, Mac):</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> activate py27
-</pre></div>
-</div>
-<p>in your terminal. If you are in Windows, the command is:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>activate py27
+<p>Once the installation process is complete, you will be able to activate this environment, which we have named <code class="docutils literal notranslate"><span class="pre">py27</span></code>, by executing the command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda activate py27
 </pre></div>
 </div>
 <p>Activating an environment simply updates your system’s path, swapping the directory <code class="docutils literal notranslate"><span class="pre">Anaconda3</span></code> with <code class="docutils literal notranslate"><span class="pre">Anaconda3/envs/py27</span></code> in this instance. Thus your system will now find the Python 2.7 executable and its associated libraries in its path. Note that this path change only occurs effect in <em>that particular terminal session</em>. Any other terminal session will default to the root conda environment.</p>
 <p>Having activated your <code class="docutils literal notranslate"><span class="pre">py27</span></code> environment, you can start a vanilla Python console, an iPython console, a Jupyter notebook, run a Python script, etc. These will now all use Python 2.7. You can also use <code class="docutils literal notranslate"><span class="pre">conda</span></code> (and <code class="docutils literal notranslate"><span class="pre">pip</span></code>) to install Python 2.7-compatible packages in this environment. As long as your path points to <code class="docutils literal notranslate"><span class="pre">Anaconda3/envs/py27</span></code> and not <code class="docutils literal notranslate"><span class="pre">Anaconda3</span></code>, it is as if this is the only version of Python that lives on your computer.</p>
-<p>Deactivating this environment will return you to the root Python 3 environment. That is, it will switch your path back to including <code class="docutils literal notranslate"><span class="pre">Anaconda3</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Anaconda3/envs/py27</span></code>. Simply invoke the command (Mac, Linux):</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> deactivate
-</pre></div>
-</div>
-<p>On Windows, the command is:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>deactivate
+<p>Deactivating this environment will return you to the root Python 3 environment. That is, it will switch your path back to including <code class="docutils literal notranslate"><span class="pre">Anaconda3</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Anaconda3/envs/py27</span></code>. Simply invoke the command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda deactivate
 </pre></div>
 </div>
 <p>And like that, conda environments give you all of the powers of a necromancer, allowing you to nimbly cross back and forth between the land of the living (Python 3) and the dead (Python 2.7).</p>

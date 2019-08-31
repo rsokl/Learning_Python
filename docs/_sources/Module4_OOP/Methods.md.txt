@@ -82,7 +82,7 @@ At first glance, this error message doesn't seem to make any sense. It is indeed
 
 **Important!**
 
-When you call an instance method (e.g. `func`) from an instance object (e.g. `inst`), Python automatically passes that instance object as the first argument, in addition to any other arguments that were passd in by the user.
+When you call an instance method (e.g. `func`) from an instance object (e.g. `inst`), Python automatically passes that instance object as the first argument, in addition to any other arguments that were passed in by the user.
 
 </div>
 

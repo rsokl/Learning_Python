@@ -449,8 +449,11 @@ in a list:</p>
 <span class="c1"># generates 400.. 100.. 0.. 100.. 400</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">gen_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 
-<span class="c1"># sums the generated numbers, excluding any numbers whose absolute value is greater than 150</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">(</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">gen_1</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">150</span><span class="p">)</span>
+<span class="c1"># iterates through gen_1, excluding any numbers whose absolute value is greater than 150</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gen_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">gen_1</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">150</span><span class="p">)</span>
+
+<span class="c1"># computing 100 + 0 + 100</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">(</span><span class="n">gen_2</span><span class="p">)</span>
 <span class="mi">200</span>
 </pre></div>
 </div>
@@ -683,28 +686,35 @@ in a list:</p>
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Using range: Solution</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># start=10, stop=0 (excluded), step-size=-1</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<span class="o">&gt;&gt;&gt;</span>     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1"># the &quot;end&quot; parameter is to avoid each value taking up a new line</span>
+<span class="mi">10</span> <span class="mi">9</span> <span class="mi">8</span> <span class="mi">7</span> <span class="mi">6</span> <span class="mi">5</span> <span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p><strong>Writing a Generator Comprehension: Solution</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="c1"># convert into a list to print values</span>
+<span class="go">[(0, 2), (1, 3), (2, 4), (4, 6), (5, 7)]</span>
 </pre></div>
 </div>
 <p><strong>Using Generator Comprehensions on the Fly: Solution</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">2500</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">2500</span>
 </pre></div>
 </div>
 <p><strong>List Comprehensions: Solution</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;hello&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s2">&quot;hello&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="go">[&#39;hello&#39;, &#39;hello&#39;, ..., &#39;hello&#39;, &#39;hello&#39;] # 100 hello&#39;s</span>
 </pre></div>
 </div>
 <p><strong>Fancier List Comprehensions: Solution</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="s2">&quot;hello&quot;</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;goodbye&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="s2">&quot;hello&quot;</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;goodbye&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="go">[&#39;hello&#39;, &#39;goodbye&#39;, &#39;hello&#39;, &#39;goodbye&#39;, &#39;hello&#39;, &#39;goodbye&#39;, &#39;hello&#39;, &#39;goodbye&#39;, &#39;hello&#39;, &#39;goodbye&#39;]</span>
 </pre></div>
 </div>
 <p><strong>Tuple Comprehension: Solution</strong></p>
@@ -714,7 +724,9 @@ in a list:</p>
 </pre></div>
 </div>
 <p><strong>Translating a For-Loop: Solution</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="s2">&quot;o&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s2">&quot;Hello. How Are You?&quot;</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">islower</span><span class="p">()]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="s2">&quot;o&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s2">&quot;Hello. How Are You?&quot;</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">islower</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">out</span>
+<span class="go">[0, 0, 0, 1, 1, 0, 0, 0, 1, 0]</span>
 </pre></div>
 </div>
 <p><strong>Memory Efficiency: Solution</strong></p>
