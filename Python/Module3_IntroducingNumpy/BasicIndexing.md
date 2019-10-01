@@ -405,7 +405,7 @@ array([-40,   1, -50,   3])
 ### Augmented Assignments
 Recall from our discussion of basic mathematical expressions in Python, that [augmented assignment expressions](http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Augmented-Assignment-Statements) provide a nice shorthand notation for updating the value of a variable. For example, the assignment expression `x = x + 5` can be rewritten using the augmented assignment `x += 5`. 
 
-While `x += 5` is truly only a shorthand in the context of basic Python objects (integer,s floats, etc.), *augmented assignments on NumPy arrays behave fundamentally different than their long-form counterparts*. Specifically, they directly update the underlying data referenced by the updated array, rather than creating a distinct array, thus affecting any arrays that are views of that data. We will demonstrate this here.
+While `x += 5` is truly only a shorthand in the context of basic Python objects (integers floats, etc.), *augmented assignments on NumPy arrays behave fundamentally different than their long-form counterparts*. Specifically, they directly update the underlying data referenced by the updated array, rather than creating a distinct array, thus affecting any arrays that are views of that data. We will demonstrate this here.
 
 ```python
 # Demonstrating that augmented assignments on NumPy
