@@ -783,7 +783,7 @@ def pairwise_dists(x: np.ndarray, y: np.ndarray) -> np.ndarray:
     References
     ----------
     .. [1] Soklaski, R. (2019, Jan 21). Array Broadcasting. 
-           Retrieved from https://http://www.pythonlikeyoumeanit.com
+           Retrieved from https://www.pythonlikeyoumeanit.com
     
     Examples
     --------

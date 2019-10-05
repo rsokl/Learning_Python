@@ -93,7 +93,7 @@ The first Python interpeter was written in the programming language C, and is kn
 
 **Note**: 
 
-Python interpreters have been in written programming languages other than C, like in Java (Jython) and Go (Grumpy). These are not guaranteed to be up-to-date with the latest specifications of the Python language, and are rarely used in comparison to the CPython interpreter.
+Python interpreters have been in written in programming languages other than C, like in Java (Jython) and Go (Grumpy). These are not guaranteed to be up-to-date with the latest specifications of the Python language, and are rarely used in comparison to the CPython interpreter.
 </div>
 
 <div class="alert alert-warning">

@@ -67,7 +67,7 @@ Python has three basic types of numbers: integers, "floating-point" numbers, and
 | `x * y` | Product of two numbers |   
 | `x / y` | Quotient of two numbers |   
 | `x // y` | Quotient of two numbers, returned as an integer | 
-| `x % y` | `x` "modulo": `y`: The remainder of `x / y` |
+| `x % y` | `x` "modulo": `y`: The remainder of `x / y` for positive `x`, `y` |
 | `x ** y` | `x` raised to the power `y` |
 | `-x` | A negated number |
 | `abs(x)` | The absolute value of a number |
@@ -89,7 +89,7 @@ These operations obey the familiar order of operations from your mathematics cla
 >>> (1 + 2) * 3
 9
 
-# finding the remainder of division
+# finding the remainder of division between two positive numbers
 >>> 11 % 5
 1
 
@@ -125,7 +125,7 @@ The `//` operator is known as the "floor-divide" operator: it performs division 
 
 **Reading Comprehension: Understanding the modulo operator**
 
-The modulo operator, `%`, is not commonly seen in mathematics textbooks. It is, however, a very useful operation to have at our disposal. `x % y` (said as x "mod" y in programmer's jargon) returns the *remainder* of `x / y`. For example: 
+The modulo operator, `%`, is not commonly seen in mathematics textbooks. It is, however, a very useful operation to have at our disposal. `x % y` (said as x "mod" y in programmer's jargon) returns the *remainder* of `x / y`, when `x` and `y are non-negative numbers. For example: 
 
 - $\frac{3}{2} = 1 + \frac{1}{2}$. 2 "goes into" 3 one time, leaving a remainder of 1. Thus `3 % 2` returns `1`
 - $\frac{9}{3} = 3$. 3 "goes into" 9 three times, and leaves no remainder. Thus `9 % 3` returns `0`

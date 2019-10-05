@@ -37,7 +37,7 @@ We do not want redundant items to be included on our shopping list - if someone 
 Lastly, we will want our methods to accept a variable that is either a single item name (a string) or multiple item names (a list/tuple/iterable of strings). To accommodate this, if we receive a sole string as an input, we will place it in a list before carrying on. This will ensure that we are always working with an iterable containing a string.
 
 
-
+<!-- #region -->
 
 ```python
 class ShoppingList:
@@ -85,6 +85,7 @@ class ShoppingList:
         return sorted(self._needed)
 ```
 
+<!-- #endregion -->
 <!-- #region -->
 Let's create a shopping list with a few items on it:
 
