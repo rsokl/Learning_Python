@@ -20,7 +20,7 @@ jupyter:
 
 ## Installing Python
 
-Without further adieu, we now provide instructions for installing Python and other useful Python libraries on your machine via the Anaconda platform. Installing the Anaconda platform will install the following:
+Without further ado, we now provide instructions for installing Python and other useful Python libraries on your machine via the Anaconda platform. Installing the Anaconda platform will install the following:
 
  - Python; specifically the CPython interpreter that we discussed in the previous section.
  - A number of useful Python packages, like matplotlib, NumPy, and SciPy.
