@@ -6,6 +6,8 @@ Python Like You Mean It
   
   Edited by `David Mascharka <https://davidmascharka.com/>`_
 
+  `中文版 <https://cn.pythonlikeyoumeanit.com/>`_ (Chinese Version)
+
 What this is
 ------------
 Python Like You Mean It (PLYMI) is a free resource for learning the basics of Python & NumPy, and moreover, becoming a competent Python user. The features of the Python language that are emphasized here were chosen to help those who are particularly interested in STEM applications (data analysis, machine learning, numerical work, etc.).
