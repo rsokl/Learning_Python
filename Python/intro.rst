@@ -6,7 +6,7 @@ Python Like You Mean It
 
   Edited by `David Mascharka <https://davidmascharka.com/>`_
 
-  `中文版 <http://cn.pythonlikeyoumeanit.com/>`_ (Chinese Version)
+  `中文版 <https://alexding123.github.io/Learning_Python/>`_ (Chinese Version)
 
 What this is
 ------------
