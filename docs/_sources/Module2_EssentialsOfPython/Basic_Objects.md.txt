@@ -258,7 +258,7 @@ Python will automatically display a float that possesses many digits in scientif
 
 <!-- #region -->
 #### Understanding Numerical Precision
-Whereas a Python integer can be made to be as large as you'd like, a floating-point number is *limited in the number of digits it can store*. That is, your computer will only use a set amount of memory, 8 bytes (32 bits) on most machines, to store the value of a floating-point number. 
+Whereas a Python integer can be made to be as large as you'd like, a floating-point number is *limited in the number of digits it can store*. That is, your computer will only use a set amount of memory - 8 bytes (64 bits) on most machines - to store the value of a floating-point number. 
 
 In effect, this means that a float can only be represented with a *numerical precision* of approximately 16 decimal places, when that number is written in scientific notation. The computer will not be able to reliably represent a number's digits beyond those accounted for by the allotted 8 bytes. For instance, the following Python integer is defined with 100 digits, but when this number is converted to a  float, it only retains 15 decimal places in scientific notation:  
 ```python
