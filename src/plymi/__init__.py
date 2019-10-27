@@ -2,9 +2,9 @@
 Utilities for accessing the PLYMI source material and making conversions using jupytext
 """
 
-from pathlib import Path
-from typing import Dict, List, Union, Callable
 import shutil
+from pathlib import Path
+from typing import Callable, Dict, List, Set, Tuple, Union
 
 try:
     from tqdm import tqdm
@@ -30,6 +30,8 @@ all_source_dirs = [
     Path("Module5_OddsAndEnds"),
 ]
 
+excluded_notebook_names = {"Matplotlib.ipynb"}
+
 
 def _get_jupytext_version():
     import jupytext
@@ -50,13 +52,18 @@ def get_all_notebook_files(root) -> Dict[str, List[Path]]:
 def get_source_dirs_from_root(root: Path) -> List[Path]:
     if not isinstance(root, Path):
         root = Path(root)
+
+    root /= "Python"
     assert root.is_dir()
 
     dirs = [root / d for d in all_source_dirs]  # type: List[Path]
 
     bad = [d for d in dirs if not d.is_dir()]
     if bad:
-        raise AssertionError(f"{','.join(bad)} are not a directories")
+        raise AssertionError(
+            "The following directories do not exist: "
+            + ("\n".join((str(x) for x in bad)))
+        )
     return dirs
 
 
@@ -66,6 +73,7 @@ def _convert_all(
     file_getter: Callable[[Path], Dict[str, List[Path]]],
     verbose,
     destination_format: str,
+    excluded_file_names: set = frozenset(),
 ):
     import subprocess
 
@@ -77,7 +85,25 @@ def _convert_all(
         if verbose:
             print(f"Processing directory: {dir}")
         for file in tqdm(files):
+            if file.name in excluded_file_names:
+                continue
             subprocess.run(["jupytext", "--to", destination_format, str(file)])
+
+
+def test_ipynb_roundtrip_on_all(*, root: Union[str, Path], verbose=True):
+    import subprocess
+
+    print(f"Using jupytext version: {_get_jupytext_version()}")
+
+    for dir_, files in get_all_notebook_files(
+        root
+    ).items():  # type: Tuple[str, List[Path]]
+        if verbose:
+            print(f"Processing directory: {dir_}")
+        for file in tqdm(files):  # type: Path
+            if file.name in excluded_notebook_names:
+                continue
+            subprocess.run(["jupytext", "--to", "md", "--test", str(file)])
 
 
 def convert_all_markdown_to_ipynb(root: Union[str, Path], verbose: bool = True):
@@ -95,6 +121,48 @@ def convert_all_ipynb_to_markdown(root: Union[str, Path], verbose: bool = True):
         verbose=verbose,
         file_getter=get_all_notebook_files,
         destination_format="markdown",
+        excluded_file_names=excluded_notebook_names,
+    )
+
+
+def _delete_all(
+    root: Path,
+    *,
+    file_getter: Callable[[Path], Dict[str, List[Path]]],
+    excluded_names: Set[str],
+    test: bool,
+):
+    import os
+
+    if test:
+        print("Nothing will be deleted unless you pass `test=False`")
+    for dir_, files in file_getter(root).items():
+        for file in files:
+            if file.name in excluded_names:
+                continue
+            if test:
+                print(repr(file) + " will be deleted")
+            else:
+                os.remove(file)
+
+
+def delete_all_notebooks(
+    root, *, excluded_names=frozenset(excluded_notebook_names), test=True
+):
+    return _delete_all(
+        root,
+        file_getter=get_all_notebook_files,
+        excluded_names=excluded_names,
+        test=test,
+    )
+
+
+def delete_all_markdown(root, *, excluded_names=frozenset(), test=True):
+    return _delete_all(
+        root,
+        file_getter=get_all_markdown_files,
+        excluded_names=excluded_names,
+        test=test,
     )
 
 
