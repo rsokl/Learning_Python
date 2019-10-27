@@ -146,6 +146,8 @@ def _delete_all(
 ):
     import os
 
+    assert test in {True, False}
+
     if test:
         print("Nothing will be deleted unless you pass `test=False`")
     for dir_, files in file_getter(root).items():
