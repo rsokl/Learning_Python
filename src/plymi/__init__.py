@@ -33,7 +33,7 @@ all_source_dirs = [
 
 # The following are names of notebooks that exist natively as PLYMI
 # source material. It should be excluded from markdown conversion
-excluded_notebook_names = {"Matplotlib.ipynb"}
+excluded_notebook_names = {"Matplotlib.ipynb", "Approximating_pi.ipynb"}
 
 
 def _get_jupytext_version():
