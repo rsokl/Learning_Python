@@ -4,7 +4,7 @@ Utilities for accessing the PLYMI source material and making conversions using j
 
 import shutil
 from pathlib import Path
-from typing import Callable, Dict, List, Set, Tuple, Union
+from typing import Callable, Dict, FrozenSet, List, Tuple, Union
 
 try:
     from tqdm import tqdm
@@ -76,7 +76,7 @@ def _convert_all(
     file_getter: Callable[[Path], Dict[str, List[Path]]],
     verbose,
     destination_format: str,
-    excluded_file_names: set = frozenset(),
+    excluded_file_names: FrozenSet[str] = frozenset(),
 ):
     import subprocess
 
@@ -109,22 +109,31 @@ def test_ipynb_roundtrip_on_all(*, root: Union[str, Path], verbose=True):
             subprocess.run(["jupytext", "--to", "md", "--test", str(file)])
 
 
-def convert_all_markdown_to_ipynb(root: Union[str, Path], verbose: bool = True):
+def convert_all_markdown_to_ipynb(
+    root: Union[str, Path], verbose: bool = True, excluded_file_names=frozenset()
+):
+    assert all(name.endswith(".md") for name in excluded_file_names)
     return _convert_all(
         root=root,
         verbose=verbose,
         file_getter=get_all_markdown_files,
         destination_format="notebook",
+        excluded_file_names=excluded_file_names,
     )
 
 
-def convert_all_ipynb_to_markdown(root: Union[str, Path], verbose: bool = True):
+def convert_all_ipynb_to_markdown(
+    root: Union[str, Path],
+    verbose: bool = True,
+    excluded_file_names=frozenset(excluded_notebook_names),
+):
+    assert all(name.endswith(".ipynb") for name in excluded_file_names)
     return _convert_all(
         root=root,
         verbose=verbose,
         file_getter=get_all_notebook_files,
         destination_format="markdown",
-        excluded_file_names=excluded_notebook_names,
+        excluded_file_names=excluded_file_names,
     )
 
 
@@ -132,7 +141,7 @@ def _delete_all(
     root: Path,
     *,
     file_getter: Callable[[Path], Dict[str, List[Path]]],
-    excluded_names: Set[str],
+    excluded_file_names: FrozenSet[str],
     test: bool,
 ):
     import os
@@ -141,7 +150,7 @@ def _delete_all(
         print("Nothing will be deleted unless you pass `test=False`")
     for dir_, files in file_getter(root).items():
         for file in files:
-            if file.name in excluded_names:
+            if file.name in excluded_file_names:
                 continue
             if test:
                 print(repr(file) + " will be deleted")
@@ -150,21 +159,23 @@ def _delete_all(
 
 
 def delete_all_notebooks(
-    root, *, excluded_names=frozenset(excluded_notebook_names), test=True
+    root, *, excluded_file_names=frozenset(excluded_notebook_names), test=True
 ):
+    assert all(name.endswith(".ipynb") for name in excluded_file_names)
     return _delete_all(
         root,
         file_getter=get_all_notebook_files,
-        excluded_names=excluded_names,
+        excluded_file_names=excluded_file_names,
         test=test,
     )
 
 
-def delete_all_markdown(root, *, excluded_names=frozenset(), test=True):
+def delete_all_markdown(root, *, excluded_file_names=frozenset(), test=True):
+    assert all(name.endswith(".md") for name in excluded_file_names)
     return _delete_all(
         root,
         file_getter=get_all_markdown_files,
-        excluded_names=excluded_names,
+        excluded_file_names=excluded_file_names,
         test=test,
     )
 
