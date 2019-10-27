@@ -30,6 +30,9 @@ all_source_dirs = [
     Path("Module5_OddsAndEnds"),
 ]
 
+
+# The following are names of notebooks that exist natively as PLYMI
+# source material. It should be excluded from markdown conversion
 excluded_notebook_names = {"Matplotlib.ipynb"}
 
 
