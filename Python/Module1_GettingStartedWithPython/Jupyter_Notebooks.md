@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw {"raw_mimetype": "text/restructuredtext"} -->
 .. meta::
    :description: Topic: Jupyter notebooks, Difficulty: Easy, Category: Tutorial
    :keywords: jupyter, notebook, kernel, basics, server, console, command line, plot, beginner, data science
-```
+<!-- #endraw -->
 
 # Jupyter Notebooks
 In recent years, the Jupyter Notebook has become a massively popular tool for doing research-oriented work in Python and other languages alike. Its emergence marked a paradigm shift in the way data science is conducted. 

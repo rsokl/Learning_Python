@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw {"raw_mimetype": "text/restructuredtext"} -->
 .. meta::
    :description: Topic: Advanced indexing with numpy arrays, Difficulty: Hard, Category: Section
    :keywords: numpy array, integer array indexing, boolean array indexing, copy indexing, advanced
-```
+<!-- #endraw -->
 
 <!-- #region -->
 # Advanced Indexing
@@ -128,13 +128,11 @@ The instruction for accessing the contents of `y` in this way is straight-forwar
 
 This returns a *copy* of the data, as do all occurrences of advanced indexing.
 
-<!-- #region -->
 ```python
 # advanced indexing returns a copy
 >>> np.shares_memory(y, y[index])
 False
 ```
-<!-- #endregion -->
 
 <!-- #region -->
 The indexing array can have an arbitrary shape; *the resulting array will match that shape*.

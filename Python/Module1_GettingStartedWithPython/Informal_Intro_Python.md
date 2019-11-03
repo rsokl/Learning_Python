@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw {"raw_mimetype": "text/restructuredtext"} -->
 .. meta::
    :description: Topic: Informal Introduction to Python, Difficulty: Easy, Category: Tutorial
    :keywords: python, installation, script, introduction, ipython, console, quick introduction
-```
+<!-- #endraw -->
 
 # An Informal Introduction to Python
 Now that you have the Anaconda distribution of Python installed on your machine, let's write some simple Python code! We are going to forego writing a full Python script for now, and instead make use of a convenient tool for doing quick code scratchwork. The IPython console was installed as a part of Anaconda; it will allow us to build incrementally off of snippets of code, instead of having to execute an entire script all at once. 

@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw {"raw_mimetype": "text/restructuredtext"} -->
 .. meta::
    :description: Topic: Introducing object oriented programming in python, Difficulty: Easy, Category: Section
    :keywords: class, type, creation, definition, intro, overview, basics, meaning
-```
+<!-- #endraw -->
 
 <!-- #region -->
 # Introduction to Object Oriented Programming
@@ -106,7 +106,6 @@ class Rectangle:
 An instance of this `Rectangle` class is an individual rectangle whose *attributes* include its width, height, and center-location. Additionally, we can use the rectangle's *methods* (its attributes that are functions) to compute its area and the locations of its corners. 
 <!-- #endregion -->
 
-<!-- #region -->
 ```python
 # create a rectangle of width 4, height 10, centered at (0, 0)
 # here __init__ is executed and the width/height/center attributes are set
@@ -125,7 +124,6 @@ Rectangle(width=4, height=10, center=(0, 0))
 >>> rect1.compute_corners()   
 [(2.0, 5.0), (2.0, -5.0), (-2.0, -5.0), (-2.0, 5.0)]
 ```
-<!-- #endregion -->
 
 Just like any other Python object that we have encountered, we can put our `Rectangle`s in lists, store them as values in dictionaries, pass them to functions, reference them with multiple variables, and so on.
 

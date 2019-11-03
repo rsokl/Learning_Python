@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw {"raw_mimetype": "text/restructuredtext"} -->
 .. meta::
    :description: Topic: Numpy array traversal ordering, Difficulty: Medium, Category: Section
    :keywords: row-major order, c order, column-major order, f order, traversal, array iteration
-```
+<!-- #endraw -->
 
 # Iterating Over Arrays & Array-Traversal Order
 In this section, you will learn:

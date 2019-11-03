@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw {"raw_mimetype": "text/restructuredtext"} -->
 .. meta::
    :description: Topic: Data Structures, Difficulty: Medium, Category: Section
    :keywords: Big-O, complexity, efficiency, algorithm, interview preparation, list, tuple, sequence
-```
+<!-- #endraw -->
 
 <!-- #region -->
 # Data Structures (Part I): Introduction

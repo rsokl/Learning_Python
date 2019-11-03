@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw {"raw_mimetype": "text/restructuredtext"} -->
 .. meta::
    :description: Topic: Vectorized operations with numpy arrays, Difficulty: Easy, Category: Section
    :keywords: vectorize, optimized, calculation, numpy, fast, C routine, MKL, sum, linear algebra, optimized
-```
+<!-- #endraw -->
 
 <!-- #region -->
 # "Vectorized" Operations: Optimized Computations on NumPy Arrays
@@ -322,7 +322,6 @@ You *can* apply binary NumPy functions to arrays of unlike shapes. For instance,
 </div>
 
 
-<!-- #region -->
 ```python
 # example of a binary function operating on two 2D arrays
 >>> x = np.array([[10,  2],
@@ -339,7 +338,6 @@ array([[11,  2],
 >>> x[:, 0] + y[1, :]
 array([6, 2])
 ```
-<!-- #endregion -->
 
 <div class="alert alert-info"> 
 
