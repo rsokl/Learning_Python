@@ -111,11 +111,24 @@ def convert_all_markdown_to_ipynb(
     root: Union[str, Path], verbose: bool = True, excluded_file_names=frozenset()
 ):
     assert all(name.endswith(".md") for name in excluded_file_names)
-    return _convert_all(
+    _convert_all(
         root=root,
         verbose=verbose,
         file_getter=get_all_markdown_files,
         destination_format="notebook",
+        excluded_file_names=excluded_file_names,
+    )
+
+
+def convert_all_markdown_to_markdown(
+    root: Union[str, Path], verbose: bool = True, excluded_file_names=frozenset()
+):
+    assert all(name.endswith(".md") for name in excluded_file_names)
+    _convert_all(
+        root=root,
+        verbose=verbose,
+        file_getter=get_all_markdown_files,
+        destination_format="markdown",
         excluded_file_names=excluded_file_names,
     )
 
@@ -126,7 +139,7 @@ def convert_all_ipynb_to_markdown(
     excluded_file_names=frozenset(excluded_notebook_names),
 ):
     assert all(name.endswith(".ipynb") for name in excluded_file_names)
-    return _convert_all(
+    _convert_all(
         root=root,
         verbose=verbose,
         file_getter=get_all_notebook_files,

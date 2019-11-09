@@ -43,7 +43,7 @@ Once this environment is created activate it. You may need to manually install a
 
 ```shell
 pip install sphinx-rtd-theme==0.4.3
-pip install jupytext==1.1.1
+pip install jupytext==1.3.0rc1
 ```
 
 Using this environment, you should now be able to run sphinx to build the html for this site from the source-code. To do this, navigate to the directory named Python in this repository, and then run:

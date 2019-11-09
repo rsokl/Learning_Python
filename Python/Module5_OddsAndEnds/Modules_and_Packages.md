@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Understanding imports modules and packages, Difficulty: Easy, Category: Section
    :keywords: custom package, module, script, import, setup, pip, conda, relative import, absolute import 
-```
+<!-- #endraw -->
 
 <!-- #region -->
 # Import: Modules and Packages
