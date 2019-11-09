@@ -6,6 +6,8 @@ import shutil
 from pathlib import Path
 from typing import Callable, Dict, FrozenSet, List, Tuple, Union
 
+from jupytext.cli import jupytext
+
 try:
     from tqdm import tqdm
 except ImportError:
@@ -78,8 +80,6 @@ def _convert_all(
     destination_format: str,
     excluded_file_names: FrozenSet[str] = frozenset(),
 ):
-    import subprocess
-
     assert destination_format in {"markdown", "notebook"}
 
     print(f"Using jupytext version: {_get_jupytext_version()}")
@@ -90,12 +90,10 @@ def _convert_all(
         for file in tqdm(files):
             if file.name in excluded_file_names:
                 continue
-            subprocess.run(["jupytext", "--to", destination_format, str(file)])
+            jupytext(["--to", destination_format, str(file)])
 
 
 def test_ipynb_roundtrip_on_all(*, root: Union[str, Path], verbose=True):
-    import subprocess
-
     print(f"Using jupytext version: {_get_jupytext_version()}")
 
     for dir_, files in get_all_notebook_files(
@@ -106,7 +104,7 @@ def test_ipynb_roundtrip_on_all(*, root: Union[str, Path], verbose=True):
         for file in tqdm(files):  # type: Path
             if file.name in excluded_notebook_names:
                 continue
-            subprocess.run(["jupytext", "--to", "md", "--test", str(file)])
+            jupytext(["--to", "md", "--test", str(file)])
 
 
 def convert_all_markdown_to_ipynb(
