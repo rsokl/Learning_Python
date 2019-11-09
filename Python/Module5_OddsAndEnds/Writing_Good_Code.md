@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
@@ -13,11 +13,11 @@ jupyter:
 ---
 
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Writing good code, Difficulty: Easy, Category: Section
    :keywords: pep8, code style, lint, format, best practices, type hint, documentation, numpydoc, sphinx, typing, annotation, whitespace
-```
+<!-- #endraw -->
 
 # Writing Good Code
 
@@ -725,7 +725,7 @@ There is great wisdom in placing such a high value on documentation. In this sec
 
 PLYMI uses Numpy-style docstrings throughout most of the text (except for when we are trying to keep the functions brief). This is ultimately just a choice of style/aesthetics. Ultimately, the critical takeaway here is to **pick a documentation style, learn it, and stick to it faithfully**. Once again, it is hard to overstate how important it is to anchor your code with clear and consistent documentation. It will aid you in your code-writing process, it will enable users to adopt and perhaps contribute to your code, and it will ensure longevity for your hard work.
 
-<!-- #region -->
+
 ### The NumPy Documentation Style
 
 The NumPy documentation style is specified in full [here](https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard). It is strongly recommended that you read through it in full. There are details in the specification that we will pass over here for the sake of simplicity and to avoid rewriting their specification. We will focus on the guidelines for documenting functions, but note that they specify rules for documenting [classes](https://www.pythonlikeyoumeanit.com/module_4.html) and [modules](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Modules).
@@ -743,7 +743,6 @@ A docstring should at least consist of:
  - An extended summary of the function, which provides a more verbose description of things.
  - A `Parameters` section, which details the types of the input parameters along with descriptions of them. (This section is not necessary if your function is parameterless).
  - A `Returns` section (or `Yields` for a generator), which details the object that is returned by the function. (This is not necessary if your function always returns `None`).
-<!-- #endregion -->
 
 <!-- #region -->
 There are additional, optional sections that can be used to improve your documentation: 

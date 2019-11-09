@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
@@ -328,7 +328,6 @@ class Rational:
         self.denom = denom // factor
 <!-- #endregion -->
 
-<!-- #region -->
     def __add__(self, other):
         ''' Overload the `+` operator 
         
@@ -424,7 +423,6 @@ class Rational:
         '''
         return 'Rational({}, {})'.format(self.num, self.denom)
 ```
-<!-- #endregion -->
 
 ```python
 
