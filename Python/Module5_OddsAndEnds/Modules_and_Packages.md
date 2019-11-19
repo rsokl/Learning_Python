@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Understanding imports modules and packages, Difficulty: Easy, Category: Section
    :keywords: custom package, module, script, import, setup, pip, conda, relative import, absolute import 
-```
+<!-- #endraw -->
 
 <!-- #region -->
 # Import: Modules and Packages
@@ -404,7 +404,6 @@ In lieu of printing out your `PYTHONPATH`, you can look up the location of your 
 It must be mentioned that we are sweeping some details under the rug here. Installing NumPy does not merely entail copying its various modules and packages wholesale into site-packages. That being said, we will not dive any deeper into the technical details of package installation beyond understanding where packages are installed and thus where our Python interpreter looks to import them.
 <!-- #endregion -->
 
-<!-- #region -->
 ### Installing Your Own Python Package
 
 Suppose that we are happy with the work we have done on our `face_detector` project. We will want to install this package - placing it in our site-packages directory so that we can import it irrespective of our Python interpreter's working directory. Here we will construct a basic setup script that will allow us to accomplish this. 
@@ -425,7 +424,6 @@ Carrying on, we will want to create a setup-script, `setup.py`, *in the same dir
         |-- calibration.py
         |-- config.py
 ```
-<!-- #endregion -->
 
 <!-- #region -->
 The bare bones build script for preparing your package for installation, `setup.py`, is as follows: 
@@ -444,7 +442,6 @@ setuptools.setup(
 
 <!-- #endregion -->
 
-<!-- #region -->
 If you read through the additional materials linked above, you will see that there are many more fields of optional information that can be provided in this setup script, such as the author name, any installation requirements that the package has, and more.
 
 Armed with this script, we are ready to install our package locally on our machine! In your terminal, navigate to the directory containing this setup script and your package that it being installed. Run
@@ -464,9 +461,8 @@ One final but important detail. The installed version of your package will no lo
 ```shell
 python setup.py develop
 ```
-<!-- #endregion -->
 
-<!-- #region -->
+
 ## pip and conda: Package Managers
 
 Python packages can be shared worldwide. There are two widely-used Python package managers, `pip` and `conda`. `pip` downloads and installs packages from [The Python Package Index (PyPI)](https://pypi.org/), whereas `conda` downloads and installs packages from the Anaconda Cloud. Both `conda` and `pip` are installed as part of the [Anaconda distribution](http://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#Installing-Anaconda). 
@@ -488,7 +484,7 @@ Both managers will install packages to your site-packages directory.
 There are substantial benefits for using `conda` rather than `pip` to install packages. First and foremost, `conda` has a powerful "environment solver", which tracks the inter-dependencies of Python packages. Thus it will attempt to install, upgrade, and downgrade packages as needed to accommodate your installations. Additionally, the default list of packages available via `conda` are curated and maintained by Continuum Analytics, the creators of Anaconda. To elucidate one of the benefits of this, installing NumPy via `pip` will deliver the vanilla version of NumPy to you; `conda` will install an [mkl-optimized version of NumPy](https://software.intel.com/en-us/articles/numpyscipy-with-intel-mkl), which can execute routines substantially faster. Finally, `conda` also serves as [an environment manager](https://conda.io/docs/user-guide/tasks/manage-environments.html), which allows you to maintain multiple, non-conflicting environments that can house different configurations of installed Python packages and even different versions of Python itself.
 
 That being said, there are some benefits to using `pip`. PyPi is accessible and easy to upload packages to; this is likely the easiest means for distributing a Python package worldwide. As such, `pip` provides access to a wider range of Python packages. That being said, `conda` can also be directed to install packages from custom channels - providing access to packages outside of the curated Anaconda distribution. This has become a popular method of installation for machine learning libraries like PyTorch and TensorFlow.
-<!-- #endregion -->
+
 
 You are free to install some packages using `conda` and others with `pip`. Just take care not to accidentally install the same package with both - this can lead to a real mess.
 

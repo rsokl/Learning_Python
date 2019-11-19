@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Working with aths and files, Difficulty: Medium, Category: Section
    :keywords: open file, read file, pathlib, join directory, context manager, close file, rb, binary file, utf-8, encoding, pickle, numpy, load, archive, npy, npz, pkl, glob, read lines, write, save
-```
+<!-- #endraw -->
 
 # Working with Files
 This section will discuss the best practices for writing Python code that involves reading from and writing to files. We will learn about the built-in `pathlib.Path` object, which will help to ensure that the code that we write is portable across operating systems (OS) (e.g. Windows, MacOS, Linux). We will also be introduced to a *context manager*, `open`, which will permit us to read-from and write-to a file safely; by "safely" we mean that we will be assured that any file that we open will eventually be closed properly, so that it will not be corrupted even in the event that our code hits an error. Next, we will learn how to "glob" for files, meaning that we will learn to search for and list files whose names match specific patterns. Lastly, we will briefly encounter the `pickle` module which allows us to save (or "pickle") and load Python objects to and from your computer's file system.  
@@ -249,7 +249,6 @@ with open("a_poem.txt", mode="r") as my_open_file:
 ```
 <!-- #endregion -->
 
-<!-- #region -->
 ## Globbing for Files
 
 There are many cases in which we may want to construct a list of files to iterate over. For example, if we have several data files, it would be useful to create a file list which we can iterate through and process in sequence. One way to do this would be to manually construct such a list of files:
@@ -317,9 +316,8 @@ Write a glob pattern for each of the following prompts
 - Glob all file that starts with the letter 'q', contains a 'w', and ends with a '.npy' extension
 
 </div>
-<!-- #endregion -->
 
-<!-- #region -->
+
 The `*` wildcard is not the only pattern available to us. Sometimes it can be useful to match certain subsets of characters. For example, we may only want to match file names that start with a number. With the `*` wildcard alone, that's not possible. Luckily for us, these common use-cases are also taken care of.
 
 To match a subset of characters, we can use square brackets: `[abc]*` will match anything that starts with 'a', 'b', or 'c' and nothing else. We can also use a '-' inside our brackets to glob groups of characters. For example:
@@ -345,7 +343,6 @@ Write a glob pattern for each of the following prompts
 - All txt files that have the letters 'q' or 'z' in them
 
 </div>
-<!-- #endregion -->
 
 <!-- #region -->
 ## Saving & Loading Python Objects: pickle
