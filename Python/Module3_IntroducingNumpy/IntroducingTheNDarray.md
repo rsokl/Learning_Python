@@ -40,7 +40,7 @@ Let's take a sneak peek to see at what this module has in store. The following c
 >>> x = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8])
 ```
 
-This object is belongs to the NumPy-defined type `numpy.ndarray`.
+This object belongs to the NumPy-defined type `numpy.ndarray`.
 
 ```python
 # An ND-array belongs to the type `numpy.ndarray`
