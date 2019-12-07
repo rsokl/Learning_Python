@@ -212,16 +212,16 @@ def build_to_doc(root: Path):
 def convert_src_to_html(sphinx_project_root: Union[str, Path]):
     """ Runs::
 
-            python -m sphinx . _build -j4
+        python -m sphinx . _build -j4
 
-        in the specified directory
+    in the specified directory
 
-        Parameters
-        ----------
-        sphinx_project_root : Union[str, Path]
-            The directory containing the sphinx conf.py file.
-            (E.g. Learning_Python/Python/, if you cloned the
-            PLYMI repo).
+    Parameters
+    ----------
+    sphinx_project_root : Union[str, Path]
+        The directory containing the sphinx conf.py file.
+        (E.g. Learning_Python/Python/, if you cloned the
+        PLYMI repo).
         """
     import subprocess
     import os
