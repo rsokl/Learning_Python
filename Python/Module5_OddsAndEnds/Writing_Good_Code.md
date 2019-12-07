@@ -519,7 +519,16 @@ The following is a summary some of the most critical members of the `typing` mod
 
   - Hint a function that takes in a string and an integer and returns `None`: `Callable[[str, int], None]`
   - Hint a method that accepts arbitrary arguments and returns a boolean: `Callable[..., bool]`
-  
+
+#### `Literal[<value>, ...]` 
+
+- **What it hints:** That the variable will be passed one of the exact values
+- **Examples:** 
+
+  - Hint that a variable that will be the integer `1`: `Literal[1]`
+  - Hint that a variable that will be the either the string `"sum"` or the string `"mean"`: `Literal["sum", "mean"]`
+  - Hint that a variable that will be either the list `[1, 2]` or the string `"abc"`: `Literal[[1, 2], "abc"]`
+- **Compatibility Note:** The `Literal` type-hint was introduced in Python 3.8 - it is not available in earlier versions of Python.
 
 <!-- #region -->
 Let's take, for example, a function that takes in:
