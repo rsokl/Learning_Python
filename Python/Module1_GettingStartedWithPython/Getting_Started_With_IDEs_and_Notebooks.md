@@ -49,7 +49,8 @@ There are many excellent IDEs that can be configured to work well with Python. T
 - works well out-of-the-box
 - long-supported by professionals and thus is very reliable
 - highly configurable
-- fully-featured
+- fully-featured, with an excellent debugger, context-dependent "intellisense", type-inference, and more
+- the free "community version" is extremely robust and feature-rich. 
 
 **Cons**
 
@@ -60,16 +61,18 @@ There are many excellent IDEs that can be configured to work well with Python. T
 
 **Pros**
 
-- lightweight and elegant 
-- works with many different languages, so you only need to familiarize yourself with one IDE
+- lightweight and elegant
+- completely free
+- works with many different languages, so you only need to familiarize yourself with one IDE if you are a polyglot programmer
 - a huge number of extensions can be downloaded to add functionality to the editor; these are created by a large community of open-source developers.
+- [has native support for Jupyter notebooks](https://code.visualstudio.com/docs/python/jupyter-support), meaning that you get VSCode's intellisense, debugger, and ability to inspect variables, all in a notebook.
 
 **Cons**
 
-- currently less polished and less powerful than PyCharm, although Microsoft is now formally supporting the Python extension
+- currently less polished and less powerful than PyCharm
 - can require some tinkering to get features working
 
-
+ 
 <div class="alert alert-info">
 
 **Takeaway**:
