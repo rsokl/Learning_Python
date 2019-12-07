@@ -79,12 +79,3 @@ There are many excellent IDEs that can be configured to work well with Python. T
 
 Integrated Development Environments (IDEs) provide powerful tools for helping you write well-formatted and typo-free code. We recommend using PyCharm Community Edition or Visual Studio Code (with the Python extension installed) for your Python IDE. 
 </div>
-
-
-<div class="alert alert-warning">
-
-**Jupyter Lab**:
-
-[Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) is a new IDE that is being developed by the same team that develops the Jupyter Notebook. It aims to mix the polish and power of a traditional IDE, along with the convenience and great utility of the notebook environment. As of writing this, Jupyter Lab is still in the beta release phase. Given the massive popularity of Jupyter Notebook, Jupyter Lab will likely become a widely used IDE, quickly. 
-
-</div>
