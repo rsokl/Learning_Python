@@ -627,7 +627,7 @@ To be more concrete, let's revisit our `count_vowels` function:
 
 ```python
 def count_vowels(x: str, include_y: bool = False) -> int:
-    """Returns the number of vowels contained in `in_string`"""
+    """Returns the number of vowels contained in `x`"""
     vowels = set("aeiouAEIOU")
     if include_y:
         vowels.update("yY")
