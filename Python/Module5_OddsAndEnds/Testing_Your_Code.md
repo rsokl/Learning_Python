@@ -95,6 +95,18 @@ def count_vowels(x: str, include_y: bool = False) -> int:
         vowels.update("yY")
     return sum(1 for char in x if char in vowels)
 ```
+
+(Note that we will be making use of [type hinting](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Type-Hinting) to help document the interfaces of our functions.
+You may want to briefly review the linked material if this is unfamiliar to you)
+
+For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output:
+
+```python
+def test_count_vowels_basic():
+    assert count_vowels("aA bB yY", include_y=False) == 2
+    assert count_vowels("aA bB yY", include_y=True) == 4
+```
+
 <!-- #endregion -->
 
 <!-- #region -->
