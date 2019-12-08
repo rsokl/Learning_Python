@@ -80,6 +80,8 @@ Let's start by seeing what constitutes a basic test function.
 Let's write a function that tests the following `count_values` code:
 
 ```python
+# Defining a function that we will be testing
+
 def count_vowels(x: str, include_y: bool = False) -> int:
     """Returns the number of vowels contained in `x`
 
@@ -102,14 +104,52 @@ You may want to briefly review the linked material if this is unfamiliar to you)
 For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output:
 
 ```python
+# Writing a test function for `count_vowels`
+
 def test_count_vowels_basic():
     assert count_vowels("aA bB yY", include_y=False) == 2
     assert count_vowels("aA bB yY", include_y=True) == 4
 ```
 
+Note that this test function doesn't take in any inputs;
+thanks to [Python's scoping rules](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html), we can reference our `count_vowels` function within our test as long as they exist in the same "namespace".
+I.e. either  we can define `count_vowels` in the same .py file (or Jupyter notebook, if you are following along with this material) as `test_count_vowels_basic`, or we can [import](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Import-Statements) `count_vowels` from wherever it is defined, and into the file containing our test.
+
+To run this test, we simply call the function:
+
+```python
+# running our test function
+>>> test_count_vowels_basic()
+```
+
+and... voilà? Wait, nothing happened.
+Indeed, this is the expected behavior: our test function should either run successfully and complete "silently", or it should raise an error if one of our assertions failed.
+This is exactly the behavior afforded to us by the `assert` statements that we included in our tests.
+Let's take some time to understand how `assert` statements work, and how we should use them. 
 <!-- #endregion -->
 
 <!-- #region -->
+### Assert Statements
+Similar to `return`, `def`, or `if`, the term `assert` is a reserved term in the Python language. 
+It has the following specialized behavior:
+
+```python
+# demonstrating the rudimentary behavior of an `assert`
+
+# asserting an expression that evaluates to `True` does nothing
+>>> assert 1 < 2
+
+# asserting an expression that evaluates to `False` raises an error
+>>> assert 2 < 1
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-5-c82711d5fe4d> in <module>
+----> 1 assert 2 < 1
+
+AssertionError: 
+```
+
+<!-- #endregion -->
 ## SCRATCH
 As we become capable Python users, we will naturally find ourselves moving away from writing short, trivial programs in favor of creating useful and increasingly-sophisticated projects. It is only naturally try using your code to verify its behavior. You may even devise several scenarios to exercise your project. Clearly this sort of testing need no justification; it is a ubiquitous practice among coders. Less obvious are the major pitfalls associated with this highly-manual means of testing. 
 
