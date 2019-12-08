@@ -71,6 +71,30 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
   > Having a healthy test suite lowers the barrier to entry for a project. 
   > A contributor can make improvements to the project and quickly check to see if they have broken it or changed any of its behavior.
 
+This all sounds great, but where do we even begin to kick off the process of writing a test suite? 
+Let's start by seeing what constitutes a basic test function.
+<!-- #endregion -->
+
+<!-- #region -->
+## The Basic Anatomy of a Test Function
+Let's write a function that tests the following `count_values` code:
+
+```python
+def count_vowels(x: str, include_y: bool = False) -> int:
+    """Returns the number of vowels contained in `x`
+
+    Examples
+    --------
+    >>> count_vowels("happy")
+    1
+    >>> count_vowels("happy", include_y=True)
+    2
+    """
+    vowels = set("aeiouAEIOU")
+    if include_y:
+        vowels.update("yY")
+    return sum(1 for char in x if char in vowels)
+```
 <!-- #endregion -->
 
 <!-- #region -->
