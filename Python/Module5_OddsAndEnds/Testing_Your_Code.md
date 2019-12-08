@@ -45,17 +45,23 @@ Less obvious is the massive benefits that we stand to gain from formalizing this
 And by "formalizing", we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end.
 We will accumulate these functions into a "test suite" that we can run quickly and repeatedly.
 
-There are plenty of practical details ahead for us to learn, so let's expedite this discussion and simply list some of the benefits that we can expect to reap from writing tests:
+There are plenty of practical details ahead for us to learn, so let's expedite this discussion and simply list some of the benefits that we can expect to reap from writing (good) tests:
 
-- It saves (lots of) time:
-  > After you have devised a test scenario for your code, it may only take you a second or so to run it - perhaps you need only run a couple of Jupyter notebook cells to check the output.
-  > This quickly becomes unwieldy as you write more code and devise more test scenarios.
-  > Soon you will be dissuaded from running all of your tests except for on rare occasions.
-  > With a proper test suite, you can all of your test scenarios with a single button push.
-  > In a single moment, you view a series of green check-marks (or red x's...)  
-- It increases the "shelf life" of your code:
-  > If you've ever dusted off a project that you haven't used for years (or perhaps only months), you might know the tribulations of getting old code to work.
-  > Perhaps, in the interim, new versions of your project's dependencies, like PyTorch or matplotlib, have come out and may be incompatible
+- It saves us lots of time:
+  > After you have devised a test scenario for your code, it may only take us a second or so to run it - perhaps we need only run a couple of Jupyter notebook cells to check the output.
+  > However, this will quickly become unwieldy as we write more code and devise more test scenarios.
+  > Soon we will be dissuaded from running all of our tests except for on rare occasions.
+  > With a proper test suite, we can run all of our test scenarios with the push of a button a series of green check-marks (or red x's...) will summarize the health of our project (insofar as our tests serve as good diagnostics) in a single moment.
+  > In the long run, our test suite will save us large amounts of time and will afford us the ability to aggressively exercise our tests with little cost. 
+- It increases the "shelf life" of our code:
+  > If you've ever dusted off a project that you haven't used for years (or perhaps only months or weeks...), you might know the tribulations of getting old code to work.
+  > Perhaps, in the interim, new versions of your project's dependencies, like PyTorch or matplotlib, were released and have incompatibilities with our project.
+  > And perhaps we can't even _remember_ all of the ways in which our project is supposed to work.
+  > Our test suite provides us with a simple and incisive way to dive back into our work.
+  > It will point us to any of 
+- It makes it easier for others to contribute to our project:
+- It will inform the quality and design of our project for the better:
+  > Although it may not be outright obvious, writing testable code leads to writing better code. 
 
 <!-- #endregion -->
 
