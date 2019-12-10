@@ -123,9 +123,9 @@ To run this test, we simply call the function:
 ```
 
 and... voilà? Wait, nothing happened.
-Indeed, this is the expected behavior: our test function should either run successfully and complete "silently", or it should raise an error if one of our assertions failed.
+Indeed, this is the expected behavior: our test function should either run successfully and complete "silently", or it should raise an error if one of our assertions failed to hold true.
 This is exactly the behavior afforded to us by the `assert` statements that we included in our tests.
-Let's take some time to understand how `assert` statements work, and how we should use them. 
+Let's take a moment to understand how `assert` statements work, and how we should use them. 
 <!-- #endregion -->
 
 <!-- #region -->
