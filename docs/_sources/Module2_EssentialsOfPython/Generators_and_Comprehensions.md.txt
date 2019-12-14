@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: generators comprehensions and efficiency, Difficulty: Easy, Category: Section
    :keywords: generator, range, list comprehension, generator comprehension, nested comprehensions, inline for-loop, filtered, iterator
-```
+<!-- #endraw -->
 
 # Generators & Comprehension Expressions
 <div class="alert alert-warning">
@@ -197,7 +197,6 @@ Generator comprehensions are **not** the only method for defining generators in 
 </div>
 <!-- #endregion -->
 
-<!-- #region -->
 <div class="alert alert-info">
 
 **Reading Comprehension: Writing a Generator Comprehension**:
@@ -212,7 +211,6 @@ Note that (3, 5) is *not* in the series.
 Iterate over the generator and print its contents to verify your solution.
 
 </div>
-<!-- #endregion -->
 
 <!-- #region -->
 ### Storing generators

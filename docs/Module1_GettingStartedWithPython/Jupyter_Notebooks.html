@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="Topic: Jupyter notebooks, Difficulty: Easy, Category: Tutorial" name="description" />
-<meta content="jupyter, notebook, kernel, basics, server, console, command line, plot, beginner, data science" name="keywords" />
+<meta content="jupyter, jupyter lab, notebook, kernel, basics, server, console, plot, beginner, data science" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -100,12 +100,14 @@
 <li class="toctree-l2"><a class="reference internal" href="Installing_Python.html">Installing Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Informal_Intro_Python.html">An Informal Introduction to Python</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Jupyter Notebooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Jupyter-Lab">Jupyter Lab</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Running-a-Notebook-Server-&amp;-Creating-a-Notebook">Running a Notebook Server &amp; Creating a Notebook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Notebook-Cells">Notebook Cells</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#An-Example-Notebook">An Example Notebook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Familiarizing-Yourself-with-Jupyter-Notebooks">Familiarizing Yourself with Jupyter Notebooks</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Markdown-Cells">Markdown Cells</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Using-Jupyter-Notebooks-with-Other-Languages">Using Jupyter Notebooks with Other Languages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Jupyter-Notebook-Support-in-Visual-Studio-Code">Jupyter Notebook Support in Visual Studio Code</a></li>
 </ul>
 </li>
 </ul>
@@ -119,6 +121,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
             
@@ -414,11 +417,19 @@ div.rendered_html tbody tr:hover {
 syntax</a>), for presenting and explaining the contents of the notebook.</p>
 <p>In this way, the Jupyter Notebook stands out as an excellent tool for many practical applications. You could work on a notebook while you are working through sections of this website, for instance, testing out snippets of code, and answering reading-comprehension questions as you proceed through the text, and using markdown-headers to visually separate different portions of the notebook. When I do research, I am always creating Jupyter notebooks in which I write code that analyzes data, I plot
 various results, presented in different ways, and I write detailed markdown-text blocks to document my work. The end result is something that I can share with my labmates, and easily revisit months later without having to struggle to recall what I had done.</p>
-<p>Enough gushing about Jupyter notebooks. Let’s start using them!</p>
+<div class="section" id="Jupyter-Lab">
+<h2>Jupyter Lab<a class="headerlink" href="#Jupyter-Lab" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://jupyterlab.readthedocs.io/">Jupyter lab</a> is a new web interface from Project Jupyter that provides a rich web-based interface for managing and running Jupyter notebooks, console terminals, and text editors, all within your browser. Among its useful features and polished user interface - compared to that a Jupyter notebook server - Jupyter lab provides moveable panes for viewing data, images, and code output apart from the rest of the notebook. This is facilitates effective data
+science work flows.</p>
+<p>It is recommended that you peruse the <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">Jupyter lab documentation</a> to get a feel for all of its added capabilities.</p>
+<p>The following instructions are laid out for running a Jupyter notebook server. That being said, the process for running a Jupyter lab server and working with notebooks therein is nearly identical. Both Jupyter notebook and Jupyter lab should already be <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html">installed via Anaconda</a>.</p>
+</div>
 <div class="section" id="Running-a-Notebook-Server-&amp;-Creating-a-Notebook">
 <h2>Running a Notebook Server &amp; Creating a Notebook<a class="headerlink" href="#Running-a-Notebook-Server-&-Creating-a-Notebook" title="Permalink to this headline">¶</a></h2>
+<p>Enough gushing about Jupyter notebooks. Let’s start using them!</p>
 <p>In your terminal, navigate to a directory (a.k.a folder) that you are okay creating files in. If you don’t know how to do this, Google it!</p>
 <p>Once you are in the desired directory, execute in your terminal (type the following, and then hit <code class="docutils literal notranslate"><span class="pre">&lt;ENTER&gt;</span></code>): <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code></p>
+<p>Alternatively, if you want to work in Jupyter lab, run: <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code></p>
 <p>You should see some text appear in your terminal:</p>
 <p><img alt="Starting a jupyter notebook server on your machine" src="../_images/jupyter_login.PNG" /></p>
 <p>This is a “notebook server” that is running on your machine - it basically handles all of the communication between your browser and your machine. A new window or tab should open in your web browser, which looks like a file explorer.</p>
@@ -514,7 +525,7 @@ ax.legend();
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/Module1_GettingStartedWithPython_Jupyter_Notebooks_9_0.png" src="../_images/Module1_GettingStartedWithPython_Jupyter_Notebooks_9_0.png" />
+<img alt="../_images/Module1_GettingStartedWithPython_Jupyter_Notebooks_10_0.png" src="../_images/Module1_GettingStartedWithPython_Jupyter_Notebooks_10_0.png" />
 </div>
 </div>
 <p>Notice that this notebook interface is great for making adjustments to this plot. You can easily change the color or line-style of the plot and redraw it without having to recompute the functions. You simply re-execute the cell containing the plot code. This is especially nice when the numerical computations required to generate the curves are costly.</p>
@@ -561,6 +572,10 @@ equations</a>, embed images and videos in your notebook, and much more. In fact,
 <li><a class="reference external" href="https://github.com/gopherdata/gophernotes">Go</a></li>
 </ul>
 <p>The ever-growing list of available kernels for use with Jupyter can be found <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">here</a>. It should be noted that these efforts are not all equally mature. For instance, whereas the Python and Julia kernels are robust, the Haskell kernel cannot run natively on Windows machines, and the C++ kernel is still in early development, as of writing this.</p>
+</div>
+<div class="section" id="Jupyter-Notebook-Support-in-Visual-Studio-Code">
+<h3>Jupyter Notebook Support in Visual Studio Code<a class="headerlink" href="#Jupyter-Notebook-Support-in-Visual-Studio-Code" title="Permalink to this headline">¶</a></h3>
+<p>Native Jupyter notebook support was <a class="reference external" href="https://devblogs.microsoft.com/python/announcing-support-for-native-editing-of-jupyter-notebooks-in-vs-code/">recently added to Visual Studio Code</a>. This means that you can now edit Jupyter notebooks within the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">Visual Studio Code IDE</a>, and that you will benefit from added features like code-completion, debugging, and variable inspection.</p>
 </div>
 </div>
 </div>
