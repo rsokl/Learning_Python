@@ -64,6 +64,7 @@ I started learning to use Python in graduate school for my physics research, and
    module_3_problems.rst
    module_4.rst
    module_5.rst
+   changes.rst
 
 Indices and tables
 ==================

@@ -19,6 +19,7 @@ __all__ = [
     "get_all_notebook_files",
     "convert_all_ipynb_to_markdown",
     "convert_all_markdown_to_ipynb",
+    "convert_src_to_html",
     "build_to_doc",
 ]
 
