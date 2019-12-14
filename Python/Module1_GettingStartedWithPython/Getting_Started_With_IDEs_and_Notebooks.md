@@ -56,6 +56,7 @@ There are many excellent IDEs that can be configured to work well with Python. T
 
  - can be resource-heavy, especially for a laptop
  - may be overwhelming to new users (but has good documentation and tutorials)
+ - Jupyter notebook support requires the premium version of PyCharm, making it inaccessible to newcomers
  
 [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://code.visualstudio.com/docs/languages/python): A lightweight, highly customizable IDE.
 
@@ -69,8 +70,8 @@ There are many excellent IDEs that can be configured to work well with Python. T
 
 **Cons**
 
-- currently less polished and less powerful than PyCharm
-- can require some tinkering to get features working
+- configuring VSCode for python development can have a moderate learning curve for newcomers
+- many features, like context-aware intellisense and type-inference, are simply more polished and powerful in PyCharm
 
  
 <div class="alert alert-info">
