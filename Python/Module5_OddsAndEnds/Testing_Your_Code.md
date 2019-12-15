@@ -116,10 +116,10 @@ To run this test, we simply call the function:
 
 ```python
 # running our test function
->>> test_count_vowels_basic()
+>>> test_count_vowels_basic()  # passes: returns None | fails: raises error
 ```
 
-As described above, the fact our function runs, simply returning `None` without raising any errors, means that our code has passed this test. We've written and run our very first test!
+As described above, the fact our function runs and simply returns `None` means that our code has passed this test. We've written and run our very first test!
 
 Let's look more carefully at the structure of `test_count_vowels_basic`.
 Note that this function doesn't take in any inputs;
@@ -258,10 +258,10 @@ That being said, as we write increasingly sophisticated code, we will find that 
 
 ### Testing Our Tests
 
-It is surprisingly easy to unwittingly write a test that always passes or that fails to test our logic in a useful way.
+It is surprisingly easy to unwittingly write a test that always passes or that fails to test our fails in its intended way.
 This is a particularly treacherous mistake to make as it leads us to falsely believe that our function is working as-expected.
-**Thus a critical step in the test-writing process is to intentionally mutate your function of interest - to corrupt its behavior in such a way that your test ought to raise an error.**
-Once you confirm that your test does indeed raise an error as-expected, restore your function to its original form and re-run the test and see that it passes. Take care that you mutate your function in a way that is trivial to undo - make use of code-comments towards this end.
+**Thus a critical step in the test-writing process is to intentionally mutate your function of interest - to corrupt its behavior in such a way that our test ought to raise an error.**
+Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes. We ought to mutate our function in a way that is trivial to undo - we can use of code-comments towards this end.
 
 
 
