@@ -128,7 +128,7 @@ That is, we can either define `count_vowels` in the same .py file (or Jupyter no
 The latter scenario is by far the most common one in practice. 
 More on this later.
 
-<!-- #region -->
+<!-- #endregion -->
 <div class="alert alert-info"> 
 
 **Reading Comprehension: The Basic Anatomy of a Test**
@@ -137,10 +137,9 @@ Add an additional assertion to the body of `test_count_vowels_basic`, which test
 Make sure to run your updated test to see if it passes.
 
 </div>
-<!-- #endregion -->
+
 
 With our first test function under our belt, it is time for us understand how `assert` statements work and how they should be used. 
-<!-- #endregion -->
 
 <!-- #region -->
 ### Assert Statements
@@ -257,15 +256,35 @@ Admittedly, the `count_vowels` function is simple enough that the inclusion of t
 That being said, as we write increasingly sophisticated code, we will find that the inclusion of assertions will help us catch bad internal logic and oversights within our code base.
 <!-- #endregion -->
 
+### Testing Our Tests
+
+It is surprisingly easy to unwittingly write a test that always passes or that fails to test our logic in a useful way.
+This is a particularly treacherous mistake to make as it leads us to falsely believe that our function is working as-expected.
+**Thus a critical step in the test-writing process is to intentionally mutate your function of interest - to corrupt its behavior in such a way that your test ought to raise an error.**
+Once you confirm that your test does indeed raise an error as-expected, restore your function to its original form and re-run the test and see that it passes. Take care that you mutate your function in a way that is trivial to undo - make use of code-comments towards this end.
+
+
+
+<div class="alert alert-info"> 
+
+**Reading Comprehension: Testing Your Test via Manual Mutation**
+
+Temporarily change the body of `count_vowels` such that the second assertion in `test_count_vowels_basic` raises an error.
+Run the test to confirm that the second assertion raises,
+and then restore `count_vowels` to its original form.
+Finally, rerun the test to see that `count_vowels` once again passes all of the assertions.
+
+</div>
+
 <!-- #endregion -->
 
 ## Links to Official Documentation
 
 
 
-<!-- #region -->
 ## Reading Comprehension Solutions
 
+<!-- #region -->
 **The Basic Anatomy of a Test: Solution**
 
 Add an additional assertion to the body of `test_count_vowels_basic`, which tests whether `count_vowels` handles the empty-string (`""`) case appropriately.
@@ -314,5 +333,54 @@ Assert that the number of vowels in `a_string` is fewer than `a_number`; include
 ```
 
 > Note that we make use of an [f-string](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings) as a convenient means for writing an informative error message.
+<!-- #endregion -->
 
+<!-- #region -->
+**Testing Your Test via Manual Mutation: Solution**
+
+Temporarily change the body of `count_vowels` such that the _second_ assertion in `test_count_vowels_basic` raises an error.
+> Let's comment out the `if include_y` block in our code - this should prevent us from counting y's, and thus should violate the second assertion in our test.
+
+```python
+# Breaking the behavior of `include_y=True`
+def count_vowels(x: str, include_y: bool = False) -> int:
+    vowels = set("aeiouAEIOU")
+    # if include_y:
+    #    vowels.update("yY")
+    return sum(1 for char in x if char in vowels)
+```
+
+```python
+# the second assertion should raise an error
+>>> test_count_vowels_basic()
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-5-32301ff829e9> in <module>
+----> 1 test_count_vowels_basic()
+
+<ipython-input-4-99ef0ca3d859> in test_count_vowels_basic()
+      1 def test_count_vowels_basic():
+      2     assert count_vowels("aA bB yY", include_y=False) == 2
+----> 3     assert count_vowels("aA bB yY", include_y=True) == 4
+
+AssertionError: 
+```
+
+> Great! That assertion really does help to ensure that we are counting y's correctly.
+
+Restore `count_vowels` to its original form and rerun the test to see that `count_vowels` once again passes all of the assertions.
+
+```python
+# Restore the behavior of `include_y=True`
+def count_vowels(x: str, include_y: bool = False) -> int:
+    vowels = set("aeiouAEIOU")
+    if include_y:
+        vowels.update("yY")
+    return sum(1 for char in x if char in vowels)
+```
+
+```python
+# confirming that we restored the proper behavior in `count_vowels`
+>>> test_count_vowels_basic()
+```
 <!-- #endregion -->
