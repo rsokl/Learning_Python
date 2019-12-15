@@ -101,7 +101,11 @@ def count_vowels(x: str, include_y: bool = False) -> int:
 (Note that we will be making use of [type hinting](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Type-Hinting) to help document the interfaces of our functions.
 You may want to briefly review the linked material if this is unfamiliar to you)
 
-For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output:
+For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output.
+The desired behavior for this test function, upon being run, is to:
+
+- Raise an error if any of our assertions *failed* to hold true.
+- Complete "silently" if all of our assertions hold true (i.e. our test function will simply [return None](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#The-return-Statement))
 
 ```python
 # Writing a test function for `count_vowels`
@@ -111,10 +115,6 @@ def test_count_vowels_basic():
     assert count_vowels("aA bB yY", include_y=True) == 4
 ```
 
-Note that this test function doesn't take in any inputs;
-thanks to [Python's scoping rules](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html), we can reference our `count_vowels` function within our test as long as they exist in the same "namespace".
-I.e. either  we can define `count_vowels` in the same .py file (or Jupyter notebook, if you are following along with this material) as `test_count_vowels_basic`, or we can [import](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Import-Statements) `count_vowels` from wherever it is defined, and into the file containing our test.
-
 To run this test, we simply call the function:
 
 ```python
@@ -122,10 +122,26 @@ To run this test, we simply call the function:
 >>> test_count_vowels_basic()
 ```
 
-and... voilà? Wait, nothing happened.
-Indeed, this is the expected behavior: our test function should either run successfully and complete "silently", or it should raise an error if one of our assertions failed to hold true.
-This is exactly the behavior afforded to us by the `assert` statements that we included in our tests.
-Let's take a moment to understand how `assert` statements work, and how we should use them. 
+As described above, the fact our function runs, simply returning `None` without raising any errors, means that our code has "passed" this test!
+
+Let's look more carefully at the structure of `test_count_vowels_basic`.
+Note that this function doesn't take in any inputs;
+thanks to [Python's scoping rules](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html), we can reference our `count_vowels` function within our test as long as they exist in the same "namespace".
+I.e. either  we can define `count_vowels` in the same .py file (or Jupyter notebook, if you are following along with this material in a notebook) as `test_count_vowels_basic`, or we can [import](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Import-Statements) `count_vowels` from wherever it is defined, and into the file containing our test.
+More on this later.
+
+<!-- #region -->
+<div class="alert alert-info"> 
+
+**Reading Comprehension: Writing a Basic Test Assertion**
+
+Add an additional assertion to the body of `test_count_vowels_basic`, which tests whether `count_vowels` handles the empty-string (`""`) case appropriately.
+Make sure to run your updated test to see if it passes.
+
+</div>
+<!-- #endregion -->
+
+With our first test function under our belt, it is time for us understand how `assert` statements work and how they should be used. 
 <!-- #endregion -->
 
 <!-- #region -->
@@ -149,6 +165,7 @@ AssertionError                            Traceback (most recent call last)
 AssertionError: 
 ```
 
+
 <!-- #endregion -->
 ## SCRATCH
 As we become capable Python users, we will naturally find ourselves moving away from writing short, trivial programs in favor of creating useful and increasingly-sophisticated projects. It is only naturally try using your code to verify its behavior. You may even devise several scenarios to exercise your project. Clearly this sort of testing need no justification; it is a ubiquitous practice among coders. Less obvious are the major pitfalls associated with this highly-manual means of testing. 
@@ -166,6 +183,31 @@ x+= 4
 ```
 <!-- #endregion -->
 
-```python
+<!-- #region -->
+## Links to Official Documentation
 
+
+<!-- #endregion -->
+
+<!-- #region -->
+## Reading Comprehension Solutions
+
+**Writing a Basic Test Assertion**
+
+Add an additional assertion to the body of `test_count_vowels_basic`, which tests whether `count_vowels` handles the empty-string (`""`) case appropriately.
+Make sure to run your updated test to see if it passes.
+
+```python
+def test_count_vowels_basic():
+    assert count_vowels("aA bB yY", include_y=False) == 2
+    assert count_vowels("aA bB yY", include_y=True) == 4
+    assert count_vowels("", include_y=True) == 0
 ```
+
+```python
+# running the test in a notebook-cell: the function should simply return
+# `None` if all assertions hold true
+>>> test_count_vowels_basic()
+```
+
+<!-- #endregion -->
