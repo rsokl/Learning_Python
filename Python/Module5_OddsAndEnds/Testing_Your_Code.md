@@ -19,7 +19,6 @@ jupyter:
    :keywords: test, pytest, automated, unit, integration, property-based, hypothesis  
 <!-- #endraw -->
 
-<!-- #region -->
 # Testing Your Code
 
 This section will introduce us to the critically-important and often-overlooked process of testing code. 
@@ -32,9 +31,8 @@ Finally, we will take a step back to consider some strategies for writing effect
 Among these is a methodology that is near and dear to my heart: property-based testing.
 This will take us down a bit of a rabbit hole, where we will find the powerful property-based testing library [Hypothesis](https://hypothesis.readthedocs.io/) waiting to greet us (adorned with the mad Hatter's cap and all).
 
-<!-- #endregion -->
 
-<!-- #region -->
+
 ## Why Should We Write Tests?
 With great power comes great responsibility: tests help us be responsible for the code that we create and that others will (hopefully) use.
 
@@ -73,7 +71,6 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 
 This all sounds great, but where do we even start the process writing a test suite? 
 Let's begin by seeing what constitutes a basic test function.
-<!-- #endregion -->
 
 <!-- #region -->
 ## The Basic Anatomy of a Test Function
@@ -128,13 +125,13 @@ Let's look more carefully at the structure of `test_count_vowels_basic`.
 Note that this function doesn't take in any inputs;
 thanks to [Python's scoping rules](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html), we can reference our `count_vowels` function within our test as long as it is defined in the same "namespace" as `test_count_vowels_basic`.
 That is, we can either define `count_vowels` in the same .py file (or Jupyter notebook, if you are following along with this material in a notebook) as `test_count_vowels_basic`, or we can [import](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Import-Statements) `count_vowels` from wherever it is defined, and into the file containing our test.
-The latter scenario is by far the most common one, in practice. 
+The latter scenario is by far the most common one in practice. 
 More on this later.
 
 <!-- #region -->
 <div class="alert alert-info"> 
 
-**Reading Comprehension: Writing a Basic Test Assertion**
+**Reading Comprehension: The Basic Anatomy of a Test**
 
 Add an additional assertion to the body of `test_count_vowels_basic`, which tests whether `count_vowels` handles the empty-string (`""`) case appropriately.
 Make sure to run your updated test to see if it passes.
@@ -151,12 +148,12 @@ Similar to `return`, `def`, or `if`, the term `assert` is a reserved term in the
 It has the following specialized behavior:
 
 ```python
-# demonstrating the rudimentary behavior of an `assert`
+# demonstrating the rudimentary behavior of the `assert` statement
 
-# asserting an expression that evaluates to `True` does nothing
+# asserting an expression whose boolean-value is `True` will complete "silently"
 >>> assert 1 < 2
 
-# asserting an expression that evaluates to `False` raises an error
+# asserting an expression whose boolean-value is `False` raises an error
 >>> assert 2 < 1
 ---------------------------------------------------------------------------
 AssertionError                            Traceback (most recent call last)
@@ -164,36 +161,112 @@ AssertionError                            Traceback (most recent call last)
 ----> 1 assert 2 < 1
 
 AssertionError: 
+
+# we can include an error message with our assertion
+>>> assert 0 in [1, 2, 3], "0 is not in the list"
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-8-e72fb36dc785> in <module>
+----> 1 assert 0 in [1, 2, 3], "0 is not in the list"
+
+AssertionError: 0 is not in the list
 ```
 
-
-<!-- #endregion -->
-## SCRATCH
-As we become capable Python users, we will naturally find ourselves moving away from writing short, trivial programs in favor of creating useful and increasingly-sophisticated projects. It is only naturally try using your code to verify its behavior. You may even devise several scenarios to exercise your project. Clearly this sort of testing need no justification; it is a ubiquitous practice among coders. Less obvious are the major pitfalls associated with this highly-manual means of testing. 
-
-Let's consider some of the pitfalls of casual, manual tests. To do so, consider the following unfortunate scenario: you carefully run your code through several test scenarios and see that 
-
-- 
-Fortunately, it is exceedingly easy to convert this casual and flawed testing workflow to one that is far more powerful and efficient.
-
+The general form of an assertion statement is:
 
 ```python
-x += 2
-
-x+= 4
+assert <expression> [, <error-message>] 
 ```
+
+In an assertion statement, `bool` is called on the object that is returned by `<expression>` - if `bool(<expression>)` returns `False`, then an `AssertionError` is raised.
+If you included a string in the assertion statement - separated from `<expression>` by a comma - then this string will be printed as the error message.
+
+See that the assertion statement: 
+```python
+assert expression, error_message
+```
+
+is effectively shorthand for the following code:
+
+```python
+# long-form equivalent of: `assert expression, error_message`
+if bool(expression) is False:
+    raise AssertionError(error_message)
+```
+
+<!-- #endregion -->
+<!-- #region -->
+<div class="alert alert-info"> 
+
+**Reading Comprehension: Assertions**
+
+Given the following objects:
+
+```python
+a_list = []
+a_number = 22
+a_string = "abcdef"
+```
+
+Write two assertion statements, each one with the corresponding behavior:
+
+- asserts that `a_list` is _not_ empty
+- asserts that the number of vowels in `a_string` is less than `a_number`; include and error message that prints the actual number of vowels
+
+</div>
 <!-- #endregion -->
 
 <!-- #region -->
+#### What is the Purpose of an Assertion?
+In our code, an assertion should be used as _a statement that is true unless there is a bug our code_.
+It is plain to see that the assertions in `test_count_vowels_basic` fit this description.
+However, it can also be useful to include assertions within our source code itself.
+
+For instance, we know that `count_vowels` should always return a non-negative integer, and that this count should not exceed the number of characters in the input string.
+We can explicitly assert that this is the case:
+
+```python
+# an example of including an assertion within our source code
+
+def count_vowels(x: str, include_y: bool = False) -> int:
+    """Returns the number of vowels contained in `x`
+
+    Examples
+    --------
+    >>> count_vowels("happy")
+    1
+    >>> count_vowels("happy", include_y=True)
+    2
+    """
+    vowels = set("aeiouAEIOU")
+    if include_y:
+        vowels.update("yY")
+    count = sum(1 for char in x if char in vowels)
+    
+    # This statement should always be true: it is not checking for 
+    # bad input from a user, it is asserting that the internal logic 
+    # of our function is correct
+    assert isinstance(count, int) and 0 <= count <= len(x)
+    return count
+```
+
+Note that this assertion *is not meant to check if the user passed bad inputs for* `x` *and* `include_y`.
+Rather, it is meant to assert that our own internal logic holds true.
+
+Admittedly, the `count_vowels` function is simple enough that the inclusion of this assertion is rather pedantic.
+That being said, as we write increasingly sophisticated code, we will find that the inclusion of assertions will help us catch bad internal logic and oversights within our code base.
+<!-- #endregion -->
+
+<!-- #endregion -->
+
 ## Links to Official Documentation
 
 
-<!-- #endregion -->
 
 <!-- #region -->
 ## Reading Comprehension Solutions
 
-**Writing a Basic Test Assertion**
+**The Basic Anatomy of a Test: Solution**
 
 Add an additional assertion to the body of `test_count_vowels_basic`, which tests whether `count_vowels` handles the empty-string (`""`) case appropriately.
 Make sure to run your updated test to see if it passes.
@@ -210,5 +283,36 @@ def test_count_vowels_basic():
 # `None` if all assertions hold true
 >>> test_count_vowels_basic()
 ```
+
+**Assertions: Solution**
+```python
+a_list = []
+a_number = 22
+a_string = "abcdef"
+```
+
+Assert that `a_list` is _not_ empty:
+
+```python
+>>> assert a_list
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-10-2eba8294859e> in <module>
+----> 1 assert a_list
+
+AssertionError: 
+```
+
+> You may have written `assert len(a_list) > 0` - this is also correct.
+> However, recall that calling `bool` on any sequence (list, tuple, string, etc.) will return `False` if the sequence is empty.
+> This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - that `bool` will be called on whatever the provided expression is.
+
+Assert that the number of vowels in `a_string` is fewer than `a_number`; include and error message that prints the actual number of vowels:
+
+```python
+>>> assert count_vowels(a_string) < a_number, f"Number of vowels, {count_vowels(a_string)}, exceeds {a_number}"
+```
+
+> Note that we make use of an [f-string](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings) as a convenient means for writing an informative error message.
 
 <!-- #endregion -->
