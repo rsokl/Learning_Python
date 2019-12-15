@@ -436,11 +436,11 @@ For example, suppose that we are using the `count_vowels` function in a library 
 
 ![PyCharm uses type-hints to check our code for consistency](pics/pycharm1.png)
 
-This saves us the trouble of having to run our code, hit an error, read through the stack trace, and debug our mistake. Instead, we immediately see our inconsistency get flagged. In fact, we probably never would have even made the mistake at all, as our IDE would have shown a list of integer-methods for us to choose from, and not string-methods. This would have likely alerted us to our misapprehension. 
+This saves us the trouble of having to run our code, hit an error, read through the stack trace, and debug our mistake. Instead, we immediately see our inconsistency get flagged. In fact, we probably never would have even made the mistake at all, as our IDE would have shown a list of integer-methods for us to choose from, and not string-methods. Type-hints would have likely alerted us to our misapprehension. 
 
 It does not take long to experience the benefits of type-hinting through your IDE. This both accelerates your coding by informing you of the object types that you are working with on the fly, and helps to expose oversights in your code as soon as they are made. 
 
-Finally, it is also worthwhile to highlight the [mypy](http://mypy-lang.org/) project, which is used to perform static type-checking on your code based on your type-hints. That is, mypy will automatically traverse your code and find potential bugs by identifying type conflicts in your code (e.g. trying to capitalize an integer) by checking their annotated and inferred types. This tool is most useful for large-scale code bases. Companies like Dropbox make keen use of mypy to identify inconsistencies in their code without having to hit runtime errors. Keep mypy in mind as you mature as a Python developer and find yourself working on projects of growing complexity.
+Finally, it is also worthwhile to highlight two projects, [mypy](http://mypy-lang.org/) and [pyright](https://github.com/microsoft/pyright), which are used to perform static type-checking on your code based on your type-hints. That is, mypy and pyright will both automatically traverse your code and find potential bugs by identifying type conflicts in your code (e.g. trying to capitalize an integer) by checking their annotated and inferred types. These tools are especially useful for large-scale code bases. Companies like Dropbox and Microsoft make keen use of static type-checking to identify inconsistencies in their code without having to hit runtime errors. Keep mypy, pyright, and other type-checking utilities in mind as you mature as a Python developer and find yourself working on projects of growing complexity. If you are using [VSCode as your IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html), you can install the [pyright vscode extension](https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright) to leverage type checking within your IDE.
 <!-- #endregion -->
 
 <div class="alert alert-info">
@@ -449,7 +449,7 @@ Finally, it is also worthwhile to highlight the [mypy](http://mypy-lang.org/) pr
 
 There is a simple syntax for annotating functions, class-methods, and variables with type-hints; this is a formal mechanism for documenting the types of objects that are expected as inputs to the function, as well as the return type of the function. It is critical to note that that type-hints are *never* enforced by Python - they only serve as a form of documentation.
 
-That being said, IDEs have powerful abilities to inspect type-hints and to highlight potential inconsistencies in your code. These capabilities can greatly facilitate your code-development. There are also third-party libraries like [mypy](http://mypy-lang.org/) that can be used to provide more rigorous type enforcement in your code.
+That being said, IDEs have powerful abilities to inspect type-hints and to highlight potential inconsistencies in your code. These capabilities can greatly facilitate your code-development. There are also third-party libraries like [mypy](http://mypy-lang.org/) and [pyright](https://github.com/microsoft/pyright) that can be used to provide more rigorous type enforcement in your code.
 
 </div>
 
@@ -519,7 +519,16 @@ The following is a summary some of the most critical members of the `typing` mod
 
   - Hint a function that takes in a string and an integer and returns `None`: `Callable[[str, int], None]`
   - Hint a method that accepts arbitrary arguments and returns a boolean: `Callable[..., bool]`
-  
+
+#### `Literal[<value>, ...]` 
+
+- **What it hints:** That the variable will be passed one of the exact values
+- **Examples:** 
+
+  - Hint that a variable that will be the integer `1`: `Literal[1]`
+  - Hint that a variable that will be the either the string `"sum"` or the string `"mean"`: `Literal["sum", "mean"]`
+  - Hint that a variable that will be either the list `[1, 2]` or the string `"abc"`: `Literal[[1, 2], "abc"]`
+- **Compatibility Note:** The `Literal` type-hint was introduced in Python 3.8 - it is not available in earlier versions of Python.
 
 <!-- #region -->
 Let's take, for example, a function that takes in:

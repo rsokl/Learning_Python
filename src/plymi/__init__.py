@@ -19,6 +19,7 @@ __all__ = [
     "get_all_notebook_files",
     "convert_all_ipynb_to_markdown",
     "convert_all_markdown_to_ipynb",
+    "convert_src_to_html",
     "build_to_doc",
 ]
 
@@ -180,7 +181,7 @@ def delete_all_markdown(root, *, excluded_file_names=frozenset(), test=True):
     )
 
 
-def build_to_doc(root: Path):
+def build_to_doc(root: Union[str, Path]):
     """
     Copy all files from docs/ to docs_backup/
     Copy all files from Python/_build/ to docs/
@@ -207,6 +208,7 @@ def build_to_doc(root: Path):
 
     assert (root / "docs" / ".nojekyll").is_file()
     assert (root / "docs" / "CNAME").is_file()
+    print("Done. Make sure to commit the changes to `docs/` and `docs_backup/`")
 
 
 def convert_src_to_html(sphinx_project_root: Union[str, Path]):

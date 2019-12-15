@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Numpy array broadcasting, Difficulty: Medium, Category: Section
    :keywords: broadcasting, vectorization, rules, mismatched shapes, distances
-```
+<!-- #endraw -->
 
 <!-- #region -->
 # Array Broadcasting
@@ -138,7 +138,7 @@ The two arrays are broadcast-compatible if either of these conditions are satisf
 
 </div>
 
-<!-- #region -->
+
 Note that it is okay to have one array with a higher-dimensionality and thus to have "dangling" leading dimensions. Any size-1 dimension or "missing" dimension will be filled-in by broadcasting the content of that array.
 
 Considering the example from the preceding subsection, let's see that the shape-(4,3) and shape-(3,) arrays satisfy these rules for broadcast-compatibility:
@@ -180,7 +180,6 @@ result-shape: INCOMPATIBLE
 result-shape: 2 x 1
 ```
 
-<!-- #endregion -->
 
 <!-- #region -->
 NumPy provides the function [broadcast_to](https://docs.scipy.org/doc/numpy/reference/generated/numpy.broadcast_to.html#numpy.broadcast_to), which can be used to broadcast an array to a specified shape. This can help us build our intuition for broadcasting. Let's broadcast a shape-(3,4) array to a shape-(2,3,4) array:

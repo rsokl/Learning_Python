@@ -123,7 +123,7 @@ What is different if we flip the ordering of the terms? I.e.:
 if dict2[key] > merged[key] or key not in merged:
 ```
 
-The problem with this flipped ordering is that the given key may not exist in `merged` yet, thus `dict2[key] > merged[key]` will raise a `KeyError`. Using the original ordering, such a case would cause `key not in merged` to return `True`, and the overall expression will return `True` without evaluating the second part of the expression (convince yourself that `False or <whatever>` should will always return `False`). 
+The problem with this flipped ordering is that the given key may not exist in `merged` yet, thus `dict2[key] > merged[key]` will raise a `KeyError`. Using the original ordering, such a case would cause `key not in merged` to return `True`, and the overall expression will return `True` without evaluating the second part of the expression (convince yourself that `True or <whatever>` will always return `True`). 
 <!-- #endregion -->
 
 <!-- #region -->
