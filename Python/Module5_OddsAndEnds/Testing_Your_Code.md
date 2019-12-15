@@ -23,10 +23,10 @@ jupyter:
 # Testing Your Code
 
 This section will introduce us to the critically-important and often-overlooked process of testing code. 
-We will begin by considering the basic motivations behind writing tests.
-Next, we will study the basic anatomy of a test-function, including its nucleus: the `assert` statement.
+We will begin by considering some driving motivations for writing tests.
+Next, we will study the basic anatomy of a test-function, including the `assert` statement, which serves as the nucleus of our test functions.
 Armed with the ability to write a rudimentary test, we will welcome, with open arms, the powerful testing framework [pytest](https://docs.pytest.org/).
-This will inform how to structure our tests alongside our Python project that we are developing, and will allow us to incisively run our tests with the press of a single button.
+This will inform how we structure our tests alongside our Python project that we are developing; with pytest, we can incisively run our tests with the press of a single button.
 Furthermore, it will allow us to greatly streamline and even begin to automate some of our tests.
 Finally, we will take a step back to consider some strategies for writing effective tests.
 Among these is a methodology that is near and dear to my heart: property-based testing.
@@ -57,8 +57,8 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
   > In the long run, our test suite will afford us the ability to aggressively exercise (and exorcise) our code at little cost.
 - It increases the "shelf life" of our code:
   > If you've ever dusted off a project that you haven't used for years (or perhaps only months or weeks...), you might know the tribulations of getting old code to work.
-  > Perhaps, in the interim, new versions of your project's dependencies, like PyTorch or Matplotlib, were released and have incompatibilities with our project.
-  > And perhaps we can't even _remember_ all of the ways in which our project is supposed to work.
+  > Perhaps, in the interim, new versions of our project's dependencies, like PyTorch or Matplotlib, were released and have incompatibilities with our project's code.
+  > And perhaps _we can't even remember_ all of the ways in which our project is supposed to work.
   > Our test suite provides us with a simple and incisive way to dive back into our work.
   > It will point us to any potential incompatibilities that have accumulated over time.
   > It also provides us with a large collection of detailed use-cases of our code;
@@ -71,8 +71,8 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
   > Having a healthy test suite lowers the barrier to entry for a project. 
   > A contributor can make improvements to the project and quickly check to see if they have broken it or changed any of its behavior.
 
-This all sounds great, but where do we even begin to kick off the process of writing a test suite? 
-Let's start by seeing what constitutes a basic test function.
+This all sounds great, but where do we even start the process writing a test suite? 
+Let's begin by seeing what constitutes a basic test function.
 <!-- #endregion -->
 
 <!-- #region -->
@@ -122,12 +122,13 @@ To run this test, we simply call the function:
 >>> test_count_vowels_basic()
 ```
 
-As described above, the fact our function runs, simply returning `None` without raising any errors, means that our code has "passed" this test!
+As described above, the fact our function runs, simply returning `None` without raising any errors, means that our code has passed this test. We've written and run our very first test!
 
 Let's look more carefully at the structure of `test_count_vowels_basic`.
 Note that this function doesn't take in any inputs;
-thanks to [Python's scoping rules](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html), we can reference our `count_vowels` function within our test as long as they exist in the same "namespace".
-I.e. either  we can define `count_vowels` in the same .py file (or Jupyter notebook, if you are following along with this material in a notebook) as `test_count_vowels_basic`, or we can [import](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Import-Statements) `count_vowels` from wherever it is defined, and into the file containing our test.
+thanks to [Python's scoping rules](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html), we can reference our `count_vowels` function within our test as long as it is defined in the same "namespace" as `test_count_vowels_basic`.
+That is, we can either define `count_vowels` in the same .py file (or Jupyter notebook, if you are following along with this material in a notebook) as `test_count_vowels_basic`, or we can [import](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Import-Statements) `count_vowels` from wherever it is defined, and into the file containing our test.
+The latter scenario is by far the most common one, in practice. 
 More on this later.
 
 <!-- #region -->
