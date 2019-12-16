@@ -80,7 +80,9 @@ Let's write a function that tests the following `count_values` code:
 # Defining a function that we will be testing
 
 def count_vowels(x: str, include_y: bool = False) -> int:
-    """Returns the number of vowels contained in `x`
+    """Returns the number of vowels contained in `x`.
+    
+    The vowel 'y' is included optionally.
 
     Examples
     --------
@@ -104,6 +106,8 @@ The desired behavior for this test function, upon being run, is to:
 - Raise an error if any of our assertions *failed* to hold true.
 - Complete "silently" if all of our assertions hold true (i.e. our test function will simply [return None](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#The-return-Statement))
 
+Here, we will be making use of Python's `assert` statements, whose behavior will be easy to deduce from the context of this test alone; we will be formally introduced to them soon.
+
 ```python
 # Writing a test function for `count_vowels`
 
@@ -119,7 +123,7 @@ To run this test, we simply call the function:
 >>> test_count_vowels_basic()  # passes: returns None | fails: raises error
 ```
 
-As described above, the fact our function runs and simply returns `None` means that our code has passed this test. We've written and run our very first test!
+As described above, the fact our function runs and simply returns `None` means that our code has passed this test. We've written and run our very first test! It certainly isn't the most robust test, but it is a good start.
 
 Let's look more carefully at the structure of `test_count_vowels_basic`.
 Note that this function doesn't take in any inputs;
@@ -139,7 +143,34 @@ Make sure to run your updated test to see if it passes.
 </div>
 
 
-With our first test function under our belt, it is time for us understand how `assert` statements work and how they should be used. 
+### Testing Our Tests
+
+It is surprisingly easy to unwittingly write a test that always passes or that fails to test our code as we had intended.
+This is a particularly treacherous mistake to make as it leads us to falsely believe that our function is working as-expected.
+**Thus a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior in such a way that our test ought to raise an error.**
+Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes. 
+
+We ought to mutate our function in a way that is trivial to undo; we can use of code-comments towards this end.
+All [IDEs](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) have the ability to "block-comment" selected code.
+In a Jupyter notebook code cell, we can highlight multiple lines of code and press `CTRL + /`: this will comment-out these lines of code.
+The same key-combination will also un-comment a highlighted block of commented code.
+
+
+
+<div class="alert alert-info"> 
+
+**Reading Comprehension: Testing Your Test via Manual Mutation**
+
+Temporarily change the body of `count_vowels` such that the second assertion in `test_count_vowels_basic` raises an error.
+Run the test to confirm that the second assertion raises,
+and then restore `count_vowels` to its original form.
+Finally, rerun the test to see that `count_vowels` once again passes all of the assertions.
+
+</div>
+
+
+
+With our first test function under our belt, it is time for us to clearly understand how `assert` statements work and how they should be used. 
 
 <!-- #region -->
 ### Assert Statements
@@ -177,7 +208,7 @@ The general form of an assertion statement is:
 assert <expression> [, <error-message>] 
 ```
 
-In an assertion statement, `bool` is called on the object that is returned by `<expression>` - if `bool(<expression>)` returns `False`, then an `AssertionError` is raised.
+When an assertion statement is executed, the built-in `bool` function is called on the object that is returned by `<expression>`; if `bool(<expression>)` returns `False`, then an `AssertionError` is raised.
 If you included a string in the assertion statement - separated from `<expression>` by a comma - then this string will be printed as the error message.
 
 See that the assertion statement: 
@@ -220,31 +251,20 @@ Write two assertion statements, each one with the corresponding behavior:
 In our code, an assertion should be used as _a statement that is true unless there is a bug our code_.
 It is plain to see that the assertions in `test_count_vowels_basic` fit this description.
 However, it can also be useful to include assertions within our source code itself.
-
-For instance, we know that `count_vowels` should always return a non-negative integer, and that this count should not exceed the number of characters in the input string.
+For instance, we know that `count_vowels` should always return a non-negative integer for the vowel-count, and that it is illogical for this count to exceed the number of characters in the input string.
 We can explicitly assert that this is the case:
 
 ```python
 # an example of including an assertion within our source code
 
 def count_vowels(x: str, include_y: bool = False) -> int:
-    """Returns the number of vowels contained in `x`
-
-    Examples
-    --------
-    >>> count_vowels("happy")
-    1
-    >>> count_vowels("happy", include_y=True)
-    2
-    """
     vowels = set("aeiouAEIOU")
     if include_y:
         vowels.update("yY")
     count = sum(1 for char in x if char in vowels)
     
-    # This statement should always be true: it is not checking for 
-    # bad input from a user, it is asserting that the internal logic 
-    # of our function is correct
+    # This assertion should always be true: it is asserting that 
+    # the internal logic of our function is correct
     assert isinstance(count, int) and 0 <= count <= len(x)
     return count
 ```
@@ -253,33 +273,12 @@ Note that this assertion *is not meant to check if the user passed bad inputs fo
 Rather, it is meant to assert that our own internal logic holds true.
 
 Admittedly, the `count_vowels` function is simple enough that the inclusion of this assertion is rather pedantic.
-That being said, as we write increasingly sophisticated code, we will find that the inclusion of assertions will help us catch bad internal logic and oversights within our code base.
-<!-- #endregion -->
-
-### Testing Our Tests
-
-It is surprisingly easy to unwittingly write a test that always passes or that fails to test our fails in its intended way.
-This is a particularly treacherous mistake to make as it leads us to falsely believe that our function is working as-expected.
-**Thus a critical step in the test-writing process is to intentionally mutate your function of interest - to corrupt its behavior in such a way that our test ought to raise an error.**
-Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes. We ought to mutate our function in a way that is trivial to undo - we can use of code-comments towards this end.
-
-
-
-<div class="alert alert-info"> 
-
-**Reading Comprehension: Testing Your Test via Manual Mutation**
-
-Temporarily change the body of `count_vowels` such that the second assertion in `test_count_vowels_basic` raises an error.
-Run the test to confirm that the second assertion raises,
-and then restore `count_vowels` to its original form.
-Finally, rerun the test to see that `count_vowels` once again passes all of the assertions.
-
-</div>
-
+That being said, as we write increasingly sophisticated code, we will find that this sort of assertion will help us catch bad internal logic and oversights within our code base.
 <!-- #endregion -->
 
 ## Links to Official Documentation
 
+- [The assert statement](https://docs.python.org/3/reference/simple_stmts.html?highlight=assert#the-assert-statement)
 
 
 ## Reading Comprehension Solutions
@@ -302,37 +301,6 @@ def test_count_vowels_basic():
 # `None` if all assertions hold true
 >>> test_count_vowels_basic()
 ```
-
-**Assertions: Solution**
-```python
-a_list = []
-a_number = 22
-a_string = "abcdef"
-```
-
-Assert that `a_list` is _not_ empty:
-
-```python
->>> assert a_list
----------------------------------------------------------------------------
-AssertionError                            Traceback (most recent call last)
-<ipython-input-10-2eba8294859e> in <module>
-----> 1 assert a_list
-
-AssertionError: 
-```
-
-> You may have written `assert len(a_list) > 0` - this is also correct.
-> However, recall that calling `bool` on any sequence (list, tuple, string, etc.) will return `False` if the sequence is empty.
-> This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - that `bool` will be called on whatever the provided expression is.
-
-Assert that the number of vowels in `a_string` is fewer than `a_number`; include and error message that prints the actual number of vowels:
-
-```python
->>> assert count_vowels(a_string) < a_number, f"Number of vowels, {count_vowels(a_string)}, exceeds {a_number}"
-```
-
-> Note that we make use of an [f-string](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings) as a convenient means for writing an informative error message.
 <!-- #endregion -->
 
 <!-- #region -->
@@ -383,4 +351,37 @@ def count_vowels(x: str, include_y: bool = False) -> int:
 # confirming that we restored the proper behavior in `count_vowels`
 >>> test_count_vowels_basic()
 ```
+<!-- #endregion -->
+
+<!-- #region -->
+**Assertions: Solution**
+```python
+a_list = []
+a_number = 22
+a_string = "abcdef"
+```
+
+Assert that `a_list` is _not_ empty:
+
+```python
+>>> assert a_list
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-10-2eba8294859e> in <module>
+----> 1 assert a_list
+
+AssertionError: 
+```
+
+> You may have written `assert len(a_list) > 0` - this is also correct.
+> However, recall that calling `bool` on any sequence (list, tuple, string, etc.) will return `False` if the sequence is empty.
+> This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - that `bool` will be called on whatever the provided expression is.
+
+Assert that the number of vowels in `a_string` is fewer than `a_number`; include and error message that prints the actual number of vowels:
+
+```python
+>>> assert count_vowels(a_string) < a_number, f"Number of vowels, {count_vowels(a_string)}, exceeds {a_number}"
+```
+
+> Note that we make use of an [f-string](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings) as a convenient means for writing an informative error message.
 <!-- #endregion -->
