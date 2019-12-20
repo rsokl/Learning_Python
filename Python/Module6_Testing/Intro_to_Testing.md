@@ -66,9 +66,12 @@ This all sounds great, but where do we even start the process writing a test sui
 Let's begin by seeing what constitutes a basic test function.
 
 <!-- #region -->
-## The Basic Anatomy of a Test Function
+## Writing Our First Tests
 
-Let's define a couple of functions that may look familiar from previous modules. We will be writing tests for these. 
+### Our "Source Code"
+We need some code to test. For the sake of this introduction, let's borrow a couple of functions that may look familiar from previous modules.
+These will serve as our "source code"; i.e. these are functions that we have written for our project and that need to be tested. 
+
 ```python
 # Defining functions that we will be testing
 
@@ -122,18 +125,25 @@ def merge_max_mappings(dict1, dict2):
     >>> x = {"a": 1, "b": 2}
     >>> y = {"b": 100, "c": -1}
     >>> merge_max_mappings(x, y)
-    {'a': 1, 'b': 100, 'c': -1}}
+    {'a': 1, 'b': 100, 'c': -1}
     """
     # `dict(dict1)` makes a copy of `dict1`. We do this 
     # so that updating `merged` doesn't also update `dict1`
     merged = dict(dict1)
-    for key in dict2:
-        if key not in merged or dict2[key] > merged[key]:
-            merged[key] = dict2[key]
+    for key, value in dict2.items():
+        if key not in merged or value > merged[key]:
+            merged[key] = value
     return merged
 ```
 
-For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output.
+As always, it is useful for us follow along with this material in a Jupyter notebook.
+We ought to take time to define these functions and run inputs through them to make sure that we understand what they are doing.
+Testing code that we don't understand is a lost cause!
+<!-- #endregion -->
+<!-- #region -->
+### The Basic Anatomy of a Test
+
+Let's start by testing `count_vowels`. For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output.
 The desired behavior for this test function, upon being run, is to:
 
 - Raise an error if any of our assertions *failed* to hold true.
@@ -156,7 +166,7 @@ To run this test, we simply call the function:
 >>> test_count_vowels_basic()  # passes: returns None | fails: raises error
 ```
 
-As described above, the fact our function runs and simply returns `None` means that our code has passed this test. We've written and run our very first test! It certainly isn't the most robust test, but it is a good start.
+As described above, the fact our function runs and simply returns `None` (i.e. we see no output when we run this test in a console or notebook cell) means that our code has passed this test. We've written and run our very first test! It certainly isn't the most robust test, but it is a good start.
 
 Let's look more carefully at the structure of `test_count_vowels_basic`.
 Note that this function doesn't take in any inputs;
@@ -166,6 +176,18 @@ The latter scenario is by far the most common one in practice.
 More on this later.
 
 <!-- #endregion -->
+
+<div class="alert alert-warning">
+
+**Takeaway**: 
+
+A "test function" is designed to provide an encapsulated "environment" (namespace to be more precise) in which we can exercise parts of our source code, and assert that the code behaves as-expected. The basic anatomy of a test function typically is structured such that:
+
+- it typically does not accept any arguments - calling the function should
+
+</div>
+
+
 <div class="alert alert-info"> 
 
 **Reading Comprehension: The Basic Anatomy of a Test**
