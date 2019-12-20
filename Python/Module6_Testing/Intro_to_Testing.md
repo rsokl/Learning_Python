@@ -181,9 +181,21 @@ More on this later.
 
 **Takeaway**: 
 
-A "test function" is designed to provide an encapsulated "environment" (namespace to be more precise) in which we can exercise parts of our source code, and assert that the code behaves as-expected. The basic anatomy of a test function typically is structured such that:
+A "test function" is designed to provide an encapsulated "environment" (namespace to be more precise) in which we can exercise parts of our source code, and assert that the code behaves as-expected. The basic anatomy of a test function typically is structured such that it:
 
-- it typically does not accept any arguments - calling the function should
+- consists of a series of `assert` statements, each of which will raise an error if our source code misbehaves 
+- simply returns `None` if all of the assertions held true
+- can be run end-to-end simply by calling the test function without passing it any parameters; we rely on Python's scoping rules to call our source code within the body of the test function without explicitly passing anything to said test function
+
+</div>
+
+
+<div class="alert alert-info"> 
+
+**Reading Comprehension: Adding Assertions to a Test**
+
+Add an additional assertion to the body of `test_count_vowels_basic`, which tests whether `count_vowels` handles the empty-string (`""`) case appropriately.
+Make sure to run your updated test to see if it passes.
 
 </div>
 
@@ -192,41 +204,12 @@ A "test function" is designed to provide an encapsulated "environment" (namespac
 
 **Reading Comprehension: The Basic Anatomy of a Test**
 
-Add an additional assertion to the body of `test_count_vowels_basic`, which tests whether `count_vowels` handles the empty-string (`""`) case appropriately.
-Make sure to run your updated test to see if it passes.
+Write a rudimentary test function for `merge_max_mappings`. This should adhere to the basic structure of a test function that we just laid out. See if you can think of some "edge cases" to test, which we may have overlooked when writing `merge_max_mappings`.
 
 </div>
-
-
-### Testing Our Tests
-
-It is surprisingly easy to unwittingly write a broken test: a test that always passes, or a test that simply doesn't exercise our code in the way that we had intended.
-Broken tests are insidious - they are alarms that will not sound when they are supposed to.
-They create misdirection in the bug-finding process and can mask problems with our code.
-**Thus a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior so that we can verify that our test works.**
-Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes. 
-
-We ought to mutate our function in a way that is trivial to undo; we can use of code-comments towards this end.
-All [IDEs](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) have the ability to "block-comment" selected code.
-In a Jupyter notebook code cell, we can highlight multiple lines of code and press `CTRL + /`: this will comment-out these lines of code.
-The same key-combination will also un-comment a highlighted block of commented code.
-
-
-
-<div class="alert alert-info"> 
-
-**Reading Comprehension: Testing Your Test via Manual Mutation**
-
-Temporarily change the body of `count_vowels` such that the second assertion in `test_count_vowels_basic` raises an error.
-Run the test to confirm that the second assertion raises,
-and then restore `count_vowels` to its original form.
-Finally, rerun the test to see that `count_vowels` once again passes all of the assertions.
-
-</div>
-
 
 <!-- #region -->
-### Assert Statements
+## Assert Statements
 With our first test function under our belt, it is time for us to clearly understand how `assert` statements work and how they should be used.
 
 Similar to `return`, `def`, or `if`, the term `assert` is a reserved term in the Python language. 
@@ -331,6 +314,34 @@ Admittedly, the `count_vowels` function is simple enough that the inclusion of t
 That being said, as we write increasingly sophisticated code, we will find that this sort of assertion will help us catch bad internal logic and oversights within our code base.
 <!-- #endregion -->
 
+## Testing Our Tests
+
+It is surprisingly easy to unwittingly write a broken test: a test that always passes, or a test that simply doesn't exercise our code in the way that we had intended.
+Broken tests are insidious - they are alarms that will not sound when they are supposed to.
+They create misdirection in the bug-finding process and can mask problems with our code.
+**Thus a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior so that we can verify that our test works.**
+Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes. 
+
+We ought to mutate our function in a way that is trivial to undo; we can use of code-comments towards this end.
+All [IDEs](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) have the ability to "block-comment" selected code.
+In a Jupyter notebook code cell, we can highlight multiple lines of code and press `CTRL + /`: this will comment-out these lines of code.
+The same key-combination will also un-comment a highlighted block of commented code.
+
+
+
+<div class="alert alert-info"> 
+
+**Reading Comprehension: Testing Your Test via Manual Mutation**
+
+Temporarily change the body of `count_vowels` such that the second assertion in `test_count_vowels_basic` raises an error.
+Run the test to confirm that the second assertion raises,
+and then restore `count_vowels` to its original form.
+Finally, rerun the test to see that `count_vowels` once again passes all of the assertions.
+
+</div>
+
+
+
 ## Links to Official Documentation
 
 - [The assert statement](https://docs.python.org/3/reference/simple_stmts.html?highlight=assert#the-assert-statement)
@@ -339,15 +350,19 @@ That being said, as we write increasingly sophisticated code, we will find that 
 ## Reading Comprehension Solutions
 
 <!-- #region -->
-**The Basic Anatomy of a Test: Solution**
+**Adding Assertions to a Test: Solution**
 
 Add an additional assertion to the body of `test_count_vowels_basic`, which tests whether `count_vowels` handles the empty-string (`""`) case appropriately.
 Make sure to run your updated test to see if it passes.
 
 ```python
 def test_count_vowels_basic():
+    # test basic strings with uppercase and lowercase letters
     assert count_vowels("aA bB yY", include_y=False) == 2
     assert count_vowels("aA bB yY", include_y=True) == 4
+    
+    # test empty strings
+    assert count_vowels("", include_y=False) == 0
     assert count_vowels("", include_y=True) == 0
 ```
 
@@ -355,6 +370,44 @@ def test_count_vowels_basic():
 # running the test in a notebook-cell: the function should simply return
 # `None` if all assertions hold true
 >>> test_count_vowels_basic()
+```
+<!-- #endregion -->
+
+<!-- #region -->
+**The Basic Anatomy of a Test: Solution**
+
+Write a rudimentary test function for `merge_max_mappings`.
+
+> Let's test the use case that is explicitly documented in the Examples section of the function's docstring.
+> We can also test cases where one or both of the inputs were empty dictionaries: can often be problematic edge cases that we didn't consider when writing our code. 
+
+```python
+def test_merge_max_mappings():    
+    # test documented behavior
+    dict1 = {"a": 1, "b": 2}
+    dict2 = {"b": 20, "c": -1}
+    expected = {'a': 1, 'b': 20, 'c': -1}
+    assert merge_max_mappings(dict1, dict2) == expected 
+    
+    # test empty dict1
+    dict1 = {}
+    dict2 = {"a": 10.2, "f": -1.0}
+    expected = dict2
+    assert merge_max_mappings(dict1, dict2) == expected 
+    
+    # test empty dict2
+    dict1 = {"a": 10.2, "f": -1.0}
+    dict2 = {}
+    expected = dict1
+    assert merge_max_mappings(dict1, dict2) == expected 
+
+    # test both empty
+    assert merge_max_mappings({}, {}) == {}
+```
+
+```python
+# running the test (seeing no errors means the tests all passed)
+>>> test_merge_max_mappings()
 ```
 <!-- #endregion -->
 
