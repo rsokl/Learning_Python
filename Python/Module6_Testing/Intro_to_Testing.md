@@ -19,7 +19,11 @@ jupyter:
    :keywords: test, automated, unit, assert  
 <!-- #endraw -->
 
-# Introduction to Testing Code
+# Introduction to Testing
+
+This section will show us just how simple it is to write rudimentary tests. We need only recall some of Python's basic scoping rules and introduce ourselves to the `assert` statement to write a genuine test function. That being said, this will simply kick off our testing journey. We will immediately encounter some important questions. How do we know that our tests work? And, how do we know that our tests are effective?
+
+Before we hit the ground running, let's take a moment to consider some motivations for testing out code.
 
 
 ## Why Should We Write Tests?
@@ -63,15 +67,26 @@ Let's begin by seeing what constitutes a basic test function.
 
 <!-- #region -->
 ## The Basic Anatomy of a Test Function
-Let's write a function that tests the following `count_values` code:
 
+Let's define a couple of functions that may look familiar from previous modules. We will be writing tests for these. 
 ```python
-# Defining a function that we will be testing
+# Defining functions that we will be testing
 
-def count_vowels(x: str, include_y: bool = False) -> int:
+def count_vowels(x, include_y=False):
     """Returns the number of vowels contained in `x`.
     
     The vowel 'y' is included optionally.
+    
+    Parameters
+    ----------
+    x : str
+        The input string
+    include_y : bool, optional (default=False)
+        If `True` count y's as vowels
+    
+    Returns
+    -------
+    vowel_count: int
 
     Examples
     --------
@@ -84,10 +99,39 @@ def count_vowels(x: str, include_y: bool = False) -> int:
     if include_y:
         vowels.update("yY")
     return sum(1 for char in x if char in vowels)
-```
 
-(Note that we will be making use of [type hinting](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Type-Hinting) to help document the interfaces of our functions.
-You may want to briefly review the linked material if this is unfamiliar to you)
+
+def merge_max_mappings(dict1, dict2):
+    """ Merges two dictionaries based on the largest value
+    in a given mapping.
+
+    Parameters
+    ----------
+    dict1 : Dict[str, float]
+    dict2 : Dict[str, float]
+
+    Returns
+    -------
+    merged : Dict[str, float]
+        The dictionary containing all of the keys common
+        between `dict1` and `dict2`, retaining the largest
+        value from common mappings.
+    
+    Examples
+    --------
+    >>> x = {"a": 1, "b": 2}
+    >>> y = {"b": 100, "c": -1}
+    >>> merge_max_mappings(x, y)
+    {'a': 1, 'b': 100, 'c': -1}}
+    """
+    # `dict(dict1)` makes a copy of `dict1`. We do this 
+    # so that updating `merged` doesn't also update `dict1`
+    merged = dict(dict1)
+    for key in dict2:
+        if key not in merged or dict2[key] > merged[key]:
+            merged[key] = dict2[key]
+    return merged
+```
 
 For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output.
 The desired behavior for this test function, upon being run, is to:
@@ -134,9 +178,10 @@ Make sure to run your updated test to see if it passes.
 
 ### Testing Our Tests
 
-It is surprisingly easy to unwittingly write a test that always passes or that fails to test our code as we had intended.
-This is a particularly treacherous mistake to make as it leads us to falsely believe that our function is working as-expected.
-**Thus a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior in such a way that our test ought to raise an error.**
+It is surprisingly easy to unwittingly write a broken test: a test that always passes, or a test that simply doesn't exercise our code in the way that we had intended.
+Broken tests are insidious - they are alarms that will not sound when they are supposed to.
+They create misdirection in the bug-finding process and can mask problems with our code.
+**Thus a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior so that we can verify that our test works.**
 Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes. 
 
 We ought to mutate our function in a way that is trivial to undo; we can use of code-comments towards this end.
@@ -158,11 +203,10 @@ Finally, rerun the test to see that `count_vowels` once again passes all of the 
 </div>
 
 
-
-With our first test function under our belt, it is time for us to clearly understand how `assert` statements work and how they should be used. 
-
 <!-- #region -->
 ### Assert Statements
+With our first test function under our belt, it is time for us to clearly understand how `assert` statements work and how they should be used.
+
 Similar to `return`, `def`, or `if`, the term `assert` is a reserved term in the Python language. 
 It has the following specialized behavior:
 
