@@ -440,9 +440,9 @@ The bare bones build script for preparing your package for installation, `setup.
 
 ```python
 # contents of setup.py
-import setuptools
+from setuptools import find_packages, setup
 
-setuptools.setup(
+setup(
     name="face_detection",
     version="1.0.0",
     packages=find_packages(exclude=["tests", "tests.*"]),
