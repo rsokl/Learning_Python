@@ -21,28 +21,28 @@ jupyter:
 
 # Introduction to Testing
 
-This section will show us just how simple it is to write rudimentary tests. We need only recall some of Python's basic scoping rules and introduce ourselves to the `assert` statement to write a genuine test function. That being said, this will simply kick off our testing journey. We will immediately encounter some important questions. How do we know that our tests work? And, how do we know that our tests are effective?
+This section will show us just how simple it is to write rudimentary tests. We need only recall some of Python's basic scoping rules and introduce ourselves to the `assert` statement to write a genuine test function. That being said, we will quickly encounter some important questions to ponder. How do we know that our tests work? And, how do we know that our tests are effective? These questions will drive us deeper into the world of testing. 
 
 Before we hit the ground running, let's take a moment to consider some motivations for testing out code.
 
 
 ## Why Should We Write Tests?
-With great power comes great responsibility: tests help us be responsible for the code that we create and that others will (hopefully) use.
 
 The fact of the matter is that everyone already tests their code to some extent.
-After coding, say, a new function, it is only natural to contrive an input to feed it, and to check that it returns the output that you expected.
+After writing, say, a new function, it is only natural to contrive an input to feed it, and to check that the function returns the output that we expected.
 To the extent that anyone would want to see evidence that their code works, we need not motivate the importance of testing.
 
-Less obvious is the massive benefits that we stand to gain from formalizing this testing process.
+Less obvious are the massive benefits that we stand to gain from formalizing this testing process.
 And by "formalizing", we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end.
-We will accumulate these functions into a "test suite" that we can run quickly and repeatedly.
+We will accumulate these test functions into a "test suite" that we can run quickly and repeatedly.
 
 There are plenty of practical details ahead for us to learn, so let's expedite this discussion and simply list some of the benefits that we can expect to reap from writing a robust test suite:
 
 - It saves us lots of time:
-  > After you have devised a test scenario for your code, it may only take us a second or so to run it - perhaps we need only run a couple of Jupyter notebook cells to check the output.
-  > However, this will quickly become unwieldy as we write more code and devise more test scenarios.
+  > After you have devised a test scenario for your code, it may only take us a second or so to run it; perhaps we need only run a couple of Jupyter notebook cells to verify the output of our code.
+  > This, however, will quickly become unwieldy as we write more code and devise more test scenarios.
   > Soon we will be dissuaded from running our tests except for on rare occasions.
+  > 
   > With a proper test suite, we can run all of our test scenarios with the push of a button, and a series of green check-marks (or red x's...) will summarize the health of our project (insofar as our tests serve as good diagnostics).
   > This, of course, also means that we will find and fix bugs much faster!
   > In the long run, our test suite will afford us the ability to aggressively exercise (and exorcise) our code at little cost.
@@ -57,7 +57,7 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 - It will inform the design and usability of our project for the better:
   > Although it may not be obvious from the outset, writing testable code leads to writing better code.
   > This is, in part, because the process of writing tests gives us the opportunity to actually _use_ our code under varied circumstances.
-  > The process of writing tests will help us suss out cumbersome function interfaces, brittle statefulness, and redundant capabilities in our code. If _we_ find it frustrating to use our code within our tests, then surely others will find it frustrating to use in applied settings.
+  > The process of writing tests will help us suss out cumbersome function interfaces, brittle statefulness, and redundant capabilities in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
 - It makes it easier for others to contribute to a project:
   > Having a healthy test suite lowers the barrier to entry for a project. 
   > A contributor can make improvements to the project and quickly check to see if they have broken it or changed any of its behavior.
@@ -143,7 +143,7 @@ Testing code that we don't understand is a lost cause!
 <!-- #region -->
 ### The Basic Anatomy of a Test
 
-Let's start by testing `count_vowels`. For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output.
+Let's write a test for `count_vowels`. For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output.
 The desired behavior for this test function, upon being run, is to:
 
 - Raise an error if any of our assertions *failed* to hold true.
@@ -171,7 +171,7 @@ As described above, the fact our function runs and simply returns `None` (i.e. w
 Let's look more carefully at the structure of `test_count_vowels_basic`.
 Note that this function doesn't take in any inputs;
 thanks to [Python's scoping rules](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html), we can reference our `count_vowels` function within our test as long as it is defined in the same "namespace" as `test_count_vowels_basic`.
-That is, we can either define `count_vowels` in the same .py file (or Jupyter notebook, if you are following along with this material in a notebook) as `test_count_vowels_basic`, or we can [import](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Import-Statements) `count_vowels` from wherever it is defined, and into the file containing our test.
+That is, we can either define `count_vowels` in the same .py file (or Jupyter notebook, if you are following along with this material in a notebook) as `test_count_vowels_basic`, or we can [import](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Import-Statements) `count_vowels`, from wherever it is defined, into the file containing our test.
 The latter scenario is by far the most common one in practice. 
 More on this later.
 
@@ -181,10 +181,10 @@ More on this later.
 
 **Takeaway**: 
 
-A "test function" is designed to provide an encapsulated "environment" (namespace to be more precise) in which we can exercise parts of our source code, and assert that the code behaves as-expected. The basic anatomy of a test function typically is structured such that it:
+A "test function" is designed to provide an encapsulated "environment" (namespace to be more precise) in which we can exercise parts of our source code and assert that the code behaves as-expected. The basic anatomy of a test function is such that it:
 
-- consists of a series of `assert` statements, each of which will raise an error if our source code misbehaves 
-- simply returns `None` if all of the assertions held true
+- consists one or more `assert` statements, each of which will raise an error if our source code misbehaves 
+- simply returns `None` if all of the aforementioned assertions held true
 - can be run end-to-end simply by calling the test function without passing it any parameters; we rely on Python's scoping rules to call our source code within the body of the test function without explicitly passing anything to said test function
 
 </div>
@@ -194,7 +194,7 @@ A "test function" is designed to provide an encapsulated "environment" (namespac
 
 **Reading Comprehension: Adding Assertions to a Test**
 
-Add an additional assertion to the body of `test_count_vowels_basic`, which tests whether `count_vowels` handles the empty-string (`""`) case appropriately.
+Add an additional assertion to the body of `test_count_vowels_basic`, which tests that `count_vowels` handles empty-string (`""`) input appropriately.
 Make sure to run your updated test to see if it passes.
 
 </div>
@@ -209,8 +209,8 @@ Write a rudimentary test function for `merge_max_mappings`. This should adhere t
 </div>
 
 <!-- #region -->
-## Assert Statements
-With our first test function under our belt, it is time for us to clearly understand how `assert` statements work and how they should be used.
+## The `assert` Statement
+With our first test functions under our belt, it is time for us to clearly understand how `assert` statements work and how they should be used.
 
 Similar to `return`, `def`, or `if`, the term `assert` is a reserved term in the Python language. 
 It has the following specialized behavior:
@@ -254,7 +254,7 @@ See that the assertion statement:
 assert expression, error_message
 ```
 
-is effectively shorthand for the following code:
+is effectively shorthand for the following code (barring some additional details):
 
 ```python
 # long-form equivalent of: `assert expression, error_message`
@@ -312,19 +312,20 @@ Rather, it is meant to assert that our own internal logic holds true.
 
 Admittedly, the `count_vowels` function is simple enough that the inclusion of this assertion is rather pedantic.
 That being said, as we write increasingly sophisticated code, we will find that this sort of assertion will help us catch bad internal logic and oversights within our code base.
+We will also see that keen use of assertions can make it much easier for us to write good tests.
 <!-- #endregion -->
 
 ## Testing Our Tests
 
 It is surprisingly easy to unwittingly write a broken test: a test that always passes, or a test that simply doesn't exercise our code in the way that we had intended.
-Broken tests are insidious - they are alarms that will not sound when they are supposed to.
+Broken tests are insidious; they are alarms that fail to sound when they are supposed to.
 They create misdirection in the bug-finding process and can mask problems with our code.
 **Thus a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior so that we can verify that our test works.**
 Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes. 
 
-We ought to mutate our function in a way that is trivial to undo; we can use of code-comments towards this end.
+A practical note: we ought to mutate our function in a way that is trivial to undo. We can use of code-comments towards this end.
 All [IDEs](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) have the ability to "block-comment" selected code.
-In a Jupyter notebook code cell, we can highlight multiple lines of code and press `CTRL + /`: this will comment-out these lines of code.
+In order to block-comment code in a Jupyter notebook code cell, highlight the lines of code and press `CTRL + /`.
 The same key-combination will also un-comment a highlighted block of commented code.
 
 
@@ -337,9 +338,28 @@ Temporarily change the body of `count_vowels` such that the second assertion in 
 Run the test to confirm that the second assertion raises,
 and then restore `count_vowels` to its original form.
 Finally, rerun the test to see that `count_vowels` once again passes all of the assertions.
+    
+Repeat this process given the test that you wrote for `merge_max_mappings`.
+Try breaking the function such that it always merges in values from `dict2`, even if those values are smaller.
 
 </div>
 
+
+
+## Our Work, Cut Out
+
+We see now that the concept of a "test function" isn't all that fancy.
+Compared to other code that we have written, writing a function that simply runs a hand full of assertions is far from a heavy lift for us.
+Of course, we must be diligent and take care to test our tests, but we can certainly manage this as well.
+With this in hand, we should take stock of the work and challenges that lie in our path ahead.
+
+It is necessary that we evolve beyond manual testing.
+There are multiple facets to this observation.
+First, we must learn how to organize our test functions into a test suite that can be run in one fowl swoop.
+Next, it will become increasingly apparent that a test function often contain large amounts of redundant code, shared across its litany of assertions.
+We will want to "parametrize" our tests to distill them down to their most concise and functional forms.
+Finally, and most importantly, it may already evident that the process of contriving known inputs and outputs to use in our tests is a highly manual and tedious process; furthermore, it is a process that will become increasingly cumbersome as our source code becomes more sophisticated.
+To combat this, we will seek out alternative, powerful testing methodologies, including property-based testing.
 
 
 ## Links to Official Documentation
@@ -379,7 +399,8 @@ def test_count_vowels_basic():
 Write a rudimentary test function for `merge_max_mappings`.
 
 > Let's test the use case that is explicitly documented in the Examples section of the function's docstring.
-> We can also test cases where one or both of the inputs were empty dictionaries: can often be problematic edge cases that we didn't consider when writing our code. 
+> We can also test cases where one or both of the inputs are empty dictionaries. 
+> These can often be problematic edge cases that we didn't consider when writing our code. 
 
 ```python
 def test_merge_max_mappings():    
@@ -402,62 +423,15 @@ def test_merge_max_mappings():
     assert merge_max_mappings(dict1, dict2) == expected 
 
     # test both empty
-    assert merge_max_mappings({}, {}) == {}
+    dict1 = {}
+    dict2 = {}
+    expected = {}
+    assert merge_max_mappings(dict1, dict2) == expected 
 ```
 
 ```python
 # running the test (seeing no errors means the tests all passed)
 >>> test_merge_max_mappings()
-```
-<!-- #endregion -->
-
-<!-- #region -->
-**Testing Your Test via Manual Mutation: Solution**
-
-Temporarily change the body of `count_vowels` such that the _second_ assertion in `test_count_vowels_basic` raises an error.
-> Let's comment out the `if include_y` block in our code - this should prevent us from counting y's, and thus should violate the second assertion in our test.
-
-```python
-# Breaking the behavior of `include_y=True`
-def count_vowels(x: str, include_y: bool = False) -> int:
-    vowels = set("aeiouAEIOU")
-    # if include_y:
-    #    vowels.update("yY")
-    return sum(1 for char in x if char in vowels)
-```
-
-```python
-# the second assertion should raise an error
->>> test_count_vowels_basic()
----------------------------------------------------------------------------
-AssertionError                            Traceback (most recent call last)
-<ipython-input-5-32301ff829e9> in <module>
-----> 1 test_count_vowels_basic()
-
-<ipython-input-4-99ef0ca3d859> in test_count_vowels_basic()
-      1 def test_count_vowels_basic():
-      2     assert count_vowels("aA bB yY", include_y=False) == 2
-----> 3     assert count_vowels("aA bB yY", include_y=True) == 4
-
-AssertionError: 
-```
-
-> Great! That assertion really does help to ensure that we are counting y's correctly.
-
-Restore `count_vowels` to its original form and rerun the test to see that `count_vowels` once again passes all of the assertions.
-
-```python
-# Restore the behavior of `include_y=True`
-def count_vowels(x: str, include_y: bool = False) -> int:
-    vowels = set("aeiouAEIOU")
-    if include_y:
-        vowels.update("yY")
-    return sum(1 for char in x if char in vowels)
-```
-
-```python
-# confirming that we restored the proper behavior in `count_vowels`
->>> test_count_vowels_basic()
 ```
 <!-- #endregion -->
 
@@ -492,4 +466,57 @@ Assert that the number of vowels in `a_string` is fewer than `a_number`; include
 ```
 
 > Note that we make use of an [f-string](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings) as a convenient means for writing an informative error message.
+<!-- #endregion -->
+
+<!-- #region -->
+**Testing Your Test via Manual Mutation: Solution**
+
+Temporarily change the body of `count_vowels` such that the _second_ assertion in `test_count_vowels_basic` raises an error.
+> Let's comment out the `if include_y` block in our code. This should prevent us from counting y's, and thus should violate the second assertion in our test.
+
+```python
+# Breaking the behavior of `include_y=True`
+def count_vowels(x: str, include_y: bool = False) -> int:
+    vowels = set("aeiouAEIOU")
+    # if include_y:
+    #    vowels.update("yY")
+    return sum(1 for char in x if char in vowels)
+```
+
+```python
+# the second assertion should raise an error
+>>> test_count_vowels_basic()
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-5-32301ff829e9> in <module>
+----> 1 test_count_vowels_basic()
+
+<ipython-input-4-99ef0ca3d859> in test_count_vowels_basic()
+      1 def test_count_vowels_basic():
+      2     assert count_vowels("aA bB yY", include_y=False) == 2
+----> 3     assert count_vowels("aA bB yY", include_y=True) == 4
+
+AssertionError: 
+```
+
+> See that the error output, which is called a "stack trace", indicates with an ASCII-arrow that our second assertion is the one that is failing.
+> Thus we can be confident that that assertion really does help to ensure that we are counting y's correctly.
+
+Restore `count_vowels` to its original form and rerun the test to see that `count_vowels` once again passes all of the assertions.
+
+> We simply un-comment out the block of code and rerun our test.
+
+```python
+# Restore the behavior of `include_y=True`
+def count_vowels(x: str, include_y: bool = False) -> int:
+    vowels = set("aeiouAEIOU")
+    if include_y:
+        vowels.update("yY")
+    return sum(1 for char in x if char in vowels)
+```
+
+```python
+# confirming that we restored the proper behavior in `count_vowels`
+>>> test_count_vowels_basic()
+```
 <!-- #endregion -->
