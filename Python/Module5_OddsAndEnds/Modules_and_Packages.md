@@ -465,7 +465,7 @@ and voilà, your package `face_detection` will have been installed to site-packa
 pip uninstall face_detection
 ```
 
-One final but important detail. The installed version of your package will no longer "see" the source code. That is, if you go on to make any changes to your code, you will have to uninstall and reinstall your package before your will see the effects system-wide. Instead you can install your package in develop mode, such that a symbolic link to your source code is placed in your site-packages. Thus any changes that you make to your code will immediately be reflected in your system-wide installation. Thus, instead of running `python setup.py install`, execute the following to install a package in develop mode:
+One final but important detail. The installed version of your package will no longer "see" the source code. That is, if you go on to make any changes to your code, you will have to uninstall and reinstall your package before your will see the effects system-wide. Instead you can install your package in "development mode", such that a symbolic link to your source code is placed in your site-packages. Thus any changes that you make to your code will immediately be reflected in your system-wide installation. Thus, instead of running `python setup.py install`, execute the following to install a package in develop mode:
 
 ```shell
 python setup.py develop
