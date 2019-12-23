@@ -46,7 +46,7 @@ pip install pytest
 ```
 
 <!-- #region -->
-## Organizing a Test Suite
+## Creating a Python Package with Tests
 
 It's time to create a proper test suite.
 Before proceeding any further, we should reread the material presented in [Module 5 - Import: Modules and Packages](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html) and recall the essentials of import statements, modules, and Python packages.
@@ -73,7 +73,7 @@ Populate the _basic_functions.py_ file with the two functions that we were using
 In in the _numpy_functions.py_ module, add the `pairwise_dists` function that appears in [Module 3's discussion of optimized pairwise distances](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Optimized-Pairwise-Distances).
 Don't forget to include `import numpy as np` in your script in accordance with how `pairwise_dists` calls NumPy functions. 
 
-We have arranged these functions so that they can be imported from the `basic_functions` module and the `numpy_functions` module, respectively, which reside in our `plymi_mod6` package.
+We have arranged these functions so that they can be imported from the _basic_functions_ module and the _numpy_functions_ module, respectively, which reside in our `plymi_mod6` package.
 Let's fill out our _setup.py_ script and install this package so that we can import it regardless of our current working directory. The content of _setup.py_ will be:
 
 ```python
@@ -101,7 +101,7 @@ Navigate to the directory containing _setup.py_ and run:
 python setup.py develop
 ```
 
-Now, we should be able to start a python console or Jupyter notebook in and directory and import our package:
+Now, we should be able to start a python console, IPython console, or Jupyter notebook in and directory and import our package:
 
 ```shell
 (plymi_test_env) C:\Users\plymi_person>ipython
@@ -115,9 +115,92 @@ Out[2]: 5
 ```
 <!-- #endregion -->
 
+## Populating Our Test Suite
+
+pytest's system for "test discovery" is quite simple:
+pytest need only be pointed to a directory with .py files in it, and it will find all of the functions in these files that have the word "test" in their names and will run them all.
+Thus, let's populate _test_basic_functions.py_ with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module.
+As described before, `count_vowels` and `merge_max_mappings` must both be imported from our `plymi_mod6` package, so that our in the same namespace as our tests.
+A reference implementation can be viewed [here](https://github.com/rsokl/plymi_mod6/blob/master/tests/test_basic_functions.py).
+
+Without further ado, let's run our test suite! In our terminals, we navigate to the root directory of the project, which contains the `tests/` directory, and run `pytest tests/`.
+Following output should appear:
+
+
+```
+$ pytest tests/
+============================= test session starts =============================
+platform win32 -- Python 3.7.5, pytest-5.3.2, py-1.8.0, pluggy-0.12.0
+rootdir: C:\Users\plymi_user\Learning_Python\plymi_mod6_src
+collected 2 items                                                              
+
+tests\test_basic_functions.py ..                                         [100%]
+
+============================== 2 passed in 0.02s ==============================
+```
+
+
+This output indicates that two test-functions were found, both of them located in `tests/test_basic_functions.py`, and that both tests "passed", i.e. both functions ran without raising any errors. 
+
+
+<div class="alert alert-info"> 
+
+**Reading Comprehension: Running a Test Suite**
+
+Temporarily add a new "broken" test to `tests/test_basic_functions.py`.
+The name that you give this test should adhere to pytest's simple rules for test-discovery.
+Design the test function so that is sure to fail when it is run.
+Rerun your test suite and compare its output to what you saw before - is it easy to identify which test failed and what caused it to fail?
+Make sure to remove this function from your test suite once you are finished answering this question. 
+
+</div>
+
+
+
 ## Links to Official Documentation
 
 - [pytest](https://docs.pytest.org/en/latest/)
 
 
 ## Reading Comprehension Solutions
+
+<!-- #region -->
+**Running a Test Suite: Solution**
+
+> Let's add the test function `test_broken_function` to our test suite.
+> We must include the word "test" in the function's name so that pytest will identify it as a test to run.
+> There are limitless ways in which we can make this test fail; we'll introduce a trivial false-assertion:
+
+```python
+def test_broken_function():
+    assert [1, 2, 3] == [1, 2]
+```
+
+> After introducing this broken test into _test_basic_functions.py_ , running our tests should result in the following output:
+
+```
+$ pytest tests/
+============================= test session starts =============================
+platform win32 -- Python 3.7.5, pytest-5.3.2, py-1.8.0, pluggy-0.12.0
+rootdir: C:\Users\Ryan Soklaski\Learning_Python\plymi_mod6_src
+collected 3 items                                                              
+
+tests\test_basic_functions.py ..F                                        [100%]
+
+================================== FAILURES ===================================
+____________________________ test_broken_function _____________________________
+
+    def test_broken_function():
+>       assert [1, 2, 3] == [1, 2]
+E       assert [1, 2, 3] == [1, 2]
+E         Left contains one more item: 3
+E         Use -v to get the full diff
+
+tests\test_basic_functions.py:41: AssertionError
+========================= 1 failed, 2 passed in 0.06s =========================
+
+```
+
+> Three tests were "discovered" and run by pytest. The pattern `..F` indicates that the first two tests passed and the third test failed.
+> It then indicates which test failed, and specifically that the assertion was false because a length-2 list cannot be equal to a length-3 list.
+<!-- #endregion -->
