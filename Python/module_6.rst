@@ -14,6 +14,7 @@ This will take us down a bit of a rabbit hole, where we will find the powerful p
    :maxdepth: 2
    :caption: Contents:
 
-   Module6_Testing/Writing_Good_Code.md
+   Module6_Testing/Intro_to_Testing.md
+   Module6_Testing/Pytest.md
 
 
