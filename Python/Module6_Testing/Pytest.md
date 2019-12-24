@@ -18,7 +18,7 @@ jupyter:
    :keywords: test, automated, pytest, parametrize, fixture, suite  
 <!-- #endraw -->
 
-# Introducing the Pytest Framework
+# Introducing the pytest Framework
 
 Thus far, our process for running tests has been a entirely manual one. It is time for us to arranging our test functions into a proper "test suite" and to learn to leverage [the pytest framework](https://docs.pytest.org/en/latest/) to run them.
 We will begin by reorganizing our source code to create an installable [Python package](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Packages).
@@ -29,21 +29,40 @@ for instance, it will enrich the assertions in our tests to produce verbose, inf
 Furthermore it provides valuable means for enhancing our tests via mechanisms like fixtures and parameterizing decorators.
 Ultimately, all of this functionality helps to eliminate manual aspects from the testing process.
 
-You may want to [create a separate conda environment](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#A-Brief-Introduction-to-Conda-Environments), so that you can work through this material starting from a blank slate.
-If you do, be sure to activate that environment and install NumPy and Jupyter notebook: `conda install numpy notebook`  
+It can be useful to [create a separate conda environment](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#A-Brief-Introduction-to-Conda-Environments), so that we can work through this material starting from a blank slate.
+Be sure to activate that environment and install NumPy and Jupyter notebook: `conda install numpy notebook`  
 
-Let's install pytest. In your terminal where you can access your conda environment, run:
+Let's install pytest. In a terminal where conda can be accessed, run:
 
 ```shell
 conda install -c conda-forge pytest
 ```
 
 Installing from [the conda-forge channel](https://conda-forge.org/) will install the most up-to-date version of pytest.
-Or you can install pytest via pip:
+Or, pytest is installable via pip:
 
 ```shell
 pip install pytest
 ```
+
+
+<div class="alert alert-warning">
+
+**Regarding Alternative Testing Frameworks** (a note from the author of PLYMI): 
+
+When sifting through tutorials, blogs, and videos about testing in Python, it is common to see `pytest` presented alongside, and  on an equal footing with, the alternative testing frameworks: `nose` and `unittest`. 
+This strikes me as... bizarre.
+    
+`unittest` is the testing framework that comes with the Python standard library.
+As a test runner, its design is clunky, archaic, and, ironically, un-pythonic.
+While [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) provides extremely valuable functionality for advanced testing, all of its functionality can be leverage via pytest. 
+    
+`nose`, which simply extends the functionality of `unittest`, **is no longer being maintained**.
+There is a project, "Nose2", which is carrying the torch of `nose`. However, this is a fledgling project by comparison to `pytest` (as of writing this, `pytest` was downloaded 12 million times last month versus `nose2`'s 150 thousand downloads).
+    
+The takeaway here is that, when it comes to picking a testing framework for Python, pytest is the clear choice.
+Any discussion that you come across to the contrary is likely outdated.
+</div>
 
 <!-- #region -->
 ## Creating a Python Package with Tests
@@ -92,7 +111,7 @@ setup(
 )
 ```
 
-This setup file dictates that a user must have Python 3.6+ installed - we will bar Python 3.5 and below so that we are free to make use of [f-strings](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings) in our code, which were introduced in Python 3.6.
+This setup file dictates that a user must have Python 3.6+ installed - we will bar Python 3.5 and below so that we are free to make use of [f-strings](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings) in our code, which were introduced in Python 3.6. Additionally, we will require pytest and hypothesis for running tests; the latter library will be introduced in a later section.
 
 Finally, let's install our package locally [in development mode](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Installing-Your-Own-Python-Package).
 Navigate to the directory containing _setup.py_ and run:
@@ -103,27 +122,26 @@ python setup.py develop
 
 Now, we should be able to start a python console, IPython console, or Jupyter notebook in and directory and import our package:
 
-```shell
-(plymi_test_env) C:\Users\plymi_person>ipython
-Python 3.7.5 (default, Oct 32 2200, 15:18:51) [MSC v.1916 64 bit (AMD64)]
-IPython 7.10.2 -- An enhanced Interactive Python. Type '?' for help.
-
-In [1]: from plymi_mod6.basic_functions import count_vowels
-
-In [2]: count_vowels("Happy birthday", include_y=True)
-Out[2]: 5
+```python
+# checking that we can import our `plymi_mod6` package
+>>> from plymi_mod6.basic_functions import count_vowels
+>>> count_vowels("Happy birthday", include_y=True)
+5
 ```
 <!-- #endregion -->
 
 ## Populating Our Test Suite
 
 pytest's system for "test discovery" is quite simple:
-pytest need only be pointed to a directory with .py files in it, and it will find all of the functions in these files that have the word "test" in their names and will run them all.
-Thus, let's populate _test_basic_functions.py_ with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module.
-As described before, `count_vowels` and `merge_max_mappings` must both be imported from our `plymi_mod6` package, so that our in the same namespace as our tests.
-A reference implementation can be viewed [here](https://github.com/rsokl/plymi_mod6/blob/master/tests/test_basic_functions.py).
+pytest need only be pointed to a directory with .py files in it, and it will find all of the functions in these files _whose names start with the word "test"_ and will run all such functions.
 
-Without further ado, let's run our test suite! In our terminals, we navigate to the root directory of the project, which contains the `tests/` directory, and run `pytest tests/`.
+Thus, let's populate the file _test_basic_functions.py_ with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module.
+As described before, `count_vowels` and `merge_max_mappings` must both be imported from our `plymi_mod6` package, so that our in the same namespace as our tests.
+A reference implementation of _test_basic_functions.py_ can be viewed [here](https://github.com/rsokl/plymi_mod6/blob/master/tests/test_basic_functions.py).
+Finally, add a dummy test - a test function that will always pass - to _test_basic_numpy.py_.
+We will remove this later.
+
+Without further ado, let's run our test suite! In our terminal, with the desired conda environment active, we navigate to the root directory of the project, which contains the `tests/` directory, and run `pytest tests/`.
 Following output should appear:
 
 
@@ -131,16 +149,19 @@ Following output should appear:
 $ pytest tests/
 ============================= test session starts =============================
 platform win32 -- Python 3.7.5, pytest-5.3.2, py-1.8.0, pluggy-0.12.0
-rootdir: C:\Users\plymi_user\Learning_Python\plymi_mod6_src
-collected 2 items                                                              
+rootdir: C:\Users\plymi_user\plymi_root_dir
+collected 3 items                                                              
 
-tests\test_basic_functions.py ..                                         [100%]
+tests\test_basic_functions.py ..                                         [ 66%]
+tests\test_basic_numpy.py .                                              [100%]
 
-============================== 2 passed in 0.02s ==============================
+============================== 3 passed in 0.04s ==============================
 ```
 
 
-This output indicates that two test-functions were found, both of them located in `tests/test_basic_functions.py`, and that both tests "passed", i.e. both functions ran without raising any errors. 
+This output indicates that three test-functions were found across two files, and all of tests "passed", i.e. the functions ran without raising any errors.
+The first two tests are located in `tests/test_basic_functions.py`; the two dots indicate that two functions were run, and the `[66%]` indicator simply denotes that the test-suite is 66% (two-thirds) complete.
+The proceeding reading comprehension problem will lead us to see what looks like for pytest to report a failing test.
 
 
 <div class="alert alert-info"> 
@@ -150,11 +171,48 @@ This output indicates that two test-functions were found, both of them located i
 Temporarily add a new "broken" test to `tests/test_basic_functions.py`.
 The name that you give this test should adhere to pytest's simple rules for test-discovery.
 Design the test function so that is sure to fail when it is run.
+
 Rerun your test suite and compare its output to what you saw before - is it easy to identify which test failed and what caused it to fail?
 Make sure to remove this function from your test suite once you are finished answering this question. 
 
 </div>
 
+
+
+We can also direct pytest to run the tests in a specific .py file. E.g. executing:
+
+```shell
+pytest tests/test_basic_functions.py
+```
+
+will cue pytest to only run the tests in _test_basic_functions.py_.
+
+A key component to leveraging tests effectively is the ability to exercise ones tests repeatedly and rapidly with little manual overhead.
+Clearly, pytest is instrumental towards this end - this framework made the process of organizing and running our test suite exceedingly simple!
+That being said, there will certainly be occasions when we want to run a _specific_ test function.
+Suppose, for instance, that we are writing a new function, and repeatedly want to run one of our tests that is pointing to a bug in our work-in-progress.
+We can leverage pytest in conjunction with [an IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) to run our tests incisively.
+
+
+### Utilizing pytest within an IDE
+
+Both [PyCharm and VSCode](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) can be configured to make keen use of pytest.
+
+
+
+<div style="text-align: center">
+<img src="../_build/_images/paris.PNG" alt="Paris" width="600">
+</div>
+
+<!-- #raw raw_mimetype="text/html" -->
+<div style="text-align: center">
+<img src="../_images/paris.PNG" alt="Paris" width="500" height="600">
+</div>
+<!-- #endraw -->
+
+<div style="text-align: center">
+<img src="../_images/paris2.PNG" alt="Paris" width="500" height="600">
+</div>
 
 
 ## Links to Official Documentation
@@ -182,10 +240,11 @@ def test_broken_function():
 $ pytest tests/
 ============================= test session starts =============================
 platform win32 -- Python 3.7.5, pytest-5.3.2, py-1.8.0, pluggy-0.12.0
-rootdir: C:\Users\Ryan Soklaski\Learning_Python\plymi_mod6_src
-collected 3 items                                                              
+rootdir: C:\Users\plymi_user\plymi_root_dir
+collected 4 items                                                              
 
-tests\test_basic_functions.py ..F                                        [100%]
+tests\test_basic_functions.py ..F                                        [ 75%]
+tests\test_basic_numpy.py .                                              [100%]
 
 ================================== FAILURES ===================================
 ____________________________ test_broken_function _____________________________
@@ -196,11 +255,10 @@ E       assert [1, 2, 3] == [1, 2]
 E         Left contains one more item: 3
 E         Use -v to get the full diff
 
-tests\test_basic_functions.py:41: AssertionError
-========================= 1 failed, 2 passed in 0.06s =========================
-
+tests\test_basic_functions.py:40: AssertionError
+========================= 1 failed, 3 passed in 0.07s =========================
 ```
 
-> Three tests were "discovered" and run by pytest. The pattern `..F` indicates that the first two tests passed and the third test failed.
+> Four tests were "discovered" and run by pytest. The pattern `..F` indicates that the first two tests in _test_basic_functions_ passed and the third test failed.
 > It then indicates which test failed, and specifically that the assertion was false because a length-2 list cannot be equal to a length-3 list.
 <!-- #endregion -->
