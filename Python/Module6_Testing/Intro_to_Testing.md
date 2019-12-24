@@ -24,7 +24,7 @@ This section will show us just how simple it is to write rudimentary tests. We n
 
 Before we hit the ground running, let's take a moment to consider some motivations for testing out code.
 
-
+<!-- #region -->
 ## Why Should We Write Tests?
 
 The fact of the matter is that everyone already tests their code to some extent.
@@ -37,32 +37,41 @@ We will accumulate these test functions into a "test suite" that we can run quic
 
 There are plenty of practical details ahead for us to learn, so let's expedite this discussion and simply list some of the benefits that we can expect to reap from writing a robust test suite:
 
-- It saves us lots of time:
-  > After you have devised a test scenario for your code, it may only take us a second or so to run it; perhaps we need only run a couple of Jupyter notebook cells to verify the output of our code.
-  > This, however, will quickly become unwieldy as we write more code and devise more test scenarios.
-  > Soon we will be dissuaded from running our tests except for on rare occasions.
-  > 
-  > With a proper test suite, we can run all of our test scenarios with the push of a button, and a series of green check-marks (or red x's...) will summarize the health of our project (insofar as our tests serve as good diagnostics).
-  > This, of course, also means that we will find and fix bugs much faster!
-  > In the long run, our test suite will afford us the ability to aggressively exercise (and exorcise) our code at little cost.
-- It increases the "shelf life" of our code:
-  > If you've ever dusted off a project that you haven't used for years (or perhaps only months or weeks...), you might know the tribulations of getting old code to work.
-  > Perhaps, in the interim, new versions of our project's dependencies, like PyTorch or Matplotlib, were released and have incompatibilities with our project's code.
-  > And perhaps _we can't even remember_ all of the ways in which our project is supposed to work.
-  > Our test suite provides us with a simple and incisive way to dive back into our work.
-  > It will point us to any potential incompatibilities that have accumulated over time.
-  > It also provides us with a large collection of detailed use-cases of our code;
-  > we can read through our tests remind ourselves of the inner-workings of our project.
-- It will inform the design and usability of our project for the better:
-  > Although it may not be obvious from the outset, writing testable code leads to writing better code.
-  > This is, in part, because the process of writing tests gives us the opportunity to actually _use_ our code under varied circumstances.
-  > The process of writing tests will help us suss out cumbersome function interfaces, brittle statefulness, and redundant capabilities in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
-- It makes it easier for others to contribute to a project:
-  > Having a healthy test suite lowers the barrier to entry for a project. 
-  > A contributor can make improvements to the project and quickly check to see if they have broken it or changed any of its behavior.
+**It saves us lots of time**:
+
+> After you have devised a test scenario for your code, it may only take us a second or so to run it; perhaps we need only run a couple of Jupyter notebook cells to verify the output of our code.
+> This, however, will quickly become unwieldy as we write more code and devise more test scenarios.
+> Soon we will be dissuaded from running our tests except for on rare occasions.
+> 
+> With a proper test suite, we can run all of our test scenarios with the push of a button, and a series of green check-marks (or red x's...) will summarize the health of our project (insofar as our tests serve as good diagnostics).
+> This, of course, also means that we will find and fix bugs much faster!
+> In the long run, our test suite will afford us the ability to aggressively exercise (and exorcise) our code at little cost.
+
+**It increases the "shelf life" of our code:**
+
+> If you've ever dusted off a project that you haven't used for years (or perhaps only months or weeks...), you might know the tribulations of getting old code to work.
+> Perhaps, in the interim, new versions of our project's dependencies, like PyTorch or Matplotlib, were released and have incompatibilities with our project's code.
+> And perhaps _we can't even remember_ all of the ways in which our project is supposed to work.
+> Our test suite provides us with a simple and incisive way to dive back into our work.
+> It will point us to any potential incompatibilities that have accumulated over time.
+> It also provides us with a large collection of detailed use-cases of our code;
+> we can read through our tests remind ourselves of the inner-workings of our project.
+
+
+**It will inform the design and usability of our project for the better:**
+
+> Although it may not be obvious from the outset, writing testable code leads to writing better code.
+> This is, in part, because the process of writing tests gives us the opportunity to actually _use_ our code under varied circumstances.
+> The process of writing tests will help us suss out cumbersome function interfaces, brittle statefulness, and redundant capabilities in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
+
+**It makes it easier for others to contribute to a project:**
+
+> Having a healthy test suite lowers the barrier to entry for a project. 
+> A contributor can make improvements to the project and quickly check to see if they have broken it or changed any of its behavior.
 
 This all sounds great, but where do we even start the process writing a test suite? 
 Let's begin by seeing what constitutes a basic test function.
+<!-- #endregion -->
 
 <!-- #region -->
 ## Writing Our First Tests
