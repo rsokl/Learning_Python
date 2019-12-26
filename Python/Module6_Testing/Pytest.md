@@ -269,8 +269,8 @@ In the following image, we see that `test_version` is failing - we can click on 
 The first step for leveraging these features in your IDE is to enable the pytest framework in the IDE.
 The following links point to detailed instructions for configuring pytest with PyCharm and VSCode, respectively:
 
-- [Here for PyCharm](https://www.jetbrains.com/help/pycharm/pytest.html)
-- [Here for VSCode](https://code.visualstudio.com/docs/python/testing)
+- [Running tests in PyCharm](https://www.jetbrains.com/help/pycharm/pytest.html)
+- [Running tests in VSCode](https://code.visualstudio.com/docs/python/testing)
 
 These include advanced details, like running tests in parallel, which are beyond the scope of this material.
 
