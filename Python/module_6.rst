@@ -1,7 +1,7 @@
 Module 6: Testing Your Code
 ===========================
 This module will introduce us to the critically-important and often-overlooked process of testing code.
-We will begin by considering some driving motivations for writing tests.
+We will begin by considering some general motivations for writing tests.
 Next, we will study the basic anatomy of a test-function, including the :code:`assert` statement, which serves as the nucleus of our test functions.
 Armed with the ability to write a rudimentary test, we will welcome, with open arms, the powerful testing framework `pytest <https://docs.pytest.org/>`_.
 This will inform how we structure our tests alongside our Python project; with pytest, we can incisively run our tests with the press of a single button.

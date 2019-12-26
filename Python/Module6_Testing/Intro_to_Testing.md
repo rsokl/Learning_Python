@@ -27,9 +27,9 @@ Before we hit the ground running, let's take a moment to consider some motivatio
 <!-- #region -->
 ## Why Should We Write Tests?
 
-The fact of the matter is that everyone already tests their code to some extent.
+The fact of the matter is that it is intuitive for most people to test their code to some extent.
 After writing, say, a new function, it is only natural to contrive an input to feed it, and to check that the function returns the output that we expected.
-To the extent that anyone would want to see evidence that their code works, we need not motivate the importance of testing.
+To the extent that one would want to see evidence that their code works, we need not motivate the importance of testing.
 
 Less obvious are the massive benefits that we stand to gain from formalizing this testing process.
 And by "formalizing", we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end.
@@ -67,7 +67,7 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 **It makes it easier for others to contribute to a project:**
 
 > Having a healthy test suite lowers the barrier to entry for a project. 
-> A contributor can make improvements to the project and quickly check to see if they have broken it or changed any of its behavior.
+> A contributor can rely on our project's tests to quickly check to see if their changes to our code have broken the project or changed any of its behavior in unexpected ways.
 
 This all sounds great, but where do we even start the process writing a test suite? 
 Let's begin by seeing what constitutes a basic test function.
@@ -92,9 +92,10 @@ def count_vowels(x, include_y=False):
     ----------
     x : str
         The input string
+
     include_y : bool, optional (default=False)
         If `True` count y's as vowels
-    
+
     Returns
     -------
     vowel_count: int
@@ -157,7 +158,8 @@ The desired behavior for this test function, upon being run, is to:
 - Raise an error if any of our assertions *failed* to hold true.
 - Complete "silently" if all of our assertions hold true (i.e. our test function will simply [return None](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#The-return-Statement))
 
-Here, we will be making use of Python's `assert` statements, whose behavior will be easy to deduce from the context of this test alone; we will be formally introduced to them soon.
+Here, we will be making use of Python's `assert` statements, whose behavior will be easy to deduce from the context of this test alone.
+We will be formally introduced to the `assert` statement soon.
 
 ```python
 # Writing a rudimentary test function for `count_vowels`
@@ -191,7 +193,7 @@ More on this later.
 
 A "test function" is designed to provide an encapsulated "environment" (namespace to be more precise) in which we can exercise parts of our source code and assert that the code behaves as-expected. The basic anatomy of a test function is such that it:
 
-- consists one or more `assert` statements, each of which will raise an error if our source code misbehaves 
+- contains one or more `assert` statements, each of which will raise an error if our source code misbehaves 
 - simply returns `None` if all of the aforementioned assertions held true
 - can be run end-to-end simply by calling the test function without passing it any parameters; we rely on Python's scoping rules to call our source code within the body of the test function without explicitly passing anything to said test function
 
@@ -284,7 +286,7 @@ a_number = 22
 a_string = "abcdef"
 ```
 
-Write two assertion statements, each one with the corresponding behavior:
+Write two assertion statements with the respective behaviors:
 
 - asserts that `a_list` is _not_ empty
 - asserts that the number of vowels in `a_string` is less than `a_number`; include and error message that prints the actual number of vowels

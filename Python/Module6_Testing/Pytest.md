@@ -18,27 +18,26 @@ jupyter:
    :keywords: test, automated, pytest, parametrize, fixture, suite  
 <!-- #endraw -->
 
-# Introducing the pytest Framework
+# The pytest Framework
 
-Thus far, our process for running tests has been a entirely manual one. It is time for us to arranging our test functions into a proper "test suite" and to learn to leverage [the pytest framework](https://docs.pytest.org/en/latest/) to run them.
+Thus far, our process for running tests has been a entirely manual one. It is time for us to arrange our test functions into a proper "test suite" and to learn to leverage [the pytest framework](https://docs.pytest.org/en/latest/) to run them.
 We will begin by reorganizing our source code to create an installable [Python package](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Packages).
 We will then learn how to structure and run a test suite for this Python package, using pytest.
 
 The pytest framework does much more than just run tests;
 for instance, it will enrich the assertions in our tests to produce verbose, informative error messages.
 Furthermore it provides valuable means for enhancing our tests via mechanisms like fixtures and parameterizing decorators.
-Ultimately, all of this functionality helps to eliminate manual aspects from the testing process.
+Ultimately, all of this functionality helps to eliminate manual and redundant aspects of the testing process.
 
-It can be useful to [create a separate conda environment](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#A-Brief-Introduction-to-Conda-Environments), so that we can work through this material starting from a blank slate.
+Note: It can be useful to [create a separate conda environment](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#A-Brief-Introduction-to-Conda-Environments) for the sake of this lesson, so that we can work through this material starting from a blank slate.
 Be sure to activate that environment and install NumPy and Jupyter notebook: `conda install numpy notebook`  
 
-Let's install pytest. In a terminal where conda can be accessed, run:
+Let's install pytest. Installing from [the conda-forge channel](https://conda-forge.org/) will install the most up-to-date version of pytest. In a terminal where conda can be accessed, run:
 
 ```shell
 conda install -c conda-forge pytest
 ```
 
-Installing from [the conda-forge channel](https://conda-forge.org/) will install the most up-to-date version of pytest.
 Or, pytest is installable via pip:
 
 ```shell
@@ -60,7 +59,7 @@ While [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) prov
 `nose`, which simply extends the functionality of `unittest`, **is no longer being maintained**.
 There is a project, "Nose2", which is carrying the torch of `nose`. However, this is a fledgling project by comparison to `pytest` (as of writing this, `pytest` was downloaded 12 million times last month versus `nose2`'s 150 thousand downloads).
     
-The takeaway here is that, when it comes to picking a testing framework for Python, pytest is the clear choice.
+The takeaway here is that, when it comes to picking a testing framework for Python, `pytest` is the clear choice.
 Any discussion that you come across to the contrary is likely outdated.
 </div>
 
@@ -120,7 +119,7 @@ Navigate to the directory containing _setup.py_ and run:
 python setup.py develop
 ```
 
-Now, we should be able to start a python console, IPython console, or Jupyter notebook in and directory and import our package:
+Now, we should be able to start a python console, IPython console, or Jupyter notebook in any directory and import our package:
 
 ```python
 # checking that we can import our `plymi_mod6` package
@@ -133,7 +132,7 @@ Now, we should be able to start a python console, IPython console, or Jupyter no
 ## Populating Our Test Suite
 
 pytest's system for "test discovery" is quite simple:
-pytest need only be pointed to a directory with .py files in it, and it will find all of the functions in these files _whose names start with the word "test"_ and will run all such functions.
+pytest need only be pointed to a directory with .py files in it, and it will find all of the functions in these files _whose names start with the word "test"_ and it will run all such functions.
 
 Thus, let's populate the file _test_basic_functions.py_ with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module.
 As described before, `count_vowels` and `merge_max_mappings` must both be imported from our `plymi_mod6` package, so that our in the same namespace as our tests.
@@ -141,7 +140,7 @@ A reference implementation of _test_basic_functions.py_ can be viewed [here](htt
 Finally, add a dummy test - a test function that will always pass - to _test_basic_numpy.py_.
 We will remove this later.
 
-Without further ado, let's run our test suite! In our terminal, with the desired conda environment active, we navigate to the root directory of the project, which contains the `tests/` directory, and run `pytest tests/`.
+Without further ado, let's run our test suite! In our terminal, with the appropriate conda environment active, we navigate to the root directory of the project, which contains the `tests/` directory, and run `pytest tests/`.
 Following output should appear:
 
 
@@ -159,7 +158,7 @@ tests\test_basic_numpy.py .                                              [100%]
 ```
 
 
-This output indicates that three test-functions were found across two files, and all of tests "passed", i.e. the functions ran without raising any errors.
+This output indicates that three test-functions were found across two files and that all of the tests "passed"; i.e. the functions ran without raising any errors.
 The first two tests are located in `tests/test_basic_functions.py`; the two dots indicate that two functions were run, and the `[66%]` indicator simply denotes that the test-suite is 66% (two-thirds) complete.
 The proceeding reading comprehension problem will lead us to see what looks like for pytest to report a failing test.
 
@@ -191,7 +190,7 @@ A key component to leveraging tests effectively is the ability to exercise ones 
 Clearly, pytest is instrumental towards this end - this framework made the process of organizing and running our test suite exceedingly simple!
 That being said, there will certainly be occasions when we want to run a _specific_ test function.
 Suppose, for instance, that we are writing a new function, and repeatedly want to run one of our tests that is pointing to a bug in our work-in-progress.
-We can leverage pytest in conjunction with [an IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) to run our tests incisively.
+We can leverage pytest in conjunction with [an IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) to run our tests in such incisive ways.
 
 
 ### Utilizing pytest within an IDE
