@@ -135,10 +135,11 @@ Now, we should be able to start a python console, IPython console, or Jupyter no
 pytest's system for "test discovery" is quite simple:
 pytest need only be pointed to a directory with .py files in it, and it will find all of the functions in these files _whose names start with the word "test"_ and it will run all such functions.
 
-Thus, let's populate the file _test_basic_functions.py_ with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module. 
-E.g. our test 
+Thus, let's populate the file _test_basic_functions.py_ with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module:
 
 ```python
+# The contents of test_basic_functions.py
+
 # we import the functions we are testing
 from plymi_mod6.basic_functions import count_vowels, merge_max_mappings
 
@@ -180,7 +181,7 @@ def test_merge_max_mappings():
 
 ```
 
-As described before, `count_vowels` and `merge_max_mappings` must both be imported from our `plymi_mod6` package, so that our in the same namespace as our tests.
+As described before, `count_vowels` and `merge_max_mappings` must both be imported from our `plymi_mod6` package, so that our functions are in the same namespace as our tests.
 A reference implementation of _test_basic_functions.py_ can be viewed [here](https://github.com/rsokl/plymi_mod6/blob/master/tests/test_basic_functions.py).
 Finally, add a dummy test - a test function that will always pass - to _test_basic_numpy.py_.
 We will remove this later.
