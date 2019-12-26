@@ -129,12 +129,57 @@ Now, we should be able to start a python console, IPython console, or Jupyter no
 ```
 <!-- #endregion -->
 
+<!-- #region -->
 ## Populating Our Test Suite
 
 pytest's system for "test discovery" is quite simple:
 pytest need only be pointed to a directory with .py files in it, and it will find all of the functions in these files _whose names start with the word "test"_ and it will run all such functions.
 
-Thus, let's populate the file _test_basic_functions.py_ with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module.
+Thus, let's populate the file _test_basic_functions.py_ with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module. 
+E.g. our test 
+
+```python
+# we import the functions we are testing
+from plymi_mod6.basic_functions import count_vowels, merge_max_mappings
+
+
+def test_count_vowels_basic():
+    # test basic strings with uppercase and lowercase letters
+    assert count_vowels("aA bB yY", include_y=False) == 2
+    assert count_vowels("aA bB yY", include_y=True) == 4
+
+    # test empty strings
+    assert count_vowels("", include_y=False) == 0
+    assert count_vowels("", include_y=True) == 0
+
+
+def test_merge_max_mappings():
+    # test documented behavior
+    dict1 = {"a": 1, "b": 2}
+    dict2 = {"b": 20, "c": -1}
+    expected = {'a': 1, 'b': 20, 'c': -1}
+    assert merge_max_mappings(dict1, dict2) == expected
+
+    # test empty dict1
+    dict1 = {}
+    dict2 = {"a": 10.2, "f": -1.0}
+    expected = dict2
+    assert merge_max_mappings(dict1, dict2) == expected
+
+    # test empty dict2
+    dict1 = {"a": 10.2, "f": -1.0}
+    dict2 = {}
+    expected = dict1
+    assert merge_max_mappings(dict1, dict2) == expected
+
+    # test both empty
+    dict1 = {}
+    dict2 = {}
+    expected = {}
+    assert merge_max_mappings(dict1, dict2) == expected
+
+```
+
 As described before, `count_vowels` and `merge_max_mappings` must both be imported from our `plymi_mod6` package, so that our in the same namespace as our tests.
 A reference implementation of _test_basic_functions.py_ can be viewed [here](https://github.com/rsokl/plymi_mod6/blob/master/tests/test_basic_functions.py).
 Finally, add a dummy test - a test function that will always pass - to _test_basic_numpy.py_.
@@ -142,7 +187,7 @@ We will remove this later.
 
 Without further ado, let's run our test suite! In our terminal, with the appropriate conda environment active, we navigate to the root directory of the project, which contains the `tests/` directory, and run `pytest tests/`.
 Following output should appear:
-
+<!-- #endregion -->
 
 ```
 $ pytest tests/
@@ -193,30 +238,47 @@ Suppose, for instance, that we are writing a new function, and repeatedly want t
 We can leverage pytest in conjunction with [an IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) to run our tests in such incisive ways.
 
 
-### Utilizing pytest within an IDE
+## Utilizing pytest within an IDE
 
 Both [PyCharm and VSCode](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) can be configured to make keen use of pytest.
-
-
-
-<div style="text-align: center">
-<img src="../_build/_images/paris.PNG" alt="Paris" width="600">
-</div>
+The following images show a couple of the enhancements afforded to us by PyCharm.
+The IDEs will "discover" tests, and provide us with the ability to run individual tests.
+For example, in the following image, the green "play button" allows us to run `test_count_vowels_basic`.
 
 <!-- #raw raw_mimetype="text/html" -->
 <div style="text-align: center">
-<img src="../_images/paris.PNG" alt="Paris" width="500" height="600">
+<p>
+<img src="../_images/individual_test.PNG" alt="Running an individual test in PyCharm" width="600">
+</p>
 </div>
 <!-- #endraw -->
 
+Furthermore, IDEs can provide a rich tree view of all the tests that are being run.
+This is especially useful as our test suite grows to contain a considerable number of tests.
+In the following image, we see that `test_version` is failing - we can click on the failing test in this tree-view, and our IDE will navigate us directly to the failing test. 
+
+<!-- #raw raw_mimetype="text/html" -->
 <div style="text-align: center">
-<img src="../_images/paris2.PNG" alt="Paris" width="500" height="600">
+<p>
+<img src="../_images/test_tree_view.PNG" alt="Viewing an enchanced tree-view of your test suite" width="600">
+</p>
 </div>
+<!-- #endraw -->
+
+The first step for leveraging these features in your IDE is to enable the pytest framework in the IDE.
+The following links point to detailed instructions for configuring pytest with PyCharm and VSCode, respectively:
+
+- [Here for PyCharm](https://www.jetbrains.com/help/pycharm/pytest.html)
+- [Here for VSCode](https://code.visualstudio.com/docs/python/testing)
+
+These include advanced details, like running tests in parallel, which are beyond the scope of this material.
 
 
 ## Links to Official Documentation
 
 - [pytest](https://docs.pytest.org/en/latest/)
+- [Testing in PyCharm](https://www.jetbrains.com/help/pycharm/pytest.html)
+- [Testing in VSCode](https://code.visualstudio.com/docs/python/testing)
 
 
 ## Reading Comprehension Solutions
