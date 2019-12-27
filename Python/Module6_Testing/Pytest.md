@@ -87,12 +87,12 @@ project_dir/     # the "parent directory" houses our source code, tests, and all
 ```
 
 A reference implementation of this package can be found [in this GitHub repository](https://github.com/rsokl/plymi_mod6).
-Populate the _basic_functions.py_ file with the two functions that we were using as our source code in the previous section: `count_vowels` and `merge_max_mappings`.
-In in the _numpy_functions.py_ module, add the `pairwise_dists` function that appears in [Module 3's discussion of optimized pairwise distances](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Optimized-Pairwise-Distances).
+Populate the `basic_functions.py` file with the two functions that we were using as our source code in the previous section: `count_vowels` and `merge_max_mappings`.
+In in the `numpy_functions.py` module, add the `pairwise_dists` function that appears in [Module 3's discussion of optimized pairwise distances](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Optimized-Pairwise-Distances).
 Don't forget to include `import numpy as np` in your script in accordance with how `pairwise_dists` calls NumPy functions. 
 
 We have arranged these functions so that they can be imported from the _basic_functions_ module and the _numpy_functions_ module, respectively, which reside in our `plymi_mod6` package.
-Let's fill out our _setup.py_ script and install this package so that we can import it regardless of our current working directory. The content of _setup.py_ will be:
+Let's fill out our `setup.py` script and install this package so that we can import it regardless of our current working directory. The content of `setup.py` will be:
 
 ```python
 from setuptools import find_packages, setup
@@ -113,7 +113,7 @@ setup(
 This setup file dictates that a user must have Python 3.6+ installed - we will bar Python 3.5 and below so that we are free to make use of [f-strings](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings) in our code, which were introduced in Python 3.6. Additionally, we will require pytest and hypothesis for running tests; the latter library will be introduced in a later section.
 
 Finally, let's install our package locally [in development mode](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Installing-Your-Own-Python-Package).
-Navigate to the directory containing _setup.py_ and run:
+Navigate to the directory containing `setup.py` and run:
 
 ```shell
 python setup.py develop
@@ -130,17 +130,17 @@ Now, we should be able to start a python console, IPython console, or Jupyter no
 <!-- #endregion -->
 
 <!-- #region -->
-## Populating Our Test Suite
+## Populating and Running Our Test Suite
 
-pytest's system for "test discovery" is quite simple:
-pytest need only be pointed to a directory with .py files in it, and it will find all of the functions in these files _whose names start with the word "test"_ and it will run all such functions.
+pytest's [system for "test discovery"](https://docs.pytest.org/en/latest/goodpractices.html#test-discovery) is quite simple:
+pytest need only be pointed to a directory with files named `test_*.py` in it, and it will find all of the functions in these files _whose names start with the word "test"_ and it will run all such functions.
 
-Thus, let's populate the file _test_basic_functions.py_ with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module:
+Thus, let's populate the file ``test_basic_functions.py`` with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module:
 
 ```python
 # The contents of test_basic_functions.py
 
-# we import the functions we are testing
+# we must import the functions we are testing
 from plymi_mod6.basic_functions import count_vowels, merge_max_mappings
 
 
@@ -182,8 +182,8 @@ def test_merge_max_mappings():
 ```
 
 As described before, `count_vowels` and `merge_max_mappings` must both be imported from our `plymi_mod6` package, so that our functions are in the same namespace as our tests.
-A reference implementation of _test_basic_functions.py_ can be viewed [here](https://github.com/rsokl/plymi_mod6/blob/master/tests/test_basic_functions.py).
-Finally, add a dummy test - a test function that will always pass - to _test_basic_numpy.py_.
+A reference implementation of `test_basic_functions.py` can be viewed [here](https://github.com/rsokl/plymi_mod6/blob/master/tests/test_basic_functions.py).
+Finally, add a dummy test - a test function that will always pass - to `test_basic_numpy.py`.
 We will remove this later.
 
 Without further ado, let's run our test suite! In our terminal, with the appropriate conda environment active, we navigate to the root directory of the project, which contains the `tests/` directory, and run `pytest tests/`.
@@ -230,7 +230,7 @@ We can also direct pytest to run the tests in a specific .py file. E.g. executin
 pytest tests/test_basic_functions.py
 ```
 
-will cue pytest to only run the tests in _test_basic_functions.py_.
+will cue pytest to only run the tests in `test_basic_functions.py`.
 
 A key component to leveraging tests effectively is the ability to exercise ones tests repeatedly and rapidly with little manual overhead.
 Clearly, pytest is instrumental towards this end - this framework made the process of organizing and running our test suite exceedingly simple!
@@ -239,7 +239,7 @@ Suppose, for instance, that we are writing a new function, and repeatedly want t
 We can leverage pytest in conjunction with [an IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) to run our tests in such incisive ways.
 
 
-## Utilizing pytest within an IDE
+### Utilizing pytest within an IDE
 
 Both [PyCharm and VSCode](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) can be configured to make keen use of pytest.
 The following images show a couple of the enhancements afforded to us by PyCharm.
@@ -275,9 +275,110 @@ The following links point to detailed instructions for configuring pytest with P
 These include advanced details, like running tests in parallel, which are beyond the scope of this material.
 
 
+## Enhanced Testing with pytest
+
+In addition to providing us with a simple means for organizing and running our test suite, pytest has powerful features that will both simplify and enhance our tests!
+
+<!-- #region -->
+### Enriched Assertions
+
+A failing "bare" assertion - an `assert` statement without an error message - can be a frustrating thing.
+Suppose, for instance, that one of our test-assertions about `count_vowels` fails:
+
+```python
+# a failing assertion without an error message is not informative
+
+assert count_vowels("aA bB yY", include_y=True) == 4
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-2-f89f8b6a7213> in <module>
+----> 1 assert count_vowels("aA bB yY", include_y=True) == 4
+
+AssertionError: 
+```
+
+The problem with this bare assertion is that we don't know what `count_vowels("aA bB yY", include_y=True)` actually returned!
+We now have to go through the trouble of starting a python console, importing this function, and calling it with this specific input in order to see what our function was actually returning.
+
+An obvious remedy to this is for us to write our own error message, e.g.
+
+```python
+# we can write our own error message, but this quickly becomes unwieldy
+
+our_output = count_vowels("aA bB yY", include_y=True)
+assert our_output == 4, f"{our_output} != 4"
+```
+
+but this too is quite cumbersome when we consider the large number of assertions that we are destined to write.
+
+
+Fortunately, pytest comes to the rescue: it will "hijack" any failing bare assertion and will _insert a useful error message for us_.
+This is known as ["assertion introspection"](https://docs.pytest.org/en/latest/assert.html#assertion-introspection-details).
+For example, if the aforementioned assertion failed when being run by pytest, we would see the following output:
+
+```python
+# pytest will write informative error messages for us
+
+assert count_vowels("aA bB yY", include_y=True) == 4
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+~\Learning_Python\Python\Module6_Testing\Untitled1.ipynb in <module>
+----> 1 assert count_vowels("aA bB yY", include_y=True) == 4
+
+AssertionError: assert 2 == 4
+ +  where 2 = <function count_vowels at 0x000001B91B913708>('aA bB yY', include_y=True
+```
+
+See that the error message that pytest included for us indicates that `count_vowels("aA bB yY", include_y=True)` returned `2`, when we expected it to return `4`.
+From this we might suspect that `count_vowels` in not counting y's correctly.
+
+Here are some more examples of "enriched assertions", as provided by pytest.
+See that these error messages even provide useful "diffs", which specify specifically _how_ two similar objects differ, where possible.
+
+```python
+# comparing unequal lists
+assert [1, 2, 3] == [1, 2]
+E         Left contains one more item: 3
+E         Full diff:
+E         - [1, 2, 3]
+E         ?      ---
+E         + [1, 2]
+```
+
+```python
+# comparing unequal dictionaries
+assert {"a": 1, "b": 2} == {"a": 1, "b": 3}
+E       AssertionError: assert {'a': 1, 'b': 2} == {'a': 1, 'b': 3}
+E         Omitting 1 identical items, use -vv to show
+E         Differing items:
+E         {'b': 2} != {'b': 3}
+E         Full diff:
+E         - {'a': 1, 'b': 2}
+E         ?               ^
+E         + {'a': 1, 'b': 3}...
+```
+
+```python
+# comparing unequal strings
+assert "moo" == "moon"
+E       AssertionError: assert 'moo' == 'moon'
+E         - moo
+E         + moon
+E         ?    +
+```
+
+<!-- #endregion -->
+
+### Parameterized Tests
+
+
+
+
 ## Links to Official Documentation
 
 - [pytest](https://docs.pytest.org/en/latest/)
+- [pytest's system for test discovery](https://docs.pytest.org/en/latest/goodpractices.html#test-discovery)
+- [Assertion introspection](https://docs.pytest.org/en/latest/assert.html#assertion-introspection-details)
 - [Testing in PyCharm](https://www.jetbrains.com/help/pycharm/pytest.html)
 - [Testing in VSCode](https://code.visualstudio.com/docs/python/testing)
 
@@ -296,7 +397,7 @@ def test_broken_function():
     assert [1, 2, 3] == [1, 2]
 ```
 
-> After introducing this broken test into _test_basic_functions.py_ , running our tests should result in the following output:
+> After introducing this broken test into `test_basic_functions.py` , running our tests should result in the following output:
 
 ```
 $ pytest tests/
