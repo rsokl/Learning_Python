@@ -369,7 +369,50 @@ E         ?    +
 
 <!-- #endregion -->
 
+<!-- #region -->
 ### Parameterized Tests
+
+Looking back to both `test_count_vowels_basic` and `test_merge_max_mappings`, we see that there is a lot of redundancy within the bodies of these test functions.
+The assertions that we make within a given test-function share identical forms - they differ only in the parameters that we feed into our functions and their expected output. pytest provides a useful tool that will allow us to eliminate this redundancy by transforming our test-functions into so-called _parameterized tests_.
+
+Let's parametrize the following test:
+
+```python
+# a simple test with redundant assertions
+
+def test_range_length():
+    assert len(range(0)) == 0
+    assert len(range(1)) == 1
+    assert len(range(2)) == 2
+    assert len(range(3)) == 3
+```
+
+This test is checking the property `len(range(n)) == n`, where `n` is any non-negative integer.
+Thus the parameter to be varied here is the "size" of the range being created:
+
+```python
+# parameterizing a test
+import pytest
+
+# this test must be run by pytest to work properly
+@pytest.mark.parametrize("size", [0, 1, 2, 3])
+def test_range_length(size):
+    assert len(range(size)) == size
+```
+
+This test must be run by pytest; an error will raise if we manually call `test_range_length()`.
+When executed, pytest will treat this parameterized test as _four separate tests_ - one for each parameter value:
+
+```
+test_basic_functions.py::test_range_length[0] PASSED                     [ 25%]
+test_basic_functions.py::test_range_length[1] PASSED                     [ 50%]
+test_basic_functions.py::test_range_length[2] PASSED                     [ 75%]
+test_basic_functions.py::test_range_length[3] PASSED                     [100%]
+```
+<!-- #endregion -->
+
+This 
+
 
 
 
@@ -379,6 +422,7 @@ E         ?    +
 - [pytest](https://docs.pytest.org/en/latest/)
 - [pytest's system for test discovery](https://docs.pytest.org/en/latest/goodpractices.html#test-discovery)
 - [Assertion introspection](https://docs.pytest.org/en/latest/assert.html#assertion-introspection-details)
+- [Parameterizing tests](https://docs.pytest.org/en/latest/parametrize.html)
 - [Testing in PyCharm](https://www.jetbrains.com/help/pycharm/pytest.html)
 - [Testing in VSCode](https://code.visualstudio.com/docs/python/testing)
 
