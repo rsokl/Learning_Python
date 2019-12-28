@@ -15,7 +15,7 @@ jupyter:
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Writing tests for your code, Difficulty: Easy, Category: Section
-   :keywords: test, automated, pytest, parametrize, fixture, suite  
+   :keywords: test, automated, pytest, parametrize, fixture, suite, decorator, clean directory  
 <!-- #endraw -->
 
 # The pytest Framework
@@ -29,8 +29,17 @@ for instance, it will enrich the assertions in our tests to produce verbose, inf
 Furthermore it provides valuable means for enhancing our tests via mechanisms like fixtures and parameterizing decorators.
 Ultimately, all of this functionality helps to eliminate manual and redundant aspects of the testing process.
 
-Note: It can be useful to [create a separate conda environment](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#A-Brief-Introduction-to-Conda-Environments) for the sake of this lesson, so that we can work through this material starting from a blank slate.
-Be sure to activate that environment and install NumPy and Jupyter notebook: `conda install numpy notebook`  
+
+
+<div class="alert alert-warning"> 
+
+**Note**
+
+It can be useful to [create a separate conda environment](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#A-Brief-Introduction-to-Conda-Environments) for the sake of this lesson, so that we can work through this material starting from a blank slate.
+If you do create a new conda environment, be sure to activate that environment and install NumPy and Jupyter notebook: `conda install numpy notebook` 
+</div>
+
+
 
 Let's install pytest. Installing from [the conda-forge channel](https://conda-forge.org/) will install the most up-to-date version of pytest. In a terminal where conda can be accessed, run:
 
@@ -570,6 +579,7 @@ def dummy_email():
 ```
 <!-- #endregion -->
 
+<!-- #region -->
 The first one, `cleandir`, can be used in conjunction with tests that need to write files.
 We don't want our tests to leave behind files on our machines; the `cleandir` fixture will ensure that our tests will write files to a temporary directory that will be deleted once the test is complete.
 
@@ -580,6 +590,54 @@ This fixture will pass this address to any test function that has the parameter 
 A reference implementation of `conftest.py` in our project can be found [here](https://github.com/rsokl/plymi_mod6/blob/fixtures/tests/conftest.py).
 Several reference tests that make use of these fixtures can be found [here](https://github.com/rsokl/plymi_mod6/blob/fixtures/tests/test_using_fixtures.py).
 
+Let's create a file `tests/test_using_fixtures.py`, and write some tests that put these fixtures to use:
+
+```python
+# contents of test_using_fixtures.py
+import pytest
+
+# When run, this test will be executed within a
+# temporary directory that will automatically be
+# deleted - along with all of its contents - once
+# the test ends.
+#
+# Thus we can have this test write a file, and we
+# need not worry about having it clean up after itself.
+@pytest.mark.usefixtures("cleandir")
+def test_writing_a_file():
+    with open("a_text_file.txt", mode="w") as f:
+        f.write("hello world")
+
+    with open("a_text_file.txt", mode="r") as f:
+        file_content = f.read()
+
+    assert file_content == "hello world"
+
+
+# We can use the `dummy_email` fixture to provide
+# the same email address to many tests. In this
+# way, if we need to change the email address, we
+# can simply update the fixture and all of the tests
+# will be affected by the update.
+#
+# Note that we don't need to use a decorator here.
+# pytest is smart, and will see that the parameter-name
+# `dummy_email` matches the name of our fixture. It will
+# thus call these tests using the value returned by our
+# fixture
+
+def test_email1(dummy_email):
+    assert "dummy" in dummy_email
+
+
+def test_email2(dummy_email):
+    assert "plymi" in dummy_email
+
+
+def test_email3(dummy_email):
+    assert ".com" in dummy_email
+```
+<!-- #endregion -->
 
 ## Links to Official Documentation
 

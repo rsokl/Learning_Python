@@ -366,7 +366,7 @@ With this in hand, we should take stock of the work and challenges that lie in o
 It is necessary that we evolve beyond manual testing.
 There are multiple facets to this observation.
 First, we must learn how to organize our test functions into a test suite that can be run in one fowl swoop.
-Next, it will become increasingly apparent that a test function often contain large amounts of redundant code, shared across its litany of assertions.
+Next, it will become increasingly apparent that a test function often contain large amounts of redundant code shared across its litany of assertions.
 We will want to "parametrize" our tests to distill them down to their most concise and functional forms.
 Finally, and most importantly, it may already evident that the process of contriving known inputs and outputs to use in our tests is a highly manual and tedious process; furthermore, it is a process that will become increasingly cumbersome as our source code becomes more sophisticated.
 To combat this, we will seek out alternative, powerful testing methodologies, including property-based testing.
