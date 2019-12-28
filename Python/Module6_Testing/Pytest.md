@@ -82,7 +82,7 @@ project_dir/     # the "parent directory" houses our source code, tests, and all
       |-- basic_functions.py
       |-- numpy_functions.py
   - tests/        # test-suite for `plymi_mod6` package (to be run using pytest)
-      |-- conf.py # optional configuration file for pytest
+      |-- conftest.py # optional configuration file for pytest
       |-- test_basic_functions.py
       |-- test_numpy_functions.py
 ```
@@ -464,7 +464,7 @@ def test_inequality_unparameterized():
 ```
 
 and rewrite it in parameterized form. 
-The decorator will have three distinct parameter, and each parameter will take on four values.
+The decorator will have three distinct parameter, and each parameters, let's simply call them `a`, `b`, and `c`, will take on four values.
 
 ```python
 # the parameterized form of `test_inequality_unparameterized`
@@ -518,6 +518,69 @@ def test_all_combinations(x, y):
 ```
 <!-- #endregion -->
 
+### Fixtures
+
+The final major pytest feature that we will discuss are "fixtures".
+A fixture, roughly speaking, is a means by which we can share information and functionality across our tests.
+Fixtures can be defined within our `conftest.py` file, and pytest will automatically "discover" them and make them available for use throughout our test suite in a convenient way.
+
+Exploring fixtures will quickly take us beyond our depths for the purposes of this introductory material, so we will only scratch the surface here.
+We can read about advanced details of fixtures [here](https://docs.pytest.org/en/latest/fixture.html#fixture).
+
+Below are examples of two useful fixtures.
+
+<!-- #region -->
+```python
+# contents of conftest.py
+
+import os
+import tempfile
+
+import pytest
+
+@pytest.fixture()
+def cleandir():
+    """ This fixture will use the stdlib `tempfile` module to
+    change the current working directory to a tmp-dir for the
+    duration of the test.
+    
+    Afterwards, the test session returns to its previous working
+    directory, and the temporary directory and its contents
+    will be automatically deleted.
+    
+    Yields
+    ------
+    str
+        The name of the temporary directory."""
+    with tempfile.TemporaryDirectory() as tmpdirname:
+        old_dir = os.getcwd()
+        os.chdir(tmpdirname)
+        yield tmpdirname
+        os.chdir(old_dir)
+
+
+@pytest.fixture()
+def dummy_email():
+    """ This fixture will simply have pytest pass the string:
+                   'dummy.email@plymi.com'
+    to any test-function that has the parameter name `dummy_email` in
+    its signature.
+    """
+    return "dummy.email@plymi.com"
+```
+<!-- #endregion -->
+
+The first one, `cleandir`, can be used in conjunction with tests that need to write files.
+We don't want our tests to leave behind files on our machines; the `cleandir` fixture will ensure that our tests will write files to a temporary directory that will be deleted once the test is complete.
+
+Second is a simple fixture called `dummy_email`.
+Suppose that our project needs to interact with a specific email address, suppose it's `dummy.email@plymi.com`, and that we have several tests that need access to this address.
+This fixture will pass this address to any test function that has the parameter name `dummy_email` in its signature.
+
+A reference implementation of `conftest.py` in our project can be found [here](https://github.com/rsokl/plymi_mod6/blob/fixtures/tests/conftest.py).
+Several reference tests that make use of these fixtures can be found [here](https://github.com/rsokl/plymi_mod6/blob/fixtures/tests/test_using_fixtures.py).
+
+
 ## Links to Official Documentation
 
 - [pytest](https://docs.pytest.org/en/latest/)
@@ -526,6 +589,7 @@ def test_all_combinations(x, y):
 - [Testing in VSCode](https://code.visualstudio.com/docs/python/testing)
 - [Assertion introspection](https://docs.pytest.org/en/latest/assert.html#assertion-introspection-details)
 - [Parameterizing tests](https://docs.pytest.org/en/latest/parametrize.html)
+- [Fixtures](https://docs.pytest.org/en/latest/fixture.html#fixture)
 
 
 ## Reading Comprehension Solutions
