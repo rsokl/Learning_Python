@@ -424,7 +424,7 @@ Carrying on, we will want to create a setup-script, `setup.py`, *in the same dir
         |-- calibration.py
         |-- config.py
 - tests/            # test-suite for `face_detection` package (to be run using pytest)
-    |-- conf.py     # optional configuration file for pytest
+    |-- conftest.py # optional configuration file for pytest
     |-- test_utils.py
     |-- test_database.py
     |-- test_model.py
