@@ -54,10 +54,11 @@ This strikes me as... bizarre.
     
 `unittest` is the testing framework that comes with the Python standard library.
 As a test runner, its design is clunky, archaic, and, ironically, un-pythonic.
-While [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) provides extremely valuable functionality for advanced testing, all of its functionality can be leverage via pytest. 
+While [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) provides extremely valuable functionality for advanced testing, all of its functionality can be leveraged while using pytest as your testing framework. 
     
 `nose`, which simply extends the functionality of `unittest`, **is no longer being maintained**.
-There is a project, "Nose2", which is carrying the torch of `nose`. However, this is a fledgling project by comparison to `pytest` (as of writing this, `pytest` was downloaded 12 million times last month versus `nose2`'s 150 thousand downloads).
+There is a project, "Nose2", which is carrying the torch of `nose`. However, this is a fledgling project by comparison to `pytest`.
+As of writing this, `pytest` was downloaded 12 million times last month versus `nose2`'s 150 thousand downloads.
     
 The takeaway here is that, when it comes to picking a testing framework for Python, `pytest` is the clear choice.
 Any discussion that you come across to the contrary is likely outdated.
@@ -91,7 +92,7 @@ Populate the `basic_functions.py` file with the two functions that we were using
 In in the `numpy_functions.py` module, add the `pairwise_dists` function that appears in [Module 3's discussion of optimized pairwise distances](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Optimized-Pairwise-Distances).
 Don't forget to include `import numpy as np` in your script in accordance with how `pairwise_dists` calls NumPy functions. 
 
-We have arranged these functions so that they can be imported from the _basic_functions_ module and the _numpy_functions_ module, respectively, which reside in our `plymi_mod6` package.
+We have arranged these functions so that they can be imported from the `basic_functions` module and the `numpy_functions` module, respectively, which reside in our `plymi_mod6` package.
 Let's fill out our `setup.py` script and install this package so that we can import it regardless of our current working directory. The content of `setup.py` will be:
 
 ```python
@@ -102,7 +103,6 @@ setup(
     packages=find_packages(exclude=["tests", "tests.*"]),
     version="1.0.0",
     author="Your Name",
-    author_email="your.email@email.com",
     description="A template Python package for learning about testing",
     install_requires=["numpy >= 1.10.0"],
     tests_require=["pytest", "hypothesis"],
@@ -110,7 +110,7 @@ setup(
 )
 ```
 
-This setup file dictates that a user must have Python 3.6+ installed - we will bar Python 3.5 and below so that we are free to make use of [f-strings](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings) in our code, which were introduced in Python 3.6. Additionally, we will require pytest and hypothesis for running tests; the latter library will be introduced in a later section.
+This setup file dictates that a user must have Python 3.6+ installed - we will bar Python 3.5 and below so that we are free to make use of [f-strings](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings) in our code, which were introduced in Python 3.6. Additionally, we will require pytest and hypothesis for running tests; the Hypothesis library will be introduced in a later section.
 
 Finally, let's install our package locally [in development mode](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Installing-Your-Own-Python-Package).
 Navigate to the directory containing `setup.py` and run:
@@ -184,7 +184,7 @@ def test_merge_max_mappings():
 As described before, `count_vowels` and `merge_max_mappings` must both be imported from our `plymi_mod6` package, so that our functions are in the same namespace as our tests.
 A reference implementation of `test_basic_functions.py` can be viewed [here](https://github.com/rsokl/plymi_mod6/blob/master/tests/test_basic_functions.py).
 Finally, add a dummy test - a test function that will always pass - to `test_basic_numpy.py`.
-We will remove this later.
+We will replace this with a useful test later.
 
 Without further ado, let's run our test suite! In our terminal, with the appropriate conda environment active, we navigate to the root directory of the project, which contains the `tests/` directory, and run `pytest tests/`.
 Following output should appear:
@@ -242,7 +242,7 @@ We can leverage pytest in conjunction with [an IDE](https://www.pythonlikeyoumea
 ### Utilizing pytest within an IDE
 
 Both [PyCharm and VSCode](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) can be configured to make keen use of pytest.
-The following images show a couple of the enhancements afforded to us by PyCharm.
+The following images show a couple of the enhancements afforded to us by PyCharm; comparable features are available in VSCode.
 The IDEs will "discover" tests, and provide us with the ability to run individual tests.
 For example, in the following image, the green "play button" allows us to run `test_count_vowels_basic`.
 
@@ -272,12 +272,13 @@ The following links point to detailed instructions for configuring pytest with P
 - [Running tests in PyCharm](https://www.jetbrains.com/help/pycharm/pytest.html)
 - [Running tests in VSCode](https://code.visualstudio.com/docs/python/testing)
 
-These include advanced details, like running tests in parallel, which are beyond the scope of this material.
+These linked materials also include advanced details, like instructions for running tests in parallel, which are beyond the scope of this material but are useful nonetheless.
 
 
 ## Enhanced Testing with pytest
 
-In addition to providing us with a simple means for organizing and running our test suite, pytest has powerful features that will both simplify and enhance our tests!
+In addition to providing us with a simple means for organizing and running our test suite, pytest has powerful features that will both simplify and enhance our tests.
+We will now leverage these features in our test suite.
 
 <!-- #region -->
 ### Enriched Assertions
@@ -318,7 +319,7 @@ AssertionError: assert 2 == 4
 ```
 
 See that the error message that pytest included for us indicates that `count_vowels("aA bB yY", include_y=True)` returned `2`, when we expected it to return `4`.
-From this we might suspect that `count_vowels` in not counting y's correctly.
+From this we might suspect that `count_vowels` is not counting y's correctly.
 
 Here are some more examples of "enriched assertions", as provided by pytest.
 See that these error messages even provide useful "diffs", which specify specifically _how_ two similar objects differ, where possible.
@@ -364,10 +365,9 @@ Looking back to both `test_count_vowels_basic` and `test_merge_max_mappings`, we
 The assertions that we make within a given test-function share identical forms - they differ only in the parameters that we feed into our functions and their expected output.
 Another shortcoming of this test-structure is that a failing assertion will block subsequent assertions from being evaluated.
 That is, if the second assertion in a `test_count_vowels_basic` fails, the third and fourth assertions will not be evaluated in that run.
-This precludes us from potentially seeing useful patterns among the failing assertions. Say, for instance, a function fails for all even-valued inputs; it is much easier to see this if assertions fail for inputs `2`, `4`, `6`, and so on, than it is if only input `2` was evaluated.
-pytest provides a useful tool that will allow us to eliminate these structural shortcomings by transforming our test-functions into so-called _parameterized tests_.
+This precludes us from potentially seeing useful patterns among the failing assertions.
 
-Let's parametrize the following test:
+pytest provides a useful tool that will allow us to eliminate these structural shortcomings by transforming our test-functions into so-called _parameterized tests_. Let's parametrize the following test:
 
 ```python
 # a simple test with redundant assertions
@@ -380,7 +380,7 @@ def test_range_length_unparameterized():
 ```
 
 This test is checking the property `len(range(n)) == n`, where `n` is any non-negative integer.
-Thus the parameter to be varied here is the "size" of the range being created.
+Thus the parameter to be varied here is the "size" of the range-object being created.
 Let's treat it as such by using pytest to write a parameterized test:
 
 ```python
@@ -411,8 +411,8 @@ Furthermore, the four assertions are now being run independently from one anothe
 <!-- #region -->
 #### Decorators
 
-The the syntax used to parameterize this test may look alien to us - we have yet to encounter this construct thus far.
-`pytest.mark.parameterize(...)` is a _decorator_ - an object that can be used to "wrap" a function and transform its behavior.
+The the syntax used to parameterize this test may look alien to us, we have yet to encounter this construct thus far.
+`pytest.mark.parameterize(...)` is a _decorator_ - an object that is used to "wrap" a function in order to transform its behavior.
 The `pytest.mark.parameterize(...)` decorator wraps our test function so that pytest can call it multiple times, once for each parameter value. 
 The `@` character, in this context, denotes the application of a decorator:
 
@@ -440,7 +440,7 @@ def test_function(<param-name>):
 
 We will often have tests that require multiple parameters.
 The general form for creating the the parameterization decorator for $N$ parameters,
-each of which assuming $J$ values, is:
+each of which assume $J$ values, is:
 
 ```python
 @pytest.mark.parametrize("<param-name1>, <param-name2>, [...], <param-nameN>", 
