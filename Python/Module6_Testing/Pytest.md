@@ -20,7 +20,7 @@ jupyter:
 
 # The pytest Framework
 
-Thus far, our process for running tests has been a entirely manual one. It is time for us to arrange our test functions into a proper "test suite" and to learn to leverage [the pytest framework](https://docs.pytest.org/en/latest/) to run them.
+Thus far, our process for running tests has been an entirely manual one. It is time for us to arrange our test functions into a proper "test suite" and to learn to leverage [the pytest framework](https://docs.pytest.org/en/latest/) to run them.
 We will begin by reorganizing our source code to create an installable [Python package](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Packages).
 We will then learn how to structure and run a test suite for this Python package, using pytest.
 
@@ -298,19 +298,7 @@ AssertionError:
 ```
 
 The problem with this bare assertion is that we don't know what `count_vowels("aA bB yY", include_y=True)` actually returned!
-We now have to go through the trouble of starting a python console, importing this function, and calling it with this specific input in order to see what our function was actually returning.
-
-An obvious remedy to this is for us to write our own error message, e.g.
-
-```python
-# we can write our own error message, but this quickly becomes unwieldy
-
-our_output = count_vowels("aA bB yY", include_y=True)
-assert our_output == 4, f"{our_output} != 4"
-```
-
-but this too is quite cumbersome when we consider the large number of assertions that we are destined to write.
-
+We now have to go through the trouble of starting a python console, importing this function, and calling it with this specific input in order to see what our function was actually returning. An obvious remedy to this is for us to write our own error message, but this too is quite cumbersome when we consider the large number of assertions that we are destined to write.
 
 Fortunately, pytest comes to the rescue: it will "hijack" any failing bare assertion and will _insert a useful error message for us_.
 This is known as ["assertion introspection"](https://docs.pytest.org/en/latest/assert.html#assertion-introspection-details).
@@ -373,14 +361,18 @@ E         ?    +
 ### Parameterized Tests
 
 Looking back to both `test_count_vowels_basic` and `test_merge_max_mappings`, we see that there is a lot of redundancy within the bodies of these test functions.
-The assertions that we make within a given test-function share identical forms - they differ only in the parameters that we feed into our functions and their expected output. pytest provides a useful tool that will allow us to eliminate this redundancy by transforming our test-functions into so-called _parameterized tests_.
+The assertions that we make within a given test-function share identical forms - they differ only in the parameters that we feed into our functions and their expected output.
+Another shortcoming of this test-structure is that a failing assertion will block subsequent assertions from being evaluated.
+That is, if the second assertion in a `test_count_vowels_basic` fails, the third and fourth assertions will not be evaluated in that run.
+This precludes us from potentially seeing useful patterns among the failing assertions. Say, for instance, a function fails for all even-valued inputs; it is much easier to see this if assertions fail for inputs `2`, `4`, `6`, and so on, than it is if only input `2` was evaluated.
+pytest provides a useful tool that will allow us to eliminate these structural shortcomings by transforming our test-functions into so-called _parameterized tests_.
 
 Let's parametrize the following test:
 
 ```python
 # a simple test with redundant assertions
 
-def test_range_length():
+def test_range_length_unparameterized():
     assert len(range(0)) == 0
     assert len(range(1)) == 1
     assert len(range(2)) == 2
@@ -388,19 +380,20 @@ def test_range_length():
 ```
 
 This test is checking the property `len(range(n)) == n`, where `n` is any non-negative integer.
-Thus the parameter to be varied here is the "size" of the range being created:
+Thus the parameter to be varied here is the "size" of the range being created.
+Let's treat it as such by using pytest to write a parameterized test:
 
 ```python
 # parameterizing a test
 import pytest
 
-# this test must be run by pytest to work properly
+# note that this test must be run by pytest to work properly
 @pytest.mark.parametrize("size", [0, 1, 2, 3])
 def test_range_length(size):
     assert len(range(size)) == size
 ```
 
-This test must be run by pytest; an error will raise if we manually call `test_range_length()`.
+Make note that a pytest-parameterized test must be run using pytest; an error will raise if we manually call `test_range_length()`.
 When executed, pytest will treat this parameterized test as _four separate tests_ - one for each parameter value:
 
 ```
@@ -409,22 +402,130 @@ test_basic_functions.py::test_range_length[1] PASSED                     [ 50%]
 test_basic_functions.py::test_range_length[2] PASSED                     [ 75%]
 test_basic_functions.py::test_range_length[3] PASSED                     [100%]
 ```
+
+See that we have successfully eliminated the redundancy from `test_range_length`;
+the body of the function now contains only a single assertion, making obvious the property that is being tested.
+Furthermore, the four assertions are now being run independently from one another and thus we can potentially see patterns across multiple fail cases in concert.
 <!-- #endregion -->
 
-This 
+<!-- #region -->
+#### Decorators
+
+The the syntax used to parameterize this test may look alien to us - we have yet to encounter this construct thus far.
+`pytest.mark.parameterize(...)` is a _decorator_ - an object that can be used to "wrap" a function and transform its behavior.
+The `pytest.mark.parameterize(...)` decorator wraps our test function so that pytest can call it multiple times, once for each parameter value. 
+The `@` character, in this context, denotes the application of a decorator:
+
+```python
+# general syntax for applying a decorator to a function
+
+@the_decorator
+def the_function_being_decorated(<arguments_for_function>):
+    pass
+```
+
+For an in-depth discussion of decorators, please refer to [Real Python's Primer on decorators](https://realpython.com/primer-on-python-decorators/#simple-decorators).
+<!-- #endregion -->
+
+<!-- #region -->
+#### Parameterization Syntax
+
+The general form for creating a parameterizing decorator with *a single parameter*, as we formed above, is:
+
+```python
+@pytest.mark.parametrize("<param-name>", [<val-1>, <val-2>, ...])
+def test_function(<param-name>):
+    ...
+```
+
+We will often have tests that require multiple parameters.
+The general form for creating the the parameterization decorator for $N$ parameters,
+each of which assuming $J$ values, is:
+
+```python
+@pytest.mark.parametrize("<param-name1>, <param-name2>, [...], <param-nameN>", 
+                         [(<param1-val1>, <param2-val1>, [...], <paramN-val1>),
+                          (<param1-val2>, <param2-val2>, [...], <paramN-val2>),
+                          ...
+                          (<param1-valJ>, <param2-valJ>, [...], <paramN-valJ>),
+                         ])
+def test_function(<param-name1>, <param-name2>, [...], <param-nameN>):
+    ...
+```
+
+For example, let's take the following trivial test:
+
+```python
+def test_inequality_unparameterized():
+    assert 1 < 2 < 3
+    assert 4 < 5 < 6
+    assert 7 < 8 < 9
+    assert 10 < 11 < 12
+```
+
+and rewrite it in parameterized form. 
+The decorator will have three distinct parameter, and each parameter will take on four values.
+
+```python
+# the parameterized form of `test_inequality_unparameterized`
+@pytest.mark.parametrize("a, b, c", [(1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12)])
+def test_inequality(a, b, c):
+    assert a < b < c
+```
+<!-- #endregion -->
+
+<div class="alert alert-warning"> 
+
+**Note**
+
+The formatting for multi-parameter tests can quickly become unwieldy.
+It isn't always obvious where one should introduce line breaks and indentations to improve readability.
+This is a place where the ["black" auto-formatter](https://black.readthedocs.io/en/stable/) really shines!
+Black will make all of these formatting decisions for us - we can write our parameterized tests as haphazardly as we like and simply run black to format our code.
+</div>
 
 
 
+<div class="alert alert-info"> 
 
+**Reading Comprehension: Parameterizing Tests**
+
+Rewrite `test_count_vowels_basic` as a parameterized test with the parameters: `input_string`, `include_y`, and `expected_count`.
+
+Rewrite `test_merge_max_mappings` as a parameterized test with the parameters: `dict_a`, `dict_b`, and `expected_merged`.
+
+Before rerunning `test_basic_functions.py` predict how many distinct test cases will be reported by pytest. 
+
+</div>
+
+
+<!-- #region -->
+Finally, you can apply multiple parameterizing decorators to a test so that pytest will run _all combinations of the respective parameter values_.
+
+```python
+# testing all combinations of `x` and `y`
+@pytest.mark.parametrize("x", [0, 1, 2])
+@pytest.mark.parametrize("y", [10, 20])
+def test_all_combinations(x, y):
+    # will run:
+    # x=0 y=10
+    # x=0 y=20
+    # x=1 y=10
+    # x=1 y=20
+    # x=2 y=10
+    # x=2 y=20
+    pass
+```
+<!-- #endregion -->
 
 ## Links to Official Documentation
 
 - [pytest](https://docs.pytest.org/en/latest/)
 - [pytest's system for test discovery](https://docs.pytest.org/en/latest/goodpractices.html#test-discovery)
-- [Assertion introspection](https://docs.pytest.org/en/latest/assert.html#assertion-introspection-details)
-- [Parameterizing tests](https://docs.pytest.org/en/latest/parametrize.html)
 - [Testing in PyCharm](https://www.jetbrains.com/help/pycharm/pytest.html)
 - [Testing in VSCode](https://code.visualstudio.com/docs/python/testing)
+- [Assertion introspection](https://docs.pytest.org/en/latest/assert.html#assertion-introspection-details)
+- [Parameterizing tests](https://docs.pytest.org/en/latest/parametrize.html)
 
 
 ## Reading Comprehension Solutions
@@ -468,4 +569,60 @@ tests\test_basic_functions.py:40: AssertionError
 
 > Four tests were "discovered" and run by pytest. The pattern `..F` indicates that the first two tests in _test_basic_functions_ passed and the third test failed.
 > It then indicates which test failed, and specifically that the assertion was false because a length-2 list cannot be equal to a length-3 list.
+<!-- #endregion -->
+
+<!-- #region -->
+**Parameterizing Tests: Solution**
+
+A reference implementation for this solution within the `plymi_mod6` project can be found [here](https://github.com/rsokl/plymi_mod6/blob/parameterized/tests/test_basic_functions.py).
+
+The contents of `test_basic_functions.py`, rewritten to use pytest-parameterized tests:
+
+```python
+import pytest
+from plymi_mod6.basic_functions import count_vowels, merge_max_mappings
+
+
+@pytest.mark.parametrize(
+    "input_string, include_y, expected_count",
+    [("aA bB yY", False, 2), ("aA bB yY", True, 4), ("", False, 0), ("", True, 0)],
+)
+def test_count_vowels_basic(input_string, include_y, expected_count):
+    assert count_vowels(input_string, include_y) == expected_count
+
+
+@pytest.mark.parametrize(
+    "dict_a, dict_b, expected_merged",
+    [
+        (dict(a=1, b=2), dict(b=20, c=-1), dict(a=1, b=20, c=-1)),
+        (dict(), dict(b=20, c=-1), dict(b=20, c=-1)),
+        (dict(a=1, b=2), dict(), dict(a=1, b=2)),
+        (dict(), dict(), dict()),
+    ],
+)
+def test_merge_max_mappings(dict_a, dict_b, expected_merged):
+    assert merge_max_mappings(dict_a, dict_b) == expected_merged
+```
+
+Running these tests via pytest should produce eight distinct test-case: four for `test_count_vowels_basic` and four for `test_merge_max_mappings`.
+
+```
+============================= test session starts =============================
+platform win32 -- Python 3.7.5, pytest-5.3.2, py-1.8.0, pluggy-0.12.0
+cachedir: .pytest_cache
+rootdir: C:\Users\plymi_user\Learning_Python\plymi_mod6_src
+collecting ... collected 8 items
+
+test_basic_functions.py::test_count_vowels_basic[aA bB yY-False-2] PASSED [ 12%]
+test_basic_functions.py::test_count_vowels_basic[aA bB yY-True-4] PASSED [ 25%]
+test_basic_functions.py::test_count_vowels_basic[-False-0] PASSED        [ 37%]
+test_basic_functions.py::test_count_vowels_basic[-True-0] PASSED         [ 50%]
+test_basic_functions.py::test_merge_max_mappings[dict_a0-dict_b0-expected_merged0] PASSED [ 62%]
+test_basic_functions.py::test_merge_max_mappings[dict_a1-dict_b1-expected_merged1] PASSED [ 75%]
+test_basic_functions.py::test_merge_max_mappings[dict_a2-dict_b2-expected_merged2] PASSED [ 87%]
+test_basic_functions.py::test_merge_max_mappings[dict_a3-dict_b3-expected_merged3] PASSED [100%]
+
+============================== 8 passed in 0.07s ==============================
+```
+
 <!-- #endregion -->
