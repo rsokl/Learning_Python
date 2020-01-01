@@ -128,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Modules_and_Packages.html">Import: Modules and Packages</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../module_6.html">Module 6: Testing Your Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
@@ -765,7 +766,7 @@ Next, note that <code class="docutils literal notranslate"><span class="pre">Opt
 <p>You should strive to write type-hints that pass <a class="reference external" href="https://en.wikipedia.org/wiki/Duck_test">the duck test</a>: if your function is expecting a duck then hint for something that walks like a duck, quacks like a duck, etc. This will help you avoid writing type-hints that are overly narrow, and which are ultimately non-Pythonic in their strictness.</p>
 <p>To be more concrete, let’s revisit our <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Returns the number of vowels contained in `x`&quot;&quot;&quot;</span>
     <span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">include_y</span><span class="p">:</span>
         <span class="n">vowels</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;yY&quot;</span><span class="p">)</span>
@@ -871,14 +872,16 @@ contribute to your code, and it will ensure longevity for your hard work.</p>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    x : numpy.ndarray, shape=(M, D)</span>
-<span class="sd">        An optional description of ``x``</span>
+<span class="sd">        An array of M, D-dimensional vectors.</span>
+
 <span class="sd">    y : numpy.ndarray, shape=(N, D)</span>
-<span class="sd">        An optional description of ``y``</span>
+<span class="sd">        An array of N, D-dimensional vectors.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    numpy.ndarray, shape=(M, N)</span>
-<span class="sd">        The pairwise distances</span>
+<span class="sd">        The pairwise distances between the M rows of ``x`` and the N</span>
+<span class="sd">        rows of ``y``.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -922,7 +925,7 @@ contribute to your code, and it will ensure longevity for your hard work.</p>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    grade_book : Dict[str, List[float]]</span>
+<span class="sd">    grade_book : Dict[str, Iterable[float]]</span>
 <span class="sd">        The dictionary (name -&gt; grades) of all of the students&#39;</span>
 <span class="sd">        grades.</span>
 

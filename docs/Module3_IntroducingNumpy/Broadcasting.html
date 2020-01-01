@@ -129,6 +129,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_6.html">Module 6: Testing Your Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
@@ -603,16 +604,16 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists_looped</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;  Computing pairwise distances using for-loops</span>
 
-<span class="sd">         Parameters</span>
-<span class="sd">         ----------</span>
-<span class="sd">         x : numpy.ndarray, shape=(M, D)</span>
-<span class="sd">         y : numpy.ndarray, shape=(N, D)</span>
+<span class="sd">     Parameters</span>
+<span class="sd">     ----------</span>
+<span class="sd">     x : numpy.ndarray, shape=(M, D)</span>
+<span class="sd">     y : numpy.ndarray, shape=(N, D)</span>
 
-<span class="sd">         Returns</span>
-<span class="sd">         -------</span>
-<span class="sd">         numpy.ndarray, shape=(M, N)</span>
-<span class="sd">             The Euclidean distance between each pair of</span>
-<span class="sd">             rows between `x` and `y`.&quot;&quot;&quot;</span>
+<span class="sd">     Returns</span>
+<span class="sd">     -------</span>
+<span class="sd">     numpy.ndarray, shape=(M, N)</span>
+<span class="sd">         The Euclidean distance between each pair of</span>
+<span class="sd">         rows between `x` and `y`.&quot;&quot;&quot;</span>
     <span class="c1"># `dists[i, j]` will store the Euclidean</span>
     <span class="c1"># distance between  `x[i]` and `y[j]`</span>
     <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -654,18 +655,18 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists_crude</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;  Computing pairwise distances using vectorization.</span>
 
-<span class="sd">         This method uses memory-inefficient broadcasting.</span>
+<span class="sd">     This method uses memory-inefficient broadcasting.</span>
 
-<span class="sd">         Parameters</span>
-<span class="sd">         ----------</span>
-<span class="sd">         x : numpy.ndarray, shape=(M, D)</span>
-<span class="sd">         y : numpy.ndarray, shape=(N, D)</span>
+<span class="sd">     Parameters</span>
+<span class="sd">     ----------</span>
+<span class="sd">     x : numpy.ndarray, shape=(M, D)</span>
+<span class="sd">     y : numpy.ndarray, shape=(N, D)</span>
 
-<span class="sd">         Returns</span>
-<span class="sd">         -------</span>
-<span class="sd">         numpy.ndarray, shape=(M, N)</span>
-<span class="sd">             The Euclidean distance between each pair of</span>
-<span class="sd">             rows between `x` and `y`.&quot;&quot;&quot;</span>
+<span class="sd">     Returns</span>
+<span class="sd">     -------</span>
+<span class="sd">     numpy.ndarray, shape=(M, N)</span>
+<span class="sd">         The Euclidean distance between each pair of</span>
+<span class="sd">         rows between `x` and `y`.&quot;&quot;&quot;</span>
     <span class="c1"># The use of `np.newaxis` here is equivalent to our</span>
     <span class="c1"># use of the `reshape` function</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
@@ -724,22 +725,22 @@ needing to create a larger, intermediate array.</p>
 <p>In total, we have successfully used vectorization to compute the all pairs of distances, while only requiring an array of shape-<span class="math notranslate nohighlight">\((M, N)\)</span> to do so! This is the memory-efficient, vectorized form - the stuff that dreams are made of. Let’s write the function that performs this computation in full.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Computing pairwise distances using memory-efficient</span>
-<span class="sd">        vectorization.</span>
+<span class="sd">    vectorization.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        x : numpy.ndarray, shape=(M, D)</span>
-<span class="sd">        y : numpy.ndarray, shape=(N, D)</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : numpy.ndarray, shape=(M, D)</span>
+<span class="sd">    y : numpy.ndarray, shape=(N, D)</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        numpy.ndarray, shape=(M, N)</span>
-<span class="sd">            The Euclidean distance between each pair of</span>
-<span class="sd">            rows between `x` and `y`.&quot;&quot;&quot;</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray, shape=(M, N)</span>
+<span class="sd">        The Euclidean distance between each pair of</span>
+<span class="sd">        rows between `x` and `y`.&quot;&quot;&quot;</span>
     <span class="n">dists</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="n">dists</span> <span class="o">+=</span>  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">dists</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
     <span class="n">dists</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span>  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">

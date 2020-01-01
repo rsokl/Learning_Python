@@ -99,6 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_6.html">Module 6: Testing Your Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
@@ -166,204 +167,6 @@
             
   
 <style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput,
-div.nboutput {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
-}
-@media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput div.prompt.empty {
-        padding: 0;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    background: #f5f5f5;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -388,9 +191,9 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Testing-Your-Code">
 <h1>Testing Your Code<a class="headerlink" href="#Testing-Your-Code" title="Permalink to this headline">¶</a></h1>
-<p>This section will introduce us to the critically-important and often-overlooked process of testing code. We will begin by considering the basic motivations behind writing tests. Next, we will study the basic anatomy of a test-function, including its nucleus: the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement. Armed with the ability to write a rudimentary test, we will welcome, with open arms, the powerful testing framework <a class="reference external" href="https://docs.pytest.org/">pytest</a>. This will inform how to structure our tests alongside our
-Python project that we are developing, and will allow us to incisively run our tests with the press of a single button. Furthermore, it will allow us to greatly streamline and even begin to automate some of our tests. Finally, we will take a step back to consider some strategies for writing effective tests. Among these is a methodology that is near and dear to my heart: property-based testing. This will take us down a bit of a rabbit hole, where we will find the powerful property-based testing
-library <a class="reference external" href="https://hypothesis.readthedocs.io/">Hypothesis</a> waiting to greet us (adorned with the mad Hatter’s cap and all).</p>
+<p>This section will introduce us to the critically-important and often-overlooked process of testing code. We will begin by considering some driving motivations for writing tests. Next, we will study the basic anatomy of a test-function, including the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement, which serves as the nucleus of our test functions. Armed with the ability to write a rudimentary test, we will welcome, with open arms, the powerful testing framework <a class="reference external" href="https://docs.pytest.org/">pytest</a>. This will inform how
+we structure our tests alongside our Python project that we are developing; with pytest, we can incisively run our tests with the press of a single button. Furthermore, it will allow us to greatly streamline and even begin to automate some of our tests. Finally, we will take a step back to consider some strategies for writing effective tests. Among these is a methodology that is near and dear to my heart: property-based testing. This will take us down a bit of a rabbit hole, where we will find
+the powerful property-based testing library <a class="reference external" href="https://hypothesis.readthedocs.io/">Hypothesis</a> waiting to greet us (adorned with the mad Hatter’s cap and all).</p>
 <div class="section" id="Why-Should-We-Write-Tests?">
 <h2>Why Should We Write Tests?<a class="headerlink" href="#Why-Should-We-Write-Tests?" title="Permalink to this headline">¶</a></h2>
 <p>With great power comes great responsibility: tests help us be responsible for the code that we create and that others will (hopefully) use.</p>
@@ -400,18 +203,23 @@ library <a class="reference external" href="https://hypothesis.readthedocs.io/">
 <ul class="simple">
 <li>It saves us lots of time: &gt; After you have devised a test scenario for your code, it may only take us a second or so to run it - perhaps we need only run a couple of Jupyter notebook cells to check the output. &gt; However, this will quickly become unwieldy as we write more code and devise more test scenarios. &gt; Soon we will be dissuaded from running our tests except for on rare occasions. &gt; With a proper test suite, we can run all of our test scenarios with the push of a button, and a series of
 green check-marks (or red x’s…) will summarize the health of our project (insofar as our tests serve as good diagnostics). &gt; This, of course, also means that we will find and fix bugs much faster! &gt; In the long run, our test suite will afford us the ability to aggressively exercise (and exorcise) our code at little cost.</li>
-<li>It increases the “shelf life” of our code: &gt; If you’ve ever dusted off a project that you haven’t used for years (or perhaps only months or weeks…), you might know the tribulations of getting old code to work. &gt; Perhaps, in the interim, new versions of your project’s dependencies, like PyTorch or Matplotlib, were released and have incompatibilities with our project. &gt; And perhaps we can’t even <em>remember</em> all of the ways in which our project is supposed to work. &gt; Our test suite provides us
-with a simple and incisive way to dive back into our work. &gt; It will point us to any potential incompatibilities that have accumulated over time. &gt; It also provides us with a large collection of detailed use-cases of our code; &gt; we can read through our tests remind ourselves of the inner-workings of our project.</li>
+<li>It increases the “shelf life” of our code: &gt; If you’ve ever dusted off a project that you haven’t used for years (or perhaps only months or weeks…), you might know the tribulations of getting old code to work. &gt; Perhaps, in the interim, new versions of our project’s dependencies, like PyTorch or Matplotlib, were released and have incompatibilities with our project’s code. &gt; And perhaps <em>we can’t even remember</em> all of the ways in which our project is supposed to work. &gt; Our test suite provides
+us with a simple and incisive way to dive back into our work. &gt; It will point us to any potential incompatibilities that have accumulated over time. &gt; It also provides us with a large collection of detailed use-cases of our code; &gt; we can read through our tests remind ourselves of the inner-workings of our project.</li>
 <li>It will inform the design and usability of our project for the better: &gt; Although it may not be obvious from the outset, writing testable code leads to writing better code. &gt; This is, in part, because the process of writing tests gives us the opportunity to actually <em>use</em> our code under varied circumstances. &gt; The process of writing tests will help us suss out cumbersome function interfaces, brittle statefulness, and redundant capabilities in our code. If <em>we</em> find it frustrating to use our
 code within our tests, then surely others will find it frustrating to use in applied settings.</li>
 <li>It makes it easier for others to contribute to a project: &gt; Having a healthy test suite lowers the barrier to entry for a project. &gt; A contributor can make improvements to the project and quickly check to see if they have broken it or changed any of its behavior.</li>
 </ul>
-<p>This all sounds great, but where do we even begin to kick off the process of writing a test suite? Let’s start by seeing what constitutes a basic test function.</p>
+<p>This all sounds great, but where do we even start the process writing a test suite? Let’s begin by seeing what constitutes a basic test function.</p>
 </div>
 <div class="section" id="The-Basic-Anatomy-of-a-Test-Function">
 <h2>The Basic Anatomy of a Test Function<a class="headerlink" href="#The-Basic-Anatomy-of-a-Test-Function" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Returns the number of vowels contained in `x`</span>
+<p>Let’s write a function that tests the following <code class="docutils literal notranslate"><span class="pre">count_values</span></code> code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defining a function that we will be testing</span>
+
+<span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Returns the number of vowels contained in `x`.</span>
+
+<span class="sd">    The vowel &#39;y&#39; is included optionally.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -426,28 +234,208 @@ code within our tests, then surely others will find it frustrating to use in app
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="SCRATCH">
-<h2>SCRATCH<a class="headerlink" href="#SCRATCH" title="Permalink to this headline">¶</a></h2>
-<p>As we become capable Python users, we will naturally find ourselves moving away from writing short, trivial programs in favor of creating useful and increasingly-sophisticated projects. It is only naturally try using your code to verify its behavior. You may even devise several scenarios to exercise your project. Clearly this sort of testing need no justification; it is a ubiquitous practice among coders. Less obvious are the major pitfalls associated with this highly-manual means of testing.</p>
-<p>Let’s consider some of the pitfalls of casual, manual tests. To do so, consider the following unfortunate scenario: you carefully run your code through several test scenarios and see that</p>
+<p>(Note that we will be making use of <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Type-Hinting">type hinting</a> to help document the interfaces of our functions. You may want to briefly review the linked material if this is unfamiliar to you)</p>
+<p>For our most basic test, we can simply call <code class="docutils literal notranslate"><span class="pre">count_values</span></code> under various contrived inputs and <em>assert</em> that it returns the expected output. The desired behavior for this test function, upon being run, is to:</p>
 <ul class="simple">
-<li>Fortunately, it is exceedingly easy to convert this casual and flawed testing workflow to one that is far more powerful and efficient.</li>
+<li>Raise an error if any of our assertions <em>failed</em> to hold true.</li>
+<li>Complete “silently” if all of our assertions hold true (i.e.&nbsp;our test function will simply <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#The-return-Statement">return None</a>)</li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+=</span> <span class="mi">2</span>
+<p>Here, we will be making use of Python’s <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements, whose behavior will be easy to deduce from the context of this test alone; we will be formally introduced to them soon.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Writing a test function for `count_vowels`</span>
 
-<span class="n">x</span><span class="o">+=</span> <span class="mi">4</span>
+<span class="k">def</span> <span class="nf">test_count_vowels_basic</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;aA bB yY&quot;</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;aA bB yY&quot;</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
 </pre></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<p>To run this test, we simply call the function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># running our test function</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">test_count_vowels_basic</span><span class="p">()</span>  <span class="c1"># passes: returns None | fails: raises error</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<p>As described above, the fact our function runs and simply returns <code class="docutils literal notranslate"><span class="pre">None</span></code> means that our code has passed this test. We’ve written and run our very first test! It certainly isn’t the most robust test, but it is a good start.</p>
+<p>Let’s look more carefully at the structure of <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code>. Note that this function doesn’t take in any inputs; thanks to <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html">Python’s scoping rules</a>, we can reference our <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function within our test as long as it is defined in the same “namespace” as <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code>. That is, we can either define <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> in the same .py file (or Jupyter notebook, if you are following
+along with this material in a notebook) as <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code>, or we can <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Import-Statements">import</a> <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> from wherever it is defined, and into the file containing our test. The latter scenario is by far the most common one in practice. More on this later.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: The Basic Anatomy of a Test</strong></p>
+<p>Add an additional assertion to the body of <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code>, which tests whether <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> handles the empty-string (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>) case appropriately. Make sure to run your updated test to see if it passes.</p>
+</div>
+<div class="section" id="Testing-Our-Tests">
+<h3>Testing Our Tests<a class="headerlink" href="#Testing-Our-Tests" title="Permalink to this headline">¶</a></h3>
+<p>It is surprisingly easy to unwittingly write a test that always passes or that fails to test our code as we had intended. This is a particularly treacherous mistake to make as it leads us to falsely believe that our function is working as-expected. <strong>Thus a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior in such a way that our test ought to raise an error.</strong> Once we confirm that our test does indeed raise an error
+as-expected, we restore the function to its original form and re-run the test and see that it passes.</p>
+<p>We ought to mutate our function in a way that is trivial to undo; we can use of code-comments towards this end. All <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">IDEs</a> have the ability to “block-comment” selected code. In a Jupyter notebook code cell, we can highlight multiple lines of code and press <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">/</span></code>: this will comment-out these lines of code. The same key-combination will also un-comment a highlighted block of
+commented code.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Testing Your Test via Manual Mutation</strong></p>
+<p>Temporarily change the body of <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> such that the second assertion in <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code> raises an error. Run the test to confirm that the second assertion raises, and then restore <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> to its original form. Finally, rerun the test to see that <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> once again passes all of the assertions.</p>
+</div>
+<p>With our first test function under our belt, it is time for us to clearly understand how <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements work and how they should be used.</p>
+</div>
+<div class="section" id="Assert-Statements">
+<h3>Assert Statements<a class="headerlink" href="#Assert-Statements" title="Permalink to this headline">¶</a></h3>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">def</span></code>, or <code class="docutils literal notranslate"><span class="pre">if</span></code>, the term <code class="docutils literal notranslate"><span class="pre">assert</span></code> is a reserved term in the Python language. It has the following specialized behavior:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the rudimentary behavior of the `assert` statement</span>
+
+<span class="c1"># asserting an expression whose boolean-value is `True` will complete &quot;silently&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span>
+
+<span class="c1"># asserting an expression whose boolean-value is `False` raises an error</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">1</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span>                            <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">c82711d5fe4d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="k">assert</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">1</span>
+
+<span class="ne">AssertionError</span><span class="p">:</span>
+
+<span class="c1"># we can include an error message with our assertion</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="mi">0</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;0 is not in the list&quot;</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span>                            <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">e72fb36dc785</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="k">assert</span> <span class="mi">0</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;0 is not in the list&quot;</span>
+
+<span class="ne">AssertionError</span><span class="p">:</span> <span class="mi">0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span>
 </pre></div>
 </div>
+<p>The general form of an assertion statement is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span> <span class="p">[,</span> <span class="o">&lt;</span><span class="n">error</span><span class="o">-</span><span class="n">message</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
 </div>
+<p>When an assertion statement is executed, the built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> function is called on the object that is returned by <code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code>; if <code class="docutils literal notranslate"><span class="pre">bool(&lt;expression&gt;)</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>, then an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is raised. If you included a string in the assertion statement - separated from <code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code> by a comma - then this string will be printed as the error message.</p>
+<p>See that the assertion statement:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">expression</span><span class="p">,</span> <span class="n">error_message</span>
+</pre></div>
+</div>
+<p>is effectively shorthand for the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># long-form equivalent of: `assert expression, error_message`</span>
+<span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">error_message</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Assertions</strong></p>
+<p>Given the following objects:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">a_number</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">a_string</span> <span class="o">=</span> <span class="s2">&quot;abcdef&quot;</span>
+</pre></div>
+</div>
+<p>Write two assertion statements, each one with the corresponding behavior:</p>
+<ul class="simple">
+<li>asserts that <code class="docutils literal notranslate"><span class="pre">a_list</span></code> is <em>not</em> empty</li>
+<li>asserts that the number of vowels in <code class="docutils literal notranslate"><span class="pre">a_string</span></code> is less than <code class="docutils literal notranslate"><span class="pre">a_number</span></code>; include and error message that prints the actual number of vowels</li>
+</ul>
+</div>
+<div class="section" id="What-is-the-Purpose-of-an-Assertion?">
+<h4>What is the Purpose of an Assertion?<a class="headerlink" href="#What-is-the-Purpose-of-an-Assertion?" title="Permalink to this headline">¶</a></h4>
+<p>In our code, an assertion should be used as <em>a statement that is true unless there is a bug our code</em>. It is plain to see that the assertions in <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code> fit this description. However, it can also be useful to include assertions within our source code itself. For instance, we know that <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> should always return a non-negative integer for the vowel-count, and that it is illogical for this count to exceed the number of characters in the input string. We can
+explicitly assert that this is the case:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># an example of including an assertion within our source code</span>
+
+<span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">include_y</span><span class="p">:</span>
+        <span class="n">vowels</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;yY&quot;</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
+
+    <span class="c1"># This assertion should always be true: it is asserting that</span>
+    <span class="c1"># the internal logic of our function is correct</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">count</span>
+</pre></div>
+</div>
+<p>Note that this assertion <em>is not meant to check if the user passed bad inputs for</em> <code class="docutils literal notranslate"><span class="pre">x</span></code> <em>and</em> <code class="docutils literal notranslate"><span class="pre">include_y</span></code>. Rather, it is meant to assert that our own internal logic holds true.</p>
+<p>Admittedly, the <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function is simple enough that the inclusion of this assertion is rather pedantic. That being said, as we write increasingly sophisticated code, we will find that this sort of assertion will help us catch bad internal logic and oversights within our code base.</p>
+</div>
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html?highlight=assert#the-assert-statement">The assert statement</a></li>
+</ul>
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+<p><strong>The Basic Anatomy of a Test: Solution</strong></p>
+<p>Add an additional assertion to the body of <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code>, which tests whether <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> handles the empty-string (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>) case appropriately. Make sure to run your updated test to see if it passes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_count_vowels_basic</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;aA bB yY&quot;</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;aA bB yY&quot;</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
+    <span class="k">assert</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># running the test in a notebook-cell: the function should simply return</span>
+<span class="c1"># `None` if all assertions hold true</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">test_count_vowels_basic</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Testing Your Test via Manual Mutation: Solution</strong></p>
+<p>Temporarily change the body of <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> such that the <em>second</em> assertion in <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code> raises an error. &gt; Let’s comment out the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">include_y</span></code> block in our code - this should prevent us from counting y’s, and thus should violate the second assertion in our test.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Breaking the behavior of `include_y=True`</span>
+<span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
+    <span class="c1"># if include_y:</span>
+    <span class="c1">#    vowels.update(&quot;yY&quot;)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the second assertion should raise an error</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">test_count_vowels_basic</span><span class="p">()</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span>                            <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">32301</span><span class="n">ff829e9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">test_count_vowels_basic</span><span class="p">()</span>
+
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">99</span><span class="n">ef0ca3d859</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="n">test_count_vowels_basic</span><span class="p">()</span>
+      <span class="mi">1</span> <span class="k">def</span> <span class="nf">test_count_vowels_basic</span><span class="p">():</span>
+      <span class="mi">2</span>     <span class="k">assert</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;aA bB yY&quot;</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="o">----&gt;</span> <span class="mi">3</span>     <span class="k">assert</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;aA bB yY&quot;</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
+
+<span class="ne">AssertionError</span><span class="p">:</span>
+</pre></div>
+</div>
+<blockquote>
+<div>Great! That assertion really does help to ensure that we are counting y’s correctly.</div></blockquote>
+<p>Restore <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> to its original form and rerun the test to see that <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> once again passes all of the assertions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Restore the behavior of `include_y=True`</span>
+<span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">include_y</span><span class="p">:</span>
+        <span class="n">vowels</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;yY&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># confirming that we restored the proper behavior in `count_vowels`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">test_count_vowels_basic</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Assertions: Solution</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">a_number</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">a_string</span> <span class="o">=</span> <span class="s2">&quot;abcdef&quot;</span>
+</pre></div>
+</div>
+<p>Assert that <code class="docutils literal notranslate"><span class="pre">a_list</span></code> is <em>not</em> empty:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">a_list</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">AssertionError                            Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-10-2eba8294859e&gt; in &lt;module&gt;</span>
+<span class="go">----&gt; 1 assert a_list</span>
+
+<span class="go">AssertionError:</span>
+</pre></div>
+</div>
+<blockquote>
+<div>You may have written <code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">len(a_list)</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> - this is also correct. However, recall that calling <code class="docutils literal notranslate"><span class="pre">bool</span></code> on any sequence (list, tuple, string, etc.) will return <code class="docutils literal notranslate"><span class="pre">False</span></code> if the sequence is empty. This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - that <code class="docutils literal notranslate"><span class="pre">bool</span></code> will be called on whatever the provided expression is.</div></blockquote>
+<p>Assert that the number of vowels in <code class="docutils literal notranslate"><span class="pre">a_string</span></code> is fewer than <code class="docutils literal notranslate"><span class="pre">a_number</span></code>; include and error message that prints the actual number of vowels:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">count_vowels</span><span class="p">(</span><span class="n">a_string</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">a_number</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;Number of vowels, {count_vowels(a_string)}, exceeds {a_number}&quot;</span>
+</pre></div>
+</div>
+<blockquote>
+<div>Note that we make use of an <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings">f-string</a> as a convenient means for writing an informative error message.</div></blockquote>
 </div>
 </div>
 

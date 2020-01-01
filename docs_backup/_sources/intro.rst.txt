@@ -12,7 +12,7 @@ What this is
 ------------
 Python Like You Mean It (PLYMI) is a free resource for learning the basics of Python & NumPy, and moreover, becoming a competent Python user. The features of the Python language that are emphasized here were chosen to help those who are particularly interested in STEM applications (data analysis, machine learning, numerical work, etc.).
 
-I want this to be a lean, one-stop resource for learning the essentials of Python from scratch. The reader will begin by learning about what Python is and what installing Python even means, and will hopefully walk away with a solid understanding of a substantial core of the language and its premiere numerical library, NumPy. I am also placing an emphasis on best practices throughout this site and am teaching to the latest version of Python (version 3.7, as of writing this).
+I want this to be a lean, one-stop resource for learning the essentials of Python from scratch. The reader will begin by learning about what Python is and what installing Python even means, and will hopefully walk away with a solid understanding of a substantial core of the language and its premiere numerical library, NumPy. I am also placing an emphasis on best practices throughout this site and am teaching to the latest version of Python (version 3.8, as of writing this).
 
 
 What this isn't

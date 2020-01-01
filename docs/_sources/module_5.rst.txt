@@ -1,5 +1,5 @@
 Module 5: Odds and Ends
-=====================================
+=======================
 This module contains materials that are extraneous to the essentials of Python as a language and of NumPy, but are nonetheless critical to doing day-to-day work using these tools. 
 
 The first section introduces some general guidelines for writing "good code". Specifically, it points you, the reader, to a style guide that many people in the Python community abide by. It also introduces a relatively new and increasingly-popular feature of Python, called type-hinting, which permits us to enhance our code with type-documentation annotations. The reader will also be introduced to NumPy's and Google's respective specifications for writing good docstrings.  
