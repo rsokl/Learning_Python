@@ -114,7 +114,7 @@ setup(
     author="Your Name",
     description="A template Python package for learning about testing",
     install_requires=["numpy >= 1.10.0"],
-    tests_require=["pytest>=5.3", "hypothesis?=5.0"],
+    tests_require=["pytest>=5.3", "hypothesis>=5.0"],
     python_requires=">=3.6",
 )
 ```
