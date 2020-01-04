@@ -31,8 +31,8 @@ The fact of the matter is that it is intuitive for most people to test their cod
 After writing, say, a new function, it is only natural to contrive an input to feed it, and to check that the function returns the output that we expected.
 To the extent that one would want to see evidence that their code works, we need not motivate the importance of testing.
 
-Less obvious are the massive benefits that we stand to gain from formalizing this testing process.
-And by "formalizing", we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end.
+Less obvious are the massive benefits that we stand to gain from automating this testing process.
+And by "automating", we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end.
 We will accumulate these test functions into a "test suite" that we can run quickly and repeatedly.
 
 There are plenty of practical details ahead for us to learn, so let's expedite this discussion and simply list some of the benefits that we can expect to reap from writing a robust test suite:
