@@ -258,7 +258,7 @@ For example, in the following image, the green "play button" allows us to run `t
 <!-- #raw raw_mimetype="text/html" -->
 <div style="text-align: center">
 <p>
-<img src="../_images/individual_test.PNG" alt="Running an individual test in PyCharm" width="600">
+<img src="../_images/individual_test.png" alt="Running an individual test in PyCharm" width="600">
 </p>
 </div>
 <!-- #endraw -->
@@ -270,7 +270,7 @@ In the following image, we see that `test_version` is failing - we can click on 
 <!-- #raw raw_mimetype="text/html" -->
 <div style="text-align: center">
 <p>
-<img src="../_images/test_tree_view.PNG" alt="Viewing an enchanced tree-view of your test suite" width="600">
+<img src="../_images/test_tree_view.png" alt="Viewing an enhanced tree-view of your test suite" width="600">
 </p>
 </div>
 <!-- #endraw -->
