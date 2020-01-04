@@ -448,7 +448,7 @@ def test_function(<param-name>):
 ```
 
 We will often have tests that require multiple parameters.
-The general form for creating the the parameterization decorator for $N$ parameters,
+The general form for creating the parameterization decorator for $N$ parameters,
 each of which assume $J$ values, is:
 
 ```python
