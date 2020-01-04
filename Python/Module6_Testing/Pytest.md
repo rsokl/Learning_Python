@@ -689,7 +689,7 @@ tests\test_basic_functions.py:40: AssertionError
 ========================= 1 failed, 3 passed in 0.07s =========================
 ```
 
-> Four tests were "discovered" and run by pytest. The pattern `..F` indicates that the first two tests in _test_basic_functions_ passed and the third test failed.
+> Four tests were "discovered" and run by pytest. The pattern `..F` indicates that the first two tests in `test_basic_functions` passed and the third test failed.
 > It then indicates which test failed, and specifically that the assertion was false because a length-2 list cannot be equal to a length-3 list.
 <!-- #endregion -->
 
