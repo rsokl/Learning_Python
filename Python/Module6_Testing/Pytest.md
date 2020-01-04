@@ -420,7 +420,7 @@ Furthermore, the four assertions are now being run independently from one anothe
 <!-- #region -->
 #### Decorators
 
-The the syntax used to parameterize this test may look alien to us, we have yet to encounter this construct thus far.
+The syntax used to parameterize this test may look alien to us, as we have yet to encounter this construct thus far.
 `pytest.mark.parameterize(...)` is a _decorator_ - an object that is used to "wrap" a function in order to transform its behavior.
 The `pytest.mark.parameterize(...)` decorator wraps our test function so that pytest can call it multiple times, once for each parameter value. 
 The `@` character, in this context, denotes the application of a decorator:
