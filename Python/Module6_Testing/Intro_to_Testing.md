@@ -55,7 +55,7 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 > Our test suite provides us with a simple and incisive way to dive back into our work.
 > It will point us to any potential incompatibilities that have accumulated over time.
 > It also provides us with a large collection of detailed use-cases of our code;
-> we can read through our tests remind ourselves of the inner-workings of our project.
+> we can read through our tests and remind ourselves of the inner-workings of our project.
 
 
 **It will inform the design and usability of our project for the better:**
