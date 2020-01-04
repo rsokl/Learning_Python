@@ -381,7 +381,9 @@ Try breaking the function such that it always merges in values from `dict2`, eve
 
 There is an entire subfield of automated testing known as ["mutation testing"](https://en.wikipedia.org/wiki/Mutation_testing), where tools like [Cosmic Ray](https://cosmic-ray.readthedocs.io/en/latest/index.html) are used to make temporary, incisive mutations to your source code - like change a `+` to a `-` or change a `1` to a `-1` - and then run your test suite.
 The idea here is that such mutations *ought to cause one or more of your tests to fail*.
-A mutation that fails to trigger at least one test failure is likely an indicator that your tests could stand to be more robust. 
+A mutation that fails to trigger at least one test failure is likely an indicator that your tests could stand to be more robust.
+
+Automated mutation testing tools might be a bit too "heavy duty" at this point in our testing journey, but they are great to keep in mind.
 
 </div>
 
