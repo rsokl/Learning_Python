@@ -289,7 +289,7 @@ a_string = "abcdef"
 Write two assertion statements with the respective behaviors:
 
 - asserts that `a_list` is _not_ empty
-- asserts that the number of vowels in `a_string` is less than `a_number`; include and error message that prints the actual number of vowels
+- asserts that the number of vowels in `a_string` is less than `a_number`; include an error message that prints the actual number of vowels
 
 </div>
 <!-- #endregion -->
