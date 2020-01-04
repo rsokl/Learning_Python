@@ -114,7 +114,7 @@ setup(
     author="Your Name",
     description="A template Python package for learning about testing",
     install_requires=["numpy >= 1.10.0"],
-    tests_require=["pytest", "hypothesis"],
+    tests_require=["pytest>=5.3", "hypothesis?=5.0"],
     python_requires=">=3.6",
 )
 ```
@@ -125,7 +125,7 @@ Finally, let's install our package locally [in development mode](https://www.pyt
 Navigate to the directory containing `setup.py` and run:
 
 ```shell
-python setup.py develop
+pip install --editable .
 ```
 
 Now, we should be able to start a python console, IPython console, or Jupyter notebook in any directory and import our package:
@@ -562,10 +562,13 @@ def cleandir():
     str
         The name of the temporary directory."""
     with tempfile.TemporaryDirectory() as tmpdirname:
-        old_dir = os.getcwd()
-        os.chdir(tmpdirname)
-        yield tmpdirname
-        os.chdir(old_dir)
+        old_dir = os.getcwd()  # get current working directory (cwd)
+        os.chdir(tmpdirname)   # change cwd to the temp-directory
+        yield tmpdirname       # yields control to the test to be run
+        os.chdir(old_dir)      # restore the cwd to the original directory
+    # Leaving the context manager will prompt the deletion of the
+    # temporary directory and its contents. This cleanup will be
+    # triggered even if errors were raised during the test.
 
 
 @pytest.fixture()
