@@ -323,6 +323,25 @@ Rather, it is meant to assert that our own internal logic holds true.
 Admittedly, the `count_vowels` function is simple enough that the inclusion of this assertion is rather pedantic.
 That being said, as we write increasingly sophisticated code, we will find that this sort of assertion will help us catch bad internal logic and oversights within our code base.
 We will also see that keen use of assertions can make it much easier for us to write good tests.
+
+<div class="alert alert-warning">
+
+**Disabling Assertions**: 
+
+Python code can be run in an "optimized" mode such that *all assertions are skipped by the Python interpreter during execution*.
+This can be achieved by specifying the command line option `-O` (the letter "O", not zero), e.g.:
+
+```shell
+python -O my_code.py
+```
+
+or by setting the `PYTHONOPTIMIZE` [environment variable](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONOPTIMIZE).
+
+The idea here is that we may want assertions within our source code to perform expensive checks to guarantee internal consistency within our code, and that we want the ability to forgo these checks when we are no longer debugging our code.
+Because they can be skipped in this way, *assertions should never be used for practical error handling*.
+
+</div>
+
 <!-- #endregion -->
 
 ## Testing Our Tests
@@ -375,6 +394,7 @@ To combat this, we will seek out alternative, powerful testing methodologies, in
 ## Links to Official Documentation
 
 - [The assert statement](https://docs.python.org/3/reference/simple_stmts.html?highlight=assert#the-assert-statement)
+- [PYTHONOPTIMIZE environment variable](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONOPTIMIZE)
 
 
 ## Reading Comprehension Solutions
