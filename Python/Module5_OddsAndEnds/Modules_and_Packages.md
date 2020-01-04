@@ -446,9 +446,10 @@ setup(
     name="face_detection",
     version="1.0.0",
     packages=find_packages(exclude=["tests", "tests.*"]),
+    python_requires=">=3.5",
 )
 ```
-The expression `exclude=["tests", "tests.*"]` is included to ensure that the code in your test-suite is not included in the installation of `face_detection`.
+The `exclude` expression is used to ensure that specific directories or files are not included in the installation of `face_detection`. We use `exclude=["tests", "tests.*"]` to avoid installing the test-suite along side `face_detection`
 <!-- #endregion -->
 
 If you read through the additional materials linked above, you will see that there are many more fields of optional information that can be provided in this setup script, such as the author name, any installation requirements that the package has, and more.
@@ -456,7 +457,7 @@ If you read through the additional materials linked above, you will see that the
 Armed with this script, we are ready to install our package locally on our machine! In your terminal, navigate to the directory containing this setup script and your package that it being installed. Run
 
 ```shell
-python setup.py install
+pip install .
 ```
 
 and voilà, your package `face_detection` will have been installed to site-packages. You are now free to import this package from any directory on your machine. In order to uninstall this package from your machine execute the following from your terminal:
@@ -468,7 +469,7 @@ pip uninstall face_detection
 One final but important detail. The installed version of your package will no longer "see" the source code. That is, if you go on to make any changes to your code, you will have to uninstall and reinstall your package before your will see the effects system-wide. Instead you can install your package in "development mode", such that a symbolic link to your source code is placed in your site-packages. Thus any changes that you make to your code will immediately be reflected in your system-wide installation. Thus, instead of running `python setup.py install`, execute the following to install a package in develop mode:
 
 ```shell
-python setup.py develop
+pip install --editable .
 ```
 
 
