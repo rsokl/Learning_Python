@@ -81,7 +81,7 @@ Before proceeding any further, we should reread the material presented in [Modul
 This material serves as the foundation for this section.
 
 ### Organizing our Source Code
-Let's create the a Python package, which we will call `plymi_mod6`, with the following directory structure:
+Let's create a Python package, which we will call `plymi_mod6`, with the following directory structure:
 
 ```
 project_dir/     # the "parent directory" houses our source code, tests, and all other relevant files
