@@ -244,7 +244,7 @@ Python package, using pytest.</p>
 <p>It’s time to create a proper test suite. Before proceeding any further, we should reread the material presented in <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html">Module 5 - Import: Modules and Packages</a> and recall the essentials of import statements, modules, and Python packages. This material serves as the foundation for this section.</p>
 <div class="section" id="Organizing-our-Source-Code">
 <h3>Organizing our Source Code<a class="headerlink" href="#Organizing-our-Source-Code" title="Permalink to this headline">¶</a></h3>
-<p>Let’s create the a Python package, which we will call <code class="docutils literal notranslate"><span class="pre">plymi_mod6</span></code>, with the following directory structure:</p>
+<p>Let’s create a Python package, which we will call <code class="docutils literal notranslate"><span class="pre">plymi_mod6</span></code>, with the following directory structure:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project_dir</span><span class="o">/</span>     <span class="c1"># the &quot;parent directory&quot; houses our source code, tests, and all other relevant files</span>
   <span class="o">-</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span>     <span class="c1"># script responsible for installing `plymi_mod6` package</span>
   <span class="o">-</span> <span class="n">plymi_mod6</span><span class="o">/</span>  <span class="c1"># directory containing source code of `plymi_mod6` package</span>
@@ -257,7 +257,7 @@ Python package, using pytest.</p>
       <span class="o">|--</span> <span class="n">test_numpy_functions</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>A reference implementation of this package can be found <a class="reference external" href="https://github.com/rsokl/plymi_mod6">in this GitHub repository</a>. Populate the <code class="docutils literal notranslate"><span class="pre">basic_functions.py</span></code> file with the two functions that we were using as our source code in the previous section: <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> and <code class="docutils literal notranslate"><span class="pre">merge_max_mappings</span></code>. In in the <code class="docutils literal notranslate"><span class="pre">numpy_functions.py</span></code> module, add the <code class="docutils literal notranslate"><span class="pre">pairwise_dists</span></code> function that appears in <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Optimized-Pairwise-Distances">Module 3’s discussion of optimized pairwise
+<p>A reference implementation of this package can be found <a class="reference external" href="https://github.com/rsokl/plymi_mod6">in this GitHub repository</a>. Populate the <code class="docutils literal notranslate"><span class="pre">basic_functions.py</span></code> file with the two functions that we were using as our source code in the previous section: <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> and <code class="docutils literal notranslate"><span class="pre">merge_max_mappings</span></code>. In the <code class="docutils literal notranslate"><span class="pre">numpy_functions.py</span></code> module, add the <code class="docutils literal notranslate"><span class="pre">pairwise_dists</span></code> function that appears in <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Optimized-Pairwise-Distances">Module 3’s discussion of optimized pairwise
 distances</a>. Don’t forget to include <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> in your script in accordance with how <code class="docutils literal notranslate"><span class="pre">pairwise_dists</span></code> calls NumPy functions.</p>
 <p>We have arranged these functions so that they can be imported from the <code class="docutils literal notranslate"><span class="pre">basic_functions</span></code> module and the <code class="docutils literal notranslate"><span class="pre">numpy_functions</span></code> module, respectively, which reside in our <code class="docutils literal notranslate"><span class="pre">plymi_mod6</span></code> package. Let’s fill out our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> script and install this package so that we can import it regardless of our current working directory. The content of <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> will be:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">find_packages</span><span class="p">,</span> <span class="n">setup</span>
@@ -269,14 +269,14 @@ distances</a>. Don’t forget to include <code class="docutils literal notransla
     <span class="n">author</span><span class="o">=</span><span class="s2">&quot;Your Name&quot;</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A template Python package for learning about testing&quot;</span><span class="p">,</span>
     <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;numpy &gt;= 1.10.0&quot;</span><span class="p">],</span>
-    <span class="n">tests_require</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pytest&quot;</span><span class="p">,</span> <span class="s2">&quot;hypothesis&quot;</span><span class="p">],</span>
+    <span class="n">tests_require</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pytest&gt;=5.3&quot;</span><span class="p">,</span> <span class="s2">&quot;hypothesis?=5.0&quot;</span><span class="p">],</span>
     <span class="n">python_requires</span><span class="o">=</span><span class="s2">&quot;&gt;=3.6&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <p>This setup file dictates that a user must have Python 3.6+ installed - we will bar Python 3.5 and below so that we are free to make use of <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Formatting-strings">f-strings</a> in our code, which were introduced in Python 3.6. Additionally, we will require pytest and hypothesis for running tests; the Hypothesis library will be introduced in a later section.</p>
 <p>Finally, let’s install our package locally <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Installing-Your-Own-Python-Package">in development mode</a>. Navigate to the directory containing <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and run:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python setup.py develop
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install --editable .
 </pre></div>
 </div>
 <p>Now, we should be able to start a python console, IPython console, or Jupyter notebook in any directory and import our package:</p>
@@ -290,7 +290,7 @@ distances</a>. Don’t forget to include <code class="docutils literal notransla
 </div>
 <div class="section" id="Populating-and-Running-Our-Test-Suite">
 <h2>Populating and Running Our Test Suite<a class="headerlink" href="#Populating-and-Running-Our-Test-Suite" title="Permalink to this headline">¶</a></h2>
-<p>pytest’s <a class="reference external" href="https://docs.pytest.org/en/latest/goodpractices.html#test-discovery">system for “test discovery”</a> is quite simple: pytest need only be pointed to a directory with files named <code class="docutils literal notranslate"><span class="pre">test_*.py</span></code> in it, and it will find all of the functions in these files <em>whose names start with the word “test”</em> and it will run all such functions.</p>
+<p>pytest’s <a class="reference external" href="https://docs.pytest.org/en/latest/goodpractices.html#test-discovery">system for “test discovery”</a> is quite simple: pytest need only be pointed to a directory with files named <code class="docutils literal notranslate"><span class="pre">test_*.py</span></code> in it, and it will find all of the functions in these files <em>whose names start with the word “test”</em> and will run all such functions.</p>
 <p>Thus, let’s populate the file <code class="docutils literal notranslate"><span class="pre">test_basic_functions.py</span></code> with the functions <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code> and <code class="docutils literal notranslate"><span class="pre">test_merge_max_mappings</span></code>, which we wrote in the previous section of this module:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The contents of test_basic_functions.py</span>
 
@@ -335,7 +335,7 @@ distances</a>. Don’t forget to include <code class="docutils literal notransla
 </pre></div>
 </div>
 <p>As described before, <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> and <code class="docutils literal notranslate"><span class="pre">merge_max_mappings</span></code> must both be imported from our <code class="docutils literal notranslate"><span class="pre">plymi_mod6</span></code> package, so that our functions are in the same namespace as our tests. A reference implementation of <code class="docutils literal notranslate"><span class="pre">test_basic_functions.py</span></code> can be viewed <a class="reference external" href="https://github.com/rsokl/plymi_mod6/blob/master/tests/test_basic_functions.py">here</a>. Finally, add a dummy test - a test function that will always pass - to <code class="docutils literal notranslate"><span class="pre">test_basic_numpy.py</span></code>. We will replace this with a useful test later.</p>
-<p>Without further ado, let’s run our test suite! In our terminal, with the appropriate conda environment active, we navigate to the root directory of the project, which contains the <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory, and run <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tests/</span></code>. Following output should appear:</p>
+<p>Without further ado, let’s run our test suite! In our terminal, with the appropriate conda environment active, we navigate to the root directory of the project, which contains the <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory, and run <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tests/</span></code>. The following output should appear:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pytest tests/
 ============================= test session starts =============================
 platform win32 -- Python 3.7.5, pytest-5.3.2, py-1.8.0, pluggy-0.12.0
@@ -348,7 +348,7 @@ tests\test_basic_numpy.py .                                              [100%]
 ============================== 3 passed in 0.04s ==============================
 </pre></div>
 </div>
-<p>This output indicates that three test-functions were found across two files and that all of the tests “passed”; i.e.&nbsp;the functions ran without raising any errors. The first two tests are located in <code class="docutils literal notranslate"><span class="pre">tests/test_basic_functions.py</span></code>; the two dots indicate that two functions were run, and the <code class="docutils literal notranslate"><span class="pre">[66%]</span></code> indicator simply denotes that the test-suite is 66% (two-thirds) complete. The proceeding reading comprehension problem will lead us to see what looks like for pytest to report a failing test.</p>
+<p>This output indicates that three test-functions were found across two files and that all of the tests “passed”; i.e.&nbsp;the functions ran without raising any errors. The first two tests are located in <code class="docutils literal notranslate"><span class="pre">tests/test_basic_functions.py</span></code>; the two dots indicate that two functions were run, and the <code class="docutils literal notranslate"><span class="pre">[66%]</span></code> indicator simply denotes that the test-suite is 66% (two-thirds) complete. The following reading comprehension problem will lead us to see what looks like for pytest to report a failing test.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Running a Test Suite</strong></p>
 <p>Temporarily add a new “broken” test to <code class="docutils literal notranslate"><span class="pre">tests/test_basic_functions.py</span></code>. The name that you give this test should adhere to pytest’s simple rules for test-discovery. Design the test function so that is sure to fail when it is run.</p>
@@ -367,12 +367,12 @@ to a bug in our work-in-progress. We can leverage pytest in conjunction with <a 
 <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code>.</p>
 <div style="text-align: center">
 <p>
-<img src="../_images/individual_test.PNG" alt="Running an individual test in PyCharm" width="600">
+<img src="../_images/individual_test.png" alt="Running an individual test in PyCharm" width="600">
 </p>
 </div><p>Furthermore, IDEs can provide a rich tree view of all the tests that are being run. This is especially useful as our test suite grows to contain a considerable number of tests. In the following image, we see that <code class="docutils literal notranslate"><span class="pre">test_version</span></code> is failing - we can click on the failing test in this tree-view, and our IDE will navigate us directly to the failing test.</p>
 <div style="text-align: center">
 <p>
-<img src="../_images/test_tree_view.PNG" alt="Viewing an enchanced tree-view of your test suite" width="600">
+<img src="../_images/test_tree_view.png" alt="Viewing an enhanced tree-view of your test suite" width="600">
 </p>
 </div><p>The first step for leveraging these features in your IDE is to enable the pytest framework in the IDE. The following links point to detailed instructions for configuring pytest with PyCharm and VSCode, respectively:</p>
 <ul class="simple">
@@ -479,7 +479,7 @@ in a <code class="docutils literal notranslate"><span class="pre">test_count_vow
 <p>See that we have successfully eliminated the redundancy from <code class="docutils literal notranslate"><span class="pre">test_range_length</span></code>; the body of the function now contains only a single assertion, making obvious the property that is being tested. Furthermore, the four assertions are now being run independently from one another and thus we can potentially see patterns across multiple fail cases in concert.</p>
 <div class="section" id="Decorators">
 <h4>Decorators<a class="headerlink" href="#Decorators" title="Permalink to this headline">¶</a></h4>
-<p>The the syntax used to parameterize this test may look alien to us, we have yet to encounter this construct thus far. <code class="docutils literal notranslate"><span class="pre">pytest.mark.parameterize(...)</span></code> is a <em>decorator</em> - an object that is used to “wrap” a function in order to transform its behavior. The <code class="docutils literal notranslate"><span class="pre">pytest.mark.parameterize(...)</span></code> decorator wraps our test function so that pytest can call it multiple times, once for each parameter value. The <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> character, in this context, denotes the application of a decorator:</p>
+<p>The syntax used to parameterize this test may look alien to us, as we have yet to encounter this construct thus far. <code class="docutils literal notranslate"><span class="pre">pytest.mark.parameterize(...)</span></code> is a <em>decorator</em> - an object that is used to “wrap” a function in order to transform its behavior. The <code class="docutils literal notranslate"><span class="pre">pytest.mark.parameterize(...)</span></code> decorator wraps our test function so that pytest can call it multiple times, once for each parameter value. The <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> character, in this context, denotes the application of a decorator:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># general syntax for applying a decorator to a function</span>
 
 <span class="nd">@the_decorator</span>
@@ -497,7 +497,7 @@ in a <code class="docutils literal notranslate"><span class="pre">test_count_vow
     <span class="o">...</span>
 </pre></div>
 </div>
-<p>We will often have tests that require multiple parameters. The general form for creating the the parameterization decorator for <span class="math notranslate nohighlight">\(N\)</span> parameters, each of which assume <span class="math notranslate nohighlight">\(J\)</span> values, is:</p>
+<p>We will often have tests that require multiple parameters. The general form for creating the parameterization decorator for <span class="math notranslate nohighlight">\(N\)</span> parameters, each of which assume <span class="math notranslate nohighlight">\(J\)</span> values, is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest.mark.parametrize</span><span class="p">(</span><span class="s2">&quot;&lt;param-name1&gt;, &lt;param-name2&gt;, [...], &lt;param-nameN&gt;&quot;</span><span class="p">,</span>
                          <span class="p">[(</span><span class="o">&lt;</span><span class="n">param1</span><span class="o">-</span><span class="n">val1</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">param2</span><span class="o">-</span><span class="n">val1</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">],</span> <span class="o">&lt;</span><span class="n">paramN</span><span class="o">-</span><span class="n">val1</span><span class="o">&gt;</span><span class="p">),</span>
                           <span class="p">(</span><span class="o">&lt;</span><span class="n">param1</span><span class="o">-</span><span class="n">val2</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">param2</span><span class="o">-</span><span class="n">val2</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">],</span> <span class="o">&lt;</span><span class="n">paramN</span><span class="o">-</span><span class="n">val2</span><span class="o">&gt;</span><span class="p">),</span>
@@ -577,10 +577,13 @@ in a <code class="docutils literal notranslate"><span class="pre">test_count_vow
 <span class="sd">    str</span>
 <span class="sd">        The name of the temporary directory.&quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmpdirname</span><span class="p">:</span>
-        <span class="n">old_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">tmpdirname</span><span class="p">)</span>
-        <span class="k">yield</span> <span class="n">tmpdirname</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">old_dir</span><span class="p">)</span>
+        <span class="n">old_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>  <span class="c1"># get current working directory (cwd)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">tmpdirname</span><span class="p">)</span>   <span class="c1"># change cwd to the temp-directory</span>
+        <span class="k">yield</span> <span class="n">tmpdirname</span>       <span class="c1"># yields control to the test to be run</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">old_dir</span><span class="p">)</span>      <span class="c1"># restore the cwd to the original directory</span>
+    <span class="c1"># Leaving the context manager will prompt the deletion of the</span>
+    <span class="c1"># temporary directory and its contents. This cleanup will be</span>
+    <span class="c1"># triggered even if errors were raised during the test.</span>
 
 
 <span class="nd">@pytest.fixture</span><span class="p">()</span>
@@ -690,7 +693,7 @@ tests\test_basic_functions.py:40: AssertionError
 </pre></div>
 </div>
 <blockquote>
-<div>Four tests were “discovered” and run by pytest. The pattern <code class="docutils literal notranslate"><span class="pre">..F</span></code> indicates that the first two tests in <em>test_basic_functions</em> passed and the third test failed. It then indicates which test failed, and specifically that the assertion was false because a length-2 list cannot be equal to a length-3 list.</div></blockquote>
+<div>Four tests were “discovered” and run by pytest. The pattern <code class="docutils literal notranslate"><span class="pre">..F</span></code> indicates that the first two tests in <code class="docutils literal notranslate"><span class="pre">test_basic_functions</span></code> passed and the third test failed. It then indicates which test failed, and specifically that the assertion was false because a length-2 list cannot be equal to a length-3 list.</div></blockquote>
 <p><strong>Parameterizing Tests: Solution</strong></p>
 <p>A reference implementation for this solution within the <code class="docutils literal notranslate"><span class="pre">plymi_mod6</span></code> project can be found <a class="reference external" href="https://github.com/rsokl/plymi_mod6/blob/parameterized/tests/test_basic_functions.py">here</a>.</p>
 <p>The contents of <code class="docutils literal notranslate"><span class="pre">test_basic_functions.py</span></code>, rewritten to use pytest-parameterized tests:</p>

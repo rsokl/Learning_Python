@@ -636,7 +636,7 @@ To be more concrete, let's revisit our `count_vowels` function:
 
 ```python
 def count_vowels(x: str, include_y: bool = False) -> int:
-    """Returns the number of vowels contained in `in_string`"""
+    """Returns the number of vowels contained in `x`"""
     vowels = set("aeiouAEIOU")
     if include_y:
         vowels.update("yY")
@@ -774,14 +774,16 @@ def pairwise_dists(x: np.ndarray, y: np.ndarray) -> np.ndarray:
     Parameters
     ----------
     x : numpy.ndarray, shape=(M, D)
-        An optional description of ``x``
+        An array of M, D-dimensional vectors.
+
     y : numpy.ndarray, shape=(N, D)
-        An optional description of ``y``
+        An array of N, D-dimensional vectors.
 
     Returns
     -------
     numpy.ndarray, shape=(M, N)
-        The pairwise distances
+        The pairwise distances between the M rows of ``x`` and the N 
+        rows of ``y``.
     
     Notes
     -----
@@ -829,7 +831,7 @@ def compute_student_stats(grade_book: Dict[str, Iterable[float]],
     
     Parameters
     ----------
-    grade_book : Dict[str, List[float]]
+    grade_book : Dict[str, Iterable[float]]
         The dictionary (name -> grades) of all of the students' 
         grades. 
 

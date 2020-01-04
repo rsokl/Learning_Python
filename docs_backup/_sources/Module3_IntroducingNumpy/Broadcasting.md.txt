@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      jupytext_version: 1.3.0
   kernelspec:
     display_name: Python 3
     language: python
@@ -486,16 +486,16 @@ Performing this computation using for-loops proceeds as follows:
 def pairwise_dists_looped(x, y):
     """  Computing pairwise distances using for-loops
 
-         Parameters
-         ----------
-         x : numpy.ndarray, shape=(M, D)
-         y : numpy.ndarray, shape=(N, D)
+     Parameters
+     ----------
+     x : numpy.ndarray, shape=(M, D)
+     y : numpy.ndarray, shape=(N, D)
 
-         Returns
-         -------
-         numpy.ndarray, shape=(M, N)
-             The Euclidean distance between each pair of
-             rows between `x` and `y`."""
+     Returns
+     -------
+     numpy.ndarray, shape=(M, N)
+         The Euclidean distance between each pair of
+         rows between `x` and `y`."""
     # `dists[i, j]` will store the Euclidean 
     # distance between  `x[i]` and `y[j]`
     dists = np.empty((5, 6))
@@ -545,18 +545,18 @@ Voilà! We have produced the distances in a vectorized way. Let's write this out
 def pairwise_dists_crude(x, y):
     """  Computing pairwise distances using vectorization.
          
-         This method uses memory-inefficient broadcasting.
-         
-         Parameters
-         ----------
-         x : numpy.ndarray, shape=(M, D)
-         y : numpy.ndarray, shape=(N, D)
-         
-         Returns
-         -------
-         numpy.ndarray, shape=(M, N)
-             The Euclidean distance between each pair of
-             rows between `x` and `y`."""
+     This method uses memory-inefficient broadcasting.
+
+     Parameters
+     ----------
+     x : numpy.ndarray, shape=(M, D)
+     y : numpy.ndarray, shape=(N, D)
+
+     Returns
+     -------
+     numpy.ndarray, shape=(M, N)
+         The Euclidean distance between each pair of
+         rows between `x` and `y`."""
     # The use of `np.newaxis` here is equivalent to our 
     # use of the `reshape` function
     return np.sqrt(np.sum((x[:, np.newaxis] - y[np.newaxis])**2, axis=2))
@@ -628,23 +628,23 @@ In total, we have successfully used vectorization to compute the all pairs of di
 
 ```python
 def pairwise_dists(x, y):
-    """ Computing pairwise distances using memory-efficient 
-        vectorization.
+    """ Computing pairwise distances using memory-efficient
+    vectorization.
 
-        Parameters
-        ----------
-        x : numpy.ndarray, shape=(M, D)
-        y : numpy.ndarray, shape=(N, D)
+    Parameters
+    ----------
+    x : numpy.ndarray, shape=(M, D)
+    y : numpy.ndarray, shape=(N, D)
 
-        Returns
-        -------
-        numpy.ndarray, shape=(M, N)
-            The Euclidean distance between each pair of
-            rows between `x` and `y`."""
+    Returns
+    -------
+    numpy.ndarray, shape=(M, N)
+        The Euclidean distance between each pair of
+        rows between `x` and `y`."""
     dists = -2 * np.matmul(x, y.T)
-    dists +=  np.sum(x**2, axis=1)[:, np.newaxis]
+    dists += np.sum(x**2, axis=1)[:, np.newaxis]
     dists += np.sum(y**2, axis=1)
-    return  np.sqrt(dists)
+    return np.sqrt(dists)
 ```
 
 

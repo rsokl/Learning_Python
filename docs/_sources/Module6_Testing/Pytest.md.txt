@@ -81,7 +81,7 @@ Before proceeding any further, we should reread the material presented in [Modul
 This material serves as the foundation for this section.
 
 ### Organizing our Source Code
-Let's create the a Python package, which we will call `plymi_mod6`, with the following directory structure:
+Let's create a Python package, which we will call `plymi_mod6`, with the following directory structure:
 
 ```
 project_dir/     # the "parent directory" houses our source code, tests, and all other relevant files
@@ -98,7 +98,7 @@ project_dir/     # the "parent directory" houses our source code, tests, and all
 
 A reference implementation of this package can be found [in this GitHub repository](https://github.com/rsokl/plymi_mod6).
 Populate the `basic_functions.py` file with the two functions that we were using as our source code in the previous section: `count_vowels` and `merge_max_mappings`.
-In in the `numpy_functions.py` module, add the `pairwise_dists` function that appears in [Module 3's discussion of optimized pairwise distances](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Optimized-Pairwise-Distances).
+In the `numpy_functions.py` module, add the `pairwise_dists` function that appears in [Module 3's discussion of optimized pairwise distances](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Optimized-Pairwise-Distances).
 Don't forget to include `import numpy as np` in your script in accordance with how `pairwise_dists` calls NumPy functions. 
 
 We have arranged these functions so that they can be imported from the `basic_functions` module and the `numpy_functions` module, respectively, which reside in our `plymi_mod6` package.
@@ -114,7 +114,7 @@ setup(
     author="Your Name",
     description="A template Python package for learning about testing",
     install_requires=["numpy >= 1.10.0"],
-    tests_require=["pytest", "hypothesis"],
+    tests_require=["pytest>=5.3", "hypothesis?=5.0"],
     python_requires=">=3.6",
 )
 ```
@@ -125,7 +125,7 @@ Finally, let's install our package locally [in development mode](https://www.pyt
 Navigate to the directory containing `setup.py` and run:
 
 ```shell
-python setup.py develop
+pip install --editable .
 ```
 
 Now, we should be able to start a python console, IPython console, or Jupyter notebook in any directory and import our package:
@@ -142,7 +142,7 @@ Now, we should be able to start a python console, IPython console, or Jupyter no
 ## Populating and Running Our Test Suite
 
 pytest's [system for "test discovery"](https://docs.pytest.org/en/latest/goodpractices.html#test-discovery) is quite simple:
-pytest need only be pointed to a directory with files named `test_*.py` in it, and it will find all of the functions in these files _whose names start with the word "test"_ and it will run all such functions.
+pytest need only be pointed to a directory with files named `test_*.py` in it, and it will find all of the functions in these files _whose names start with the word "test"_ and will run all such functions.
 
 Thus, let's populate the file ``test_basic_functions.py`` with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module:
 
@@ -196,7 +196,7 @@ Finally, add a dummy test - a test function that will always pass - to `test_bas
 We will replace this with a useful test later.
 
 Without further ado, let's run our test suite! In our terminal, with the appropriate conda environment active, we navigate to the root directory of the project, which contains the `tests/` directory, and run `pytest tests/`.
-Following output should appear:
+The following output should appear:
 <!-- #endregion -->
 
 ```
@@ -215,7 +215,7 @@ tests\test_basic_numpy.py .                                              [100%]
 
 This output indicates that three test-functions were found across two files and that all of the tests "passed"; i.e. the functions ran without raising any errors.
 The first two tests are located in `tests/test_basic_functions.py`; the two dots indicate that two functions were run, and the `[66%]` indicator simply denotes that the test-suite is 66% (two-thirds) complete.
-The proceeding reading comprehension problem will lead us to see what looks like for pytest to report a failing test.
+The following reading comprehension problem will lead us to see what looks like for pytest to report a failing test.
 
 
 <div class="alert alert-info"> 
@@ -258,7 +258,7 @@ For example, in the following image, the green "play button" allows us to run `t
 <!-- #raw raw_mimetype="text/html" -->
 <div style="text-align: center">
 <p>
-<img src="../_images/individual_test.PNG" alt="Running an individual test in PyCharm" width="600">
+<img src="../_images/individual_test.png" alt="Running an individual test in PyCharm" width="600">
 </p>
 </div>
 <!-- #endraw -->
@@ -270,7 +270,7 @@ In the following image, we see that `test_version` is failing - we can click on 
 <!-- #raw raw_mimetype="text/html" -->
 <div style="text-align: center">
 <p>
-<img src="../_images/test_tree_view.PNG" alt="Viewing an enchanced tree-view of your test suite" width="600">
+<img src="../_images/test_tree_view.png" alt="Viewing an enhanced tree-view of your test suite" width="600">
 </p>
 </div>
 <!-- #endraw -->
@@ -420,7 +420,7 @@ Furthermore, the four assertions are now being run independently from one anothe
 <!-- #region -->
 #### Decorators
 
-The the syntax used to parameterize this test may look alien to us, we have yet to encounter this construct thus far.
+The syntax used to parameterize this test may look alien to us, as we have yet to encounter this construct thus far.
 `pytest.mark.parameterize(...)` is a _decorator_ - an object that is used to "wrap" a function in order to transform its behavior.
 The `pytest.mark.parameterize(...)` decorator wraps our test function so that pytest can call it multiple times, once for each parameter value. 
 The `@` character, in this context, denotes the application of a decorator:
@@ -448,7 +448,7 @@ def test_function(<param-name>):
 ```
 
 We will often have tests that require multiple parameters.
-The general form for creating the the parameterization decorator for $N$ parameters,
+The general form for creating the parameterization decorator for $N$ parameters,
 each of which assume $J$ values, is:
 
 ```python
@@ -562,10 +562,13 @@ def cleandir():
     str
         The name of the temporary directory."""
     with tempfile.TemporaryDirectory() as tmpdirname:
-        old_dir = os.getcwd()
-        os.chdir(tmpdirname)
-        yield tmpdirname
-        os.chdir(old_dir)
+        old_dir = os.getcwd()  # get current working directory (cwd)
+        os.chdir(tmpdirname)   # change cwd to the temp-directory
+        yield tmpdirname       # yields control to the test to be run
+        os.chdir(old_dir)      # restore the cwd to the original directory
+    # Leaving the context manager will prompt the deletion of the
+    # temporary directory and its contents. This cleanup will be
+    # triggered even if errors were raised during the test.
 
 
 @pytest.fixture()
@@ -689,7 +692,7 @@ tests\test_basic_functions.py:40: AssertionError
 ========================= 1 failed, 3 passed in 0.07s =========================
 ```
 
-> Four tests were "discovered" and run by pytest. The pattern `..F` indicates that the first two tests in _test_basic_functions_ passed and the third test failed.
+> Four tests were "discovered" and run by pytest. The pattern `..F` indicates that the first two tests in `test_basic_functions` passed and the third test failed.
 > It then indicates which test failed, and specifically that the assertion was false because a length-2 list cannot be equal to a length-3 list.
 <!-- #endregion -->
 

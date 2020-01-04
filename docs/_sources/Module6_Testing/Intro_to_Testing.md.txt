@@ -31,8 +31,8 @@ The fact of the matter is that it is intuitive for most people to test their cod
 After writing, say, a new function, it is only natural to contrive an input to feed it, and to check that the function returns the output that we expected.
 To the extent that one would want to see evidence that their code works, we need not motivate the importance of testing.
 
-Less obvious are the massive benefits that we stand to gain from formalizing this testing process.
-And by "formalizing", we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end.
+Less obvious are the massive benefits that we stand to gain from automating this testing process.
+And by "automating", we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end.
 We will accumulate these test functions into a "test suite" that we can run quickly and repeatedly.
 
 There are plenty of practical details ahead for us to learn, so let's expedite this discussion and simply list some of the benefits that we can expect to reap from writing a robust test suite:
@@ -55,21 +55,21 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 > Our test suite provides us with a simple and incisive way to dive back into our work.
 > It will point us to any potential incompatibilities that have accumulated over time.
 > It also provides us with a large collection of detailed use-cases of our code;
-> we can read through our tests remind ourselves of the inner-workings of our project.
+> we can read through our tests and remind ourselves of the inner-workings of our project.
 
 
 **It will inform the design and usability of our project for the better:**
 
 > Although it may not be obvious from the outset, writing testable code leads to writing better code.
 > This is, in part, because the process of writing tests gives us the opportunity to actually _use_ our code under varied circumstances.
-> The process of writing tests will help us suss out cumbersome function interfaces, brittle statefulness, and redundant capabilities in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
+> The process of writing tests will help us suss out bad design decisions and redundant capabilities in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
 
 **It makes it easier for others to contribute to a project:**
 
 > Having a healthy test suite lowers the barrier to entry for a project. 
 > A contributor can rely on our project's tests to quickly check to see if their changes to our code have broken the project or changed any of its behavior in unexpected ways.
 
-This all sounds great, but where do we even start the process writing a test suite? 
+This all sounds great, but where do we even start the process of writing a test suite? 
 Let's begin by seeing what constitutes a basic test function.
 <!-- #endregion -->
 
@@ -145,7 +145,7 @@ def merge_max_mappings(dict1, dict2):
     return merged
 ```
 
-As always, it is useful for us follow along with this material in a Jupyter notebook.
+As always, it is useful for us to follow along with this material in a Jupyter notebook.
 We ought to take time to define these functions and run inputs through them to make sure that we understand what they are doing.
 Testing code that we don't understand is a lost cause!
 <!-- #endregion -->
@@ -289,14 +289,14 @@ a_string = "abcdef"
 Write two assertion statements with the respective behaviors:
 
 - asserts that `a_list` is _not_ empty
-- asserts that the number of vowels in `a_string` is less than `a_number`; include and error message that prints the actual number of vowels
+- asserts that the number of vowels in `a_string` is less than `a_number`; include an error message that prints the actual number of vowels
 
 </div>
 <!-- #endregion -->
 
 <!-- #region -->
 #### What is the Purpose of an Assertion?
-In our code, an assertion should be used as _a statement that is true unless there is a bug our code_.
+In our code, an assertion should be used as _a statement that is true unless there is a bug in our code_.
 It is plain to see that the assertions in `test_count_vowels_basic` fit this description.
 However, it can also be useful to include assertions within our source code itself.
 For instance, we know that `count_vowels` should always return a non-negative integer for the vowel-count, and that it is illogical for this count to exceed the number of characters in the input string.
@@ -323,6 +323,25 @@ Rather, it is meant to assert that our own internal logic holds true.
 Admittedly, the `count_vowels` function is simple enough that the inclusion of this assertion is rather pedantic.
 That being said, as we write increasingly sophisticated code, we will find that this sort of assertion will help us catch bad internal logic and oversights within our code base.
 We will also see that keen use of assertions can make it much easier for us to write good tests.
+
+<div class="alert alert-warning">
+
+**Disabling Assertions**: 
+
+Python code can be run in an "optimized" mode such that *all assertions are skipped by the Python interpreter during execution*.
+This can be achieved by specifying the command line option `-O` (the letter "O", not zero), e.g.:
+
+```shell
+python -O my_code.py
+```
+
+or by setting the `PYTHONOPTIMIZE` [environment variable](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONOPTIMIZE).
+
+The idea here is that we may want assertions within our source code to perform expensive checks to guarantee internal consistency within our code, and that we want the ability to forgo these checks when we are no longer debugging our code.
+Because they can be skipped in this way, *assertions should never be used for practical error handling*.
+
+</div>
+
 <!-- #endregion -->
 
 ## Testing Our Tests
@@ -333,7 +352,7 @@ They create misdirection in the bug-finding process and can mask problems with o
 **Thus a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior so that we can verify that our test works.**
 Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes. 
 
-A practical note: we ought to mutate our function in a way that is trivial to undo. We can use of code-comments towards this end.
+A practical note: we ought to mutate our function in a way that is trivial to undo. We can make use of code-comments towards this end.
 All [IDEs](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) have the ability to "block-comment" selected code.
 In order to block-comment code in a Jupyter notebook code cell, highlight the lines of code and press `CTRL + /`.
 The same key-combination will also un-comment a highlighted block of commented code.
@@ -356,6 +375,19 @@ Try breaking the function such that it always merges in values from `dict2`, eve
 
 
 
+<div class="alert alert-warning">
+
+**Mutation Testing**: 
+
+There is an entire subfield of automated testing known as ["mutation testing"](https://en.wikipedia.org/wiki/Mutation_testing), where tools like [Cosmic Ray](https://cosmic-ray.readthedocs.io/en/latest/index.html) are used to make temporary, incisive mutations to your source code - like change a `+` to a `-` or change a `1` to a `-1` - and then run your test suite.
+The idea here is that such mutations *ought to cause one or more of your tests to fail*.
+A mutation that fails to trigger at least one test failure is likely an indicator that your tests could stand to be more robust.
+
+Automated mutation testing tools might be a bit too "heavy duty" at this point in our testing journey, but they are great to keep in mind.
+
+</div>
+
+
 ## Our Work, Cut Out
 
 We see now that the concept of a "test function" isn't all that fancy.
@@ -365,16 +397,17 @@ With this in hand, we should take stock of the work and challenges that lie in o
 
 It is necessary that we evolve beyond manual testing.
 There are multiple facets to this observation.
-First, we must learn how to organize our test functions into a test suite that can be run in one fowl swoop.
-Next, it will become increasingly apparent that a test function often contain large amounts of redundant code shared across its litany of assertions.
+First, we must learn how to organize our test functions into a test suite that can be run in one fell swoop.
+Next, it will become increasingly apparent that a test function often contains large amounts of redundant code shared across its litany of assertions.
 We will want to "parametrize" our tests to distill them down to their most concise and functional forms.
-Finally, and most importantly, it may already evident that the process of contriving known inputs and outputs to use in our tests is a highly manual and tedious process; furthermore, it is a process that will become increasingly cumbersome as our source code becomes more sophisticated.
+Finally, and most importantly, it may already be evident that the process of contriving known inputs and outputs to use in our tests is a highly manual and tedious process; furthermore, it is a process that will become increasingly cumbersome as our source code becomes more sophisticated.
 To combat this, we will seek out alternative, powerful testing methodologies, including property-based testing.
 
 
 ## Links to Official Documentation
 
 - [The assert statement](https://docs.python.org/3/reference/simple_stmts.html?highlight=assert#the-assert-statement)
+- [PYTHONOPTIMIZE environment variable](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONOPTIMIZE)
 
 
 ## Reading Comprehension Solutions
@@ -469,7 +502,7 @@ AssertionError:
 > However, recall that calling `bool` on any sequence (list, tuple, string, etc.) will return `False` if the sequence is empty.
 > This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - that `bool` will be called on whatever the provided expression is.
 
-Assert that the number of vowels in `a_string` is fewer than `a_number`; include and error message that prints the actual number of vowels:
+Assert that the number of vowels in `a_string` is fewer than `a_number`; include an error message that prints the actual number of vowels:
 
 ```python
 >>> assert count_vowels(a_string) < a_number, f"Number of vowels, {count_vowels(a_string)}, exceeds {a_number}"
