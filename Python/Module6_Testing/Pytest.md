@@ -98,7 +98,7 @@ project_dir/     # the "parent directory" houses our source code, tests, and all
 
 A reference implementation of this package can be found [in this GitHub repository](https://github.com/rsokl/plymi_mod6).
 Populate the `basic_functions.py` file with the two functions that we were using as our source code in the previous section: `count_vowels` and `merge_max_mappings`.
-In in the `numpy_functions.py` module, add the `pairwise_dists` function that appears in [Module 3's discussion of optimized pairwise distances](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Optimized-Pairwise-Distances).
+In the `numpy_functions.py` module, add the `pairwise_dists` function that appears in [Module 3's discussion of optimized pairwise distances](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Optimized-Pairwise-Distances).
 Don't forget to include `import numpy as np` in your script in accordance with how `pairwise_dists` calls NumPy functions. 
 
 We have arranged these functions so that they can be imported from the `basic_functions` module and the `numpy_functions` module, respectively, which reside in our `plymi_mod6` package.
