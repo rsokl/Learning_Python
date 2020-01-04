@@ -215,7 +215,7 @@ tests\test_basic_numpy.py .                                              [100%]
 
 This output indicates that three test-functions were found across two files and that all of the tests "passed"; i.e. the functions ran without raising any errors.
 The first two tests are located in `tests/test_basic_functions.py`; the two dots indicate that two functions were run, and the `[66%]` indicator simply denotes that the test-suite is 66% (two-thirds) complete.
-The proceeding reading comprehension problem will lead us to see what looks like for pytest to report a failing test.
+The following reading comprehension problem will lead us to see what looks like for pytest to report a failing test.
 
 
 <div class="alert alert-info"> 
