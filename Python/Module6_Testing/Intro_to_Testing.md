@@ -62,7 +62,7 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 
 > Although it may not be obvious from the outset, writing testable code leads to writing better code.
 > This is, in part, because the process of writing tests gives us the opportunity to actually _use_ our code under varied circumstances.
-> The process of writing tests will help us suss out cumbersome function interfaces, brittle statefulness, and redundant capabilities in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
+> The process of writing tests will help us suss out bad design decisions and redundant capabilities in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
 
 **It makes it easier for others to contribute to a project:**
 
@@ -398,7 +398,7 @@ With this in hand, we should take stock of the work and challenges that lie in o
 It is necessary that we evolve beyond manual testing.
 There are multiple facets to this observation.
 First, we must learn how to organize our test functions into a test suite that can be run in one fell swoop.
-Next, it will become increasingly apparent that a test function often contain large amounts of redundant code shared across its litany of assertions.
+Next, it will become increasingly apparent that a test function often contains large amounts of redundant code shared across its litany of assertions.
 We will want to "parametrize" our tests to distill them down to their most concise and functional forms.
 Finally, and most importantly, it may already be evident that the process of contriving known inputs and outputs to use in our tests is a highly manual and tedious process; furthermore, it is a process that will become increasingly cumbersome as our source code becomes more sophisticated.
 To combat this, we will seek out alternative, powerful testing methodologies, including property-based testing.
