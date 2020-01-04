@@ -69,7 +69,7 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 > Having a healthy test suite lowers the barrier to entry for a project. 
 > A contributor can rely on our project's tests to quickly check to see if their changes to our code have broken the project or changed any of its behavior in unexpected ways.
 
-This all sounds great, but where do we even start the process writing a test suite? 
+This all sounds great, but where do we even start the process of writing a test suite? 
 Let's begin by seeing what constitutes a basic test function.
 <!-- #endregion -->
 
