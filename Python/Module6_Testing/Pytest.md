@@ -196,7 +196,7 @@ Finally, add a dummy test - a test function that will always pass - to `test_bas
 We will replace this with a useful test later.
 
 Without further ado, let's run our test suite! In our terminal, with the appropriate conda environment active, we navigate to the root directory of the project, which contains the `tests/` directory, and run `pytest tests/`.
-Following output should appear:
+The following output should appear:
 <!-- #endregion -->
 
 ```
