@@ -145,7 +145,7 @@ def merge_max_mappings(dict1, dict2):
     return merged
 ```
 
-As always, it is useful for us follow along with this material in a Jupyter notebook.
+As always, it is useful for us to follow along with this material in a Jupyter notebook.
 We ought to take time to define these functions and run inputs through them to make sure that we understand what they are doing.
 Testing code that we don't understand is a lost cause!
 <!-- #endregion -->
