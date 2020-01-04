@@ -448,7 +448,7 @@ setup(
     packages=find_packages(exclude=["tests", "tests.*"]),
 )
 ```
-The expression `exclude=["tests", "tests.*"]` is included to ensure that the code in your test-suite is not included in the installation of `face_detection`.
+The `exclude` expression is used to ensure that specific directories or files are not included in the installation of `face_detection`. We use `exclude=["tests", "tests.*"]` to avoid installing the test-suite along side `face_detection`
 <!-- #endregion -->
 
 If you read through the additional materials linked above, you will see that there are many more fields of optional information that can be provided in this setup script, such as the author name, any installation requirements that the package has, and more.
