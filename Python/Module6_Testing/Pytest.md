@@ -142,7 +142,7 @@ Now, we should be able to start a python console, IPython console, or Jupyter no
 ## Populating and Running Our Test Suite
 
 pytest's [system for "test discovery"](https://docs.pytest.org/en/latest/goodpractices.html#test-discovery) is quite simple:
-pytest need only be pointed to a directory with files named `test_*.py` in it, and it will find all of the functions in these files _whose names start with the word "test"_ and it will run all such functions.
+pytest need only be pointed to a directory with files named `test_*.py` in it, and it will find all of the functions in these files _whose names start with the word "test"_ and will run all such functions.
 
 Thus, let's populate the file ``test_basic_functions.py`` with the functions `test_count_vowels_basic` and `test_merge_max_mappings`, which we wrote in the previous section of this module:
 
