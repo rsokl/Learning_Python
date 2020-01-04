@@ -296,7 +296,7 @@ Write two assertion statements with the respective behaviors:
 
 <!-- #region -->
 #### What is the Purpose of an Assertion?
-In our code, an assertion should be used as _a statement that is true unless there is a bug our code_.
+In our code, an assertion should be used as _a statement that is true unless there is a bug in our code_.
 It is plain to see that the assertions in `test_count_vowels_basic` fit this description.
 However, it can also be useful to include assertions within our source code itself.
 For instance, we know that `count_vowels` should always return a non-negative integer for the vowel-count, and that it is illogical for this count to exceed the number of characters in the input string.
