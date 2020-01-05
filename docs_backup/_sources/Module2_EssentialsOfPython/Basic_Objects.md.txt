@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Basics of Python Objects, Difficulty: Easy, Category: Section
    :keywords: integers, booleans, floats, floating point precision, lists, strings, fundamentals
-```
+<!-- #endraw -->
 
 <!-- #region -->
 # Basic Object Types
@@ -805,7 +805,7 @@ To answer some of the following questions, you will need to peruse the documenta
 
 3\. Remove the whitespace from both ends of: `"  basket    "` 
 
-<!-- #region -->
+
 4\. Create a string that will print as (the second line begins with a tab-character):
 ```
 Hello
@@ -817,7 +817,6 @@ Hello
 6\. Only kids 13 and up are allowed to see Wayne's World. Given the variables `name` (a string) and `age` (an integer), use an f-string that will display: "NAME is old enough to watch the movie: BOOL", where NAME is to be replaced with the kid's name, and BOOL should be `True` if the kid is at least 13 years old, and `False` otherwise.
 
 </div>
-<!-- #endregion -->
 
 <!-- #region -->
 ## Lists

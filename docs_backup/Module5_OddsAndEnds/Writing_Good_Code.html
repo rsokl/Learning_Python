@@ -128,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Modules_and_Packages.html">Import: Modules and Packages</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
             
@@ -572,14 +573,15 @@ conventions</a>.</li>
 function that do not abide by the type hints, and they will also leverage these annotations to keep track of the objects that are returned by the function.</p>
 <p>For example, suppose that we are using the <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function in a library of code that we are developing, and we mistakenly think that the output of this function is a string that we want to capitalize. Our IDE will see that we are trying to capitalize an integer and will thus warn us:</p>
 <p><img alt="PyCharm uses type-hints to check our code for consistency" src="../_images/pycharm1.png" /></p>
-<p>This saves us the trouble of having to run our code, hit an error, read through the stack trace, and debug our mistake. Instead, we immediately see our inconsistency get flagged. In fact, we probably never would have even made the mistake at all, as our IDE would have shown a list of integer-methods for us to choose from, and not string-methods. This would have likely alerted us to our misapprehension.</p>
+<p>This saves us the trouble of having to run our code, hit an error, read through the stack trace, and debug our mistake. Instead, we immediately see our inconsistency get flagged. In fact, we probably never would have even made the mistake at all, as our IDE would have shown a list of integer-methods for us to choose from, and not string-methods. Type-hints would have likely alerted us to our misapprehension.</p>
 <p>It does not take long to experience the benefits of type-hinting through your IDE. This both accelerates your coding by informing you of the object types that you are working with on the fly, and helps to expose oversights in your code as soon as they are made.</p>
-<p>Finally, it is also worthwhile to highlight the <a class="reference external" href="http://mypy-lang.org/">mypy</a> project, which is used to perform static type-checking on your code based on your type-hints. That is, mypy will automatically traverse your code and find potential bugs by identifying type conflicts in your code (e.g.&nbsp;trying to capitalize an integer) by checking their annotated and inferred types. This tool is most useful for large-scale code bases. Companies like Dropbox make keen use of mypy to identify
-inconsistencies in their code without having to hit runtime errors. Keep mypy in mind as you mature as a Python developer and find yourself working on projects of growing complexity.</p>
+<p>Finally, it is also worthwhile to highlight two projects, <a class="reference external" href="http://mypy-lang.org/">mypy</a> and <a class="reference external" href="https://github.com/microsoft/pyright">pyright</a>, which are used to perform static type-checking on your code based on your type-hints. That is, mypy and pyright will both automatically traverse your code and find potential bugs by identifying type conflicts in your code (e.g.&nbsp;trying to capitalize an integer) by checking their annotated and inferred types. These tools are especially useful for
+large-scale code bases. Companies like Dropbox and Microsoft make keen use of static type-checking to identify inconsistencies in their code without having to hit runtime errors. Keep mypy, pyright, and other type-checking utilities in mind as you mature as a Python developer and find yourself working on projects of growing complexity. If you are using <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">VSCode as your IDE</a>, you
+can install the <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright">pyright vscode extension</a> to leverage type checking within your IDE.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
 <p>There is a simple syntax for annotating functions, class-methods, and variables with type-hints; this is a formal mechanism for documenting the types of objects that are expected as inputs to the function, as well as the return type of the function. It is critical to note that that type-hints are <em>never</em> enforced by Python - they only serve as a form of documentation.</p>
-<p>That being said, IDEs have powerful abilities to inspect type-hints and to highlight potential inconsistencies in your code. These capabilities can greatly facilitate your code-development. There are also third-party libraries like <a class="reference external" href="http://mypy-lang.org/">mypy</a> that can be used to provide more rigorous type enforcement in your code.</p>
+<p>That being said, IDEs have powerful abilities to inspect type-hints and to highlight potential inconsistencies in your code. These capabilities can greatly facilitate your code-development. There are also third-party libraries like <a class="reference external" href="http://mypy-lang.org/">mypy</a> and <a class="reference external" href="https://github.com/microsoft/pyright">pyright</a> that can be used to provide more rigorous type enforcement in your code.</p>
 </div>
 </div>
 <div class="section" id="Using-the-typing-Module">
@@ -667,6 +669,19 @@ other hand, supports a richer syntax for type-hinting: <code class="docutils lit
 <li>Hint a method that accepts arbitrary arguments and returns a boolean: <code class="docutils literal notranslate"><span class="pre">Callable[...,</span> <span class="pre">bool]</span></code></li>
 </ul>
 </li>
+</ul>
+</div>
+<div class="section" id="Literal[&lt;value&gt;,-...]">
+<h4><code class="docutils literal notranslate"><span class="pre">Literal[&lt;value&gt;,</span> <span class="pre">...]</span></code><a class="headerlink" href="#Literal[<value>,-...]" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>What it hints:</strong> That the variable will be passed one of the exact values</li>
+<li><strong>Examples:</strong><ul>
+<li>Hint that a variable that will be the integer <code class="docutils literal notranslate"><span class="pre">1</span></code>: <code class="docutils literal notranslate"><span class="pre">Literal[1]</span></code></li>
+<li>Hint that a variable that will be the either the string <code class="docutils literal notranslate"><span class="pre">&quot;sum&quot;</span></code> or the string <code class="docutils literal notranslate"><span class="pre">&quot;mean&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">Literal[&quot;sum&quot;,</span> <span class="pre">&quot;mean&quot;]</span></code></li>
+<li>Hint that a variable that will be either the list <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2]</span></code> or the string <code class="docutils literal notranslate"><span class="pre">&quot;abc&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">Literal[[1,</span> <span class="pre">2],</span> <span class="pre">&quot;abc&quot;]</span></code></li>
+</ul>
+</li>
+<li><strong>Compatibility Note:</strong> The <code class="docutils literal notranslate"><span class="pre">Literal</span></code> type-hint was introduced in Python 3.8 - it is not available in earlier versions of Python.</li>
 </ul>
 <p>Let’s take, for example, a function that takes in:</p>
 <ul class="simple">

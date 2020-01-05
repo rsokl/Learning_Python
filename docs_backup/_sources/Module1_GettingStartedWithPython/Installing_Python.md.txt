@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Installing Python with Anaconda, Difficulty: Easy, Category: Tutorial
    :keywords: python, anaconda, instructions, environments, beginner, data science, introduction
-```
+<!-- #endraw -->
 
 ## Installing Python
 
@@ -46,7 +46,7 @@ Some of the packages provided by Anaconda, like NumPy, have been [optimized](htt
 
 You will need to know how to open a terminal (cmd.exe for Windows users) on your computer, and how to navigate between directories in the terminal. If you do not know how to do this, read a 'how-to' for whatever operating system you are using.
 
-<!-- #region -->
+
 ### What did this just do to my computer?
 
 This created a directory called `Anaconda3` (or some variant of this) on your computer, which contains all of the files associated with the CPython interpreter, all of the modules in Python's standard library, the aforementioned 3rd party packages that come as part of the Anaconda distribution (e.g. NumPy, SciPy, Jupyter, iPython), and the `conda` package manager. It also contains the executable files for all of these applications. The default install location for Anaconda is:
@@ -101,4 +101,3 @@ And like that, conda environments give you all of the powers of a necromancer, a
 Conda environments have more uses than simply switching back and forth between Python 3 and 2. Many people like to make a new conda environment for every major project that they work on, so that they can freely install any dependencies that are needed for that particular project, without worrying about conflicts with their other work. You should be keen on making regular use of conda environments.
 
 It is highly recommended that you take time to read through [this tutorial on managing conda environments](https://conda.io/docs/user-guide/tasks/manage-environments.html).
-<!-- #endregion -->

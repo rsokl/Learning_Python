@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: String Encoding Exercise, Difficulty: Medium, Category: Practice Problem
    :keywords: function, string, casting, practice problem
-```
+<!-- #endraw -->
 
 # Encode as String
 Sometimes it is very important to handle different input object types differently in a function. This problem will exercise your understanding of types, control-flow, dictionaries, and more.
@@ -30,7 +30,7 @@ Sometimes it is very important to handle different input object types differentl
 - If the object is a string, keep it as is.
 - If the object is of any other type, return `'<OTHER>'`.
 
-<!-- #region -->
+
 ``` Python
 # example behavior
 >>> s = concat_to_str([12,-14.23,"hello", True,
@@ -40,7 +40,6 @@ Sometimes it is very important to handle different input object types differentl
 ```
 
 **Tips**: check out the `isinstance` function introduced [here](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html) for handling different types. Also, consider creating a helper function for the conversion from integer to our special-format string, since we have to do it twice. It's always good to extrapolate repeated tasks into functions. You'll also need to hard-code the conversion from each digit to its English spell-out. 
-<!-- #endregion -->
 
 <!-- #region -->
 ## Solution

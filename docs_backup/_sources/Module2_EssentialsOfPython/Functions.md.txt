@@ -4,19 +4,19 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Functions and Function Signatures, Difficulty: Medium, Category: Section
    :keywords: functions, *args, **kwargs, signature, default parameter, docstring, return, vowel count, syntax, basics
-```
+<!-- #endraw -->
 
 <!-- #region -->
 # Basics of Functions
@@ -68,7 +68,7 @@ In this section, we will learn about the syntax for defining and calling functio
 A Python **function** is an object that encapsulates code. *Calling* the function will execute the encapsulated code and *return* an object. A function can be defined so that it accepts *arguments*, which are objects that are to be passed to the encapsulated code.  
 </div>
 
-<!-- #region -->
+
 ## The `def` Statement
 Similar to `if`, `else`, and `for`, the `def` statement is reserved by the Python language to signify the definition of functions (and a few other things that we'll cover later). The following is the general syntax for defining a Python function:
 
@@ -88,7 +88,6 @@ def <function name>(<function signature>):
 The `return` statement is also reserved by Python. It denotes the end of a function; if reached, a `return` statement immediately concludes the execution of the function and returns the specified object. 
 
 Note that, like an if-statement and a for-loop, the `def` statment must end in a colon and the body of the function is [delimited by whitespace](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Introduction.html#Python-Uses-Whitespace-to-Delimit-Scope):
-<!-- #endregion -->
 
 <!-- #region -->
 ```python
