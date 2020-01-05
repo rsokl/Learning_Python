@@ -112,7 +112,7 @@ OverflowError: Python int too large to convert to C ssize_t
 ```
 
 This reveals that the implementation of the built-in `len` function is such that it can only handle non-negative integers smaller than $2^{63}$ (i.e. it will only allocate 64 bits to represent a signed integer - one bit is used to store the sign of the number).
-Hypothesis revealed this by generating the failing test case `size=9223372036854775808`. which is exactly $2^{63}$.
+Hypothesis revealed this by generating the failing test case `size=9223372036854775808`, which is exactly $2^{63}$.
 I did not want this error to distract from what is otherwise merely a simple example, but it is very important to point out.
 
 Hypothesis has a knack for catching these sorts of unexpected edge cases.
