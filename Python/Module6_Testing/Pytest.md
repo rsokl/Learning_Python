@@ -14,7 +14,7 @@ jupyter:
 
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
-   :description: Topic: Writing tests for your code, Difficulty: Easy, Category: Section
+   :description: Topic: Introducing the pytest framework, Difficulty: Easy, Category: Section
    :keywords: test, automated, pytest, parametrize, fixture, suite, decorator, clean directory  
 <!-- #endraw -->
 
