@@ -350,7 +350,7 @@ It is surprisingly easy to unwittingly write a broken test: a test that always p
 Broken tests are insidious; they are alarms that fail to sound when they are supposed to.
 They create misdirection in the bug-finding process and can mask problems with our code.
 **Thus, a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior so that we can verify that our test works.**
-Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes. 
+Once we confirm that our test does indeed raise an error as expected, we restore the function to its original form and re-run the test to see that it passes. 
 
 A practical note: we ought to mutate our function in a way that is trivial to undo. We can make use of code-comments towards this end.
 All [IDEs](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) have the ability to "block-comment" selected code.
