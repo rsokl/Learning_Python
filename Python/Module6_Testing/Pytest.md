@@ -373,7 +373,7 @@ E         ?    +
 Looking back to both `test_count_vowels_basic` and `test_merge_max_mappings`, we see that there is a lot of redundancy within the bodies of these test functions.
 The assertions that we make within a given test-function share identical forms - they differ only in the parameters that we feed into our functions and their expected output.
 Another shortcoming of this test-structure is that a failing assertion will block subsequent assertions from being evaluated.
-That is, if the second assertion in a `test_count_vowels_basic` fails, the third and fourth assertions will not be evaluated in that run.
+That is, if the second assertion in `test_count_vowels_basic` fails, the third and fourth assertions will not be evaluated in that run.
 This precludes us from potentially seeing useful patterns among the failing assertions.
 
 pytest provides a useful tool that will allow us to eliminate these structural shortcomings by transforming our test-functions into so-called _parameterized tests_. Let's parametrize the following test:
