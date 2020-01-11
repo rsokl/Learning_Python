@@ -473,7 +473,7 @@ def test_inequality_unparameterized():
 ```
 
 and rewrite it in parameterized form. 
-The decorator will have three distinct parameter, and each parameters, let's simply call them `a`, `b`, and `c`, will take on four values.
+The decorator will have three distinct parameters, and each parameter, let's simply call them `a`, `b`, and `c`, will take on four values.
 
 ```python
 # the parameterized form of `test_inequality_unparameterized`
