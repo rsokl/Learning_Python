@@ -389,7 +389,7 @@ def test_range_length_unparameterized():
 ```
 
 This test is checking the property `len(range(n)) == n`, where `n` is any non-negative integer.
-Thus the parameter to be varied here is the "size" of the range-object being created.
+Thus, the parameter to be varied here is the "size" of the range-object being created.
 Let's treat it as such by using pytest to write a parameterized test:
 
 ```python
