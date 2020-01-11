@@ -241,7 +241,7 @@ pytest tests/test_basic_functions.py
 
 will cue pytest to only run the tests in `test_basic_functions.py`.
 
-A key component to leveraging tests effectively is the ability to exercise ones tests repeatedly and rapidly with little manual overhead.
+A key component to leveraging tests effectively is the ability to exercise one's tests repeatedly and rapidly with little manual overhead.
 Clearly, pytest is instrumental towards this end - this framework made the process of organizing and running our test suite exceedingly simple!
 That being said, there will certainly be occasions when we want to run a _specific_ test function.
 Suppose, for instance, that we are writing a new function, and repeatedly want to run one of our tests that is pointing to a bug in our work-in-progress.
