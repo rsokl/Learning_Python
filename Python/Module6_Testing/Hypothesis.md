@@ -29,7 +29,7 @@ It will then *generate* test cases that satisfy this description and will run ou
 
 Let's look at a simple example of Hypothesis in action.
 In the preceding section, we learned to use pytest's parameterization mechanism to test properties of code over a set of values.
-E.g. we wrote the following trivial test:
+For example, we wrote the following trivial test:
 
 ```python
 import pytest
@@ -129,6 +129,5 @@ Now we know that `len(range(size)) == size` _does not_ hold for "arbitrary" non-
 
 
 ## Reading Comprehension Solutions
-
 
 
