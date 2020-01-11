@@ -500,7 +500,7 @@ AssertionError:
 
 > You may have written `assert len(a_list) > 0` - this is also correct.
 > However, recall that calling `bool` on any sequence (list, tuple, string, etc.) will return `False` if the sequence is empty.
-> This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - that `bool` will be called on whatever the provided expression is.
+> This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - `bool` will be called on whatever the provided expression is.
 
 Assert that the number of vowels in `a_string` is fewer than `a_number`; include an error message that prints the actual number of vowels:
 
