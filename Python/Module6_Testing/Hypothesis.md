@@ -67,7 +67,7 @@ def test_range_length(size):
 <!-- #region -->
 Here we have specified that the `size` value in our test should take on any integer value within $[0, 10^{10}]$.
 We did this by using the `integers` "strategy" that is provided by Hypothesis: `st.integers(min_value=0, max_value=1E10)`.
-When we execute the resulting test (which simply be run within a Jupyter cell or via pytest), this will trigger Hypothesis to generate test cases based on this specification;
+When we execute the resulting test (which can simply be run within a Jupyter cell or via pytest), this will trigger Hypothesis to generate test cases based on this specification;
 by default it will generate 100 test cases - an amount that we can configure - and will evaluate our test for each one of them.
 
 ```python
@@ -129,4 +129,3 @@ Now we know that `len(range(size)) == size` _does not_ hold for "arbitrary" non-
 
 
 ## Reading Comprehension Solutions
-
