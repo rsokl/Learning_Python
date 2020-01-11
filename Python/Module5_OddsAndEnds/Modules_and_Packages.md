@@ -433,7 +433,8 @@ Carrying on, we will want to create a setup-script, `setup.py`, *in the same dir
         |-- test_config.py  
 ```
 
-A `tests/` directory can be included at the same directory level as `setup.py` and `face_detection/`. This is the recommended structure for using pytest as our test-runner.
+A `tests/` directory can be included at the same directory level as `setup.py` and `face_detection/`.
+This is the recommended structure for using [pytest](https://docs.pytest.org/en/latest/) as our test-runner.
 
 <!-- #region -->
 The bare bones build script for preparing your package for installation, `setup.py`, is as follows: 
