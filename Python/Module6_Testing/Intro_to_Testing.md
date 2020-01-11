@@ -543,7 +543,7 @@ AssertionError:
 ```
 
 > See that the error output, which is called a "stack trace", indicates with an ASCII-arrow that our second assertion is the one that is failing.
-> Thus we can be confident that that assertion really does help to ensure that we are counting y's correctly.
+> Thus, we can be confident that that assertion really does help to ensure that we are counting y's correctly.
 
 Restore `count_vowels` to its original form and rerun the test to see that `count_vowels` once again passes all of the assertions.
 
