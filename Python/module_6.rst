@@ -1,5 +1,5 @@
-Module 6: Testing Your Code
-===========================
+Module 6: Testing Our Code
+==========================
 This module will introduce us to the critically-important and often-overlooked process of testing code.
 We will begin by considering some general motivations for writing tests.
 Next, we will study the basic anatomy of a test-function, including the :code:`assert` statement, which serves as the nucleus of our test functions.
@@ -16,5 +16,6 @@ This will take us down a bit of a rabbit hole, where we will find the powerful p
 
    Module6_Testing/Intro_to_Testing.md
    Module6_Testing/Pytest.md
+   Module6_Testing/Hypothesis.md
 
 
