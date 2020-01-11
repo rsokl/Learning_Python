@@ -66,7 +66,7 @@ As a test runner, its design is clunky, archaic, and, ironically, un-pythonic.
 While [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) provides extremely valuable functionality for advanced testing, all of its functionality can be leveraged while using pytest as your testing framework. 
     
 `nose`, which simply extends the functionality of `unittest`, **is no longer being maintained**.
-There is a project, "Nose2", which is carrying the torch of `nose`. However, this is a fledgling project by comparison to `pytest`.
+There is a project, "Nose2", which is carrying the torch of `nose`. However, this is a fledgling project in comparison with `pytest`.
 As of writing this, `pytest` was downloaded 12 million times last month versus `nose2`'s 150 thousand downloads.
     
 The takeaway here is that, when it comes to picking a testing framework for Python, `pytest` is the clear choice.
