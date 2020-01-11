@@ -41,7 +41,7 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 
 > After you have devised a test scenario for your code, it may only take us a second or so to run it; perhaps we need only run a couple of Jupyter notebook cells to verify the output of our code.
 > This, however, will quickly become unwieldy as we write more code and devise more test scenarios.
-> Soon we will be dissuaded from running our tests except for on rare occasions.
+> Soon we will be dissuaded from running our tests, except for on rare occasions.
 > 
 > With a proper test suite, we can run all of our test scenarios with the push of a button, and a series of green check-marks (or red x's...) will summarize the health of our project (insofar as our tests serve as good diagnostics).
 > This, of course, also means that we will find and fix bugs much faster!
