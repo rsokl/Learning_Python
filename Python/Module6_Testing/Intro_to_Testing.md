@@ -547,7 +547,7 @@ AssertionError:
 
 Restore `count_vowels` to its original form and rerun the test to see that `count_vowels` once again passes all of the assertions.
 
-> We simply un-comment out the block of code and rerun our test.
+> We simply un-comment the block of code and rerun our test.
 
 ```python
 # Restore the behavior of `include_y=True`
