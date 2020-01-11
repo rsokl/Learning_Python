@@ -44,7 +44,7 @@ def test_range_length(size):
 which tests the property that `range(n)` has a length of `n` for any non-negative integer value of `n`.
 Well, it isn't *really* testing this property for all non-negative integers; clearly it is only testing the values 0-3.
 We should probably also check much larger numbers and perhaps traverse various orders of magnitude (i.e. factors of ten) in our parameterization scheme.
-No matter what set of values we land on, it seems like we will have to eventually throw are hands up and say "okay, that seems good enough".
+No matter what set of values we land on, it seems like we will have to eventually throw our hands up and say "okay, that seems good enough."
 
 Instead of manually specifying the data to pass to `test_range_length`, let's use Hypothesis to simply describe the data:
 <!-- #endregion -->
@@ -129,5 +129,4 @@ Now we know that `len(range(size)) == size` _does not_ hold for "arbitrary" non-
 
 
 ## Reading Comprehension Solutions
-
 
