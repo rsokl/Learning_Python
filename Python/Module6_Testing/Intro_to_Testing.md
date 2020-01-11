@@ -152,7 +152,7 @@ Testing code that we don't understand is a lost cause!
 <!-- #region -->
 ### The Basic Anatomy of a Test
 
-Let's write a test for `count_vowels`. For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output.
+Let's write a test for `count_vowels`. For our most basic test, we can simply call `count_vowels` under various contrived inputs and *assert* that it returns the expected output.
 The desired behavior for this test function, upon being run, is to:
 
 - Raise an error if any of our assertions *failed* to hold true.
