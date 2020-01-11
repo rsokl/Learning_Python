@@ -191,7 +191,7 @@ More on this later.
 
 **Takeaway**: 
 
-A "test function" is designed to provide an encapsulated "environment" (namespace to be more precise) in which we can exercise parts of our source code and assert that the code behaves as-expected. The basic anatomy of a test function is such that it:
+A "test function" is designed to provide an encapsulated "environment" (namespace to be more precise) in which we can exercise parts of our source code and assert that the code behaves as expected. The basic anatomy of a test function is such that it:
 
 - contains one or more `assert` statements, each of which will raise an error if our source code misbehaves 
 - simply returns `None` if all of the aforementioned assertions held true
