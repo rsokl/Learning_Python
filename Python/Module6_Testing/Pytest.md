@@ -233,7 +233,7 @@ Make sure to remove this function from your test suite once you are finished ans
 
 
 
-We can also direct pytest to run the tests in a specific .py file. E.g. executing:
+We can also direct pytest to run the tests in a specific .py file. For example, executing:
 
 ```shell
 pytest tests/test_basic_functions.py
