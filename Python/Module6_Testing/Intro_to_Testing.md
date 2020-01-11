@@ -391,7 +391,7 @@ Automated mutation testing tools might be a bit too "heavy duty" at this point i
 ## Our Work, Cut Out
 
 We see now that the concept of a "test function" isn't all that fancy.
-Compared to other code that we have written, writing a function that simply runs a hand full of assertions is far from a heavy lift for us.
+Compared to other code that we have written, writing a function that simply runs a handful of assertions is far from a heavy lift for us.
 Of course, we must be diligent and take care to test our tests, but we can certainly manage this as well.
 With this in hand, we should take stock of the work and challenges that lie in our path ahead.
 
