@@ -406,7 +406,7 @@ It must be mentioned that we are sweeping some details under the rug here. Insta
 
 ### Installing Your Own Python Package
 
-Suppose that we are happy with the work we have done on our `face_detector` project. We will want to install this package - placing it in our site-packages directory so that we can import it irrespective of our Python interpreter's working directory. Here we will construct a basic setup script that will allow us to accomplish this. For completeness, we will also indicate how one would include a test suite along side the source code in this directory structure.
+Suppose that we are happy with the work we have done on our `face_detector` project. We will want to install this package - placing it in our site-packages directory so that we can import it irrespective of our Python interpreter's working directory. Here we will construct a basic setup script that will allow us to accomplish this. For completeness, we will also indicate how one would include a test suite alongside the source code in this directory structure.
 
 We note outright that the purpose of this section is strictly to provide you with the minimum set of instructions needed to install a package. We will not be diving into what is going on under the hood at all. Please refer to [An Introduction to Distutils](https://docs.python.org/3/distutils/introduction.html#an-introduction-to-distutils) and [Packaging Your Project](https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project) for a deeper treatment of this topic.
 
@@ -433,7 +433,8 @@ Carrying on, we will want to create a setup-script, `setup.py`, *in the same dir
         |-- test_config.py  
 ```
 
-A `tests/` directory can be included at the same directory level as `setup.py` and `face_detection/`. This is the recommended structure for using pytest as our test-runner.
+A `tests/` directory can be included at the same directory level as `setup.py` and `face_detection/`.
+This is the recommended structure for using [pytest](https://docs.pytest.org/en/latest/) as our test-runner.
 
 <!-- #region -->
 The bare bones build script for preparing your package for installation, `setup.py`, is as follows: 
@@ -449,7 +450,7 @@ setup(
     python_requires=">=3.5",
 )
 ```
-The `exclude` expression is used to ensure that specific directories or files are not included in the installation of `face_detection`. We use `exclude=["tests", "tests.*"]` to avoid installing the test-suite along side `face_detection`
+The `exclude` expression is used to ensure that specific directories or files are not included in the installation of `face_detection`. We use `exclude=["tests", "tests.*"]` to avoid installing the test-suite alongside `face_detection`.
 <!-- #endregion -->
 
 If you read through the additional materials linked above, you will see that there are many more fields of optional information that can be provided in this setup script, such as the author name, any installation requirements that the package has, and more.
@@ -466,7 +467,7 @@ and voilà, your package `face_detection` will have been installed to site-packa
 pip uninstall face_detection
 ```
 
-One final but important detail. The installed version of your package will no longer "see" the source code. That is, if you go on to make any changes to your code, you will have to uninstall and reinstall your package before your will see the effects system-wide. Instead you can install your package in "development mode", such that a symbolic link to your source code is placed in your site-packages. Thus any changes that you make to your code will immediately be reflected in your system-wide installation. Thus, instead of running `python setup.py install`, execute the following to install a package in develop mode:
+One final but important detail: the installed version of your package will no longer "see" the source code. That is, if you go on to make any changes to your code, you will have to uninstall and reinstall your package before your will see the effects system-wide. Instead, you can install your package in "development mode", such that a symbolic link to your source code is placed in your site-packages. Thus, any changes that you make to your code will immediately be reflected in your system-wide installation. You can add the `--editable` flag to pip to install a package in development mode:
 
 ```shell
 pip install --editable .

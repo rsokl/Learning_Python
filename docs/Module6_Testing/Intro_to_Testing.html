@@ -43,7 +43,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="The pytest Framework" href="Pytest.html" />
-    <link rel="prev" title="Module 6: Testing Your Code" href="../module_6.html" /> 
+    <link rel="prev" title="Module 6: Testing Our Code" href="../module_6.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../module_6.html">Module 6: Testing Your Code</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../module_6.html">Module 6: Testing Our Code</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction to Testing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Why-Should-We-Write-Tests?">Why Should We Write Tests?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Writing-Our-First-Tests">Writing Our First Tests</a><ul>
@@ -117,6 +117,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Pytest.html">The pytest Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hypothesis.html">Describing Data with Hypothesis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
@@ -165,7 +166,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../module_6.html">Module 6: Testing Your Code</a> &raquo;</li>
+          <li><a href="../module_6.html">Module 6: Testing Our Code</a> &raquo;</li>
         
       <li>Introduction to Testing</li>
     
@@ -217,11 +218,11 @@
 <div class="section" id="Why-Should-We-Write-Tests?">
 <h2>Why Should We Write Tests?<a class="headerlink" href="#Why-Should-We-Write-Tests?" title="Permalink to this headline">¶</a></h2>
 <p>The fact of the matter is that it is intuitive for most people to test their code to some extent. After writing, say, a new function, it is only natural to contrive an input to feed it, and to check that the function returns the output that we expected. To the extent that one would want to see evidence that their code works, we need not motivate the importance of testing.</p>
-<p>Less obvious are the massive benefits that we stand to gain from automating this testing process. And by “automating”, we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end. We will accumulate these test functions into a “test suite” that we can run quickly and repeatedly.</p>
+<p>Less obvious are the massive benefits that we stand to gain from automating this testing process. By “automating”, we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end. We will accumulate these test functions into a “test suite” that we can run quickly and repeatedly.</p>
 <p>There are plenty of practical details ahead for us to learn, so let’s expedite this discussion and simply list some of the benefits that we can expect to reap from writing a robust test suite:</p>
 <p><strong>It saves us lots of time</strong>:</p>
 <blockquote>
-<div><p>After you have devised a test scenario for your code, it may only take us a second or so to run it; perhaps we need only run a couple of Jupyter notebook cells to verify the output of our code. This, however, will quickly become unwieldy as we write more code and devise more test scenarios. Soon we will be dissuaded from running our tests except for on rare occasions.</p>
+<div><p>After you have devised a test scenario for your code, it may only take us a second or so to run it; perhaps we need only run a couple of Jupyter notebook cells to verify the output of our code. This, however, will quickly become unwieldy as we write more code and devise more test scenarios. Soon we will be dissuaded from running our tests, except for on rare occasions.</p>
 <p>With a proper test suite, we can run all of our test scenarios with the push of a button, and a series of green check-marks (or red x’s…) will summarize the health of our project (insofar as our tests serve as good diagnostics). This, of course, also means that we will find and fix bugs much faster! In the long run, our test suite will afford us the ability to aggressively exercise (and exorcise) our code at little cost.</p>
 </div></blockquote>
 <p><strong>It increases the “shelf life” of our code:</strong></p>
@@ -230,8 +231,7 @@
 into our work. It will point us to any potential incompatibilities that have accumulated over time. It also provides us with a large collection of detailed use-cases of our code; we can read through our tests and remind ourselves of the inner-workings of our project.</div></blockquote>
 <p><strong>It will inform the design and usability of our project for the better:</strong></p>
 <blockquote>
-<div>Although it may not be obvious from the outset, writing testable code leads to writing better code. This is, in part, because the process of writing tests gives us the opportunity to actually <em>use</em> our code under varied circumstances. The process of writing tests will help us suss out bad design decisions and redundant capabilities in our code. Ultimately, if <em>we</em> find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied
-settings.</div></blockquote>
+<div>Although it may not be obvious from the outset, writing testable code leads to writing better code. This is, in part, because the process of writing tests gives us the opportunity to actually <em>use</em> our code under varied circumstances. The process of writing tests will help us suss out bad design decisions and redundancies in our code. Ultimately, if <em>we</em> find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.</div></blockquote>
 <p><strong>It makes it easier for others to contribute to a project:</strong></p>
 <blockquote>
 <div>Having a healthy test suite lowers the barrier to entry for a project. A contributor can rely on our project’s tests to quickly check to see if their changes to our code have broken the project or changed any of its behavior in unexpected ways.</div></blockquote>
@@ -310,7 +310,7 @@ settings.</div></blockquote>
 </div>
 <div class="section" id="The-Basic-Anatomy-of-a-Test">
 <h3>The Basic Anatomy of a Test<a class="headerlink" href="#The-Basic-Anatomy-of-a-Test" title="Permalink to this headline">¶</a></h3>
-<p>Let’s write a test for <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code>. For our most basic test, we can simply call <code class="docutils literal notranslate"><span class="pre">count_values</span></code> under various contrived inputs and <em>assert</em> that it returns the expected output. The desired behavior for this test function, upon being run, is to:</p>
+<p>Let’s write a test for <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code>. For our most basic test, we can simply call <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> under various contrived inputs and <em>assert</em> that it returns the expected output. The desired behavior for this test function, upon being run, is to:</p>
 <ul class="simple">
 <li>Raise an error if any of our assertions <em>failed</em> to hold true.</li>
 <li>Complete “silently” if all of our assertions hold true (i.e.&nbsp;our test function will simply <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#The-return-Statement">return None</a>)</li>
@@ -333,7 +333,7 @@ settings.</div></blockquote>
 along with this material in a notebook) as <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code>, or we can <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Import-Statements">import</a> <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code>, from wherever it is defined, into the file containing our test. The latter scenario is by far the most common one in practice. More on this later.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p>A “test function” is designed to provide an encapsulated “environment” (namespace to be more precise) in which we can exercise parts of our source code and assert that the code behaves as-expected. The basic anatomy of a test function is such that it:</p>
+<p>A “test function” is designed to provide an encapsulated “environment” (namespace to be more precise) in which we can exercise parts of our source code and assert that the code behaves as expected. The basic anatomy of a test function is such that it:</p>
 <ul class="simple">
 <li>contains one or more <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements, each of which will raise an error if our source code misbehaves</li>
 <li>simply returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if all of the aforementioned assertions held true</li>
@@ -437,8 +437,8 @@ explicitly assert that this is the case:</p>
 </div>
 <div class="section" id="Testing-Our-Tests">
 <h2>Testing Our Tests<a class="headerlink" href="#Testing-Our-Tests" title="Permalink to this headline">¶</a></h2>
-<p>It is surprisingly easy to unwittingly write a broken test: a test that always passes, or a test that simply doesn’t exercise our code in the way that we had intended. Broken tests are insidious; they are alarms that fail to sound when they are supposed to. They create misdirection in the bug-finding process and can mask problems with our code. <strong>Thus a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior so that we can verify
-that our test works.</strong> Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes.</p>
+<p>It is surprisingly easy to unwittingly write a broken test: a test that always passes, or a test that simply doesn’t exercise our code in the way that we had intended. Broken tests are insidious; they are alarms that fail to sound when they are supposed to. They create misdirection in the bug-finding process and can mask problems with our code. <strong>Thus, a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior so that we can verify
+that our test works.</strong> Once we confirm that our test does indeed raise an error as expected, we restore the function to its original form and re-run the test to see that it passes.</p>
 <p>A practical note: we ought to mutate our function in a way that is trivial to undo. We can make use of code-comments towards this end. All <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">IDEs</a> have the ability to “block-comment” selected code. In order to block-comment code in a Jupyter notebook code cell, highlight the lines of code and press <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">/</span></code>. The same key-combination will also un-comment a highlighted block of
 commented code.</p>
 <div class="admonition note">
@@ -448,14 +448,14 @@ commented code.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Mutation Testing</strong>:</p>
-<p>There is an entire subfield of automated testing known as <a class="reference external" href="https://en.wikipedia.org/wiki/Mutation_testing">“mutation testing”</a>, where tools like <a class="reference external" href="https://cosmic-ray.readthedocs.io/en/latest/index.html">Cosmic Ray</a> are used to make temporary, incisive mutations to your source code - like change a <code class="docutils literal notranslate"><span class="pre">+</span></code> to a <code class="docutils literal notranslate"><span class="pre">-</span></code> or change a <code class="docutils literal notranslate"><span class="pre">1</span></code> to a <code class="docutils literal notranslate"><span class="pre">-1</span></code> - and then run your test suite. The idea here is that such mutations <em>ought to cause one or more of your tests to fail</em>. A mutation that fails to
+<p>There is an entire subfield of automated testing known as <a class="reference external" href="https://en.wikipedia.org/wiki/Mutation_testing">“mutation testing”</a>, where tools like <a class="reference external" href="https://cosmic-ray.readthedocs.io/en/latest/index.html">Cosmic Ray</a> are used to make temporary, incisive mutations to your source code - like change a <code class="docutils literal notranslate"><span class="pre">+</span></code> to a <code class="docutils literal notranslate"><span class="pre">-</span></code> or change a <code class="docutils literal notranslate"><span class="pre">1</span></code> to a <code class="docutils literal notranslate"><span class="pre">-1</span></code> - and then run your test suite. The idea here is that such mutations <em>ought to cause one or more of your tests to fail</em>. A mutation that does not
 trigger at least one test failure is likely an indicator that your tests could stand to be more robust.</p>
 <p>Automated mutation testing tools might be a bit too “heavy duty” at this point in our testing journey, but they are great to keep in mind.</p>
 </div>
 </div>
 <div class="section" id="Our-Work,-Cut-Out">
 <h2>Our Work, Cut Out<a class="headerlink" href="#Our-Work,-Cut-Out" title="Permalink to this headline">¶</a></h2>
-<p>We see now that the concept of a “test function” isn’t all that fancy. Compared to other code that we have written, writing a function that simply runs a hand full of assertions is far from a heavy lift for us. Of course, we must be diligent and take care to test our tests, but we can certainly manage this as well. With this in hand, we should take stock of the work and challenges that lie in our path ahead.</p>
+<p>We see now that the concept of a “test function” isn’t all that fancy. Compared to other code that we have written, writing a function that simply runs a handful of assertions is far from a heavy lift for us. Of course, we must be diligent and take care to test our tests, but we can certainly manage this as well. With this in hand, we should take stock of the work and challenges that lie in our path ahead.</p>
 <p>It is necessary that we evolve beyond manual testing. There are multiple facets to this observation. First, we must learn how to organize our test functions into a test suite that can be run in one fell swoop. Next, it will become increasingly apparent that a test function often contains large amounts of redundant code shared across its litany of assertions. We will want to “parametrize” our tests to distill them down to their most concise and functional forms. Finally, and most importantly, it
 may already be evident that the process of contriving known inputs and outputs to use in our tests is a highly manual and tedious process; furthermore, it is a process that will become increasingly cumbersome as our source code becomes more sophisticated. To combat this, we will seek out alternative, powerful testing methodologies, including property-based testing.</p>
 </div>
@@ -536,7 +536,7 @@ may already be evident that the process of contriving known inputs and outputs t
 </pre></div>
 </div>
 <blockquote>
-<div>You may have written <code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">len(a_list)</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> - this is also correct. However, recall that calling <code class="docutils literal notranslate"><span class="pre">bool</span></code> on any sequence (list, tuple, string, etc.) will return <code class="docutils literal notranslate"><span class="pre">False</span></code> if the sequence is empty. This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - that <code class="docutils literal notranslate"><span class="pre">bool</span></code> will be called on whatever the provided expression is.</div></blockquote>
+<div>You may have written <code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">len(a_list)</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> - this is also correct. However, recall that calling <code class="docutils literal notranslate"><span class="pre">bool</span></code> on any sequence (list, tuple, string, etc.) will return <code class="docutils literal notranslate"><span class="pre">False</span></code> if the sequence is empty. This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - <code class="docutils literal notranslate"><span class="pre">bool</span></code> will be called on whatever the provided expression is.</div></blockquote>
 <p>Assert that the number of vowels in <code class="docutils literal notranslate"><span class="pre">a_string</span></code> is fewer than <code class="docutils literal notranslate"><span class="pre">a_number</span></code>; include an error message that prints the actual number of vowels:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">count_vowels</span><span class="p">(</span><span class="n">a_string</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">a_number</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;Number of vowels, {count_vowels(a_string)}, exceeds {a_number}&quot;</span>
 </pre></div>
@@ -569,10 +569,10 @@ may already be evident that the process of contriving known inputs and outputs t
 </pre></div>
 </div>
 <blockquote>
-<div>See that the error output, which is called a “stack trace”, indicates with an ASCII-arrow that our second assertion is the one that is failing. Thus we can be confident that that assertion really does help to ensure that we are counting y’s correctly.</div></blockquote>
+<div>See that the error output, which is called a “stack trace”, indicates with an ASCII-arrow that our second assertion is the one that is failing. Thus, we can be confident that that assertion really does help to ensure that we are counting y’s correctly.</div></blockquote>
 <p>Restore <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> to its original form and rerun the test to see that <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> once again passes all of the assertions.</p>
 <blockquote>
-<div>We simply un-comment out the block of code and rerun our test.</div></blockquote>
+<div>We simply un-comment the block of code and rerun our test.</div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Restore the behavior of `include_y=True`</span>
 <span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
@@ -599,7 +599,7 @@ may already be evident that the process of contriving known inputs and outputs t
         <a href="Pytest.html" class="btn btn-neutral float-right" title="The pytest Framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../module_6.html" class="btn btn-neutral float-left" title="Module 6: Testing Your Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../module_6.html" class="btn btn-neutral float-left" title="Module 6: Testing Our Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

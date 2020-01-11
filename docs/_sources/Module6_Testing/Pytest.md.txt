@@ -14,7 +14,7 @@ jupyter:
 
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
-   :description: Topic: Writing tests for your code, Difficulty: Easy, Category: Section
+   :description: Topic: Introducing the pytest framework, Difficulty: Easy, Category: Section
    :keywords: test, automated, pytest, parametrize, fixture, suite, decorator, clean directory  
 <!-- #endraw -->
 
@@ -66,7 +66,7 @@ As a test runner, its design is clunky, archaic, and, ironically, un-pythonic.
 While [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) provides extremely valuable functionality for advanced testing, all of its functionality can be leveraged while using pytest as your testing framework. 
     
 `nose`, which simply extends the functionality of `unittest`, **is no longer being maintained**.
-There is a project, "Nose2", which is carrying the torch of `nose`. However, this is a fledgling project by comparison to `pytest`.
+There is a project, "Nose2", which is carrying the torch of `nose`. However, this is a fledgling project in comparison with `pytest`.
 As of writing this, `pytest` was downloaded 12 million times last month versus `nose2`'s 150 thousand downloads.
     
 The takeaway here is that, when it comes to picking a testing framework for Python, `pytest` is the clear choice.
@@ -114,7 +114,7 @@ setup(
     author="Your Name",
     description="A template Python package for learning about testing",
     install_requires=["numpy >= 1.10.0"],
-    tests_require=["pytest>=5.3", "hypothesis?=5.0"],
+    tests_require=["pytest>=5.3", "hypothesis>=5.0"],
     python_requires=">=3.6",
 )
 ```
@@ -215,7 +215,7 @@ tests\test_basic_numpy.py .                                              [100%]
 
 This output indicates that three test-functions were found across two files and that all of the tests "passed"; i.e. the functions ran without raising any errors.
 The first two tests are located in `tests/test_basic_functions.py`; the two dots indicate that two functions were run, and the `[66%]` indicator simply denotes that the test-suite is 66% (two-thirds) complete.
-The following reading comprehension problem will lead us to see what looks like for pytest to report a failing test.
+The following reading comprehension problem will lead us to see what it looks like for pytest to report a failing test.
 
 
 <div class="alert alert-info"> 
@@ -233,7 +233,7 @@ Make sure to remove this function from your test suite once you are finished ans
 
 
 
-We can also direct pytest to run the tests in a specific .py file. E.g. executing:
+We can also direct pytest to run the tests in a specific .py file. For example, executing:
 
 ```shell
 pytest tests/test_basic_functions.py
@@ -241,8 +241,8 @@ pytest tests/test_basic_functions.py
 
 will cue pytest to only run the tests in `test_basic_functions.py`.
 
-A key component to leveraging tests effectively is the ability to exercise ones tests repeatedly and rapidly with little manual overhead.
-Clearly, pytest is instrumental towards this end - this framework made the process of organizing and running our test suite exceedingly simple!
+A key component to leveraging tests effectively is the ability to exercise one's tests repeatedly and rapidly with little manual overhead.
+Clearly, pytest is instrumental toward this end - this framework makes the process of organizing and running our test suite exceedingly simple!
 That being said, there will certainly be occasions when we want to run a _specific_ test function.
 Suppose, for instance, that we are writing a new function, and repeatedly want to run one of our tests that is pointing to a bug in our work-in-progress.
 We can leverage pytest in conjunction with [an IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) to run our tests in such incisive ways.
@@ -373,7 +373,7 @@ E         ?    +
 Looking back to both `test_count_vowels_basic` and `test_merge_max_mappings`, we see that there is a lot of redundancy within the bodies of these test functions.
 The assertions that we make within a given test-function share identical forms - they differ only in the parameters that we feed into our functions and their expected output.
 Another shortcoming of this test-structure is that a failing assertion will block subsequent assertions from being evaluated.
-That is, if the second assertion in a `test_count_vowels_basic` fails, the third and fourth assertions will not be evaluated in that run.
+That is, if the second assertion in `test_count_vowels_basic` fails, the third and fourth assertions will not be evaluated in that run.
 This precludes us from potentially seeing useful patterns among the failing assertions.
 
 pytest provides a useful tool that will allow us to eliminate these structural shortcomings by transforming our test-functions into so-called _parameterized tests_. Let's parametrize the following test:
@@ -389,7 +389,7 @@ def test_range_length_unparameterized():
 ```
 
 This test is checking the property `len(range(n)) == n`, where `n` is any non-negative integer.
-Thus the parameter to be varied here is the "size" of the range-object being created.
+Thus, the parameter to be varied here is the "size" of the range-object being created.
 Let's treat it as such by using pytest to write a parameterized test:
 
 ```python
@@ -473,7 +473,7 @@ def test_inequality_unparameterized():
 ```
 
 and rewrite it in parameterized form. 
-The decorator will have three distinct parameter, and each parameters, let's simply call them `a`, `b`, and `c`, will take on four values.
+The decorator will have three distinct parameters, and each parameter, let's simply call them `a`, `b`, and `c`, will take on four values.
 
 ```python
 # the parameterized form of `test_inequality_unparameterized`

@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Module 6: Testing Your Code" href="../module_6.html" />
+    <link rel="next" title="Module 6: Testing Our Code" href="../module_6.html" />
     <link rel="prev" title="Working with Files" href="WorkingWithFiles.html" /> 
 </head>
 
@@ -125,7 +125,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../module_6.html">Module 6: Testing Your Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_6.html">Module 6: Testing Our Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
@@ -510,7 +510,7 @@ function can also be used to summarize a module’s contents:</p>
 </div>
 <div class="section" id="Installing-Your-Own-Python-Package">
 <h3>Installing Your Own Python Package<a class="headerlink" href="#Installing-Your-Own-Python-Package" title="Permalink to this headline">¶</a></h3>
-<p>Suppose that we are happy with the work we have done on our <code class="docutils literal notranslate"><span class="pre">face_detector</span></code> project. We will want to install this package - placing it in our site-packages directory so that we can import it irrespective of our Python interpreter’s working directory. Here we will construct a basic setup script that will allow us to accomplish this. For completeness, we will also indicate how one would include a test suite along side the source code in this directory structure.</p>
+<p>Suppose that we are happy with the work we have done on our <code class="docutils literal notranslate"><span class="pre">face_detector</span></code> project. We will want to install this package - placing it in our site-packages directory so that we can import it irrespective of our Python interpreter’s working directory. Here we will construct a basic setup script that will allow us to accomplish this. For completeness, we will also indicate how one would include a test suite alongside the source code in this directory structure.</p>
 <p>We note outright that the purpose of this section is strictly to provide you with the minimum set of instructions needed to install a package. We will not be diving into what is going on under the hood at all. Please refer to <a class="reference external" href="https://docs.python.org/3/distutils/introduction.html#an-introduction-to-distutils">An Introduction to Distutils</a> and <a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project">Packaging Your Project</a> for a deeper treatment of this topic.</p>
 <p>Carrying on, we will want to create a setup-script, <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, <em>in the same directory as our package</em>. That is, our directory structure should look like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span>         <span class="c1"># script responsible for installing `face_detection` package</span>
@@ -533,7 +533,7 @@ function can also be used to summarize a module’s contents:</p>
         <span class="o">|--</span> <span class="n">test_config</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>A <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory can be included at the same directory level as <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and <code class="docutils literal notranslate"><span class="pre">face_detection/</span></code>. This is the recommended structure for using pytest as our test-runner.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory can be included at the same directory level as <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and <code class="docutils literal notranslate"><span class="pre">face_detection/</span></code>. This is the recommended structure for using <a class="reference external" href="https://docs.pytest.org/en/latest/">pytest</a> as our test-runner.</p>
 <p>The bare bones build script for preparing your package for installation, <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># contents of setup.py</span>
 <span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">find_packages</span><span class="p">,</span> <span class="n">setup</span>
@@ -546,7 +546,7 @@ function can also be used to summarize a module’s contents:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">exclude</span></code> expression is used to ensure that specific directories or files are not included in the installation of <code class="docutils literal notranslate"><span class="pre">face_detection</span></code>. We use <code class="docutils literal notranslate"><span class="pre">exclude=[&quot;tests&quot;,</span> <span class="pre">&quot;tests.*&quot;]</span></code> to avoid installing the test-suite along side <code class="docutils literal notranslate"><span class="pre">face_detection</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">exclude</span></code> expression is used to ensure that specific directories or files are not included in the installation of <code class="docutils literal notranslate"><span class="pre">face_detection</span></code>. We use <code class="docutils literal notranslate"><span class="pre">exclude=[&quot;tests&quot;,</span> <span class="pre">&quot;tests.*&quot;]</span></code> to avoid installing the test-suite alongside <code class="docutils literal notranslate"><span class="pre">face_detection</span></code>.</p>
 <p>If you read through the additional materials linked above, you will see that there are many more fields of optional information that can be provided in this setup script, such as the author name, any installation requirements that the package has, and more.</p>
 <p>Armed with this script, we are ready to install our package locally on our machine! In your terminal, navigate to the directory containing this setup script and your package that it being installed. Run</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install .
@@ -556,8 +556,8 @@ function can also be used to summarize a module’s contents:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip uninstall face_detection
 </pre></div>
 </div>
-<p>One final but important detail. The installed version of your package will no longer “see” the source code. That is, if you go on to make any changes to your code, you will have to uninstall and reinstall your package before your will see the effects system-wide. Instead you can install your package in “development mode”, such that a symbolic link to your source code is placed in your site-packages. Thus any changes that you make to your code will immediately be reflected in your system-wide
-installation. Thus, instead of running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>, execute the following to install a package in develop mode:</p>
+<p>One final but important detail: the installed version of your package will no longer “see” the source code. That is, if you go on to make any changes to your code, you will have to uninstall and reinstall your package before your will see the effects system-wide. Instead, you can install your package in “development mode”, such that a symbolic link to your source code is placed in your site-packages. Thus, any changes that you make to your code will immediately be reflected in your system-wide
+installation. You can add the <code class="docutils literal notranslate"><span class="pre">--editable</span></code> flag to pip to install a package in development mode:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install --editable .
 </pre></div>
 </div>
@@ -649,7 +649,7 @@ libraries like PyTorch and TensorFlow.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../module_6.html" class="btn btn-neutral float-right" title="Module 6: Testing Your Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../module_6.html" class="btn btn-neutral float-right" title="Module 6: Testing Our Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="WorkingWithFiles.html" class="btn btn-neutral float-left" title="Working with Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

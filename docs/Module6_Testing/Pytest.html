@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta content="Topic: Writing tests for your code, Difficulty: Easy, Category: Section" name="description" />
+  <meta content="Topic: Introducing the pytest framework, Difficulty: Easy, Category: Section" name="description" />
 <meta content="test, automated, pytest, parametrize, fixture, suite, decorator, clean directory" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Changelog" href="../changes.html" />
+    <link rel="next" title="Describing Data with Hypothesis" href="Hypothesis.html" />
     <link rel="prev" title="Introduction to Testing" href="Intro_to_Testing.html" /> 
 </head>
 
@@ -101,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../module_6.html">Module 6: Testing Your Code</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../module_6.html">Module 6: Testing Our Code</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Intro_to_Testing.html">Introduction to Testing</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">The pytest Framework</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Creating-a-Python-Package-with-Tests">Creating a Python Package with Tests</a><ul>
@@ -122,6 +122,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="Hypothesis.html">Describing Data with Hypothesis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
@@ -170,7 +171,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../module_6.html">Module 6: Testing Your Code</a> &raquo;</li>
+          <li><a href="../module_6.html">Module 6: Testing Our Code</a> &raquo;</li>
         
       <li>The pytest Framework</li>
     
@@ -236,7 +237,7 @@ Python package, using pytest.</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Regarding Alternative Testing Frameworks</strong> (a note from the author of PLYMI):</p>
 <p>When sifting through tutorials, blogs, and videos about testing in Python, it is common to see <code class="docutils literal notranslate"><span class="pre">pytest</span></code> presented alongside, and on an equal footing with, the alternative testing frameworks: <code class="docutils literal notranslate"><span class="pre">nose</span></code> and <code class="docutils literal notranslate"><span class="pre">unittest</span></code>. This strikes me as… bizarre.</p>
 <p><code class="docutils literal notranslate"><span class="pre">unittest</span></code> is the testing framework that comes with the Python standard library. As a test runner, its design is clunky, archaic, and, ironically, un-pythonic. While <a class="reference external" href="https://docs.python.org/3/library/unittest.mock.html">unittest.mock</a> provides extremely valuable functionality for advanced testing, all of its functionality can be leveraged while using pytest as your testing framework.</p>
-<p><code class="docutils literal notranslate"><span class="pre">nose</span></code>, which simply extends the functionality of <code class="docutils literal notranslate"><span class="pre">unittest</span></code>, <strong>is no longer being maintained</strong>. There is a project, “Nose2”, which is carrying the torch of <code class="docutils literal notranslate"><span class="pre">nose</span></code>. However, this is a fledgling project by comparison to <code class="docutils literal notranslate"><span class="pre">pytest</span></code>. As of writing this, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> was downloaded 12 million times last month versus <code class="docutils literal notranslate"><span class="pre">nose2</span></code>’s 150 thousand downloads.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nose</span></code>, which simply extends the functionality of <code class="docutils literal notranslate"><span class="pre">unittest</span></code>, <strong>is no longer being maintained</strong>. There is a project, “Nose2”, which is carrying the torch of <code class="docutils literal notranslate"><span class="pre">nose</span></code>. However, this is a fledgling project in comparison with <code class="docutils literal notranslate"><span class="pre">pytest</span></code>. As of writing this, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> was downloaded 12 million times last month versus <code class="docutils literal notranslate"><span class="pre">nose2</span></code>’s 150 thousand downloads.</p>
 <p>The takeaway here is that, when it comes to picking a testing framework for Python, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> is the clear choice. Any discussion that you come across to the contrary is likely outdated.</p>
 </div>
 <div class="section" id="Creating-a-Python-Package-with-Tests">
@@ -269,7 +270,7 @@ distances</a>. Don’t forget to include <code class="docutils literal notransla
     <span class="n">author</span><span class="o">=</span><span class="s2">&quot;Your Name&quot;</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A template Python package for learning about testing&quot;</span><span class="p">,</span>
     <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;numpy &gt;= 1.10.0&quot;</span><span class="p">],</span>
-    <span class="n">tests_require</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pytest&gt;=5.3&quot;</span><span class="p">,</span> <span class="s2">&quot;hypothesis?=5.0&quot;</span><span class="p">],</span>
+    <span class="n">tests_require</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pytest&gt;=5.3&quot;</span><span class="p">,</span> <span class="s2">&quot;hypothesis&gt;=5.0&quot;</span><span class="p">],</span>
     <span class="n">python_requires</span><span class="o">=</span><span class="s2">&quot;&gt;=3.6&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
@@ -348,19 +349,19 @@ tests\test_basic_numpy.py .                                              [100%]
 ============================== 3 passed in 0.04s ==============================
 </pre></div>
 </div>
-<p>This output indicates that three test-functions were found across two files and that all of the tests “passed”; i.e.&nbsp;the functions ran without raising any errors. The first two tests are located in <code class="docutils literal notranslate"><span class="pre">tests/test_basic_functions.py</span></code>; the two dots indicate that two functions were run, and the <code class="docutils literal notranslate"><span class="pre">[66%]</span></code> indicator simply denotes that the test-suite is 66% (two-thirds) complete. The following reading comprehension problem will lead us to see what looks like for pytest to report a failing test.</p>
+<p>This output indicates that three test-functions were found across two files and that all of the tests “passed”; i.e.&nbsp;the functions ran without raising any errors. The first two tests are located in <code class="docutils literal notranslate"><span class="pre">tests/test_basic_functions.py</span></code>; the two dots indicate that two functions were run, and the <code class="docutils literal notranslate"><span class="pre">[66%]</span></code> indicator simply denotes that the test-suite is 66% (two-thirds) complete. The following reading comprehension problem will lead us to see what it looks like for pytest to report a failing test.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Running a Test Suite</strong></p>
 <p>Temporarily add a new “broken” test to <code class="docutils literal notranslate"><span class="pre">tests/test_basic_functions.py</span></code>. The name that you give this test should adhere to pytest’s simple rules for test-discovery. Design the test function so that is sure to fail when it is run.</p>
 <p>Rerun your test suite and compare its output to what you saw before - is it easy to identify which test failed and what caused it to fail? Make sure to remove this function from your test suite once you are finished answering this question.</p>
 </div>
-<p>We can also direct pytest to run the tests in a specific .py file. E.g. executing:</p>
+<p>We can also direct pytest to run the tests in a specific .py file. For example, executing:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest tests/test_basic_functions.py
 </pre></div>
 </div>
 <p>will cue pytest to only run the tests in <code class="docutils literal notranslate"><span class="pre">test_basic_functions.py</span></code>.</p>
-<p>A key component to leveraging tests effectively is the ability to exercise ones tests repeatedly and rapidly with little manual overhead. Clearly, pytest is instrumental towards this end - this framework made the process of organizing and running our test suite exceedingly simple! That being said, there will certainly be occasions when we want to run a <em>specific</em> test function. Suppose, for instance, that we are writing a new function, and repeatedly want to run one of our tests that is pointing
-to a bug in our work-in-progress. We can leverage pytest in conjunction with <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">an IDE</a> to run our tests in such incisive ways.</p>
+<p>A key component to leveraging tests effectively is the ability to exercise one’s tests repeatedly and rapidly with little manual overhead. Clearly, pytest is instrumental toward this end - this framework makes the process of organizing and running our test suite exceedingly simple! That being said, there will certainly be occasions when we want to run a <em>specific</em> test function. Suppose, for instance, that we are writing a new function, and repeatedly want to run one of our tests that is
+pointing to a bug in our work-in-progress. We can leverage pytest in conjunction with <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">an IDE</a> to run our tests in such incisive ways.</p>
 <div class="section" id="Utilizing-pytest-within-an-IDE">
 <h3>Utilizing pytest within an IDE<a class="headerlink" href="#Utilizing-pytest-within-an-IDE" title="Permalink to this headline">¶</a></h3>
 <p>Both <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">PyCharm and VSCode</a> can be configured to make keen use of pytest. The following images show a couple of the enhancements afforded to us by PyCharm; comparable features are available in VSCode. The IDEs will “discover” tests, and provide us with the ability to run individual tests. For example, in the following image, the green “play button” allows us to run
@@ -448,7 +449,7 @@ E         ?    +
 <div class="section" id="Parameterized-Tests">
 <h3>Parameterized Tests<a class="headerlink" href="#Parameterized-Tests" title="Permalink to this headline">¶</a></h3>
 <p>Looking back to both <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code> and <code class="docutils literal notranslate"><span class="pre">test_merge_max_mappings</span></code>, we see that there is a lot of redundancy within the bodies of these test functions. The assertions that we make within a given test-function share identical forms - they differ only in the parameters that we feed into our functions and their expected output. Another shortcoming of this test-structure is that a failing assertion will block subsequent assertions from being evaluated. That is, if the second assertion
-in a <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code> fails, the third and fourth assertions will not be evaluated in that run. This precludes us from potentially seeing useful patterns among the failing assertions.</p>
+in <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code> fails, the third and fourth assertions will not be evaluated in that run. This precludes us from potentially seeing useful patterns among the failing assertions.</p>
 <p>pytest provides a useful tool that will allow us to eliminate these structural shortcomings by transforming our test-functions into so-called <em>parameterized tests</em>. Let’s parametrize the following test:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a simple test with redundant assertions</span>
 
@@ -459,7 +460,7 @@ in a <code class="docutils literal notranslate"><span class="pre">test_count_vow
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="mi">3</span>
 </pre></div>
 </div>
-<p>This test is checking the property <code class="docutils literal notranslate"><span class="pre">len(range(n))</span> <span class="pre">==</span> <span class="pre">n</span></code>, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is any non-negative integer. Thus the parameter to be varied here is the “size” of the range-object being created. Let’s treat it as such by using pytest to write a parameterized test:</p>
+<p>This test is checking the property <code class="docutils literal notranslate"><span class="pre">len(range(n))</span> <span class="pre">==</span> <span class="pre">n</span></code>, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is any non-negative integer. Thus, the parameter to be varied here is the “size” of the range-object being created. Let’s treat it as such by using pytest to write a parameterized test:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># parameterizing a test</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
 
@@ -516,7 +517,7 @@ in a <code class="docutils literal notranslate"><span class="pre">test_count_vow
     <span class="k">assert</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">11</span> <span class="o">&lt;</span> <span class="mi">12</span>
 </pre></div>
 </div>
-<p>and rewrite it in parameterized form. The decorator will have three distinct parameter, and each parameters, let’s simply call them <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>, will take on four values.</p>
+<p>and rewrite it in parameterized form. The decorator will have three distinct parameters, and each parameter, let’s simply call them <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>, will take on four values.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the parameterized form of `test_inequality_unparameterized`</span>
 <span class="nd">@pytest.mark.parametrize</span><span class="p">(</span><span class="s2">&quot;a, b, c&quot;</span><span class="p">,</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">)])</span>
 <span class="k">def</span> <span class="nf">test_inequality</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
@@ -752,7 +753,7 @@ tests\test_basic_functions.py:40: AssertionError
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../changes.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Hypothesis.html" class="btn btn-neutral float-right" title="Describing Data with Hypothesis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Intro_to_Testing.html" class="btn btn-neutral float-left" title="Introduction to Testing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

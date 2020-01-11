@@ -32,7 +32,7 @@ After writing, say, a new function, it is only natural to contrive an input to f
 To the extent that one would want to see evidence that their code works, we need not motivate the importance of testing.
 
 Less obvious are the massive benefits that we stand to gain from automating this testing process.
-And by "automating", we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end.
+By "automating", we mean taking the test scenarios that we were running our code through, and encapsulating them in their own functions that can be run from end-to-end.
 We will accumulate these test functions into a "test suite" that we can run quickly and repeatedly.
 
 There are plenty of practical details ahead for us to learn, so let's expedite this discussion and simply list some of the benefits that we can expect to reap from writing a robust test suite:
@@ -41,7 +41,7 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 
 > After you have devised a test scenario for your code, it may only take us a second or so to run it; perhaps we need only run a couple of Jupyter notebook cells to verify the output of our code.
 > This, however, will quickly become unwieldy as we write more code and devise more test scenarios.
-> Soon we will be dissuaded from running our tests except for on rare occasions.
+> Soon we will be dissuaded from running our tests, except for on rare occasions.
 > 
 > With a proper test suite, we can run all of our test scenarios with the push of a button, and a series of green check-marks (or red x's...) will summarize the health of our project (insofar as our tests serve as good diagnostics).
 > This, of course, also means that we will find and fix bugs much faster!
@@ -62,7 +62,7 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 
 > Although it may not be obvious from the outset, writing testable code leads to writing better code.
 > This is, in part, because the process of writing tests gives us the opportunity to actually _use_ our code under varied circumstances.
-> The process of writing tests will help us suss out bad design decisions and redundant capabilities in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
+> The process of writing tests will help us suss out bad design decisions and redundancies in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
 
 **It makes it easier for others to contribute to a project:**
 
@@ -152,7 +152,7 @@ Testing code that we don't understand is a lost cause!
 <!-- #region -->
 ### The Basic Anatomy of a Test
 
-Let's write a test for `count_vowels`. For our most basic test, we can simply call `count_values` under various contrived inputs and *assert* that it returns the expected output.
+Let's write a test for `count_vowels`. For our most basic test, we can simply call `count_vowels` under various contrived inputs and *assert* that it returns the expected output.
 The desired behavior for this test function, upon being run, is to:
 
 - Raise an error if any of our assertions *failed* to hold true.
@@ -191,7 +191,7 @@ More on this later.
 
 **Takeaway**: 
 
-A "test function" is designed to provide an encapsulated "environment" (namespace to be more precise) in which we can exercise parts of our source code and assert that the code behaves as-expected. The basic anatomy of a test function is such that it:
+A "test function" is designed to provide an encapsulated "environment" (namespace to be more precise) in which we can exercise parts of our source code and assert that the code behaves as expected. The basic anatomy of a test function is such that it:
 
 - contains one or more `assert` statements, each of which will raise an error if our source code misbehaves 
 - simply returns `None` if all of the aforementioned assertions held true
@@ -349,8 +349,8 @@ Because they can be skipped in this way, *assertions should never be used for pr
 It is surprisingly easy to unwittingly write a broken test: a test that always passes, or a test that simply doesn't exercise our code in the way that we had intended.
 Broken tests are insidious; they are alarms that fail to sound when they are supposed to.
 They create misdirection in the bug-finding process and can mask problems with our code.
-**Thus a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior so that we can verify that our test works.**
-Once we confirm that our test does indeed raise an error as-expected, we restore the function to its original form and re-run the test and see that it passes. 
+**Thus, a critical step in the test-writing process is to intentionally mutate the function of interest - to corrupt its behavior so that we can verify that our test works.**
+Once we confirm that our test does indeed raise an error as expected, we restore the function to its original form and re-run the test to see that it passes. 
 
 A practical note: we ought to mutate our function in a way that is trivial to undo. We can make use of code-comments towards this end.
 All [IDEs](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html) have the ability to "block-comment" selected code.
@@ -381,7 +381,7 @@ Try breaking the function such that it always merges in values from `dict2`, eve
 
 There is an entire subfield of automated testing known as ["mutation testing"](https://en.wikipedia.org/wiki/Mutation_testing), where tools like [Cosmic Ray](https://cosmic-ray.readthedocs.io/en/latest/index.html) are used to make temporary, incisive mutations to your source code - like change a `+` to a `-` or change a `1` to a `-1` - and then run your test suite.
 The idea here is that such mutations *ought to cause one or more of your tests to fail*.
-A mutation that fails to trigger at least one test failure is likely an indicator that your tests could stand to be more robust.
+A mutation that does not trigger at least one test failure is likely an indicator that your tests could stand to be more robust.
 
 Automated mutation testing tools might be a bit too "heavy duty" at this point in our testing journey, but they are great to keep in mind.
 
@@ -391,7 +391,7 @@ Automated mutation testing tools might be a bit too "heavy duty" at this point i
 ## Our Work, Cut Out
 
 We see now that the concept of a "test function" isn't all that fancy.
-Compared to other code that we have written, writing a function that simply runs a hand full of assertions is far from a heavy lift for us.
+Compared to other code that we have written, writing a function that simply runs a handful of assertions is far from a heavy lift for us.
 Of course, we must be diligent and take care to test our tests, but we can certainly manage this as well.
 With this in hand, we should take stock of the work and challenges that lie in our path ahead.
 
@@ -500,7 +500,7 @@ AssertionError:
 
 > You may have written `assert len(a_list) > 0` - this is also correct.
 > However, recall that calling `bool` on any sequence (list, tuple, string, etc.) will return `False` if the sequence is empty.
-> This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - that `bool` will be called on whatever the provided expression is.
+> This is a reminder that an assertion statement need not include an explicit logical statement, such as an inequality - `bool` will be called on whatever the provided expression is.
 
 Assert that the number of vowels in `a_string` is fewer than `a_number`; include an error message that prints the actual number of vowels:
 
@@ -543,11 +543,11 @@ AssertionError:
 ```
 
 > See that the error output, which is called a "stack trace", indicates with an ASCII-arrow that our second assertion is the one that is failing.
-> Thus we can be confident that that assertion really does help to ensure that we are counting y's correctly.
+> Thus, we can be confident that that assertion really does help to ensure that we are counting y's correctly.
 
 Restore `count_vowels` to its original form and rerun the test to see that `count_vowels` once again passes all of the assertions.
 
-> We simply un-comment out the block of code and rerun our test.
+> We simply un-comment the block of code and rerun our test.
 
 ```python
 # Restore the behavior of `include_y=True`
