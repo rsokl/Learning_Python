@@ -62,7 +62,7 @@ There are plenty of practical details ahead for us to learn, so let's expedite t
 
 > Although it may not be obvious from the outset, writing testable code leads to writing better code.
 > This is, in part, because the process of writing tests gives us the opportunity to actually _use_ our code under varied circumstances.
-> The process of writing tests will help us suss out bad design decisions and redundant capabilities in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
+> The process of writing tests will help us suss out bad design decisions and redundancies in our code. Ultimately, if _we_ find it frustrating to use our code within our tests, then surely others will find the code frustrating to use in applied settings.
 
 **It makes it easier for others to contribute to a project:**
 
