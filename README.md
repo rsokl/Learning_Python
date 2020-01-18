@@ -46,10 +46,17 @@ pip install sphinx-rtd-theme==0.4.3
 pip install jupytext-1.3.0rc1
 ```
 
-Using this environment, you should now be able to run sphinx to build the html for this site from the source-code. To do this, navigate to the directory named Python in this repository, and then run:
+and install the `plymi` code base from this repo. Clone the present repository and run:
 
 ```shell
-python -m sphinx . _build -j4
+pip install .
+```
+
+Using this environment, you should now be able to run sphinx to build the html for this site from the source-code. To do this, run the following commands in your Python terminal:
+
+```python
+import plymi
+plymi.convert_src_to_html("./Python") # point to the dir containing `conf.py`
 ```
 
 This will convert all of the "restructured text" (.rst) files to html via `sphinx`. `jupytext` is responsible for converting the markdown (.md) files to jupyter notebooks (.ipynb) and then `nbsphinx` converts these notebooks to html.
@@ -60,8 +67,9 @@ Note that, if you are introducing a new page to the site or are doing anything t
 # Publishing HTML for this site
 Once you have built the html and have verified that it looks good to you, navigate to the top level of the repository and run:
 
-```shell
-python build_to_doc.py
+```python
+import plymi
+plymi.build_to_doc(".") # point to the top-level dir (contains both `docs/` and `docs_backup`)
 ```
 
 This will back-up your current `docs` directory, and will move the html from `_builds` to `docs`. It will also ensure some essential "meta" files, `.nojekyll` and `CNAME` are present. The former is required for githubpages to build the site correctly, the latter ensures that the canonical name for the site is `pythonlikeyoumeantit.com`.
