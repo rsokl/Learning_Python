@@ -65,13 +65,13 @@ Given this basic understanding of what the Python programming language is, we no
 ## Python Scripts
 You can save the the valid code from the preceding section in a text file using a simple text editor, and *voilà* you have written a **Python script**: a text file containing Python code. It is standard to save this text file using the suffix `.py` (e.g. `my_code.py`), rather than the familiar `.txt` (e.g. `my_text.txt`). There is nothing special about the `.py` suffix; it simply helps differentiate files that contain Python code from run-of-the-mill text files, which contain plain English.
 
-Although you can use simple text editors to write Python scripts (e.g. notepad (Win), TextEdit (Mac), nano (Linux)), there are much more sophisticated editors that provide an "integrated development environment" (IDE) for writing code. An IDE, configured to support Python, will warn you if you have written code that violates Python's grammar rules, similar to the way word processing software warns you if you have made a spelling mistake. More on IDEs in a later section. 
+Although you can use simple text editors to write Python scripts (e.g. notepad (Win), TextEdit (Mac), nano (Linux)), there are much more sophisticated editors that provide an "integrated development environment" (IDE) for writing code. An IDE, configured to support Python, will warn you if you have written code that violates Python's grammar rules, similar to the way word processing software warns you if you have made a spelling mistake. More on IDEs in a later section.
 
 <div class="alert alert-warning">
 
-**WARNING**: 
+**WARNING**:
 
-Do not use word processing programs, like Microsoft Word, to write code. They will "silently" change the characters written in your file, such as the type of quotation marks being used. This will cause errors in your code. 
+Do not use word processing programs, like Microsoft Word, to write code. They will "silently" change the characters written in your file, such as the type of quotation marks being used. This will cause errors in your code.
 </div>
 
 Now that you have a Python script, how do you get the computer to read it and follow its instructions? You will need to install a **Python interpreter** on your computer to accomplish this. This is what people mean, whether they know it or not, when they tell you to "install Python" on your computer.
@@ -91,20 +91,20 @@ The first Python interpeter was written in the programming language C, and is kn
 
 <div class="alert alert-warning">
 
-**Note**: 
+**Note**:
 
 Python interpreters have been in written in programming languages other than C, like in Java (Jython) and Go (Grumpy). These are not guaranteed to be up-to-date with the latest specifications of the Python language, and are rarely used in comparison to the CPython interpreter.
 </div>
 
 <div class="alert alert-warning">
 
-**About Installing Python**: 
+**About Installing Python**:
 
-Do not download and install Python from python.org. There isn't anything wrong with this, but a later section will provide you with explicit instructions for installing Python on your machine. 
+Do not download and install Python from python.org. There isn't anything wrong with this, but a later section will provide you with explicit instructions for installing Python on your machine.
 
 </div>
 
-If you "install Python on your computer" from [python.org](https://www.python.org/downloads/release/python-363/), you are essentially downloading an executable program onto your machine that operates as a Python interpreter. On Windows, for instance, this program is called `python.exe`. This program is the result of the aforementioned CPython code, and it is capable of performing the all of the tasks of a Python interpreter. Additionally, you are downloading a large suite of useful tools and functions that you can utilize in your code. This is known as the Python standard library; take a moment to look over its contents [here](https://docs.python.org/3/library/index.html#the-python-standard-library). 
+If you "install Python on your computer" from [python.org](https://www.python.org/downloads/release/python-363/), you are essentially downloading an executable program onto your machine that operates as a Python interpreter. On Windows, for instance, this program is called `python.exe`. This program is the result of the aforementioned CPython code, and it is capable of performing the all of the tasks of a Python interpreter. Additionally, you are downloading a large suite of useful tools and functions that you can utilize in your code. This is known as the Python standard library; take a moment to look over its contents [here](https://docs.python.org/3/library/index.html#the-python-standard-library).
 
 Once you have a Python interpreter installed on your machine, using it to execute a Python script is quite simple. Assume for the sake of simplicity that the `python` interpreter program and `my_script.py` are in the same directory (a.k.a 'folder') in your computer. Then, in a terminal (`cmd.exe` for Windows) you can execute the following command:
 
@@ -116,7 +116,7 @@ this will instruct the Python interpreter program `python` to read your text fil
 
 In practice, you will be able to simply execute `python my_script.py` in any directory, and your computer will know where to look to find the `python` program. This will be set up during the installation process.
 
-It may be confusing to think that the Python language is interpreted by using a program written in another language. How, then, is that language interpreted? The answer, in the case of CPython, is that C code need not be interpreted; programs exist for Windows, Mac, and Linux that can translate C code directly into machine instructions. 
+It may be confusing to think that the Python language is interpreted by using a program written in another language. How, then, is that language interpreted? The answer, in the case of CPython, is that C code need not be interpreted; programs exist for Windows, Mac, and Linux that can translate C code directly into machine instructions.
 
 <!-- #region -->
 ## Why Python?
@@ -142,6 +142,21 @@ int main() {
 As such, Python is a language that is conducive to rapidly prototyping and testing code. Additionally, it is open-sourced: it is free to use, anyone can participate in improving/maintaining the language, and many people create new libraries that add tremendous functionality to the language. Thus, Python has become exceptionally popular especially among scientists, engineers, and other researchers.
 
 We will be relying heavily on Python and a library for doing optimized numerical computations, called NumPy, throughout this course.
+<!-- #endregion -->
+
+<!-- #region -->
+## Keeping Up To Date
+
+New versions of Python come out periodically, bringing new features and fixes. The most recent version of Python is Python 3.8.1, but many packages do not yet support this, so many machines still use the relatively recent Python 3.7.6.
+
+All Python versions numbers use the A.B.C format. The three numbers denote major releases, minor releases, and patches.
+
+- The first number denotes major releases to the language. The most current major release is Python 3, but Python 2 is still in use. When a major release comes out, it means that older code will not work with the new release. Running Python 2 code in a Python 3 interpreter will yield errors, as will running Python 3 code in a Python 2 interpreter. Although Python 2 is still used in many legacy applications, Python 3 is much more modern and is more widely used.
+- The second number denotes a minor release. When a minor release comes out, older code will run in the new interpreter, but new code will not necessarily be compatible with older versions. Python 3.7 and 3.8 are great examples of this - any code that works in Python 3.7 will run in Python 3.8, but new syntax has been added that will not work with Python 3.7.
+- The third and final number denotes a patch, which generally means bug fixes and performance improvements. All code within the same minor release will run on all other patches within that minor release - all Python 3.7.6 code is compatible with a Python 3.7.1 interpreter, and vice versa. Patches are released fairly often, and their changes only occur 'under the hood'.
+
+We will be using Python 3 in this course. Python 3.7.6 is compatible with most packages while Python 3.8.1 is not yet, so if you need to use a variety of packages it is safer to stick with Python 3.7.6. Otherwise, you will have no problems switching to Python 3.8.1.
+
 <!-- #endregion -->
 
 ## Summary
