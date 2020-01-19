@@ -70,7 +70,7 @@ array([[ 0,  1,  4],
        [36, 49, 64]], dtype=int32)
 ```
 
-Let's take the mean value over the three distinct columns in our data:
+Let's take the mean value along the three distinct rows of our data:
 ```python
 >>> np.mean(x, axis=1)
 array([ 1.,  4.,  7.])
