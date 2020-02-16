@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Python Like You Mean It</title>
+  <title>Module 6: Testing Our Code &mdash; Python Like You Mean It</title>
   
 
   
@@ -40,6 +40,7 @@
   <link rel="stylesheet" href="_static/my_theme.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to Testing" href="Module6_Testing/Intro_to_Testing.html" />
     <link rel="prev" title="Import: Modules and Packages" href="Module5_OddsAndEnds/Modules_and_Packages.html" /> 
 </head>
 
@@ -98,14 +99,13 @@
 <li class="toctree-l1"><a class="reference internal" href="module_3_problems.html">Module 3: Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module_4.html">Module 4: Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module_5.html">Module 5: Odds and Ends</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">2020-02-16</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2019-12-14</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#new-content">New Content</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module 6: Testing Our Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Intro_to_Testing.html">Introduction to Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Pytest.html">The pytest Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Hypothesis.html">Describing Data with Hypothesis</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Changelog</a></li>
 </ul>
 
             
@@ -151,13 +151,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Changelog</li>
+      <li>Module 6: Testing Our Code</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/changes.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/module_6.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -194,27 +194,44 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="changelog">
-<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-<p>This is a record of all past PLYMI releases and what went into them,
-in reverse chronological order. All previous releases should still be available
-on pip.</p>
-<div class="section" id="id1">
-<h2>2020-02-16<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Several various typo/grammar fixes. Thank you to the readers who reported these and to [&#64;davidmascharka](<a class="reference external" href="https://github.com/davidmascharka">https://github.com/davidmascharka</a>)</p>
-</div>
-<div class="section" id="id2">
-<h2>2019-12-14<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>We’re finally keeping a formal changelog! This update includes our first discussion of features that were introduced in Python 3.8. Also includes various typo/grammar fixes.</p>
-<div class="section" id="new-content">
-<h3>New Content<a class="headerlink" href="#new-content" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html">Module 1 - Jupyter Notebooks:</a> included a brief discussion of Jupyter lab</li>
-<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">Module 1 - Setting Up a Development Environment:</a> Updated IDE discussion to reflect recent improvements to VSCode for Python.</li>
-<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Using-the-typing-Module">Module 5 - Writing Good Code:</a> Added <code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code>, which was introduced in Python 3.8, to the discussion of type-hints .</li>
-<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Using-the-typing-Module">Module 5 - Writing Good Code:</a> <code class="docutils literal notranslate"><span class="pre">pyright</span></code> is now listed alongside <code class="docutils literal notranslate"><span class="pre">mypy</span></code> as a tool for doing static type analysis.</li>
+<div class="section" id="module-6-testing-our-code">
+<h1>Module 6: Testing Our Code<a class="headerlink" href="#module-6-testing-our-code" title="Permalink to this headline">¶</a></h1>
+<p>This module will introduce us to the critically-important and often-overlooked process of testing code.
+We will begin by considering some general motivations for writing tests.
+Next, we will study the basic anatomy of a test-function, including the <code class="code docutils literal notranslate"><span class="pre">assert</span></code> statement, which serves as the nucleus of our test functions.
+Armed with the ability to write a rudimentary test, we will welcome, with open arms, the powerful testing framework <a class="reference external" href="https://docs.pytest.org/">pytest</a>.
+This will inform how we structure our tests alongside our Python project; with pytest, we can incisively run our tests with the press of a single button.
+Furthermore, it will allow us to greatly streamline and even begin to automate some of our tests.
+Finally, we will take a step back to consider some strategies for writing effective tests.
+Among these is a methodology that is near and dear to my heart: property-based testing.
+This will take us down a bit of a rabbit hole, where we will find the powerful property-based testing library <a class="reference external" href="https://hypothesis.readthedocs.io/">Hypothesis</a> waiting to greet us (adorned with the mad Hatter’s cap and all).</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Module6_Testing/Intro_to_Testing.html">Introduction to Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Intro_to_Testing.html#Why-Should-We-Write-Tests?">Why Should We Write Tests?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Intro_to_Testing.html#Writing-Our-First-Tests">Writing Our First Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Intro_to_Testing.html#The-assert-Statement">The <code class="docutils literal notranslate"><span class="pre">assert</span></code> Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Intro_to_Testing.html#Testing-Our-Tests">Testing Our Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Intro_to_Testing.html#Our-Work,-Cut-Out">Our Work, Cut Out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Intro_to_Testing.html#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Intro_to_Testing.html#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Module6_Testing/Pytest.html">The pytest Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Pytest.html#Creating-a-Python-Package-with-Tests">Creating a Python Package with Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Pytest.html#Populating-and-Running-Our-Test-Suite">Populating and Running Our Test Suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Pytest.html#Enhanced-Testing-with-pytest">Enhanced Testing with pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Pytest.html#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Pytest.html#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Module6_Testing/Hypothesis.html">Describing Data with Hypothesis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Hypothesis.html#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module6_Testing/Hypothesis.html#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
@@ -225,6 +242,8 @@ on pip.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Module6_Testing/Intro_to_Testing.html" class="btn btn-neutral float-right" title="Introduction to Testing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Module5_OddsAndEnds/Modules_and_Packages.html" class="btn btn-neutral float-left" title="Import: Modules and Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
