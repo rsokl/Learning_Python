@@ -11,7 +11,7 @@ on pip.
 2020-02-16
 ----------
 
-Several various typo/grammar fixes. Thank you to the readers who reported these and to [@davidmascharka](https://github.com/davidmascharka)
+Several various typo/grammar fixes. Thank you to the readers who reported these and to `@davidmascharka <https://github.com/davidmascharka>`_
 
 
 ----------
