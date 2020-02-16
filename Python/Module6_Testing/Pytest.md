@@ -503,7 +503,7 @@ Rewrite `test_count_vowels_basic` as a parameterized test with the parameters: `
 
 Rewrite `test_merge_max_mappings` as a parameterized test with the parameters: `dict_a`, `dict_b`, and `expected_merged`.
 
-Before rerunning `test_basic_functions.py` predict how many distinct test cases will be reported by pytest. 
+Before rerunning the tests in `test_basic_functions.py` predict how many distinct test cases will be reported by pytest. 
 
 </div>
 
