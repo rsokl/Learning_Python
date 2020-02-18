@@ -359,7 +359,7 @@ We can use the built-in string functions [isalpha](https://docs.python.org/3/lib
 Given the roster for class-A and class-B, find the students enrolled in both classes. Produce the result as a sorted list.
 
 ```python
->>> classA = ["Bohr", "Curie", "David", "Euler", "Gauss", "Heisenberg", "Noether"]
+>>> classA = ["Bohr", "Curie", "David", "Euler", "Fermi", "Gauss", "Heisenberg", "Noether"]
 >>> classB = ["Bohm", "Bohr", "Einstein", "Fermi", "Gauss", "Hopper", "Montalcini"]  
 ```
 We can find the entries common to both lists by constructing sets from them, and then taking the intersection of those sets. The result is a set,  which is an iterable. Thus it can be fed to the built-in function [sorted](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Iterables.html#Functions-that-act-on-iterables), to produce a sorted list of names.
