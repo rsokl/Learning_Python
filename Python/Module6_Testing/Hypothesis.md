@@ -303,7 +303,7 @@ Hypothesis provides a useful mechanism for developing an intuition for the data 
 1
 ```
 
-**Note: the `.example()` mechanism is only meant to be used for pedagogical purposes. You should never use this in your test suite**
+**Note: the** `.example()` **mechanism is only meant to be used for pedagogical purposes. You should never use this in your test suite**
 because (among other reasons) `.example()` biases towards smaller and simpler examples than `@given`, and lacks the features to ensure any test failures are reproducible.
 
 We will be leveraging the `.example()` method throughout the rest of this section to help provide an intuition for the data that Hypothesis' various strategies generate.
@@ -425,7 +425,7 @@ The "pipe" operator, `|` can be used between strategies, to chain `st.one_of` ca
 <!-- #region -->
 #### `st.sampled_from`
 
-[`st.sampled_from`](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.sampled_from) accepts a collection of objects (anything that has a length and supports integer-based indexing is a collection; e.g. lists, tuples, strings, and numpy arrays). The strategy will return values that are sampled from this collections.
+[st.sampled_from](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.sampled_from) accepts a collection of objects (anything that has a length and supports integer-based indexing is a collection; e.g. lists, tuples, strings, and numpy arrays). The strategy will return values that are sampled from this collections.
 
 For example, the following strategy will sample from a list either `0`, `"a"`, or `(2, 2)`
 
