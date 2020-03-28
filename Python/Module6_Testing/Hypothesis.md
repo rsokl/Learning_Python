@@ -19,13 +19,26 @@ jupyter:
 <!-- #endraw -->
 
 <!-- #region -->
-# Describing Data with Hypothesis
+# Introduction to Testing with Hypothesis
 
 It is often the case that the process of *describing our data* is by far the heaviest burden that we must bear when writing tests. This process of assessing "what variety of values should I test?", "have I thought of all the important edge-cases?", and "how much is 'enough'?" will crop up with nearly every test that we write.
 Indeed, these are questions that you may have been asking yourself when writing `test_count_vowels_basic` and `test_merge_max_mappings` in the previous sections of this module.
 
 [Hypothesis](https://hypothesis.readthedocs.io/) is a powerful Python library that empowers us to write a _description_ (specification, to be more precise) of the data that we want to use to exercise our test.
 It will then *generate* test cases that satisfy this description and will run our test on these cases.
+Ultimately this an extremely powerful tool for enabling us to write high-quality automated tests for our code.
+
+Hypothesis can be installed via conda:
+
+```shell
+conda install -c conda-forge hypothesis
+```
+
+or pip:
+
+```shell
+pip install hypothesis
+```
 
 Let's look at a simple example of Hypothesis in action.
 In the preceding section, we learned to use pytest's parameterization mechanism to test properties of code over a set of values.
@@ -42,7 +55,7 @@ def test_range_length(size):
 ```
 
 which tests the property that `range(n)` has a length of `n` for any non-negative integer value of `n`.
-Well, it isn't *really* testing this property for all non-negative integers; clearly it is only testing the values 0-3.
+Well, it isn't *really* testing this property for all non-negative integers; clearly it is only testing the values 0-3, as indicated by the `parametrize` decorator.
 We should probably also check much larger numbers and perhaps traverse various orders of magnitude (i.e. factors of ten) in our parameterization scheme.
 No matter what set of values we land on, it seems like we will have to eventually throw our hands up and say "okay, that seems good enough."
 
@@ -51,6 +64,8 @@ Instead of manually specifying the data to pass to `test_range_length`, let's us
 
 <!-- #region -->
 ```python
+# A basic introduction to Hypothesis
+
 from hypothesis import given
 
 # Hypothesis provides so-called "strategies" for us
@@ -65,10 +80,10 @@ def test_range_length(size):
 <!-- #endregion -->
 
 <!-- #region -->
-Here we have specified that the `size` value in our test should take on any integer value within $[0, 10^{10}]$.
+Here we have specified that the value of `size` in our test *should be able to take on any integer value within* $[0, 10^{10}]$.
 We did this by using the `integers` "strategy" that is provided by Hypothesis: `st.integers(min_value=0, max_value=1E10)`.
 When we execute the resulting test (which can simply be run within a Jupyter cell or via pytest), this will trigger Hypothesis to generate test cases based on this specification;
-by default, Hypothesis will generate 100 test cases - an amount that we can configure - and will evaluate our test for each one of them.
+by default, Hypothesis will generate 100 test cases - an amount that we can configure - and will execute our test function for each one of them.
 
 ```python
 # Running this test once will trigger Hypothesis to
@@ -77,7 +92,7 @@ by default, Hypothesis will generate 100 test cases - an amount that we can conf
 >>> test_range_length()
 ```
 
-With great ease, we were able to replace our pytest-parameterized test, which only very sparsely tested the property at hand, with a much more robust, hypothesis-driven test.
+With great ease, we were able to replace our pytest-parameterized test, which only very narrowly tested the property at hand, with a much more robust, Hypothesis-driven test.
 This will be a recurring trend: we will generally produce much more robust tests by _describing_ our data with Hypothesis, rather than manually specifying test values.
 
 The rest of this section will be dedicated to learning about the Hypothesis library and how we can leverage it to write powerful tests.
@@ -89,10 +104,11 @@ The rest of this section will be dedicated to learning about the Hypothesis libr
 **Hypothesis is _very_ effective...**: 
 
 You may be wondering why, in the preceding example, I arbitrarily picked $10^{10}$ as the upper bound to the integer-values to feed to the test.
-I actually didn't write the test that way initially.
+Initially, I didn't write the test that way.
 Instead, I wrote the more general test:
 
 ```python
+# `size` can be any non-negative integer
 @given(size=st.integers(min_value=0))
 def test_range_length(size):
     assert len(range(size)) == size
@@ -111,7 +127,7 @@ Falsifying example: test_range_length(
 OverflowError: Python int too large to convert to C ssize_t
 ```
 
-This reveals that the implementation of the built-in `len` function is such that it can only handle non-negative integers smaller than $2^{63}$ (i.e. it will only allocate 64 bits to represent a signed integer - one bit is used to store the sign of the number).
+This reveals that the CPython implementation of the built-in `len` function is such that it can only handle non-negative integers smaller than $2^{63}$ (i.e. it will only allocate 64 bits to represent a signed integer - one bit is used to store the sign of the number).
 Hypothesis revealed this by generating the failing test case `size=9223372036854775808`, which is exactly $2^{63}$.
 I did not want this error to distract from what is otherwise merely a simple example, but it is very important to point out.
 
@@ -123,9 +139,204 @@ Now we know that `len(range(size)) == size` _does not_ hold for "arbitrary" non-
 </div>
 <!-- #endregion -->
 
+<!-- #region -->
+## The `given` Decorator
+
+Hypothesis' [given decorator](https://hypothesis.readthedocs.io/en/latest/details.html#the-gory-details-of-given-parameters) is responsible for:
+
+ - drawing values from Hypothesis' so-called "strategies" for describing input data for our test function
+ - running the test function many times (up to 100 times, by default) given different input values drawn from the strategy
+ - "shrinking" the drawn inputs to identify simple fail cases: if an error is raised by the test function during one of the many execution, the `given` decorator will attempt to "shrink" (i.e. simplify) the inputs that produce that same error before reporting them to the user
+ - reporting the input values that caused the test function to raise an error
+
+
+Let's see the `given` decorator in action by writing a simple "test" for which `x` should be integers between 0 and 10, and `y` should be integers between 20 and 30.
+To do this we will make use of the `integers` Hypothesis strategy.
+Let's include a bad assertion statement – that `y` can't be larger than 25 – to see how Hypothesis reports this fail case.
+Note that we aren't really testing any code here, we are simply exercising some of the tools that Hypothesis provides us with.
+
+```python
+from hypothesis import given 
+import hypothesis.strategies as st
+
+# using `given` with multiple parameters
+# `x` is an integer drawn from [0, 10]
+# `y` is an integer drawn from [20, 30]
+@given(x=st.integers(0, 10), y=st.integers(20, 30))
+def test_demonstrating_the_given_decorator(x, y):
+    assert 0 <= x <= 10
+    
+    # `y` can be any value in [20, 30]
+    # this is a bad assertion: it should fail!
+    assert 20 <= y <= 25
+```
+
+See that the names of the parameters specified in `given` — `x` and `y` in this instance — must match those in the signature of the test function.
+
+To run this test function, we simply call `test_demonstrating_the_given_decorator()`.
+Note that, unlike with a typical function, we do not pass values for `x` and `y` to this function – *the* `given` *decorator will pass these values to the function for us*.
+Executing this `given`-decorated function will prompt Hypothesis to draw 100 pairs of values for `x` and `y`, according to their respective strategies, and the body of the test will be executed for each such pair.
+
+```python
+# running the test
+>>> test_demonstrating_the_given_decorator()
+Falsifying example: test_demonstrating_the_given_decorator(
+    x=0, y=26,
+)
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-29-ea20353bbef5> in test_demonstrating_the_given_decorator(x, y)
+     10     # `y` can be any value in [20, 30]
+     11     # this is a bad assertion: it should fail!
+---> 12     assert 20 <= y <= 25
+
+AssertionError: 
+
+```
+
+(Note: some of the "Traceback" error message has been removed to improve legibility)
+
+See that the error message here indicates that Hypothesis identified a "falsifying example", or a set of input values, `x=0` and `y=26`, which caused our test function to raise an error. The proceeding "Traceback" message indicates that it is indeed the second assertion statement that is responsible for raising the error.
+
+### Shrinking: Simplifying Falsifying Inputs
+
+The `given` decorator strives to report the "simplest" set of input values that produce a given error.
+It does this through the process of "shrinking".
+Each of Hypothesis' strategies has its own prescribed shrinking behavior.
+For the `integers` strategy, this means identifying the integer closest to 0 that produces the error at hand.
+For instance, `x=12` and `y=29` may have been the first drawn values to trigger the assertion error.
+These values were then incrementally reduced by the `given` decorator until `x=0` and `y=26` were identified as the smallest set of values to reproduce this fail case.
+
+We can print out the examples that Hypothesis generated:
+
+```
+x=0   y=20 - PASSED
+x=0   y=20 - PASSED
+x=0   y=20 - PASSED
+x=9   y=20 - PASSED
+x=9   y=21 - PASSED
+x=3   y=20 - PASSED
+x=3   y=20 - PASSED
+x=9   y=26 - FAILED
+x=3   y=26 - FAILED
+x=6   y=26 - FAILED
+x=10  y=27 - FAILED
+x=7   y=27 - FAILED
+x=3   y=30 - FAILED
+x=3   y=23 - PASSED
+x=10  y=30 - FAILED
+x=3   y=27 - FAILED
+x=3   y=27 - FAILED
+x=2   y=27 - FAILED
+x=0   y=27 - FAILED
+x=0   y=26 - FAILED
+x=0   y=21 - PASSED
+x=0   y=25 - PASSED
+x=0   y=22 - PASSED
+x=0   y=23 - PASSED
+x=0   y=24 - PASSED
+x=0   y=26 - FAILED
+```
+
+See that Hypothesis has to do a semi-random search to identify the boundaries of the fail case; it doesn't know if `x` is causing the error, or if `y` is the culprit, or if it is specific *combinations* of `x` and `y` that causes the failure!
+Despite this complexity, the pairs of variables are successfully shrunk to the simplest fail case.
+<!-- #endregion -->
+
+<div class="alert alert-warning">
+
+**Hypothesis will Save Falsifying Examples**: 
+
+Albeit an advanced detail, it is important to note that Hypothesis does not have to search for falsifying examples from scratch every time we run a test function.
+Instead, Hypothesis will save a database of falsifying examples associated with each of your project's test functions.
+The database is saved under `.hypothesis` in whatever directory your test functions were run from.
+
+This ensures that, once Hypothesis finds a falsifying example for a test, the falsifying example will be passed to your test function each time you run it, until it no longer raises an error in your code (e.g. you update your code to fix the bug that was causing the test failure). 
+</div>
+
+
+<div class="alert alert-info"> 
+
+**Reading Comprehension: Understanding How Hypothesis Works**
+
+Define the `test_demonstrating_the_given_decorator` function as above, complete with the failing assertion, and add a print statement to the body of the function, which prints out the value for `x` and `y`.
+
+Run the test once and make note of the output that is printed. Consider copying and pasting the output to a notepad for reference. Next, rerun the test multiple times and make careful note of the printed output. What do you see? Is the output different from the first run? Does it differ between subsequent runs? Try to explain this behavior.
+
+In your file browser, navigate to the directory from which you are running this test; if you are following along in a Jupyter notebook, this is simply the directory containing said notebook. You should see a `.hypothesis` directory. As noted above, this is the database that contains the falsifying examples that Hypothesis has identified. Delete the `.hypothesis` directory and try re-running your test? What do you notice about the output now? You should also see that the `.hypothesis` directory has reappeared. Explain what is going on here.
+
+</div>
+
+
+
+<div class="alert alert-info"> 
+
+**Reading Comprehension: Fixing the Failing Test**
+
+Update the body of `test_demonstrating_the_given_decorator` so that it no longer fails. Run the fixed test function. How many times is the test function actually be executed when you run it?
+
+</div>
+
+
+
+## Describing Data: Hypothesis Strategies
+
+
+
+
 ## Links to Official Documentation
 
 - [Hypothesis](https://hypothesis.readthedocs.io/)
+- [The given decorator](https://hypothesis.readthedocs.io/en/latest/details.html#the-gory-details-of-given-parameters)
+- [The Hypothesis example database](https://hypothesis.readthedocs.io/en/latest/database.html)
 
 
 ## Reading Comprehension Solutions
+
+<!-- #region -->
+**Understanding How Hypothesis Works: Solution**
+
+Define the `test_demonstrating_the_given_decorator` function as above, complete with the failing assertion, and add a print statement to the body of the function, which prints out the value for `x` and `y`.
+
+```python
+@given(x=st.integers(0, 10), y=st.integers(20, 30))
+def test_demonstrating_the_given_decorator(x, y):
+    print(x, y)
+    assert 0 <= x <= 10
+
+    # `y` can be any value in [20, 30]
+    # this is a bad assertion: it should fail!
+    assert 20 <= y <= 25
+```
+
+Run the test once and make note of the output that is printed. Consider copying and pasting the output to a notepad for reference. Next, rerun the test multiple times and make careful note of the printed output. What do you see? Is the output different from the first run? Does it differ between subsequent runs? Try to explain this behavior.
+
+> The printed outputs between the first and second run differ. The first set out outputs is typically longer than that of the second run. After the second run, the printed outputs are always the exact same. What is happening here is that Hypothesis has to search for the falsifying example during the first run. Once it is identified, the example is recorded in the `.hypothesis` database. All of the subsequent runs are simply re-running this saved case, which is why their inputs are not changing.
+
+In your file browser, navigate to the directory from which you are running this test; if you are following along in a Jupyter notebook, this is simply the directory containing said notebook. You should see a `.hypothesis` directory. As noted above, this is the database that contains the falsifying examples that Hypothesis has identified. Delete the `.hypothesis` directory and try re-running your test? What do you notice about the output now? You should also see that the `.hypothesis` directory has reappeared. Explain what is going on here.
+
+> Deleting `.hypothesis` removes all of the falsifying examples that Hypothesis found for tests that were run from this particular directory. Thus running the test again means that Hypothesis has to find the falsifying example again from scratch. Once it does this, it creates a new database in `.hypothesis`, which is why this directory "reappears".
+<!-- #endregion -->
+
+<!-- #region -->
+**Fixing the Failing Test: Solution**
+
+Update the body of `test_demonstrating_the_given_decorator` so that it no longer fails.
+
+> We simply need to fix the second assertion statement, specifying the bounds on `y`, so that it agrees with what is being drawn from the `integers` strategy.
+
+```python
+@given(x=st.integers(0, 10), y=st.integers(20, 30))
+def test_demonstrating_the_given_decorator(x, y):
+    assert 0 <= x <= 10
+    assert 20 <= y <= 30
+```
+
+Run the fixed test function. How many times is the test function actually be executed when you run it?
+
+> The `given` decorator, by default, will draw 100 sets of example values from the strategies that are passed to it and will thus execute the decorated test function 100 times.
+
+```python
+# no output (the function returns `None`) means that the test passed
+>>> test_demonstrating_the_given_decorator()
+```
+<!-- #endregion -->
