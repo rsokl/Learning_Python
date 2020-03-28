@@ -40,6 +40,8 @@ or pip:
 pip install hypothesis
 ```
 
+## A Simple Example Using Hypothesis
+
 Let's look at a simple example of Hypothesis in action.
 In the preceding section, we learned to use pytest's parameterization mechanism to test properties of code over a set of values.
 For example, we wrote the following trivial test:
@@ -280,6 +282,171 @@ Update the body of `test_demonstrating_the_given_decorator` so that it no longer
 
 ## Describing Data: Hypothesis Strategies
 
+Hypothesis provides us with so-called "strategies" for describing our data.
+We are already familiar with the `integers` strategy;
+Hypothesis' core strategies are all located in the `hypothesis.strategies` module.
+The official documentation for the core strategies can be found [here](https://hypothesis.readthedocs.io/en/latest/data.html).
+
+Here, we will familiarize ourselves with these core strategies and will explore some of the powerful methods that can be used to customize their behaviors.
+
+<!-- #region -->
+### Drawing examples from strategies
+
+Hypothesis provides a useful mechanism for developing an intuition for the data produced by a strategy: a strategy, once initialized, has a `.example()` method that will randomly draw a representative value from the strategy. For example:
+
+```python
+# demonstrating usage of `<strategy>.example()`
+>>> st.integers(-1, 1).example()
+-1
+
+>>> st.integers(-1, 1).example()
+1
+```
+
+**Note: the `.example()` mechanism is only meant to be used for pedagogical purposes. You should never use this in your test suite**
+because (among other reasons) `.example()` biases towards smaller and simpler examples than `@given`, and lacks the features to ensure any test failures are reproducible.
+
+We will be leveraging the `.example()` method throughout the rest of this section to help provide an intuition for the data that Hypothesis' various strategies generate.
+<!-- #endregion -->
+
+<!-- #region -->
+### Exploring Strategies
+
+There are a number critical Hypothesis strategies for us to become familiar with. It is worthwhile to peruse through all of Hypothesis' [core strategies](https://hypothesis.readthedocs.io/en/latest/data.html#core-strategies), but we will take time to highlight a few here.
+
+#### `st.booleans ()`
+
+[st.booleans()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.booleans) generates either `True` or `False`. This strategy will shrink towards `False`
+
+```python
+>>> st.booleans().example()
+False
+```
+<!-- #endregion -->
+
+<!-- #region -->
+
+#### `st.lists ()`
+
+[st.lists](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.lists) accepts *another* strategy, which describes the elements of the lists being generated. You can also specify:
+ - bounds on the length of the list
+ - if we want the elements to be unique
+ - a mechanism for defining "uniqueness"
+
+For example, the following strategy describes lists whose length varies from 2 to 10, and whose entries are integers on the domain $[-10, 20]$:
+
+```python
+>>> st.lists(st.integers(-10, 20), min_size=2, max_size=10).example()
+[-10, 0, 5]
+```
+
+**`st.lists(...)` is the strategy of choice anytime we want to generate sequences of varying lengths with elements that are, themselves, described by strategies**.
+<!-- #endregion -->
+
+<!-- #region -->
+#### `st.floats()`
+
+[st.floats](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.floats) is a powerful strategy that generates all variety of floats, including `math.inf` and `math.nan`. You can also specify:
+ - whether `math.inf` and `math.nan`, respectively, should be included in the data description
+ - bounds (either inclusive or exclusive) on the floats being generated; this will naturally preclude `math.nan` from being generated
+ - the "width" of the floats; e.g. if you want to generate 16-bit or 32-bit floats vs 64-bit
+   (while Python's `float` is (usually) 64-bit, `width=32` ensures that the generated values can
+   always be losslessly represented in 32 bits.  This is mostly useful for Numpy arrays.)
+
+For example, the following strategy 64-bit floats that reside in the domain $[-100, 1]$:
+
+```python
+>>> st.floats(-100, 1).example()
+0.3670816313319896
+```
+<!-- #endregion -->
+
+<!-- #region -->
+#### `st.tuples()`
+
+The [st.tuples](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.tuples) strategy accepts $N$ Hypothesis strategies, and will generate length-$N$ tuples whose elements are drawn from the respective strategies that were specified as inputs.
+
+For example, the following strategy will generate length-3 tuples whose entries are: integers, booleans, and floats:
+
+```python
+>>> st.tuples(st.integers(), st.booleans(), st.floats()).example()
+(4628907038081558014, False, -inf)
+```
+<!-- #endregion -->
+
+<!-- #region -->
+#### `st.just()`
+
+[st.just](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.just) is a strategy that "just" returns the value that you fed it. This is a convenient strategy that helps us to avoid having to manipulate our data before using it.
+
+Write suppose that we want a strategy that describes the shape of an array (i.e. a tuple of integers) that contains 1-20 two-dimensional vectors. E.g. `(5, 2)` is the shape of the array containing five two-dimensional vectors. We can leverage `st.just`, in conjunction with `st.integers` and `st.tuples`, towards this end:
+
+```python
+>>> st.tuples(st.integers(1, 20), st.just(2)).example()
+(7, 2)
+```
+<!-- #endregion -->
+
+<!-- #region -->
+#### `st.one_of()`
+
+The [st.one_of](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.one_of) allows us to specify a collection of strategies and any given datum will be drawn from "one of" them. E.g.
+
+```python
+# demonstrating st.one_of()
+st.one_of(st.integers(), st.lists(st.integers()))
+```
+
+will draw values that are *either* integers or list of integers:
+
+```python
+>>> st.one_of(st.integers(), st.lists(st.integers())).example()
+144
+
+>>> st.one_of(st.integers(), st.lists(st.integers())).example()
+[0, -22]
+```
+
+The "pipe" operator, `|` can be used between strategies, to chain `st.one_of` calls:
+
+```python
+# Using the pipe operation, | , in place of `st.one_of`
+# This strategy generates integers or floats
+# or lists that contain just the word "hello"
+
+>>> (st.integers() | st.floats() | st.lists(st.just("hello"))).example()
+['hello', 'hello']
+
+>>> (st.integers() | st.floats() | st.lists(st.just("hello"))).example()
+0
+```
+<!-- #endregion -->
+
+<!-- #region -->
+#### `st.sampled_from`
+
+[`st.sampled_from`](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.sampled_from) accepts a collection of objects (anything that has a length and supports integer-based indexing is a collection; e.g. lists, tuples, strings, and numpy arrays). The strategy will return values that are sampled from this collections.
+
+For example, the following strategy will sample from a list either `0`, `"a"`, or `(2, 2)`
+
+```python
+>>> st.sampled_from([0, "a", (2, 2)]).example()
+'a'
+```
+<!-- #endregion -->
+
+<div class="alert alert-info"> 
+
+**Reading Comprehension: Exploring other Core Strategies**
+
+Review the [rest of Hypothesis' core strategies](https://hypothesis.readthedocs.io/en/latest/data.html#core-strategies).
+Write down a strategy, and print out a representative example, that describes the the data according to each of the following conditions:
+
+   1. Dictionaries of arbitrary size whose keys are positive-values integers and whose values are `True` or `False.
+   2. Length-4 strings whose elements are only lowercase vowels
+   3. Permutations of the list `[1, 2, 3, 4]`
+
+</div>
 
 
 
@@ -288,6 +455,7 @@ Update the body of `test_demonstrating_the_given_decorator` so that it no longer
 - [Hypothesis](https://hypothesis.readthedocs.io/)
 - [The given decorator](https://hypothesis.readthedocs.io/en/latest/details.html#the-gory-details-of-given-parameters)
 - [The Hypothesis example database](https://hypothesis.readthedocs.io/en/latest/database.html)
+- [Core strategies](https://hypothesis.readthedocs.io/en/latest/data.html#core-strategies)
 
 
 ## Reading Comprehension Solutions
@@ -338,5 +506,30 @@ Run the fixed test function. How many times is the test function actually be exe
 ```python
 # no output (the function returns `None`) means that the test passed
 >>> test_demonstrating_the_given_decorator()
+```
+<!-- #endregion -->
+
+<!-- #region -->
+**Exploring other Core Strategies: Solution**
+
+Dictionaries of arbitrary size whose keys are positive-values integers and whose values are `True` or `False.
+
+```python
+>>> st.dictionaries(st.integers(min_value=1), st.booleans()).example()
+{110: True, 19091: True, 136348032: False, 78: False, 9877: False}
+```
+
+Length-4 strings whose elements are only lowercase vowels
+
+```python
+>>> st.text(alphabet="aeiou", min_size=4, max_size=4).example()
+'uiai'
+```
+
+Permutations of the list `[1, 2, 3, 4]`
+
+```python
+>>> st.permutations([1, 2, 3, 4]).example()
+[2, 3, 1, 4]
 ```
 <!-- #endregion -->
