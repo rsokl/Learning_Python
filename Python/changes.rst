@@ -2,9 +2,16 @@
 Changelog
 =========
 
-This is a record of all past mygrad releases and what went into them,
+This is a record of all past PLYMI releases and what went into them,
 in reverse chronological order. All previous releases should still be available
 on pip.
+
+
+----------
+2020-02-16
+----------
+
+Several various typo/grammar fixes. Thank you to the readers who reported these and to `@davidmascharka <https://github.com/davidmascharka>`_
 
 
 ----------

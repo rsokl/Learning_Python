@@ -1,7 +1,7 @@
 # Python Like You Mean It
 View this content as hosted on [Python Like You Mean It](https://www.pythonlikeyoumeanit.com/)
 
-This repository contains the source material for the website [Python Like You Mean It](pythonlikeyoumeanit.com). The site is written primarily in markdown ~[Jupyter notebooks](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html)~ (which are transformed into html using [nbsphinx](https://nbsphinx.readthedocs.io/en/0.3.4/)). A huge perk of this of this is that you simply need to be familiar with Jupyter notebooks and some [markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in order to contribute to this project!
+This repository contains the source material for the website [Python Like You Mean It](pythonlikeyoumeanit.com). The site is written primarily in [Jupytext-markdown](https://jupytext.readthedocs.io/en/latest/formats.html#jupytext-markdown) (which are eventually transformed into html using [nbsphinx](https://nbsphinx.readthedocs.io/en/0.3.4/)). A huge perk of this of this is that you simply need to be familiar with Jupyter notebooks and some [markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) in order to contribute to this project!
 
 ## Asking Questions
 Please feel free to post questions (or point out mistakes) about the reading by opening a [GitHub issue](https://github.com/rsokl/Learning_Python/issues). Someone from the PLYMI team will respond ASAP! Refer to [this reference](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code-and-syntax-highlighting) to see how to include python-codeblocks  in your post. This will make it much easier for us to discuss code with each other. 
@@ -24,9 +24,9 @@ I have posted a number of "To-Do" tasks in this project's [issues](https://githu
 If you want to submit a change to some of the content (e.g. correcting typos), do the following:
 1. Clone this repository
 2. Create a new branch, appropriately named for whatever task you are performing: `git checkout -b your_branch_name`
-3. Check out your new branch and commit any changes you make to it
+3. In your new branch, make the relevant changes and commit them.
 4. Push your branch: `git push origin your_branch_name` (you should have permission to do this, if you are added as a "contributor" to this project)
-5. Create a [Pull Request](https://help.github.com/articles/creating-a-pull-request/)) from your branch into the master branch.
+5. Create a [Pull Request](https://help.github.com/articles/creating-a-pull-request/) from your branch into the master branch.
 
 # Building the Site
 **Important Note: it is strongly preferred that pull requests *do not* contain changes to the HTML of this site. Rather, it is better if PRs simply contain changes to text files (.rst or .md). A site administrator (@rsokl, @davidmascharka) will be responsible for publishing the actual site-HTML**. Thus the following instructions are useful for you to view your changes as they will appear in the site, but you likely need not go through the process of committing the changes to the HTML. 
@@ -46,10 +46,17 @@ pip install sphinx-rtd-theme==0.4.3
 pip install jupytext-1.3.0rc1
 ```
 
-Using this environment, you should now be able to run sphinx to build the html for this site from the source-code. To do this, navigate to the directory named Python in this repository, and then run:
+and install the `plymi` code base from this repo. Clone the present repository and run:
 
 ```shell
-python -m sphinx . _build -j4
+pip install .
+```
+
+Using this environment, you should now be able to run sphinx to build the html for this site from the source-code. To do this, run the following commands in your Python terminal:
+
+```python
+import plymi
+plymi.convert_src_to_html("./Python") # point to the dir containing `conf.py`
 ```
 
 This will convert all of the "restructured text" (.rst) files to html via `sphinx`. `jupytext` is responsible for converting the markdown (.md) files to jupyter notebooks (.ipynb) and then `nbsphinx` converts these notebooks to html.
@@ -60,8 +67,9 @@ Note that, if you are introducing a new page to the site or are doing anything t
 # Publishing HTML for this site
 Once you have built the html and have verified that it looks good to you, navigate to the top level of the repository and run:
 
-```shell
-python build_to_doc.py
+```python
+import plymi
+plymi.build_to_doc(".") # point to the top-level dir (contains both `docs/` and `docs_backup`)
 ```
 
 This will back-up your current `docs` directory, and will move the html from `_builds` to `docs`. It will also ensure some essential "meta" files, `.nojekyll` and `CNAME` are present. The former is required for githubpages to build the site correctly, the latter ensures that the canonical name for the site is `pythonlikeyoumeantit.com`.

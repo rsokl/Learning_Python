@@ -33,7 +33,7 @@ The ND-array (N-dimensional array) is the star of the show for NumPy. This array
  1. Provide an interface for its underlying data to be accessed along multiple dimensions.
  2. Rapidly perform mathematical operations over all of its elements, or over patterned subsequences of its elements, using compiled C code instead of Python; this is a process called vectorization.
  
-Let's take a sneak peek to see at what this module has in store. The following code creates an ND-array containing the numbers 0-8:
+Let's take a sneak peek to see what this module has in store. The following code creates an ND-array containing the numbers 0-8:
 
 ```python
 >>> import numpy as np
@@ -70,7 +70,7 @@ array([[ 0,  1,  4],
        [36, 49, 64]], dtype=int32)
 ```
 
-Let's take the mean value over the three distinct columns in our data:
+Let's take the mean value along the three distinct rows of our data:
 ```python
 >>> np.mean(x, axis=1)
 array([ 1.,  4.,  7.])

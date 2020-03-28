@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="Topic: Writing tests for your code, Difficulty: Easy, Category: Section" name="description" />
+<meta content="test, automated, pytest, parametrize, fixture, suite, decorator, clean directory" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Describing Data with Hypothesis &mdash; Python Like You Mean It</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Changelog" href="../changes.html" />
+    <link rel="prev" title="The pytest Framework" href="Pytest.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2_problems.html">Module 2: Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_6.html">Module 6: Testing Our Code</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_Testing.html">Introduction to Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pytest.html">The pytest Framework</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Describing Data with Hypothesis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python Like You Mean It</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_6.html">Module 6: Testing Our Code</a> &raquo;</li>
+        
+      <li>Describing Data with Hypothesis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module6_Testing/Hypothesis.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Describing-Data-with-Hypothesis">
+<h1>Describing Data with Hypothesis<a class="headerlink" href="#Describing-Data-with-Hypothesis" title="Permalink to this headline">¶</a></h1>
+<p>It is often the case that the process of <em>describing our data</em> is by far the heaviest burden that we must bear when writing tests. This process of assessing “what variety of values should I test?”, “have I thought of all the important edge-cases?”, and “how much is ‘enough’?” will crop up with nearly every test that we write. Indeed, these are questions that you may have been asking yourself when writing <code class="docutils literal notranslate"><span class="pre">test_count_vowels_basic</span></code> and <code class="docutils literal notranslate"><span class="pre">test_merge_max_mappings</span></code> in the previous sections of this
+module.</p>
+<p><a class="reference external" href="https://hypothesis.readthedocs.io/">Hypothesis</a> is a powerful Python library that empowers us to write a <em>description</em> (specification, to be more precise) of the data that we want to use to exercise our test. It will then <em>generate</em> test cases that satisfy this description and will run our test on these cases.</p>
+<p>Let’s look at a simple example of Hypothesis in action. In the preceding section, we learned to use pytest’s parameterization mechanism to test properties of code over a set of values. For example, we wrote the following trivial test:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="c1"># A simple parameterized test that only tests a few, conservative inputs.</span>
+<span class="c1"># Note that this test must be run by pytest to work properly</span>
+<span class="nd">@pytest.mark.parametrize</span><span class="p">(</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_range_length</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">))</span> <span class="o">==</span> <span class="n">size</span>
+</pre></div>
+</div>
+<p>which tests the property that <code class="docutils literal notranslate"><span class="pre">range(n)</span></code> has a length of <code class="docutils literal notranslate"><span class="pre">n</span></code> for any non-negative integer value of <code class="docutils literal notranslate"><span class="pre">n</span></code>. Well, it isn’t <em>really</em> testing this property for all non-negative integers; clearly it is only testing the values 0-3. We should probably also check much larger numbers and perhaps traverse various orders of magnitude (i.e.&nbsp;factors of ten) in our parameterization scheme. No matter what set of values we land on, it seems like we will have to eventually throw our hands up and say “okay,
+that seems good enough.”</p>
+<p>Instead of manually specifying the data to pass to <code class="docutils literal notranslate"><span class="pre">test_range_length</span></code>, let’s use Hypothesis to simply describe the data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span>
+
+<span class="c1"># Hypothesis provides so-called &quot;strategies&quot; for us</span>
+<span class="c1"># to describe our data</span>
+<span class="kn">import</span> <span class="nn">hypothesis.strategies</span> <span class="kn">as</span> <span class="nn">st</span>
+
+<span class="c1"># Using hypothesis to test any integer value in [0, 10 ** 10]</span>
+<span class="nd">@given</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mf">1E10</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">test_range_length</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">))</span> <span class="o">==</span> <span class="n">size</span>
+</pre></div>
+</div>
+<p>Here we have specified that the <code class="docutils literal notranslate"><span class="pre">size</span></code> value in our test should take on any integer value within <span class="math notranslate nohighlight">\([0, 10^{10}]\)</span>. We did this by using the <code class="docutils literal notranslate"><span class="pre">integers</span></code> “strategy” that is provided by Hypothesis: <code class="docutils literal notranslate"><span class="pre">st.integers(min_value=0,</span> <span class="pre">max_value=1E10)</span></code>. When we execute the resulting test (which can simply be run within a Jupyter cell or via pytest), this will trigger Hypothesis to generate test cases based on this specification; by default, Hypothesis will generate 100 test cases - an amount that we
+can configure - and will evaluate our test for each one of them.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Running this test once will trigger Hypothesis to</span>
+<span class="c1"># generate 100 values based on the description of our data,</span>
+<span class="c1"># and it will execute the test using each one of those values</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">test_range_length</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>With great ease, we were able to replace our pytest-parameterized test, which only very sparsely tested the property at hand, with a much more robust, hypothesis-driven test. This will be a recurring trend: we will generally produce much more robust tests by <em>describing</em> our data with Hypothesis, rather than manually specifying test values.</p>
+<p>The rest of this section will be dedicated to learning about the Hypothesis library and how we can leverage it to write powerful tests.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Hypothesis is *very* effective…</strong>:</p>
+<p>You may be wondering why, in the preceding example, I arbitrarily picked <span class="math notranslate nohighlight">\(10^{10}\)</span> as the upper bound to the integer-values to feed to the test. I actually didn’t write the test that way initially. Instead, I wrote the more general test:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@given</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">test_range_length</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">))</span> <span class="o">==</span> <span class="n">size</span>
+</pre></div>
+</div>
+<p>which places no formal upper bound on the integers that Hypothesis will generate. However, this test immediately found an issue (I hesitate to call it an outright bug):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Falsifying</span> <span class="n">example</span><span class="p">:</span> <span class="n">test_range_length</span><span class="p">(</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">9223372036854775808</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="o">----&gt;</span> <span class="mi">3</span>     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">))</span> <span class="o">==</span> <span class="n">size</span>
+
+<span class="ne">OverflowError</span><span class="p">:</span> <span class="n">Python</span> <span class="nb">int</span> <span class="n">too</span> <span class="n">large</span> <span class="n">to</span> <span class="n">convert</span> <span class="n">to</span> <span class="n">C</span> <span class="n">ssize_t</span>
+</pre></div>
+</div>
+<p>This reveals that the implementation of the built-in <code class="docutils literal notranslate"><span class="pre">len</span></code> function is such that it can only handle non-negative integers smaller than <span class="math notranslate nohighlight">\(2^{63}\)</span> (i.e.&nbsp;it will only allocate 64 bits to represent a signed integer - one bit is used to store the sign of the number). Hypothesis revealed this by generating the failing test case <code class="docutils literal notranslate"><span class="pre">size=9223372036854775808</span></code>, which is exactly <span class="math notranslate nohighlight">\(2^{63}\)</span>. I did not want this error to distract from what is otherwise merely a simple example, but it is very
+important to point out.</p>
+<p>Hypothesis has a knack for catching these sorts of unexpected edge cases. Now we know that <code class="docutils literal notranslate"><span class="pre">len(range(size))</span> <span class="pre">==</span> <span class="pre">size</span></code> <em>does not</em> hold for “arbitrary” non-negative integers! (I wonder how many of the Python core developers know about this 😄).</p>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://hypothesis.readthedocs.io/">Hypothesis</a></li>
+</ul>
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../changes.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Pytest.html" class="btn btn-neutral float-left" title="The pytest Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ryan Soklaski
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

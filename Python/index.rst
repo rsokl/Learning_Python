@@ -24,7 +24,7 @@ This is also not a deep "Python for Data Science" resource. It will not teach yo
 
 What about Python textbooks?
 ----------------------------
-Books and blogs can be great. I personally think that programming books can overwhelming because they are required to be so complete; it is hard for a someone new to a language to distill the essentials of the Python language from hundreds of pages of text. Furthermore, it simply makes more sense to make this sort of material available digitally; users should be able to easily search the site, view it on mobile devices, copy code snippets, and know that the content is being kept up-to-date.
+Books and blogs can be great. I personally think that programming books can be overwhelming because they are required to be so complete; it is hard for a someone new to a language to distill the essentials of the Python language from hundreds of pages of text. Furthermore, it simply makes more sense to make this sort of material available digitally; users should be able to easily search the site, view it on mobile devices, copy code snippets, and know that the content is being kept up-to-date.
 
 
 Python shouldn't be *too* easy

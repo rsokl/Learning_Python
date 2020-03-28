@@ -654,7 +654,7 @@ And, of course, this works within comprehension expressions as well:
 ```python
 def count_even(numbers):
     """ Counts the number of even integers in an iterable"""
-    total_even = 0
+    total = 0
     for num in numbers:
         if num % 2 == 0:
             total += 1

@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.1.0-rc0
+      format_version: '1.2'
+      jupytext_version: 1.3.0rc1
   kernelspec:
     display_name: Python 3
     language: python
@@ -13,11 +13,11 @@ jupyter:
 ---
 
 
-```raw_mimetype="text/restructuredtext"
+<!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Writing good code, Difficulty: Easy, Category: Section
    :keywords: pep8, code style, lint, format, best practices, type hint, documentation, numpydoc, sphinx, typing, annotation, whitespace
-```
+<!-- #endraw -->
 
 # Writing Good Code
 
@@ -436,11 +436,11 @@ For example, suppose that we are using the `count_vowels` function in a library 
 
 ![PyCharm uses type-hints to check our code for consistency](pics/pycharm1.png)
 
-This saves us the trouble of having to run our code, hit an error, read through the stack trace, and debug our mistake. Instead, we immediately see our inconsistency get flagged. In fact, we probably never would have even made the mistake at all, as our IDE would have shown a list of integer-methods for us to choose from, and not string-methods. This would have likely alerted us to our misapprehension. 
+This saves us the trouble of having to run our code, hit an error, read through the stack trace, and debug our mistake. Instead, we immediately see our inconsistency get flagged. In fact, we probably never would have even made the mistake at all, as our IDE would have shown a list of integer-methods for us to choose from, and not string-methods. Type-hints would have likely alerted us to our misapprehension. 
 
 It does not take long to experience the benefits of type-hinting through your IDE. This both accelerates your coding by informing you of the object types that you are working with on the fly, and helps to expose oversights in your code as soon as they are made. 
 
-Finally, it is also worthwhile to highlight the [mypy](http://mypy-lang.org/) project, which is used to perform static type-checking on your code based on your type-hints. That is, mypy will automatically traverse your code and find potential bugs by identifying type conflicts in your code (e.g. trying to capitalize an integer) by checking their annotated and inferred types. This tool is most useful for large-scale code bases. Companies like Dropbox make keen use of mypy to identify inconsistencies in their code without having to hit runtime errors. Keep mypy in mind as you mature as a Python developer and find yourself working on projects of growing complexity.
+Finally, it is also worthwhile to highlight two projects, [mypy](http://mypy-lang.org/) and [pyright](https://github.com/microsoft/pyright), which are used to perform static type-checking on your code based on your type-hints. That is, mypy and pyright will both automatically traverse your code and find potential bugs by identifying type conflicts in your code (e.g. trying to capitalize an integer) by checking their annotated and inferred types. These tools are especially useful for large-scale code bases. Companies like Dropbox and Microsoft make keen use of static type-checking to identify inconsistencies in their code without having to hit runtime errors. Keep mypy, pyright, and other type-checking utilities in mind as you mature as a Python developer and find yourself working on projects of growing complexity. If you are using [VSCode as your IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html), you can install the [pyright vscode extension](https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright) to leverage type checking within your IDE.
 <!-- #endregion -->
 
 <div class="alert alert-info">
@@ -449,7 +449,7 @@ Finally, it is also worthwhile to highlight the [mypy](http://mypy-lang.org/) pr
 
 There is a simple syntax for annotating functions, class-methods, and variables with type-hints; this is a formal mechanism for documenting the types of objects that are expected as inputs to the function, as well as the return type of the function. It is critical to note that that type-hints are *never* enforced by Python - they only serve as a form of documentation.
 
-That being said, IDEs have powerful abilities to inspect type-hints and to highlight potential inconsistencies in your code. These capabilities can greatly facilitate your code-development. There are also third-party libraries like [mypy](http://mypy-lang.org/) that can be used to provide more rigorous type enforcement in your code.
+That being said, IDEs have powerful abilities to inspect type-hints and to highlight potential inconsistencies in your code. These capabilities can greatly facilitate your code-development. There are also third-party libraries like [mypy](http://mypy-lang.org/) and [pyright](https://github.com/microsoft/pyright) that can be used to provide more rigorous type enforcement in your code.
 
 </div>
 
@@ -519,7 +519,16 @@ The following is a summary some of the most critical members of the `typing` mod
 
   - Hint a function that takes in a string and an integer and returns `None`: `Callable[[str, int], None]`
   - Hint a method that accepts arbitrary arguments and returns a boolean: `Callable[..., bool]`
-  
+
+#### `Literal[<value>, ...]` 
+
+- **What it hints:** That the variable will be passed one of the exact values
+- **Examples:** 
+
+  - Hint that a variable that will be the integer `1`: `Literal[1]`
+  - Hint that a variable that will be the either the string `"sum"` or the string `"mean"`: `Literal["sum", "mean"]`
+  - Hint that a variable that will be either the list `[1, 2]` or the string `"abc"`: `Literal[[1, 2], "abc"]`
+- **Compatibility Note:** The `Literal` type-hint was introduced in Python 3.8 - it is not available in earlier versions of Python.
 
 <!-- #region -->
 Let's take, for example, a function that takes in:
@@ -725,7 +734,7 @@ There is great wisdom in placing such a high value on documentation. In this sec
 
 PLYMI uses Numpy-style docstrings throughout most of the text (except for when we are trying to keep the functions brief). This is ultimately just a choice of style/aesthetics. Ultimately, the critical takeaway here is to **pick a documentation style, learn it, and stick to it faithfully**. Once again, it is hard to overstate how important it is to anchor your code with clear and consistent documentation. It will aid you in your code-writing process, it will enable users to adopt and perhaps contribute to your code, and it will ensure longevity for your hard work.
 
-<!-- #region -->
+
 ### The NumPy Documentation Style
 
 The NumPy documentation style is specified in full [here](https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard). It is strongly recommended that you read through it in full. There are details in the specification that we will pass over here for the sake of simplicity and to avoid rewriting their specification. We will focus on the guidelines for documenting functions, but note that they specify rules for documenting [classes](https://www.pythonlikeyoumeanit.com/module_4.html) and [modules](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Modules).
@@ -743,7 +752,6 @@ A docstring should at least consist of:
  - An extended summary of the function, which provides a more verbose description of things.
  - A `Parameters` section, which details the types of the input parameters along with descriptions of them. (This section is not necessary if your function is parameterless).
  - A `Returns` section (or `Yields` for a generator), which details the object that is returned by the function. (This is not necessary if your function always returns `None`).
-<!-- #endregion -->
 
 <!-- #region -->
 There are additional, optional sections that can be used to improve your documentation: 

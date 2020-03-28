@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="Topic: Basics of Python Objects, Difficulty: Easy, Category: Section" name="description" />
+<meta content="exceptions, errors, bugs, debug, fix" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Errors &mdash; Python Like You Mean It</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script type="text/javascript" src="../_static/gtag.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module 2: Problems" href="../module_2_problems.html" />
+    <link rel="prev" title="Data Structures (Part III): Sets &amp; the Collections Module" href="DataStructures_III_Sets_and_More.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python Like You Mean It
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../module_2.html">Module 2: The Essentials of Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Basic_Objects.html">Basic Object Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SequenceTypes.html">Sequence Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variables_and_Assignment.html">Variables &amp; Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introducing Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ConditionalStatements.html">Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ForLoops.html">For-Loops and While-Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterables.html">Iterables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generators_and_Comprehensions.html">Generators &amp; Comprehension Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Itertools.html">Python’s “Itertools”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Basics of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Data Structures (Part I): Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_II_Dictionaries.html">Data Structures (Part II): Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures_III_Sets_and_More.html">Data Structures (Part III): Sets &amp; the Collections Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Errors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Syntax-Errors">Syntax Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Exceptions">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Logic-Errors">Logic Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Link-to-Official-Documentation">Link to Official Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module_2_problems.html">Module 2: Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3.html">Module 3: The Essentials of NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_4.html">Module 4: Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_5.html">Module 5: Odds and Ends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python Like You Mean It</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
+        
+      <li>Errors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Module2_EssentialsOfPython/exceptions.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Errors">
+<h1>Errors<a class="headerlink" href="#Errors" title="Permalink to this headline">¶</a></h1>
+<p>Unfortunately, not all code is perfect. As you write more complicated programs, you will doubtless run into some errors that you will need to figure out how to fix. Although debugging skills will come with practice, it can be helpful to understand errors, what causes them, and how to fix them. The different types of errors can be broken down into three categories: syntax errors, exceptions, and logic errors.</p>
+<div class="section" id="Syntax-Errors">
+<h2>Syntax Errors<a class="headerlink" href="#Syntax-Errors" title="Permalink to this headline">¶</a></h2>
+<p>Syntax errors are by far the easiest errors to debug, and they will be the most common errors while you are learning to program. Syntax errors are raised when the Python interpreter is unable to understand your code due to a typo or some misplaced syntax. When a syntax error occurs, the interpreter will stop running. It will also display the <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> code, and will often give a line number or explanation.</p>
+<p>Most syntax errors are benign and easily detectable, such as mispelling a name or forgetting a piece of punctuation. Occasionally you will encounter a tricky syntax error where you cannot find your mistake in the line. When this happens, remember to look out for punctuation mistakes, especially in parentheses. Misplaced parentheses can be difficult to detect, but are relatively simple to fix once detected.</p>
+<p>Many modern IDEs will automatically detect syntax errors, and will sometimes automatically place punctuation and indentations. As such, syntax errors are becoming more easily avoidable, but it is still important to know how to spot and fix them.</p>
+</div>
+<div class="section" id="Exceptions">
+<h2>Exceptions<a class="headerlink" href="#Exceptions" title="Permalink to this headline">¶</a></h2>
+<p>An exception occurs when a piece of code is valid and understood by the interpreter, but for some reason the interpreter is unable to execute the action. Exceptions can occur when a function is passed an incompatible type of input, when the program is asked to something it cannot, and in many other circumstances. Python has many types of built-in exceptions that can be raised, but here are several that you are likely to encounter and their causes:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="46%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Exception</th>
+<th class="head">Causes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">IndexError</span></code></td>
+<td>Attempting to index or slice into a list with an index outside of the list’s range</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">KeyError</span></code></td>
+<td>Attempting to access a dictionary value with a key that is not in the dictionary</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">NameError</span></code></td>
+<td>Referencing a variable or function that is not yet defined</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">TypeError</span></code></td>
+<td>Passing an object of an invalid type into a function or operation</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ValueError</span></code></td>
+<td>Passing an object of an appropriate type but invalid value to a function or operation</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></td>
+<td>Attempting to divide by zero. Can also be raised when a function is passed a value that would force it to divide by zero</td>
+</tr>
+</tbody>
+</table>
+<p>These six exceptions are the most common exceptions you will face, as they cover many possible issues. There exist many more specific exceptions for complicated errors, but they are much rarer and tend to only appear in very specific cases. Let’s look at a piece of code that will raise an exception.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># attempting to take the square root of a negative number</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">math</span> <span class="n">domain</span> <span class="n">error</span>
+</pre></div>
+</div>
+<p>The math library cannot take the square root of a negative number. Because the number passed as an argument is technically the correct type, but is not compatible with the function, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised. Whenever you encounter one of these exceptions, be sure that you understand why the encounter is raised before you try to fix it.</p>
+<p>It is also possible to raise exceptions on purpose with the <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement. If you are writing a function that is designed only for certain inputs, it can be worthwhile to verify that inputs will be valid. As an example, let’s create our own square root function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">squareRoot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cannot take the square root of a negative number.&#39;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mf">0.5</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">squareRoot</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">Cannot</span> <span class="n">take</span> <span class="n">the</span> <span class="n">square</span> <span class="n">root</span> <span class="n">of</span> <span class="n">a</span> <span class="n">negative</span> <span class="n">number</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>When the invalid value is passed, our function raises a ValueError rather than allowing the function to run with the value, possibly causing a worse or more confusing error. Clearly, in this case it was much better to raise an exception than to allow the program to continue! The <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement can also be used to raise errors in the format <code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">[boolean</span> <span class="pre">statement],</span> <span class="pre">'error</span> <span class="pre">message'</span></code>, but it tends to be less informative and less powerful than simply using <code class="docutils literal notranslate"><span class="pre">raise</span></code>.</p>
+<p>It is also possible to create custom exceptions using classes, which will be discussed further in Module 4.</p>
+</div>
+<div class="section" id="Logic-Errors">
+<h2>Logic Errors<a class="headerlink" href="#Logic-Errors" title="Permalink to this headline">¶</a></h2>
+<p>Logic errors occur when your code will run in the interpreter, but does not behave as expected. Whenever you write a function that works but outputs something incorrect, you have committed a logic error. Logic errors are very easy to commit and can be incredibly difficult to solve. It’s impossible to completely avoid logic errors, but if you take care while programming and debugging, they can often be avoided or fixed.</p>
+<p>Before writing a complex program, it is often smart to write psuedocode beforehand to ensure that your algorithm makes sense and will do what you want it to. It is important to understand how your program will work before you write it. After writing the program, it can be helpful to take another walk through how the program works, and make sure that every step makes sense. Some programmers keep rubber ducks at their desks and try to explain their code to the duck when they hit a bug. Sometimes,
+simply walking through your code slowly and describing everything can help you see an error that you otherwise may have missed.</p>
+<p>Breaking your code down into functions can help with readability, usability, and debugging, especially as the scale of your project grows. It is much easier to find the error in ten functions, each with fifty lines, than it is to find the error in one block of code that is five hundred lines long. Testing out different parts of your code independently to verify that they work is essential to debugging.</p>
+<p>To find particularly elusive bugs, many IDEs come with debugging software that allows you to step through your program slowly and monitor the internal processes. Debuggers can be overkill for simpler bugs, but they can be invaluable tools when you cannot find a bug on your own.</p>
+<p>If all else fails, it’s best to simply move on and return to the program after some time has passed. A bug that may seem impossible to fix may become much easier after a good night’s sleep or a meal.</p>
+</div>
+<div class="section" id="Summary">
+<h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline">¶</a></h2>
+<p>It is inevitable that you will have to deal with errors, so understanding what they are and how to fix them can be invaluable.</p>
+<ul class="simple">
+<li>Syntax errors occur when your code cannot be read by the Python interpreter</li>
+<li>Exceptions occur when your code is readable, but cannot be run correctly</li>
+<li>Logic errors occur when your code runs, but does not behave as expected</li>
+</ul>
+</div>
+<div class="section" id="Link-to-Official-Documentation">
+<h2>Link to Official Documentation<a class="headerlink" href="#Link-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html">Built-in Exceptions</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../module_2_problems.html" class="btn btn-neutral float-right" title="Module 2: Problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DataStructures_III_Sets_and_More.html" class="btn btn-neutral float-left" title="Data Structures (Part III): Sets &amp; the Collections Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ryan Soklaski
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
