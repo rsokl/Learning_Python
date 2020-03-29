@@ -667,7 +667,7 @@ Clearly, in this instance, we should have simply used the strategy `st.integers(
 
 We will often need to draw from a Hypothesis strategy in a context-dependent manner within our test.
 Suppose, for example, that we want to describe two lists of integers, but we want to be sure that the second list is longer than the first.
-[We can use the `st.data()` strategy to use strategies "interactively"](https://hypothesis.readthedocs.io/en/latest/data.html#drawing-interactively-in-tests) in this sort of way.
+[We can use the st.data() strategy to use strategies "interactively"](https://hypothesis.readthedocs.io/en/latest/data.html#drawing-interactively-in-tests) in this sort of way.
 
 Let's see it in action.
 Suppose that we want to generate two non-empty lists of integers, `x` and `y`, but we want to ensure that the values stored in `y` values are *larger than all of the values in* `x`.
