@@ -136,7 +136,7 @@ I did not want this error to distract from what is otherwise merely a simple exa
 
 Hypothesis has a knack for catching these sorts of unexpected edge cases.
 Now we know that `len(range(size)) == size` _does not_ hold for "arbitrary" non-negative integers!
-(This overflow behavior  actually documented in the [CPython source code](https://github.com/python/cpython)  😄).
+(This overflow behavior is now documented in the [CPython source code](https://github.com/python/cpython) because it was discovered while writing this material 😄).
 
 
 </div>
@@ -376,6 +376,19 @@ For example, the following strategy will generate length-3 tuples whose entries 
 <!-- #endregion -->
 
 <!-- #region -->
+#### `st.text()`
+
+The [st.text](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.text) accepts an "alphabet" – a collection of string-characters – from which it will construct strings of varying lengths, whose bounds can be specified by the user.
+
+For example, the following strategy will strings of lowercase vowels from length 2 to length 10:
+
+```python
+>>> st.text("aeiouy", min_size=2, max_size=10).example()
+'oouoyoye'
+```
+<!-- #endregion -->
+
+<!-- #region -->
 #### `st.just()`
 
 [st.just](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.just) is a strategy that "just" returns the value that you fed it. This is a convenient strategy that helps us to avoid having to manipulate our data before using it.
@@ -450,6 +463,45 @@ Write down a strategy, and print out a representative example, that describes th
 </div>
 
 
+<!-- #region -->
+<div class="alert alert-info">
+
+**Reading Comprehension: Improving our tests using Hypothesis**
+
+We will be writing improved tests for the basic functions – `count_vowels` and `merge_max_mappings` – by leveraging Hypothesis.
+This reading comprehension question will require more substantial work than usual.
+That being said, the experience that we will gain from this will be well worth the work.
+Keep in mind that solutions are included at the end of this page, and that these can provide guidance if we get stuck.
+
+Part 1: Testing correctness by construction
+
+Write a hypothesis-driven test for the `count_vowels`; include this test in `test/test_basic_functions`.
+This is a test function where we can explicit construct a string in parts: its non-vowel characters, non-y vowels, and y-vowels.
+And thus, by constructing a string with a known number of vowel and non-vowel characters, we can know what the output of `count_vowels` *should* be for that input, and we can thus test for correctness in this way.
+We will want to read about the [st.text()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.text) strategy to construct the different parts of the string.
+The standard library's built-in `string` module provides a string of all printable characters (`string.printable`).
+
+We should ask ourselves: How general are input strings that we are constructing? Are there regular patterns in the strings that might prevent our test from identifying edge case bugs in `count_vowels`?
+
+
+Part 2: Property-based testing
+
+Write a hypothesis-driven test for `merge_max_mappings` ; include this test in `test/test_basic_functions`.
+Here, we can't simply contrive the inputs to `merge_max_mappings` in a general way and know what its output should be – we would have to re-implement the function to do that.
+Instead, we should *test the expected properties* of the merged dictionary.
+For example, one such property is that the merged dictionary should only contain maximum values.
+Another property would be that all of the keys among the input dictionaries should be present in the merged dictionary.
+Take some time to think of other such properties that we should test for.
+Ultimately we want to arrive at a comprehensive set of properties to test for such that we can be confident that our merged dictionary is correct.
+
+We will want to use [st.dictionaries()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.dictionaries) to describe the inputs to `merge_max_mappings`.
+Although dictionary keys can be any hashable object, suffice it to use both integers and text for the keys, and integers for the dictionary values in this test, for simplicity's sake.
+
+
+**We must remember to temporarily mutate our original functions to verify that these tests can actually catch bugs!**
+</div>
+
+<!-- #endregion -->
 
 ## Links to Official Documentation
 
@@ -532,5 +584,120 @@ Permutations of the list `[1, 2, 3, 4]`
 ```python
 >>> st.permutations([1, 2, 3, 4]).example()
 [2, 3, 1, 4]
+```
+<!-- #endregion -->
+
+**Improving our tests using Hypothesis: Solution**
+
+Part 1: Testing correctness by construction
+
+Write a hypothesis-driven test for the `count_vowels`; include this test in `test/test_basic_functions`.
+This is a test function where we can explicit construct a string in parts: its non-vowel characters, non-y vowels, and y-vowels.
+And thus, by constructing a string with a known number of vowel and non-vowel characters, we can know what the output of `count_vowels` *should* be for that input, and we can thus test for correctness in this way.
+We will want to read about the [st.text()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.text) strategy to construct the different parts of the string.
+The standard library's built-in `string` module provides a string of all printable characters (`string.printable`).
+
+We should ask ourselves: How general are input strings that we are constructing? Are there regular patterns in the strings that might prevent our test from identifying edge case bugs in `count_vowels`?
+
+<!-- #region -->
+```python
+from string import printable
+from random import shuffle
+
+import hypothesis.strategies as st
+from hypothesis import given, note
+
+# a list of all printable non-vowel characters
+_not_vowels = "".join([l for l in printable if l.lower() not in set("aeiouy")])
+
+
+@given(
+    not_vowels=st.text(alphabet=_not_vowels),
+    vowels_but_not_ys=st.text(alphabet="aeiouAEIOU"),
+    ys=st.text(alphabet="yY"),
+)
+def test_count_vowels_hypothesis(not_vowels, vowels_but_not_ys, ys):
+    """
+    Constructs an input string with a known number of:
+       - non-vowel characters
+       - non-y vowel characters
+       - y characters
+    
+    and thus, by constructions, we can test that the output
+    of `count_vowels` agrees with the known number of vowels
+    """
+    # list of characters
+    letters = list(not_vowels) + list(vowels_but_not_ys) + list(ys)
+    
+    # We need to shuffle the ordering of our characters so that
+    # our input string isn't unnaturally patterned; e.g. always 
+    # have its vowels at the end
+    shuffle(letters)
+    in_string = "".join(letters)
+    
+    # Hypothesis provides a `note` function that will print out
+    # whatever input you give it, but only in the case that the
+    # test fails.
+    # This way we can see the exact string that we fed to `count_vowels`,
+    # if it caused our test to fail
+    note("in_string: " + in_string)
+    
+    # testing that `count_vowels` produces the expected output
+    # both including and excluding y's in the count
+    assert count_vowels(in_string, include_y=False) == len(vowels_but_not_ys)
+    assert count_vowels(in_string, include_y=True) == len(vowels_but_not_ys) + len(ys)
+```
+<!-- #endregion -->
+
+Part 2: Property-based testing
+
+Write a hypothesis-driven test for `merge_max_mappings` ; include this test in `test/test_basic_functions`.
+Here, we can't simply contrive the inputs to `merge_max_mappings` in a general way and know what its output should be – we would have to re-implement the function to do that.
+Instead, we should *test the expected properties* of the merged dictionary.
+For example, one such property is that the merged dictionary should only contain maximum values.
+Another property would be that all of the keys among the input dictionaries should be present in the merged dictionary.
+Take some time to think of other such properties that we should test for.
+Ultimately we want to arrive at a comprehensive set of properties to test for such that we can be confident that our merged dictionary is correct.
+
+We will want to use [st.dictionaries()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.dictionaries) to describe the inputs to `merge_max_mappings`.
+Although dictionary keys can be any hashable object, suffice it to use both integers and text for the keys, and integers for the dictionary values in this test, for simplicity's sake.
+
+<!-- #region -->
+```python
+@given(
+    dict1=st.dictionaries(
+        keys=st.integers(-10, 10) | st.text(), values=st.integers(-10, 10)
+    ),
+    dict2=st.dictionaries(
+        keys=st.integers(-10, 10) | st.text(), values=st.integers(-10, 10)
+    ),
+)
+def test_merge_max_mappings_hypothesis(dict1, dict2):
+    merged_dict = merge_max_mappings(dict1, dict2)
+    
+    # property: `merged_dict` contains all of the keys among
+    # `dict1` and `dict2`
+    assert set(merged_dict) == set(dict1).union(dict2), \
+        "novel keys were introduced or lost"
+
+    # property: `merged_dict` only contains values that appear
+    # among `dict1` and `dict2`
+    assert set(merged_dict.values()) <= set(dict1.values()).union(
+        dict2.values()
+    ), "novel values were introduced"
+
+    # property: `merged_dict` only contains key-value pairs with
+    # the largest value represented among the pairs in `dict1`
+    # and `dict2`
+    assert all(dict1[k] <= merged_dict[k] for k in dict1) and \
+           all(dict2[k] <= merged_dict[k] for k in dict2), \
+        "`merged_dict` contains a non-max value"
+
+    # property: `merged_dict` only contains key-value pairs that
+    # appear among `dict1` and `dict2`
+    for k, v in merged_dict.items():
+        assert (k, v) in dict1.items() or \
+               (k, v) in dict2.items(), \
+            "`merged_dict` did not preserve the key-value pairings"
 ```
 <!-- #endregion -->
