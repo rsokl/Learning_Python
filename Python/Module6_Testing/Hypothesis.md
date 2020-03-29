@@ -679,10 +679,13 @@ from typing import List
 
 # Defining our test function:
 #  - `x` is a non-empty list of integers.
-# `- `data` is an object provided by Hypothesis that permits us
+#  - `data` is an object provided by Hypothesis that permits us
 #     to draw interactively from other strategies within our test
 @given(x=st.lists(st.integers(), min_size=1), data=st.data())
 def test_two_constrained_lists(x, data):
+    # We pass `data.draw(...)` a hypothesis strategy - it will draw a value from it.
+    # Thus `y` is a non-empty list of integers, whose values are guaranteed to be
+    # larger than `max(x)`
     y = data.draw(st.lists(st.integers(min_value=max(x) + 1), min_size=1), label="y")
 
     largest_x = max(x) 
