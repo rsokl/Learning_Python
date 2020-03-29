@@ -31,7 +31,7 @@ Ultimately this an extremely powerful tool for enabling us to write high-quality
 Hypothesis can be installed via conda:
 
 ```shell
-conda install -c conda-forge hypothesis
+conda install hypothesis
 ```
 
 or pip:
@@ -39,6 +39,7 @@ or pip:
 ```shell
 pip install hypothesis
 ```
+
 
 ## A Simple Example Using Hypothesis
 
@@ -135,7 +136,7 @@ I did not want this error to distract from what is otherwise merely a simple exa
 
 Hypothesis has a knack for catching these sorts of unexpected edge cases.
 Now we know that `len(range(size)) == size` _does not_ hold for "arbitrary" non-negative integers!
-(I wonder how many of the Python core developers know about this 😄).
+(This overflow behavior  actually documented in the [CPython source code](https://github.com/python/cpython)  😄).
 
 
 </div>
