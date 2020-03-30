@@ -411,7 +411,7 @@ The [st.one_of](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis
 st.one_of(st.integers(), st.lists(st.integers()))
 ```
 
-will draw values that are *either* integers or list of integers:
+will draw values that are *either* integers or lists of integers:
 
 ```python
 >>> st.one_of(st.integers(), st.lists(st.integers())).example()
