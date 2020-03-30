@@ -149,7 +149,7 @@ Hypothesis' [given decorator](https://hypothesis.readthedocs.io/en/latest/detail
 
  - drawing values from Hypothesis' so-called "strategies" for describing input data for our test function
  - running the test function many times (up to 100 times, by default) given different input values drawn from the strategy
- - "shrinking" the drawn inputs to identify simple fail cases: if an error is raised by the test function during one of the many execution, the `given` decorator will attempt to "shrink" (i.e. simplify) the inputs that produce that same error before reporting them to the user
+ - "shrinking" the drawn inputs to identify simple fail cases: if an error is raised by the test function during one of the many executions, the `given` decorator will attempt to "shrink" (i.e. simplify) the inputs that produce that same error before reporting them to the user
  - reporting the input values that caused the test function to raise an error
 
 
