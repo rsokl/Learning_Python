@@ -475,7 +475,7 @@ Keep in mind that solutions are included at the end of this page, and that these
 
 Part 1: Testing correctness by construction
 
-Write a hypothesis-driven test for the `count_vowels`; include this test in `test/test_basic_functions`.
+Write a Hypothesis-driven test for the `count_vowels`; include this test in `tests/test_basic_functions`.
 This is a test function where we can explicit construct a string in parts: its non-vowel characters, non-y vowels, and y-vowels.
 And thus, by constructing a string with a known number of vowel and non-vowel characters, we can know what the output of `count_vowels` *should* be for that input, and we can thus test for correctness in this way.
 We will want to read about the [st.text()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.text) strategy to construct the different parts of the string.
