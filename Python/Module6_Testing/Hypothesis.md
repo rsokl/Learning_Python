@@ -456,7 +456,7 @@ For example, the following strategy will sample a value `0`, `"a"`, or `(2, 2)` 
 Review the [rest of Hypothesis' core strategies](https://hypothesis.readthedocs.io/en/latest/data.html#core-strategies).
 Write down a strategy, and print out a representative example, that describes the the data according to each of the following conditions:
 
-   1. Dictionaries of arbitrary size whose keys are positive-values integers and whose values are `True` or `False.
+   1. Dictionaries of arbitrary size whose keys are positive-valued integers and whose values are `True` or `False.
    2. Length-4 strings whose elements are only lowercase vowels
    3. Permutations of the list `[1, 2, 3, 4]`
 
