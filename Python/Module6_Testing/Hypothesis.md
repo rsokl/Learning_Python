@@ -404,7 +404,7 @@ Suppose that we want a strategy that describes the shape of an array (i.e. a tup
 <!-- #region -->
 #### `st.one_of()`
 
-The [st.one_of](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.one_of) allows us to specify a collection of strategies and any given datum will be drawn from "one of" them. E.g.
+The [st.one_of](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.one_of) strategy allows us to specify a collection of strategies and any given datum will be drawn from "one of" them. For example:
 
 ```python
 # demonstrating st.one_of()
