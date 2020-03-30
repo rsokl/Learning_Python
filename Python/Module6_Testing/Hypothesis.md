@@ -486,7 +486,7 @@ We should ask ourselves: how general are input strings that we are constructing?
 
 Part 2: Property-based testing
 
-Write a hypothesis-driven test for `merge_max_mappings` ; include this test in `test/test_basic_functions`.
+Write a Hypothesis-driven test for `merge_max_mappings` ; include this test in `tests/test_basic_functions`.
 Here, we can't simply contrive the inputs to `merge_max_mappings` in a general way and know what its output should be – we would have to re-implement the function to do that.
 Instead, we should *test the expected properties* of the merged dictionary.
 For example, one such property is that the merged dictionary should only contain maximum values.
