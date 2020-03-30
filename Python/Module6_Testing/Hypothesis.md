@@ -439,7 +439,7 @@ The "pipe" operator, `|` can be used between strategies, to chain `st.one_of` ca
 <!-- #region -->
 #### `st.sampled_from`
 
-[st.sampled_from](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.sampled_from) accepts a collection of objects (anything that has a length and supports integer-based indexing is a collection; e.g. lists, tuples, strings, and numpy arrays). The strategy will return values that are sampled from this collections.
+[st.sampled_from](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.sampled_from) accepts a collection of objects (anything that has a length and supports integer-based indexing is a collection; e.g. lists, tuples, strings, and NumPy arrays). The strategy will return values that are sampled from this collection.
 
 For example, the following strategy will sample from a list either `0`, `"a"`, or `(2, 2)`
 
