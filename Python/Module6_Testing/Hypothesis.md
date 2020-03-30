@@ -26,7 +26,7 @@ Indeed, these are questions that you may have been asking yourself when writing 
 
 [Hypothesis](https://hypothesis.readthedocs.io/) is a powerful Python library that empowers us to write a _description_ (specification, to be more precise) of the data that we want to use to exercise our test.
 It will then *generate* test cases that satisfy this description and will run our test on these cases.
-Ultimately this an extremely powerful tool for enabling us to write high-quality automated tests for our code.
+Ultimately, this an extremely powerful tool for enabling us to write high-quality automated tests for our code.
 
 Hypothesis can be installed via conda:
 
