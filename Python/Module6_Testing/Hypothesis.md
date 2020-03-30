@@ -424,7 +424,7 @@ will draw values that are *either* integers or lists of integers:
 The "pipe" operator, `|` can be used between strategies, to chain `st.one_of` calls:
 
 ```python
-# Using the pipe operation, | , in place of `st.one_of`
+# Using the pipe operator, | , in place of `st.one_of`
 # This strategy generates integers or floats
 # or lists that contain just the word "hello"
 
