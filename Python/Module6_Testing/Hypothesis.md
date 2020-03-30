@@ -481,7 +481,7 @@ And thus, by constructing a string with a known number of vowel and non-vowel ch
 We will want to read about the [st.text()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.text) strategy to construct the different parts of the string.
 The standard library's built-in `string` module provides a string of all printable characters (`string.printable`).
 
-We should ask ourselves: How general are input strings that we are constructing? Are there regular patterns in the strings that might prevent our test from identifying edge case bugs in `count_vowels`?
+We should ask ourselves: how general are input strings that we are constructing? Are there regular patterns in the strings that might prevent our test from identifying edge case bugs in `count_vowels`?
 
 
 Part 2: Property-based testing
