@@ -352,7 +352,7 @@ For example, the following strategy describes lists whose length varies from 2 t
  - bounds (either inclusive or exclusive) on the floats being generated; this will naturally preclude `math.nan` from being generated
  - the "width" of the floats; e.g. if you want to generate 16-bit or 32-bit floats vs 64-bit
    (while Python's `float` is (usually) 64-bit, `width=32` ensures that the generated values can
-   always be losslessly represented in 32 bits.  This is mostly useful for Numpy arrays.)
+   always be losslessly represented in 32 bits.  This is mostly useful for NumPy arrays.)
 
 For example, the following strategy 64-bit floats that reside in the domain $[-100, 1]$:
 
