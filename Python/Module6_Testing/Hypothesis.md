@@ -393,7 +393,7 @@ For example, the following strategy will strings of lowercase vowels from length
 
 [st.just](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.just) is a strategy that "just" returns the value that you fed it. This is a convenient strategy that helps us to avoid having to manipulate our data before using it.
 
-Write suppose that we want a strategy that describes the shape of an array (i.e. a tuple of integers) that contains 1-20 two-dimensional vectors. E.g. `(5, 2)` is the shape of the array containing five two-dimensional vectors. We can leverage `st.just`, in conjunction with `st.integers` and `st.tuples`, towards this end:
+Suppose that we want a strategy that describes the shape of an array (i.e. a tuple of integers) that contains 1-20 two-dimensional vectors. E.g. `(5, 2)` is the shape of the array containing five two-dimensional vectors. We can leverage `st.just`, in conjunction with `st.integers` and `st.tuples`, towards this end:
 
 ```python
 >>> st.tuples(st.integers(1, 20), st.just(2)).example()
