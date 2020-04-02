@@ -72,7 +72,7 @@ import plymi
 plymi.build_to_doc(".") # point to the top-level dir (contains both `docs/` and `docs_backup`)
 ```
 
-This will back-up your current `docs` directory, and will move the html from `_builds` to `docs`. It will also ensure some essential "meta" files, `.nojekyll` and `CNAME` are present. The former is required for githubpages to build the site correctly, the latter ensures that the canonical name for the site is `pythonlikeyoumeantit.com`.
+This will back-up your current `docs` directory, and will move the html from `_builds` to `docs`. It will also ensure some essential "meta" files, `.nojekyll` and `CNAME` are present. The former is required for githubpages to build the site correctly, the latter ensures that the canonical name for the site is `pythonlikeyoumeanit.com`.
 
 
 
