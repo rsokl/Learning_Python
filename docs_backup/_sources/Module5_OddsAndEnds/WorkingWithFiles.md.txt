@@ -85,8 +85,9 @@ WindowsPath('C:/Users/TerranceWasabi/Desktop/PLYMI/Module5_OddsAndEnds/data/data
 >>> path_to_data1.name
 'data1.txt'
 
-# Create a new directory within the present directory
->>> root.mkdir("new_folder")
+# Create a new directory, named 'new_folder' within the root directory
+>>> new_dir = root / "new_folder"
+>>> new_dir.mkdir()
 
 # Use 'glob' to return a generator over all files
 # that match a specified pattern. E.g. get path to every

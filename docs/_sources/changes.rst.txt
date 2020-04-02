@@ -11,7 +11,7 @@ on pip.
 2020-04-02
 ----------
 
-Fixed a mistake in [Working with Files](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/WorkingWithFiles.html) where the
+Fixed a mistake in `Working with Files <https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/WorkingWithFiles.html>`_ where the
 reported syntax for invoking ``Path.mkdir()`` was incorrect.
 
 
