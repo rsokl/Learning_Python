@@ -99,9 +99,9 @@ todo_include_todos = True
 html_theme = "sphinx_rtd_theme"
 
 def setup(app):
-    app.add_stylesheet('my_theme.css')
-    app.add_javascript("https://www.googletagmanager.com/gtag/js?id=UA-115029372-1")
-    app.add_javascript("gtag.js")
+    app.add_css_file('my_theme.css')
+    app.add_js_file("https://www.googletagmanager.com/gtag/js?id=UA-115029372-1")
+    app.add_js_file("gtag.js")
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
