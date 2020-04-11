@@ -39,9 +39,9 @@ extensions = [
     "sphinx.ext.githubpages",
 ]
 
-import jupytext
-
-nbsphinx_custom_formats = {".md": lambda s: jupytext.reads(s, ".md")}
+nbsphinx_custom_formats = {
+    '.md': ['jupytext.reads', {'fmt': 'md'}],
+}
 
 nbsphinx_allow_errors = False
 

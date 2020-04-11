@@ -8,6 +8,13 @@ on pip.
 
 
 ----------
+2020-04-11
+----------
+
+Updated some of the "backend" technologies behind PLYMI: upgraded sphinx and nbsphinx.
+
+
+----------
 2020-04-02
 ----------
 
