@@ -703,6 +703,7 @@ This will return a tuple of two integer-valued index-arrays. These contain the i
 
 # equivalent (using numpy built-in functions):
 # x[np.diag_indices_from(x)] = np.arange(4)
+# np.fill_diagonal(x, np.arange(4))
 
 >>> x[0.8 < x] += 1
 >>> x
