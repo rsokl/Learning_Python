@@ -695,6 +695,15 @@ This will return a tuple of two integer-valued index-arrays. These contain the i
 ...               [ 0.84,  0.76,  0.25,  0.07]])
 
 >>> x[np.arange(4), np.arange(4)] = range(4)
+# equivalent (works for the general case of a square matrix of N-dims)
+# x[tuple(map(np.arange, x.shape))] = range(x.shape[0])
+
+# same as above, using a tuple comprehension
+# x[tuple(np.arange(x) for x in x.shape)] = range(x.shape[0])
+
+# equivalent (using numpy built-in functions):
+# x[np.diag_indices_from(x)] = np.arange(4)
+
 >>> x[0.8 < x] += 1
 >>> x
 array([[ 0.  ,  0.05,  1.84,  0.21],
