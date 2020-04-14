@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -200,13 +201,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -229,13 +230,13 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># examples of sequences</span>
 
 <span class="c1"># a list</span>
-<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># a string</span>
 <span class="s2">&quot;hello out there&quot;</span>
 
 <span class="c1"># a tuple</span>
-<span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># a NumPy array</span>
 <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
@@ -245,9 +246,9 @@
 considered distinct strings). As such, lists, strings, and the other sequence types in Python all share a common interface for allowing users to inspect, retrieve, and summarize their contents.</p>
 <p>In this section, we will:</p>
 <ul class="simple">
-<li>Introduce tuples, the last built-in sequence type that we have yet to encounter.</li>
-<li>Demonstrate the common interface that can be used to inspect and summarize the contents of a sequence.</li>
-<li>Detail the all-important indexing scheme used by Python, which will allow us to access specific items or subsequences from a sequence.</li>
+<li><p>Introduce tuples, the last built-in sequence type that we have yet to encounter.</p></li>
+<li><p>Demonstrate the common interface that can be used to inspect and summarize the contents of a sequence.</p></li>
+<li><p>Detail the all-important indexing scheme used by Python, which will allow us to access specific items or subsequences from a sequence.</p></li>
 </ul>
 <div class="section" id="Tuples">
 <h2>Tuples<a class="headerlink" href="#Tuples" title="Permalink to this headline">¶</a></h2>
@@ -264,7 +265,7 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <span class="nb">tuple</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -277,13 +278,13 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 </div>
 <p>Unlike a list, <em>once a tuple is formed, it cannot be changed</em>. That is, a tuple is <em>immutable</em>, whereas a list is <em>mutable</em>. Tuples generally consume less memory than do lists, since it is known that a tuple will not change in size. Furthermore, tuples come in handy when you want to ensure that a sequence of data cannot be changed by subsequent code.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the contents of a list can be changed: it is &quot;mutable&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
-<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;moo&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;moo&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
 
 <span class="c1"># the contents of a tuple cannot be changed: it is &quot;immutable&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>  <span class="c1"># (a, b, ...) creates a tuple</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># (a, b, ...) creates a tuple</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;tuple&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
 </pre></div>
@@ -309,27 +310,27 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">x</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">x</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># strings can also test for sub-sequence membership</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;cat&quot;</span> <span class="ow">in</span> <span class="s2">&quot;the cat in the hat&quot;</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># you cannot test for sub-sequence membership in other</span>
 <span class="c1"># types of sequences</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 
 <span class="c1"># the list [1, 2] must be an element of the list</span>
 <span class="c1"># to be seen as a member</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="bp">None</span><span class="p">]</span>
-<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <p><strong>Concatenating sequences:</strong> <code class="docutils literal notranslate"><span class="pre">seq1</span> <span class="pre">+</span> <span class="pre">seq2</span></code></p>
@@ -385,8 +386,8 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Basics of sequences</strong></p>
 <ol class="arabic simple">
-<li>Change the list <code class="docutils literal notranslate"><span class="pre">[True,</span> <span class="pre">None,</span> <span class="pre">22]</span></code> into a tuple.</li>
-<li>How many sequence-types have we discussed thus far? Which of these produce objects that are immutable? Which of these produce objects that are mutable? For those types that are mutable, write a piece of example code that mutates an object.</li>
+<li><p>Change the list <code class="docutils literal notranslate"><span class="pre">[True,</span> <span class="pre">None,</span> <span class="pre">22]</span></code> into a tuple.</p></li>
+<li><p>How many sequence-types have we discussed thus far? Which of these produce objects that are immutable? Which of these produce objects that are mutable? For those types that are mutable, write a piece of example code that mutates an object.</p></li>
 </ol>
 </div>
 <div class="section" id="Introducing-Indexing-and-Slicing">
@@ -422,21 +423,21 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <p>The first row of numbers gives the position of the indices 0…5 in the string; the second row gives the corresponding negative indices.</p>
 <p><strong>Positive Indices</strong></p>
 <ul class="simple">
-<li>0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> P</li>
-<li>1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> y</li>
-<li>2 <span class="math notranslate nohighlight">\(\rightarrow\)</span> t</li>
-<li>3 <span class="math notranslate nohighlight">\(\rightarrow\)</span> h</li>
-<li>4 <span class="math notranslate nohighlight">\(\rightarrow\)</span> o</li>
-<li>5 <span class="math notranslate nohighlight">\(\rightarrow\)</span> n</li>
+<li><p>0 <span class="math notranslate nohighlight">\(\rightarrow\)</span> P</p></li>
+<li><p>1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> y</p></li>
+<li><p>2 <span class="math notranslate nohighlight">\(\rightarrow\)</span> t</p></li>
+<li><p>3 <span class="math notranslate nohighlight">\(\rightarrow\)</span> h</p></li>
+<li><p>4 <span class="math notranslate nohighlight">\(\rightarrow\)</span> o</p></li>
+<li><p>5 <span class="math notranslate nohighlight">\(\rightarrow\)</span> n</p></li>
 </ul>
 <p><strong>Negative Indices</strong></p>
 <ul class="simple">
-<li>-6 <span class="math notranslate nohighlight">\(\rightarrow\)</span> P</li>
-<li>-5 <span class="math notranslate nohighlight">\(\rightarrow\)</span> y</li>
-<li>-4 <span class="math notranslate nohighlight">\(\rightarrow\)</span> t</li>
-<li>-3 <span class="math notranslate nohighlight">\(\rightarrow\)</span> h</li>
-<li>-2 <span class="math notranslate nohighlight">\(\rightarrow\)</span> o</li>
-<li>-1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> n</li>
+<li><p>-6 <span class="math notranslate nohighlight">\(\rightarrow\)</span> P</p></li>
+<li><p>-5 <span class="math notranslate nohighlight">\(\rightarrow\)</span> y</p></li>
+<li><p>-4 <span class="math notranslate nohighlight">\(\rightarrow\)</span> t</p></li>
+<li><p>-3 <span class="math notranslate nohighlight">\(\rightarrow\)</span> h</p></li>
+<li><p>-2 <span class="math notranslate nohighlight">\(\rightarrow\)</span> o</p></li>
+<li><p>-1 <span class="math notranslate nohighlight">\(\rightarrow\)</span> n</p></li>
 </ul>
 <p>Given this indexing scheme, Python reserves the use of square brackets following a variable name or object, as the “get-item” syntax: <code class="docutils literal notranslate"><span class="pre">seq[index]</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating indexing into sequences</span>
@@ -455,8 +456,8 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;cat&quot;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># you can index directly into a sequence-object</span>
 <span class="s1">&#39;t&#39;</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="kc">False</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -468,9 +469,9 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <h3>Slicing<a class="headerlink" href="#Slicing" title="Permalink to this headline">¶</a></h3>
 <p>Slicing a sequence allows us to retrieve a subsequence of items, based on the indexing scheme that we reviewed in the preceeding subsection. Specifying a slice consists of:</p>
 <ul class="simple">
-<li>A start-index: the sequence-position where the slice begins (this item is <em>included</em> in the slice).</li>
-<li>A stop-index: the sequence-position where the slice ends (this item is <em>excluded</em> from the slice).</li>
-<li>A step-size, which permits us to take every item within the start &amp; stop bounds, or every <em>other</em> item, and so on. It is important to note that a negative step-size permits us to traverse a sequence <em>in reveresed order</em>.</li>
+<li><p>A start-index: the sequence-position where the slice begins (this item is <em>included</em> in the slice).</p></li>
+<li><p>A stop-index: the sequence-position where the slice ends (this item is <em>excluded</em> from the slice).</p></li>
+<li><p>A step-size, which permits us to take every item within the start &amp; stop bounds, or every <em>other</em> item, and so on. It is important to note that a negative step-size permits us to traverse a sequence <em>in reveresed order</em>.</p></li>
 </ul>
 <p>The basic syntax for slicing is: <code class="docutils literal notranslate"><span class="pre">seq[start:stop:step]</span></code>, using colons to separate the start, stop, and step values.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the basics of slicing a sequence</span>
@@ -496,9 +497,9 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 </div>
 <p>Slicing provides sensible default start, stop, and step values. Their default values are:</p>
 <ul class="simple">
-<li>start: 0</li>
-<li>stop: <code class="docutils literal notranslate"><span class="pre">len(seq)</span></code></li>
-<li>step: 1</li>
+<li><p>start: 0</p></li>
+<li><p>stop: <code class="docutils literal notranslate"><span class="pre">len(seq)</span></code></p></li>
+<li><p>step: 1</p></li>
 </ul>
 <p>You can omit any of these values or specify <code class="docutils literal notranslate"><span class="pre">None</span></code> in that entry to use the default value. You can omit the second colon entirely, and the slice will use a step-size of 1.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using default start, stop, and step values</span>
@@ -540,9 +541,9 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using the `slice` object to slice several sequences</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq1</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">seq3</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">seq3</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">reverse</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">reverse</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq1</span><span class="p">[</span><span class="n">reverse</span><span class="p">]</span>
 <span class="s1">&#39;elppa&#39;</span>
@@ -551,7 +552,7 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">seq3</span><span class="p">[</span><span class="n">reverse</span><span class="p">]</span>
-<span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">]</span>
+<span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -588,24 +589,24 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 </div>
 <p>Slice or index into <code class="docutils literal notranslate"><span class="pre">x</span></code> to produce the following:</p>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">0</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">8</span></code> (using a negative index)</li>
-<li><code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">4,</span> <span class="pre">6)</span></code> (using a slice-object)</li>
-<li><code class="docutils literal notranslate"><span class="pre">(4,)</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">4</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">4</span></code> (using a negative index)</li>
-<li><code class="docutils literal notranslate"><span class="pre">(6,</span> <span class="pre">8)</span></code> (using a negative index for the start of the slice)</li>
-<li><code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">6)</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">(8,</span> <span class="pre">6,</span> <span class="pre">4,</span> <span class="pre">2)</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">8</span></code> (using a negative index)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">4,</span> <span class="pre">6)</span></code> (using a slice-object)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(4,)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> (using a negative index)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(6,</span> <span class="pre">8)</span></code> (using a negative index for the start of the slice)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">6)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(8,</span> <span class="pre">6,</span> <span class="pre">4,</span> <span class="pre">2)</span></code></p></li>
 </ol>
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Checking Your General Understanding</strong></p>
 <p>Write a piece of code for each of the following tasks. If the task is impossible/ill-posed explain why.</p>
 <ol class="arabic simple">
-<li>Using the string “blogosphere”, slicing, and repeat-concatenation, create the string: ‘boopeeboopeeboopeeboopeeboopee’. (hint: how would you slice “blogosphere” to produce “boopee”, think step-size)</li>
-<li>Assume that a tuple, <code class="docutils literal notranslate"><span class="pre">x</span></code>, contains the item <code class="docutils literal notranslate"><span class="pre">5</span></code> in it at least once. Find where that first entry is, and change it to <code class="docutils literal notranslate"><span class="pre">-5</span></code>. For example <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">0,</span> <span class="pre">5)</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">-5,</span> <span class="pre">0,</span> <span class="pre">5)</span></code>.</li>
-<li>Given a sequence, <code class="docutils literal notranslate"><span class="pre">x</span></code>, and a valid negative index for <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">neg_index</span></code>, find the corresponding positive-value for that index. That is, if <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">&quot;cat&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">neg_index</span> <span class="pre">=</span> <span class="pre">-3</span></code>, which is the negative index that would return <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code>, then you would want to return the index <code class="docutils literal notranslate"><span class="pre">0</span></code>.</li>
+<li><p>Using the string “blogosphere”, slicing, and repeat-concatenation, create the string: ‘boopeeboopeeboopeeboopeeboopee’. (hint: how would you slice “blogosphere” to produce “boopee”, think step-size)</p></li>
+<li><p>Assume that a tuple, <code class="docutils literal notranslate"><span class="pre">x</span></code>, contains the item <code class="docutils literal notranslate"><span class="pre">5</span></code> in it at least once. Find where that first entry is, and change it to <code class="docutils literal notranslate"><span class="pre">-5</span></code>. For example <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">0,</span> <span class="pre">5)</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">-5,</span> <span class="pre">0,</span> <span class="pre">5)</span></code>.</p></li>
+<li><p>Given a sequence, <code class="docutils literal notranslate"><span class="pre">x</span></code>, and a valid negative index for <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">neg_index</span></code>, find the corresponding positive-value for that index. That is, if <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">&quot;cat&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">neg_index</span> <span class="pre">=</span> <span class="pre">-3</span></code>, which is the negative index that would return <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code>, then you would want to return the index <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
 </ol>
 </div>
 </div>
@@ -614,22 +615,22 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq">Sequences</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple">Tuples</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#immutable-sequence-types">Immutable Sequence Types</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types">Mutable Sequence Types</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq">Sequences</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple">Tuples</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#immutable-sequence-types">Immutable Sequence Types</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types">Mutable Sequence Types</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Basics of sequences</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Change the list [True, None, 22] into a tuple.</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">tuple</span><span class="p">([</span><span class="bp">True</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span>
-<span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">tuple</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span>
+<span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>We have been introduced to three Python types that are sequential in nature: strings, lists, and tuples. Among these, lists are the only mutable objects. We can demonstrate this by simply appending a new element to the end of a list that has already been constructed.</li>
+<li><p>We have been introduced to three Python types that are sequential in nature: strings, lists, and tuples. Among these, lists are the only mutable objects. We can demonstrate this by simply appending a new element to the end of a list that has already been constructed.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
@@ -642,26 +643,26 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 </div>
 <p><strong>Indexing and Slicing Sequences: Solutions</strong></p>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">x[0]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">x[-1]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">x[slice(1,</span> <span class="pre">4,</span> <span class="pre">1)]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">x[2:3]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">x[2]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">x[-3]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">x[-2:]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">x[1:4:2]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">x[:0:-1]</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x[0]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x[-1]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x[slice(1,</span> <span class="pre">4,</span> <span class="pre">1)]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x[2:3]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x[2]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x[-3]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x[-2:]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x[1:4:2]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x[:0:-1]</span></code></p></li>
 </ol>
 <p><strong>Checking Your General Understanding: Solutions</strong></p>
 <ol class="arabic simple">
-<li>“boopee” is every-other letter in “blogosphere”, thus slicing this sequence with a step-size of 2, <code class="docutils literal notranslate"><span class="pre">&quot;blogosphere&quot;[::2]</span></code>, returns “boopee”. We can then use <code class="docutils literal notranslate"><span class="pre">seq*n</span></code> to repeat this sequence five times. Thus the solution is</li>
+<li><p>“boopee” is every-other letter in “blogosphere”, thus slicing this sequence with a step-size of 2, <code class="docutils literal notranslate"><span class="pre">&quot;blogosphere&quot;[::2]</span></code>, returns “boopee”. We can then use <code class="docutils literal notranslate"><span class="pre">seq*n</span></code> to repeat this sequence five times. Thus the solution is</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;blogosphere&quot;</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span>
 <span class="go">&#39;boopeeboopeeboopeeboopeeboopee&#39;</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Tuples are immutable objects. This means that their content cannot be changed once it is created. Thus this question is ill-posed! How clever am I for writing that question? I feel so clever. Wow. I’m great.</li>
+<li><p>Tuples are immutable objects. This means that their content cannot be changed once it is created. Thus this question is ill-posed! How clever am I for writing that question? I feel so clever. Wow. I’m great.</p></li>
 </ol>
 <p>If that question was posed in terms of a <em>list</em>, then the solution would be:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -671,7 +672,7 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Refer to the “index” diagram to see that this is the simple relationship between positive and negative indices for a given sequence:</li>
+<li><p>Refer to the “index” diagram to see that this is the simple relationship between positive and negative indices for a given sequence:</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pos_index</span> <span class="o">=</span> <span class="n">neg_index</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>

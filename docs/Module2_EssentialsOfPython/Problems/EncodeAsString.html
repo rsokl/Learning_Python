@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -183,13 +184,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -206,16 +207,17 @@
 <h1>Encode as String<a class="headerlink" href="#Encode-as-String" title="Permalink to this headline">¶</a></h1>
 <p>Sometimes it is very important to handle different input object types differently in a function. This problem will exercise your understanding of types, control-flow, dictionaries, and more.</p>
 <blockquote>
-<div>We want to encode a sequence of Python objects as a single string. The following describes the encoding method that we want to use for each type of object. Each object’s transcription in should be separated by <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">|</span> <span class="pre">&quot;</span></code>, and the result should be one large string.</div></blockquote>
+<div><p>We want to encode a sequence of Python objects as a single string. The following describes the encoding method that we want to use for each type of object. Each object’s transcription in should be separated by <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">|</span> <span class="pre">&quot;</span></code>, and the result should be one large string.</p>
+</div></blockquote>
 <ul class="simple">
-<li>If the object is an integer, convert it into a string by spelling out each digit in base-10 in this format: <code class="docutils literal notranslate"><span class="pre">142</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">one-four-two</span></code>; <code class="docutils literal notranslate"><span class="pre">-12</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">neg-one-two</span></code>.</li>
-<li>If the object is a float, just append its integer part (obtained by rounding down) the same way and the string <code class="docutils literal notranslate"><span class="pre">&quot;and</span> <span class="pre">float&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">12.324</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">one-two</span> <span class="pre">and</span> <span class="pre">float</span></code>.</li>
-<li>If the object is a string, keep it as is.</li>
-<li>If the object is of any other type, return <code class="docutils literal notranslate"><span class="pre">'&lt;OTHER&gt;'</span></code>.</li>
+<li><p>If the object is an integer, convert it into a string by spelling out each digit in base-10 in this format: <code class="docutils literal notranslate"><span class="pre">142</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">one-four-two</span></code>; <code class="docutils literal notranslate"><span class="pre">-12</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">neg-one-two</span></code>.</p></li>
+<li><p>If the object is a float, just append its integer part (obtained by rounding down) the same way and the string <code class="docutils literal notranslate"><span class="pre">&quot;and</span> <span class="pre">float&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">12.324</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">one-two</span> <span class="pre">and</span> <span class="pre">float</span></code>.</p></li>
+<li><p>If the object is a string, keep it as is.</p></li>
+<li><p>If the object is of any other type, return <code class="docutils literal notranslate"><span class="pre">'&lt;OTHER&gt;'</span></code>.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example behavior</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">concat_to_str</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span><span class="o">-</span><span class="mf">14.23</span><span class="p">,</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span>
-<span class="o">...</span>                    <span class="s2">&quot;Aha&quot;</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">concat_to_str</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span><span class="o">-</span><span class="mf">14.23</span><span class="p">,</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span>
+<span class="o">...</span>                    <span class="s2">&quot;Aha&quot;</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
 <span class="s1">&#39;one-two | neg-one-four and float | hello | &lt;OTHER&gt; | Aha | one-zero and float | &lt;OTHER&gt; | five&#39;</span>
 </pre></div>
@@ -327,10 +329,10 @@ returned by the function and none of its subsequent code can be visited. That is
 <p>The use of in-line <code class="docutils literal notranslate"><span class="pre">if-return</span></code> expressions in <code class="docutils literal notranslate"><span class="pre">item_to_transcript</span></code> does a nice job emphasizing the dictionary-like mapping behavior of the function: the form of the code suits its functionality nicely. That being said, these should generally be used sparingly. Some may call this a “cute” trick. And it is. This code is cute. I write cute code.</p>
 <p>Finally, you may have noticed what looks like a redundancy in our code: our first <code class="docutils literal notranslate"><span class="pre">if</span></code> statement returns <code class="docutils literal notranslate"><span class="pre">'&lt;OTHER&gt;'</span></code> if <code class="docutils literal notranslate"><span class="pre">item</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, and our final line of code returns <code class="docutils literal notranslate"><span class="pre">'&lt;OTHER&gt;'</span></code> if none of the preceding conditions were met (i.e. <code class="docutils literal notranslate"><span class="pre">item</span></code> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, or <code class="docutils literal notranslate"><span class="pre">str</span></code> type object). Why then did we not just merge our first <code class="docutils literal notranslate"><span class="pre">if</span></code> clause with this ultimate catch-all? The reason is that <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> are not only instances of the boolean
 type, they are also integers! <code class="docutils literal notranslate"><span class="pre">True</span></code> behaves like the integer <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> like <code class="docutils literal notranslate"><span class="pre">0</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
 <span class="go">True</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span><span class="o">*</span><span class="bp">True</span> <span class="o">+</span> <span class="bp">True</span> <span class="o">-</span> <span class="bp">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span><span class="o">*</span><span class="kc">True</span> <span class="o">+</span> <span class="kc">True</span> <span class="o">-</span> <span class="kc">False</span>
 <span class="go">4</span>
 </pre></div>
 </div>

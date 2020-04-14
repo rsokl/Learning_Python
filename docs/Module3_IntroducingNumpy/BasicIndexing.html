@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -202,13 +203,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -226,7 +227,7 @@
 <p>Thus far we have seen that we can access the contents of a NumPy array by specifying an integer or slice-object as an index for each one of its dimensions. Indexing into and slicing along the dimensions of an array are known as basic indexing. NumPy also provides a sophisticated system of “advanced indexing”, which permits us powerful means for accessing elements of an array that is flexible beyond specifying integers and slices along axes. For example, we can use advanced indexing to access all
 of the negative-valued elements from <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating basic indexing and advanced indexing</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>   <span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span>
 <span class="o">...</span>               <span class="p">[</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>   <span class="mi">9</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
 <span class="o">...</span>               <span class="p">[</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">6</span><span class="p">]])</span>
@@ -253,10 +254,10 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Definition: Basic Indexing</strong>:</p>
 <p>Given an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">x[index]</span></code> invokes <strong>basic indexing</strong> whenever <code class="docutils literal notranslate"><span class="pre">index</span></code> is a <em>tuple</em> containing any combination of the following types of objects:</p>
 <ul class="simple">
-<li>integers</li>
-<li><a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Slicing">slice</a> objects</li>
-<li><a class="reference external" href="https://docs.python.org/3/library/constants.html#Ellipsis">Ellipsis</a> objects</li>
-<li><a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Inserting-Size-1-Dimensions-into-An-Array">numpy.newaxis</a> objects</li>
+<li><p>integers</p></li>
+<li><p><a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Slicing">slice</a> objects</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#Ellipsis">Ellipsis</a> objects</p></li>
+<li><p><a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Inserting-Size-1-Dimensions-into-An-Array">numpy.newaxis</a> objects</p></li>
 </ul>
 <p>Accessing the contents of an array via basic indexing <em>does not create a copy of those contents</em>. Rather, a “view” of the same underlying data is produced.</p>
 </div>
@@ -287,7 +288,7 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reviewing the `slice` object</span>
 
 <span class="c1"># equivalent: x[:2, :3]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
 <span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
        <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span>  <span class="mi">3</span><span class="p">]])</span>
 </pre></div>
@@ -305,7 +306,7 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <span class="mi">8</span>
 
 <span class="c1"># equivalent: x[:2, :3]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[(</span><span class="nb">slice</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">))]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">))]</span>
 <span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
        <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span>  <span class="mi">3</span><span class="p">]])</span>
 
@@ -338,7 +339,7 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># forming the index as an explicit tuple</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="bp">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="bp">None</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -388,14 +389,14 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 </div>
 <p>which of the following indexing schemes perform basic indexing? That is, in which instances does the index satisfy the rules of basic indexing?</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">arr[0]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[:-1,</span> <span class="pre">0]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[(2,</span> <span class="pre">3)]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[[2,</span> <span class="pre">0]]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[np.array([2,</span> <span class="pre">0])]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[(0,</span> <span class="pre">1),</span> <span class="pre">(2,</span> <span class="pre">3)]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[slice(None),</span> <span class="pre">...]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[(np.newaxis,</span> <span class="pre">0,</span> <span class="pre">slice(1,</span> <span class="pre">2),</span> <span class="pre">np.newaxis)]</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[0]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[:-1,</span> <span class="pre">0]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[(2,</span> <span class="pre">3)]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[[2,</span> <span class="pre">0]]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[np.array([2,</span> <span class="pre">0])]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[(0,</span> <span class="pre">1),</span> <span class="pre">(2,</span> <span class="pre">3)]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[slice(None),</span> <span class="pre">...]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[(np.newaxis,</span> <span class="pre">0,</span> <span class="pre">slice(1,</span> <span class="pre">2),</span> <span class="pre">np.newaxis)]</span></code></p></li>
 </ul>
 </div>
 </div>
@@ -434,14 +435,14 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <span class="n">array</span><span class="p">([</span> <span class="mf">3.31</span><span class="p">,</span>  <span class="mf">0.21</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.77</span><span class="p">])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">new_subarray</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 </pre></div>
 </div>
 <p>Utilizing an array in a mathematical expression involving the arithmetic operators (<code class="docutils literal notranslate"><span class="pre">+,</span> <span class="pre">-,</span> <span class="pre">*,</span> <span class="pre">/,</span> <span class="pre">//,</span> <span class="pre">**</span></code>) returns an entirely distinct array, that does not share memory with the original array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mathematical expressions like `subarray + 2`</span>
 <span class="c1"># produce distinct arrays, not views</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">subarray</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">subarray</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 </pre></div>
 </div>
 <p>Thus updating a variable <code class="docutils literal notranslate"><span class="pre">subarray</span></code> via <code class="docutils literal notranslate"><span class="pre">subarray</span> <span class="pre">=</span> <span class="pre">subarray</span> <span class="pre">+</span> <span class="pre">2</span></code> does <em>not</em> overwrite the original data referenced by <code class="docutils literal notranslate"><span class="pre">subarray</span></code>. Rather, <code class="docutils literal notranslate"><span class="pre">subarray</span> <span class="pre">+</span> <span class="pre">2</span></code> assigns that new array to the variable <code class="docutils literal notranslate"><span class="pre">subarray</span></code>. NumPy does provide mechanisms for performing mathematical operations to directly update the underlying data of an array without having to create a distinct array. We will discuss these mechanisms in the next subsection.</p>
@@ -455,14 +456,14 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 </div>
 <p>Which of the following expressions create views of <code class="docutils literal notranslate"><span class="pre">x</span></code>? That is, in which cases do <code class="docutils literal notranslate"><span class="pre">x</span></code> and the created variable reference the same underlying array data? Check your work by using <code class="docutils literal notranslate"><span class="pre">np.shares_memory</span></code>.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">a1</span> <span class="pre">=</span> <span class="pre">x</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">a2</span> <span class="pre">=</span> <span class="pre">x[0,</span> <span class="pre">0]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">a3</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">a4</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span> <span class="pre">+</span> <span class="pre">np.array([-1,</span> <span class="pre">-2,</span> <span class="pre">-3])</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">a5</span> <span class="pre">=</span> <span class="pre">np.copy(x[:,</span> <span class="pre">0])</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">a6</span> <span class="pre">=</span> <span class="pre">x[np.newaxis]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">a7</span> <span class="pre">=</span> <span class="pre">x.reshape(2,</span> <span class="pre">3,</span> <span class="pre">2)</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">a8</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">x</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a1</span> <span class="pre">=</span> <span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a2</span> <span class="pre">=</span> <span class="pre">x[0,</span> <span class="pre">0]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a3</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a4</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span> <span class="pre">+</span> <span class="pre">np.array([-1,</span> <span class="pre">-2,</span> <span class="pre">-3])</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a5</span> <span class="pre">=</span> <span class="pre">np.copy(x[:,</span> <span class="pre">0])</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a6</span> <span class="pre">=</span> <span class="pre">x[np.newaxis]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a7</span> <span class="pre">=</span> <span class="pre">x.reshape(2,</span> <span class="pre">3,</span> <span class="pre">2)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a8</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">x</span></code></p></li>
 </ul>
 </div>
 </div>
@@ -470,9 +471,9 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <h2>Augmenting the Underlying Data of an Array<a class="headerlink" href="#Augmenting-the-Underlying-Data-of-an-Array" title="Permalink to this headline">¶</a></h2>
 <p>Because basic indexing produces a <em>view</em> of an array’s underlying data, we must take time to understand the ways in which we can <em>augment</em> that underlying data, versus performing operations that produce an array with distinct data. Here we will see that:</p>
 <ul class="simple">
-<li>in-place assignments</li>
-<li>augmented assignments</li>
-<li>NumPy functions with the <code class="docutils literal notranslate"><span class="pre">out</span></code> argument</li>
+<li><p>in-place assignments</p></li>
+<li><p>augmented assignments</p></li>
+<li><p>NumPy functions with the <code class="docutils literal notranslate"><span class="pre">out</span></code> argument</p></li>
 </ul>
 <p>can all be used to augment array data in-place.</p>
 <div class="section" id="In-Place-Assignments">
@@ -493,7 +494,7 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 </pre></div>
 </div>
 <p>Performing an assignment on a <em>view</em> of <code class="docutils literal notranslate"><span class="pre">a</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">a[:]</span></code>, instructs NumPy to perform the assignment to replace <code class="docutils literal notranslate"><span class="pre">a</span></code>’s data in-place.</p>
@@ -514,7 +515,7 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <p>This view-assignment mechanism can be used update a subsection of an array in-place.</p>
@@ -557,7 +558,7 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># updating `b` using a mathematical expression creates</span>
 <span class="c1"># a distinct array, which is divorced from `a` and `c`</span>
@@ -566,7 +567,7 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 
 <span class="c1"># updating `c` using augmented assignment updates the</span>
 <span class="c1"># underlying data that `c` is a view of</span>
@@ -575,7 +576,7 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># note that this update is reflected in `a` as well,</span>
 <span class="c1"># as it still shares memory with `c`</span>
@@ -597,7 +598,7 @@ unaffected.</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># specifying &#39;out=a&#39; instructs NumPy</span>
 <span class="c1"># to overwrite the data referenced by `a`</span>
@@ -696,8 +697,8 @@ unaffected.</p>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#indexing">Basic indexing</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-view">Definition of ‘view’</a></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#indexing">Basic indexing</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-view">Definition of ‘view’</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
@@ -709,14 +710,14 @@ unaffected.</p>
 <p><strong>Basic Indexing: Solution</strong></p>
 <p>In which instances does the index used satisfy the rules of basic indexing?</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">arr[0]</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[:-1,</span> <span class="pre">0]</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[(2,</span> <span class="pre">3)]</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[[2,</span> <span class="pre">0]]</span></code> ✘ (index is a <code class="docutils literal notranslate"><span class="pre">list</span></code>, not a <code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[np.array([2,</span> <span class="pre">0])]</span></code> ✘ (index is a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, not a <code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[:,</span> <span class="pre">(2,</span> <span class="pre">3)]</span></code> ✘ (index contains a tuple; only <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code>, <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> allowed)</li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[slice(None),</span> <span class="pre">...]</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">arr[(np.newaxis,</span> <span class="pre">0,</span> <span class="pre">slice(1,</span> <span class="pre">2),</span> <span class="pre">np.newaxis)]</span></code> ✔</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[0]</span></code> ✔</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[:-1,</span> <span class="pre">0]</span></code> ✔</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[(2,</span> <span class="pre">3)]</span></code> ✔</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[[2,</span> <span class="pre">0]]</span></code> ✘ (index is a <code class="docutils literal notranslate"><span class="pre">list</span></code>, not a <code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[np.array([2,</span> <span class="pre">0])]</span></code> ✘ (index is a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, not a <code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[:,</span> <span class="pre">(2,</span> <span class="pre">3)]</span></code> ✘ (index contains a tuple; only <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code>, <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> allowed)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[slice(None),</span> <span class="pre">...]</span></code> ✔</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr[(np.newaxis,</span> <span class="pre">0,</span> <span class="pre">slice(1,</span> <span class="pre">2),</span> <span class="pre">np.newaxis)]</span></code> ✔</p></li>
 </ul>
 <p><strong>Views: Solution</strong></p>
 <p>Given,</p>
@@ -727,14 +728,14 @@ unaffected.</p>
 </div>
 <p>Which of the following expressions create views <code class="docutils literal notranslate"><span class="pre">x</span></code>? That is, in which cases do <code class="docutils literal notranslate"><span class="pre">x</span></code> and the created variable reference the same underlying array data? Check your work by using <code class="docutils literal notranslate"><span class="pre">np.shares_memory</span></code>.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">a1</span> <span class="pre">=</span> <span class="pre">x</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">a2</span> <span class="pre">=</span> <span class="pre">x[0,</span> <span class="pre">0]</span></code> ✘; when basic indexing returns a single number, that number does not share memory with the parent array.</li>
-<li><code class="docutils literal notranslate"><span class="pre">a3</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">a4</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span> <span class="pre">+</span> <span class="pre">np.array([-1,</span> <span class="pre">-2,</span> <span class="pre">-3])</span></code> ✘; arithmetic operations on NumPy arrays create distinct arrays by default.</li>
-<li><code class="docutils literal notranslate"><span class="pre">a5</span> <span class="pre">=</span> <span class="pre">np.copy(x[:,</span> <span class="pre">0])</span></code> ✘; <code class="docutils literal notranslate"><span class="pre">numpy.copy</span></code> informs NumPy to create a distinct copy of an array.</li>
-<li><code class="docutils literal notranslate"><span class="pre">a6</span> <span class="pre">=</span> <span class="pre">x[np.newaxis]</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">a7</span> <span class="pre">=</span> <span class="pre">x.reshape(2,</span> <span class="pre">3,</span> <span class="pre">2)</span></code> ✔</li>
-<li><code class="docutils literal notranslate"><span class="pre">a8</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">x</span></code> ✘; arithmetic operations on NumPy arrays create distinct arrays by default.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a1</span> <span class="pre">=</span> <span class="pre">x</span></code> ✔</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a2</span> <span class="pre">=</span> <span class="pre">x[0,</span> <span class="pre">0]</span></code> ✘; when basic indexing returns a single number, that number does not share memory with the parent array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a3</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span></code> ✔</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a4</span> <span class="pre">=</span> <span class="pre">x[:,</span> <span class="pre">0]</span> <span class="pre">+</span> <span class="pre">np.array([-1,</span> <span class="pre">-2,</span> <span class="pre">-3])</span></code> ✘; arithmetic operations on NumPy arrays create distinct arrays by default.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a5</span> <span class="pre">=</span> <span class="pre">np.copy(x[:,</span> <span class="pre">0])</span></code> ✘; <code class="docutils literal notranslate"><span class="pre">numpy.copy</span></code> informs NumPy to create a distinct copy of an array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a6</span> <span class="pre">=</span> <span class="pre">x[np.newaxis]</span></code> ✔</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a7</span> <span class="pre">=</span> <span class="pre">x.reshape(2,</span> <span class="pre">3,</span> <span class="pre">2)</span></code> ✔</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a8</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">x</span></code> ✘; arithmetic operations on NumPy arrays create distinct arrays by default.</p></li>
 </ul>
 <p><strong>Augmenting Array Data In-Place: Solution</strong></p>
 <p>Given,</p>

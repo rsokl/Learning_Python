@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -206,13 +207,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -230,9 +231,9 @@
 <p>Python’s dictionary allows you to store key-value pairs, and then pass the dictionary a key to quickly retrieve its corresponding value. Specifically, you construct the dictionary by specifying one-way mappings from key-objects to value-objects. <strong>Each key must map to exactly one value</strong>, meaning that a key must be unique.</p>
 <p>Let’s create the following mapping of grocery-to-price:</p>
 <ul class="simple">
-<li>“cheese” <span class="math notranslate nohighlight">\(\rightarrow\)</span> 2.53,</li>
-<li>“milk” <span class="math notranslate nohighlight">\(\rightarrow\)</span> 3.40,</li>
-<li>“frozen pizza” <span class="math notranslate nohighlight">\(\rightarrow\)</span> 8.01</li>
+<li><p>“cheese” <span class="math notranslate nohighlight">\(\rightarrow\)</span> 2.53,</p></li>
+<li><p>“milk” <span class="math notranslate nohighlight">\(\rightarrow\)</span> 3.40,</p></li>
+<li><p>“frozen pizza” <span class="math notranslate nohighlight">\(\rightarrow\)</span> 8.01</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># use a dictionary to map groceries to prices: item-name -&gt; price</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">items_to_prices</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cheese&quot;</span><span class="p">:</span> <span class="mf">2.53</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">:</span> <span class="mf">3.40</span><span class="p">,</span> <span class="s2">&quot;frozen pizza&quot;</span><span class="p">:</span> <span class="mf">8.01</span><span class="p">}</span>
@@ -245,9 +246,9 @@
 <p>Python’s dictionary is a shining star among its data structures; it is compact, fast, versatile, and extremely useful. It can be used to create a wide variety of mappings.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># keep track of whether or not a 3D coordinate fell into some region in space</span>
 <span class="c1"># map (x, y, z) coordinates to &quot;is in a region&quot;: (x, y, z) -&gt; True/False</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">point_to_region</span> <span class="o">=</span> <span class="p">{(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span><span class="bp">False</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">):</span><span class="bp">True</span><span class="p">,</span> <span class="p">(</span><span class="mf">4.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">):</span><span class="bp">False</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">point_to_region</span> <span class="o">=</span> <span class="p">{(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span><span class="kc">False</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">):</span><span class="kc">True</span><span class="p">,</span> <span class="p">(</span><span class="mf">4.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">):</span><span class="kc">False</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">point_to_region</span><span class="p">[(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)]</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># map student-name to exam scores: name -&gt; scores</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">name_to_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Ryan S&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="s2">&quot;Nick S&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">90</span><span class="p">]}</span>
@@ -352,27 +353,27 @@
 <p>Although the preceding example only involves a mappings from strings to strings, <em>the keys and values of a dictionary can be heterogeneous in type</em>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrates the wide variety of object types that can be used as</span>
 <span class="c1"># keys and values in a dictionary</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span><span class="k">print</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">:</span><span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">:[]}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span><span class="nb">print</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">:</span><span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">:[]}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="mi">10</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[</span><span class="s2">&quot;moo&quot;</span><span class="p">]</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
-<span class="o">&lt;</span><span class="n">function</span> <span class="k">print</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">function</span> <span class="nb">print</span><span class="o">&gt;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[</span><span class="mf">3.4</span><span class="p">]</span>
 <span class="s2">&quot;cow&quot;</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[</span><span class="bp">False</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">example_dict</span><span class="p">[</span><span class="kc">False</span><span class="p">]</span>
 <span class="p">[]</span>
 </pre></div>
 </div>
 <p>To be specific, a dictionary’s contents are dictated by the following rules:</p>
 <ul class="simple">
-<li>A dictionary <em>key</em> must be an <em>immutable</em> object (more precisely, it must be <a class="reference external" href="https://docs.python.org/3/glossary.html#term-hashable">hashable</a>; don’t worry about this detail).</li>
-<li>A dictionary <em>value</em> can be any object (even the dictionary itself! Try this, it’s cool!)</li>
+<li><p>A dictionary <em>key</em> must be an <em>immutable</em> object (more precisely, it must be <a class="reference external" href="https://docs.python.org/3/glossary.html#term-hashable">hashable</a>; don’t worry about this detail).</p></li>
+<li><p>A dictionary <em>value</em> can be any object (even the dictionary itself! Try this, it’s cool!)</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Recall</strong>:</p>
@@ -380,11 +381,11 @@
 </div>
 <p>Thus valid keys can be the following types:</p>
 <ul class="simple">
-<li>numbers (integers, floating-point numbers, complex numbers)</li>
-<li>strings</li>
-<li>tuples (if the tuple contains anything, it must be other immutable objects)</li>
-<li>boolean values</li>
-<li><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#Set-operations">frozenset</a> objects</li>
+<li><p>numbers (integers, floating-point numbers, complex numbers)</p></li>
+<li><p>strings</p></li>
+<li><p>tuples (if the tuple contains anything, it must be other immutable objects)</p></li>
+<li><p>boolean values</p></li>
+<li><p><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#Set-operations">frozenset</a> objects</p></li>
 </ul>
 <p>Trying to use a mutable object as a key is problematic since that object could be changed <em>after</em> it was already used as a key. Thus the dictionary would have to “detect” this change and recreate its “lookup scheme” for the changed key. Values, on the other hand, can be mutable because the details of a given value-object have no impact on how the dictionary retrieves it.</p>
 <p>In accordance with this discussion will get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> if you try to use a list as a key, since lists are mutable:</p>
@@ -442,11 +443,11 @@
 <p>You can also use the dictionary to test for membership among its keys:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking if an object is among a dictionary&#39;s keys</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;key3&quot;</span> <span class="ow">in</span> <span class="n">example_dict</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># you *cannot* use this to check for membership among its valus</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;value3&quot;</span> <span class="ow">in</span> <span class="n">example_dict</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">len</span></code> counts the number of keys in the dictionary:</p>
@@ -465,7 +466,7 @@
 <p>You can also use this to test for membership among the dictionary’s values:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking if an object is among a dictionary&#39;s values</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;value1&quot;</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <p><strong>Inspecting a dictionary’s key-value pairs</strong></p>
@@ -478,7 +479,7 @@
 <p>You can also use this to test for membership among the dictionary’s key-value pairs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking if a key-value pair exists in a dictionary</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;value1&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -497,16 +498,16 @@
 <p>Let <code class="docutils literal notranslate"><span class="pre">example_dict</span></code> represent a dictionary with <span class="math notranslate nohighlight">\(n\)</span> key-value pair mappings.</p>
 <p>The following are <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> operations:</p>
 <ul class="simple">
-<li>Return the number of keys in the dictionary: <code class="docutils literal notranslate"><span class="pre">len(example_dict)</span></code></li>
-<li>Check if the key is in the dictionary, and return the value if it is: <code class="docutils literal notranslate"><span class="pre">example_dict[key]</span></code></li>
-<li>Set a key-value mapping: <code class="docutils literal notranslate"><span class="pre">example_dict[key]</span> <span class="pre">=</span> <span class="pre">value</span></code></li>
-<li>Check if an object is among the dictionary’s keys: <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict</span></code></li>
-<li>Check if a pair of objects are among the dictionary’s key-value pairs: <code class="docutils literal notranslate"><span class="pre">(obj1,</span> <span class="pre">obj2)</span> <span class="pre">in</span> <span class="pre">example_dict.items()</span></code></li>
+<li><p>Return the number of keys in the dictionary: <code class="docutils literal notranslate"><span class="pre">len(example_dict)</span></code></p></li>
+<li><p>Check if the key is in the dictionary, and return the value if it is: <code class="docutils literal notranslate"><span class="pre">example_dict[key]</span></code></p></li>
+<li><p>Set a key-value mapping: <code class="docutils literal notranslate"><span class="pre">example_dict[key]</span> <span class="pre">=</span> <span class="pre">value</span></code></p></li>
+<li><p>Check if an object is among the dictionary’s keys: <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict</span></code></p></li>
+<li><p>Check if a pair of objects are among the dictionary’s key-value pairs: <code class="docutils literal notranslate"><span class="pre">(obj1,</span> <span class="pre">obj2)</span> <span class="pre">in</span> <span class="pre">example_dict.items()</span></code></p></li>
 </ul>
 <p>The following are <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span> operations:</p>
 <ul class="simple">
-<li>Check if an object is among the dictionary’s values: <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict.values()</span></code></li>
-<li>Iterate over the dictionary’s keys/values/key-value pairs</li>
+<li><p>Check if an object is among the dictionary’s values: <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">example_dict.values()</span></code></p></li>
+<li><p>Iterate over the dictionary’s keys/values/key-value pairs</p></li>
 </ul>
 </div>
 <div class="section" id="Are-Dictionaries-Ordered?-A-Word-of-Warning">
@@ -560,12 +561,13 @@
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">Dictionaries</a><ul>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Dictionaries tutorial</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">Dictionaries</a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Dictionaries tutorial</a></p></li>
 </ul>
 </li>
-<li><a class="reference external" href="https://docs.python.org/3/glossary.html#term-hashable">Definition of ‘hashable’</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dictionary-view-objects">Dictionary view objects</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/glossary.html#term-hashable">Definition of ‘hashable’</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dictionary-view-objects">Dictionary view objects</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">

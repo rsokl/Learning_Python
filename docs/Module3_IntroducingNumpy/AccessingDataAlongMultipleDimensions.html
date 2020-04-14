@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -202,13 +203,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -225,9 +226,9 @@
 <h1>Accessing Data Along Multiple Dimensions in an Array<a class="headerlink" href="#Accessing-Data-Along-Multiple-Dimensions-in-an-Array" title="Permalink to this headline">¶</a></h1>
 <p>In this section, we will:</p>
 <ul class="simple">
-<li>Define the “dimensionality” of an array.</li>
-<li>Discuss the usefulness of ND-arrays.</li>
-<li>Introduce the indexing and slicing scheme for accessing a multi-dimensional array’s contents</li>
+<li><p>Define the “dimensionality” of an array.</p></li>
+<li><p>Discuss the usefulness of ND-arrays.</p></li>
+<li><p>Introduce the indexing and slicing scheme for accessing a multi-dimensional array’s contents</p></li>
 </ul>
 <p>We will encounter arrays of varying dimensionalities:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A 0-D array</span>
@@ -250,7 +251,7 @@
 </pre></div>
 </div>
 <p>Similar to Python’s sequences, we use 0-based indices and slicing to access the content of an array. However, we must specify an index/slice for <em>each</em> dimension of an array:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="go"># A 3-D array</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
@@ -303,30 +304,30 @@
 <div class="section" id="Two-dimensional-Arrays">
 <h2>Two-dimensional Arrays<a class="headerlink" href="#Two-dimensional-Arrays" title="Permalink to this headline">¶</a></h2>
 <p>Before proceeding further down the path of high-dimensional arrays, let’s briefly consider a very simple dataset where the desire to access the data along multiple dimensions is manifestly desirable. Consider the following table from a gradebook:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="24%" />
-<col width="36%" />
-<col width="39%" />
+<col style="width: 24%" />
+<col style="width: 36%" />
+<col style="width: 39%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">&#160;</th>
-<th class="head">Exam 1 (%)</th>
-<th class="head">Exam 2 (%)</th>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Exam 1 (%)</p></th>
+<th class="head"><p>Exam 2 (%)</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Ashley</td>
-<td><span class="math notranslate nohighlight">\(93\)</span></td>
-<td><span class="math notranslate nohighlight">\(95\)</span></td>
+<tbody>
+<tr class="row-even"><td><p>Ashley</p></td>
+<td><p><span class="math notranslate nohighlight">\(93\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(95\)</span></p></td>
 </tr>
-<tr class="row-odd"><td>Brad</td>
-<td><span class="math notranslate nohighlight">\(84\)</span></td>
-<td><span class="math notranslate nohighlight">\(100\)</span></td>
+<tr class="row-odd"><td><p>Brad</p></td>
+<td><p><span class="math notranslate nohighlight">\(84\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(100\)</span></p></td>
 </tr>
-<tr class="row-even"><td>Cassie</td>
-<td><span class="math notranslate nohighlight">\(99\)</span></td>
-<td><span class="math notranslate nohighlight">\(87\)</span></td>
+<tr class="row-even"><td><p>Cassie</p></td>
+<td><p><span class="math notranslate nohighlight">\(99\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(87\)</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -418,7 +419,8 @@
 </div>
 <p>This is because NumPy will automatically insert trailing slices for you if you don’t provide as many indices as there are dimensions for your array. <code class="docutils literal notranslate"><span class="pre">grades[0]</span></code> was treated as <code class="docutils literal notranslate"><span class="pre">grades[0,</span> <span class="pre">:]</span></code>.</p>
 <div class="admonition note">
-Suppose you have an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, and only provide <span class="math notranslate nohighlight">\(j\)</span> indices for the array; NumPy will automatically insert <span class="math notranslate nohighlight">\(N-j\)</span> trailing slices for you. In the case that <span class="math notranslate nohighlight">\(N=5\)</span> and <span class="math notranslate nohighlight">\(j=3\)</span>, <code class="docutils literal notranslate"><span class="pre">d5_array[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code> is treated as <code class="docutils literal notranslate"><span class="pre">d5_array[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">:,</span> <span class="pre">:]</span></code></div>
+<p>Suppose you have an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, and only provide <span class="math notranslate nohighlight">\(j\)</span> indices for the array; NumPy will automatically insert <span class="math notranslate nohighlight">\(N-j\)</span> trailing slices for you. In the case that <span class="math notranslate nohighlight">\(N=5\)</span> and <span class="math notranslate nohighlight">\(j=3\)</span>, <code class="docutils literal notranslate"><span class="pre">d5_array[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code> is treated as <code class="docutils literal notranslate"><span class="pre">d5_array[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">:,</span> <span class="pre">:]</span></code></p>
+</div>
 <p>Thus far, we have discussed some rules for accessing data in arrays, all of which fall into the category that is designated <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#basic-slicing-and-indexing">“basic indexing”</a> by the NumPy documentation. We will discuss the details of basic indexing and of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing">“advanced indexing”</a>, in full, in a later section. Note, however, that all of the
 indexing/slicing reviewed here produces a “view” of the original array. That is, <em>no data is copied</em> when you index into an array using integer indices and/or slices. Recall that slicing lists and tuples <em>do</em> produce copies of the data.</p>
 <div class="admonition warning">
@@ -581,7 +583,7 @@ your leisure.</p>
 <div class="section" id="Introducing-the-reshape-Function">
 <h3>Introducing the <code class="docutils literal notranslate"><span class="pre">reshape</span></code> Function<a class="headerlink" href="#Introducing-the-reshape-Function" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">reshape</span></code> function allows you to change the dimensionality and axis-layout of a given array. This adjusts the indexing interface used to access the array’s underlying data, as was discussed in earlier in this module. Let’s take a shape-(6,) array, and reshape it to a shape-(2, 3) array:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 
 <span class="go"># reshape a shape-(6,) array into a shape-(2,3) array</span>
@@ -647,10 +649,10 @@ your leisure.</p>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">The N-dimensional array</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.indexing.html#indexing">Array indexing</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.indexing.html#indexing-routines">Indexing routines</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html">Array manipulation routines</a></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">The N-dimensional array</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.indexing.html#indexing">Array indexing</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.indexing.html#indexing-routines">Indexing routines</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html">Array manipulation routines</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">

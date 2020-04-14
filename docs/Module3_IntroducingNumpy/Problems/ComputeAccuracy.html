@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -181,13 +182,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -216,7 +217,7 @@ an image. The accuracy is the fraction of images that the model classifies corre
 <p>Suppose we have passed our model five images, and it produced the following scores:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classification scores produced by `cat_dog_goose_other`</span>
 <span class="c1"># on five images. A shape-(5, 4) array.</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">30</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>  <span class="mi">10</span><span class="p">,</span>  <span class="mi">80</span><span class="p">],</span>  <span class="c1"># prediction: other</span>
 <span class="o">...</span>                    <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span>  <span class="mi">20</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>  <span class="o">-</span><span class="mi">5</span><span class="p">],</span>  <span class="c1"># prediction: dog</span>
 <span class="o">...</span>                    <span class="p">[</span> <span class="mi">27</span><span class="p">,</span>  <span class="mi">50</span><span class="p">,</span>   <span class="mi">9</span><span class="p">,</span>  <span class="mi">30</span><span class="p">],</span>  <span class="c1"># prediction: dog</span>
@@ -260,7 +261,7 @@ an image. The accuracy is the fraction of images that the model classifies corre
 </div>
 <div class="section" id="Unvectorized-Solution">
 <h2>Unvectorized Solution<a class="headerlink" href="#Unvectorized-Solution" title="Permalink to this headline">¶</a></h2>
-<p>A simple approach to this problem is to first loop over the rows of our classification scores. We know that each such row stores the scores for each class for a particular data point, and that the <em>index</em> of the highest score in that row gives us the predicted label for that data point (e.g.&nbsp;image in our hypothetical use-case). We can then directly compare these predicted labels with the true labels to compute the accuracy.</p>
+<p>A simple approach to this problem is to first loop over the rows of our classification scores. We know that each such row stores the scores for each class for a particular data point, and that the <em>index</em> of the highest score in that row gives us the predicted label for that data point (e.g. image in our hypothetical use-case). We can then directly compare these predicted labels with the true labels to compute the accuracy.</p>
 <p>We can use the function <code class="docutils literal notranslate"><span class="pre">numpy.argmax</span></code> to get the index of the highest score, and thus the predicted class-ID, for each data point. Recall that NumPy arrays use <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/ArrayTraversal.html#How-to-Traverse-an-Array:-Row-major-%28C%29-vs-Column-major-%28F%29-Traversal-Ordering">row-major traversal ordering</a>, so performing a for-loop over <code class="docutils literal notranslate"><span class="pre">classification_scores</span></code> will yield one row of the array at a time.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pred_labels</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Will store the N predicted class-IDs</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">classification_scores</span><span class="p">:</span>

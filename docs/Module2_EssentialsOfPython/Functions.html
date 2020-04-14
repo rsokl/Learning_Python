@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -208,13 +209,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -266,18 +267,18 @@
 <div class="section" id="The-def-Statement">
 <h2>The <code class="docutils literal notranslate"><span class="pre">def</span></code> Statement<a class="headerlink" href="#The-def-Statement" title="Permalink to this headline">¶</a></h2>
 <p>Similar to <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, and <code class="docutils literal notranslate"><span class="pre">for</span></code>, the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement is reserved by the Python language to signify the definition of functions (and a few other things that we’ll cover later). The following is the general syntax for defining a Python function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>def &lt;function name&gt;(&lt;function signature&gt;):
-    &quot;&quot;&quot; documentation string &quot;&quot;&quot;
-    &lt;encapsulated code&gt;
-    return &lt;object&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="n">signature</span><span class="o">&gt;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; documentation string &quot;&quot;&quot;</span>
+    <span class="o">&lt;</span><span class="n">encapsulated</span> <span class="n">code</span><span class="o">&gt;</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">&lt;function</span> <span class="pre">name&gt;</span></code> can be any valid variable name, and <em>must</em> be followed by parentheses and then a colon.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;function</span> <span class="pre">signature&gt;</span></code> specifies the input arguments to the function, and may be left blank if the function does not accept any arguments (the parentheses must still be included, but will not encapsulate anything).</li>
-<li>The documentation string (commonly referred to as a “docstring”) may span multiple lines, and should indicate what the function’s purpose is. It is optional.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;encapsulated</span> <span class="pre">code&gt;</span></code> can consist of general Python code, and is demarcated by being indented relative to the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement.</li>
-<li><code class="docutils literal notranslate"><span class="pre">return</span></code> if reached by the encapsulated code, triggers the function to return the specified object and end its own execution immediately.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;function</span> <span class="pre">name&gt;</span></code> can be any valid variable name, and <em>must</em> be followed by parentheses and then a colon.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;function</span> <span class="pre">signature&gt;</span></code> specifies the input arguments to the function, and may be left blank if the function does not accept any arguments (the parentheses must still be included, but will not encapsulate anything).</p></li>
+<li><p>The documentation string (commonly referred to as a “docstring”) may span multiple lines, and should indicate what the function’s purpose is. It is optional.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;encapsulated</span> <span class="pre">code&gt;</span></code> can consist of general Python code, and is demarcated by being indented relative to the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span></code> if reached by the encapsulated code, triggers the function to return the specified object and end its own execution immediately.</p></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement is also reserved by Python. It denotes the end of a function; if reached, a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement immediately concludes the execution of the function and returns the specified object.</p>
 <p>Note that, like an if-statement and a for-loop, the <code class="docutils literal notranslate"><span class="pre">def</span></code> statment must end in a colon and the body of the function is <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Introduction.html#Python-Uses-Whitespace-to-Delimit-Scope">delimited by whitespace</a>:</p>
@@ -338,11 +339,11 @@
 </div>
 <p>All Python functions return <em>something</em>. Even the built-in <code class="docutils literal notranslate"><span class="pre">print</span></code> function returns <code class="docutils literal notranslate"><span class="pre">None</span></code> after it prints to standard-output!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the `print` function returns `None`</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
 <span class="n">hi</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span>
-<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -418,7 +419,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># evaluate: 2 &lt;= 3 &lt;= 4</span>
 <span class="c1"># specifying inputs based on position</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">is_bounded</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <p>Feeding a function too few or too many arguments will raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code></p>
@@ -436,7 +437,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># evaluate: 2 &lt;= 3 &lt;= 4</span>
 <span class="c1"># specify inputs using explicit input names</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">is_bounded</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <p>You can mix-and-match positional and named input by using position-based inputs first:</p>
@@ -444,7 +445,7 @@
 <span class="c1"># `x` is specified based on position</span>
 <span class="c1"># `lower` and `upper` are specified by name</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">is_bounded</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <p>Note that if you provide a named input, all the inputs following it must also be named:</p>
@@ -457,7 +458,7 @@
 <div class="section" id="Default-Valued-Arguments">
 <h3>Default-Valued Arguments<a class="headerlink" href="#Default-Valued-Arguments" title="Permalink to this headline">¶</a></h3>
 <p>You can specify default values for input arguments to a function. Their default values are utilized if a user does not specify these inputs when calling the function. Recall our <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function. Suppose we want the ability to include “y” as a vowel. We know, however, that people will typically want to exclude “y” from their vowels, so we can exclude “y” by default:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">in_string</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">in_string</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
     <span class="n">vowels</span> <span class="o">=</span> <span class="s2">&quot;aeiouAEIOU&quot;</span>
     <span class="k">if</span> <span class="n">include_y</span><span class="p">:</span>
@@ -473,23 +474,23 @@
 </div>
 <p>This default value can be overridden:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># overriding the default value: include y as a vowel</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;Happy&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;Happy&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 <span class="mi">2</span>
 
 <span class="c1"># you can still specify inputs by name</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">count_vowels</span><span class="p">(</span><span class="n">include_y</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">in_string</span><span class="o">=</span><span class="s2">&quot;Happy&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">count_vowels</span><span class="p">(</span><span class="n">include_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">in_string</span><span class="o">=</span><span class="s2">&quot;Happy&quot;</span><span class="p">)</span>
 <span class="mi">2</span>
 </pre></div>
 </div>
 <p>Default-valued input arguments must come after all positional input arguments in the function signature:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is ok</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># this will raise a syntax error</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -522,16 +523,16 @@
 <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
 
 <span class="c1"># pass three arguments to `f`</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">)</span>
-<span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">)</span>
+<span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This syntax can be combined with positional arguments and default arguments. Any variables specified after a packed variable <em>must be called by name</em>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">seq</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x is: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;seq is: &quot;</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;y is: &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x is: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;seq is: &quot;</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y is: &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># `y` must be specified by name</span>
@@ -575,14 +576,14 @@
 </div>
 <p>In the following example, we use <code class="docutils literal notranslate"><span class="pre">*</span></code> to:</p>
 <ol class="arabic simple">
-<li>Define a function to accept an arbitrary number of arguments, which get packed into a tuple.</li>
-<li>Call the function, passing it an arbitrary number of arguments, by unpacking an iterable.</li>
+<li><p>Define a function to accept an arbitrary number of arguments, which get packed into a tuple.</p></li>
+<li><p>Call the function, passing it an arbitrary number of arguments, by unpacking an iterable.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">number_of_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">number_of_args</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">number_of_args</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="go">4</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -619,16 +620,16 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>           <span class="c1"># pass one argument to `f`</span>
 <span class="go">{&#39;x&#39;: 1}</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">val</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">moo</span><span class="o">=</span><span class="s2">&quot;cow&quot;</span><span class="p">)</span>  <span class="c1"># pass three arguments to `f`</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">val</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">moo</span><span class="o">=</span><span class="s2">&quot;cow&quot;</span><span class="p">)</span>  <span class="c1"># pass three arguments to `f`</span>
 <span class="go">{&#39;moo&#39;: &#39;cow&#39;, &#39;val&#39;: True, &#39;x&#39;: (0, 1)}</span>
 </pre></div>
 </div>
 <p>This syntax can be combined with positional arguments and default arguments. No additional arguments may come after a <code class="docutils literal notranslate"><span class="pre">**</span></code> entry in a function-definition signature:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x is: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;y is: &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;kwargs is: &quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x is: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y is: &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;kwargs is: &quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># passing arbitrary keyword arguments to `f`</span>
@@ -654,9 +655,9 @@
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">y</span><span class="p">):</span>
     <span class="c1"># all positional arguments get packed into the tuple `x`</span>
     <span class="c1"># all keyword arguments get packed into the dictionary `y`</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">hi</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">bye</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">sigh</span><span class="o">=-</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
@@ -682,11 +683,11 @@
 </div>
 <p>In the following example, we use <code class="docutils literal notranslate"><span class="pre">**</span></code> to:</p>
 <ol class="arabic simple">
-<li>Define a function to accept an arbitrary number of keyword arguments, which get packed into a dictionary.</li>
-<li>Call the function, passing it an arbitrary number of keyword arguments, by unpacking a dictionary.</li>
+<li><p>Define a function to accept an arbitrary number of keyword arguments, which get packed into a dictionary.</p></li>
+<li><p>Call the function, passing it an arbitrary number of keyword arguments, by unpacking a dictionary.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_kwargs</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">print_kwargs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -696,7 +697,7 @@
 
 <span class="go"># unpacking the key-value pairs of the dictionary</span>
 <span class="go"># as keyword arguments and values, to the function</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">print_kwargs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">umbrella</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">some_dict</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">print_kwargs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">umbrella</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">some_dict</span><span class="p">)</span>
 <span class="go">{&#39;a&#39;: 2, &#39;umbrella&#39;: True, &#39;hi&#39;: 1, &#39;bye&#39;: 2}</span>
 </pre></div>
 </div>
@@ -711,7 +712,7 @@
 </pre></div>
 </div>
 <p>You can store functions in a list:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">count_vowels</span><span class="p">,</span> <span class="k">print</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">count_vowels</span><span class="p">,</span> <span class="nb">print</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
     <span class="n">func</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
@@ -722,16 +723,16 @@
 </div>
 <p>You can also call functions anywhere, and their return-value will be returned in-place:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;pillow&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;that&#39;s a lot of vowels!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;that&#39;s a lot of vowels!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>And, of course, this works within comprehension expressions as well:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">count_vowels</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;bye&quot;</span><span class="p">,</span> <span class="s2">&quot;guy&quot;</span><span class="p">,</span> <span class="s2">&quot;sigh&quot;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">count_vowels</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;bye&quot;</span><span class="p">,</span> <span class="s2">&quot;guy&quot;</span><span class="p">,</span> <span class="s2">&quot;sigh&quot;</span><span class="p">])</span>
 <span class="go">6</span>
 </pre></div>
 </div>
 <p>“Printing” a function isn’t very revealing. It simply tells you the memory address where the function-object is stored:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">count_vowels</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">count_vowels</span><span class="p">)</span>
 <span class="go">&lt;function count_vowels at 0x000002A32898C6A8&gt;</span>
 </pre></div>
 </div>
@@ -739,14 +740,14 @@
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#functions">Definition of ‘function’</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">Defining functions</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#default-argument-values">Default argument values</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments">Keyword arguments</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists">Specifying arbitrary arguments</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists">Unpacking arguments</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#documentation-strings">Documentation strings</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#function-annotations">Function annotations</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#functions">Definition of ‘function’</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">Defining functions</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#default-argument-values">Default argument values</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments">Keyword arguments</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists">Specifying arbitrary arguments</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists">Unpacking arguments</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#documentation-strings">Documentation strings</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#function-annotations">Function annotations</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
@@ -790,7 +791,7 @@
     <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;min&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </div>
 <p>Note that you can actually have your function raise an “exception” (an error) in the case that <code class="docutils literal notranslate"><span class="pre">mode</span></code> wasn’t passed a proper value. In fact, that is likely the more appropriate behavior for this function.</p>
@@ -801,7 +802,7 @@
     <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;min&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;`mode` was passed an invalid value: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;`mode` was passed an invalid value: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span>
 </pre></div>
 </div>
 <p><strong>Arbitrary Arguments: Solution</strong></p>
@@ -818,8 +819,8 @@
 </div>
 <p>or, being a bit more fancy :</p>
 <ul class="simple">
-<li>using the fact that <code class="docutils literal notranslate"><span class="pre">bool(seq)</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code> if <code class="docutils literal notranslate"><span class="pre">seq</span></code> is empty</li>
-<li>using the inline if-else syntax</li>
+<li><p>using the fact that <code class="docutils literal notranslate"><span class="pre">bool(seq)</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code> if <code class="docutils literal notranslate"><span class="pre">seq</span></code> is empty</p></li>
+<li><p>using the inline if-else syntax</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="o">*</span><span class="n">seq</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Returns the mean of the function&#39;s arguments &quot;&quot;&quot;</span>

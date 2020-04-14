@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -189,13 +190,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -217,7 +218,7 @@ methods take the form of <code class="docutils literal notranslate"><span class=
 <span class="k">class</span> <span class="nc">SillyClass</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Determines behavior of `self[key]` &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="fm">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Determines behavior of `self ** other` &quot;&quot;&quot;</span>
@@ -226,7 +227,7 @@ methods take the form of <code class="docutils literal notranslate"><span class=
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">silly</span> <span class="o">=</span> <span class="n">SillyClass</span><span class="p">()</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">silly</span><span class="p">[</span><span class="bp">None</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">silly</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span>
 <span class="go">[True, False, True, False]</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">silly</span> <span class="o">**</span> <span class="mi">2</span>
@@ -238,33 +239,33 @@ that readers consult this resource.</p>
 <div class="section" id="String-Representations-of-Objects">
 <h2>String-Representations of Objects<a class="headerlink" href="#String-Representations-of-Objects" title="Permalink to this headline">¶</a></h2>
 <p>The following methods determines how an object should be represented as a string in various contexts. For example, this text consistently utilizes the fact that passing an object to the Python console will prompt the console to print out a representation of that object as a string. That is,</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">[&#39;a&#39;, 1, True]</span>
 </pre></div>
 </div>
 <p>Under the hood, the special method <code class="docutils literal notranslate"><span class="pre">x.__repr__</span></code> is being called to obtain this string representation whenever an object is displayed in a console/notebook like this. The method returns the string <code class="docutils literal notranslate"><span class="pre">&quot;['a',</span> <span class="pre">1,</span> <span class="pre">True]&quot;</span></code>, which is then printed out to the console. This is an extremely useful for creating classes whose objects can be inspected conveniently in a Python console or in a Jupyter notebook. Similarly <code class="docutils literal notranslate"><span class="pre">__str__</span></code> returns the string that will be produced when <code class="docutils literal notranslate"><span class="pre">str</span></code> is called on the
 object.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Method</th>
-<th class="head">Signature</th>
-<th class="head">Explanation</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Signature</p></th>
+<th class="head"><p>Explanation</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Returns string for a printable representation of object</td>
-<td><code class="docutils literal notranslate"><span class="pre">__repr__(self)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">repr(x)</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__repr__()</span></code>, this is also invoked when an object is returned by a console</td>
+<tbody>
+<tr class="row-even"><td><p>Returns string for a printable representation of object</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__repr__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">repr(x)</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__repr__()</span></code>, this is also invoked when an object is returned by a console</p></td>
 </tr>
-<tr class="row-odd"><td>Returns string representation of an object</td>
-<td><code class="docutils literal notranslate"><span class="pre">__str__(self)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str(x)</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__str__()</span></code></td>
+<tr class="row-odd"><td><p>Returns string representation of an object</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__str__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(x)</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__str__()</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -278,7 +279,7 @@ object.</p>
 <span class="sd">        -----</span>
 <span class="sd">        \u0336 is a special strike-through unicode character; it</span>
 <span class="sd">        is not unique to Python.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\u0336</span><span class="s1">{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\u0336</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
@@ -324,38 +325,38 @@ object.</p>
 <div class="section" id="Interfacing-with-Mathematical-Operators">
 <h2>Interfacing with Mathematical Operators<a class="headerlink" href="#Interfacing-with-Mathematical-Operators" title="Permalink to this headline">¶</a></h2>
 <p>The following special methods control how an object interacts with <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, and other mathematical operators. A full listing of all the special methods used to emulate numeric types can be found <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">here</a></p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="13%" />
-<col width="38%" />
-<col width="50%" />
+<col style="width: 13%" />
+<col style="width: 38%" />
+<col style="width: 50%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Method</th>
-<th class="head">Signature</th>
-<th class="head">Explanation</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Signature</p></th>
+<th class="head"><p>Explanation</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Add</td>
-<td><code class="docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">other)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__add__(y)</span></code></td>
+<tbody>
+<tr class="row-even"><td><p>Add</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__add__(y)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Subtract</td>
-<td><code class="docutils literal notranslate"><span class="pre">__sub__(self,</span> <span class="pre">other)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__sub__(y)</span></code></td>
+<tr class="row-odd"><td><p>Subtract</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__sub__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__sub__(y)</span></code></p></td>
 </tr>
-<tr class="row-even"><td>Multiply</td>
-<td><code class="docutils literal notranslate"><span class="pre">__mul__(self,</span> <span class="pre">other)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__mul__(y)</span></code></td>
+<tr class="row-even"><td><p>Multiply</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__mul__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__mul__(y)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Divide</td>
-<td><code class="docutils literal notranslate"><span class="pre">__truediv__(self,</span> <span class="pre">other)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__truediv__(y)</span></code></td>
+<tr class="row-odd"><td><p>Divide</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__truediv__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__truediv__(y)</span></code></p></td>
 </tr>
-<tr class="row-even"><td>Power</td>
-<td><code class="docutils literal notranslate"><span class="pre">__pow__(self,</span> <span class="pre">other)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__pow__(y)</span></code></td>
+<tr class="row-even"><td><p>Power</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__pow__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__pow__(y)</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -415,42 +416,42 @@ object.</p>
 <div class="section" id="Creating-a-Container-Like-Class">
 <h2>Creating a Container-Like Class<a class="headerlink" href="#Creating-a-Container-Like-Class" title="Permalink to this headline">¶</a></h2>
 <p>The following special methods allow us to give our class a container interface, like that of a dictionary, set, or list. An exhaustive listing and discussion of these methods can be found <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">here</a></p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Method</th>
-<th class="head">Signature</th>
-<th class="head">Explanation</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Signature</p></th>
+<th class="head"><p>Explanation</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Length</td>
-<td><code class="docutils literal notranslate"><span class="pre">__len__(self)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">len(x)</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__len__()</span></code></td>
+<tbody>
+<tr class="row-even"><td><p>Length</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__len__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">len(x)</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__len__()</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Get Item</td>
-<td><code class="docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">x[key]</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__getitem__(key)</span></code></td>
+<tr class="row-odd"><td><p>Get Item</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x[key]</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__getitem__(key)</span></code></p></td>
 </tr>
-<tr class="row-even"><td>Set Item</td>
-<td><code class="docutils literal notranslate"><span class="pre">__setitem__(self,</span> <span class="pre">key,</span> <span class="pre">item)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">x[key]</span> <span class="pre">=</span> <span class="pre">item</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__setitem__(key,</span> <span class="pre">item)</span></code></td>
+<tr class="row-even"><td><p>Set Item</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__setitem__(self,</span> <span class="pre">key,</span> <span class="pre">item)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x[key]</span> <span class="pre">=</span> <span class="pre">item</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__setitem__(key,</span> <span class="pre">item)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Contains</td>
-<td><code class="docutils literal notranslate"><span class="pre">__contains__(self,</span> <span class="pre">item)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">item</span> <span class="pre">in</span> <span class="pre">x</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__contains__(item)</span></code></td>
+<tr class="row-odd"><td><p>Contains</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__contains__(self,</span> <span class="pre">item)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">item</span> <span class="pre">in</span> <span class="pre">x</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__contains__(item)</span></code></p></td>
 </tr>
-<tr class="row-even"><td>Iterator</td>
-<td><code class="docutils literal notranslate"><span class="pre">__iter__(self)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">iter(x)</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__iter__()</span></code></td>
+<tr class="row-even"><td><p>Iterator</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__iter__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">iter(x)</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__iter__()</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Next</td>
-<td><code class="docutils literal notranslate"><span class="pre">__next__(self)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">next(x)</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__next__()</span></code></td>
+<tr class="row-odd"><td><p>Next</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__next__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">next(x)</span></code> invokes <code class="docutils literal notranslate"><span class="pre">x.__next__()</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -521,7 +522,7 @@ object.</p>
 
 <span class="c1"># checking membership</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">10</span> <span class="ow">in</span> <span class="n">x</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">MyList</span><span class="p">()</span>
 <span class="o">||</span>
@@ -531,9 +532,9 @@ object.</p>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">Special Methods</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">Emulating Numeric Types</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">Emulating Container Types</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">Special Methods</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">Emulating Numeric Types</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">Emulating Container Types</a></p></li>
 </ul>
 </div>
 </div>

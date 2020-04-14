@@ -14,7 +14,7 @@ jupyter:
 
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
-   :description: Topic: Working with aths and files, Difficulty: Medium, Category: Section
+   :description: Topic: Working with paths and files, Difficulty: Medium, Category: Section
    :keywords: open file, read file, pathlib, join directory, context manager, close file, rb, binary file, utf-8, encoding, pickle, numpy, load, archive, npy, npz, pkl, glob, read lines, write, save
 <!-- #endraw -->
 
@@ -283,6 +283,8 @@ data/*.txt
 
 The `pathlib` module provides convenient functionality for globbing files. Once we have a `Path` object, we can simply call `glob()` on it and pass in a glob string. This will return a [generator](http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#Introducing-Generators) that will yield each of the globbed files.
 
+<!-- #region -->
+
 ``` python
 # glob all of the text files in the present directory
 # that start with 'test' and end with '.txt'
@@ -302,6 +304,8 @@ The `pathlib` module provides convenient functionality for globbing files. Once 
 ...         # do some processing
 ...         pass
 ```
+
+<!-- #endregion -->
 
 For more details on globbing, see [the documentation](https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob).
 
