@@ -402,7 +402,7 @@ Use boolean array-indexing and NumPy's [logical functions](https://docs.scipy.or
 <!-- #endregion -->
 
 <!-- #region -->
-### Converting a Boolean Index-Array to Integer index-arrays: numpy.where
+### Converting a Boolean Index-Array to Integer Index-Arrays: numpy.where
 The function [numpy.where](https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html) can be used to take a boolean-valued array, and produce the *tuple* of index-arrays that access the `True` entries of that array, via integer array indexing (discussed at the beginning of this section).
 
 ```python
