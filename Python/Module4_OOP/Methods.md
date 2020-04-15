@@ -200,7 +200,7 @@ __main__.Dummy
 `dict.fromkeys` is an example of a class method that takes in an iterable, and returns a dictionary whose keys are the elements of that iterable, and whose values all default to `None`.
 
 ```python
->>> dict.fromkeys("abcd",2.3)
+>>> dict.fromkeys("abcd", 2.3)
 {'a': 2.3, 'b': 2.3, 'c': 2.3, 'd': 2.3}
 ```
 
