@@ -43,7 +43,7 @@ Once this environment is created activate it. You may need to manually install a
 
 ```shell
 pip install sphinx-rtd-theme==0.4.3
-pip install jupytext-1.3.2
+pip install jupytext-1.4.2
 ```
 
 and install the `plymi` code base from this repo. Clone the present repository and run:
