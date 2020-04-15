@@ -696,9 +696,6 @@ This will return a tuple of two integer-valued index-arrays. These contain the i
 
 >>> x[np.arange(4), np.arange(4)] = range(4)
 # equivalent (works for the general case of a square matrix of N-dims)
-# x[tuple(map(np.arange, x.shape))] = range(x.shape[0])
-
-# same as above, using a tuple comprehension
 # x[tuple(np.arange(x) for x in x.shape)] = range(x.shape[0])
 
 # equivalent (using numpy built-in functions):
