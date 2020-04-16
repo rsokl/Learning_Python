@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -192,13 +193,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -219,8 +220,8 @@
 <span class="c1"># code encapsulation</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;x + y = &quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;x - y = &quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x + y = &quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x - y = &quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>But what if you want your code to do something different when <code class="docutils literal notranslate"><span class="pre">x</span></code> is an even number? What if you want to do an additional computation for every number that falls between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>? By the end of this module, you should understand how to write programs that can accommodate these, and many other, branches in logic.</p>
@@ -241,9 +242,9 @@
 <p>(note: there are much more efficient ways of computing this - can you think of any?)</p>
 <p>This code contains several critical “control flow” features:</p>
 <ul class="simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">cnt_div_by_3(m,</span> <span class="pre">n):</span></code> statement signals the definition of a function: a modular block of code, which can be utilized elsewhere in your code.</li>
-<li>The line <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">num</span> <span class="pre">in</span> <span class="pre">range(m,</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1):</span></code> signifies a “for-loop” which instructs the code to iterate over a sequence of numbers, executing a common block of code for each iteration.</li>
-<li><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">num</span> <span class="pre">%</span> <span class="pre">3</span> <span class="pre">==</span> <span class="pre">0:</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> instruct pieces of codes to be executed conditionally - only if a specified condition is met.</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">cnt_div_by_3(m,</span> <span class="pre">n):</span></code> statement signals the definition of a function: a modular block of code, which can be utilized elsewhere in your code.</p></li>
+<li><p>The line <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">num</span> <span class="pre">in</span> <span class="pre">range(m,</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1):</span></code> signifies a “for-loop” which instructs the code to iterate over a sequence of numbers, executing a common block of code for each iteration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">num</span> <span class="pre">%</span> <span class="pre">3</span> <span class="pre">==</span> <span class="pre">0:</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> instruct pieces of codes to be executed conditionally - only if a specified condition is met.</p></li>
 </ul>
 <p>In the following sections, you will be formally introduced to if-elif-else blocks, for-loops &amp; iterables, and functions, all so that you can implement effective “control flow” in your code.</p>
 <p>Before embarking on these sections, we must take a moment to study Python’s syntax for delimiting scope for these various control flow constructs.</p>
@@ -262,7 +263,7 @@
 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Python <strong>uses whitespace (i.e.&nbsp;indentation) to delimit scope</strong>:</p>
+<p>Python <strong>uses whitespace (i.e. indentation) to delimit scope</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example showing that Python uses whitespace to delimit scope</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -276,14 +277,14 @@
 <p>Look to the example at the beginning of this section to see the bodies of the function definition, the for-loop, and the subsequent if-else block were all separated by increasing levels of indentation.</p>
 <p>Python’s syntax is quite flexible in terms of what it defines as a whitespace delimiter. Its rules are that:</p>
 <ul class="simple">
-<li>One or more whitespace characters (spaces or tabs) is sufficient to serve as indentation.</li>
-<li>A given indented block must use a uniform level of indentation. E.g. if the first line of an indented block has two leading spaces, all subsequent lines in that block must lead with exactly two white spaces.</li>
+<li><p>One or more whitespace characters (spaces or tabs) is sufficient to serve as indentation.</p></li>
+<li><p>A given indented block must use a uniform level of indentation. E.g. if the first line of an indented block has two leading spaces, all subsequent lines in that block must lead with exactly two white spaces.</p></li>
 </ul>
 <p>While Python’s syntax is relatively forgiving, I am not: the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#indentation">standard style</a> for indenting in Python is to <strong>use four space characters</strong> for each level of indentation. It is strongly advised that you adhere to this standard. Most IDEs and consoles (including Jupyter notebooks) will automatically add a four-space indentation for you when you enter into the body of one of the aforementioned constructs.</p>
 <p>Let’s review these ruled by considering a few simple examples (including incorrect examples) of delimiting scope in Python.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OK, but gross: The use of a single whitespace</span>
 <span class="c1"># makes the indentation hard to see. Use four spaces.</span>
-<span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># one space</span>
  <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># one space</span>
 </pre></div>
@@ -301,7 +302,7 @@
 <span class="c1"># The else-block uses two spaces as a delimiter. This is technically</span>
 <span class="c1"># okay since indentation is consistent within each block. One should</span>
 <span class="c1"># always use four spaces for indentation.</span>
-<span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># four spaces</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># four spaces</span>
 <span class="k">else</span><span class="p">:</span>

@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -167,13 +168,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -318,39 +319,39 @@ return gcd(a, -b)
 <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">=</span> <span class="n">denom</span> <span class="o">//</span> <span class="n">factor</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `+` operator for `self` on the left &#39;&#39;&#39;</span>
     <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
     <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
     <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `+` operator for `self` on the right &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `-` operator &#39;&#39;&#39;</span>
     <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
     <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
     <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `-` operator when `self` is on the right&#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span> <span class="o">+</span> <span class="n">other</span>
 
-<span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `&lt;` operator &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
 
-<span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `==` operator &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
 
-<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `str()` operator; useful for printing &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> / </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the repr, which is used in the console:</span>
 <span class="sd">    &gt;&gt;&gt; rat = Rational(1, 2)</span>
 <span class="sd">    &gt;&gt;&gt; rat</span>
@@ -363,10 +364,10 @@ return gcd(a, -b)
 <p>We can now create <code class="docutils literal notranslate"><span class="pre">Rational</span></code>s and operate on them:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
 <span class="go">5 / 4</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
 <span class="go">-1 / 4</span>
 </pre></div>
 </div>
@@ -423,13 +424,13 @@ this is what’s happening by examining the error message:</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Operator Overloading</strong></p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">__add__</span></code> and <code class="docutils literal notranslate"><span class="pre">__sub__</span></code> implementations as a base, implement the operators:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">*</span></code> (<code class="docutils literal notranslate"><span class="pre">__mul__</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">/</span></code> (<code class="docutils literal notranslate"><span class="pre">__truediv__</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">**</span></code> (<code class="docutils literal notranslate"><span class="pre">__pow__</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> (<code class="docutils literal notranslate"><span class="pre">__le__</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">!=</span></code> (<code class="docutils literal notranslate"><span class="pre">__ne__</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> (<code class="docutils literal notranslate"><span class="pre">__gt__</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> (<code class="docutils literal notranslate"><span class="pre">__ge__</span></code>)</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> (<code class="docutils literal notranslate"><span class="pre">__mul__</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> (<code class="docutils literal notranslate"><span class="pre">__truediv__</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**</span></code> (<code class="docutils literal notranslate"><span class="pre">__pow__</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> (<code class="docutils literal notranslate"><span class="pre">__le__</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code> (<code class="docutils literal notranslate"><span class="pre">__ne__</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> (<code class="docutils literal notranslate"><span class="pre">__gt__</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> (<code class="docutils literal notranslate"><span class="pre">__ge__</span></code>)</p></li>
 </ul>
 <p>for the <code class="docutils literal notranslate"><span class="pre">Rational</span></code> class.</p>
 </div>
@@ -447,7 +448,7 @@ this is what’s happening by examining the error message:</p>
 <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">=</span> <span class="n">denom</span> <span class="o">//</span> <span class="n">factor</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `+` operator</span>
 
 <span class="sd">    Note that this works with non-Rationals if `self` is on the left, as in:</span>
@@ -461,7 +462,7 @@ this is what’s happening by examining the error message:</p>
     <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
     <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `+` operator</span>
 
 <span class="sd">    This works with non-Rationals for `self` on the right:</span>
@@ -470,71 +471,71 @@ this is what’s happening by examining the error message:</p>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `-` operator &#39;&#39;&#39;</span>
     <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
     <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
     <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `-` operator when `self` is on the right&#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span> <span class="o">+</span> <span class="n">other</span>
 
-<span class="k">def</span> <span class="nf">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `*` operator &#39;&#39;&#39;</span>
     <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
     <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
     <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `*` operator for `self` on the right &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `/` operator &#39;&#39;&#39;</span>
     <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
     <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
     <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__rtruediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__rtruediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `/` overator for `self` on the right &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="n">Rational</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span> <span class="o">*</span> <span class="n">other</span>
 
-<span class="k">def</span> <span class="nf">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `**` operator &#39;&#39;&#39;</span>
     <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">**</span> <span class="n">power</span>
     <span class="n">denom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">**</span> <span class="n">power</span>
     <span class="k">return</span> <span class="n">Rationa</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `&lt;` operator &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
 
-<span class="k">def</span> <span class="nf">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `&lt;=` operator &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
 
-<span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `==` operator &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span>
 
-<span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `!=` operator &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span>
 
-<span class="k">def</span> <span class="nf">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `&gt;` operator &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
 
-<span class="k">def</span> <span class="nf">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `&gt;=` operator &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denom</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">num</span>
 
-<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the `str()` operator; useful for printing &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> / </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denom</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Overload the repr, which is used in the console:</span>
 <span class="sd">    &gt;&gt;&gt; rat = Rational(1, 2)</span>
 <span class="sd">    &gt;&gt;&gt; rat</span>

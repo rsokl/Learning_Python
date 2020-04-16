@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -188,13 +189,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -211,23 +212,23 @@
 <h1>Introducing the Python Programming Language<a class="headerlink" href="#Introducing-the-Python-Programming-Language" title="Permalink to this headline">¶</a></h1>
 <p>In this section we will learn</p>
 <ul class="simple">
-<li>What Python is.</li>
-<li>What it means to “install Python” on your computer.</li>
-<li>How one writes and executes Python code.</li>
+<li><p>What Python is.</p></li>
+<li><p>What it means to “install Python” on your computer.</p></li>
+<li><p>How one writes and executes Python code.</p></li>
 </ul>
 <div class="section" id="What-is-Python?">
 <h2>What is Python?<a class="headerlink" href="#What-is-Python?" title="Permalink to this headline">¶</a></h2>
 <p><strong>Python is a programming language</strong>. That is, it provides us with a strict set of grammatical rules that correspond to well-defined instructions that a computer will obey. The tremendous value of this is that we can write text documents that are relatively simple and intuitive for humans to read, and yet can inform the computer to perform precise operations. Python <strong>code</strong> is simply text that conforms to the Python language.</p>
 <p>For example, the following text obeys the rules of the Python language:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;2 + 3 = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2 + 3 = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>According to the Python language, it will instruct the computer to:</p>
 <ul class="simple">
-<li>compute 2 + 3</li>
-<li>assign the resulting value (5) to a variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, in memory</li>
-<li>access the value of <code class="docutils literal notranslate"><span class="pre">x</span></code>, and print to the computer’s screen: ‘2 + 3 = 5’</li>
+<li><p>compute 2 + 3</p></li>
+<li><p>assign the resulting value (5) to a variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, in memory</p></li>
+<li><p>access the value of <code class="docutils literal notranslate"><span class="pre">x</span></code>, and print to the computer’s screen: ‘2 + 3 = 5’</p></li>
 </ul>
 <p>An example of code that <strong>does not</strong> obey Python’s rules is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">~</span> <span class="mi">3</span>
@@ -237,15 +238,15 @@
 <p>To “learn Python” thus entails learning the grammatical rules specified by the Python language, and the computer instuctions that they map to. Additionally, you will want to familiarize yourself with many of the convenient tools that are “pre-written” and come with the Python language; they are part of the so-called standard library.</p>
 <p>Given this basic understanding of what the Python programming language is, we now want to know how to use our Python code to send instructions to the computer. The most basic way of doing this is to:</p>
 <ul class="simple">
-<li>Write a Python “script”: a text file containing Python code.</li>
-<li>Pass this text file to a <strong>Python interpreter</strong>, which will instruct the computer to carry out the operations described by the code.</li>
+<li><p>Write a Python “script”: a text file containing Python code.</p></li>
+<li><p>Pass this text file to a <strong>Python interpreter</strong>, which will instruct the computer to carry out the operations described by the code.</p></li>
 </ul>
 </div>
 <div class="section" id="Python-Scripts">
 <h2>Python Scripts<a class="headerlink" href="#Python-Scripts" title="Permalink to this headline">¶</a></h2>
 <p>You can save the the valid code from the preceding section in a text file using a simple text editor, and <em>voilà</em> you have written a <strong>Python script</strong>: a text file containing Python code. It is standard to save this text file using the suffix <code class="docutils literal notranslate"><span class="pre">.py</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">my_code.py</span></code>), rather than the familiar <code class="docutils literal notranslate"><span class="pre">.txt</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">my_text.txt</span></code>). There is nothing special about the <code class="docutils literal notranslate"><span class="pre">.py</span></code> suffix; it simply helps differentiate files that contain Python code from run-of-the-mill text files, which contain plain
 English.</p>
-<p>Although you can use simple text editors to write Python scripts (e.g.&nbsp;notepad (Win), TextEdit (Mac), nano (Linux)), there are much more sophisticated editors that provide an “integrated development environment” (IDE) for writing code. An IDE, configured to support Python, will warn you if you have written code that violates Python’s grammar rules, similar to the way word processing software warns you if you have made a spelling mistake. More on IDEs in a later section.</p>
+<p>Although you can use simple text editors to write Python scripts (e.g. notepad (Win), TextEdit (Mac), nano (Linux)), there are much more sophisticated editors that provide an “integrated development environment” (IDE) for writing code. An IDE, configured to support Python, will warn you if you have written code that violates Python’s grammar rules, similar to the way word processing software warns you if you have made a spelling mistake. More on IDEs in a later section.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>WARNING</strong>:</p>
 <p>Do not use word processing programs, like Microsoft Word, to write code. They will “silently” change the characters written in your file, such as the type of quotation marks being used. This will cause errors in your code.</p>
@@ -256,11 +257,11 @@ English.</p>
 <h2>What is a Python Interpreter and What Does it Mean to “Install Python”?<a class="headerlink" href="#What-is-a-Python-Interpreter-and-What-Does-it-Mean-to-“Install-Python”?" title="Permalink to this headline">¶</a></h2>
 <p>A Python interpreter is any computer program that is capable of doing the following:</p>
 <ul class="simple">
-<li>Read in a text file (e.g. <code class="docutils literal notranslate"><span class="pre">my_code.py</span></code>).</li>
-<li>Parse the text and determine if it obeys the rules of the Python language (the interpreter will raise an error if the rules are not obeyed).</li>
-<li>Translate the parsed text into instructions, according to the Python language’s specifications.</li>
-<li>Instruct the computer to carry out the tasks.</li>
-<li>As a whole, a Python script is executed from top-to-bottom by the interpreter.</li>
+<li><p>Read in a text file (e.g. <code class="docutils literal notranslate"><span class="pre">my_code.py</span></code>).</p></li>
+<li><p>Parse the text and determine if it obeys the rules of the Python language (the interpreter will raise an error if the rules are not obeyed).</p></li>
+<li><p>Translate the parsed text into instructions, according to the Python language’s specifications.</p></li>
+<li><p>Instruct the computer to carry out the tasks.</p></li>
+<li><p>As a whole, a Python script is executed from top-to-bottom by the interpreter.</p></li>
 </ul>
 <p>The first Python interpeter was written in the programming language C, and is known as CPython. Accordingly, <strong>the CPython interpreter is the official interpreter of the Python language</strong>. Any new rules/features that are introduced to the Python language are guaranteed be implemented in the <a class="reference external" href="https://github.com/python/cpython">CPython code base</a>.</p>
 <div class="admonition warning">
@@ -285,7 +286,7 @@ and functions that you can utilize in your code. This is known as the Python sta
 <h2>Why Python?<a class="headerlink" href="#Why-Python?" title="Permalink to this headline">¶</a></h2>
 <p>Python has become a hugely popular programming language. In fact, it is likely the <a class="reference external" href="https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-u-s-universities/fulltext">most popular introductory language at universities</a>. First and foremost, its syntax is designed to be intuitive and readable. For example, the following Python code sums the numbers 0-9, and prints the result:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>This can be reproduced by the following C++ code, which is arguably less-intuitive:</p>
@@ -305,13 +306,13 @@ and functions that you can utilize in your code. This is known as the Python sta
 <div class="section" id="Summary">
 <h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Python is a programming language - it provides us with a simple set of grammatical rules that allow us to write human-readable text, which can be translated unambiguously to instruct a computer to perform tasks.</li>
-<li>Python code is text that conforms to the Python language.</li>
-<li>A Python script is a text file containing Python code. Traditionally such a file will be saved using the suffix <code class="docutils literal notranslate"><span class="pre">.py</span></code>.</li>
-<li>A Python interpreter is a program that is capable of reading and parsing a text file, and translating the code into machine instructions, as specified by the Python language.</li>
-<li>To “install Python” onto you machine boils down to saving a functioning Python interpreter onto your machine.</li>
-<li>The official Python interpreter is a program written in the language C, and is known as the CPython interpreter.</li>
-<li>The “standard library” is a large collection of tools and functions that comes packaged with the CPython interpreter.</li>
+<li><p>Python is a programming language - it provides us with a simple set of grammatical rules that allow us to write human-readable text, which can be translated unambiguously to instruct a computer to perform tasks.</p></li>
+<li><p>Python code is text that conforms to the Python language.</p></li>
+<li><p>A Python script is a text file containing Python code. Traditionally such a file will be saved using the suffix <code class="docutils literal notranslate"><span class="pre">.py</span></code>.</p></li>
+<li><p>A Python interpreter is a program that is capable of reading and parsing a text file, and translating the code into machine instructions, as specified by the Python language.</p></li>
+<li><p>To “install Python” onto you machine boils down to saving a functioning Python interpreter onto your machine.</p></li>
+<li><p>The official Python interpreter is a program written in the language C, and is known as the CPython interpreter.</p></li>
+<li><p>The “standard library” is a large collection of tools and functions that comes packaged with the CPython interpreter.</p></li>
 </ul>
 </div>
 </div>

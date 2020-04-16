@@ -8,6 +8,15 @@ on pip.
 
 
 ----------
+2020-04-11
+----------
+
+Updated some of the "backend" technologies behind PLYMI: upgraded sphinx and nbsphinx.
+
+Fixed a broken subsection header: "Converting a Boolean Index-Array to Integer Index-Arrays: numpy.where" will now appear in the navigation bar under Module 3, Advanced Indexing.
+
+
+----------
 2020-04-02
 ----------
 

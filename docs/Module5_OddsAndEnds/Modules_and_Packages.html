@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -197,13 +198,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -223,7 +224,7 @@
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
 <span class="c1"># import the entire numpy package, giving it the alias &#39;np&#39;</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 <p>Despite our regular use of the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement, we have thus far swept its details under the rug. Here, we will finally pay our due diligence and discuss Python’s import system, which entails understanding the way that code can be organized into modules and packages. Modules are individual <code class="docutils literal notranslate"><span class="pre">.py</span></code> files from which we can import functions and objects, and packages are collections of such modules. Detailing this packaging system will not only provide us with insight into the organization of
@@ -250,9 +251,9 @@ the standard library and other collections of Python code, but it will permit us
 <span class="sd">purpose of your module.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;I am being executed!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I am being executed!&quot;</span><span class="p">)</span>
 
-<span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+<span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
@@ -278,7 +279,7 @@ module
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># all of the variables assigned in the module are made</span>
 <span class="c1"># available as attributes of the module object</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_module</span><span class="o">.</span><span class="n">some_list</span>
-<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_module</span><span class="o">.</span><span class="n">square</span>
 <span class="o">&lt;</span><span class="n">function</span> <span class="n">my_module</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span>
@@ -316,7 +317,7 @@ function can also be used to summarize a module’s contents:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p>A module is simply a text file named with a .py suffix, whose contents consist of Python code. A module can be imported into an interactive console environment (e.g.&nbsp;a Jupyter notebook) or into another module. Importing a module executes that module’s code and produces a module-type object instance. Any variables that were assigned during the import are bound as attributes to that object.</p>
+<p>A module is simply a text file named with a .py suffix, whose contents consist of Python code. A module can be imported into an interactive console environment (e.g. a Jupyter notebook) or into another module. Importing a module executes that module’s code and produces a module-type object instance. Any variables that were assigned during the import are bound as attributes to that object.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Creating a simple module</strong></p>
@@ -328,7 +329,7 @@ function can also be used to summarize a module’s contents:</p>
 <h2>Import Statements<a class="headerlink" href="#Import-Statements" title="Permalink to this headline">¶</a></h2>
 <p>Python provides a flexible framework for importing modules and specific members of a module. We have already seen in our work with NumPy that we can specify an <em>alias</em> in our import statement; this can be especially convenient for import modules with long names:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the module object for numpy is returned with the variable name `np`</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
 <span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
 </pre></div>
@@ -362,13 +363,13 @@ function can also be used to summarize a module’s contents:</p>
 <div class="section" id="Packages">
 <h2>Packages<a class="headerlink" href="#Packages" title="Permalink to this headline">¶</a></h2>
 <p>It is not unusual, when working on larger scale projects, to want to organize one’s code into several modules. For example, suppose that we are writing software for performing facial recognition. We might want to have a camera module for taking pictures, a face-detection module for storing a model-class capable of detecting faces, and a database module that is used to store and update “seen” faces. These modules can be stored in a collective <em>package</em>.</p>
-<p>A Python package is a directory containing a file with the name <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>, along with other Python modules and subpackages (i.e.&nbsp;subdirectories, each with its own <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file and associated modules). The <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file is of special importance - it serves as the indicator that its housing directory is to be treated as a package. For example, let’s build a bare-bones package with the following directory structure:</p>
+<p>A Python package is a directory containing a file with the name <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>, along with other Python modules and subpackages (i.e. subdirectories, each with its own <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file and associated modules). The <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file is of special importance - it serves as the indicator that its housing directory is to be treated as a package. For example, let’s build a bare-bones package with the following directory structure:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">your</span> <span class="n">current</span> <span class="n">Jupyter</span> <span class="n">notebook</span> <span class="o">/</span> <span class="n">console</span> <span class="n">session</span>
 <span class="o">-</span> <span class="n">a_dir</span><span class="o">/</span>
     <span class="o">|--</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>Note that your interactive Python session (e.g.&nbsp;Jupyter notebook) should be in active in the same directory as <code class="docutils literal notranslate"><span class="pre">a_dir/</span></code>. The name of the directory containing the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file is the name of the package, thus the name of this package is <code class="docutils literal notranslate"><span class="pre">a_dir</span></code>. Suppose the contents of <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> is as follows:</p>
+<p>Note that your interactive Python session (e.g. Jupyter notebook) should be in active in the same directory as <code class="docutils literal notranslate"><span class="pre">a_dir/</span></code>. The name of the directory containing the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file is the name of the package, thus the name of this package is <code class="docutils literal notranslate"><span class="pre">a_dir</span></code>. Suppose the contents of <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 
@@ -423,9 +424,9 @@ function can also be used to summarize a module’s contents:</p>
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li>Create this package.</li>
-<li>Import the send_mail function</li>
-<li>Import the delivery module and then execute it’s get-zip function</li>
+<li><p>Create this package.</p></li>
+<li><p>Import the send_mail function</p></li>
+<li><p>Import the delivery module and then execute it’s get-zip function</p></li>
 </ol>
 </div>
 </div>
@@ -451,7 +452,7 @@ function can also be used to summarize a module’s contents:</p>
 </pre></div>
 </div>
 <p>or, using an alias</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">face_detection.utils</span> <span class="kn">as</span> <span class="nn">utils</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">face_detection.utils</span> <span class="k">as</span> <span class="nn">utils</span>
 </pre></div>
 </div>
 <p>Suppose that we want to import the <code class="docutils literal notranslate"><span class="pre">utils</span></code> module in <code class="docutils literal notranslate"><span class="pre">face_detection.camera.calibration</span></code> as well; the absolute import would look identical since the absolute location of <code class="docutils literal notranslate"><span class="pre">utils</span></code> relative to the top-level package does not change based on where we are using this import statement.</p>
@@ -573,10 +574,10 @@ libraries like PyTorch and TensorFlow.</p>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">Python Tutorial: Modules</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/distutils/introduction.html#an-introduction-to-distutils">An Introduction to Distutils</a></li>
-<li><a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project">Packaging Your Project</a></li>
-<li><a class="reference external" href="https://pypi.org/">PyPi</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">Python Tutorial: Modules</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/distutils/introduction.html#an-introduction-to-distutils">An Introduction to Distutils</a></p></li>
+<li><p><a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project">Packaging Your Project</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/">PyPi</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
@@ -605,7 +606,7 @@ libraries like PyTorch and TensorFlow.</p>
 </div>
 <p><strong>Packages: Solutions</strong></p>
 <ol class="arabic simple">
-<li>Create this package.</li>
+<li><p>Create this package.</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mail</span><span class="o">/</span>
     <span class="o">|--</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
@@ -613,13 +614,13 @@ libraries like PyTorch and TensorFlow.</p>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Import the send_mail function</li>
+<li><p>Import the send_mail function</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Import the delivery module and then execute it’s get-zip function</li>
+<li><p>Import the delivery module and then execute it’s get-zip function</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mail</span> <span class="kn">import</span> <span class="n">delivery</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">delivery</span><span class="o">.</span><span class="n">get_zip</span><span class="p">()</span>

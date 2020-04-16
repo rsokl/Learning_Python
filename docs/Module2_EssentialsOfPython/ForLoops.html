@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -199,13 +200,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -242,11 +243,11 @@
 <p>Where <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> is any valid variable-identifier and <code class="docutils literal notranslate"><span class="pre">&lt;iterable&gt;</span></code> is any <strong>iterable</strong>. We will discuss iterables more formally in the next section; suffice it to know that every sequence-type object is an iterable. The <code class="docutils literal notranslate"><span class="pre">for</span></code>statement must end in a colon character, and the body the for-loop is <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Introduction.html#Python-Uses-Whitespace-to-Delimit-Scope">whitespace-delimited</a>.</p>
 <p>The for-loop behaves as follows:</p>
 <ul class="simple">
-<li>Request the next member of the iterable.</li>
-<li>If the iterable is empty, exit the for-loop without running its body.</li>
-<li>If the iterable did produce a member, assign that member to <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> (if <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> was not previously defined, it becomes defined).</li>
-<li>Execute the enclosed body of code.</li>
-<li>Go back to the first step.</li>
+<li><p>Request the next member of the iterable.</p></li>
+<li><p>If the iterable is empty, exit the for-loop without running its body.</p></li>
+<li><p>If the iterable did produce a member, assign that member to <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> (if <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> was not previously defined, it becomes defined).</p></li>
+<li><p>Execute the enclosed body of code.</p></li>
+<li><p>Go back to the first step.</p></li>
 </ul>
 <p>To be concrete, let’s consider the example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating a basic for-loop</span>
@@ -254,28 +255,28 @@
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
     <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">item</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  <span class="c1"># `total` has the value 1 + 3 + 5 = 9</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  <span class="c1"># `total` has the value 1 + 3 + 5 = 9</span>
 <span class="c1"># `item` is still defined here, and holds the value 5</span>
 </pre></div>
 </div>
 <p>This code will perform the following steps:</p>
 <ol class="arabic simple">
-<li>Define the variable <code class="docutils literal notranslate"><span class="pre">total</span></code>, and assign it the value <code class="docutils literal notranslate"><span class="pre">0</span></code></li>
-<li>Iterate on the list, producing value <code class="docutils literal notranslate"><span class="pre">1</span></code>, define the variable <code class="docutils literal notranslate"><span class="pre">item</span></code> and assign it the value <code class="docutils literal notranslate"><span class="pre">1</span></code></li>
-<li>Assign <code class="docutils literal notranslate"><span class="pre">total</span></code> the value <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span> <span class="pre">1</span></code></li>
-<li>Iterate on the list, producing the value <code class="docutils literal notranslate"><span class="pre">3</span></code> and assigning it to <code class="docutils literal notranslate"><span class="pre">item</span></code></li>
-<li>Assign <code class="docutils literal notranslate"><span class="pre">total</span></code> the value <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">3</span></code></li>
-<li>Iterate on the list, producing the value <code class="docutils literal notranslate"><span class="pre">5</span></code> and assigning it to <code class="docutils literal notranslate"><span class="pre">item</span></code></li>
-<li>Assign <code class="docutils literal notranslate"><span class="pre">total</span></code> the value <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">+</span> <span class="pre">5</span></code></li>
-<li>Iterate on the list. Having reached its end, a <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> signal it raised by the list, and the for-loop sequence is exited.</li>
-<li>Print the value of <code class="docutils literal notranslate"><span class="pre">total</span></code> (9)</li>
+<li><p>Define the variable <code class="docutils literal notranslate"><span class="pre">total</span></code>, and assign it the value <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p>Iterate on the list, producing value <code class="docutils literal notranslate"><span class="pre">1</span></code>, define the variable <code class="docutils literal notranslate"><span class="pre">item</span></code> and assign it the value <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p>Assign <code class="docutils literal notranslate"><span class="pre">total</span></code> the value <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p>Iterate on the list, producing the value <code class="docutils literal notranslate"><span class="pre">3</span></code> and assigning it to <code class="docutils literal notranslate"><span class="pre">item</span></code></p></li>
+<li><p>Assign <code class="docutils literal notranslate"><span class="pre">total</span></code> the value <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">3</span></code></p></li>
+<li><p>Iterate on the list, producing the value <code class="docutils literal notranslate"><span class="pre">5</span></code> and assigning it to <code class="docutils literal notranslate"><span class="pre">item</span></code></p></li>
+<li><p>Assign <code class="docutils literal notranslate"><span class="pre">total</span></code> the value <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">+</span> <span class="pre">5</span></code></p></li>
+<li><p>Iterate on the list. Having reached its end, a <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> signal it raised by the list, and the for-loop sequence is exited.</p></li>
+<li><p>Print the value of <code class="docutils literal notranslate"><span class="pre">total</span></code> (9)</p></li>
 </ol>
 <div class="section" id="Potential-Pitfall">
 <h3>Potential Pitfall<a class="headerlink" href="#Potential-Pitfall" title="Permalink to this headline">¶</a></h3>
 <p>Note that the variable <code class="docutils literal notranslate"><span class="pre">item</span></code> will persist after the for-loop block is exited. It will reference the last value from the for-loop iteration (in this case <code class="docutils literal notranslate"><span class="pre">item</span></code> has the value 5). That being said, <em>you should not write code that depends on the iterate-variable, outside of the context of the for-loop</em>. In the case that you try to loop over an <em>empty</em> iterable, the iterate-variable is never defined:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[]:</span>         <span class="c1"># the iterable is empty - the iterate-variable `x` will not be defined</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello?&quot;</span><span class="p">)</span>  <span class="c1"># this code is never executed</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># raises an error because `x` was never defined</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello?&quot;</span><span class="p">)</span>  <span class="c1"># this code is never executed</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># raises an error because `x` was never defined</span>
 </pre></div>
 </div>
 <p>Because we are attempting to iterate over an empty list, <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> is raised immediately - before the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> is even defined. Thus the code enclosed within the for-loop is never reached, and the subsequent <code class="docutils literal notranslate"><span class="pre">print(x)</span></code> statement will raise a <code class="docutils literal notranslate"><span class="pre">NameError</span></code>, because <code class="docutils literal notranslate"><span class="pre">x</span></code> was never defined!</p>
@@ -295,8 +296,8 @@
 <p>Where <code class="docutils literal notranslate"><span class="pre">&lt;condition&gt;</span></code> is an expression that returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, or is any object on which <code class="docutils literal notranslate"><span class="pre">bool</span></code> can be called. The “body” of the while-loop is the code indented beneath the while-loop statement.</p>
 <p>The while-loop behaves as follows:</p>
 <ul class="simple">
-<li>Call <code class="docutils literal notranslate"><span class="pre">bool(&lt;condition&gt;)</span></code> and execute the indented block of code if <code class="docutils literal notranslate"><span class="pre">True</span></code> is returned. Otherwise, “exit” the while-loop, skipping past the indented code.</li>
-<li>If the indented block code is executed, go back to the first step.</li>
+<li><p>Call <code class="docutils literal notranslate"><span class="pre">bool(&lt;condition&gt;)</span></code> and execute the indented block of code if <code class="docutils literal notranslate"><span class="pre">True</span></code> is returned. Otherwise, “exit” the while-loop, skipping past the indented code.</p></li>
+<li><p>If the indented block code is executed, go back to the first step.</p></li>
 </ul>
 <p>To be concrete, let’s consider the example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating a basic while-loop</span>
@@ -304,18 +305,18 @@
 <span class="k">while</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
     <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># equivalent to: `total = total + 1`</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  <span class="c1"># `total` has the value 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  <span class="c1"># `total` has the value 2</span>
 </pre></div>
 </div>
 <p>This code will perform the following steps:</p>
 <ol class="arabic simple">
-<li>Define the variable <code class="docutils literal notranslate"><span class="pre">total</span></code>, and assign it the value <code class="docutils literal notranslate"><span class="pre">0</span></code></li>
-<li>Evaluate <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">2</span></code>, which returns <code class="docutils literal notranslate"><span class="pre">True</span></code>: enter the enclosed code-block</li>
-<li>Execute the code block: assign <code class="docutils literal notranslate"><span class="pre">total</span></code> the value <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span> <span class="pre">1</span></code></li>
-<li>Evaluate <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;</span> <span class="pre">2</span></code>, which returns <code class="docutils literal notranslate"><span class="pre">True</span></code>: enter the enclosed code-block</li>
-<li>Execute the code block: assign <code class="docutils literal notranslate"><span class="pre">total</span></code> the value <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code></li>
-<li>Evaluate <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&lt;</span> <span class="pre">2</span></code>, which returns <code class="docutils literal notranslate"><span class="pre">False</span></code>: <em>skip</em> the enclosed code-block</li>
-<li>Print the value of <code class="docutils literal notranslate"><span class="pre">total</span></code> (2)</li>
+<li><p>Define the variable <code class="docutils literal notranslate"><span class="pre">total</span></code>, and assign it the value <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p>Evaluate <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">2</span></code>, which returns <code class="docutils literal notranslate"><span class="pre">True</span></code>: enter the enclosed code-block</p></li>
+<li><p>Execute the code block: assign <code class="docutils literal notranslate"><span class="pre">total</span></code> the value <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p>Evaluate <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;</span> <span class="pre">2</span></code>, which returns <code class="docutils literal notranslate"><span class="pre">True</span></code>: enter the enclosed code-block</p></li>
+<li><p>Execute the code block: assign <code class="docutils literal notranslate"><span class="pre">total</span></code> the value <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p>Evaluate <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&lt;</span> <span class="pre">2</span></code>, which returns <code class="docutils literal notranslate"><span class="pre">False</span></code>: <em>skip</em> the enclosed code-block</p></li>
+<li><p>Print the value of <code class="docutils literal notranslate"><span class="pre">total</span></code> (2)</p></li>
 </ol>
 <p>Note that if we started off with <code class="docutils literal notranslate"><span class="pre">total</span> <span class="pre">=</span> <span class="pre">3</span></code>, the condition-expression <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">&lt;</span> <span class="pre">2</span></code> would evaluate to <code class="docutils literal notranslate"><span class="pre">False</span></code> outright, and the indented body of code would never be reached.</p>
 <div class="admonition warning">
@@ -335,9 +336,9 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1"># breaking out of a loop early</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
 <span class="o">...</span>     <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-<span class="o">...</span>         <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
+<span class="o">...</span>         <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
 <span class="o">...</span>         <span class="k">break</span>
-<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1  ...next iteration
@@ -349,11 +350,11 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1"># including an else-clause at the end of the loop</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]:</span>
 <span class="o">...</span>     <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-<span class="o">...</span>         <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
+<span class="o">...</span>         <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
 <span class="o">...</span>         <span class="k">break</span>
-<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
 <span class="o">...</span> <span class="k">else</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;if you are reading this, then the loop completed without a &#39;break&#39;&quot;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;if you are reading this, then the loop completed without a &#39;break&#39;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>  <span class="o">...</span><span class="n">next</span> <span class="n">iteration</span>
@@ -366,13 +367,13 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating a `continue` statement in a loop</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;&gt;&gt; enter loop-body &lt;&lt;&quot;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;&gt;&gt; enter loop-body &lt;&lt;&quot;</span><span class="p">)</span>
 <span class="o">...</span>     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<span class="o">...</span>         <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot; continue...back to the top of the loop!&quot;</span><span class="p">)</span>
+<span class="o">...</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot; continue...back to the top of the loop!&quot;</span><span class="p">)</span>
 <span class="o">...</span>         <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="o">...</span>         <span class="k">continue</span>
 <span class="o">...</span>     <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;--reached end of loop-body--&quot;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--reached end of loop-body--&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>x =  1 &gt;&gt; enter loop-body &lt;&lt;
@@ -391,10 +392,10 @@ x =  3 &gt;&gt; enter loop-body &lt;&lt;
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-for-statement">‘for’ statement</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-while-statement">‘while’ statement</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops">‘break’, ‘continue’, and ‘else’ clauses</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#pass-statements">‘pass’ statment</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-for-statement">‘for’ statement</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-while-statement">‘while’ statement</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops">‘break’, ‘continue’, and ‘else’ clauses</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#pass-statements">‘pass’ statment</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
@@ -402,7 +403,7 @@ x =  3 &gt;&gt; enter loop-body &lt;&lt;
 <p><strong>A basic for-loop: Solution</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s2">&quot;abcdefghij&quot;</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s2">&quot;aeiou&quot;</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>A basic while-loop: Solution</strong></p>
@@ -430,7 +431,7 @@ x =  3 &gt;&gt; enter loop-body &lt;&lt;
     <span class="k">if</span> <span class="mi">50</span> <span class="o">&lt;</span> <span class="n">num_loop</span><span class="p">:</span>
         <span class="k">break</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
