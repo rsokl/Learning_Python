@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -188,13 +189,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -211,9 +212,9 @@
 <h1>Iterating Over Arrays &amp; Array-Traversal Order<a class="headerlink" href="#Iterating-Over-Arrays-&-Array-Traversal-Order" title="Permalink to this headline">¶</a></h1>
 <p>In this section, you will learn:</p>
 <ul class="simple">
-<li>About NumPy’s functions for iterating over an array</li>
-<li>That there is more than one valid way for NumPy to perform this operation, which amounts to how NumPy traverses a multidimensional array.</li>
-<li>The row-major array traversal methodology, which is utilized by NumPy by default.</li>
+<li><p>About NumPy’s functions for iterating over an array</p></li>
+<li><p>That there is more than one valid way for NumPy to perform this operation, which amounts to how NumPy traverses a multidimensional array.</p></li>
+<li><p>The row-major array traversal methodology, which is utilized by NumPy by default.</p></li>
 </ul>
 <p>NumPy provides valuable tools for iterating over any array, such that each element can be visited in the array, regardless of the array’s shape. For example, recall that Python’s built-in <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function permits us to produce each item in an iterable, along with its index of iteration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># enumerating the items in an iterable</span>
@@ -222,7 +223,7 @@
 </pre></div>
 </div>
 <p>Similarly, NumPy provides the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndenumerate.html#numpy.ndenumerate">ndenumerate</a> function, which enumerates each element in an N-dimensional array, specifying the N-dimensional index for each element.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="go"># Demonstrating `np.ndenumerate`.</span>
 <span class="go"># A shape-(2, 2, 3) array</span>
@@ -279,8 +280,8 @@ ordering. One ordering is not inherently better than the other. That being said,
 </div>
 <p>These two orderings are simple enough to follow for a 2D-array, but how do they manifest in arrays with higher dimensions, where we have to worry not only about rows and columns, but potentially “stacks of sheets with rows and columns” (which would be a 4D array) and so on? The generic rules are as follows:</p>
 <ul class="simple">
-<li><strong>Row-major ordering (C ordering) {NumPy’s default}</strong>: traverse an array by advancing the index of the <em>last axis</em>, first, until the end of that axis is reached, and then advance the index of the second-to last axis, and so on.</li>
-<li><strong>Column-major ordering (F ordering)</strong>: traverse an array by advancing the index of the <em>first axis</em>, first, until the end of that axis is reached, and then advance the index of the second axis, and so on.</li>
+<li><p><strong>Row-major ordering (C ordering) {NumPy’s default}</strong>: traverse an array by advancing the index of the <em>last axis</em>, first, until the end of that axis is reached, and then advance the index of the second-to last axis, and so on.</p></li>
+<li><p><strong>Column-major ordering (F ordering)</strong>: traverse an array by advancing the index of the <em>first axis</em>, first, until the end of that axis is reached, and then advance the index of the second axis, and so on.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
@@ -300,10 +301,10 @@ ordering. One ordering is not inherently better than the other. That being said,
 </div>
 <p>Following NumPy’s default row-major ordering, we can perform this reshaping by following these steps:</p>
 <ol class="arabic simple">
-<li>Create an empty array of the desired shape: (2, 3, 4).</li>
-<li>Start by inserting the 0th element from the input array into the (0, 0, 0) element of the output array.</li>
-<li>Advance the index by <em>increasing the index of the last axis, first</em>, and inserting the following element from the input array.</li>
-<li>If you reach the end of an axis (axis-2, for instance, only has 4 slots), reset the index for that axis to 0, and advance the index of the preceding axis. Go back to 3.</li>
+<li><p>Create an empty array of the desired shape: (2, 3, 4).</p></li>
+<li><p>Start by inserting the 0th element from the input array into the (0, 0, 0) element of the output array.</p></li>
+<li><p>Advance the index by <em>increasing the index of the last axis, first</em>, and inserting the following element from the input array.</p></li>
+<li><p>If you reach the end of an axis (axis-2, for instance, only has 4 slots), reset the index for that axis to 0, and advance the index of the preceding axis. Go back to 3.</p></li>
 </ol>
 <p>This traversal process is easier to understand when laid out explicitly:</p>
 <hr class="docutils" />
@@ -363,10 +364,10 @@ advanced indexing.</p>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-row-major">Definition of row major ordering</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-column-major">Definition of column major ordering</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.indexing.html#iterating-over-arrays">Routines for iterating over arrays</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.nditer.html#iterating-over-arrays">Detailed description of array iteration</a></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-row-major">Definition of row major ordering</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-column-major">Definition of column major ordering</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.indexing.html#iterating-over-arrays">Routines for iterating over arrays</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.nditer.html#iterating-over-arrays">Detailed description of array iteration</a></p></li>
 </ul>
 </div>
 </div>

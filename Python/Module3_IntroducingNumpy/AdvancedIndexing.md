@@ -402,7 +402,7 @@ Use boolean array-indexing and NumPy's [logical functions](https://docs.scipy.or
 <!-- #endregion -->
 
 <!-- #region -->
-#### Converting a Boolean Index-Array to Integer index-arrays: numpy.where
+### Converting a Boolean Index-Array to Integer Index-Arrays: numpy.where
 The function [numpy.where](https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html) can be used to take a boolean-valued array, and produce the *tuple* of index-arrays that access the `True` entries of that array, via integer array indexing (discussed at the beginning of this section).
 
 ```python
@@ -695,6 +695,13 @@ This will return a tuple of two integer-valued index-arrays. These contain the i
 ...               [ 0.84,  0.76,  0.25,  0.07]])
 
 >>> x[np.arange(4), np.arange(4)] = range(4)
+# equivalent (works for the general case of a square matrix of N-dims)
+# x[tuple(np.arange(x) for x in x.shape)] = range(x.shape[0])
+
+# equivalent (using numpy built-in functions):
+# x[np.diag_indices_from(x)] = np.arange(4)
+# np.fill_diagonal(x, np.arange(4))
+
 >>> x[0.8 < x] += 1
 >>> x
 array([[ 0.  ,  0.05,  1.84,  0.21],

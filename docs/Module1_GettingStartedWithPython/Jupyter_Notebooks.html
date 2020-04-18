@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -193,16 +194,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -211,13 +212,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -225,92 +226,91 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -354,6 +354,27 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
   border: none;
@@ -391,13 +412,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -467,12 +488,12 @@ IPython console.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>import numpy as np
-import matplotlib.pyplot as plt
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-# this tells Jupyter to embed matplotlib plots in the notebook
-%matplotlib notebook
+<span class="c1"># this tells Jupyter to embed matplotlib plots in the notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> notebook
 </pre></div>
 </div>
 </div>
@@ -480,13 +501,13 @@ import matplotlib.pyplot as plt
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>def sinc(x):
-    return np.sin(x) / x
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span>
 
-def d_sinc(x):
-    &quot;derivative of sinc-function&quot;
-    return np.cos(x)/x - np.sin(x)/x**2
+<span class="k">def</span> <span class="nf">d_sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="s2">&quot;derivative of sinc-function&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -494,11 +515,11 @@ def d_sinc(x):
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span># evaluate functions at 1000 points evenly spaced in [-15, 15]
-x = np.linspace(-15, 15, 1000)
-f = sinc(x)
-df = d_sinc(x)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># evaluate functions at 1000 points evenly spaced in [-15, 15]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">d_sinc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -506,27 +527,805 @@ df = d_sinc(x)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span># plot the sinc-function and its derivative
-fig, ax = plt.subplots()
-ax.plot(x, f, color=&quot;red&quot;, label=r&quot;$sinc(x)$&quot;)
-ax.plot(x, df, color=&quot;blue&quot;, ls=&quot;--&quot;, label=r&quot;$\frac{d(sinc(x))}{dx}$&quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># plot the sinc-function and its derivative</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$sinc(x)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac{d(sinc(x))}</span><span class="si">{dx}</span><span class="s2">$&quot;</span><span class="p">)</span>
 
 
-ax.set_title(&quot;Example Notebook Plot&quot;)
-ax.set_xlabel(r&quot;$x$ [radians]&quot;)
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Example Notebook Plot&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$ [radians]&quot;</span><span class="p">)</span>
 
-ax.grid(True)
-ax.legend();
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+/* Put everything inside the global mpl namespace */
+window.mpl = {};
+
+
+mpl.get_websocket_type = function() {
+    if (typeof(WebSocket) !== 'undefined') {
+        return WebSocket;
+    } else if (typeof(MozWebSocket) !== 'undefined') {
+        return MozWebSocket;
+    } else {
+        alert('Your browser does not have WebSocket support.' +
+              'Please try Chrome, Safari or Firefox ≥ 6. ' +
+              'Firefox 4 and 5 are also supported but you ' +
+              'have to enable WebSockets in about:config.');
+    };
+}
+
+mpl.figure = function(figure_id, websocket, ondownload, parent_element) {
+    this.id = figure_id;
+
+    this.ws = websocket;
+
+    this.supports_binary = (this.ws.binaryType != undefined);
+
+    if (!this.supports_binary) {
+        var warnings = document.getElementById("mpl-warnings");
+        if (warnings) {
+            warnings.style.display = 'block';
+            warnings.textContent = (
+                "This browser does not support binary websocket messages. " +
+                    "Performance may be slow.");
+        }
+    }
+
+    this.imageObj = new Image();
+
+    this.context = undefined;
+    this.message = undefined;
+    this.canvas = undefined;
+    this.rubberband_canvas = undefined;
+    this.rubberband_context = undefined;
+    this.format_dropdown = undefined;
+
+    this.image_mode = 'full';
+
+    this.root = $('<div/>');
+    this._root_extra_style(this.root)
+    this.root.attr('style', 'display: inline-block');
+
+    $(parent_element).append(this.root);
+
+    this._init_header(this);
+    this._init_canvas(this);
+    this._init_toolbar(this);
+
+    var fig = this;
+
+    this.waiting = false;
+
+    this.ws.onopen =  function () {
+            fig.send_message("supports_binary", {value: fig.supports_binary});
+            fig.send_message("send_image_mode", {});
+            if (mpl.ratio != 1) {
+                fig.send_message("set_dpi_ratio", {'dpi_ratio': mpl.ratio});
+            }
+            fig.send_message("refresh", {});
+        }
+
+    this.imageObj.onload = function() {
+            if (fig.image_mode == 'full') {
+                // Full images could contain transparency (where diff images
+                // almost always do), so we need to clear the canvas so that
+                // there is no ghosting.
+                fig.context.clearRect(0, 0, fig.canvas.width, fig.canvas.height);
+            }
+            fig.context.drawImage(fig.imageObj, 0, 0);
+        };
+
+    this.imageObj.onunload = function() {
+        fig.ws.close();
+    }
+
+    this.ws.onmessage = this._make_on_message_function(this);
+
+    this.ondownload = ondownload;
+}
+
+mpl.figure.prototype._init_header = function() {
+    var titlebar = $(
+        '<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ' +
+        'ui-helper-clearfix"/>');
+    var titletext = $(
+        '<div class="ui-dialog-title" style="width: 100%; ' +
+        'text-align: center; padding: 3px;"/>');
+    titlebar.append(titletext)
+    this.root.append(titlebar);
+    this.header = titletext[0];
+}
+
+
+
+mpl.figure.prototype._canvas_extra_style = function(canvas_div) {
+
+}
+
+
+mpl.figure.prototype._root_extra_style = function(canvas_div) {
+
+}
+
+mpl.figure.prototype._init_canvas = function() {
+    var fig = this;
+
+    var canvas_div = $('<div/>');
+
+    canvas_div.attr('style', 'position: relative; clear: both; outline: 0');
+
+    function canvas_keyboard_event(event) {
+        return fig.key_event(event, event['data']);
+    }
+
+    canvas_div.keydown('key_press', canvas_keyboard_event);
+    canvas_div.keyup('key_release', canvas_keyboard_event);
+    this.canvas_div = canvas_div
+    this._canvas_extra_style(canvas_div)
+    this.root.append(canvas_div);
+
+    var canvas = $('<canvas/>');
+    canvas.addClass('mpl-canvas');
+    canvas.attr('style', "left: 0; top: 0; z-index: 0; outline: 0")
+
+    this.canvas = canvas[0];
+    this.context = canvas[0].getContext("2d");
+
+    var backingStore = this.context.backingStorePixelRatio ||
+    this.context.webkitBackingStorePixelRatio ||
+    this.context.mozBackingStorePixelRatio ||
+    this.context.msBackingStorePixelRatio ||
+    this.context.oBackingStorePixelRatio ||
+    this.context.backingStorePixelRatio || 1;
+
+    mpl.ratio = (window.devicePixelRatio || 1) / backingStore;
+
+    var rubberband = $('<canvas/>');
+    rubberband.attr('style', "position: absolute; left: 0; top: 0; z-index: 1;")
+
+    var pass_mouse_events = true;
+
+    canvas_div.resizable({
+        start: function(event, ui) {
+            pass_mouse_events = false;
+        },
+        resize: function(event, ui) {
+            fig.request_resize(ui.size.width, ui.size.height);
+        },
+        stop: function(event, ui) {
+            pass_mouse_events = true;
+            fig.request_resize(ui.size.width, ui.size.height);
+        },
+    });
+
+    function mouse_event_fn(event) {
+        if (pass_mouse_events)
+            return fig.mouse_event(event, event['data']);
+    }
+
+    rubberband.mousedown('button_press', mouse_event_fn);
+    rubberband.mouseup('button_release', mouse_event_fn);
+    // Throttle sequential mouse events to 1 every 20ms.
+    rubberband.mousemove('motion_notify', mouse_event_fn);
+
+    rubberband.mouseenter('figure_enter', mouse_event_fn);
+    rubberband.mouseleave('figure_leave', mouse_event_fn);
+
+    canvas_div.on("wheel", function (event) {
+        event = event.originalEvent;
+        event['data'] = 'scroll'
+        if (event.deltaY < 0) {
+            event.step = 1;
+        } else {
+            event.step = -1;
+        }
+        mouse_event_fn(event);
+    });
+
+    canvas_div.append(canvas);
+    canvas_div.append(rubberband);
+
+    this.rubberband = rubberband;
+    this.rubberband_canvas = rubberband[0];
+    this.rubberband_context = rubberband[0].getContext("2d");
+    this.rubberband_context.strokeStyle = "#000000";
+
+    this._resize_canvas = function(width, height) {
+        // Keep the size of the canvas, canvas container, and rubber band
+        // canvas in synch.
+        canvas_div.css('width', width)
+        canvas_div.css('height', height)
+
+        canvas.attr('width', width * mpl.ratio);
+        canvas.attr('height', height * mpl.ratio);
+        canvas.attr('style', 'width: ' + width + 'px; height: ' + height + 'px;');
+
+        rubberband.attr('width', width);
+        rubberband.attr('height', height);
+    }
+
+    // Set the figure to an initial 600x600px, this will subsequently be updated
+    // upon first draw.
+    this._resize_canvas(600, 600);
+
+    // Disable right mouse context menu.
+    $(this.rubberband_canvas).bind("contextmenu",function(e){
+        return false;
+    });
+
+    function set_focus () {
+        canvas.focus();
+        canvas_div.focus();
+    }
+
+    window.setTimeout(set_focus, 100);
+}
+
+mpl.figure.prototype._init_toolbar = function() {
+    var fig = this;
+
+    var nav_element = $('<div/>')
+    nav_element.attr('style', 'width: 100%');
+    this.root.append(nav_element);
+
+    // Define a callback function for later on.
+    function toolbar_event(event) {
+        return fig.toolbar_button_onclick(event['data']);
+    }
+    function toolbar_mouse_event(event) {
+        return fig.toolbar_button_onmouseover(event['data']);
+    }
+
+    for(var toolbar_ind in mpl.toolbar_items) {
+        var name = mpl.toolbar_items[toolbar_ind][0];
+        var tooltip = mpl.toolbar_items[toolbar_ind][1];
+        var image = mpl.toolbar_items[toolbar_ind][2];
+        var method_name = mpl.toolbar_items[toolbar_ind][3];
+
+        if (!name) {
+            // put a spacer in here.
+            continue;
+        }
+        var button = $('<button/>');
+        button.addClass('ui-button ui-widget ui-state-default ui-corner-all ' +
+                        'ui-button-icon-only');
+        button.attr('role', 'button');
+        button.attr('aria-disabled', 'false');
+        button.click(method_name, toolbar_event);
+        button.mouseover(tooltip, toolbar_mouse_event);
+
+        var icon_img = $('<span/>');
+        icon_img.addClass('ui-button-icon-primary ui-icon');
+        icon_img.addClass(image);
+        icon_img.addClass('ui-corner-all');
+
+        var tooltip_span = $('<span/>');
+        tooltip_span.addClass('ui-button-text');
+        tooltip_span.html(tooltip);
+
+        button.append(icon_img);
+        button.append(tooltip_span);
+
+        nav_element.append(button);
+    }
+
+    var fmt_picker_span = $('<span/>');
+
+    var fmt_picker = $('<select/>');
+    fmt_picker.addClass('mpl-toolbar-option ui-widget ui-widget-content');
+    fmt_picker_span.append(fmt_picker);
+    nav_element.append(fmt_picker_span);
+    this.format_dropdown = fmt_picker[0];
+
+    for (var ind in mpl.extensions) {
+        var fmt = mpl.extensions[ind];
+        var option = $(
+            '<option/>', {selected: fmt === mpl.default_extension}).html(fmt);
+        fmt_picker.append(option)
+    }
+
+    // Add hover states to the ui-buttons
+    $( ".ui-button" ).hover(
+        function() { $(this).addClass("ui-state-hover");},
+        function() { $(this).removeClass("ui-state-hover");}
+    );
+
+    var status_bar = $('<span class="mpl-message"/>');
+    nav_element.append(status_bar);
+    this.message = status_bar[0];
+}
+
+mpl.figure.prototype.request_resize = function(x_pixels, y_pixels) {
+    // Request matplotlib to resize the figure. Matplotlib will then trigger a resize in the client,
+    // which will in turn request a refresh of the image.
+    this.send_message('resize', {'width': x_pixels, 'height': y_pixels});
+}
+
+mpl.figure.prototype.send_message = function(type, properties) {
+    properties['type'] = type;
+    properties['figure_id'] = this.id;
+    this.ws.send(JSON.stringify(properties));
+}
+
+mpl.figure.prototype.send_draw_message = function() {
+    if (!this.waiting) {
+        this.waiting = true;
+        this.ws.send(JSON.stringify({type: "draw", figure_id: this.id}));
+    }
+}
+
+
+mpl.figure.prototype.handle_save = function(fig, msg) {
+    var format_dropdown = fig.format_dropdown;
+    var format = format_dropdown.options[format_dropdown.selectedIndex].value;
+    fig.ondownload(fig, format);
+}
+
+
+mpl.figure.prototype.handle_resize = function(fig, msg) {
+    var size = msg['size'];
+    if (size[0] != fig.canvas.width || size[1] != fig.canvas.height) {
+        fig._resize_canvas(size[0], size[1]);
+        fig.send_message("refresh", {});
+    };
+}
+
+mpl.figure.prototype.handle_rubberband = function(fig, msg) {
+    var x0 = msg['x0'] / mpl.ratio;
+    var y0 = (fig.canvas.height - msg['y0']) / mpl.ratio;
+    var x1 = msg['x1'] / mpl.ratio;
+    var y1 = (fig.canvas.height - msg['y1']) / mpl.ratio;
+    x0 = Math.floor(x0) + 0.5;
+    y0 = Math.floor(y0) + 0.5;
+    x1 = Math.floor(x1) + 0.5;
+    y1 = Math.floor(y1) + 0.5;
+    var min_x = Math.min(x0, x1);
+    var min_y = Math.min(y0, y1);
+    var width = Math.abs(x1 - x0);
+    var height = Math.abs(y1 - y0);
+
+    fig.rubberband_context.clearRect(
+        0, 0, fig.canvas.width, fig.canvas.height);
+
+    fig.rubberband_context.strokeRect(min_x, min_y, width, height);
+}
+
+mpl.figure.prototype.handle_figure_label = function(fig, msg) {
+    // Updates the figure title.
+    fig.header.textContent = msg['label'];
+}
+
+mpl.figure.prototype.handle_cursor = function(fig, msg) {
+    var cursor = msg['cursor'];
+    switch(cursor)
+    {
+    case 0:
+        cursor = 'pointer';
+        break;
+    case 1:
+        cursor = 'default';
+        break;
+    case 2:
+        cursor = 'crosshair';
+        break;
+    case 3:
+        cursor = 'move';
+        break;
+    }
+    fig.rubberband_canvas.style.cursor = cursor;
+}
+
+mpl.figure.prototype.handle_message = function(fig, msg) {
+    fig.message.textContent = msg['message'];
+}
+
+mpl.figure.prototype.handle_draw = function(fig, msg) {
+    // Request the server to send over a new figure.
+    fig.send_draw_message();
+}
+
+mpl.figure.prototype.handle_image_mode = function(fig, msg) {
+    fig.image_mode = msg['mode'];
+}
+
+mpl.figure.prototype.updated_canvas_event = function() {
+    // Called whenever the canvas gets updated.
+    this.send_message("ack", {});
+}
+
+// A function to construct a web socket function for onmessage handling.
+// Called in the figure constructor.
+mpl.figure.prototype._make_on_message_function = function(fig) {
+    return function socket_on_message(evt) {
+        if (evt.data instanceof Blob) {
+            /* FIXME: We get "Resource interpreted as Image but
+             * transferred with MIME type text/plain:" errors on
+             * Chrome.  But how to set the MIME type?  It doesn't seem
+             * to be part of the websocket stream */
+            evt.data.type = "image/png";
+
+            /* Free the memory for the previous frames */
+            if (fig.imageObj.src) {
+                (window.URL || window.webkitURL).revokeObjectURL(
+                    fig.imageObj.src);
+            }
+
+            fig.imageObj.src = (window.URL || window.webkitURL).createObjectURL(
+                evt.data);
+            fig.updated_canvas_event();
+            fig.waiting = false;
+            return;
+        }
+        else if (typeof evt.data === 'string' && evt.data.slice(0, 21) == "data:image/png;base64") {
+            fig.imageObj.src = evt.data;
+            fig.updated_canvas_event();
+            fig.waiting = false;
+            return;
+        }
+
+        var msg = JSON.parse(evt.data);
+        var msg_type = msg['type'];
+
+        // Call the  "handle_{type}" callback, which takes
+        // the figure and JSON message as its only arguments.
+        try {
+            var callback = fig["handle_" + msg_type];
+        } catch (e) {
+            console.log("No handler for the '" + msg_type + "' message type: ", msg);
+            return;
+        }
+
+        if (callback) {
+            try {
+                // console.log("Handling '" + msg_type + "' message: ", msg);
+                callback(fig, msg);
+            } catch (e) {
+                console.log("Exception inside the 'handler_" + msg_type + "' callback:", e, e.stack, msg);
+            }
+        }
+    };
+}
+
+// from http://stackoverflow.com/questions/1114465/getting-mouse-location-in-canvas
+mpl.findpos = function(e) {
+    //this section is from http://www.quirksmode.org/js/events_properties.html
+    var targ;
+    if (!e)
+        e = window.event;
+    if (e.target)
+        targ = e.target;
+    else if (e.srcElement)
+        targ = e.srcElement;
+    if (targ.nodeType == 3) // defeat Safari bug
+        targ = targ.parentNode;
+
+    // jQuery normalizes the pageX and pageY
+    // pageX,Y are the mouse positions relative to the document
+    // offset() returns the position of the element relative to the document
+    var x = e.pageX - $(targ).offset().left;
+    var y = e.pageY - $(targ).offset().top;
+
+    return {"x": x, "y": y};
+};
+
+/*
+ * return a copy of an object with only non-object keys
+ * we need this to avoid circular references
+ * http://stackoverflow.com/a/24161582/3208463
+ */
+function simpleKeys (original) {
+  return Object.keys(original).reduce(function (obj, key) {
+    if (typeof original[key] !== 'object')
+        obj[key] = original[key]
+    return obj;
+  }, {});
+}
+
+mpl.figure.prototype.mouse_event = function(event, name) {
+    var canvas_pos = mpl.findpos(event)
+
+    if (name === 'button_press')
+    {
+        this.canvas.focus();
+        this.canvas_div.focus();
+    }
+
+    var x = canvas_pos.x * mpl.ratio;
+    var y = canvas_pos.y * mpl.ratio;
+
+    this.send_message(name, {x: x, y: y, button: event.button,
+                             step: event.step,
+                             guiEvent: simpleKeys(event)});
+
+    /* This prevents the web browser from automatically changing to
+     * the text insertion cursor when the button is pressed.  We want
+     * to control all of the cursor setting manually through the
+     * 'cursor' event from matplotlib */
+    event.preventDefault();
+    return false;
+}
+
+mpl.figure.prototype._key_event_extra = function(event, name) {
+    // Handle any extra behaviour associated with a key event
+}
+
+mpl.figure.prototype.key_event = function(event, name) {
+
+    // Prevent repeat events
+    if (name == 'key_press')
+    {
+        if (event.which === this._key)
+            return;
+        else
+            this._key = event.which;
+    }
+    if (name == 'key_release')
+        this._key = null;
+
+    var value = '';
+    if (event.ctrlKey && event.which != 17)
+        value += "ctrl+";
+    if (event.altKey && event.which != 18)
+        value += "alt+";
+    if (event.shiftKey && event.which != 16)
+        value += "shift+";
+
+    value += 'k';
+    value += event.which.toString();
+
+    this._key_event_extra(event, name);
+
+    this.send_message(name, {key: value,
+                             guiEvent: simpleKeys(event)});
+    return false;
+}
+
+mpl.figure.prototype.toolbar_button_onclick = function(name) {
+    if (name == 'download') {
+        this.handle_save(this, null);
+    } else {
+        this.send_message("toolbar_button", {name: name});
+    }
+};
+
+mpl.figure.prototype.toolbar_button_onmouseover = function(tooltip) {
+    this.message.textContent = tooltip;
+};
+mpl.toolbar_items = [["Home", "Reset original view", "fa fa-home icon-home", "home"], ["Back", "Back to previous view", "fa fa-arrow-left icon-arrow-left", "back"], ["Forward", "Forward to next view", "fa fa-arrow-right icon-arrow-right", "forward"], ["", "", "", ""], ["Pan", "Pan axes with left mouse, zoom with right", "fa fa-arrows icon-move", "pan"], ["Zoom", "Zoom to rectangle", "fa fa-square-o icon-check-empty", "zoom"], ["", "", "", ""], ["Download", "Download plot", "fa fa-floppy-o icon-save", "download"]];
+
+mpl.extensions = ["eps", "pdf", "png", "ps", "raw", "svg"];
+
+mpl.default_extension = "png";var comm_websocket_adapter = function(comm) {
+    // Create a "websocket"-like object which calls the given IPython comm
+    // object with the appropriate methods. Currently this is a non binary
+    // socket, so there is still some room for performance tuning.
+    var ws = {};
+
+    ws.close = function() {
+        comm.close()
+    };
+    ws.send = function(m) {
+        //console.log('sending', m);
+        comm.send(m);
+    };
+    // Register the callback with on_msg.
+    comm.on_msg(function(msg) {
+        //console.log('receiving', msg['content']['data'], msg);
+        // Pass the mpl event to the overridden (by mpl) onmessage function.
+        ws.onmessage(msg['content']['data'])
+    });
+    return ws;
+}
+
+mpl.mpl_figure_comm = function(comm, msg) {
+    // This is the function which gets called when the mpl process
+    // starts-up an IPython Comm through the "matplotlib" channel.
+
+    var id = msg.content.data.id;
+    // Get hold of the div created by the display call when the Comm
+    // socket was opened in Python.
+    var element = $("#" + id);
+    var ws_proxy = comm_websocket_adapter(comm)
+
+    function ondownload(figure, format) {
+        window.open(figure.imageObj.src);
+    }
+
+    var fig = new mpl.figure(id, ws_proxy,
+                           ondownload,
+                           element.get(0));
+
+    // Call onopen now - mpl needs it, as it is assuming we've passed it a real
+    // web socket which is closed, not our websocket->open comm proxy.
+    ws_proxy.onopen();
+
+    fig.parent_element = element.get(0);
+    fig.cell_info = mpl.find_output_cell("<div id='" + id + "'></div>");
+    if (!fig.cell_info) {
+        console.error("Failed to find cell for figure", id, fig);
+        return;
+    }
+
+    var output_index = fig.cell_info[2]
+    var cell = fig.cell_info[0];
+
+};
+
+mpl.figure.prototype.handle_close = function(fig, msg) {
+    var width = fig.canvas.width/mpl.ratio
+    fig.root.unbind('remove')
+
+    // Update the output cell to use the data from the current canvas.
+    fig.push_to_output();
+    var dataURL = fig.canvas.toDataURL();
+    // Re-enable the keyboard manager in IPython - without this line, in FF,
+    // the notebook keyboard shortcuts fail.
+    IPython.keyboard_manager.enable()
+    $(fig.parent_element).html('<img src="' + dataURL + '" width="' + width + '">');
+    fig.close_ws(fig, msg);
+}
+
+mpl.figure.prototype.close_ws = function(fig, msg){
+    fig.send_message('closing', msg);
+    // fig.ws.close()
+}
+
+mpl.figure.prototype.push_to_output = function(remove_interactive) {
+    // Turn the data on the canvas into data in the output cell.
+    var width = this.canvas.width/mpl.ratio
+    var dataURL = this.canvas.toDataURL();
+    this.cell_info[1]['text/html'] = '<img src="' + dataURL + '" width="' + width + '">';
+}
+
+mpl.figure.prototype.updated_canvas_event = function() {
+    // Tell IPython that the notebook contents must change.
+    IPython.notebook.set_dirty(true);
+    this.send_message("ack", {});
+    var fig = this;
+    // Wait a second, then push the new image to the DOM so
+    // that it is saved nicely (might be nice to debounce this).
+    setTimeout(function () { fig.push_to_output() }, 1000);
+}
+
+mpl.figure.prototype._init_toolbar = function() {
+    var fig = this;
+
+    var nav_element = $('<div/>')
+    nav_element.attr('style', 'width: 100%');
+    this.root.append(nav_element);
+
+    // Define a callback function for later on.
+    function toolbar_event(event) {
+        return fig.toolbar_button_onclick(event['data']);
+    }
+    function toolbar_mouse_event(event) {
+        return fig.toolbar_button_onmouseover(event['data']);
+    }
+
+    for(var toolbar_ind in mpl.toolbar_items){
+        var name = mpl.toolbar_items[toolbar_ind][0];
+        var tooltip = mpl.toolbar_items[toolbar_ind][1];
+        var image = mpl.toolbar_items[toolbar_ind][2];
+        var method_name = mpl.toolbar_items[toolbar_ind][3];
+
+        if (!name) { continue; };
+
+        var button = $('<button class="btn btn-default" href="#" title="' + name + '"><i class="fa ' + image + ' fa-lg"></i></button>');
+        button.click(method_name, toolbar_event);
+        button.mouseover(tooltip, toolbar_mouse_event);
+        nav_element.append(button);
+    }
+
+    // Add the status bar.
+    var status_bar = $('<span class="mpl-message" style="text-align:right; float: right;"/>');
+    nav_element.append(status_bar);
+    this.message = status_bar[0];
+
+    // Add the close button to the window.
+    var buttongrp = $('<div class="btn-group inline pull-right"></div>');
+    var button = $('<button class="btn btn-mini btn-primary" href="#" title="Stop Interaction"><i class="fa fa-power-off icon-remove icon-large"></i></button>');
+    button.click(function (evt) { fig.handle_close(fig, {}); } );
+    button.mouseover('Stop Interaction', toolbar_mouse_event);
+    buttongrp.append(button);
+    var titlebar = this.root.find($('.ui-dialog-titlebar'));
+    titlebar.prepend(buttongrp);
+}
+
+mpl.figure.prototype._root_extra_style = function(el){
+    var fig = this
+    el.on("remove", function(){
+    fig.close_ws(fig, {});
+    });
+}
+
+mpl.figure.prototype._canvas_extra_style = function(el){
+    // this is important to make the div 'focusable
+    el.attr('tabindex', 0)
+    // reach out to IPython and tell the keyboard manager to turn it's self
+    // off when our div gets focus
+
+    // location in version 3
+    if (IPython.notebook.keyboard_manager) {
+        IPython.notebook.keyboard_manager.register_events(el);
+    }
+    else {
+        // location in version 2
+        IPython.keyboard_manager.register_events(el);
+    }
+
+}
+
+mpl.figure.prototype._key_event_extra = function(event, name) {
+    var manager = IPython.notebook.keyboard_manager;
+    if (!manager)
+        manager = IPython.keyboard_manager;
+
+    // Check for shift+enter
+    if (event.shiftKey && event.which == 13) {
+        this.canvas_div.blur();
+        event.shiftKey = false;
+        // Send a "J" for go to next cell
+        event.which = 74;
+        event.keyCode = 74;
+        manager.command_mode();
+        manager.handle_keydown(event);
+    }
+}
+
+mpl.figure.prototype.handle_save = function(fig, msg) {
+    fig.ondownload(fig, null);
+}
+
+
+mpl.find_output_cell = function(html_output) {
+    // Return the cell and output element which can be found *uniquely* in the notebook.
+    // Note - this is a bit hacky, but it is done because the "notebook_saving.Notebook"
+    // IPython event is triggered only after the cells have been serialised, which for
+    // our purposes (turning an active figure into a static one), is too late.
+    var cells = IPython.notebook.get_cells();
+    var ncells = cells.length;
+    for (var i=0; i<ncells; i++) {
+        var cell = cells[i];
+        if (cell.cell_type === 'code'){
+            for (var j=0; j<cell.output_area.outputs.length; j++) {
+                var data = cell.output_area.outputs[j];
+                if (data.data) {
+                    // IPython >= 3 moved mimebundle to data attribute of output
+                    data = data.data;
+                }
+                if (data['text/html'] == html_output) {
+                    return [cell, data, j];
+                }
+            }
+        }
+    }
+}
+
+// Register the function which deals with the matplotlib target/channel.
+// The kernel may be null if the page has been refreshed.
+if (IPython.notebook.kernel != null) {
+    IPython.notebook.kernel.comm_manager.register_target('matplotlib', mpl.mpl_figure_comm);
+}
+
+</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<img alt="../_images/Module1_GettingStartedWithPython_Jupyter_Notebooks_10_0.png" src="../_images/Module1_GettingStartedWithPython_Jupyter_Notebooks_10_0.png" />
-</div>
+<div class="output_area rendered_html docutils container">
+<div id='e111cbf9-f8b4-4af7-b03d-3b80c5fef335'></div></div>
 </div>
 <p>Notice that this notebook interface is great for making adjustments to this plot. You can easily change the color or line-style of the plot and redraw it without having to recompute the functions. You simply re-execute the cell containing the plot code. This is especially nice when the numerical computations required to generate the curves are costly.</p>
 </div>
@@ -536,18 +1335,18 @@ ax.legend();
 <p><strong>Command Mode (Press</strong> <code class="docutils literal notranslate"><span class="pre">&lt;ESC&gt;</span></code> <strong>to activate)</strong></p>
 <p>When in command mode, you can use keyboard shortcuts to create/delete/cut/paste notebook cells, and to change a cell’s type between code and markdown modes. Your selected cell will be surrounded by a <em>blue</em> border when you are in command mode. For a complete listing of keyboard shortcuts, toward the top of the notebook click <code class="docutils literal notranslate"><span class="pre">Help</span> <span class="pre">&gt;</span> <span class="pre">Keyboard</span> <span class="pre">Shortcuts</span></code>. The most critical shortcuts are:</p>
 <ul class="simple">
-<li>create a new cell above the current cell: <code class="docutils literal notranslate"><span class="pre">a</span></code></li>
-<li>create a new cell below the current cell: <code class="docutils literal notranslate"><span class="pre">b</span></code></li>
-<li>delete the current cell: <code class="docutils literal notranslate"><span class="pre">dd</span></code></li>
-<li>restart the notebook kernel (kill all executions and erase all defined variables): <code class="docutils literal notranslate"><span class="pre">00</span></code></li>
-<li>change the current cell’s type to “Code”: <code class="docutils literal notranslate"><span class="pre">y</span></code></li>
-<li>change the current cell’s type to “Markdown”: <code class="docutils literal notranslate"><span class="pre">m</span></code></li>
+<li><p>create a new cell above the current cell: <code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+<li><p>create a new cell below the current cell: <code class="docutils literal notranslate"><span class="pre">b</span></code></p></li>
+<li><p>delete the current cell: <code class="docutils literal notranslate"><span class="pre">dd</span></code></p></li>
+<li><p>restart the notebook kernel (kill all executions and erase all defined variables): <code class="docutils literal notranslate"><span class="pre">00</span></code></p></li>
+<li><p>change the current cell’s type to “Code”: <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>change the current cell’s type to “Markdown”: <code class="docutils literal notranslate"><span class="pre">m</span></code></p></li>
 </ul>
 <p><strong>Edit Mode (Press</strong> <code class="docutils literal notranslate"><span class="pre">&lt;Enter&gt;</span></code> <strong>to activate)</strong></p>
 <p>Edit mode simply permits you to type text into the selected cell. When in edit mode, the current cell will be surrounded by a <em>green</em> border. There are two commands for executing a cell:</p>
 <ul class="simple">
-<li>execute current cell: <code class="docutils literal notranslate"><span class="pre">&lt;CTRL&gt;+&lt;ENTER&gt;</span></code></li>
-<li>execute current cell and then create a new cell below: <code class="docutils literal notranslate"><span class="pre">&lt;SHIFT&gt;+&lt;ENTER&gt;</span></code></li>
+<li><p>execute current cell: <code class="docutils literal notranslate"><span class="pre">&lt;CTRL&gt;+&lt;ENTER&gt;</span></code></p></li>
+<li><p>execute current cell and then create a new cell below: <code class="docutils literal notranslate"><span class="pre">&lt;SHIFT&gt;+&lt;ENTER&gt;</span></code></p></li>
 </ul>
 <p>By default, a cell will be a code-type cell, meaning that its content will be formatted and executed as Python code. Just as you saw when using the IPython notebook, <code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</span></code> can be used to perform autocomplete. Additionally, when your cursor is on the name of a Python function in your code, <code class="docutils literal notranslate"><span class="pre">&lt;SHIFT&gt;+&lt;TAB&gt;</span></code> will bring up a small window with the function’s documentations string. This is <em>very</em> useful.</p>
 <p><img alt="Looking up code documentation in a notebook" src="../_images/jp_docstring.PNG" /></p>
@@ -564,12 +1363,12 @@ equations</a>, embed images and videos in your notebook, and much more. In fact,
 <h3>Using Jupyter Notebooks with Other Languages<a class="headerlink" href="#Using-Jupyter-Notebooks-with-Other-Languages" title="Permalink to this headline">¶</a></h3>
 <p>The Jupyter Notebook does not work exclusively with Python. A “kernel” can be developed in order to provide support for a given programming language in Jupyter. Indeed, kernels for several prominent programming languages are being developed for use with Jupyter:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/IRkernel/IRkernel">R</a></li>
-<li><a class="reference external" href="https://github.com/JuliaLang/IJulia.jl">Julia</a></li>
-<li><a class="reference external" href="https://github.com/SciRuby/iruby">Ruby</a></li>
-<li><a class="reference external" href="https://github.com/QuantStack/xeus-cling">C++</a></li>
-<li><a class="reference external" href="https://github.com/gibiansky/IHaskell">Haskell</a></li>
-<li><a class="reference external" href="https://github.com/gopherdata/gophernotes">Go</a></li>
+<li><p><a class="reference external" href="https://github.com/IRkernel/IRkernel">R</a></p></li>
+<li><p><a class="reference external" href="https://github.com/JuliaLang/IJulia.jl">Julia</a></p></li>
+<li><p><a class="reference external" href="https://github.com/SciRuby/iruby">Ruby</a></p></li>
+<li><p><a class="reference external" href="https://github.com/QuantStack/xeus-cling">C++</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gibiansky/IHaskell">Haskell</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gopherdata/gophernotes">Go</a></p></li>
 </ul>
 <p>The ever-growing list of available kernels for use with Jupyter can be found <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">here</a>. It should be noted that these efforts are not all equally mature. For instance, whereas the Python and Julia kernels are robust, the Haskell kernel cannot run natively on Windows machines, and the C++ kernel is still in early development, as of writing this.</p>
 </div>

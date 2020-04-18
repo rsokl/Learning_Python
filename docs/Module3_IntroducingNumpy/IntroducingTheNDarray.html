@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -187,13 +188,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -209,17 +210,17 @@
 <div class="section" id="Introducing-the-ND-array">
 <h1>Introducing the ND-array<a class="headerlink" href="#Introducing-the-ND-array" title="Permalink to this headline">¶</a></h1>
 <p>It is time to start familiarizing ourselves with NumPy, the premiere library for doing numerical work in Python. To use this package, we need to be sure to “import” the NumPy module into our code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 <p>You could have run <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span></code> instead, but the prescribed method allows us to use the abbreviation ‘np’ throughout our code, instead of having to write ‘numpy’. This is a very common abbreviation to use.</p>
 <p>The ND-array (N-dimensional array) is the star of the show for NumPy. This array simply stores a sequence of numbers. Like a Python list, you can access individual entries in this array by “indexing” into the array, and you can access a sub-sequence of the array by “slicing” it. So what distinguishes NumPy’s ND-array from a Python list, and why is there a whole numerical library that revolves around this array? There are two major features that makes the ND-array special. It can:</p>
 <ol class="arabic simple">
-<li>Provide an interface for its underlying data to be accessed along multiple dimensions.</li>
-<li>Rapidly perform mathematical operations over all of its elements, or over patterned subsequences of its elements, using compiled C code instead of Python; this is a process called vectorization.</li>
+<li><p>Provide an interface for its underlying data to be accessed along multiple dimensions.</p></li>
+<li><p>Rapidly perform mathematical operations over all of its elements, or over patterned subsequences of its elements, using compiled C code instead of Python; this is a process called vectorization.</p></li>
 </ol>
-<p>Let’s take a sneak peek to see at what this module has in store. The following code creates an ND-array containing the numbers 0-8:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<p>Let’s take a sneak peek to see what this module has in store. The following code creates an ND-array containing the numbers 0-8:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -229,7 +230,7 @@
 <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <p>We can “reshape” this array so that its contents can be accessed along 2 dimensions:</p>
@@ -277,9 +278,9 @@
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">The N-dimensional array</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.html#numpy-basics">NumPy Basics</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html">NumPy reference</a></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">The N-dimensional array</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.html#numpy-basics">NumPy Basics</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html">NumPy reference</a></p></li>
 </ul>
 </div>
 </div>

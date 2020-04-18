@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -205,13 +206,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -230,9 +231,9 @@
 <h2>The “Set” Data Structure<a class="headerlink" href="#The-“Set”-Data-Structure" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">set</span></code> type describes an <em>unordered</em> collection of <em>unique</em> objects. It is useful for:</p>
 <ul class="simple">
-<li>Filtering out “repeat” objects in a collection, producing only its unique members.</li>
-<li>Quickly checking for membership, as a <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> operation.</li>
-<li>Efficiently comparing two sets of objects; e.g.&nbsp;if one set is a “subset” of another.</li>
+<li><p>Filtering out “repeat” objects in a collection, producing only its unique members.</p></li>
+<li><p>Quickly checking for membership, as a <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> operation.</p></li>
+<li><p>Efficiently comparing two sets of objects; e.g. if one set is a “subset” of another.</p></li>
 </ul>
 <p>A set uses a “hashing” scheme for keeping track of its contents. Thus, like a dictionary’s keys, a set can only store <em>immutable</em> objects so that its hashes will never become invalid. Unlike the other data structures that we have encountered, <em>there is no mechanism for retrieving an individual item from a set</em>. That is, there is no index or key that can be used to retrieve an individual member from a set.</p>
 <p>Python’s sets also support many familiar set-algebra operations, like taking the union or intersection of sets, as we will see below. For an exhaustive listing of the functions available to sets, please consult <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">the official documentation on sets</a>.</p>
@@ -240,8 +241,8 @@
 <h3>Creating a set<a class="headerlink" href="#Creating-a-set" title="Permalink to this headline">¶</a></h3>
 <p>You can initialize a set using the syntax: <code class="docutils literal notranslate"><span class="pre">{item1,</span> <span class="pre">item2,</span> <span class="pre">...}</span></code>. Please note that this is distinct from the the dictionary-initialization syntax, which uses a colon to indicate key-value pairs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initializing a set containing various immutable objects</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)}</span>
-<span class="p">{</span><span class="bp">False</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mf">3.4</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)}</span>
+<span class="p">{</span><span class="kc">False</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mf">3.4</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>A set can be constructed using the generator-comprehension syntax:</p>
@@ -281,7 +282,7 @@
 <p>Sets support membership-checking (<span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>) along with iteration (<span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>). Note that sets are unordered; thus the order of iteration is effectively random:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking membership in a set</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># iterating over a set (the order of iteration is random)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">}]</span>
@@ -312,11 +313,11 @@
 
 <span class="c1"># check if set_1 is a superset of set_2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">&gt;=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># check if set_1 and set_2 are equivalent sets</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 </pre></div>
 </div>
 <p>A set is a <em>mutable</em> object; it can be updated after it was created:</p>
@@ -479,7 +480,7 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Counter</span></code> accepts any iterable of immutable objects:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Counter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">)])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Counter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)])</span>
 <span class="go">Counter({(None, None): 3, 0: 2, &#39;moo&#39;: 1})</span>
 </pre></div>
 </div>
@@ -489,8 +490,8 @@
 <h3>The deque<a class="headerlink" href="#The-deque" title="Permalink to this headline">¶</a></h3>
 <p>Like the list, Python’s deque is a mutable, sequential data structure. What distinguishes the deque is that:</p>
 <ul class="simple">
-<li>Mutating either the beginning or the end of a deque is <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>, whereas mutating the beginning of a list is <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>. As such, the deque has unique functions to take advantage of this, like <code class="docutils literal notranslate"><span class="pre">appendleft</span></code>.</li>
-<li>The downside of the preceding feature is that <em>accessing items near the middle of the deque is</em> <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>, whereas it is <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> for lists and tuples.</li>
+<li><p>Mutating either the beginning or the end of a deque is <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>, whereas mutating the beginning of a list is <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>. As such, the deque has unique functions to take advantage of this, like <code class="docutils literal notranslate"><span class="pre">appendleft</span></code>.</p></li>
+<li><p>The downside of the preceding feature is that <em>accessing items near the middle of the deque is</em> <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>, whereas it is <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span> for lists and tuples.</p></li>
 </ul>
 <p>A complete rundown of the deque’s functionality can be found <a class="reference external" href="https://docs.python.org/3/library/collections.html#deque-objects">here</a>.</p>
 <p>The deque is included in Python’s <code class="docutils literal notranslate"><span class="pre">collections</span></code> module, and thus must be imported:</p>
@@ -506,11 +507,12 @@
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">Sets and frozen sets</a><ul>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#sets">Tutorial on sets</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">Sets and frozen sets</a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#sets">Tutorial on sets</a></p></li>
 </ul>
 </li>
-<li><a class="reference external" href="https://docs.python.org/3/library/collections.html">The collections module</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/collections.html">The collections module</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
@@ -525,13 +527,13 @@
 </div>
 <p><strong>Set Comparisons: Solution</strong></p>
 <p>Given the roster for class-A and class-B, find the students enrolled in both classes. Produce the result as a sorted list.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classA</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Curie&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Euler&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Heisenberg&quot;</span><span class="p">,</span> <span class="s2">&quot;Noether&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classA</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Curie&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Euler&quot;</span><span class="p">,</span> <span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Feynman&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Heisenberg&quot;</span><span class="p">,</span> <span class="s2">&quot;Noether&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classB</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohm&quot;</span><span class="p">,</span> <span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Einstein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Hopper&quot;</span><span class="p">,</span> <span class="s2">&quot;Montalcini&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>We can find the entries common to both lists by constructing sets from them, and then taking the intersection of those sets. The result is a set, which is an iterable. Thus it can be fed to the built-in function <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Iterables.html#Functions-that-act-on-iterables">sorted</a>, to produce a sorted list of names.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">classA</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">classB</span><span class="p">))</span>
-<span class="go">[&#39;Bohr&#39;, &#39;Gauss&#39;]</span>
+<span class="go">[&#39;Bohr&#39;, &#39;Fermi&#39;, &#39;Gauss&#39;]</span>
 </pre></div>
 </div>
 </div>

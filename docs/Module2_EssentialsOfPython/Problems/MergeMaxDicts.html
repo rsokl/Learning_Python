@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -192,13 +193,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -214,7 +215,8 @@
 <div class="section" id="Merging-Two-Dictionaries">
 <h1>Merging Two Dictionaries<a class="headerlink" href="#Merging-Two-Dictionaries" title="Permalink to this headline">¶</a></h1>
 <blockquote>
-<div>Merge two <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html#Data-Structures-(Part-II):-Dictionaries">dictionaries</a> together such that the resulting dictionary always retain the <em>greater</em> value among mappings with common keys.</div></blockquote>
+<div><p>Merge two <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html#Data-Structures-(Part-II):-Dictionaries">dictionaries</a> together such that the resulting dictionary always retain the <em>greater</em> value among mappings with common keys.</p>
+</div></blockquote>
 <p>Here’s an example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># merging two dictionaries, retaining the greatest value among</span>
 <span class="c1"># common keys</span>
@@ -224,7 +226,7 @@
 <span class="p">{</span><span class="s1">&#39;bananas&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;apples&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;pears&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;grapes&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Write a function that accepts two dictionaries and merges them in the fashion shown above. The <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html#What-Can-a-Dictionary-Store?">dictionaries’ keys need not be strings</a>, and the values should be any data type that can be ordered (e.g.&nbsp;can be compared using the inequality operators <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, etc.).</p>
+<p>Write a function that accepts two dictionaries and merges them in the fashion shown above. The <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html#What-Can-a-Dictionary-Store?">dictionaries’ keys need not be strings</a>, and the values should be any data type that can be ordered (e.g. can be compared using the inequality operators <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, etc.).</p>
 <div class="section" id="A-Simple,-Buggy-Solution">
 <h2>A Simple, Buggy Solution<a class="headerlink" href="#A-Simple,-Buggy-Solution" title="Permalink to this headline">¶</a></h2>
 <p>Let’s begin by writing a straightforward but flawed solution to our problem. The following function will correctly merge its two input dictionaries and is generally well-written, however, something insidious is afoot… Can you identify the bad behavior that will result from this function?</p>
@@ -262,8 +264,8 @@ Thus calling this function will <em>mutate</em> (change) the state of <code clas
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong></p>
 <ul class="simple">
-<li>Be mindful of <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Variables_and_Assignment.html#Mutable-&amp;-Immutable-Types-of-Objects">object mutability</a> and take care never to unwittingly mutate an input variable or global scope variable within a function.</li>
-<li>When testing a function, include a check that the function does not mutate its inputs.</li>
+<li><p>Be mindful of <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Variables_and_Assignment.html#Mutable-&amp;-Immutable-Types-of-Objects">object mutability</a> and take care never to unwittingly mutate an input variable or global scope variable within a function.</p></li>
+<li><p>When testing a function, include a check that the function does not mutate its inputs.</p></li>
 </ul>
 </div>
 </div>
@@ -290,7 +292,7 @@ Thus calling this function will <em>mutate</em> (change) the state of <code clas
     <span class="k">return</span> <span class="n">merged</span>
 </pre></div>
 </div>
-<p>Note the use of simple and descriptive variables (e.g.&nbsp;we use the variable name <code class="docutils literal notranslate"><span class="pre">key</span></code> when we iterate over the keys of a dictionary). This, along with a good docstring, makes our code easy to read, understand, and debug. Also note that our code is general: it makes no presumptions about the dictionaries’ keys - they need not be strings nor of any other particular type. Similarly, the only constraint on the dictionaries’ values is that they can be compared against one another. This is reflected
+<p>Note the use of simple and descriptive variables (e.g. we use the variable name <code class="docutils literal notranslate"><span class="pre">key</span></code> when we iterate over the keys of a dictionary). This, along with a good docstring, makes our code easy to read, understand, and debug. Also note that our code is general: it makes no presumptions about the dictionaries’ keys - they need not be strings nor of any other particular type. Similarly, the only constraint on the dictionaries’ values is that they can be compared against one another. This is reflected
 in the docstring of our function.</p>
 <p>Consider the importance of the ordering of the conditional statement:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">merged</span> <span class="ow">or</span> <span class="n">dict2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">merged</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
@@ -430,8 +432,8 @@ This unanticipated behavior could create very hard-to-find bugs in your code!</p
 <div class="section" id="Extra-Challenges">
 <h2>Extra Challenges<a class="headerlink" href="#Extra-Challenges" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Write tests for your functions where the dictionary keys aren’t strings and the values aren’t numbers.</li>
-<li>What if you wanted to merge values based on a criterion other than the maximum value? Try rewriting the function so that a comparison function can passed in as an argument. Remember that functions, once defined, are objects just like integers and strings - they can be passed as arguments into other functions.</li>
+<li><p>Write tests for your functions where the dictionary keys aren’t strings and the values aren’t numbers.</p></li>
+<li><p>What if you wanted to merge values based on a criterion other than the maximum value? Try rewriting the function so that a comparison function can passed in as an argument. Remember that functions, once defined, are objects just like integers and strings - they can be passed as arguments into other functions.</p></li>
 </ul>
 <p>The following code is correct, but really bad:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gross_merge_max_mappings</span><span class="p">(</span><span class="o">*</span><span class="n">dicts</span><span class="p">):</span>

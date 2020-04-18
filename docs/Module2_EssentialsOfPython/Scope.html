@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -193,13 +194,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -231,8 +232,8 @@
     <span class="k">return</span> <span class="n">y</span>
 
 <span class="c1"># `func_var` and `y` do not exist here</span>
-<span class="k">print</span><span class="p">(</span><span class="n">func_var</span><span class="p">)</span>  <span class="c1"># raises NameError: name `func_var` not defined</span>
-<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>         <span class="c1"># raises NameError: name `y` not defined</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">func_var</span><span class="p">)</span>  <span class="c1"># raises NameError: name `func_var` not defined</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>         <span class="c1"># raises NameError: name `y` not defined</span>
 </pre></div>
 </div>
 <p>Python’s scoping rules are quite liberal compared to those of other languages, like C++. In most situations, Python will give variables file scope. Let’s briefly survey the various contexts in which variables are defined, along with their corresponding scoping rules. Assume that the following code represents the entire contents of the Python script “example_scope.py”:</p>
@@ -247,14 +248,14 @@
 <span class="c1"># `func_block` has restricted scope</span>
 <span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">in_arg1</span><span class="p">,</span> <span class="n">in_arg2</span><span class="o">=</span><span class="s2">&quot;cat&quot;</span><span class="p">):</span>
     <span class="n">func_block</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
 
 <span class="c1"># `file_var` has file scope</span>
 <span class="c1"># `comp_var` has restricted scope</span>
 <span class="n">file_var</span> <span class="o">=</span> <span class="p">[</span><span class="n">comp_var</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">comp_var</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]]</span>
 
 <span class="c1"># `if_block` has file scope</span>
-<span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">if_block</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">if_block</span> <span class="o">=</span> <span class="mi">3</span>
@@ -265,32 +266,32 @@
     <span class="n">for_block</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="c1"># `while_block` has file scope</span>
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="n">while_block</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">while_block</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">break</span>
 </pre></div>
 </div>
 <p>In the preceding code, the following variables have <em>file scope</em>:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">combinations</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">my_func</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">file_var</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">if_block</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">it_var</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">for_block</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">while_block</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">combinations</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_func</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file_var</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if_block</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">it_var</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for_block</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while_block</span></code></p></li>
 </ul>
 <p>whereas the following variables have <em>restricted scope</em>:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">in_arg1</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">in_arg2</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">func_block</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">comp_var</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in_arg1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in_arg2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">func_block</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">comp_var</span></code></p></li>
 </ul>
 <p>In C++, the variables <code class="docutils literal notranslate"><span class="pre">if_block</span></code>, <code class="docutils literal notranslate"><span class="pre">it_var</span></code>, <code class="docutils literal notranslate"><span class="pre">for_block</span></code>, and <code class="docutils literal notranslate"><span class="pre">while_block</span></code> all would have had restricted scopes - these variables would not be defined outside of their respective if/for/while blocks.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p>Variables defined within a function have a <em>restricted scope</em> such that they do not exist outside of that function. Most other contexts for defining variables in Python produce variables with <em>file scope</em> (i.e.&nbsp;they can be accessed anywhere in the file’s code, subsequent to their definition).</p>
+<p>Variables defined within a function have a <em>restricted scope</em> such that they do not exist outside of that function. Most other contexts for defining variables in Python produce variables with <em>file scope</em> (i.e. they can be accessed anywhere in the file’s code, subsequent to their definition).</p>
 </div>
 <div class="section" id="Variable-Shadowing">
 <h2>Variable Shadowing<a class="headerlink" href="#Variable-Shadowing" title="Permalink to this headline">¶</a></h2>
@@ -306,8 +307,8 @@
 <span class="c1"># `x` is 2 here, once again</span>
 <span class="c1"># `y` is 3 here, once again</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># prints 0</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>      <span class="c1"># prints 2  3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># prints 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>      <span class="c1"># prints 2  3</span>
 </pre></div>
 </div>
 <p>and similarly,</p>
@@ -317,7 +318,7 @@
     <span class="n">it</span> <span class="o">=</span> <span class="s2">&quot;dog&quot;</span> <span class="c1"># overrides file-scope version of `it`</span>
     <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">it</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>  <span class="c1"># within the list comprehension, the func-scope `it` is overridden</span>
     <span class="c1"># `it` is &quot;dog&quot; here, once again</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
 
 <span class="c1"># `it` is &quot;cow&quot; here, once again</span>
 </pre></div>
@@ -326,8 +327,8 @@
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces">Scopes and namespaces</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/reference/executionmodel.html">Python’s execution model</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces">Scopes and namespaces</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/executionmodel.html">Python’s execution model</a></p></li>
 </ul>
 </div>
 </div>
