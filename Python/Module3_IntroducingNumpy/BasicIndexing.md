@@ -206,7 +206,7 @@ Basic indexing is triggered whenever a tuple of: integer, `slice`, `numpy.newaxi
 
 **Reading Comprehension: Ellipsis**
 
-Given a $N$-dimensional array, `x`, index into `x` such that you axis entry-0 of axis-0, the last entry of axis-$N-1$, slicing along all intermediate dimensions. $N$ is at least $2$.
+Given a $N$-dimensional array, `x`, index into `x` such that you access entry-0 of axis-0, the last entry of axis-$N-1$, slicing along all intermediate dimensions. $N$ is at least $2$.
 
 </div>
 
