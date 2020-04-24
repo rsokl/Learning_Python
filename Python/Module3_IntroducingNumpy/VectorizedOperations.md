@@ -686,10 +686,10 @@ Add the four quadrants of `x`, producing a shape-(2, 2) output.
 ...               [ 8,  9, 10, 11],
 ...               [12, 13, 14, 15]])
 
-                    # top-left           top-right            bottom-left        bottom-right
->>> np.array([[np.sum(x[:2, :2]), np.sum(x[:2, 2:])], [np.sum(x[2:, :2]), np.sum(x[2:, 2:])]])
-array([[10, 18],
-       [42, 50]])
+# top-left  top-right    bottom-left  bottom-right
+>>> x[:2, :2] + x[:2, -2:] + x[-2:, :2] + x[-2:, -2:]
+array([[20, 24],
+       [36, 40]])
 ```
 <!-- #endregion -->
 
