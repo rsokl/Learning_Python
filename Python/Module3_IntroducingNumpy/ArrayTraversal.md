@@ -34,7 +34,7 @@ NumPy provides valuable tools for iterating over any array, such that each eleme
 [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd'), (4, 'e'), (5, 'f')]
 ```
 
-Similarly, NumPy provides the [ndenumerate](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndenumerate.html#numpy.ndenumerate) function, which enumerates each element in an N-dimensional array, specifying the N-dimensional index for each element.
+Similarly, NumPy provides the [ndenumerate](https://numpy.org/doc/stable/reference/generated/numpy.ndenumerate.html#numpy.ndenumerate) function, which enumerates each element in an N-dimensional array, specifying the N-dimensional index for each element.
 ```python
 >>> import numpy as np
 
@@ -77,7 +77,7 @@ See that each triplet of integers specifies the index for the corresponding arra
 9
 ```
 
-See [the official NumPy documentation](https://docs.scipy.org/doc/numpy/reference/routines.indexing.html#iterating-over-arrays) for a complete listing of functions that facilitate iterating over arrays. The official documentation also provides [a detailed treatment of array iteration](https://docs.scipy.org/doc/numpy/reference/arrays.nditer.html#iterating-over-arrays), which is far more detailed than is warranted here. Next, we must discuss the default ordering that NumPy uses when traversing a N-dimensional array.
+See [the official NumPy documentation](https://numpy.org/doc/stable/reference/routines.indexing.html#iterating-over-arrays) for a complete listing of functions that facilitate iterating over arrays. The official documentation also provides [a detailed treatment of array iteration](https://numpy.org/doc/stable/reference/arrays.nditer.html#iterating-over-arrays), which is far more detailed than is warranted here. Next, we must discuss the default ordering that NumPy uses when traversing a N-dimensional array.
 
 
 <!-- #endregion -->
@@ -203,7 +203,7 @@ According to this discussion, `reshape` can effectively "undo" itself: `np.arang
 
 ## Links to Official Documentation
 
-- [Definition of row major ordering](https://docs.scipy.org/doc/numpy/glossary.html#term-row-major)
-- [Definition of column major ordering](https://docs.scipy.org/doc/numpy/glossary.html#term-column-major)
-- [Routines for iterating over arrays](https://docs.scipy.org/doc/numpy/reference/routines.indexing.html#iterating-over-arrays)
-- [Detailed description of array iteration](https://docs.scipy.org/doc/numpy/reference/arrays.nditer.html#iterating-over-arrays)
+- [Definition of row major ordering](https://numpy.org/doc/stable/glossary.html#term-row-major)
+- [Definition of column major ordering](https://numpy.org/doc/stable/glossary.html#term-column-major)
+- [Routines for iterating over arrays](https://numpy.org/doc/stable/reference/routines.indexing.html#iterating-over-arrays)
+- [Detailed description of array iteration](https://numpy.org/doc/stable/reference/arrays.nditer.html#iterating-over-arrays)

@@ -546,7 +546,6 @@ Which of the following expressions updates the data originally referenced by `x`
 ```python 
 # 5.
 >>> np.log(x[1:3], out=x[1:3])
->>> y += 3
 ```
 
 ```python 
@@ -556,7 +555,7 @@ Which of the following expressions updates the data originally referenced by `x`
 
 ```python 
 # 7.
->>> y = y + 2
+>>> x = np.square(x)
 ```
 
 ```python 
@@ -568,6 +567,11 @@ Which of the following expressions updates the data originally referenced by `x`
 # 9.
 >>> def f(z): z /= 3
 >>> f(y)
+```
+
+```python
+# 10.
+>>> np.square(y, out=y)
 ```
 
 </div>
@@ -584,8 +588,8 @@ Assignments to views of an array, augmented assignments, and NumPy functions tha
 
 ## Links to Official Documentation
 
-- [Basic indexing](https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#indexing)
-- [Definition of 'view'](https://docs.scipy.org/doc/numpy/glossary.html#term-view)
+- [Basic indexing](https://numpy.org/doc/stable/reference/arrays.indexing.html#indexing)
+- [Definition of 'view'](https://numpy.org/doc/stable/glossary.html#term-view)
 
 
 ## Reading Comprehension Solutions
