@@ -182,7 +182,7 @@ We will now take some time to survey the various types of vectorized mathematica
 - binary functions: $f(x,y)$
 - functions that operate on sequences of numbers: $f(\{x_i\}_{i=0}^{n-1})$ 
 
-These represent a substantial portion of the essential mathematical tools in the NumPy library. An exhaustive list of NumPy's mathematical functions is available in the [official documentation](https://docs.scipy.org/doc/numpy/reference/ufuncs.html#math-operations).
+These represent a substantial portion of the essential mathematical tools in the NumPy library. An exhaustive list of NumPy's mathematical functions is available in the [official documentation](https://numpy.org/doc/stable/reference/ufuncs.html#math-operations).
 
 ### Unary Functions
 A unary function is a mathematical function that only accepts one operand (i.e. argument): $f(x)$. NumPy supplies many familiar unary functions:
@@ -605,7 +605,7 @@ Now, compute the following:
 
 <!-- #region -->
 ## Logical Operations
-NumPy provides [a suite of logical operations](https://docs.scipy.org/doc/numpy/reference/routines.logic.html) that can operate on arrays. Many of these map logical operations over array entries in the same fashion as NumPy's mathematical functions. These functions return either a single boolean object, or a boolean-type array.
+NumPy provides [a suite of logical operations](https://numpy.org/doc/stable/reference/routines.logic.html) that can operate on arrays. Many of these map logical operations over array entries in the same fashion as NumPy's mathematical functions. These functions return either a single boolean object, or a boolean-type array.
 
 ```python
 # check which entries of `x` are less than 6
@@ -641,7 +641,7 @@ True
 <!-- #endregion -->
 
 ## Linear Algebra
-Lastly, we note that NumPy provides a suite of functions that can perform optimized computations and routines relevant to linear algebra. Included here are functions for performing matrix products and tensor products, solving eigenvalue problems, inverting matrices, and computing vector normalizations. Please refer to the [official NumPy documentation](https://docs.scipy.org/doc/numpy/reference/routines.linalg.html) for a full listing of these functions.
+Lastly, we note that NumPy provides a suite of functions that can perform optimized computations and routines relevant to linear algebra. Included here are functions for performing matrix products and tensor products, solving eigenvalue problems, inverting matrices, and computing vector normalizations. Please refer to the [official NumPy documentation](https://numpy.org/doc/stable/reference/routines.linalg.html) for a full listing of these functions.
 
 
 
@@ -652,9 +652,9 @@ NumPy provides users with a wide variety of functions capable of performing oper
 
 ## Links to Official Documentation
 
-- [Math functions](https://docs.scipy.org/doc/numpy/reference/ufuncs.html#math-operations)
-- [Logic functions](https://docs.scipy.org/doc/numpy/reference/routines.logic.html)
-- [Linear algebra functions](https://docs.scipy.org/doc/numpy/reference/routines.linalg.html)
+- [Math functions](https://numpy.org/doc/stable/reference/ufuncs.html#math-operations)
+- [Logic functions](https://numpy.org/doc/stable/reference/routines.logic.html)
+- [Linear algebra functions](https://numpy.org/doc/stable/reference/routines.linalg.html)
 
 
 ## Reading Comprehension Solutions
@@ -686,7 +686,7 @@ Add the four quadrants of `x`, producing a shape-(2, 2) output.
 ...               [ 8,  9, 10, 11],
 ...               [12, 13, 14, 15]])
 
-    # top-left  top-right    bottom-left  bottom-right
+# top-left  top-right    bottom-left  bottom-right
 >>> x[:2, :2] + x[:2, -2:] + x[-2:, :2] + x[-2:, -2:]
 array([[20, 24],
        [36, 40]])
