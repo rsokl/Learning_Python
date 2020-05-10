@@ -266,7 +266,7 @@
 <span class="go">False</span>
 </pre></div>
 </div>
-<p>The flexibility permitted by advanced indexing makes it a difficult topic to treat exhaustively without delving into somewhat terse and abstract notation. It is best to refer to <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing">the official documentation</a> for such a treatment of the topic. Here, we will discuss the essential aspects of advanced indexing, with the aim of the discussion being both thorough and accessible.</p>
+<p>The flexibility permitted by advanced indexing makes it a difficult topic to treat exhaustively without delving into somewhat terse and abstract notation. It is best to refer to <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#advanced-indexing">the official documentation</a> for such a treatment of the topic. Here, we will discuss the essential aspects of advanced indexing, with the aim of the discussion being both thorough and accessible.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Advanced Indexing</strong>:</p>
 <p>Given an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">x[index]</span></code> invokes <strong>advanced indexing</strong> whenever <code class="docutils literal notranslate"><span class="pre">index</span></code> is:</p>
@@ -521,8 +521,8 @@ array. Refer to the preceding example and convince yourself that this is the beh
 <span class="gp">... </span>              <span class="p">[</span><span class="o">-</span><span class="mf">0.29</span><span class="p">,</span>  <span class="mf">0.13</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.26</span><span class="p">,</span>  <span class="mf">0.33</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Use boolean array-indexing and NumPy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">logical functions</a> to select the contents of <code class="docutils literal notranslate"><span class="pre">h</span></code> that satisfy the following conditions. Because you are dealing with floating-point numbers, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">you should not require that two values are exactly equal</a>; rather, make use of the function
-<a class="reference external" href="https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.isclose.html">numpy.isclose</a>.</p>
+<p>Use boolean array-indexing and NumPy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html">logical functions</a> to select the contents of <code class="docutils literal notranslate"><span class="pre">h</span></code> that satisfy the following conditions. Because you are dealing with floating-point numbers, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">you should not require that two values are exactly equal</a>; rather, make use of the function
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isclose.html#numpy.isclose">numpy.isclose</a>.</p>
 <ol class="arabic simple">
 <li><p>All negative entries in <code class="docutils literal notranslate"><span class="pre">h</span></code></p></li>
 <li><p>All entries in <code class="docutils literal notranslate"><span class="pre">h</span></code> “equal” to <code class="docutils literal notranslate"><span class="pre">0.01</span></code> or <code class="docutils literal notranslate"><span class="pre">0.33</span></code></p></li>
@@ -531,7 +531,7 @@ array. Refer to the preceding example and convince yourself that this is the beh
 </div>
 <div class="section" id="Converting-a-Boolean-Index-Array-to-Integer-Index-Arrays:-numpy.where">
 <h3>Converting a Boolean Index-Array to Integer Index-Arrays: numpy.where<a class="headerlink" href="#Converting-a-Boolean-Index-Array-to-Integer-Index-Arrays:-numpy.where" title="Permalink to this headline">¶</a></h3>
-<p>The function <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html">numpy.where</a> can be used to take a boolean-valued array, and produce the <em>tuple</em> of index-arrays that access the <code class="docutils literal notranslate"><span class="pre">True</span></code> entries of that array, via integer array indexing (discussed at the beginning of this section).</p>
+<p>The function <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html">numpy.where</a> can be used to take a boolean-valued array, and produce the <em>tuple</em> of index-arrays that access the <code class="docutils literal notranslate"><span class="pre">True</span></code> entries of that array, via integer array indexing (discussed at the beginning of this section).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `np.where`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bool_ind</span>
 <span class="n">array</span><span class="p">([[[</span><span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">],</span>
@@ -570,7 +570,7 @@ array. Refer to the preceding example and convince yourself that this is the beh
 <span class="c1"># only sheet-0 contains such values</span>
 </pre></div>
 </div>
-<p>Armed with NumPy’s suite of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">logical functions</a>, boolean-array indexing provides a sleek interface for accessing the particular contents of an array, irrespective of the array’s shape and the layout of its contents. This method of indexing is especially powerful in the context of performing augmented updates to an array, which is the subject of the following subsection.</p>
+<p>Armed with NumPy’s suite of <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html">logical functions</a>, boolean-array indexing provides a sleek interface for accessing the particular contents of an array, irrespective of the array’s shape and the layout of its contents. This method of indexing is especially powerful in the context of performing augmented updates to an array, which is the subject of the following subsection.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: numpy.where</strong></p>
 <p>Given the array</p>
@@ -639,7 +639,7 @@ assignment:</p>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.76</span><span class="p">,</span>  <span class="mf">0.25</span><span class="p">,</span>  <span class="mf">0.07</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Replace the diagonal elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> with <code class="docutils literal notranslate"><span class="pre">(-1,</span> <span class="pre">-2,</span> <span class="pre">-3,</span> <span class="pre">-4)</span></code>, and add <code class="docutils literal notranslate"><span class="pre">1</span></code> to all values in <code class="docutils literal notranslate"><span class="pre">x</span></code> that are greater than <code class="docutils literal notranslate"><span class="pre">0.8</span></code>.</p>
+<p>Replace the diagonal elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> with <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code>, and add <code class="docutils literal notranslate"><span class="pre">1</span></code> to all values in <code class="docutils literal notranslate"><span class="pre">x</span></code> that are greater than <code class="docutils literal notranslate"><span class="pre">0.8</span></code>.</p>
 </div>
 </div>
 <div class="section" id="Combining-Basic-and-Advanced-Indexing-Schemes">
@@ -661,15 +661,15 @@ assignment:</p>
 <span class="n">array</span><span class="p">([[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>The rules for resolving the various possible combinations of basic and advanced indexing are nontrivial. Refer to the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">official NumPy documentation</a> for a detailed description for these rules. In practice, basic and advanced indexing can typically be used independently from one another.</p>
+<p>The rules for resolving the various possible combinations of basic and advanced indexing are nontrivial. Refer to the <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">official NumPy documentation</a> for a detailed description for these rules. In practice, basic and advanced indexing can typically be used independently from one another.</p>
 </div>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing">Advanced Indexing</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">Logical Functions</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html">numpy.where</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">Combining Basics and Advanced Indexing</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#advanced-indexing">Advanced Indexing</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html">Logical Functions</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html">numpy.where</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">Combining Basics and Advanced Indexing</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
@@ -768,6 +768,13 @@ assignment:</p>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.76</span><span class="p">,</span>  <span class="mf">0.25</span><span class="p">,</span>  <span class="mf">0.07</span><span class="p">]])</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go"># equivalent (works for the general case of a square matrix of N-dims)</span>
+<span class="go"># x[tuple(np.arange(x) for x in x.shape)] = range(x.shape[0])</span>
+
+<span class="go"># equivalent (using numpy built-in functions):</span>
+<span class="go"># x[np.diag_indices_from(x)] = np.arange(4)</span>
+<span class="go"># np.fill_diagonal(x, np.arange(4))</span>
+
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mf">0.8</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">array([[ 0.  ,  0.05,  1.84,  0.21],</span>

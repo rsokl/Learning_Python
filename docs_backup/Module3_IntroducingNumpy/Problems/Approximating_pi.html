@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -184,16 +185,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -202,13 +203,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -216,92 +217,91 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -345,6 +345,27 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
   border: none;
@@ -382,13 +403,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -422,7 +443,7 @@ total. For each dart thrown determine whether or not it landed within the circle
 <div class="math notranslate nohighlight">
 \begin{equation}
 \sqrt{x^2 + y^2} &lt; 1
-\end{equation}</div><p>You can start this problem by writing a solution that uses explicit for-loops to help make clear the solution. That being said, you should strive to write a fully-vectorized solution (i.e.&nbsp;compute the running estimation of <span class="math notranslate nohighlight">\(\pi\)</span> during <span class="math notranslate nohighlight">\(10,000\)</span> dart throws without any explicit for-loops).</p>
+\end{equation}</div><p>You can start this problem by writing a solution that uses explicit for-loops to help make clear the solution. That being said, you should strive to write a fully-vectorized solution (i.e. compute the running estimation of <span class="math notranslate nohighlight">\(\pi\)</span> during <span class="math notranslate nohighlight">\(10,000\)</span> dart throws without any explicit for-loops).</p>
 </div>
 <div class="section" id="Relevant-Reading">
 <h2>Relevant Reading<a class="headerlink" href="#Relevant-Reading" title="Permalink to this headline">¶</a></h2>
@@ -432,7 +453,7 @@ indexing</a>.</p>
 </div>
 <div class="section" id="Tips">
 <h2>Tips<a class="headerlink" href="#Tips" title="Permalink to this headline">¶</a></h2>
-<p>It is helpful to know about NumPy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.cumsum.html">cumulative-sum function</a>, <code class="docutils literal notranslate"><span class="pre">numpy.cumsum</span></code>. This is useful for keeping a running tally - i.e.&nbsp;keeping the history of the number of darts that have fallen within the circle, and not just the current count.</p>
+<p>It is helpful to know about NumPy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.cumsum.html">cumulative-sum function</a>, <code class="docutils literal notranslate"><span class="pre">numpy.cumsum</span></code>. This is useful for keeping a running tally - i.e. keeping the history of the number of darts that have fallen within the circle, and not just the current count.</p>
 </div>
 <div class="section" id="Solution-(Unvectorized)">
 <h2>Solution (Unvectorized)<a class="headerlink" href="#Solution-(Unvectorized)" title="Permalink to this headline">¶</a></h2>
@@ -493,8 +514,9 @@ indexing</a>.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[4.0,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[4.0,
  4.0,
  2.6666666666666665,
  2.0,
@@ -504,8 +526,7 @@ indexing</a>.</p>
  2.5,
  2.6666666666666665,
  2.8]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -520,8 +541,9 @@ indexing</a>.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[3.1184065659093183,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3.1184065659093183,
  3.1184947958366696,
  3.118583008105674,
  3.118671202721633,
@@ -531,8 +553,7 @@ indexing</a>.</p>
  3.119023804760952,
  3.119111911191119,
  3.1192]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Solution-(Vectorized)">
@@ -619,7 +640,7 @@ indexing</a>.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 /* Put everything inside the global mpl namespace */
@@ -1474,7 +1495,7 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 /* Put everything inside the global mpl namespace */

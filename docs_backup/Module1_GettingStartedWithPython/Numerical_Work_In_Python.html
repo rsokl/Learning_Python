@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -167,13 +168,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -194,7 +195,7 @@
 <h2>NumPy<a class="headerlink" href="#NumPy" title="Permalink to this headline">¶</a></h2>
 <p>The fundamental package for scientific computing with Python. NumPy provides an N-dimensional array that can be used to represent, say, a large matrix of numbers. It also provides a huge number of mathematical functions that can operate on these arrays. It is crucial to note that these functions will actually be executed in C, so they are incredibly fast compared to the same functions written in vanilla Python. NumPy will be used throughout the machine learning component of the course.</p>
 <p>Here is example code for summing the numbers 1-100 in NumPy:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span> <span class="c1"># an array storing the numbers 1-100</span>
 <span class="n">numpy_result</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
@@ -210,7 +211,7 @@
 <p>We will not be using this package in this course, but it is a tremendous tool that is becoming instrumental for doing numerical work in Python.</p>
 <p>Here is example code for summing the numbers 1-100 in numba:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numba</span>
-<span class="nd">@numba.njit</span>
+<span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
 <span class="k">def</span> <span class="nf">sum_func</span><span class="p">():</span>
     <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
@@ -228,10 +229,10 @@
 <div class="section" id="Summary">
 <h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Python is slow for large numerical computations.</li>
-<li>Tools like NumPy and Numba allow you do fast numerical computations in Python by “secretly” doing the numerical work behind the scenes in a fast language, like C.</li>
-<li>We will be working with NumPy (but Numba is fantastic and very worthwhile to learn if you do any serious numerical work in Python).</li>
-<li>Both NumPy and Numba came with your installation of Anaconda</li>
+<li><p>Python is slow for large numerical computations.</p></li>
+<li><p>Tools like NumPy and Numba allow you do fast numerical computations in Python by “secretly” doing the numerical work behind the scenes in a fast language, like C.</p></li>
+<li><p>We will be working with NumPy (but Numba is fantastic and very worthwhile to learn if you do any serious numerical work in Python).</p></li>
+<li><p>Both NumPy and Numba came with your installation of Anaconda</p></li>
 </ul>
 </div>
 </div>

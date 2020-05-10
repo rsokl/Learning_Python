@@ -519,7 +519,7 @@ def get_maxes(dictionary):
     max_val = max(dictionary.values())
     return tuple(k for k,v in dictionary.items() if v == max_val)
 
->>> get_maxes(dict(a=1, b=2,c= 2, d=1))
+>>> get_maxes(dict(a=1, b=2, c=2, d=1))
 ('b', 'c')
 ```
 

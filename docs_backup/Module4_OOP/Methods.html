@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -192,13 +193,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -230,9 +231,9 @@
 </div>
 <p>Here we will encounter three varieties of methods:</p>
 <ul class="simple">
-<li>instance methods</li>
-<li>class methods</li>
-<li>static methods</li>
+<li><p>instance methods</p></li>
+<li><p>class methods</p></li>
+<li><p>static methods</p></li>
 </ul>
 <p>whose differences are relatively minor but are important to understand. The functions “append” and “capitalize” are both examples of instance methods, specifically, as they are designed to be invoked by a particular list instance and string instance, respectively.</p>
 <p>We have already worked with the instance method <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, which is special in that it is reserved by Python to be executed whenever class-initialization is invoked. Similarly, the special instance method <code class="docutils literal notranslate"><span class="pre">__add__</span></code> informs how an object interacts with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator. For example, <code class="docutils literal notranslate"><span class="pre">float.__add__</span></code> specifies that <code class="docutils literal notranslate"><span class="pre">+</span></code> will sum the values of <code class="docutils literal notranslate"><span class="pre">float</span></code> instances, whereas <code class="docutils literal notranslate"><span class="pre">list.__add__</span></code> specifies that <code class="docutils literal notranslate"><span class="pre">+</span></code> will concatenate <code class="docutils literal notranslate"><span class="pre">list</span></code> instances together. We will conclude our discussion of
@@ -283,7 +284,7 @@ simply accepts one argument and then returns that argument unchanged:</p>
 <span class="c1"># returned by, `func`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">out</span> <span class="o">=</span> <span class="n">inst</span><span class="o">.</span><span class="n">func</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">inst</span> <span class="ow">is</span> <span class="n">out</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 <p><em>Note that this “under the hood” behavior only occurs when the method is being called from an instance</em>; this is why we didn’t face this issue when invoking <code class="docutils literal notranslate"><span class="pre">func</span></code> from <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> - <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> is a class object, not an instance. Thus, <code class="docutils literal notranslate"><span class="pre">inst.func()</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">Dummy.func(inst)</span></code>:</p>
@@ -349,7 +350,7 @@ is to name it <code class="docutils literal notranslate"><span class="pre">cls</
 <span class="c1"># `Dummy.class_func()` returns `Dummy`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">out</span> <span class="o">=</span> <span class="n">Dummy</span><span class="o">.</span><span class="n">class_func</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">out</span> <span class="ow">is</span> <span class="n">Dummy</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 
 <span class="c1"># `Dummy` gets passed as `cls` automatically</span>
 <span class="c1"># even when `class_func` is called from an instance</span>
@@ -364,11 +365,11 @@ is to name it <code class="docutils literal notranslate"><span class="pre">cls</
 <span class="go">{&#39;a&#39;: 2.3, &#39;b&#39;: 2.3, &#39;c&#39;: 2.3, &#39;d&#39;: 2.3}</span>
 </pre></div>
 </div>
-<p>It is sensible that this is a class method rather than an instance method, as the method creates a brand new dictionary from scratch. It need only have access to the <code class="docutils literal notranslate"><span class="pre">dict</span></code> object (i.e.&nbsp;the <code class="docutils literal notranslate"><span class="pre">cls</span></code> argument) so that it can construct the dictionary. The following is what an implementation of <code class="docutils literal notranslate"><span class="pre">fromkeys</span></code> could look like, were we to define <code class="docutils literal notranslate"><span class="pre">dict</span></code> ourselves:</p>
+<p>It is sensible that this is a class method rather than an instance method, as the method creates a brand new dictionary from scratch. It need only have access to the <code class="docutils literal notranslate"><span class="pre">dict</span></code> object (i.e. the <code class="docutils literal notranslate"><span class="pre">cls</span></code> argument) so that it can construct the dictionary. The following is what an implementation of <code class="docutils literal notranslate"><span class="pre">fromkeys</span></code> could look like, were we to define <code class="docutils literal notranslate"><span class="pre">dict</span></code> ourselves:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">dict</span><span class="p">:</span>
     <span class="c1"># assume all other dictionary methods are defined here</span>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">fromkeys</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fromkeys</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Creates a dictionary whose keys are the elements of `iterable`. All</span>
 <span class="sd">        keys map to `value`.</span>
 
@@ -419,7 +420,8 @@ is to name it <code class="docutils literal notranslate"><span class="pre">cls</
 <p><strong>Invoking Instance Methods: Solution</strong></p>
 <p>Rewrite <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> so that its instance method <code class="docutils literal notranslate"><span class="pre">func</span></code> accepts two arguments: the instance object that Python automatically passes and the argument <code class="docutils literal notranslate"><span class="pre">x</span></code>, which we want <code class="docutils literal notranslate"><span class="pre">func</span></code> to return unchanged.</p>
 <blockquote>
-<div>We will rewite func to accept an argument called ‘self’, which will accept the instance object that is passed “under the hood” , and ‘x’. As you will see in the reading, the name argument ‘self’ is simply used by convention.</div></blockquote>
+<div><p>We will rewite func to accept an argument called ‘self’, which will accept the instance object that is passed “under the hood” , and ‘x’. As you will see in the reading, the name argument ‘self’ is simply used by convention.</p>
+</div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">x</span>
@@ -433,9 +435,10 @@ is to name it <code class="docutils literal notranslate"><span class="pre">cls</
 </div>
 <p>What will happen if you try to call <code class="docutils literal notranslate"><span class="pre">Dummy.func(&quot;hi&quot;)</span></code>? Why?</p>
 <blockquote>
-<div>This will raise an error, which complains that func expects two arguments, and that we have only passed it one. Indeed, we will have only passed it the object “hi” and nothing else. Dummy is a class object, not an instance object. Thus Python does not do anything special “under the hood” when we call Dummy.func. We must pass something to the self argument. Because this particular method doesn’t do anything with self, we can just pass it None, or any other object, really.</div></blockquote>
+<div><p>This will raise an error, which complains that func expects two arguments, and that we have only passed it one. Indeed, we will have only passed it the object “hi” and nothing else. Dummy is a class object, not an instance object. Thus Python does not do anything special “under the hood” when we call Dummy.func. We must pass something to the self argument. Because this particular method doesn’t do anything with self, we can just pass it None, or any other object, really.</p>
+</div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dummy.func(&quot;hi&quot;) would raise an error</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Dummy</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Dummy</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">)</span>
 <span class="s1">&#39;hi&#39;</span>
 </pre></div>
 </div>

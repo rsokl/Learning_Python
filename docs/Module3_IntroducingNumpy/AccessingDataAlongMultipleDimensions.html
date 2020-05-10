@@ -421,8 +421,8 @@
 <div class="admonition note">
 <p>Suppose you have an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, and only provide <span class="math notranslate nohighlight">\(j\)</span> indices for the array; NumPy will automatically insert <span class="math notranslate nohighlight">\(N-j\)</span> trailing slices for you. In the case that <span class="math notranslate nohighlight">\(N=5\)</span> and <span class="math notranslate nohighlight">\(j=3\)</span>, <code class="docutils literal notranslate"><span class="pre">d5_array[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code> is treated as <code class="docutils literal notranslate"><span class="pre">d5_array[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">:,</span> <span class="pre">:]</span></code></p>
 </div>
-<p>Thus far, we have discussed some rules for accessing data in arrays, all of which fall into the category that is designated <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#basic-slicing-and-indexing">“basic indexing”</a> by the NumPy documentation. We will discuss the details of basic indexing and of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing">“advanced indexing”</a>, in full, in a later section. Note, however, that all of the
-indexing/slicing reviewed here produces a “view” of the original array. That is, <em>no data is copied</em> when you index into an array using integer indices and/or slices. Recall that slicing lists and tuples <em>do</em> produce copies of the data.</p>
+<p>Thus far, we have discussed some rules for accessing data in arrays, all of which fall into the category that is designated <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#basic-slicing-and-indexing">“basic indexing”</a> by the NumPy documentation. We will discuss the details of basic indexing and of <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#advanced-indexing">“advanced indexing”</a>, in full, in a later section. Note, however, that all of the indexing/slicing
+reviewed here produces a “view” of the original array. That is, <em>no data is copied</em> when you index into an array using integer indices and/or slices. Recall that slicing lists and tuples <em>do</em> produce copies of the data.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>FYI</strong>:</p>
 <p>Keeping track of the meaning of an array’s various dimensions can quickly become unwieldy when working with real datasets. <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray</a> is a Python library that provides functionality comparable to NumPy, but allows users provide <em>explicit labels</em> for an array’s dimensions; that is, you can <em>name</em> each dimension. Using an <code class="docutils literal notranslate"><span class="pre">xarray</span></code> to select Brad’s scores could look like <code class="docutils literal notranslate"><span class="pre">grades.sel(student='Brad')</span></code>, for instance. This is a valuable library to look into at
@@ -579,7 +579,7 @@ your leisure.</p>
 <span class="go">       [ 4,  8, 12]])</span>
 </pre></div>
 </div>
-<p>A complete listing of the available array-manipulation functions can be found in the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html">official NumPy documentation</a>. Among these functions, the reshape function is especially useful.</p>
+<p>A complete listing of the available array-manipulation functions can be found in the <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html">official NumPy documentation</a>. Among these functions, the reshape function is especially useful.</p>
 <div class="section" id="Introducing-the-reshape-Function">
 <h3>Introducing the <code class="docutils literal notranslate"><span class="pre">reshape</span></code> Function<a class="headerlink" href="#Introducing-the-reshape-Function" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">reshape</span></code> function allows you to change the dimensionality and axis-layout of a given array. This adjusts the indexing interface used to access the array’s underlying data, as was discussed in earlier in this module. Let’s take a shape-(6,) array, and reshape it to a shape-(2, 3) array:</p>
@@ -649,10 +649,10 @@ your leisure.</p>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">The N-dimensional array</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.indexing.html#indexing">Array indexing</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.indexing.html#indexing-routines">Indexing routines</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html">Array manipulation routines</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.ndarray.html">The N-dimensional array</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/basics.indexing.html#indexing">Array indexing</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.indexing.html#indexing-routines">Indexing routines</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html">Array manipulation routines</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">

@@ -8,6 +8,13 @@ on pip.
 
 
 ----------
+2020-05-10
+----------
+
+Various typo fixes. Thanks to Patrick O'Shea and David Mascharka!
+
+
+----------
 2020-04-11
 ----------
 

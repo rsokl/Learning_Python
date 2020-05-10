@@ -1044,7 +1044,7 @@ It is very important to remember this issue of the limited numerical precision o
 
 **Understanding the modulo operator: Solution**
 
-If `n` is an integer, then 2 will divide into it evenly, and thus there is no remainder. If `n` is odd, then `n / 2` must have a remainder of 1. Thus:
+If `n` is an even integer, then 2 will divide into it evenly, and thus there is no remainder. If `n` is odd, then `n / 2` must have a remainder of 1. Thus:
 
 - `n % 2 ` = 0 if `n` is an even number
 - `n % 2 ` = 1 if `n` is an odd number

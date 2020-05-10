@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -192,16 +193,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -210,13 +211,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -224,92 +225,91 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -353,6 +353,27 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
   border: none;
@@ -390,13 +411,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -414,7 +435,7 @@ div.rendered_html tbody tr:hover {
 <p>In this section, we will introduce Matplotlib, the most long-lived Python package for plotting data and images. It is designed to work nicely with NumPy arrays, and natively uses two and three-dimensional arrays to represent images, (gray-scale and RGB, respectively). This section will introduce the basics of plotting and key features of Matplotlib.</p>
 <p>There are many tutorials, “cheat sheets”, and other resources for using Matplotlib. Our goal here is to provide a treatment of Matplotlib with slightly deeper aims than simply showing you how to make “a plot that looks like …”. Specifically, our aim is to introduce Matplotib’s <a class="reference external" href="https://matplotlib.org/api/pyplot_summary.html#the-object-oriented-api">object oriented API</a>, instead of its <a class="reference external" href="https://matplotlib.org/api/pyplot_summary.html#the-pyplot-api">function-based API</a>. Let’s briefly draw a
 distinction between these two APIs:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="c1"># prepare 50 x-coordinates and 50 y-coordinates</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -434,7 +455,7 @@ distinction between these two APIs:</p>
 <p>Consult the <a class="reference external" href="https://matplotlib.org/users/index.html">Matplotlib user’s guide</a>, as well as their <a class="reference external" href="https://matplotlib.org/tutorials/index.html">tutorials</a> for additional information about this plotting library.</p>
 <p>Matplotlib is included in the Anaconda distribution of Python packages. The <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> submodule of Matplotlib contains all of the essential plotting functionality, thus we will always need to import <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>. It is standard to utilize the abbreviation “plt” when importing the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> submodule from Matplotlib:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import matplotlib&#39;s pyplot submodule</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 <p>There are many tutorials and examples available online, which demonstrate Matplotlib’s wide range of capabilities for visualizing data. Here, we will only distill the essentials needed for understanding how to use Matplotlib effectively for typical data science applications.</p>
@@ -452,7 +473,7 @@ distinction between these two APIs:</p>
 <h2>Creating Figures and Axes with <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code><a class="headerlink" href="#Creating-Figures-and-Axes-with-pyplot.subplots" title="Permalink to this headline">¶</a></h2>
 <p>There are many different wasy to create blank figure and axes objects in Matplotlib. Here, we will introduce the function <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code>, which creates a figure that contains axes on which data is plotted. We will see that the keyword argument <code class="docutils literal notranslate"><span class="pre">figsize</span></code> can be used to control the size of the figure, and that the keyword arguments <code class="docutils literal notranslate"><span class="pre">ncols</span></code> and <code class="docutils literal notranslate"><span class="pre">nrows</span></code> can be used to specify the grid on which the axes will be laid out within the figure.</p>
 <p>In Matplotlib, the <code class="docutils literal notranslate"><span class="pre">Figure</span></code> object is used to contain one or more sets of <code class="docutils literal notranslate"><span class="pre">Axes</span></code> objects. Data is plotted within a given set of axes. The <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function can be used to create a figure along with a specified layout of axes. By default, <code class="docutils literal notranslate"><span class="pre">subplots</span></code> will create a figure with a single set of axes; calling it will return the figure object and its axes object in a tuple:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
 
 <span class="c1"># Creating a figure that contains a single</span>
@@ -502,7 +523,7 @@ distinction between these two APIs:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 /* Put everything inside the global mpl namespace */
@@ -1300,7 +1321,7 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 /* Put everything inside the global mpl namespace */
@@ -2125,7 +2146,7 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 /* Put everything inside the global mpl namespace */
@@ -2908,22 +2929,22 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Creating a Basic Plot</strong></p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code> to create a figure with two subplots that are aligned side-by-side (i.e.&nbsp;they reside in two columns). In the left subplot, plot <span class="math notranslate nohighlight">\(f(x) = e^{-x}\)</span> using 100 points on the domain <span class="math notranslate nohighlight">\([0, 1]\)</span>. In the right subplot, plot <span class="math notranslate nohighlight">\(f(x) = x^2\)</span> on whatever domain you’d like, using a green line.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code> to create a figure with two subplots that are aligned side-by-side (i.e. they reside in two columns). In the left subplot, plot <span class="math notranslate nohighlight">\(f(x) = e^{-x}\)</span> using 100 points on the domain <span class="math notranslate nohighlight">\([0, 1]\)</span>. In the right subplot, plot <span class="math notranslate nohighlight">\(f(x) = x^2\)</span> on whatever domain you’d like, using a green line.</p>
 </div>
 </div>
 <div class="section" id="The-Axes-Object">
 <h3>The Axes Object<a class="headerlink" href="#The-Axes-Object" title="Permalink to this headline">¶</a></h3>
 <p>The axes object is used to control the appearance of data within a plot. A quick glance at the <a class="reference external" href="https://matplotlib.org/api/axes_api.html">official documentation for the axes object</a> reveals that it is nearly “one object to rule them all” in Matplotlib, as it possesses a massive amount of functionality. It permits us to control the type of plotting being performed; the following is list of some of the various types of plots that can be created:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">Axes.plot</span></code>: lines with data markers</li>
-<li><code class="docutils literal notranslate"><span class="pre">Axes.scatter</span></code>: a scatter plot of x-y markers, without lines</li>
-<li><code class="docutils literal notranslate"><span class="pre">Axes.hist</span></code>: a histogram</li>
-<li><code class="docutils literal notranslate"><span class="pre">Axes.bar</span></code>: a bar chart</li>
-<li><code class="docutils literal notranslate"><span class="pre">Axes.pie</span></code>: a pie chart</li>
-<li><code class="docutils literal notranslate"><span class="pre">Axes.imshow</span></code>: draw an image within the axes</li>
-<li><code class="docutils literal notranslate"><span class="pre">Axes.contour</span></code>: create a contour plot</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Axes.plot</span></code>: lines with data markers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Axes.scatter</span></code>: a scatter plot of x-y markers, without lines</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Axes.hist</span></code>: a histogram</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Axes.bar</span></code>: a bar chart</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Axes.pie</span></code>: a pie chart</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Axes.imshow</span></code>: draw an image within the axes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Axes.contour</span></code>: create a contour plot</p></li>
 </ul>
-<p>Furthermore, the axes object controls the scales of the axes (e.g.&nbsp;log-scaling versus linear-scaling). It permits us to create axis labels, a title, and to affect smaller details like a plot’s grid lines, tick-mark spacing, and many other items. In summary, you will be using the axes object to affect most aspects of your plot. For this reason, it is highly recommended that you familiarize yourself with the functions available to the axes object. We will only be able to demonstrate a fraction of
+<p>Furthermore, the axes object controls the scales of the axes (e.g. log-scaling versus linear-scaling). It permits us to create axis labels, a title, and to affect smaller details like a plot’s grid lines, tick-mark spacing, and many other items. In summary, you will be using the axes object to affect most aspects of your plot. For this reason, it is highly recommended that you familiarize yourself with the functions available to the axes object. We will only be able to demonstrate a fraction of
 its capabilities here; we will prioritize its most essential features, and will create diverse plots in doing so.</p>
 <p>As seen in the previous example, <code class="docutils literal notranslate"><span class="pre">ax.plot</span></code> creates a plot with line-segments joining the the specified data points. See that, by default, it does not plot markers for each data point being plotted. We can use the <code class="docutils literal notranslate"><span class="pre">marker</span></code> and <code class="docutils literal notranslate"><span class="pre">linestyle</span></code> keyword arguments to specify the appearance of the markers for the data point, and the line segments that connect them, respectively. The available marker styles can be found <a class="reference external" href="https://matplotlib.org/api/markers_api.html#markers">here</a>, and the available
 line styles can be found <a class="reference external" href="https://matplotlib.org/devdocs/gallery/lines_bars_and_markers/line_styles_reference.html">here</a>.</p>
@@ -2971,7 +2992,7 @@ line styles can be found <a class="reference external" href="https://matplotlib.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 /* Put everything inside the global mpl namespace */
@@ -3755,31 +3776,31 @@ if (IPython.notebook.kernel != null) {
 <p>Now, we provide a potpourri of different plots that can be created via the axes object. The resulting <span class="math notranslate nohighlight">\(2 \times 3\)</span> grid of plots demonstrates the following:</p>
 <p><strong>Plot (0, 0)</strong></p>
 <ul class="simple">
-<li>Using <code class="docutils literal notranslate"><span class="pre">Axes.set_yscale</span></code> to set the y-axis scale a logarithmic scale.</li>
-<li>Using LaTeX-formatted equations as labels.</li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">Axes.set_yscale</span></code> to set the y-axis scale a logarithmic scale.</p></li>
+<li><p>Using LaTeX-formatted equations as labels.</p></li>
 </ul>
 <p><strong>Plot (0, 1)</strong></p>
 <ul class="simple">
-<li>Using <code class="docutils literal notranslate"><span class="pre">Axes.fill_between</span></code> to shade in the bounds between the error bars for a curve.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> keyword arguments allows you to set the transparency level for the shading.</li>
-<li>Specifying <code class="docutils literal notranslate"><span class="pre">color=C0</span></code> allows you to match the color-0 from Matplotlib’s default color cycle.</li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">Axes.fill_between</span></code> to shade in the bounds between the error bars for a curve.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> keyword arguments allows you to set the transparency level for the shading.</p></li>
+<li><p>Specifying <code class="docutils literal notranslate"><span class="pre">color=C0</span></code> allows you to match the color-0 from Matplotlib’s default color cycle.</p></li>
 </ul>
 <p><strong>Plot (0, 2)</strong></p>
 <ul class="simple">
-<li>Use <code class="docutils literal notranslate"><span class="pre">Axes.errorbar</span></code> to plot a curve with discrete error bars.</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">Axes.errorbar</span></code> to plot a curve with discrete error bars.</p></li>
 </ul>
 <p><strong>Plot (1, 0)</strong></p>
 <ul class="simple">
-<li>Use <code class="docutils literal notranslate"><span class="pre">Axes.scatter</span></code> to plot markers for two sets of x-y coordinates, without joining the markers with line segments.</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">Axes.scatter</span></code> to plot markers for two sets of x-y coordinates, without joining the markers with line segments.</p></li>
 </ul>
 <p><strong>Plot (1, 1)</strong></p>
 <ul class="simple">
-<li>Use <code class="docutils literal notranslate"><span class="pre">Axes.hist</span></code> to create a histogram, with 50 bins, for Gaussian-distributed data.</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">Axes.hist</span></code> to create a histogram, with 50 bins, for Gaussian-distributed data.</p></li>
 </ul>
 <p><strong>Plot (1, 2)</strong></p>
 <ul class="simple">
-<li>Use <code class="docutils literal notranslate"><span class="pre">Axes.imshow</span></code> to plot a matrix (a 2D NumPy array) as an image. The matrice’s entries take on random values, and the lower triangular half of the matrice’s entries are set to 0.</li>
-<li>The magnitude of the entries are conveyed using Matplotlib’s default viridis colormap.</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">Axes.imshow</span></code> to plot a matrix (a 2D NumPy array) as an image. The matrice’s entries take on random values, and the lower triangular half of the matrice’s entries are set to 0.</p></li>
+<li><p>The magnitude of the entries are conveyed using Matplotlib’s default viridis colormap.</p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -3853,7 +3874,7 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 /* Put everything inside the global mpl namespace */
@@ -4663,7 +4684,7 @@ The image will be saved to the corresponding format. Additionally, the resolutio
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 /* Put everything inside the global mpl namespace */
@@ -5488,7 +5509,7 @@ channels for red, green, and blue (RGB) pixel values, or <span class="math notra
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 /* Put everything inside the global mpl namespace */
@@ -6290,7 +6311,7 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 /* Put everything inside the global mpl namespace */
@@ -7083,21 +7104,21 @@ if (IPython.notebook.kernel != null) {
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://matplotlib.org/users/index.html">Matplotlib User Guide</a></li>
-<li><a class="reference external" href="https://matplotlib.org/tutorials/index.html">Tutorials</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">Emulating Container Types</a></li>
-<li><a class="reference external" href="https://matplotlib.org/api/axes_api.html">Documentation for the Axes Object</a></li>
-<li><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure">Documentation for the Figure Object</a></li>
-<li><a class="reference external" href="https://matplotlib.org/api/colors_api.html?highlight=color#module-matplotlib.colors">Matplotlib Colors</a></li>
-<li><a class="reference external" href="https://matplotlib.org/users/colormaps.html">Matplotlib Colormaps</a></li>
+<li><p><a class="reference external" href="https://matplotlib.org/users/index.html">Matplotlib User Guide</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/tutorials/index.html">Tutorials</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">Emulating Container Types</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/api/axes_api.html">Documentation for the Axes Object</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure">Documentation for the Figure Object</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/api/colors_api.html?highlight=color#module-matplotlib.colors">Matplotlib Colors</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/users/colormaps.html">Matplotlib Colormaps</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
 <p><strong>Creating a Basic Plot: Solution</strong></p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code> to create a figure with two subplots that are aligned side-by-side (i.e.&nbsp;they reside in two columns). In the left subplot, plot <span class="math notranslate nohighlight">\(f(x) = e^{-x}\)</span> using 100 points on the domain <span class="math notranslate nohighlight">\([0, 1]\)</span>. In the right subplot, plot <span class="math notranslate nohighlight">\(f(x) = x^2\)</span> on whatever domain you’d like, using a green line.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code> to create a figure with two subplots that are aligned side-by-side (i.e. they reside in two columns). In the left subplot, plot <span class="math notranslate nohighlight">\(f(x) = e^{-x}\)</span> using 100 points on the domain <span class="math notranslate nohighlight">\([0, 1]\)</span>. In the right subplot, plot <span class="math notranslate nohighlight">\(f(x) = x^2\)</span> on whatever domain you’d like, using a green line.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>

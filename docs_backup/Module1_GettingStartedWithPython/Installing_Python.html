@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -186,13 +187,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -209,10 +210,10 @@
 <h1>Installing Python<a class="headerlink" href="#Installing-Python" title="Permalink to this headline">¶</a></h1>
 <p>Without further ado, we now provide instructions for installing Python and other useful Python libraries on your machine via the Anaconda platform. Installing the Anaconda platform will install the following:</p>
 <ul class="simple">
-<li>Python; specifically the CPython interpreter that we discussed in the previous section.</li>
-<li>A number of useful Python packages, like matplotlib, NumPy, and SciPy.</li>
-<li>Jupyter, which provides an interactive “notebook” environment for prototyping code.</li>
-<li>conda: a package manager that will allow you to install and update Python and additional Python packages, while handling all compatibility issues for you.</li>
+<li><p>Python; specifically the CPython interpreter that we discussed in the previous section.</p></li>
+<li><p>A number of useful Python packages, like matplotlib, NumPy, and SciPy.</p></li>
+<li><p>Jupyter, which provides an interactive “notebook” environment for prototyping code.</p></li>
+<li><p>conda: a package manager that will allow you to install and update Python and additional Python packages, while handling all compatibility issues for you.</p></li>
 </ul>
 <p>Note that installing Python via Anaconda will <strong>not</strong> break any other installations of Python that already exist on your computer. See <a class="reference external" href="#What-did-this-just-do-to-my-computer?">What did this just do to my computer?</a> for more details.</p>
 <p>Some of the packages provided by Anaconda, like NumPy, have been <a class="reference external" href="https://docs.anaconda.com/mkl-optimizations/">optimized</a> and will run significantly faster than if you installed them manually.</p>
@@ -223,19 +224,19 @@
 <div class="section" id="Installing-Anaconda">
 <h2>Installing Anaconda<a class="headerlink" href="#Installing-Anaconda" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Navigate to <a class="reference external" href="https://www.anaconda.com/download/">this page</a>, and click the “Download” button for <strong>Python 3</strong>.</li>
-<li>After the download is complete, begin the installation process. There will be an installation option: <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Anaconda</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">system</span> <span class="pre">PATH</span> <span class="pre">environment</span> <span class="pre">variable</span></code>; we advise you to <strong>enable</strong> this installation option (advanced users: see below for caveats).</li>
-<li>Complete the 30 minute <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">“Getting Started”</a> tutorial to familiarize yourself with <code class="docutils literal notranslate"><span class="pre">conda</span></code>. This is very important!</li>
+<li><p>Navigate to <a class="reference external" href="https://www.anaconda.com/download/">this page</a>, and click the “Download” button for <strong>Python 3</strong>.</p></li>
+<li><p>After the download is complete, begin the installation process. There will be an installation option: <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Anaconda</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">system</span> <span class="pre">PATH</span> <span class="pre">environment</span> <span class="pre">variable</span></code>; we advise you to <strong>enable</strong> this installation option (advanced users: see below for caveats).</p></li>
+<li><p>Complete the 30 minute <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">“Getting Started”</a> tutorial to familiarize yourself with <code class="docutils literal notranslate"><span class="pre">conda</span></code>. This is very important!</p></li>
 </ol>
 <p>You will need to know how to open a terminal (cmd.exe for Windows users) on your computer, and how to navigate between directories in the terminal. If you do not know how to do this, read a ‘how-to’ for whatever operating system you are using.</p>
 </div>
 <div class="section" id="What-did-this-just-do-to-my-computer?">
 <h2>What did this just do to my computer?<a class="headerlink" href="#What-did-this-just-do-to-my-computer?" title="Permalink to this headline">¶</a></h2>
-<p>This created a directory called <code class="docutils literal notranslate"><span class="pre">Anaconda3</span></code> (or some variant of this) on your computer, which contains all of the files associated with the CPython interpreter, all of the modules in Python’s standard library, the aforementioned 3rd party packages that come as part of the Anaconda distribution (e.g.&nbsp;NumPy, SciPy, Jupyter, iPython), and the <code class="docutils literal notranslate"><span class="pre">conda</span></code> package manager. It also contains the executable files for all of these applications. The default install location for Anaconda is:</p>
+<p>This created a directory called <code class="docutils literal notranslate"><span class="pre">Anaconda3</span></code> (or some variant of this) on your computer, which contains all of the files associated with the CPython interpreter, all of the modules in Python’s standard library, the aforementioned 3rd party packages that come as part of the Anaconda distribution (e.g. NumPy, SciPy, Jupyter, iPython), and the <code class="docutils literal notranslate"><span class="pre">conda</span></code> package manager. It also contains the executable files for all of these applications. The default install location for Anaconda is:</p>
 <ul class="simple">
-<li>(Linux): <code class="docutils literal notranslate"><span class="pre">/home/&lt;your_username&gt;/Anaconda3</span></code></li>
-<li>(Windows): <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;your_username&gt;\Anaconda3</span></code></li>
-<li>(Mac): <code class="docutils literal notranslate"><span class="pre">/Users/&lt;your_username&gt;/Anaconda3</span></code></li>
+<li><p>(Linux): <code class="docutils literal notranslate"><span class="pre">/home/&lt;your_username&gt;/Anaconda3</span></code></p></li>
+<li><p>(Windows): <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;your_username&gt;\Anaconda3</span></code></p></li>
+<li><p>(Mac): <code class="docutils literal notranslate"><span class="pre">/Users/&lt;your_username&gt;/Anaconda3</span></code></p></li>
 </ul>
 <p>If you followed the install instructions as specified above, then the Anaconda-installer also <em>placed this directory in your system’s “path”</em>. Let’s briefly discuss what this means. Your system’s path is simply a list of directories. Whenever you execute any command in your computer’s terminal, the computer will quickly search through the directories that are specified in the path for an executable with that name; <em>it will execute the first such executable that it finds</em>. Thus, by placing the
 <code class="docutils literal notranslate"><span class="pre">Anaconda3</span></code> directory at the beginning of your path, the Anaconda-installer has ensured that your computer will prioritize Anaconda’s python executable over any other installations of Python on your computer, because it will find that executable first.</p>
@@ -253,8 +254,9 @@ than Python.</p>
 <h2>A Brief Introduction to Conda Environments<a class="headerlink" href="#A-Brief-Introduction-to-Conda-Environments" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span></code> is not only a package manager, but also a powerful environment manager. Let’s take a moment to motivate a common use case for environment management before we dive into what it actually is:</p>
 <blockquote>
-<div>It is expected and encouraged that you work through Python Like You Mean It using the latest version of Python (Python 3.X). That being said, it is not uncommon to encounter courses and projects that require you to use Python 2.7, which is a dead version of the language. Is there a simple and sane way to switch back and forth between working in Python 3 and Python 2.7 environments? Yes! Utilizing conda environments is a perfect way to solve this problem.</div></blockquote>
-<p>Assuming that your initial installation of Anaconda contained Python 3, then your <em>root</em> (i.e.&nbsp;default) conda environment is that Python 3 environment. You can now create a conda environment that instead includes Python 2.7 and all of the 3rd party packages that come with Anaconda. Execute the following command in your terminal:</p>
+<div><p>It is expected and encouraged that you work through Python Like You Mean It using the latest version of Python (Python 3.X). That being said, it is not uncommon to encounter courses and projects that require you to use Python 2.7, which is a dead version of the language. Is there a simple and sane way to switch back and forth between working in Python 3 and Python 2.7 environments? Yes! Utilizing conda environments is a perfect way to solve this problem.</p>
+</div></blockquote>
+<p>Assuming that your initial installation of Anaconda contained Python 3, then your <em>root</em> (i.e. default) conda environment is that Python 3 environment. You can now create a conda environment that instead includes Python 2.7 and all of the 3rd party packages that come with Anaconda. Execute the following command in your terminal:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda create -n py27 <span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7 anaconda
 </pre></div>
 </div>

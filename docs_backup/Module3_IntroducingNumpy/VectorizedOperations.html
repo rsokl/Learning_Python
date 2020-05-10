@@ -23,13 +23,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -200,13 +201,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -223,18 +224,18 @@
 <h1>“Vectorized” Operations: Optimized Computations on NumPy Arrays<a class="headerlink" href="#“Vectorized”-Operations:-Optimized-Computations-on-NumPy-Arrays" title="Permalink to this headline">¶</a></h1>
 <p>In this section, we will:</p>
 <ul class="simple">
-<li>Define the term vectorization, as it is used in the context of Python/NumPy.</li>
-<li>Prescribe the use of NumPy’s vectorized functions for performing optimized numerical computations on arrays.</li>
-<li>Compare the performance of a simple non-vectorized computation to a vectorized one.</li>
-<li>Describe how unary, binary, and sequential functions are defined on NumPy arrays.</li>
-<li>Provide a brief overview of linear algebra functions and logical operations.</li>
+<li><p>Define the term vectorization, as it is used in the context of Python/NumPy.</p></li>
+<li><p>Prescribe the use of NumPy’s vectorized functions for performing optimized numerical computations on arrays.</p></li>
+<li><p>Compare the performance of a simple non-vectorized computation to a vectorized one.</p></li>
+<li><p>Describe how unary, binary, and sequential functions are defined on NumPy arrays.</p></li>
+<li><p>Provide a brief overview of linear algebra functions and logical operations.</p></li>
 </ul>
 <div class="section" id="Basic-Mathematical-Operations-Using-Arrays">
 <h2>Basic Mathematical Operations Using Arrays<a class="headerlink" href="#Basic-Mathematical-Operations-Using-Arrays" title="Permalink to this headline">¶</a></h2>
 <p>The ND-array can be utilized in mathematical expressions to perform mathematical computations using an array’s entries. In general, NumPy implements mathematical functions such that, when a function acts on an array, the mathematical operation is applied to <em>each</em> entry in the array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating the application of common</span>
 <span class="c1"># mathematical operations to a NumPy array</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">],</span>
 <span class="o">...</span>               <span class="p">[</span> <span class="mf">3.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">],</span>
@@ -309,10 +310,10 @@ that an array’s contents are homogeneous in data type, NumPy is able to delega
 with unrestricted contents.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Definition</strong>:</p>
-<p>In the context of high-level languages like Python, Matlab, and R, the term <strong>vectorization</strong> describes the use of optimized, pre-compiled code written in a low-level language (e.g.&nbsp;C) to perform mathematical operations over a sequence of data. This is done in place of an explicit iteration written in the native language code (e.g.&nbsp;a “for-loop” written in Python).</p>
+<p>In the context of high-level languages like Python, Matlab, and R, the term <strong>vectorization</strong> describes the use of optimized, pre-compiled code written in a low-level language (e.g. C) to perform mathematical operations over a sequence of data. This is done in place of an explicit iteration written in the native language code (e.g. a “for-loop” written in Python).</p>
 </div>
 <p>Consider, for instance, the task of summing the integers 0-9,999 stored in an array. Calling NumPy’s <code class="docutils literal notranslate"><span class="pre">sum</span></code> function cues optimized C code to iterate over the integers in the array and tally the sum. <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> is therefore a “vectorized” function. Let’s time how long it takes to compute this sum:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="go"># sum an array, using NumPy&#39;s vectorized &#39;sum&#39; function</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span>  <span class="c1"># takes 11 microseconds on my computer</span>
@@ -331,7 +332,7 @@ with unrestricted contents.</p>
 </div>
 <p>Timed on my computer, the sum is <strong>over 50 times faster when performed in using NumPy’s vectorized function</strong>! This should make it clear that, whenever computational efficiency is important, one should avoid performing explicit for-loops over long sequences of data in Python, be them lists or NumPy arrays. NumPy provides a whole suite of vectorized functions. In fact, the name of the game when it comes to leveraging NumPy to do computations over arrays of numbers is to exclusively leverage its
 vectorized functions. The following computations all invoke vectorized functions:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="go"># multiply 2 with each number in the array</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -350,73 +351,73 @@ vectorized functions. The following computations all invoke vectorized functions
 <p>All of the mathematical functions that are introduced in the remainder of this section perform vectorized operations.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
-<p>NumPy provides highly-optimized functions for performing mathematical operations on arrays of numbers. Performing extensive iterations (e.g.&nbsp;via ‘for-loops’) in Python to perform repeated mathematical computations should nearly always be replaced by the use of vectorized functions on arrays. This informs the entire design paradigm of NumPy.</p>
+<p>NumPy provides highly-optimized functions for performing mathematical operations on arrays of numbers. Performing extensive iterations (e.g. via ‘for-loops’) in Python to perform repeated mathematical computations should nearly always be replaced by the use of vectorized functions on arrays. This informs the entire design paradigm of NumPy.</p>
 </div>
 </div>
 <div class="section" id="NumPy’s-Mathematical-Functions">
 <h2>NumPy’s Mathematical Functions<a class="headerlink" href="#NumPy’s-Mathematical-Functions" title="Permalink to this headline">¶</a></h2>
 <p>We will now take some time to survey the various types of vectorized mathematical functions that NumPy supplies, and how these mathematical operations, which traditionally are defined on individual numbers, are applied to arrays of numbers. We will look at</p>
 <ul class="simple">
-<li>unary functions: <span class="math notranslate nohighlight">\(f(x)\)</span></li>
-<li>binary functions: <span class="math notranslate nohighlight">\(f(x,y)\)</span></li>
-<li>functions that operate on sequences of numbers: <span class="math notranslate nohighlight">\(f(\{x_i\}_{i=0}^{n-1})\)</span></li>
+<li><p>unary functions: <span class="math notranslate nohighlight">\(f(x)\)</span></p></li>
+<li><p>binary functions: <span class="math notranslate nohighlight">\(f(x,y)\)</span></p></li>
+<li><p>functions that operate on sequences of numbers: <span class="math notranslate nohighlight">\(f(\{x_i\}_{i=0}^{n-1})\)</span></p></li>
 </ul>
 <p>These represent a substantial portion of the essential mathematical tools in the NumPy library. An exhaustive list of NumPy’s mathematical functions is available in the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html#math-operations">official documentation</a>.</p>
 <div class="section" id="Unary-Functions">
 <h3>Unary Functions<a class="headerlink" href="#Unary-Functions" title="Permalink to this headline">¶</a></h3>
-<p>A unary function is a mathematical function that only accepts one operand (i.e.&nbsp;argument): <span class="math notranslate nohighlight">\(f(x)\)</span>. NumPy supplies many familiar unary functions:</p>
-<table border="1" class="docutils">
+<p>A unary function is a mathematical function that only accepts one operand (i.e. argument): <span class="math notranslate nohighlight">\(f(x)\)</span>. NumPy supplies many familiar unary functions:</p>
+<table class="docutils align-default">
 <colgroup>
-<col width="64%" />
-<col width="36%" />
+<col style="width: 64%" />
+<col style="width: 36%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Unary Function: <span class="math notranslate nohighlight">\(f(x)\)</span></th>
-<th class="head">NumPy Function</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Unary Function: <span class="math notranslate nohighlight">\(f(x)\)</span></p></th>
+<th class="head"><p>NumPy Function</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(\vert x \vert\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.absolute</span></code></td>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\vert x \vert\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.absolute</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(\sqrt{x}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.sqrt</span></code></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\sqrt{x}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.sqrt</span></code></p></td>
 </tr>
-<tr class="row-even"><td><strong>Trigonometric Functions</strong></td>
-<td>&#160;</td>
+<tr class="row-even"><td><p><strong>Trigonometric Functions</strong></p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(\sin{x}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.sin</span></code></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\sin{x}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.sin</span></code></p></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(\cos{x}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.cos</span></code></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\cos{x}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.cos</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(\tan{x}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.tan</span></code></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\tan{x}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.tan</span></code></p></td>
 </tr>
-<tr class="row-even"><td><strong>Logarithmic Functions</strong></td>
-<td>&#160;</td>
+<tr class="row-even"><td><p><strong>Logarithmic Functions</strong></p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(\ln{x}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.log</span></code></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\ln{x}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.log</span></code></p></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(\log_{10}{x}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.log10</span></code></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\log_{10}{x}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.log10</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(\log_{2}{x}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.log2</span></code></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\log_{2}{x}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.log2</span></code></p></td>
 </tr>
-<tr class="row-even"><td><strong>Exponential Functions</strong></td>
-<td>&#160;</td>
+<tr class="row-even"><td><p><strong>Exponential Functions</strong></p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(e^{x}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.exp</span></code></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(e^{x}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.exp</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <p>This is by no means an exhaustive list of the available unary functions, for example the hyperbolic and inverse trigonometric functions are available too. These familiar functions are defined to work on individual numbers (i.e. “scalars”), not sequences of numbers. How, then, does NumPy implement these functions so that they behave in a coherent way when operating on arrays? The answer is that it <strong>maps</strong> the function over the array - applying <span class="math notranslate nohighlight">\(f(x)\)</span> to each element within the array, and
-producing a new array as a result (i.e.&nbsp;the input array is not overwritten).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+producing a new array as a result (i.e. the input array is not overwritten).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
 
 <span class="c1"># produces array([exp(0.), exp(1.), exp(2.)])</span>
@@ -463,42 +464,42 @@ producing a new array as a result (i.e.&nbsp;the input array is not overwritten)
 <div class="section" id="Binary-Functions">
 <h3>Binary Functions<a class="headerlink" href="#Binary-Functions" title="Permalink to this headline">¶</a></h3>
 <p>A binary function has the form <span class="math notranslate nohighlight">\(f(x,y)\)</span>. The arithmetic operations are all binary functions:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="50%" />
-<col width="25%" />
-<col width="25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Binary Function: <span class="math notranslate nohighlight">\(f(x, y)\)</span></th>
-<th class="head">NumPy Function</th>
-<th class="head">Python operator</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Binary Function: <span class="math notranslate nohighlight">\(f(x, y)\)</span></p></th>
+<th class="head"><p>NumPy Function</p></th>
+<th class="head"><p>Python operator</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(x\cdot y\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.multiply</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">*</span></code></td>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(x\cdot y\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.multiply</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(x\div y\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.divide</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">/</span></code></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(x\div y\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.divide</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(x+y\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.add</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">+</span></code></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(x+y\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.add</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(x-y\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.subtract</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">-</span></code></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(x-y\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.subtract</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(x^{y}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.power</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">**</span></code></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(x^{y}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.power</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(x \% y\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.mod</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">%</span></code></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(x \% y\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.mod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -508,29 +509,29 @@ producing a new array as a result (i.e.&nbsp;the input array is not overwritten)
 </div>
 <p>As indicated in this table, these NumPy functions can be called by invoking the familiar Python math-operators, when used in the context of NumPy arrays.</p>
 <p>Here are some other common binary functions:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="68%" />
-<col width="32%" />
+<col style="width: 68%" />
+<col style="width: 32%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Binary Function: <span class="math notranslate nohighlight">\(f(x, y)\)</span></th>
-<th class="head">NumPy Function</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Binary Function: <span class="math notranslate nohighlight">\(f(x, y)\)</span></p></th>
+<th class="head"><p>NumPy Function</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(\max(x, y)\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.maximum</span></code></td>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\max(x, y)\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.maximum</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(\min(x, y)\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.minimum</span></code></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\min(x, y)\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.minimum</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <p>There are two cases that we must consider when working with binary functions, in the context of NumPy arrays:</p>
 <ol class="arabic simple">
-<li>When both operands of the function are arrays (of the same shape).</li>
-<li>When one operand of the function is a scalar (i.e.&nbsp;a single number) and the other is an array.</li>
+<li><p>When both operands of the function are arrays (of the same shape).</p></li>
+<li><p>When one operand of the function is a scalar (i.e. a single number) and the other is an array.</p></li>
 </ol>
 <p>Similar to the behavior of unary functions applied to an array, a binary function will operate on two same-shape arrays by applying the function to their pairwise elements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
@@ -577,7 +578,7 @@ producing a new array as a result (i.e.&nbsp;the input array is not overwritten)
 </div>
 <p>Add the four quadrants of <code class="docutils literal notranslate"><span class="pre">x</span></code>, producing a shape-(2, 2) output.</p>
 </div>
-<p>By now, you may be able to guess NumPy’s behavior when you perform feed a binary function a scalar (i.e.&nbsp;a single number) and an array: the function is applied elementwise on the array, with each application filling one of the function’s arguments, and the single scalar provided everywhere as the other operand. This matches exactly the behavior seen in traditional linear algebra.</p>
+<p>By now, you may be able to guess NumPy’s behavior when you perform feed a binary function a scalar (i.e. a single number) and an array: the function is applied elementwise on the array, with each application filling one of the function’s arguments, and the single scalar provided everywhere as the other operand. This matches exactly the behavior seen in traditional linear algebra.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>  <span class="c1"># convenient notation for calling `np.multiply(3, x)`</span>
 <span class="go">array([ 0.,  3.,  6.])</span>
 
@@ -614,43 +615,43 @@ producing a new array as a result (i.e.&nbsp;the input array is not overwritten)
 <div class="section" id="Sequential-Functions">
 <h3>Sequential Functions<a class="headerlink" href="#Sequential-Functions" title="Permalink to this headline">¶</a></h3>
 <p>A sequential function expects a variable-length sequence of numbers as an input, and produces a single number as an output: <span class="math notranslate nohighlight">\(f(\{x_i\}_{i=0}^{n-1})\)</span>. The following are some sequential NumPy functions:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="79%" />
-<col width="21%" />
+<col style="width: 79%" />
+<col style="width: 21%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Sequential Function: <span class="math notranslate nohighlight">\(f(\{x_i\}_{i=0}^{n-1})\)</span></th>
-<th class="head">NumPy Function</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sequential Function: <span class="math notranslate nohighlight">\(f(\{x_i\}_{i=0}^{n-1})\)</span></p></th>
+<th class="head"><p>NumPy Function</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Mean of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.mean</span></code></td>
+<tbody>
+<tr class="row-even"><td><p>Mean of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.mean</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Median of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.median</span></code></td>
+<tr class="row-odd"><td><p>Median of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.median</span></code></p></td>
 </tr>
-<tr class="row-even"><td>Variance of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.var</span></code></td>
+<tr class="row-even"><td><p>Variance of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.var</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Standard Deviation of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.std</span></code></td>
+<tr class="row-odd"><td><p>Standard Deviation of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.std</span></code></p></td>
 </tr>
-<tr class="row-even"><td>Maximum Value of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.max</span></code></td>
+<tr class="row-even"><td><p>Maximum Value of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.max</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Minimum Value of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.min</span></code></td>
+<tr class="row-odd"><td><p>Minimum Value of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.min</span></code></p></td>
 </tr>
-<tr class="row-even"><td>Index of the Maximum Value of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.argmax</span></code></td>
+<tr class="row-even"><td><p>Index of the Maximum Value of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.argmax</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Index of the Minimum Value of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.argmin</span></code></td>
+<tr class="row-odd"><td><p>Index of the Minimum Value of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.argmin</span></code></p></td>
 </tr>
-<tr class="row-even"><td>Sum of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></td>
-<td><code class="docutils literal notranslate"><span class="pre">np.sum</span></code></td>
+<tr class="row-even"><td><p>Sum of <span class="math notranslate nohighlight">\(\{x_i\}_{i=0}^{n-1}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.sum</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -777,11 +778,11 @@ producing a new array as a result (i.e.&nbsp;the input array is not overwritten)
 </div>
 <p>Now, compute the following:</p>
 <ol class="arabic simple">
-<li>The average 32x32 RGB image.</li>
-<li>The total sum of all the values in the array.</li>
-<li>The minimum blue value, respective to each image.</li>
-<li>The standard deviation among all the RGB values in all the images, respective to each pixel position (thus you should produce a shape-(32, 32) array of values).</li>
-<li>The maximum red-value in the top-left quadrant, respective to each image.</li>
+<li><p>The average 32x32 RGB image.</p></li>
+<li><p>The total sum of all the values in the array.</p></li>
+<li><p>The minimum blue value, respective to each image.</p></li>
+<li><p>The standard deviation among all the RGB values in all the images, respective to each pixel position (thus you should produce a shape-(32, 32) array of values).</p></li>
+<li><p>The maximum red-value in the top-left quadrant, respective to each image.</p></li>
 </ol>
 </div>
 </div>
@@ -798,14 +799,14 @@ producing a new array as a result (i.e.&nbsp;the input array is not overwritten)
 
 <span class="c1"># returns a boolean-type array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">6</span>  <span class="c1"># equivalent to `np.less(x, 6)`</span>
-<span class="n">array</span><span class="p">([[</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
-       <span class="p">[</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
-       <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
-       <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">],</span>
+       <span class="p">[</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+       <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+       <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
 <span class="c1"># performing a logical comparison between two arrays</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span> <span class="o">&lt;=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">array</span><span class="p">([</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Recall from the Essentials of Python module that, due to effect of floating point numbers having limited numerical precision, that you should never rely on two floating point numbers being exactly equal. Rather, you should require that they are sufficiently “close” in value. In this same vein, you ought not check that the entries of two float-type arrays are precisely equal. Towards this end, the function <code class="docutils literal notranslate"><span class="pre">allclose</span></code> can be used to verify that all corresponding pairs of entries between two
@@ -815,7 +816,7 @@ arrays are approximately equal in value:</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
 </div>
@@ -831,9 +832,9 @@ them. You may be pleasantly surprised by how easy it is to get a hang of this ma
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html#math-operations">Math functions</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">Logic functions</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html">Linear algebra functions</a></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html#math-operations">Math functions</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">Logic functions</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html">Linear algebra functions</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">

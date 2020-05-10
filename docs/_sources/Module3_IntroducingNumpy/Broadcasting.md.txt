@@ -182,7 +182,7 @@ result-shape: 2 x 1
 
 
 <!-- #region -->
-NumPy provides the function [broadcast_to](https://docs.scipy.org/doc/numpy/reference/generated/numpy.broadcast_to.html#numpy.broadcast_to), which can be used to broadcast an array to a specified shape. This can help us build our intuition for broadcasting. Let's broadcast a shape-(3,4) array to a shape-(2,3,4) array:
+NumPy provides the function [broadcast_to](https://numpy.org/doc/stable/reference/generated/numpy.broadcast_to.html#numpy.broadcast_to), which can be used to broadcast an array to a specified shape. This can help us build our intuition for broadcasting. Let's broadcast a shape-(3,4) array to a shape-(2,3,4) array:
 
 ```python
 # Demonstrating `np.broadcast_to`
@@ -426,7 +426,7 @@ Normalize `x` such that *each of its rows, within each sheet, will sum to a valu
 
 A digital image is simply an array of numbers, which instructs a grid of pixels on a monitor to shine light of specific colors, according to the numerical values in that array. 
 
-An RGB-image can thus be stored as a 3D NumPy array of shape-$(V, H, 3)$. $V$ is the number of pixels along the vertical direction, $H$ is the number of pixels along the horizontal, and the size-3 dimension stores the red, blue, and green color values for a given pixel. Thus a $(32, 32, 3)$ array would be a 32x32 RBG image.
+An RGB-image can thus be stored as a 3D NumPy array of shape-$(V, H, 3)$. $V$ is the number of pixels along the vertical direction, $H$ is the number of pixels along the horizontal, and the size-3 dimension stores the red, blue, and green color values for a given pixel. Thus a $(32, 32, 3)$ array would be a 32x32 RGB image.
 
 You often work with a collection of images. Suppose we want to store N images in a single array; thus we now consider a 4D shape-(N, V, H, 3) array.  For the sake of convenience, let's simply generate a 4D-array of random numbers as a placeholder for real image data. We will generate 500, 48x48 RGB images:
 
@@ -663,18 +663,32 @@ The specific form of an equation can have a major impact on the memory-footprint
 
 **Reading Comprehension: Checking the equivalence of the three pairwise distance functions**
 
-Use the function [numpy.allclose](https://docs.scipy.org/doc/numpy/reference/generated/numpy.allclose.html) to verify that the three methods for computing the pairwise distances produce the same numerical results.
+Use the function [numpy.allclose](https://numpy.org/doc/stable/reference/generated/numpy.allclose.html) to verify that the three methods for computing the pairwise distances produce the same numerical results.
 
 </div>
 
 
 ## Links to Official Documentation
 
-- [Basics of broadcasting](https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html#broadcasting)
-- [Broadcasting routines](https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html#changing-number-of-dimensions)
+- [Basics of broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html#broadcasting)
+- [Broadcasting routines](https://numpy.org/doc/stable/reference/routines.array-manipulation.html#changing-number-of-dimensions)
 
 
 ## Reading Comprehension Solutions
+
+<!-- #region -->
+**Broadcast Compatibility: Solution**
+
+1\. Incompatible
+
+2\. `3 x 4`
+
+3\. `8 x 3 x 1`
+
+4\. `9 x 2 x 5`
+
+5\. Incompatible
+<!-- #endregion -->
 
 <!-- #region -->
 **Basic Broadcasting: Solution**
@@ -695,18 +709,6 @@ Generating the random array of 10,000, 2D points, and their "center-of-mass".
 (10000, 2)
 ```
 <!-- #endregion -->
-
-**Broadcast Compatibility: Solution**
-
-1\. Incompatible
-
-2\. `3 x 4`
-
-3\. `8 x 3 x 1`
-
-4\. `9 x 2 x 5`
-
-5\. Incompatible
 
 <!-- #region -->
 **Basic Broadcasting II: Solution**

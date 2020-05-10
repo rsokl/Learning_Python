@@ -290,11 +290,11 @@
 <span class="n">array</span><span class="p">([</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>NumPy provides additional functions for creating constant-valued arrays. Please refer to <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#ones-and-zeros">the official documentation</a> for a complete listing.</p>
+<p>NumPy provides additional functions for creating constant-valued arrays. Please refer to <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-creation.html#ones-and-zeros">the official documentation</a> for a complete listing.</p>
 </div>
 <div class="section" id="Creating-Sequential-Arrays:-arange-and-linspace">
 <h2>Creating Sequential Arrays: <code class="docutils literal notranslate"><span class="pre">arange</span></code> and <code class="docutils literal notranslate"><span class="pre">linspace</span></code><a class="headerlink" href="#Creating-Sequential-Arrays:-arange-and-linspace" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html#numpy.arange">arange</a> function allows you to initialize a sequence of integers based on a starting point (inclusive), stopping point (exclusive), and step size. This is very similar to the <code class="docutils literal notranslate"><span class="pre">range</span></code> function; however <code class="docutils literal notranslate"><span class="pre">arange</span></code> immediately creates this sequence as an array, whereas <code class="docutils literal notranslate"><span class="pre">range</span></code> produces a generator.</p>
+<p>The <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange">arange</a> function allows you to initialize a sequence of integers based on a starting point (inclusive), stopping point (exclusive), and step size. This is very similar to the <code class="docutils literal notranslate"><span class="pre">range</span></code> function; however <code class="docutils literal notranslate"><span class="pre">arange</span></code> immediately creates this sequence as an array, whereas <code class="docutils literal notranslate"><span class="pre">range</span></code> produces a generator.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># start (included): 0, stop (excluded): 10, step:1</span>
 <span class="go">array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
 
@@ -307,7 +307,7 @@
 <span class="go">array([-5, -3, -1,  1,  3,  5])</span>
 </pre></div>
 </div>
-<p>The <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html">linspace</a> function allows you to generate <span class="math notranslate nohighlight">\(N\)</span> <em>evenly-spaced</em> points within a user-specified interval <span class="math notranslate nohighlight">\([i, j]\)</span> (<span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are included in the interval). This is often used to generate a domain of values on which to evaluate a mathematical function (e.g. if you want to the sine function from <span class="math notranslate nohighlight">\(-\pi\)</span> to <span class="math notranslate nohighlight">\(\pi\)</span> on a finely-divided grid).</p>
+<p>The <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">linspace</a> function allows you to generate <span class="math notranslate nohighlight">\(N\)</span> <em>evenly-spaced</em> points within a user-specified interval <span class="math notranslate nohighlight">\([i, j]\)</span> (<span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are included in the interval). This is often used to generate a domain of values on which to evaluate a mathematical function (e.g. if you want to the sine function from <span class="math notranslate nohighlight">\(-\pi\)</span> to <span class="math notranslate nohighlight">\(\pi\)</span> on a finely-divided grid).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate five evenly-spaced points on the interval [-1, 1]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.</span> <span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">1.</span> <span class="p">])</span>
@@ -321,7 +321,7 @@
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">3.14159265</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mf">3.14159265</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Numpy has other functions for creating sequential arrays, such as producing an array spaced evenly on a log-scaled interval. See the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#numerical-ranges">official documentation</a> for a complete listing.</p>
+<p>Numpy has other functions for creating sequential arrays, such as producing an array spaced evenly on a log-scaled interval. See the <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-creation.html#numerical-ranges">official documentation</a> for a complete listing.</p>
 </div>
 <div class="section" id="Creating-Arrays-Using-Random-Sampling">
 <h2>Creating Arrays Using Random Sampling<a class="headerlink" href="#Creating-Arrays-Using-Random-Sampling" title="Permalink to this headline">¶</a></h2>
@@ -339,7 +339,7 @@
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.11262121</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.35392007</span><span class="p">,</span>  <span class="mf">0.4245215</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.81995588</span><span class="p">,</span>  <span class="mf">0.65412323</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>There are <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.random.html#distributions">many more functions</a> to read about that allow you to draw from a wide variety of statistical distributions. This only scratches the surface of random number generation in NumPy.</p>
+<p>There are <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.random.html#distributions">many more functions</a> to read about that allow you to draw from a wide variety of statistical distributions. This only scratches the surface of random number generation in NumPy.</p>
 </div>
 <div class="section" id="Creating-an-Array-with-a-Specified-Data-Type">
 <h2>Creating an Array with a Specified Data Type<a class="headerlink" href="#Creating-an-Array-with-a-Specified-Data-Type" title="Permalink to this headline">¶</a></h2>
@@ -364,7 +364,7 @@
        <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">complex64</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Refer to <a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.types.html#array-types-and-conversions-between-types">the official NumPy documentation</a> for the complete list of available array datatypes.</p>
+<p>Refer to <a class="reference external" href="https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types">the official NumPy documentation</a> for the complete list of available array datatypes.</p>
 </div>
 <div class="section" id="Joining-Arrays-Together">
 <h2>Joining Arrays Together<a class="headerlink" href="#Joining-Arrays-Together" title="Permalink to this headline">¶</a></h2>
@@ -383,17 +383,17 @@
 <span class="n">array</span><span class="p">([</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>A complete listing of functions for joining arrays can be <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html#joining-arrays">found in the official NumPy documentation</a>. There are also corresponding functions for splitting an array into independent arrays.</p>
+<p>A complete listing of functions for joining arrays can be <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html#joining-arrays">found in the official NumPy documentation</a>. There are also corresponding functions for splitting an array into independent arrays.</p>
 </div>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#ones-and-zeros">Constant arrays</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy-array">numpy.array</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#numerical-ranges">Sequential arrays</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.random.html#distributions">Random distributions</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.types.html#array-types-and-conversions-between-types">Array types</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html#joining-arrays">Joining arrays</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-creation.html#ones-and-zeros">Constant arrays</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy-array">numpy.array</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-creation.html#numerical-ranges">Sequential arrays</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.random.html#distributions">Random distributions</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types">Array types</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html#joining-arrays">Joining arrays</a></p></li>
 </ul>
 </div>
 </div>
