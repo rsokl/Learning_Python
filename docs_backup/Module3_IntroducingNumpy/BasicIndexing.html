@@ -377,7 +377,7 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Ellipsis</strong></p>
-<p>Given a <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, index into <code class="docutils literal notranslate"><span class="pre">x</span></code> such that you axis entry-0 of axis-0, the last entry of axis-<span class="math notranslate nohighlight">\(N-1\)</span>, slicing along all intermediate dimensions. <span class="math notranslate nohighlight">\(N\)</span> is at least <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<p>Given a <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, index into <code class="docutils literal notranslate"><span class="pre">x</span></code> such that you access entry-0 of axis-0, the last entry of axis-<span class="math notranslate nohighlight">\(N-1\)</span>, slicing along all intermediate dimensions. <span class="math notranslate nohighlight">\(N\)</span> is at least <span class="math notranslate nohighlight">\(2\)</span>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Basic Indexing</strong></p>
@@ -667,7 +667,6 @@ unaffected.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">out</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">+=</span> <span class="mi">3</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.</span>
@@ -675,7 +674,7 @@ unaffected.</p>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 7.</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 8.</span>
@@ -685,6 +684,10 @@ unaffected.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 9.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">z</span><span class="p">):</span> <span class="n">z</span> <span class="o">/=</span> <span class="mi">3</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 10.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -697,8 +700,8 @@ unaffected.</p>
 <div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#indexing">Basic indexing</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-view">Definition of ‘view’</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#indexing">Basic indexing</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-view">Definition of ‘view’</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">

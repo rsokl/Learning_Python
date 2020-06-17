@@ -60,7 +60,7 @@ Our model  classified three out of five images correctly; thus, our accuracy fun
 
 To generalize this problem, assume that your classifier is dealing with $K$ classes (instead of $4$). Complete the following function. 
 
-**Tip:** You will find it useful to leverage [numpy's argmax function](https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html#numpy.argmax)`f
+**Tip:** You will find it useful to leverage [numpy's argmax function](https://numpy.org/doc/stable/reference/generated/numpy.argmax.html#numpy.argmax)`f
 
 ```python
 def classification_accuracy(classification_scores, true_labels):

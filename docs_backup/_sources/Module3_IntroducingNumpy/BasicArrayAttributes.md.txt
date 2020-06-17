@@ -94,4 +94,4 @@ The size, in bytes (8 bits is 1 byte), of each element of the array. For example
 
 ## Links to Official Documentation
 
-- [Array attributes](https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html#array-attributes)
+- [Array attributes](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-attributes)
