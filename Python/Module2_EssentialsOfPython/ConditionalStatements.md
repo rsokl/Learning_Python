@@ -353,7 +353,7 @@ This is suggestive of the general underlying syntax for inline if-else statement
 The expression `A if <condition> else B` returns `A` if `bool(<condition>)` evaluates to `True`, otherwise this expression will return `B`.
 </div>
 
-This syntax is highly restricted compared to the full "if-elif-else" expressions - no "elif" statement is permitted by this inline syntax, nor are muli-line code blocks within the if/else clauses.
+This syntax is highly restricted compared to the full "if-elif-else" expressions - no "elif" statement is permitted by this inline syntax, nor are multi-line code blocks within the if/else clauses.
 
 Inline if-else statements can be used anywhere, not just on the right side of an assignment statement, and can be quite convenient:
 ```python
