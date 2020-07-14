@@ -144,6 +144,36 @@ As such, Python is a language that is conducive to rapidly prototyping and testi
 We will be relying heavily on Python and a library for doing optimized numerical computations, called NumPy, throughout this course.
 <!-- #endregion -->
 
+<!-- #region -->
+## Keeping Up To Date
+
+New versions of Python come out periodically, bringing new features and fixes. 
+The most recent version of Python is Python 3.8.4.
+Unfortunately, it takes time for packages to support new versions of Python.
+As a result, many packages don't support Python 3.8, and will require you to install Python 3.7 or, in some cases, 3.6.
+
+All Python versions numbers use the A.B.C format. 
+The three numbers denote major releases, minor releases, and patches.
+
+- The first number denotes major releases to the language. 
+The most current major release is Python 3, but Python 2 is still in use. 
+When a major release comes out, it means that older code will not necessarily work with the new release. 
+Running Python 2 code in a Python 3 interpreter can yield errors, as can running Python 3 code in a Python 2 interpreter. 
+Python 2 is no longer supported, but the transition to Python 3 has been slow.
+When reading code from the Internet, always check to make sure it uses Python 3.
+
+- The second number denotes a minor release. 
+When a minor release comes out, older code will run in the new interpreter, but new code will not necessarily be compatible with older versions. 
+Python 3.7 and 3.8 are great examples of this - any code that works in Python 3.7 will run in Python 3.8, but new syntax has been added that will not work in Python 3.7.
+
+- The third and final number denotes a patch, which generally means bug fixes and performance improvements. 
+All code within the same minor release will run on all other patches within that minor release - all Python 3.7.8 code is compatible with a Python 3.7.1 interpreter, and vice versa. 
+Patches are released fairly often, and their changes only occur 'under the hood'.
+
+We will be using Python 3 in this course. Python 3.7.8 is compatible with most packages while Python 3.8.4 is not yet, so if you need to use a variety of packages it is safer to stick with Python 3.7.8. Otherwise, you will have no problems switching to Python 3.8.4.
+
+<!-- #endregion -->
+
 ## Summary
 
 - Python is a programming language - it provides us with a simple set of grammatical rules that allow us to write human-readable text, which can be translated unambiguously to instruct a computer to perform tasks.
