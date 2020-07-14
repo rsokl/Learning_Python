@@ -170,7 +170,10 @@ Python 3.7 and 3.8 are great examples of this - any code that works in Python 3.
 All code within the same minor release will run on all other patches within that minor release - all Python 3.7.8 code is compatible with a Python 3.7.1 interpreter, and vice versa. 
 Patches are released fairly often, and their changes only occur 'under the hood'.
 
-We will be using Python 3 in this course. Python 3.7.8 is compatible with most packages while Python 3.8.4 is not yet, so if you need to use a variety of packages it is safer to stick with Python 3.7.8. Otherwise, you will have no problems switching to Python 3.8.4.
+We will be using Python 3 in this course. 
+Python 3.7.8 is compatible with most packages while Python 3.8.4 is not yet, so if you need to use a variety of packages it is safer to stick with Python 3.7.8. 
+Otherwise, you will have no problems switching to Python 3.8.4.
+Luckily, Anaconda manages compatibility for you, so you shouldn't have to worry too much about which version of Python you use as long as you occasionally check for updates.
 
 <!-- #endregion -->
 
