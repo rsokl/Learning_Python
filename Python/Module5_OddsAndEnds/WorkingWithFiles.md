@@ -336,7 +336,7 @@ pandas.core.frame.DataFrame #Notice that this is a custom type
 >>> my_data.shape
 (43729, 7)
 
->>> my_data.values #This is how we access the values as an array
+>>> my_data.values  # This is how we access the values as an array
 array([['Date/Time', 'Hs', 'Hmax', ..., 'Tp', 'Peak Direction', 'SST'],
        ['01/01/2017 00:00', '-99.9', '-99.9', ..., '-99.9', '-99.9',
         '-99.9'],
