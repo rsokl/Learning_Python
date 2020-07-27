@@ -331,7 +331,7 @@ Look at the docstring for more information.
 
 ```Python
 >>> type(my_data)
-pandas.core.frame.DataFrame #Notice that this is a custom type
+pandas.core.frame.DataFrame  # Notice that this is a custom type
 
 >>> my_data.shape
 (43729, 7)
