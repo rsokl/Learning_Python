@@ -293,7 +293,7 @@ from numpy import genfromtxt # genfromtxt() allows for easy parsing of CSVs
 my_data = genfromtxt(r"./Downloads/coastal_dataset.csv", delimiter=',') 
 ```
 `genfromtxt()` takes in CSV file path and delimiter (the character used to split the data, typically comma for CSV).
-Let's check out some properties of the CSV:
+Let's check out some properties of the data:
 
 ```python
 >>> type(my_data)
