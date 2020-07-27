@@ -349,13 +349,17 @@ array([['Date/Time', 'Hs', 'Hmax', ..., 'Tp', 'Peak Direction', 'SST'],
        ['30/06/2019 23:30', '1.926', '2.98', ..., '12.228', '84',
         '21.95']], dtype=object)
 ```
-One of the coolest features of Pandas is how it nicely organizes the parsed CSV data for visualization. Here is how `my_data` is displayed in a Jupyter Notebook:
+One of the coolest features of Pandas is how it nicely organizes the parsed CSV data for visualization. 
+Here is how `my_data` is displayed in a Jupyter Notebook:
+
 ```Python
 my_data[0:21] #Prints out first 20 values in nice format
 ```
-![Memory consumption figure](pics/Pandas_CSV.jpg)
+![Pandas Parsed Figure](pics/Pandas_CSV.jpg)
 
-One of the main advantages of Pandas is that it **treats all the data as strings**, while NumPy only deals with numerical values. This allows Pandas to store information such as headers and date, while NumPy cannot. Read the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/index.html "Documentation Link") for more information.
+One of the main advantages of Pandas is that it **treats all the data as strings**, while NumPy only deals with numerical values. 
+This allows Pandas to store information such as headers and date, while NumPy cannot. 
+Read the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/index.html "Documentation Link") for more information.
 <!-- #endregion -->
 
 <!-- #region -->
