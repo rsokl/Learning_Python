@@ -292,7 +292,7 @@ After you extract the *.csv* from the *.zip*, rename it to *coastal_dataset.csv*
 from numpy import genfromtxt # genfromtxt() allows for easy parsing of CSVs
 my_data = genfromtxt(r"./Downloads/coastal_dataset.csv", delimiter=',') 
 ```
-`genfromtxt()` takes in CSV file path and delimiter (the character used to split the data, typically comma for CSV).
+`genfromtxt()` takes in a CSV file path and delimiter (the character used to split the data, typically comma for CSV).
 Let's check out some properties of the data:
 
 ```python
