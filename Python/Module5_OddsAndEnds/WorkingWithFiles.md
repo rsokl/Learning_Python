@@ -320,7 +320,7 @@ Typically, if there are non-numerical values in the file, such as headers and da
 A really popular library for parsing CSVs is the [Pandas](https://pandas.pydata.org/pandas-docs/stable/index.html "Pandas Documentation") library. Here is a quick way to parse a CSV using Pandas:
 ```Python
 import pandas as pd
-my_data =pd.read_csv(r"./Downloads/costal_dataset.csv", sep=',',header=None)
+my_data = pd.read_csv(r"./Downloads/coastal_dataset.csv", sep=',', header=None)
 ```
 That's it! 
 The method `read_csv()` imports the CSV into the variable `my_data`.
