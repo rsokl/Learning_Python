@@ -358,7 +358,7 @@ my_data[0:21] #Prints out first 20 values in nice format
 ![Pandas Parsed Figure](pics/Pandas_CSV.jpg)
 
 One of the main advantages of Pandas is that it **treats all the data as strings**, while NumPy only deals with numerical values. 
-This allows Pandas to store information such as headers and date, while NumPy cannot. 
+This allows Pandas to store information such as headers and dates, while NumPy cannot. 
 Read the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/index.html "Documentation Link") for more information.
 <!-- #endregion -->
 
