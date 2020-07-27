@@ -286,7 +286,7 @@ In general, it is a good practice to open up the CSV file and look at the first 
 
 We will first look into parsing and storing CSV data using our favorite package: `numpy`!
 
-To demonstrate how importing a CSV works, we will try to import [a costal waves dataset](https://www.kaggle.com/jolasa/waves-measuring-buoys-data-mooloolaba/data) from Kaggle. 
+To demonstrate how importing a CSV works, we will try to import [a coastal waves dataset](https://www.kaggle.com/jolasa/waves-measuring-buoys-data-mooloolaba/data) from Kaggle. 
 After you extract the *.csv* from the *.zip*, rename it to *costal_dataset.csv*.
 ```python
 from numpy import genfromtxt # genfromtxt() allows for easy parsing of CSVs
@@ -570,4 +570,3 @@ Write a glob pattern for each of the following prompts
 
 - Any file with an odd number in its name (answer: `*[13579]*`)
 - All txt files that have the letters 'q' or 'z' in them (answer: `*[qz]*.txt`)
-
