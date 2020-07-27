@@ -323,7 +323,7 @@ import pandas as pd
 my_data = pd.read_csv(r"./Downloads/coastal_dataset.csv", sep=',', header=None)
 ```
 That's it! 
-The method `read_csv()` imports the CSV into the variable `my_data`.
+The method `read_csv()` loads the contents of the CSV into the variable `my_data`.
 This method has similar input parameters to `genfromtxt()` and many extra optional parameters as well. 
 Look at the docstring for more information.
 
