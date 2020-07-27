@@ -353,7 +353,7 @@ One of the coolest features of Pandas is how it nicely organizes the parsed CSV 
 Here is how `my_data` is displayed in a Jupyter Notebook:
 
 ```Python
-my_data[0:21] #Prints out first 20 values in nice format
+my_data[0:21]  # Prints out first 20 values in nice format
 ```
 ![Pandas Parsed Figure](pics/Pandas_CSV.jpg)
 
