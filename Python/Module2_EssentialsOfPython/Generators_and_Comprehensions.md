@@ -544,12 +544,12 @@ Use a tuple-comprehension to extract comma-separated numbers from a string, conv
 Replicate the functionality of the the following code by writing a list comprehension.
 ```python
 # skip all non-lowercased letters (including punctuation)
-# append 1 if lowercase letter is "o"
+# append 1 if lowercase letter is equal to "o"
 # append 0 if lowercase letter is not "o"
 out = []
 for i in "Hello. How Are You?":
     if i.islower():
-        out.append(1 if i is "o" else 0)
+        out.append(1 if i == "o" else 0)
 ```
 
 </div>
@@ -653,7 +653,7 @@ or
 <!-- #region -->
 **Translating a For-Loop: Solution**
 ```python
->>> out = [(1 if i is "o" else 0) for i in "Hello. How Are You?" if i.islower()]
+>>> out = [(1 if i == "o" else 0) for i in "Hello. How Are You?" if i.islower()]
 >>> out
 [0, 0, 0, 1, 1, 0, 0, 0, 1, 0]
 ```
