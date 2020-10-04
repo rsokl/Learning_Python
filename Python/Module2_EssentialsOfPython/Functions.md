@@ -137,7 +137,7 @@ Write a function named `count_even`. It should accept one input argument, named 
 
 <!-- #region -->
 ## The `return` Statement
-In general, any Python object can follow a function's `return` statement. Furthermore, an **empty** `return` statement can be specified, or the **return** statement of a function can be omitted altogether. In both of these cases, *the function will return the `None` object*.
+In general, any Python object can follow a function's `return` statement. Furthermore, an **empty** `return` statement can be specified, or the **return** statement of a function can be omitted altogether. In both of these cases, *the function will return the* `None` *object*.
 
 ```python
 # this function returns `None`
