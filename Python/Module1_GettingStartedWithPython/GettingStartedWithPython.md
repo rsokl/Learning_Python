@@ -156,8 +156,8 @@ All Python version numbers use the A.B.C format, in accordance with [semantic ve
 The three numbers denote major releases, minor releases, and patches.
 
 - The first number denotes major releases to the language. 
-When a major release comes out, it means that older code will not necessarily work with the new release. 
-The most current major release is Python 3, but Python 2 is still in use. 
+When a major release comes out, it means that older code will not necessarily work with the new release, and vice versa. 
+The most current major release is Python 3, but Python 2 is still occasionally used. 
 Running Python 2 code in a Python 3 interpreter can yield errors, as can running Python 3 code in a Python 2 interpreter. 
 Python 2 has been deprecated and should not be used, but the transition to Python 3 has been slow.
 When reading code from the Internet, always check to make sure it uses Python 3.
@@ -174,7 +174,7 @@ In simpler terms, major releases are neither backward nor forward compatible.
 Minor releases are backward compatible but not forward compatible, and patches are both forward and backward compatible.
 
 We will be using Python 3 in this course. 
-If you use a wide variety of packages, you may need to use an older minor release to ensure compatibility.
+If you use a wide variety of packages, you may need to use an older minor release of Python 3 to ensure compatibility.
 Otherwise, you should use whatever [the most current version of Python](https://www.python.org/downloads/) is.
 Luckily, Anaconda manages compatibility for you, so you shouldn't have to worry too much about which version of Python you use as long as you occasionally check for updates.
 
