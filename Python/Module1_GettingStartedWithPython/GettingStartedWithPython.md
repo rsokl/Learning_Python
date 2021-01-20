@@ -149,8 +149,6 @@ We will be relying heavily on Python and a library for doing optimized numerical
 
 New versions of Python come out periodically, bringing new features and fixes. 
 It's important to keep Python updated in order to make sure that you have access to the latest additions to the language.
-Unfortunately, it takes time for packages to support the newest versions of Python.
-As a result, it can sometimes be necessary to use older versions to maintain compatibility.
 
 All Python version numbers use the `A.B.C` format, in accordance with [semantic versioning](https://semver.org/). 
 The three numbers denote major releases, minor releases, and patches.
@@ -170,6 +168,10 @@ Patches are released fairly often, and their changes only occur 'under the hood'
 
 In simpler terms, major releases are neither backward nor forward compatible.
 Minor releases are forward compatible but not necessarily fully backward compatible, and patches are both forward and backward compatible.
+
+Unfortunately, it takes time for packages to support the newest versions of Python.
+As a result, it can sometimes be necessary to use older versions to maintain compatibility.
+Anaconda will manage package compatability for you most of the time, but be careful not to mix incompatible libraries.
 
 <!-- #endregion -->
 
