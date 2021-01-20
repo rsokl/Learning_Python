@@ -152,31 +152,23 @@ It's important to keep Python updated in order to make sure that you have access
 Unfortunately, it takes time for packages to support the newest versions of Python.
 As a result, it can sometimes be necessary to use older versions to maintain compatibility.
 
-All Python version numbers use the A.B.C format, in accordance with [semantic versioning](https://semver.org/). 
+All Python version numbers use the `A.B.C` format, in accordance with [semantic versioning](https://semver.org/). 
 The three numbers denote major releases, minor releases, and patches.
 
-- The first number denotes major releases to the language. 
+The first number denotes major releases to the language. 
 When a major release comes out, it means that older code will not necessarily work with the new release, and vice versa. 
 The most current major release is Python 3, but Python 2 is still occasionally used. 
-Running Python 2 code in a Python 3 interpreter can yield errors, as can running Python 3 code in a Python 2 interpreter. 
-Python 2 has been deprecated and should not be used, but the transition to Python 3 has been slow.
-When reading code from the Internet, always check to make sure it uses Python 3.
 
-- The second number denotes a minor release. 
+The second number denotes a minor release. 
 When a minor release comes out, older code will run in the new interpreter, but new code will not necessarily be compatible with older versions.
 For example, any code that works in Python 3.7 will run in Python 3.8, but because Python 3.8 added new syntax, code from Python 3.8 will not necessarily run in a Python 3.7 interpreter.
 
-- The third and final number denotes a patch, which generally means bug fixes and performance improvements. 
+The third and final number denotes a patch, which generally means bug fixes and performance improvements. 
 All code within the same minor release will run on all other patches within that minor release - for example, all Python 3.7.8 code is compatible with a Python 3.7.1 interpreter, and vice versa. 
 Patches are released fairly often, and their changes only occur 'under the hood'.
 
 In simpler terms, major releases are neither backward nor forward compatible.
-Minor releases are backward compatible but not forward compatible, and patches are both forward and backward compatible.
-
-We will be using Python 3 in this course. 
-If you use a wide variety of packages, you may need to use an older minor release of Python 3 to ensure compatibility.
-Otherwise, you should use whatever [the most current version of Python](https://www.python.org/downloads/) is.
-Luckily, Anaconda manages compatibility for you, so you shouldn't have to worry too much about which version of Python you use as long as you occasionally check for updates.
+Minor releases are forward compatible but not necessarily fully backward compatible, and patches are both forward and backward compatible.
 
 <!-- #endregion -->
 
