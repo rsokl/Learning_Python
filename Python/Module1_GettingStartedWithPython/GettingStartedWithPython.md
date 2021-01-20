@@ -157,7 +157,8 @@ The three numbers denote major releases, minor releases, and patches.
 
 The first number denotes major releases to the language. 
 When a major release comes out, it means that older code will not necessarily work with the new release, and vice versa. 
-The most current major release is Python 3, but Python 2 is still occasionally used. 
+The most current major release is Python 3; Python 2 is no longer supported by any bug or security fixes.
+All releases in the near future will be improvements to Python 3, and thus they will come in the form of minor releases and patches.
 
 The second number denotes a minor release. 
 When a minor release comes out, older code will run in the new interpreter, but new code will not necessarily be compatible with older versions.
