@@ -169,10 +169,6 @@ Patches are released fairly often, and their changes only occur 'under the hood'
 In simpler terms, major releases are neither backward nor forward compatible.
 Minor releases are forward compatible but not necessarily fully backward compatible, and patches are both forward and backward compatible.
 
-Unfortunately, it takes time for packages to support the newest versions of Python.
-As a result, it can sometimes be necessary to use older versions to maintain compatibility.
-Anaconda will manage package compatability for you most of the time, but be careful not to mix incompatible libraries.
-
 <!-- #endregion -->
 
 ## Summary
