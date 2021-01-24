@@ -15,7 +15,7 @@ jupyter:
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Basic description of the Python programming language, Difficulty: Easy, Category: Background
-   :keywords: python, install, basics, scripts, interpreter, foundations
+   :keywords: python, install, basics, scripts, interpreter, foundations, versions
 <!-- #endraw -->
 
 <!-- #region -->
@@ -145,26 +145,55 @@ We will be relying heavily on Python and a library for doing optimized numerical
 <!-- #endregion -->
 
 <!-- #region -->
-## Keeping Up To Date
+## Understanding Different Versions of Python
 
 New versions of Python come out periodically, bringing new features and fixes. 
-It's important to keep Python updated in order to make sure that you have access to the latest additions to the language.
+You can keep track of what's new in Python by [bookmarking and checking this page every few months](https://docs.python.org/3/whatsnew/index.html).
+As we take on coding projects in Python, whether it be for work, school, or a personal hobby, it is important that we remain aware of
+the ways in which the language is changing, and that we take care to write code that will remain functional in the future.
 
 All Python version numbers use the `A.B.C` format, in accordance with [semantic versioning](https://semver.org/). 
 The three numbers denote major releases, minor releases, and patches.
+For example, as of writing this, the current release of Python is version `3.9.1`.
 
 The first number denotes major releases to the language. 
 When a major release comes out, it means that older code will not necessarily work with the new release, and vice versa. 
-The most current major release is Python 3; Python 2 is no longer supported by any bug or security fixes.
+For example, the following code worked in Python 2 but no longer works because the `xrange` function was removed from the language
+upon the release of Python 3.
+
+```python
+# `xrange` was a frequently-used function in Python 2, but
+# was removed from the language in Python 3 in favor of `range`. 
+# Thus the following code does not work in any version of Python 3.
+count = 0
+for i in xrange(10):
+    count = count + 1
+```
+
+The most current major release is Python 3; Python 2 is no longer supported by any bug or security fixes and should not be used.
 All releases in the near future will be improvements to Python 3, and thus they will come in the form of minor releases and patches.
 
 The second number denotes a minor release. 
-When a minor release comes out, older code will run in the new interpreter, but new code will not necessarily be compatible with older versions.
-For example, any code that works in Python 3.7 will run in Python 3.8, but because Python 3.8 added new syntax, code from Python 3.8 will not necessarily run in a Python 3.7 interpreter.
+A minor release will be compatible with code from the preceding release, but it might add new features to the language that are not backwards-compatible.
+For example, Python 3.6 introduced [formatted string literals](https://docs.python.org/3/whatsnew/3.6.html#pep-498-formatted-string-literals), which are 
+commonly referred to as "f-strings".
+Thus as of Python 3.6 you could write code like
+
+```python
+# Python 3.6 introduced the "f-string" feature, which is not
+# backwards compatible with Python 3.5
+>>> f"one plus two is {1 + 2}"
+'one plus two is 3'
+```
+
+but this code would not run in Python 3.5.X.
 
 The third and final number denotes a patch, which generally means bug fixes and performance improvements. 
-All code within the same minor release will run on all other patches within that minor release - for example, all Python 3.7.8 code is compatible with a Python 3.7.1 interpreter, and vice versa. 
+All code within the same minor release will run on all other patches within that minor release
+For example, all Python 3.7.8 code is compatible with a Python 3.7.1 interpreter, and vice versa. 
 Patches are released fairly often, and their changes only occur 'under the hood'.
+[Here is a list of changes](https://docs.python.org/3/whatsnew/changelog.html#python-3-9-1-final) were introduced by the patch level increment from Python 3.9.0 to Python 3.9.1;
+few of these would affect our day-to-day experience with using Python (which isn't to say that they aren't important!).
 
 In simpler terms, major releases are neither backward nor forward compatible.
 Minor releases are forward compatible but not necessarily fully backward compatible, and patches are both forward and backward compatible.

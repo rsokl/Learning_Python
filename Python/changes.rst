@@ -6,6 +6,16 @@ This is a record of all past PLYMI releases and what went into them,
 in reverse chronological order.
 
 ----------
+2021-01-24
+----------
+
+Added brief discussion on semantic versioning. Thanks `@samaocarpenter <https://github.com/samaocarpenter>`_!
+
+Fixed typos `#160 <https://github.com/rsokl/Learning_Python/pull/160>`_ `#158 <https://github.com/rsokl/Learning_Python/pull/158>`_
+`#155 <https://github.com/rsokl/Learning_Python/pull/155>`_
+
+
+----------
 2020-06-17
 ----------
 
