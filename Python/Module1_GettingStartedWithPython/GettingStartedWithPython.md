@@ -144,6 +144,33 @@ As such, Python is a language that is conducive to rapidly prototyping and testi
 We will be relying heavily on Python and a library for doing optimized numerical computations, called NumPy, throughout this course.
 <!-- #endregion -->
 
+<!-- #region -->
+## Keeping Up To Date
+
+New versions of Python come out periodically, bringing new features and fixes. 
+It's important to keep Python updated in order to make sure that you have access to the latest additions to the language.
+
+All Python version numbers use the `A.B.C` format, in accordance with [semantic versioning](https://semver.org/). 
+The three numbers denote major releases, minor releases, and patches.
+
+The first number denotes major releases to the language. 
+When a major release comes out, it means that older code will not necessarily work with the new release, and vice versa. 
+The most current major release is Python 3; Python 2 is no longer supported by any bug or security fixes.
+All releases in the near future will be improvements to Python 3, and thus they will come in the form of minor releases and patches.
+
+The second number denotes a minor release. 
+When a minor release comes out, older code will run in the new interpreter, but new code will not necessarily be compatible with older versions.
+For example, any code that works in Python 3.7 will run in Python 3.8, but because Python 3.8 added new syntax, code from Python 3.8 will not necessarily run in a Python 3.7 interpreter.
+
+The third and final number denotes a patch, which generally means bug fixes and performance improvements. 
+All code within the same minor release will run on all other patches within that minor release - for example, all Python 3.7.8 code is compatible with a Python 3.7.1 interpreter, and vice versa. 
+Patches are released fairly often, and their changes only occur 'under the hood'.
+
+In simpler terms, major releases are neither backward nor forward compatible.
+Minor releases are forward compatible but not necessarily fully backward compatible, and patches are both forward and backward compatible.
+
+<!-- #endregion -->
+
 ## Summary
 
 - Python is a programming language - it provides us with a simple set of grammatical rules that allow us to write human-readable text, which can be translated unambiguously to instruct a computer to perform tasks.
