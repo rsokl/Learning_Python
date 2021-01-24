@@ -44,7 +44,7 @@ The following people made significant contributions to PLYMI, adding problems wi
 - AJ Federici (GitHub:`@Federici <https://github.com/AFederici>`_)
 - Annabelle Lew (GitHub:`@AnnabelleLew <https://github.com/AnnabelleLew>`_)
 - Petar Griggs (GitHub:`@petarmhg <https://github.com/petarmhg>`_)
-- Sam Carpenter (GitHub:`@HardBoiled800 <https://github.com/HardBoiled800>`_)
+- Sam Carpenter (GitHub:`@samaocarpenter <https://github.com/samaocarpenter>`_)
 - Patrick O'Shea (GitHub:`@ArtichokeSap <https://github.com/ArtichokeSap>`_)
 
 

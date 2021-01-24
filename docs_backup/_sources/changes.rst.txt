@@ -3,8 +3,13 @@ Changelog
 =========
 
 This is a record of all past PLYMI releases and what went into them,
-in reverse chronological order. All previous releases should still be available
-on pip.
+in reverse chronological order.
+
+----------
+2020-06-17
+----------
+
+Various typo fixes. Thanks to Darshan and David!
 
 
 ----------

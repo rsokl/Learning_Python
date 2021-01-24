@@ -320,7 +320,7 @@ The basic syntax for slicing is: `seq[start:stop:step]`, using colons to separat
 >>> seq[1:4:1]
 'bcd'
 
-# start:1, stop:5, step:2
+# start:0, stop:5, step:2
 >>> seq[0:5:2] # get every other entry within [start, stop)
 'ace'
 

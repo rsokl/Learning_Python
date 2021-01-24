@@ -647,12 +647,12 @@ in a list:</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Translating a For-Loop</strong>:</p>
 <p>Replicate the functionality of the the following code by writing a list comprehension.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># skip all non-lowercased letters (including punctuation)</span>
-<span class="c1"># append 1 if lowercase letter is &quot;o&quot;</span>
+<span class="c1"># append 1 if lowercase letter is equal to &quot;o&quot;</span>
 <span class="c1"># append 0 if lowercase letter is not &quot;o&quot;</span>
 <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s2">&quot;Hello. How Are You?&quot;</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">islower</span><span class="p">():</span>
-        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="s2">&quot;o&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">&quot;o&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -726,7 +726,7 @@ in a list:</p>
 </pre></div>
 </div>
 <p><strong>Translating a For-Loop: Solution</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="s2">&quot;o&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s2">&quot;Hello. How Are You?&quot;</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">islower</span><span class="p">()]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">&quot;o&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s2">&quot;Hello. How Are You?&quot;</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">islower</span><span class="p">()]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">out</span>
 <span class="go">[0, 0, 0, 1, 1, 0, 0, 0, 1, 0]</span>
 </pre></div>

@@ -73,7 +73,7 @@ class ShoppingList:
             items = [items]
         # only mark items as purchased that are on our list to begin with
         self._purchased.update(set(items) & self._needed)
-        # remove all purchased items from out unpurchased set
+        # remove all purchased items from our unpurchased set
         self._needed.difference_update(self._purchased)
     
     def list_purchased_items(self):
