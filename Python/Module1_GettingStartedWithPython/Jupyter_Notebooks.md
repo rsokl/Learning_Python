@@ -35,7 +35,7 @@ In your terminal (before starting a Python/IPython/Jupyter session), run
 conda list
 ```
 
-And look for the lines that starts with `jedi`
+And look for the line that starts with `jedi`
     
 ```
 jedi                      0.18.0
