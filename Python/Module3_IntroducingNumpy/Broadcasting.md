@@ -666,7 +666,7 @@ We'll take the following shape-(2, 3) array
 ...               [4.700867387959219, 4.700867387959219, 4.700867387959219]])
 ```
 
-And compute the square distance between all combination of rows `x`; the result should simply a shape-(2, 2) array of zeros.
+And compute the square distance between all combinations of rows `x`; the result should simply be a shape-(2, 2) array of zeros.
 
 ```python
 # The square-distances should be exactly zero, but they
