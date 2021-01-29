@@ -661,7 +661,7 @@ We'll take the following shape-(2, 3) array
 
 ```python
 # A carefully-selected input that will trigger surprising
-# floating point precision issues in our distance calculation
+# floating-point precision issues in our distance calculation
 >>> x = np.array([[4.700867387959219, 4.700867387959219, 4.700867387959219],
 ...               [4.700867387959219, 4.700867387959219, 4.700867387959219]])
 ```
