@@ -643,7 +643,7 @@ Having accounted for all three terms, we can finally compute the Euclidean dista
 (5, 6)
 ```
 
-#### A Subtle Issue with Floating Point Precision
+#### A Subtle Issue with Floating-point Precision
 
 There is one more important and very subtle detail that we have to deal with.
 In terms of pure mathematics, `x_y_sqrd - x_y_prod` must be a strictly non-negative value (i.e. its smallest possible value is $0$), since it is equivalent to
