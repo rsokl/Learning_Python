@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      jupytext_version: 1.5.0
   kernelspec:
     display_name: Python 3
     language: python
@@ -486,16 +486,16 @@ Performing this computation using for-loops proceeds as follows:
 def pairwise_dists_looped(x, y):
     """  Computing pairwise distances using for-loops
 
-         Parameters
-         ----------
-         x : numpy.ndarray, shape=(M, D)
-         y : numpy.ndarray, shape=(N, D)
+     Parameters
+     ----------
+     x : numpy.ndarray, shape=(M, D)
+     y : numpy.ndarray, shape=(N, D)
 
-         Returns
-         -------
-         numpy.ndarray, shape=(M, N)
-             The Euclidean distance between each pair of
-             rows between `x` and `y`."""
+     Returns
+     -------
+     numpy.ndarray, shape=(M, N)
+         The Euclidean distance between each pair of
+         rows between `x` and `y`."""
     # `dists[i, j]` will store the Euclidean 
     # distance between  `x[i]` and `y[j]`
     dists = np.empty((5, 6))
@@ -514,6 +514,16 @@ def pairwise_dists_looped(x, y):
 ```
 
 Be sure to step through this code and see that `dists` stores each pair of Euclidean distances between the rows of `x` and `y`.
+
+```python
+# produces a shape-(5, 6) result
+>>> pairwise_dists_looped(x, y)
+array([[ 3.678 ,  8.4524, 10.3057,  7.3711,  6.2152,  5.5548],
+       [10.1457,  5.8793,  2.9274,  4.1114,  3.9098,  5.2259],
+       [ 7.3219,  0.8439,  6.8734,  4.5687,  7.3283,  4.8216],
+       [10.339 ,  7.032 ,  7.4745,  7.0633,  3.5999,  4.0107],
+       [ 8.2878,  3.5468,  6.336 ,  4.9014,  4.1858,  2.0257]])
+```
 <!-- #endregion -->
 
 <!-- #region -->
@@ -545,23 +555,31 @@ Voilà! We have produced the distances in a vectorized way. Let's write this out
 def pairwise_dists_crude(x, y):
     """  Computing pairwise distances using vectorization.
          
-         This method uses memory-inefficient broadcasting.
-         
-         Parameters
-         ----------
-         x : numpy.ndarray, shape=(M, D)
-         y : numpy.ndarray, shape=(N, D)
-         
-         Returns
-         -------
-         numpy.ndarray, shape=(M, N)
-             The Euclidean distance between each pair of
-             rows between `x` and `y`."""
+     This method uses memory-inefficient broadcasting.
+
+     Parameters
+     ----------
+     x : numpy.ndarray, shape=(M, D)
+     y : numpy.ndarray, shape=(N, D)
+
+     Returns
+     -------
+     numpy.ndarray, shape=(M, N)
+         The Euclidean distance between each pair of
+         rows between `x` and `y`."""
     # The use of `np.newaxis` here is equivalent to our 
     # use of the `reshape` function
     return np.sqrt(np.sum((x[:, np.newaxis] - y[np.newaxis])**2, axis=2))
 ```
-
+```python
+# produces a shape-(5, 6) result
+>>> pairwise_dists_crude(x, y)
+array([[ 3.678 ,  8.4524, 10.3057,  7.3711,  6.2152,  5.5548],
+       [10.1457,  5.8793,  2.9274,  4.1114,  3.9098,  5.2259],
+       [ 7.3219,  0.8439,  6.8734,  4.5687,  7.3283,  4.8216],
+       [10.339 ,  7.032 ,  7.4745,  7.0633,  3.5999,  4.0107],
+       [ 8.2878,  3.5468,  6.336 ,  4.9014,  4.1858,  2.0257]])
+```
 Regrettably, there is a glaring issue with the vectorized computation that we just performed. Consider the largest sized array that is created in the for-loop computation, compared to that of this vectorized computation. The for-loop version need only create a shape-$(M, N)$ array, whereas the vectorized computation creates an intermediate array (i.e. `diffs`) of shape-$(M, N, D)$. This intermediate array is even created in the one-line version of the code. This will create a massive array if $D$ is a large number!
 
 Suppose, for instance, that you are finding the Euclidean between pairs of RGB images that each have a resolution of $32 \times 32$ (in order to see if the images resemble one another). Thus in this scenario, each image is comprised of $D = 32 \times 32 \times 3 = 3072$ numbers ($32^2$ pixels, and each pixel has 3 values: a red, blue, and green-color value). Computing all the distances between a stack of 5000 images with a stack of 100 images would form an intermediate array of shape-$(5000, 100, 3072)$. Even though this large array only exists temporarily, it would have to consume over 6GB of RAM! The for-loop version requires $\frac{1}{3072}$ as much memory (about 2MB).
@@ -611,7 +629,7 @@ Thus the third term in our equation, $-2\sum_{i=0}^{D-1}{x_{i} y_{i}}$, for all 
 ```python
 # computing the third term in the distance
 # equation, for all pairs of rows
->>> x_y_prod = -2 * np.matmul(x, y.T)  # `np.dot` can also be used to the same effect
+>>> x_y_prod = 2 * np.matmul(x, y.T)  # `np.dot` can also be used to the same effect
 >>> x_y_prod.shape
 (5, 6)
 ```
@@ -620,34 +638,106 @@ Having accounted for all three terms, we can finally compute the Euclidean dista
 
 ```python
 # computing all the distances
->>> dists = np.sqrt(x_y_sqrd + x_y_prod)
+>>> dists = np.sqrt(x_y_sqrd - x_y_prod)
 >>> dists.shape
 (5, 6)
 ```
-In total, we have successfully used vectorization to compute the all pairs of distances, while only requiring an array of shape-$(M, N)$ to do so! This is the memory-efficient, vectorized form - the stuff that dreams are made of. Let's write the function that performs this computation in full.  
+
+#### A Subtle Issue with Floating Point Precision
+
+There is one more important and very subtle detail that we have to deal with.
+In terms of pure mathematics, `x_y_sqrd - x_y_prod` must be a strictly non-negative value (i.e. its smallest possible value is $0$), since it is equivalent to
+
+\begin{equation}
+\sum_{i=0}^{D-1}{(x_{i} - y_{i})^2}
+\end{equation}
+
+That being said, are working with floating point numbers, which do not always behave exactly like rational numbers when we do arithmetic on them.
+Indeed, we saw earlier that the [quirks of floating point arithmetic](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision) can lead to surprising results. 
+Here, the strange behavior is that `x_y_sqrd - x_y_prod` **can produce negative numbers**!
+
+Let's see this in action.
+We'll take the following shape-(2, 3) array
+
+```python
+# A carefully-selected input that will trigger surprising
+# floating point precision issues in our distance calculation
+>>> x = np.array([[4.700867387959219, 4.700867387959219, 4.700867387959219],
+...               [4.700867387959219, 4.700867387959219, 4.700867387959219]])
+```
+
+And compute the square distance between all combination of rows `x`; the result should simply a shape-(2, 2) array of zeros.
+
+```python
+# The square-distances should be exactly zero, but they
+# will instead be (*very* small) negative numbers!
+>>> sqr_dists = -2 * np.matmul(x, x.T)  # `x_x_prod`
+>>> sqr_dists +=  np.sum(x**2, axis=1)[:, np.newaxis]
+>>> sqr_dists += np.sum(x**2, axis=1)
+>>> sqr_dists
+array([[-2.842170943040401e-14, -2.842170943040401e-14],
+       [-2.842170943040401e-14, -2.842170943040401e-14]])
+```
+
+These values are *very* close to being zero, so it is not as if the magnitude of our result is wildly off, but the critical issue here is that the quirks of floating point arithmetic produced (very small) negative numbers.
+We are going to be in for a rude awakening when we take the square-root of these values to get our final distances:
+
+```python
+# Taking the square-root of negative floats will produce NaNs
+>>> np.sqrt(sqr_dists)
+array([[nan, nan],
+       [nan, nan]])
+```
+
+`nan` stands for "Not a Number", which is to say that the square-root of a negative number cannot produce a real-valued float (the result will be an [imaginary number](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Complex-Numbers), but NumPy will not swap out real numbers for imaginary ones unless we explicitly permit it to).
+
+The solution to this problem comes from the realization that this occurrence is truly an edge-case, and that it will only manifest when the result *ought* to have been zero and indeed is very close to zero.
+Thus we can [clip](https://numpy.org/doc/stable/reference/generated/numpy.clip.html) `sqr_dists` such that any value that falls below zero gets set to zero and all other values will be left alone:
+
+```python
+# "Clipping" all negative entries so that they are set to 0 
+>>> np.sqrt(np.clip(sqr_dists, a_min=0, a_max=None))
+array([[0., 0.],
+       [0., 0.]])
+```
+<!-- #endregion -->
+
+<!-- #region -->
+#### The Final Answer, At Last!
+
+In total, we have successfully used vectorization to compute the all pairs of distances, while only requiring an array of shape-$(M, N)$ to do so! This is the memory-efficient, vectorized form – the stuff that dreams are made of.
+Let's write the function that performs this computation in full.  
 
 ```python
 def pairwise_dists(x, y):
     """ Computing pairwise distances using memory-efficient 
-        vectorization.
+    vectorization.
 
-        Parameters
-        ----------
-        x : numpy.ndarray, shape=(M, D)
-        y : numpy.ndarray, shape=(N, D)
+    Parameters
+    ----------
+    x : numpy.ndarray, shape=(M, D)
+    y : numpy.ndarray, shape=(N, D)
 
-        Returns
-        -------
-        numpy.ndarray, shape=(M, N)
-            The Euclidean distance between each pair of
-            rows between `x` and `y`."""
-    dists = -2 * np.matmul(x, y.T)
-    dists +=  np.sum(x**2, axis=1)[:, np.newaxis]
-    dists += np.sum(y**2, axis=1)
-    return  np.sqrt(dists)
+    Returns
+    -------
+    numpy.ndarray, shape=(M, N)
+        The Euclidean distance between each pair of
+        rows between `x` and `y`."""
+    sqr_dists = -2 * np.matmul(x, y.T)
+    sqr_dists +=  np.sum(x**2, axis=1)[:, np.newaxis]
+    sqr_dists += np.sum(y**2, axis=1)
+    return  np.sqrt(np.clip(sqr_dists, a_min=0, a_max=None))
 ```
 
-
+```python
+# produces a shape-(5, 6) result
+>>> pairwise_dists(x, y)
+array([[ 3.678 ,  8.4524, 10.3057,  7.3711,  6.2152,  5.5548],
+       [10.1457,  5.8793,  2.9274,  4.1114,  3.9098,  5.2259],
+       [ 7.3219,  0.8439,  6.8734,  4.5687,  7.3283,  4.8216],
+       [10.339 ,  7.032 ,  7.4745,  7.0633,  3.5999,  4.0107],
+       [ 8.2878,  3.5468,  6.336 ,  4.9014,  4.1858,  2.0257]])
+```
 <!-- #endregion -->
 
 <div class="alert alert-info">
@@ -676,7 +766,7 @@ Use the function [numpy.allclose](https://numpy.org/doc/stable/reference/generat
 
 ## Reading Comprehension Solutions
 
-<!-- #region -->
+
 **Broadcast Compatibility: Solution**
 
 1\. Incompatible
@@ -688,7 +778,6 @@ Use the function [numpy.allclose](https://numpy.org/doc/stable/reference/generat
 4\. `9 x 2 x 5`
 
 5\. Incompatible
-<!-- #endregion -->
 
 <!-- #region -->
 **Basic Broadcasting: Solution**
