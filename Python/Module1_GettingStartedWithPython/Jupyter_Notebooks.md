@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      jupytext_version: 1.5.0
   kernelspec:
     display_name: Python 3
     language: python
@@ -19,6 +19,39 @@ jupyter:
 <!-- #endraw -->
 
 # Jupyter Notebooks
+
+<div class="alert alert-warning">
+
+**Before You Start This Section**: 
+
+In the following section we will be using IPython or a Jupyter notebook to run our code.
+Presently, there is an incompatibility with these programs and a Python package called `jedi`, which typically is responsible for performing auto-completions in our code (when prompted by hitting `<TAB>`, which we will be doing below).
+It is really useful!
+
+First, let's check to see if we have an incompatible version of `jedi` installed.
+In your terminal (before starting a Python/IPython/Jupyter session), run
+    
+```
+conda list
+```
+
+And look for the line that starts with `jedi`
+    
+```
+jedi                      0.18.0
+```
+
+If you see that you have version `0.18.0` installed (as above), then you will want to downgrade it.
+In the same terminal, run the following command
+
+```
+conda install jedi=0.17.2
+```
+You should be all set once you have followed the prompts and the installation has completed!
+    
+Note that you will need to repeat this process if you [create a new conda environment](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#A-Brief-Introduction-to-Conda-Environments) with IPython/Jupter installed in it.
+</div>
+
 In recent years, the Jupyter Notebook has become a massively popular tool for doing research-oriented work in Python and other languages alike. Its emergence marked a paradigm shift in the way data science is conducted. 
 
 A Jupyter notebook is similar to the IPython console, but, instead of only being able to work with a single line of code at a time, you can easily edit and re-execute *any* code that had been written in a notebook. Furthermore, you can save a notebook, and thus return to it later. Additionally, a notebook provides many terrific features. For instance, you can embed visualizations of data within a notebook, and write blocks of nicely-formatted text (using the [Markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)), for presenting and explaining the contents of the notebook. 
