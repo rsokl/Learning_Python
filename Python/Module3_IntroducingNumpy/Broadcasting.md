@@ -705,7 +705,7 @@ array([[0., 0.],
 <!-- #region -->
 #### The Final Answer, At Last!
 
-In total, we have successfully used vectorization to compute the all pairs of distances, while only requiring an array of shape-$(M, N)$ to do so! This is the memory-efficient, vectorized form – the stuff that dreams are made of.
+In total, we have successfully used vectorization to compute all the pairs of distances, while only requiring an array of shape-$(M, N)$ to do so! This is the memory-efficient, vectorized form – the stuff that dreams are made of.
 Let's write the function that performs this computation in full.  
 
 ```python
