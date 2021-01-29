@@ -653,7 +653,7 @@ In terms of pure mathematics, `x_y_sqrd - x_y_prod` must be a strictly non-negat
 \end{equation}
 
 That being said, are working with floating-point numbers, which do not always behave exactly like rational numbers when we do arithmetic with them.
-Indeed, we saw earlier that the [quirks of floating point arithmetic](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision) can lead to surprising results. 
+Indeed, we saw earlier that the [quirks of floating-point arithmetic](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision) can lead to surprising results. 
 Here, the strange behavior is that `x_y_sqrd - x_y_prod` **can produce negative numbers**!
 
 Let's see this in action.
