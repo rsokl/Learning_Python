@@ -679,7 +679,7 @@ array([[-2.842170943040401e-14, -2.842170943040401e-14],
        [-2.842170943040401e-14, -2.842170943040401e-14]])
 ```
 
-These values are *very* close to being zero, so it is not as if the magnitude of our result is wildly off, but the critical issue here is that the quirks of floating point arithmetic produced (very small) negative numbers.
+These values are *very* close to being zero, so it is not as if the magnitude of our result is wildly off, but the critical issue here is that the quirks of floating-point arithmetic produced (very small) negative numbers.
 We are going to be in for a rude awakening when we take the square-root of these values to get our final distances:
 
 ```python
