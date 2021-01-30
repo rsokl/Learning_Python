@@ -58,7 +58,7 @@ There are many excellent IDEs that can be configured to work well with Python. T
 **Cons**
 
  - Can be resource-heavy, especially for a laptop.
- - May be overwhelming to new users (but has good documentation and tutorials)
+ - May be overwhelming to new users (but has good documentation and tutorials).
  - Jupyter notebook support requires the premium version of PyCharm, making it inaccessible to newcomers.
  
 ### Visual Studio Code
