@@ -59,7 +59,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "Python Like You Mean It"
-copyright = "2019, Ryan Soklaski"
+copyright = "2021, Ryan Soklaski"
 author = "Ryan Soklaski"
 html_title = "Python Like You Mean It"
 
