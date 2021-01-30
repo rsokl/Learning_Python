@@ -21,6 +21,8 @@ Fixed a missing plot in the `introduction to Jupyter <https://www.pythonlikeyoum
 
 Reformatted the `section on IDEs <https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html>`_ and added a description of PyLance.
 
+Add link to `PLYMI's discussion board <https://github.com/rsokl/Learning_Python/discussions>`_.
+
 ----------
 2021-01-24
 ----------
