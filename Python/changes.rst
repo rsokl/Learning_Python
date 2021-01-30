@@ -5,11 +5,27 @@ Changelog
 This is a record of all past PLYMI releases and what went into them,
 in reverse chronological order.
 
+
+----------
+2021-01-30
+----------
+
+Updated the discussion of `computing pairwise differences <https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#An-Advanced-Application-of-Broadcasting:-Pairwise-Distances>`_
+to account for potential floating-point edge cases that can produce "NaNs" as a result.
+
+There is currently an incompatibility between `jedi 0.18.0` and IPython, which breaks autocompletion. See `here <https://github.com/ipython/ipython/issues/12740>`_ for more details.
+Added temporary callout boxes to the `informal introduction to Python <https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Informal_Intro_Python.html>`_ and to
+the `introduction to Jupyter notebooks <https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html>`_, which instruct readers to remedy this by downgrading jedi.
+
+Fixed a missing plot in the `introduction to Jupyter <https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html>`_ section.
+
+Reformatted the `section on IDEs <https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html>`_ and added a description of PyLance.
+
 ----------
 2021-01-24
 ----------
 
-Added brief discussion on semantic versioning. Thanks `@samaocarpenter <https://github.com/samaocarpenter>`_!
+Added a brief `discussion of Python versions <https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/GettingStartedWithPython.html#Understanding-Different-Versions-of-Python>`_. Thanks `@samaocarpenter <https://github.com/samaocarpenter>`_!
 
 Fixed typos `#160 <https://github.com/rsokl/Learning_Python/pull/160>`_ `#158 <https://github.com/rsokl/Learning_Python/pull/158>`_
 `#155 <https://github.com/rsokl/Learning_Python/pull/155>`_
