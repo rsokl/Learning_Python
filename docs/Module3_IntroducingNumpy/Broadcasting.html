@@ -604,16 +604,16 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists_looped</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;  Computing pairwise distances using for-loops</span>
 
-<span class="sd">         Parameters</span>
-<span class="sd">         ----------</span>
-<span class="sd">         x : numpy.ndarray, shape=(M, D)</span>
-<span class="sd">         y : numpy.ndarray, shape=(N, D)</span>
+<span class="sd">     Parameters</span>
+<span class="sd">     ----------</span>
+<span class="sd">     x : numpy.ndarray, shape=(M, D)</span>
+<span class="sd">     y : numpy.ndarray, shape=(N, D)</span>
 
-<span class="sd">         Returns</span>
-<span class="sd">         -------</span>
-<span class="sd">         numpy.ndarray, shape=(M, N)</span>
-<span class="sd">             The Euclidean distance between each pair of</span>
-<span class="sd">             rows between `x` and `y`.&quot;&quot;&quot;</span>
+<span class="sd">     Returns</span>
+<span class="sd">     -------</span>
+<span class="sd">     numpy.ndarray, shape=(M, N)</span>
+<span class="sd">         The Euclidean distance between each pair of</span>
+<span class="sd">         rows between `x` and `y`.&quot;&quot;&quot;</span>
     <span class="c1"># `dists[i, j]` will store the Euclidean</span>
     <span class="c1"># distance between  `x[i]` and `y[j]`</span>
     <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -632,6 +632,15 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
 </pre></div>
 </div>
 <p>Be sure to step through this code and see that <code class="docutils literal notranslate"><span class="pre">dists</span></code> stores each pair of Euclidean distances between the rows of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># produces a shape-(5, 6) result</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pairwise_dists_looped</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">3.678</span> <span class="p">,</span>  <span class="mf">8.4524</span><span class="p">,</span> <span class="mf">10.3057</span><span class="p">,</span>  <span class="mf">7.3711</span><span class="p">,</span>  <span class="mf">6.2152</span><span class="p">,</span>  <span class="mf">5.5548</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">10.1457</span><span class="p">,</span>  <span class="mf">5.8793</span><span class="p">,</span>  <span class="mf">2.9274</span><span class="p">,</span>  <span class="mf">4.1114</span><span class="p">,</span>  <span class="mf">3.9098</span><span class="p">,</span>  <span class="mf">5.2259</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">7.3219</span><span class="p">,</span>  <span class="mf">0.8439</span><span class="p">,</span>  <span class="mf">6.8734</span><span class="p">,</span>  <span class="mf">4.5687</span><span class="p">,</span>  <span class="mf">7.3283</span><span class="p">,</span>  <span class="mf">4.8216</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">10.339</span> <span class="p">,</span>  <span class="mf">7.032</span> <span class="p">,</span>  <span class="mf">7.4745</span><span class="p">,</span>  <span class="mf">7.0633</span><span class="p">,</span>  <span class="mf">3.5999</span><span class="p">,</span>  <span class="mf">4.0107</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">8.2878</span><span class="p">,</span>  <span class="mf">3.5468</span><span class="p">,</span>  <span class="mf">6.336</span> <span class="p">,</span>  <span class="mf">4.9014</span><span class="p">,</span>  <span class="mf">4.1858</span><span class="p">,</span>  <span class="mf">2.0257</span><span class="p">]])</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="Pairwise-Distances-Using-Broadcasting-(Unoptimized)">
 <h3>Pairwise Distances Using Broadcasting (Unoptimized)<a class="headerlink" href="#Pairwise-Distances-Using-Broadcasting-(Unoptimized)" title="Permalink to this headline">¶</a></h3>
@@ -655,21 +664,30 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists_crude</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;  Computing pairwise distances using vectorization.</span>
 
-<span class="sd">         This method uses memory-inefficient broadcasting.</span>
+<span class="sd">     This method uses memory-inefficient broadcasting.</span>
 
-<span class="sd">         Parameters</span>
-<span class="sd">         ----------</span>
-<span class="sd">         x : numpy.ndarray, shape=(M, D)</span>
-<span class="sd">         y : numpy.ndarray, shape=(N, D)</span>
+<span class="sd">     Parameters</span>
+<span class="sd">     ----------</span>
+<span class="sd">     x : numpy.ndarray, shape=(M, D)</span>
+<span class="sd">     y : numpy.ndarray, shape=(N, D)</span>
 
-<span class="sd">         Returns</span>
-<span class="sd">         -------</span>
-<span class="sd">         numpy.ndarray, shape=(M, N)</span>
-<span class="sd">             The Euclidean distance between each pair of</span>
-<span class="sd">             rows between `x` and `y`.&quot;&quot;&quot;</span>
+<span class="sd">     Returns</span>
+<span class="sd">     -------</span>
+<span class="sd">     numpy.ndarray, shape=(M, N)</span>
+<span class="sd">         The Euclidean distance between each pair of</span>
+<span class="sd">         rows between `x` and `y`.&quot;&quot;&quot;</span>
     <span class="c1"># The use of `np.newaxis` here is equivalent to our</span>
     <span class="c1"># use of the `reshape` function</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># produces a shape-(5, 6) result</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pairwise_dists_crude</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">3.678</span> <span class="p">,</span>  <span class="mf">8.4524</span><span class="p">,</span> <span class="mf">10.3057</span><span class="p">,</span>  <span class="mf">7.3711</span><span class="p">,</span>  <span class="mf">6.2152</span><span class="p">,</span>  <span class="mf">5.5548</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">10.1457</span><span class="p">,</span>  <span class="mf">5.8793</span><span class="p">,</span>  <span class="mf">2.9274</span><span class="p">,</span>  <span class="mf">4.1114</span><span class="p">,</span>  <span class="mf">3.9098</span><span class="p">,</span>  <span class="mf">5.2259</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">7.3219</span><span class="p">,</span>  <span class="mf">0.8439</span><span class="p">,</span>  <span class="mf">6.8734</span><span class="p">,</span>  <span class="mf">4.5687</span><span class="p">,</span>  <span class="mf">7.3283</span><span class="p">,</span>  <span class="mf">4.8216</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">10.339</span> <span class="p">,</span>  <span class="mf">7.032</span> <span class="p">,</span>  <span class="mf">7.4745</span><span class="p">,</span>  <span class="mf">7.0633</span><span class="p">,</span>  <span class="mf">3.5999</span><span class="p">,</span>  <span class="mf">4.0107</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">8.2878</span><span class="p">,</span>  <span class="mf">3.5468</span><span class="p">,</span>  <span class="mf">6.336</span> <span class="p">,</span>  <span class="mf">4.9014</span><span class="p">,</span>  <span class="mf">4.1858</span><span class="p">,</span>  <span class="mf">2.0257</span><span class="p">]])</span>
 </pre></div>
 </div>
 <p>Regrettably, there is a glaring issue with the vectorized computation that we just performed. Consider the largest sized array that is created in the for-loop computation, compared to that of this vectorized computation. The for-loop version need only create a shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array, whereas the vectorized computation creates an intermediate array (i.e. <code class="docutils literal notranslate"><span class="pre">diffs</span></code>) of shape-<span class="math notranslate nohighlight">\((M, N, D)\)</span>. This intermediate array is even created in the one-line version of the code. This will create a
@@ -710,37 +728,89 @@ needing to create a larger, intermediate array.</p>
 <p>Thus the third term in our equation, <span class="math notranslate nohighlight">\(-2\sum_{i=0}^{D-1}{x_{i} y_{i}}\)</span>, for all <span class="math notranslate nohighlight">\(M \times N\)</span> pairs of rows, is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># computing the third term in the distance</span>
 <span class="c1"># equation, for all pairs of rows</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x_y_prod</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># `np.dot` can also be used to the same effect</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x_y_prod</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># `np.dot` can also be used to the same effect</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x_y_prod</span><span class="o">.</span><span class="n">shape</span>
 <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Having accounted for all three terms, we can finally compute the Euclidean distances:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># computing all the distances</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_y_sqrd</span> <span class="o">+</span> <span class="n">x_y_prod</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_y_sqrd</span> <span class="o">-</span> <span class="n">x_y_prod</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">dists</span><span class="o">.</span><span class="n">shape</span>
 <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In total, we have successfully used vectorization to compute the all pairs of distances, while only requiring an array of shape-<span class="math notranslate nohighlight">\((M, N)\)</span> to do so! This is the memory-efficient, vectorized form - the stuff that dreams are made of. Let’s write the function that performs this computation in full.</p>
+<div class="section" id="A-Subtle-Issue-with-Floating-point-Precision">
+<h4>A Subtle Issue with Floating-point Precision<a class="headerlink" href="#A-Subtle-Issue-with-Floating-point-Precision" title="Permalink to this headline">¶</a></h4>
+<p>There is one more important and very subtle detail that we have to deal with. In terms of pure mathematics, <code class="docutils literal notranslate"><span class="pre">x_y_sqrd</span> <span class="pre">-</span> <span class="pre">x_y_prod</span></code> must be a strictly non-negative value (i.e. its smallest possible value is <span class="math notranslate nohighlight">\(0\)</span>), since it is equivalent to</p>
+<div class="math notranslate nohighlight">
+\begin{equation}
+\sum_{i=0}^{D-1}{(x_{i} - y_{i})^2}
+\end{equation}</div><p>That being said, are working with floating-point numbers, which do not always behave exactly like rational numbers when we do arithmetic with them. Indeed, we saw earlier that the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">quirks of floating-point arithmetic</a> can lead to surprising results. Here, the strange behavior is that <code class="docutils literal notranslate"><span class="pre">x_y_sqrd</span> <span class="pre">-</span> <span class="pre">x_y_prod</span></code> <strong>can produce negative numbers</strong>!</p>
+<p>Let’s see this in action. We’ll take the following shape-(2, 3) array</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A carefully-selected input that will trigger surprising</span>
+<span class="c1"># floating-point precision issues in our distance calculation</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.700867387959219</span><span class="p">,</span> <span class="mf">4.700867387959219</span><span class="p">,</span> <span class="mf">4.700867387959219</span><span class="p">],</span>
+<span class="o">...</span>               <span class="p">[</span><span class="mf">4.700867387959219</span><span class="p">,</span> <span class="mf">4.700867387959219</span><span class="p">,</span> <span class="mf">4.700867387959219</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>And compute the square distance between all combinations of rows <code class="docutils literal notranslate"><span class="pre">x</span></code>; the result should simply be a shape-(2, 2) array of zeros.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The square-distances should be exactly zero, but they</span>
+<span class="c1"># will instead be (*very* small) negative numbers!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sqr_dists</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># `x_x_prod`</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sqr_dists</span> <span class="o">+=</span>  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sqr_dists</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sqr_dists</span>
+<span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">2.842170943040401e-14</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.842170943040401e-14</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">2.842170943040401e-14</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.842170943040401e-14</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>These values are <em>very</em> close to being zero, so it is not as if the magnitude of our result is wildly off, but the critical issue here is that the quirks of floating-point arithmetic produced (very small) negative numbers. We are going to be in for a rude awakening when we take the square-root of these values to get our final distances:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Taking the square-root of negative floats will produce NaNs</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sqr_dists</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[</span><span class="n">nan</span><span class="p">,</span> <span class="n">nan</span><span class="p">],</span>
+       <span class="p">[</span><span class="n">nan</span><span class="p">,</span> <span class="n">nan</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">nan</span></code> stands for “Not a Number”, which is to say that the square-root of a negative number cannot produce a real-valued float (the result will be an <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Complex-Numbers">imaginary number</a>, but NumPy will not swap out real numbers for imaginary ones unless we explicitly permit it to).</p>
+<p>The solution to this problem comes from the realization that this occurrence is truly an edge-case, and that it will only manifest when the result <em>ought</em> to have been zero and indeed is very close to zero. Thus we can <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html">clip</a> <code class="docutils literal notranslate"><span class="pre">sqr_dists</span></code> such that any value that falls below zero gets set to zero and all other values will be left alone:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;Clipping&quot; all negative entries so that they are set to 0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">sqr_dists</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+<span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="The-Final-Answer,-At-Last!">
+<h4>The Final Answer, At Last!<a class="headerlink" href="#The-Final-Answer,-At-Last!" title="Permalink to this headline">¶</a></h4>
+<p>In total, we have successfully used vectorization to compute all the pairs of distances, while only requiring an array of shape-<span class="math notranslate nohighlight">\((M, N)\)</span> to do so! This is the memory-efficient, vectorized form – the stuff that dreams are made of. Let’s write the function that performs this computation in full.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Computing pairwise distances using memory-efficient</span>
-<span class="sd">        vectorization.</span>
+<span class="sd">    vectorization.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        x : numpy.ndarray, shape=(M, D)</span>
-<span class="sd">        y : numpy.ndarray, shape=(N, D)</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : numpy.ndarray, shape=(M, D)</span>
+<span class="sd">    y : numpy.ndarray, shape=(N, D)</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        numpy.ndarray, shape=(M, N)</span>
-<span class="sd">            The Euclidean distance between each pair of</span>
-<span class="sd">            rows between `x` and `y`.&quot;&quot;&quot;</span>
-    <span class="n">dists</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="n">dists</span> <span class="o">+=</span>  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-    <span class="n">dists</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span>  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray, shape=(M, N)</span>
+<span class="sd">        The Euclidean distance between each pair of</span>
+<span class="sd">        rows between `x` and `y`.&quot;&quot;&quot;</span>
+    <span class="n">sqr_dists</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">sqr_dists</span> <span class="o">+=</span>  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">sqr_dists</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span>  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">sqr_dists</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># produces a shape-(5, 6) result</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">3.678</span> <span class="p">,</span>  <span class="mf">8.4524</span><span class="p">,</span> <span class="mf">10.3057</span><span class="p">,</span>  <span class="mf">7.3711</span><span class="p">,</span>  <span class="mf">6.2152</span><span class="p">,</span>  <span class="mf">5.5548</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">10.1457</span><span class="p">,</span>  <span class="mf">5.8793</span><span class="p">,</span>  <span class="mf">2.9274</span><span class="p">,</span>  <span class="mf">4.1114</span><span class="p">,</span>  <span class="mf">3.9098</span><span class="p">,</span>  <span class="mf">5.2259</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">7.3219</span><span class="p">,</span>  <span class="mf">0.8439</span><span class="p">,</span>  <span class="mf">6.8734</span><span class="p">,</span>  <span class="mf">4.5687</span><span class="p">,</span>  <span class="mf">7.3283</span><span class="p">,</span>  <span class="mf">4.8216</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">10.339</span> <span class="p">,</span>  <span class="mf">7.032</span> <span class="p">,</span>  <span class="mf">7.4745</span><span class="p">,</span>  <span class="mf">7.0633</span><span class="p">,</span>  <span class="mf">3.5999</span><span class="p">,</span>  <span class="mf">4.0107</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">8.2878</span><span class="p">,</span>  <span class="mf">3.5468</span><span class="p">,</span>  <span class="mf">6.336</span> <span class="p">,</span>  <span class="mf">4.9014</span><span class="p">,</span>  <span class="mf">4.1858</span><span class="p">,</span>  <span class="mf">2.0257</span><span class="p">]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -750,6 +820,7 @@ needing to create a larger, intermediate array.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Checking the equivalence of the three pairwise distance functions</strong></p>
 <p>Use the function <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.allclose.html">numpy.allclose</a> to verify that the three methods for computing the pairwise distances produce the same numerical results.</p>
+</div>
 </div>
 </div>
 </div>
@@ -890,7 +961,7 @@ needing to create a larger, intermediate array.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Ryan Soklaski
+        &copy; Copyright 2021, Ryan Soklaski
 
     </p>
   </div>

@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="Topic: Basic description of the Python programming language, Difficulty: Easy, Category: Background" name="description" />
-<meta content="python, install, basics, scripts, interpreter, foundations" name="keywords" />
+<meta content="python, install, basics, scripts, interpreter, foundations, versions" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -102,7 +102,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Python-Scripts">Python Scripts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#What-is-a-Python-Interpreter-and-What-Does-it-Mean-to-“Install-Python”?">What is a Python Interpreter and What Does it Mean to “Install Python”?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Why-Python?">Why Python?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Keeping-Up-To-Date">Keeping Up To Date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Understanding-Different-Versions-of-Python">Understanding Different Versions of Python</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Summary">Summary</a></li>
 </ul>
 </li>
@@ -304,13 +304,30 @@ and functions that you can utilize in your code. This is known as the Python sta
 <p>As such, Python is a language that is conducive to rapidly prototyping and testing code. Additionally, it is open-sourced: it is free to use, anyone can participate in improving/maintaining the language, and many people create new libraries that add tremendous functionality to the language. Thus, Python has become exceptionally popular especially among scientists, engineers, and other researchers.</p>
 <p>We will be relying heavily on Python and a library for doing optimized numerical computations, called NumPy, throughout this course.</p>
 </div>
-<div class="section" id="Keeping-Up-To-Date">
-<h2>Keeping Up To Date<a class="headerlink" href="#Keeping-Up-To-Date" title="Permalink to this headline">¶</a></h2>
-<p>New versions of Python come out periodically, bringing new features and fixes. It’s important to keep Python updated in order to make sure that you have access to the latest additions to the language.</p>
-<p>All Python version numbers use the <code class="docutils literal notranslate"><span class="pre">A.B.C</span></code> format, in accordance with <a class="reference external" href="https://semver.org/">semantic versioning</a>. The three numbers denote major releases, minor releases, and patches.</p>
-<p>The first number denotes major releases to the language. When a major release comes out, it means that older code will not necessarily work with the new release, and vice versa. The most current major release is Python 3; Python 2 is no longer supported by any bug or security fixes. All releases in the near future will be improvements to Python 3, and thus they will come in the form of minor releases and patches.</p>
-<p>The second number denotes a minor release. When a minor release comes out, older code will run in the new interpreter, but new code will not necessarily be compatible with older versions. For example, any code that works in Python 3.7 will run in Python 3.8, but because Python 3.8 added new syntax, code from Python 3.8 will not necessarily run in a Python 3.7 interpreter.</p>
-<p>The third and final number denotes a patch, which generally means bug fixes and performance improvements. All code within the same minor release will run on all other patches within that minor release - for example, all Python 3.7.8 code is compatible with a Python 3.7.1 interpreter, and vice versa. Patches are released fairly often, and their changes only occur ‘under the hood’.</p>
+<div class="section" id="Understanding-Different-Versions-of-Python">
+<h2>Understanding Different Versions of Python<a class="headerlink" href="#Understanding-Different-Versions-of-Python" title="Permalink to this headline">¶</a></h2>
+<p>New versions of Python come out periodically, bringing new features and fixes. You can keep track of what’s new in Python by <a class="reference external" href="https://docs.python.org/3/whatsnew/index.html">bookmarking and checking this page every few months</a>. As we take on coding projects in Python, whether it be for work, school, or a personal hobby, it is important that we remain aware of the ways in which the language is changing, and that we take care to write code that will remain functional in the future.</p>
+<p>All Python version numbers use the <code class="docutils literal notranslate"><span class="pre">A.B.C</span></code> format, in accordance with <a class="reference external" href="https://semver.org/">semantic versioning</a>. The three numbers denote major releases, minor releases, and patches. For example, as of writing this, the current release of Python is version <code class="docutils literal notranslate"><span class="pre">3.9.1</span></code>.</p>
+<p>The first number denotes major releases to the language. When a major release comes out, it means that older code will not necessarily work with the new release, and vice versa. For example, the following code worked in Python 2 but no longer works because the <code class="docutils literal notranslate"><span class="pre">xrange</span></code> function was removed from the language upon the release of Python 3.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `xrange` was a frequently-used function in Python 2, but</span>
+<span class="c1"># was removed from the language in Python 3 in favor of `range`.</span>
+<span class="c1"># Thus the following code does not work in any version of Python 3.</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>The most current major release is Python 3; Python 2 is no longer supported by any bug or security fixes and should not be used. All releases in the near future will be improvements to Python 3, and thus they will come in the form of minor releases and patches.</p>
+<p>The second number denotes a minor release. A minor release will be compatible with code from the preceding release, but it might add new features to the language that are not backwards-compatible. For example, Python 3.6 introduced <a class="reference external" href="https://docs.python.org/3/whatsnew/3.6.html#pep-498-formatted-string-literals">formatted string literals</a>, which are commonly referred to as “f-strings”. Thus as of Python 3.6 you could write code like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python 3.6 introduced the &quot;f-string&quot; feature, which is not</span>
+<span class="c1"># backwards compatible with Python 3.5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s2">&quot;one plus two is </span><span class="si">{</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s1">&#39;one plus two is 3&#39;</span>
+</pre></div>
+</div>
+<p>but this code would not run in Python 3.5.X.</p>
+<p>The third and final number denotes a patch, which generally means bug fixes and performance improvements. All code within the same minor release will run on all other patches within that minor release For example, all Python 3.7.8 code is compatible with a Python 3.7.1 interpreter, and vice versa. Patches are released fairly often, and their changes only occur ‘under the hood’. <a class="reference external" href="https://docs.python.org/3/whatsnew/changelog.html#python-3-9-1-final">Here is a list of changes</a> were introduced by
+the patch level increment from Python 3.9.0 to Python 3.9.1; few of these would affect our day-to-day experience with using Python (which isn’t to say that they aren’t important!).</p>
 <p>In simpler terms, major releases are neither backward nor forward compatible. Minor releases are forward compatible but not necessarily fully backward compatible, and patches are both forward and backward compatible.</p>
 </div>
 <div class="section" id="Summary">
