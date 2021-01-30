@@ -75,7 +75,7 @@ This adds many useful features to the IDE that will make writing Python code a m
 - Completely free.
 - Works with many different languages, so you only need to familiarize yourself with one IDE if you are a polyglot programmer.
 - Offers a huge number of extensions that can be downloaded to add functionality to the editor; these are created by a large community of open-source developers.
-- [has native support for Jupyter notebooks](https://code.visualstudio.com/docs/python/jupyter-support), meaning that you get VSCode's intellisense, debugger, and ability to inspect variables, all in a notebook.
+- [Has native support for Jupyter notebooks](https://code.visualstudio.com/docs/python/jupyter-support), meaning that you get VSCode's intellisense, debugger, and ability to inspect variables, all in a notebook.
 - Provides incredibly robust [remote coding](https://code.visualstudio.com/docs/remote/remote-overview) and [collaborative coding](https://visualstudio.microsoft.com/services/live-share/) capabilities.
 
 **Cons**
