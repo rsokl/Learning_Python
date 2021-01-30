@@ -81,7 +81,7 @@ This adds many useful features to the IDE that will make writing Python code a m
 **Cons**
 
 - Configuring VSCode for Python development can have a moderate learning curve for newcomers.
-- Some features, like context-aware intellisense and type-inference, are simply more polished and powerful in PyCharm
+- Some features, like context-aware intellisense and type-inference, are simply more polished and powerful in PyCharm.
 
  
 <div class="alert alert-info">
