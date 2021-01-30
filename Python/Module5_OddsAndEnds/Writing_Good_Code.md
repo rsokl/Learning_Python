@@ -443,7 +443,7 @@ It does not take long to experience the benefits of type-hinting through your ID
 Finally, it is also worthwhile to highlight two projects, [mypy](http://mypy-lang.org/) and [pyright](https://github.com/microsoft/pyright), which are used to perform static type-checking on your code based on your type-hints.
 That is, mypy and pyright will both automatically traverse your code and find potential bugs by identifying type conflicts in your code (e.g. trying to capitalize an integer) by checking their annotated and inferred types.
 These tools are especially useful for large-scale code bases. Companies like Dropbox and Microsoft make keen use of static type-checking to identify inconsistencies in their code without having to hit runtime errors. Keep mypy, pyright, and other type-checking utilities in mind as you mature as a Python developer and find yourself working on projects of growing complexity.
-If you are using [VSCode as your IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html), you can install the [PyLance vscode extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) to leverage pyright's type checking within your IDE.
+If you are using [VSCode as your IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html), you can install the [PyLance VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) to leverage pyright's type checking within your IDE.
 <!-- #endregion -->
 
 <div class="alert alert-info">
