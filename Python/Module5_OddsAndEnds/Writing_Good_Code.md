@@ -451,7 +451,7 @@ If you are using [VSCode as your IDE](https://www.pythonlikeyoumeanit.com/Module
 **Reading Comprehension: Type-Assisted Code Completion**
 
 The `jedi` package, which is installed by default alongside Jupyter and IPython, enables type-informed code completion.
-This means that we can benefit from type-hints even we are working in a Jupyter notebook!
+This means that we can benefit from type-hints even when we are working in a Jupyter notebook!
     
 In a Jupyter notebook, write the following type-annotated signature for a function: `def f(x: str):`.
 Now in the body of the function (i.e. on the next line, and indented inwards), try typing `x.` and then hit `<TAB>`.
