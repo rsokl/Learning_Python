@@ -1,3 +1,7 @@
+.. meta::
+   :description: Topic: Top page of Python Like You Mean It, Difficulty: Easy, Category: Introduction
+   :keywords: PLYMI, home page, Python Like You Mean It, tutorial, python for machine learning, numpy, python from scratch, python for data science
+
 =======================
 Python Like You Mean It
 =======================
