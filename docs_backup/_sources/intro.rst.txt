@@ -12,7 +12,7 @@ What this is
 ------------
 Python Like You Mean It (PLYMI) is a free resource for learning the basics of Python & NumPy, and moreover, becoming a competent Python user. The features of the Python language that are emphasized here were chosen to help those who are particularly interested in STEM applications (data analysis, machine learning, numerical work, etc.).
 
-I want this to be a lean, one-stop resource for learning the essentials of Python from scratch. The reader will begin by learning about what Python is and what installing Python even means, and will hopefully walk away with a solid understanding of a substantial core of the language and its premiere numerical library, NumPy. I am also placing an emphasis on best practices throughout this site and am teaching to the latest version of Python (version 3.8, as of writing this).
+I want this to be a lean, one-stop resource for learning the essentials of Python from scratch. The reader will begin by learning about what Python is and what installing Python even means, and will hopefully walk away with a solid understanding of a substantial core of the language and its premiere numerical library, NumPy. I am also placing an emphasis on best practices throughout this site and am teaching to the latest version of Python (version 3.9, as of writing this).
 
 
 What this isn't
@@ -30,6 +30,12 @@ Books and blogs can be great. I personally think that programming books can be o
 Python shouldn't be *too* easy
 ------------------------------
 Python is a relatively easy language to pick up, and it doesn't require much rigor to make code work. Unfortunately, this means that there are many Python users out there who know enough to just get by, but lack a sound understanding of the language. You don't want to get caught in the "know enough Python to be dangerous" zone; therein lies complacency, stagnation, and the genesis of a lot of bad code. You've got to Python like you mean it!
+
+Join Our Discussion Board
+-------------------------
+`Join the PLYMI community <https://github.com/rsokl/Learning_Python/discussions>`_ to ask questions, recommend new content, or to just say hello!
+
+(A note to `BWSI students <https://beaverworks.ll.mit.edu/CMS/bw/bwsi>`_: please stick to your class' piazza board for posting questions)
 
 
 PLYMI is on GitHub
