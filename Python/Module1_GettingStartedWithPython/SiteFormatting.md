@@ -65,7 +65,6 @@ We can spend some time talking about `my_func` and then see it in action:
 ```
 
 Lastly, the input and output of an iPython console and a Jupyter notebook alike is displayed as follows:
-<!-- #endregion -->
 
 ```python
 2 + 3
@@ -98,3 +97,4 @@ Running
 
 will work without any issue.
 Keep this in mind if you ever find yourself having trouble running code that you copied from this site.
+<!-- #endregion -->
