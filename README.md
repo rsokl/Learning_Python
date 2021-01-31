@@ -54,13 +54,13 @@ conda install ipython jupyter notebook numpy matplotlib
 Next, we'll use the `conda-forge` package channel to install some critical packages for building the HTML
 
 ```shell
-conda install -c conda-forge sphinx==3.4.3 nbsphinx==0.8.1 pandoc==2.1.3 
+conda install -c conda-forge sphinx==3.4.3 nbsphinx==0.8.1 pandoc==2.1.3 jupytext=1.9.1 nbformat=5.0.8
 ```
 
 Finally, we will use PyPi to install jupytext and our website's stylistic theme
 
 ```shell
-pip install jupytext==1.9.1 sphinx-rtd-theme==0.5.1
+pip install sphinx-rtd-theme==0.5.1
 ```
 
 and install the `plymi` code base from this repo. Clone the present repository and run:
