@@ -77,7 +77,7 @@ This is useful because it makes a page more "skimmable", since the code snippets
 descriptive, self-explanatory captions.
 That being said, there is a downside to this. 
 
-Python terminals don't like having multiple comment likes precede an input-prompt.
+Python terminals don't like having multiple comment lines precede an input-prompt.
 E.g. if you paste and run the following code into a terminal
 
 ```python
