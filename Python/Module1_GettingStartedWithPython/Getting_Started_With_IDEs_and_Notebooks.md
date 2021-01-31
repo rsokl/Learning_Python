@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      jupytext_version: 1.9.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -83,7 +83,7 @@ This adds many useful features to the IDE that will make writing Python code a m
 - Configuring VSCode for Python development can have a moderate learning curve for newcomers.
 - Some features, like context-aware intellisense and type-inference, are simply more polished and powerful in PyCharm.
 
- 
+
 <div class="alert alert-info">
 
 **Takeaway**:
