@@ -12,7 +12,6 @@ jupyter:
     name: python3
 ---
 
-
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Writing good code, Difficulty: Easy, Category: Section
@@ -444,6 +443,32 @@ Finally, it is also worthwhile to highlight two projects, [mypy](http://mypy-lan
 That is, mypy and pyright will both automatically traverse your code and find potential bugs by identifying type conflicts in your code (e.g. trying to capitalize an integer) by checking their annotated and inferred types.
 These tools are especially useful for large-scale code bases. Companies like Dropbox and Microsoft make keen use of static type-checking to identify inconsistencies in their code without having to hit runtime errors. Keep mypy, pyright, and other type-checking utilities in mind as you mature as a Python developer and find yourself working on projects of growing complexity.
 If you are using [VSCode as your IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html), you can install the [PyLance VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) to leverage pyright's type checking within your IDE.
+<!-- #endregion -->
+
+<!-- #region -->
+<div class="alert alert-info">
+
+**Reading Comprehension: Type-Assisted Code Completion**
+
+The `jedi` package, which is installed by default alongside Jupyter and IPython, enables type-informed code completion.
+This means that we can benefit from type-hints even when we are working in a Jupyter notebook!
+    
+In a Jupyter notebook, write the following type-annotated signature for a function: `def f(x: str):`.
+Now in the body of the function (i.e. on the next line, and indented inwards), try typing `x.` and then hit `<TAB>`.
+    
+```python
+
+def f(x: str):
+    x.#hit <TAB> here
+    
+```
+
+You should see a list of methods appear for `x`.
+What are the first three methods that appear?
+Do these make sense based on the annotation associated with `x`?
+Now change the annotation for `x` to be `list` and trigger the auto-completion in the editor again; do you see an updated list of methods?
+    
+</div>
 <!-- #endregion -->
 
 <div class="alert alert-info">
@@ -962,8 +987,17 @@ Take some time to review the NumPy and Google docstring specifications, pick one
 
 ## Reading Comprehension Solutions
 
+
+**Type-Assisted Code Completion: Solution**
+
+The tab-completion reveals methods like "capitalize", "casefold", and "center" – all of which are string methods.
+These are made available despite the fact that `x` did not yet refer to a specific string.
+Instead, the type-hint was able to tell the editor that `x` _will_ refer to a string, and this was enough to inform these type completions.
+
+Revising the type-annotation for `x` to be `list` affects the auto-completion options accordingly: the editor will now suggest list methods like "append", "clear", and "copy".
+
 <!-- #region -->
-**Type Hinting: Solutions**
+**Type Hinting: Solution**
 
 The following is a well-annotated version of `get_first_and_last`:
 
