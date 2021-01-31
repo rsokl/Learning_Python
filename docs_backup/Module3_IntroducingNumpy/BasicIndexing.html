@@ -383,11 +383,11 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <p>Basic indexing is triggered whenever a tuple of: integer, <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.newaxis</span></code>, and/or <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> objects, is used as an index for a NumPy array. An array produced via basic indexing is a <em>view</em> of the same underlying data as the array that was indexed into; no data is copied through basic indexing.</p>
 </div>
 <div class="admonition note">
-<p><strong>Reading Comprehension: Ellipsis</strong></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Ellipsis</strong></p>
 <p>Given a <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, index into <code class="docutils literal notranslate"><span class="pre">x</span></code> such that you access entry-0 of axis-0, the last entry of axis-<span class="math notranslate nohighlight">\(N-1\)</span>, slicing along all intermediate dimensions. <span class="math notranslate nohighlight">\(N\)</span> is at least <span class="math notranslate nohighlight">\(2\)</span>.</p>
 </div>
 <div class="admonition note">
-<p><strong>Reading Comprehension: Basic Indexing</strong></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Basic Indexing</strong></p>
 <p>Given a shape-(4, 3) array,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="gp">... </span>                <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
@@ -454,7 +454,7 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 </div>
 <p>Thus updating a variable <code class="docutils literal notranslate"><span class="pre">subarray</span></code> via <code class="docutils literal notranslate"><span class="pre">subarray</span> <span class="pre">=</span> <span class="pre">subarray</span> <span class="pre">+</span> <span class="pre">2</span></code> does <em>not</em> overwrite the original data referenced by <code class="docutils literal notranslate"><span class="pre">subarray</span></code>. Rather, <code class="docutils literal notranslate"><span class="pre">subarray</span> <span class="pre">+</span> <span class="pre">2</span></code> assigns that new array to the variable <code class="docutils literal notranslate"><span class="pre">subarray</span></code>. NumPy does provide mechanisms for performing mathematical operations to directly update the underlying data of an array without having to create a distinct array. We will discuss these mechanisms in the next subsection.</p>
 <div class="admonition note">
-<p><strong>Reading Comprehension: Views</strong></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Views</strong></p>
 <p>Given,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
               <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
