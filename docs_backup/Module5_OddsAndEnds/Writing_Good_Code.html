@@ -1,46 +1,49 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <meta content="Topic: Writing good code, Difficulty: Easy, Category: Section" name="description" />
 <meta content="pep8, code style, lint, format, best practices, type hint, documentation, numpydoc, sphinx, typing, annotation, whitespace" name="keywords" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Writing Good Code &mdash; Python Like You Mean It</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Matplotlib" href="Matplotlib.html" />
@@ -85,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -135,6 +139,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -169,11 +174,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../module_5.html">Module 5: Odds and Ends</a> &raquo;</li>
         
@@ -182,7 +189,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/Module5_OddsAndEnds/Writing_Good_Code.md.txt" rel="nofollow"> View page source</a>
           
         
@@ -581,7 +588,17 @@ function that do not abide by the type hints, and they will also leverage these 
 <p>It does not take long to experience the benefits of type-hinting through your IDE. This both accelerates your coding by informing you of the object types that you are working with on the fly, and helps to expose oversights in your code as soon as they are made.</p>
 <p>Finally, it is also worthwhile to highlight two projects, <a class="reference external" href="http://mypy-lang.org/">mypy</a> and <a class="reference external" href="https://github.com/microsoft/pyright">pyright</a>, which are used to perform static type-checking on your code based on your type-hints. That is, mypy and pyright will both automatically traverse your code and find potential bugs by identifying type conflicts in your code (e.g. trying to capitalize an integer) by checking their annotated and inferred types. These tools are especially useful for
 large-scale code bases. Companies like Dropbox and Microsoft make keen use of static type-checking to identify inconsistencies in their code without having to hit runtime errors. Keep mypy, pyright, and other type-checking utilities in mind as you mature as a Python developer and find yourself working on projects of growing complexity. If you are using <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html">VSCode as your IDE</a>, you
-can install the <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright">pyright vscode extension</a> to leverage type checking within your IDE.</p>
+can install the <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance">PyLance VSCode extension</a> to leverage pyright’s type checking within your IDE.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Type-Assisted Code Completion</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">jedi</span></code> package, which is installed by default alongside Jupyter and IPython, enables type-informed code completion. This means that we can benefit from type-hints even when we are working in a Jupyter notebook!</p>
+<p>In a Jupyter notebook, write the following type-annotated signature for a function: <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(x:</span> <span class="pre">str):</span></code>. Now in the body of the function (i.e. on the next line, and indented inwards), try typing <code class="docutils literal notranslate"><span class="pre">x.</span></code> and then hit <code class="docutils literal notranslate"><span class="pre">&lt;TAB&gt;</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="c1">#hit &lt;TAB&gt; here</span>
+</pre></div>
+</div>
+<p>You should see a list of methods appear for <code class="docutils literal notranslate"><span class="pre">x</span></code>. What are the first three methods that appear? Do these make sense based on the annotation associated with <code class="docutils literal notranslate"><span class="pre">x</span></code>? Now change the annotation for <code class="docutils literal notranslate"><span class="pre">x</span></code> to be <code class="docutils literal notranslate"><span class="pre">list</span></code> and trigger the auto-completion in the editor again; do you see an updated list of methods?</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
 <p>There is a simple syntax for annotating functions, class-methods, and variables with type-hints; this is a formal mechanism for documenting the types of objects that are expected as inputs to the function, as well as the return type of the function. It is critical to note that that type-hints are <em>never</em> enforced by Python - they only serve as a form of documentation.</p>
@@ -1050,7 +1067,10 @@ extensions that allows Sphinx to parse and nicely render docstrings that adhere 
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
-<p><strong>Type Hinting: Solutions</strong></p>
+<p><strong>Type-Assisted Code Completion: Solution</strong></p>
+<p>The tab-completion reveals methods like “capitalize”, “casefold”, and “center” – all of which are string methods. These are made available despite the fact that <code class="docutils literal notranslate"><span class="pre">x</span></code> did not yet refer to a specific string. Instead, the type-hint was able to tell the editor that <code class="docutils literal notranslate"><span class="pre">x</span></code> <em>will</em> refer to a string, and this was enough to inform these type completions.</p>
+<p>Revising the type-annotation for <code class="docutils literal notranslate"><span class="pre">x</span></code> to be <code class="docutils literal notranslate"><span class="pre">list</span></code> affects the auto-completion options accordingly: the editor will now suggest list methods like “append”, “clear”, and “copy”.</p>
+<p><strong>Type Hinting: Solution</strong></p>
 <p>The following is a well-annotated version of <code class="docutils literal notranslate"><span class="pre">get_first_and_last</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span>
 
@@ -1071,29 +1091,29 @@ assumptions about the contents of <code class="docutils literal notranslate"><sp
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="Matplotlib.html" class="btn btn-neutral float-right" title="Matplotlib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../module_5.html" class="btn btn-neutral float-left" title="Module 5: Odds and Ends" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="Matplotlib.html" class="btn btn-neutral float-right" title="Matplotlib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../module_5.html" class="btn btn-neutral float-left" title="Module 5: Odds and Ends" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Ryan Soklaski
+        &#169; Copyright 2021, Ryan Soklaski.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -1101,7 +1121,6 @@ assumptions about the contents of <code class="docutils literal notranslate"><sp
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

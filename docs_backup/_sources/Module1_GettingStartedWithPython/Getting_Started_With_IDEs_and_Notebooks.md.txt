@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      jupytext_version: 1.9.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -39,41 +39,51 @@ First and foremost, a good IDE will provide a text editor that will:
 
 An IDE also often provides debugging tools so that you can test your code; it will also typically interface with version-control software, like Git, so that you can keep track of versions of your code as you modify it. We will not discuss these useful, but more advanced features here.
 
-### Recommended IDEs
+## Recommended IDEs
 There are many excellent IDEs that can be configured to work well with Python. Two IDEs that we endorse are:
  
-[PyCharm](https://www.jetbrains.com/pycharm/download): A powerful IDE dedicated to Python.
+### PyCharm
+
+[PyCharm](https://www.jetbrains.com/pycharm/download) is a powerful and highly-polished IDE dedicated to developing Python code.
 
 **Pros**
 
-- works well out-of-the-box
-- long-supported by professionals and thus is very reliable
-- highly configurable
-- fully-featured, with an excellent debugger, context-dependent "intellisense", type-inference, and more
-- the free "community version" is extremely robust and feature-rich. 
+- Works well out-of-the-box.
+- Long-supported by professionals and thus is very reliable.
+- Highly configurable.
+- Fully-featured, with an excellent debugger, context-dependent "intellisense", type-inference, and more.
+- The free "community version" is extremely robust and feature-rich.
+- Generally provides an extremely high-quality and responsive experience for doing Python development.
 
 **Cons**
 
- - can be resource-heavy, especially for a laptop
- - may be overwhelming to new users (but has good documentation and tutorials)
- - Jupyter notebook support requires the premium version of PyCharm, making it inaccessible to newcomers
+ - Can be resource-heavy, especially for a laptop.
+ - May be overwhelming to new users (but has good documentation and tutorials).
+ - Jupyter notebook support requires the premium version of PyCharm, making it inaccessible to newcomers.
  
-[Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://code.visualstudio.com/docs/languages/python): A lightweight, highly customizable IDE.
+### Visual Studio Code
+
+[Visual Studio Code](https://code.visualstudio.com/) (with the [Python extension](https://code.visualstudio.com/docs/languages/python)) is a lightweight, highly customizable IDE that works with many different languages.
+
+Note: if you decide to use VSCode to do Python development, it is highly recommended that you install Microsoft's [PyLance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
+extension.
+This adds many useful features to the IDE that will make writing Python code a more delightful experience. 
 
 **Pros**
 
-- lightweight and elegant
-- completely free
-- works with many different languages, so you only need to familiarize yourself with one IDE if you are a polyglot programmer
-- a huge number of extensions can be downloaded to add functionality to the editor; these are created by a large community of open-source developers.
-- [has native support for Jupyter notebooks](https://code.visualstudio.com/docs/python/jupyter-support), meaning that you get VSCode's intellisense, debugger, and ability to inspect variables, all in a notebook.
+- Lightweight and elegant.
+- Completely free.
+- Works with many different languages, so you only need to familiarize yourself with one IDE if you are a polyglot programmer.
+- Offers a huge number of extensions that can be downloaded to add functionality to the editor; these are created by a large community of open-source developers.
+- [Has native support for Jupyter notebooks](https://code.visualstudio.com/docs/python/jupyter-support), meaning that you get VSCode's intellisense, debugger, and ability to inspect variables, all in a notebook.
+- Provides incredibly robust [remote coding](https://code.visualstudio.com/docs/remote/remote-overview) and [collaborative coding](https://visualstudio.microsoft.com/services/live-share/) capabilities.
 
 **Cons**
 
-- configuring VSCode for python development can have a moderate learning curve for newcomers
-- many features, like context-aware intellisense and type-inference, are simply more polished and powerful in PyCharm
+- Configuring VSCode for Python development can have a moderate learning curve for newcomers.
+- Some features, like context-aware intellisense and type-inference, are simply more polished and powerful in PyCharm.
 
- 
+
 <div class="alert alert-info">
 
 **Takeaway**:

@@ -31,19 +31,36 @@ If you want to submit a change to some of the content (e.g. correcting typos), d
 # Building the Site
 **Important Note: it is strongly preferred that pull requests *do not* contain changes to the HTML of this site. Rather, it is better if PRs simply contain changes to text files (.rst or .md). A site administrator (@rsokl, @davidmascharka) will be responsible for publishing the actual site-HTML**. Thus the following instructions are useful for you to view your changes as they will appear in the site, but you likely need not go through the process of committing the changes to the HTML. 
 
-First, clone this repository.
+## Creating a Conda Environment From Scratch
 
-You will need to have [anaconda installed](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html) on your computer. Then create a new conda environment using the yaml file, `plymi.yml`, that is located at the top-level of this repository. To create the `plymi` conda environment, run:
+First, create a miniconda environment. We'll call it `plymi` and will use Python 3.8
 
 ```shell
-conda env create -f plymi.yml
+conda create -n plymi python=3.8
 ```
 
-Once this environment is created activate it. You may need to manually install a couple of dependencies (check if these are installed in your environment first):
+It is important that we activate the environment before proceeding
 
 ```shell
-pip install sphinx-rtd-theme==0.4.3
-pip install jupytext==1.9.1
+conda activate plymi
+```
+
+Next, we will install ipython, Jupyter, numpy, and matplotlib
+
+```shell
+conda install ipython jupyter notebook numpy matplotlib 
+```
+
+Next, we'll use the `conda-forge` package channel to install some critical packages for building the HTML
+
+```shell
+conda install -c conda-forge sphinx==3.4.3 nbsphinx==0.8.1 pandoc==2.1.3 jupytext=1.9.1 nbformat=5.0.8
+```
+
+Finally, we will use PyPi to install jupytext and our website's stylistic theme
+
+```shell
+pip install sphinx-rtd-theme==0.5.1
 ```
 
 and install the `plymi` code base from this repo. Clone the present repository and run:

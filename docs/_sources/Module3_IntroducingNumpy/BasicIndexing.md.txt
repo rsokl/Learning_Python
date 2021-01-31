@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      jupytext_version: 1.9.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -202,18 +202,16 @@ Basic indexing is triggered whenever a tuple of: integer, `slice`, `numpy.newaxi
 
 
 <div class="alert alert-info"> 
-
-
+    
 **Reading Comprehension: Ellipsis**
 
 Given a $N$-dimensional array, `x`, index into `x` such that you access entry-0 of axis-0, the last entry of axis-$N-1$, slicing along all intermediate dimensions. $N$ is at least $2$.
 
 </div>
 
-
-<div class="alert alert-info"> 
-
 <!-- #region -->
+<div class="alert alert-info"> 
+    
 **Reading Comprehension: Basic Indexing**
 
 Given a shape-(4, 3) array,
@@ -291,9 +289,9 @@ False
 Thus updating a variable `subarray` via `subarray = subarray + 2` does *not*  overwrite the original data referenced by `subarray`. Rather, `subarray + 2` assigns that new array to the variable `subarray`. NumPy does provide mechanisms for performing mathematical operations to directly update the underlying data of an array without having to create a distinct array. We will discuss these mechanisms in the next subsection.
 <!-- #endregion -->
 
-<div class="alert alert-info"> 
-
 <!-- #region -->
+<div class="alert alert-info"> 
+    
 **Reading Comprehension: Views**
 
 Given, 

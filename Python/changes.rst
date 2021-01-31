@@ -5,6 +5,20 @@ Changelog
 This is a record of all past PLYMI releases and what went into them,
 in reverse chronological order.
 
+----------
+2021-01-31
+----------
+
+Upgrades the tools used to build PLYMI:
+
+- sphinx 3.4.3
+- nbsphinx 0.8.1
+- jupytext 1.9.1
+- sphinx-rtd-theme 0.5.1
+
+Adds a reading comprehension problem in `the section on type-hinting <https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Writing_Good_Code.html#Type-Hinting>`_
+to show that ``jedi`` provides annotation-informed autocompletion abilities in notebooks.
+
 
 ----------
 2021-01-30
@@ -13,7 +27,7 @@ in reverse chronological order.
 Updated the discussion of `computing pairwise differences <https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#An-Advanced-Application-of-Broadcasting:-Pairwise-Distances>`_
 to account for potential floating-point edge cases that can produce "NaNs" as a result.
 
-There is currently an incompatibility between `jedi 0.18.0` and IPython, which breaks autocompletion. See `here <https://github.com/ipython/ipython/issues/12740>`_ for more details.
+There is currently an incompatibility between ``jedi 0.18.0`` and IPython, which breaks autocompletion. See `here <https://github.com/ipython/ipython/issues/12740>`_ for more details.
 Added temporary callout boxes to the `informal introduction to Python <https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Informal_Intro_Python.html>`_ and to
 the `introduction to Jupyter notebooks <https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html>`_, which instruct readers to remedy this by downgrading jedi.
 

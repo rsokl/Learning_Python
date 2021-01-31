@@ -1,46 +1,49 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <meta content="Topic: Integrated Development Environments, Difficulty: Easy, Category: Tools" name="description" />
 <meta content="python, introduction, IDE, PyCharm, VSCode, Jupyter, recommendation, tools" name="keywords" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Setting Up a Development Environment &mdash; Python Like You Mean It</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Module 2: The Essentials of Python" href="../module_2.html" />
@@ -85,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -103,8 +107,10 @@
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_Notebooks.html">Jupyter Notebooks</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Setting Up a Development Environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#What-You-Will-Learn">What You Will Learn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Integrated-Development-Environments">Integrated Development Environments</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Recommended-IDEs">Recommended IDEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Integrated-Development-Environments">Integrated Development Environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Recommended-IDEs">Recommended IDEs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#PyCharm">PyCharm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Visual-Studio-Code">Visual Studio Code</a></li>
 </ul>
 </li>
 </ul>
@@ -123,6 +129,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -157,11 +164,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../module_1.html">Module 1: Getting Started with Python</a> &raquo;</li>
         
@@ -170,7 +179,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.md.txt" rel="nofollow"> View page source</a>
           
         
@@ -231,37 +240,46 @@ our code-writing.</p>
 <li><p>autocomplete the names of variables and functions as you are typing them.</p></li>
 </ul>
 <p>An IDE also often provides debugging tools so that you can test your code; it will also typically interface with version-control software, like Git, so that you can keep track of versions of your code as you modify it. We will not discuss these useful, but more advanced features here.</p>
+</div>
 <div class="section" id="Recommended-IDEs">
-<h3>Recommended IDEs<a class="headerlink" href="#Recommended-IDEs" title="Permalink to this headline">¶</a></h3>
+<h2>Recommended IDEs<a class="headerlink" href="#Recommended-IDEs" title="Permalink to this headline">¶</a></h2>
 <p>There are many excellent IDEs that can be configured to work well with Python. Two IDEs that we endorse are:</p>
-<p><a class="reference external" href="https://www.jetbrains.com/pycharm/download">PyCharm</a>: A powerful IDE dedicated to Python.</p>
+<div class="section" id="PyCharm">
+<h3>PyCharm<a class="headerlink" href="#PyCharm" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.jetbrains.com/pycharm/download">PyCharm</a> is a powerful and highly-polished IDE dedicated to developing Python code.</p>
 <p><strong>Pros</strong></p>
 <ul class="simple">
-<li><p>works well out-of-the-box</p></li>
-<li><p>long-supported by professionals and thus is very reliable</p></li>
-<li><p>highly configurable</p></li>
-<li><p>fully-featured, with an excellent debugger, context-dependent “intellisense”, type-inference, and more</p></li>
-<li><p>the free “community version” is extremely robust and feature-rich.</p></li>
+<li><p>Works well out-of-the-box.</p></li>
+<li><p>Long-supported by professionals and thus is very reliable.</p></li>
+<li><p>Highly configurable.</p></li>
+<li><p>Fully-featured, with an excellent debugger, context-dependent “intellisense”, type-inference, and more.</p></li>
+<li><p>The free “community version” is extremely robust and feature-rich.</p></li>
+<li><p>Generally provides an extremely high-quality and responsive experience for doing Python development.</p></li>
 </ul>
 <p><strong>Cons</strong></p>
 <ul class="simple">
-<li><p>can be resource-heavy, especially for a laptop</p></li>
-<li><p>may be overwhelming to new users (but has good documentation and tutorials)</p></li>
-<li><p>Jupyter notebook support requires the premium version of PyCharm, making it inaccessible to newcomers</p></li>
+<li><p>Can be resource-heavy, especially for a laptop.</p></li>
+<li><p>May be overwhelming to new users (but has good documentation and tutorials).</p></li>
+<li><p>Jupyter notebook support requires the premium version of PyCharm, making it inaccessible to newcomers.</p></li>
 </ul>
-<p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> with the <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">Python extension</a>: A lightweight, highly customizable IDE.</p>
+</div>
+<div class="section" id="Visual-Studio-Code">
+<h3>Visual Studio Code<a class="headerlink" href="#Visual-Studio-Code" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> (with the <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">Python extension</a>) is a lightweight, highly customizable IDE that works with many different languages.</p>
+<p>Note: if you decide to use VSCode to do Python development, it is highly recommended that you install Microsoft’s <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance">PyLance</a> extension. This adds many useful features to the IDE that will make writing Python code a more delightful experience.</p>
 <p><strong>Pros</strong></p>
 <ul class="simple">
-<li><p>lightweight and elegant</p></li>
-<li><p>completely free</p></li>
-<li><p>works with many different languages, so you only need to familiarize yourself with one IDE if you are a polyglot programmer</p></li>
-<li><p>a huge number of extensions can be downloaded to add functionality to the editor; these are created by a large community of open-source developers.</p></li>
-<li><p><a class="reference external" href="https://code.visualstudio.com/docs/python/jupyter-support">has native support for Jupyter notebooks</a>, meaning that you get VSCode’s intellisense, debugger, and ability to inspect variables, all in a notebook.</p></li>
+<li><p>Lightweight and elegant.</p></li>
+<li><p>Completely free.</p></li>
+<li><p>Works with many different languages, so you only need to familiarize yourself with one IDE if you are a polyglot programmer.</p></li>
+<li><p>Offers a huge number of extensions that can be downloaded to add functionality to the editor; these are created by a large community of open-source developers.</p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/python/jupyter-support">Has native support for Jupyter notebooks</a>, meaning that you get VSCode’s intellisense, debugger, and ability to inspect variables, all in a notebook.</p></li>
+<li><p>Provides incredibly robust <a class="reference external" href="https://code.visualstudio.com/docs/remote/remote-overview">remote coding</a> and <a class="reference external" href="https://visualstudio.microsoft.com/services/live-share/">collaborative coding</a> capabilities.</p></li>
 </ul>
 <p><strong>Cons</strong></p>
 <ul class="simple">
-<li><p>configuring VSCode for python development can have a moderate learning curve for newcomers</p></li>
-<li><p>many features, like context-aware intellisense and type-inference, are simply more polished and powerful in PyCharm</p></li>
+<li><p>Configuring VSCode for Python development can have a moderate learning curve for newcomers.</p></li>
+<li><p>Some features, like context-aware intellisense and type-inference, are simply more polished and powerful in PyCharm.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
@@ -276,29 +294,29 @@ our code-writing.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../module_2.html" class="btn btn-neutral float-right" title="Module 2: The Essentials of Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="Jupyter_Notebooks.html" class="btn btn-neutral float-left" title="Jupyter Notebooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../module_2.html" class="btn btn-neutral float-right" title="Module 2: The Essentials of Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Jupyter_Notebooks.html" class="btn btn-neutral float-left" title="Jupyter Notebooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Ryan Soklaski
+        &#169; Copyright 2021, Ryan Soklaski.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -306,7 +324,6 @@ our code-writing.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

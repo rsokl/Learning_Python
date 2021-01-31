@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      jupytext_version: 1.9.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -254,7 +254,7 @@ with open("a_poem.txt", mode="r") as my_open_file:
 
 There are many cases in which we may want to construct a list of files to iterate over. For example, if we have several data files, it would be useful to create a file list which we can iterate through and process in sequence. One way to do this would be to manually construct such a list of files:
 
-``` python
+```python
 my_files = ['data/file1.txt', 'data/file2.txt', 'data/file3.txt', 'data/file4.txt']
 ```
 
