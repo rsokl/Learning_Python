@@ -15,7 +15,7 @@ jupyter:
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
    :description: Topic: Practice exercises using Hypothesis, Difficulty: Easy, Category: Section
-   :keywords: hypotehsis, practice, exercise, test  
+   :keywords: hypothesis, practice, exercise, test  
 <!-- #endraw -->
 
 # Practice Exercises Using Hypothesis
