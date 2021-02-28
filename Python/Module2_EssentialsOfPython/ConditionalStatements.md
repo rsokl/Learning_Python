@@ -227,11 +227,11 @@ if 3 < len(x):
     # bool(3 < 2) returns False, this code 
     # block is skipped
     print("`x` has more than three items in it")
-elif len(x) == 2
+elif len(x) == 2:
     # bool(len(x) == 2) returns True
     # this code block is executed
     print("`x` has two items in it")
-elif len(x) == 1
+elif len(x) == 1:
     # this statement is never reached
     print("`x` has one items in it")
 else:
@@ -332,6 +332,8 @@ That is:
 Python supports a syntax for writing a restricted version of if-else statements in a single line. The following code:
 
 ```python
+num = 2
+
 if num >= 0:
     sign = "positive"
 else:
