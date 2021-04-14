@@ -103,7 +103,7 @@ Python's syntax is quite flexible in terms of what it defines as a whitespace de
 
 While Python's syntax is relatively forgiving, I am not: the [standard style](https://www.python.org/dev/peps/pep-0008/#indentation) for indenting in Python is to **use four space characters** for each level of indentation. It is strongly advised that you adhere to this standard. Most IDEs and consoles (including Jupyter notebooks) will automatically add a four-space indentation for you when you enter into the body of one of the aforementioned constructs.
 
-Let's review these ruled by considering a few simple examples (including incorrect examples) of delimiting scope in Python.
+Let's review these rules by considering a few simple examples (including incorrect examples) of delimiting scope in Python.
 
 ```python
 # OK, but gross: The use of a single whitespace 
