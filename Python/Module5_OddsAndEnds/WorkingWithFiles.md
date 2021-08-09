@@ -135,9 +135,9 @@ The following code opens the file "file1.txt" for writing:
 path_to_file = Path("file1.txt")
 with open(path_to_file, mode="w") as f:
     # The indented space enters the "context" of the open file.
-    # Leaving the indented space exist the context of the opened file, forcing
-    # the file to be closed. This is ensured even if our code causes an error
-    # within this indented block
+    # Leaving the indented space exits the context of the opened file, forcing
+    # the file to be closed. This is ensured even if the code within the indented 
+    # block causes an error.
     f.write('this is a line.\nThis is a second line.\nThis is the third line.')
 
 # The file is closed here.
