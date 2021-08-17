@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.9.1
+      format_version: '1.3'
+      jupytext_version: 1.11.3
   kernelspec:
     display_name: Python 3
     language: python
@@ -284,6 +284,83 @@ False
 
 >>> MyList()
 ||
+```
+<!-- #endregion -->
+
+<!-- #region -->
+## The `__eq__` Special Method
+
+In order to compare two objects, python provides a special method called `__eq__` which defines how objects are deemed equal. The `__eq__` method is also called by the `==` and `!=` operators. For example, when applied to integers, the `__eq__` function checks that the binary value of the integers  is equivalent. For user-defined classes, however, we have to explicitly set how we would like the == operator to be handled. By default, the equality on user defined classes checks that the memory address and contents of the two instances of an object are identical, such that two identically created instances are deemed non-equal. 
+
+For example, consider two instances of a `Dog` class which are created with identical parameters for `name`, `breed`, and `age`:
+
+```python
+class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age
+
+dog_a = Dog('Harley', 'Retriever', 3)
+dog_b = Dog('Harley', 'Retriever', 3)
+```
+
+Though these objects have the same contents, they are each stored in a unique block of memory, such that checking if they are equal will yield `False`:
+```python
+>>> print(dog_a == dog_b)
+False
+```
+
+Since these objects refer to the same dog, we would like them to be equal when all of their parameters match. To do this, we need to define the `__eq__` method as follows:
+
+```python
+def __eq__(self, other):
+    if isinstance(other, Dog):
+		return ((self.age == other.age)
+                and (self.name == other.name) 
+                and (self.breed == other.breed))
+	else:
+		return False
+```
+
+Now when we check if these objects are equal, we achieve the desired result:
+
+```python
+>>> print(dog_a == dog_b)
+True
+```
+
+However this method of checking equality does not account for the very real possibility that two dogs of the same breed could share the same age and name. It would be helpful if instead of relying on the descriptive properties, we had a single property that we could guarantee to be unique to an individual instance. In a database, a property of this nature is called a ‘primary key’ and it is an attribute that uniquely identifies a single entry. Most of the time, we call this property an ID number.
+
+By adding an `id` property to our class definition, we can massively simplify our `__eq__` function while also ensuring that we do not accidentally equate dogs of the same name, breed, and age. (Also, to lean into the realism of this example, any dog that is adopted from a pound or a breeder has an identification number that is used to identify and track them in case they get lost.)
+
+```python
+class Dog:
+    def __init__(self, name, breed, age, id):
+        self.name = name
+        self.breed = breed
+        self.age = age
+        self.id = id
+   
+    def __eq__(self, other):
+        if isinstance(other, Person):
+            return (self.id == other.id)
+        else:
+            return False
+```
+
+Now, only dogs with the same `id` will be evaluated as equal, avoiding the potential problem of distinct dogs with the same name, breed, and age:
+
+```python
+dog_a = Dog('Harley', 'Retriever', 3, 3981230)
+dog_b = Dog('Harley', 'Retriever', 3, 3981230)
+dog_c = Dog('Harley', 'Retriever', 3, 1298981)
+
+>>> print(dog_a == dog_b)
+True
+
+>>> print(dog_b == dog_c)
+False
 ```
 <!-- #endregion -->
 
