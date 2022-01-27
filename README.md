@@ -41,29 +41,14 @@ conda create -n plymi python=3.8
 
 It is important that we activate the environment before proceeding
 
-```shell
-conda activate plymi
-```
-
-Next, we will install ipython, Jupyter, numpy, and matplotlib
+Next, we'll use the `conda-forge` package channel to install our dependencies
 
 ```shell
-conda install ipython jupyter notebook numpy matplotlib 
+conda install -c conda-forge 
+sphinx==4.4.0 jupytext==1.13.6 nbsphinx==0.8.8 pandoc==2.1.3 sphinx_rtd_theme==1.0.0 ipykernel==6.7.0 numpy matplotlib
 ```
 
-Next, we'll use the `conda-forge` package channel to install some critical packages for building the HTML
-
-```shell
-conda install -c conda-forge sphinx==3.4.3 nbsphinx==0.8.1 pandoc==2.1.3 jupytext=1.9.1 nbformat=5.0.8
-```
-
-Finally, we will use PyPi to install jupytext and our website's stylistic theme
-
-```shell
-pip install sphinx-rtd-theme==0.5.1
-```
-
-and install the `plymi` code base from this repo. Clone the present repository and run:
+Finally, we will install the `plymi` code base from this repo. Clone the present repository and run:
 
 ```shell
 pip install .
@@ -90,8 +75,6 @@ plymi.build_to_doc(".") # point to the top-level dir (contains both `docs/` and 
 ```
 
 This will back-up your current `docs` directory, and will move the html from `_builds` to `docs`. It will also ensure some essential "meta" files, `.nojekyll` and `CNAME` are present. The former is required for githubpages to build the site correctly, the latter ensures that the canonical name for the site is `pythonlikeyoumeanit.com`.
-
-
 
 
 The only directories in this repository that contain html should be `docs` and `docs_backup`. **Do not commit the `_build` directory**  
