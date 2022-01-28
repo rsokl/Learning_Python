@@ -287,7 +287,7 @@ What will happen if you try to call `Dummy.func("hi")`? Why?
 
 ```python
 # Dummy.func("hi") would raise an error
->>> Dummy(None, "hi")
+>>> Dummy.func(None, "hi")
 'hi'
 ```
 <!-- #endregion -->
