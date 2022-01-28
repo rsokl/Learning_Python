@@ -287,7 +287,7 @@ The "modulo" function ("mod" for short), denoted by $\%$, is defined to return t
 
 **Using Math Operators on NumPy Arrays**: 
 
-It is important to note that NumPy arrays know how to "override" the standard mathematical operators so that they also invoke vectorized functions. For example, suppose `arr1` and `arr2` are NumPy arrays; calling `arr1 + arr2` ends up calling `np.add(arr1, arr2)` "under the hood". Thus we can safely use the standard math operators `+ - / * **` between NumPy arrays, and fast vectorized functions will be used for us. 
+It is important to note that NumPy arrays know how to "override" the standard mathematical operators so that they invoke vectorized functions. For example, suppose `arr1` and `arr2` are NumPy arrays; calling `arr1 + arr2` ends up calling `np.add(arr1, arr2)` "under the hood". Thus we can safely use the standard math operators `+ - / * **` between NumPy arrays, and fast vectorized functions will be used for us. 
 
 </div>
 
