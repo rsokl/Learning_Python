@@ -59,8 +59,8 @@ Having defined our subclass, we can leverage the other methods of `Rectangle` as
 # create a square of side-length 2
 >>> my_square = Square(2)
 
-# using the inherited `get_area` method
->>> my_square.get_area()
+# using the inherited `compute_area` method
+>>> my_square.compute_area()
 4
 
 # a square is a rectangle with equal height/width

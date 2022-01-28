@@ -22,7 +22,7 @@ jupyter:
 <!-- #region -->
 # Defining a New Class of Object
 
-This section will introduce the basic syntax for defining a new class (a.k.a. type) of  Python object. Recall that the phrase `def` is used to denote the definition of a function. Similarly, `class` is used to denote the beginning of a class definition. The body of the class definition, which is the indented region below a `class` statement, is used to define the class' various **attributes**.
+This section will introduce the basic syntax for defining a new class (a.k.a. type) of  Python object. Recall that the statement `def` is used to denote the definition of a function. Similarly, `class` is used to denote the beginning of a class definition. The body of the class definition, which is the indented region below a `class` statement, is used to define the class' various **attributes**.
 
 The following defines a new class of object, named `MyGuy`, specifying four attributes `x`, `y`, `z`, and `f`
 

@@ -191,7 +191,6 @@ True
 # even when `class_func` is called from an instance
 >>> inst = Dummy()
 >>> inst.class_func()
->>> inst.class_func()
 __main__.Dummy
 ```
 <!-- #endregion -->
