@@ -191,7 +191,6 @@ True
 # even when `class_func` is called from an instance
 >>> inst = Dummy()
 >>> inst.class_func()
->>> inst.class_func()
 __main__.Dummy
 ```
 <!-- #endregion -->
@@ -288,7 +287,7 @@ What will happen if you try to call `Dummy.func("hi")`? Why?
 
 ```python
 # Dummy.func("hi") would raise an error
->>> Dummy(None, "hi")
+>>> Dummy.func(None, "hi")
 'hi'
 ```
 <!-- #endregion -->

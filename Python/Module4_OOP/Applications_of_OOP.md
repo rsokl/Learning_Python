@@ -30,7 +30,7 @@ Let's create a shopping list class, where an instance of this class stores a lis
 - mark items on the list as "purchased"
 - remove items, purchased or not, from the list
 - list the name of the items to-be purchased (in alphabetical order)
-- list the name of the items have been purchased (in alphabetical order)
+- list the name of the items that have been purchased (in alphabetical order)
 
 We do not want redundant items to be included on our shopping list - if someone enters "apples" twice, we should only list it once. Thus we will make use of [sets](http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure), which store unique elements, to store the items on our list.
 
