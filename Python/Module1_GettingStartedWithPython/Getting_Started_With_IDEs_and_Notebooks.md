@@ -41,26 +41,7 @@ An IDE also often provides debugging tools so that you can test your code; it wi
 
 ## Recommended IDEs
 There are many excellent IDEs that can be configured to work well with Python. Two IDEs that we endorse are:
- 
-### PyCharm
 
-[PyCharm](https://www.jetbrains.com/pycharm/download) is a powerful and highly-polished IDE dedicated to developing Python code.
-
-**Pros**
-
-- Works well out-of-the-box.
-- Long-supported by professionals and thus is very reliable.
-- Highly configurable.
-- Fully-featured, with an excellent debugger, context-dependent "intellisense", type-inference, and more.
-- The free "community version" is extremely robust and feature-rich.
-- Generally provides an extremely high-quality and responsive experience for doing Python development.
-
-**Cons**
-
- - Can be resource-heavy, especially for a laptop.
- - May be overwhelming to new users (but has good documentation and tutorials).
- - Jupyter notebook support requires the premium version of PyCharm, making it inaccessible to newcomers.
- 
 ### Visual Studio Code
 
 [Visual Studio Code](https://code.visualstudio.com/) (with the [Python extension](https://code.visualstudio.com/docs/languages/python)) is a lightweight, highly customizable IDE that works with many different languages.
@@ -81,8 +62,27 @@ This adds many useful features to the IDE that will make writing Python code a m
 **Cons**
 
 - Configuring VSCode for Python development can have a moderate learning curve for newcomers.
-- Some features, like context-aware intellisense and type-inference, are simply more polished and powerful in PyCharm.
 
+
+### PyCharm
+
+[PyCharm](https://www.jetbrains.com/pycharm/download) is a powerful and highly-polished IDE dedicated to developing Python code.
+
+**Pros**
+
+- Works well out-of-the-box.
+- Long-supported by professionals and thus is very reliable.
+- Highly configurable.
+- Fully-featured, with an excellent debugger, context-dependent "intellisense", type-inference, and more.
+- The free "community version" is extremely robust and feature-rich.
+- Generally provides an extremely high-quality and responsive experience for doing Python development.
+
+**Cons**
+
+ - Can be resource-heavy, especially for a laptop.
+ - May be overwhelming to new users (but has good documentation and tutorials).
+ - Jupyter notebook support requires the premium version of PyCharm, making it inaccessible to newcomers.
+ 
 
 <div class="alert alert-info">
 
