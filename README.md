@@ -45,6 +45,8 @@ Next, we'll use the `conda-forge` package channel to install our dependencies
 
 ```shell
 conda install -c conda-forge sphinx==4.4.0 jupytext==1.13.6 nbsphinx==0.8.8 pandoc==2.1.3 sphinx_rtd_theme==1.0.0 ipykernel==6.7.0 numpy matplotlib
+
+pip install mygrad
 ```
 
 Finally, we will install the `plymi` code base from this repo. Clone the present repository and run:
