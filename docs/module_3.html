@@ -1,80 +1,41 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Module 3: The Essentials of NumPy &mdash; Python Like You Mean It</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/my_theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/my_theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Introducing the ND-array" href="Module3_IntroducingNumpy/IntroducingTheNDarray.html" />
     <link rel="prev" title="Encode as String" href="Module2_EssentialsOfPython/Problems/EncodeAsString.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -82,19 +43,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module_1.html">Module 1: Getting Started with Python</a></li>
@@ -110,6 +60,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/Broadcasting.html">Array Broadcasting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/BasicIndexing.html">Introducing Basic and Advanced Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/AdvancedIndexing.html">Advanced Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/AutoDiff.html">Automatic Differentiation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="module_3_problems.html">Module 3: Problems</a></li>
@@ -118,71 +69,30 @@
 <li class="toctree-l1"><a class="reference internal" href="changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Module 3: The Essentials of NumPy</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/module_3.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -207,13 +117,13 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="module-3-the-essentials-of-numpy">
-<h1>Module 3: The Essentials of NumPy<a class="headerlink" href="#module-3-the-essentials-of-numpy" title="Permalink to this headline">¶</a></h1>
+<section id="module-3-the-essentials-of-numpy">
+<h1>Module 3: The Essentials of NumPy<a class="headerlink" href="#module-3-the-essentials-of-numpy" title="Permalink to this headline"></a></h1>
 <p>NumPy is the reason why Python stands among the ranks of R, Matlab, and Julia, as one of the most popular languages for doing STEM-related computing. It is a third-party library (i.e. it is not part of Python’s standard library) that facilitates numerical computing in Python by providing users with a versatile N-dimensional array object for storing data, and powerful mathematical functions for operating on those arrays of numbers. NumPy implements its features in ways that are highly optimized, via a process known as vectorization, that enables a degree of computational efficiency that is otherwise unachievable by the Python language.</p>
 <p>The impact that NumPy has had on the landscape of numerical computing in Python is hard to overstate. Whether you are plotting data in matplotlib, analyzing tabular data via <a class="reference external" href="https://pandas.pydata.org">pandas</a> and <a class="reference external" href="https://xarray.pydata.org/en/stable">xarray</a>, using <a class="reference external" href="https://opencv.org">OpenCV</a> for image and video processing, doing astrophysics research with the help of <a class="reference external" href="www.astropy.org">astropy</a>, or trying out machine learning with <a class="reference external" href="https://scikit-learn.org/stable/index.html">Scikit-Learn</a> and <a class="reference external" href="https://mygrad.readthedocs.io">MyGrad</a>, you are using Python libraries that bare the indelible mark of NumPy. At their core, each of these libraries depend on NumPy’s N-dimensional array and its efficient vectorization capabilities. NumPy also fundamentally impacts the designs of these libraries and the way that they interface with their users. Thus, one cannot leverage these tools effectively, and cannot do STEM work in Python in general, without having a solid foundation in NumPy.</p>
 <p>This module presents to us the essentials of NumPy. We will first define what the term dimensionality means and will develop an intuition for what zero, one, two, and N-dimensional arrays are, and why they are invaluable for data science applications. Next, we will discuss the ambiguities of array traversal-order and NumPy’s default use of row-major ordering. We will then arrive at the critical topic of vectorization, which prescribes the ways in which NumPy dispatches mathematical operations over arrays of numbers. This will also give us keen insight into how NumPy achieves its tremendous computational efficiency. Finally, we will dive into some of NumPy’s more advanced features. These include its rules for broadcasting mathematical operations between arrays of different shapes, as well as its mechanisms for accessing and updating an array’s contents via basic and advanced indexing. Armed with these techniques, we will be able to write concise and powerful numerical code using NumPy and Python’s many other STEM libraries!</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Module3_IntroducingNumpy/IntroducingTheNDarray.html">Introducing the ND-array</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/IntroducingTheNDarray.html#Links-to-Official-Documentation">Links to Official Documentation</a></li>
@@ -285,56 +195,48 @@
 <li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/AdvancedIndexing.html#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Module3_IntroducingNumpy/AutoDiff.html">Automatic Differentiation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/AutoDiff.html#Introduction-to-MyGrad">Introduction to MyGrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/AutoDiff.html#Vectorized-Auto-Differentiation">Vectorized Auto-Differentiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/AutoDiff.html#Visualizing-the-Derivative">Visualizing the Derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/AutoDiff.html#Seek-and-Derive">Seek and Derive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/AutoDiff.html#Applying-Automatic-Differentiation:-Solving-Optimization-Problems">Applying Automatic Differentiation: Solving Optimization Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module3_IntroducingNumpy/AutoDiff.html#Reading-Comprehension-Exercise-Solutions">Reading Comprehension Exercise Solutions</a></li>
+</ul>
+</li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Module3_IntroducingNumpy/IntroducingTheNDarray.html" class="btn btn-neutral float-right" title="Introducing the ND-array" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Module2_EssentialsOfPython/Problems/EncodeAsString.html" class="btn btn-neutral float-left" title="Encode as String" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Module3_IntroducingNumpy/IntroducingTheNDarray.html" class="btn btn-neutral float-right" title="Introducing the ND-array" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Ryan Soklaski.
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

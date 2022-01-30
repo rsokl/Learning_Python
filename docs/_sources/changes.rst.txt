@@ -6,6 +6,15 @@ This is a record of all past PLYMI releases and what went into them,
 in reverse chronological order.
 
 ----------
+2022-01-29
+----------
+
+- Added a section to Module 3 about drop-in automatic differentiation for NumPy, via the library `MyGrad <https://github.com/rsokl/MyGrad>`_
+- Removed instructions for downgrading `jedi` (upstream bug fixed).
+- Fixed typos.
+
+
+----------
 2021-02-28
 ----------
 

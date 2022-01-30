@@ -1,82 +1,45 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta content="Topic: Controlling behavior with special methods, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Topic: Controlling behavior with special methods, Difficulty: Medium, Category: Section" name="description" />
 <meta content="dunder method, special method, operator overload, repr, getitem, custom syntax, __init__" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Special Methods &mdash; Python Like You Mean It</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Inheritance" href="Inheritance.html" />
     <link rel="prev" title="Applications of Object Oriented Programming" href="Applications_of_OOP.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -84,19 +47,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -125,73 +77,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../module_4.html">Module 4: Object Oriented Programming</a> &raquo;</li>
-        
       <li>Special Methods</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/Module4_OOP/Special_Methods.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -216,8 +126,8 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Special-Methods">
-<h1>Special Methods<a class="headerlink" href="#Special-Methods" title="Permalink to this headline">¶</a></h1>
+<section id="Special-Methods">
+<h1>Special Methods<a class="headerlink" href="#Special-Methods" title="Permalink to this headline"></a></h1>
 <p>In this section, we will learn about a variety of instance methods that are reserved by Python, which affect an object’s high level behavior and its interactions with operators. These are known as special methods. <code class="docutils literal notranslate"><span class="pre">__init__</span></code> is an example of a special method; recall that it controls the process of creating instances of a class. Similarly, we will see that <code class="docutils literal notranslate"><span class="pre">__add__</span></code> controls the behavior of an object when it is operated on by the <code class="docutils literal notranslate"><span class="pre">+</span></code> symbol, for example. In general, the names of special
 methods take the form of <code class="docutils literal notranslate"><span class="pre">__&lt;name&gt;__</span></code>, where the two underscores preceed and succeed the name. Accordingly, special methods can also be referred to as “dunder” (double-underscore) methods. Learning to leverage special methods will enable us to design elegant and powerful classes of objects.</p>
 <p>These methods give us complete control over the various high-level interfaces that we use to interact with objects. Let’s make a simple class with nonsensical behavior to demonstrate our ability to shape how our class behaves:</p>
@@ -243,8 +153,8 @@ methods take the form of <code class="docutils literal notranslate"><span class=
 </div>
 <p>This section is not meant to be a comprehensive treatment of special methods, which would require us to reach beyond our desired level of sophistication. The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">official Python documentation</a> provides a rigorous but somewhat inaccessible treatment of special methods. <a class="reference external" href="http://www.diveintopython3.net/special-method-names.html">Dive into Python 3</a> has an excellent appendix on special methods. It is strongly recommended
 that readers consult this resource.</p>
-<div class="section" id="String-Representations-of-Objects">
-<h2>String-Representations of Objects<a class="headerlink" href="#String-Representations-of-Objects" title="Permalink to this headline">¶</a></h2>
+<section id="String-Representations-of-Objects">
+<h2>String-Representations of Objects<a class="headerlink" href="#String-Representations-of-Objects" title="Permalink to this headline"></a></h2>
 <p>The following methods determines how an object should be represented as a string in various contexts. For example, this text consistently utilizes the fact that passing an object to the Python console will prompt the console to print out a representation of that object as a string. That is,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
@@ -328,9 +238,9 @@ object.</p>
 </pre></div>
 </div>
 <p>See that this simple method makes it much easier for us to inspect the state of our shopping list when we are working in a console/notebook environment.</p>
-</div>
-<div class="section" id="Interfacing-with-Mathematical-Operators">
-<h2>Interfacing with Mathematical Operators<a class="headerlink" href="#Interfacing-with-Mathematical-Operators" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Interfacing-with-Mathematical-Operators">
+<h2>Interfacing with Mathematical Operators<a class="headerlink" href="#Interfacing-with-Mathematical-Operators" title="Permalink to this headline"></a></h2>
 <p>The following special methods control how an object interacts with <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, and other mathematical operators. A full listing of all the special methods used to emulate numeric types can be found <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">here</a></p>
 <table class="docutils align-default">
 <colgroup>
@@ -419,9 +329,9 @@ object.</p>
 </pre></div>
 </div>
 <p>Overloading the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator provides us with a sleek interface for merging multiple shopping lists in a sleek, readable way. <code class="docutils literal notranslate"><span class="pre">food</span> <span class="pre">+</span> <span class="pre">office_supplies</span> <span class="pre">+</span> <span class="pre">clothes</span></code> is equivalent to calling <code class="docutils literal notranslate"><span class="pre">(food.__add__(office_supplies)).__add__(clothes)</span></code>. It is obvious that the former expression is far superior.</p>
-</div>
-<div class="section" id="Creating-a-Container-Like-Class">
-<h2>Creating a Container-Like Class<a class="headerlink" href="#Creating-a-Container-Like-Class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Creating-a-Container-Like-Class">
+<h2>Creating a Container-Like Class<a class="headerlink" href="#Creating-a-Container-Like-Class" title="Permalink to this headline"></a></h2>
 <p>The following special methods allow us to give our class a container interface, like that of a dictionary, set, or list. An exhaustive listing and discussion of these methods can be found <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">here</a></p>
 <table class="docutils align-default">
 <colgroup>
@@ -535,63 +445,46 @@ object.</p>
 <span class="o">||</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Links-to-Official-Documentation">
-<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">Special Methods</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">Emulating Numeric Types</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">Emulating Container Types</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Inheritance.html" class="btn btn-neutral float-right" title="Inheritance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Applications_of_OOP.html" class="btn btn-neutral float-left" title="Applications of Object Oriented Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Inheritance.html" class="btn btn-neutral float-right" title="Inheritance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Ryan Soklaski.
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

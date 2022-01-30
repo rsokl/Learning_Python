@@ -6,6 +6,13 @@ This is a record of all past PLYMI releases and what went into them,
 in reverse chronological order.
 
 ----------
+2021-02-28
+----------
+
+Fixes a syntax error (missing colons) in a code snippet in `a subsection about conditional expressions <https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/ConditionalStatements.html#if,-else,-and-elif>`_.
+
+
+----------
 2021-01-31
 ----------
 

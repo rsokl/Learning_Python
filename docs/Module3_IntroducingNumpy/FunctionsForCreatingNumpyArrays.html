@@ -1,82 +1,45 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta content="Topic: Creating numpy arrays, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Topic: Creating numpy arrays, Difficulty: Easy, Category: Section" name="description" />
 <meta content="create array, ndarray, ones, random, zeros, empty, examples, arange, linspace, reshape, hstack, vstack" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Functions for Creating NumPy Arrays &mdash; Python Like You Mean It</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Iterating Over Arrays &amp; Array-Traversal Order" href="ArrayTraversal.html" />
     <link rel="prev" title="Basic Array Attributes" href="BasicArrayAttributes.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -84,19 +47,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -121,6 +73,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Broadcasting.html">Array Broadcasting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BasicIndexing.html">Introducing Basic and Advanced Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AdvancedIndexing.html">Advanced Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutoDiff.html">Automatic Differentiation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
@@ -129,73 +82,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../module_3.html">Module 3: The Essentials of NumPy</a> &raquo;</li>
-        
       <li>Functions for Creating NumPy Arrays</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/Module3_IntroducingNumpy/FunctionsForCreatingNumpyArrays.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -220,8 +131,8 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Functions-for-Creating-NumPy-Arrays">
-<h1>Functions for Creating NumPy Arrays<a class="headerlink" href="#Functions-for-Creating-NumPy-Arrays" title="Permalink to this headline">¶</a></h1>
+<section id="Functions-for-Creating-NumPy-Arrays">
+<h1>Functions for Creating NumPy Arrays<a class="headerlink" href="#Functions-for-Creating-NumPy-Arrays" title="Permalink to this headline"></a></h1>
 <p>This section presents standard methods for creating NumPy arrays of varying shapes and contents. NumPy provides a laundry list of functions for creating arrays:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -250,8 +161,8 @@
 <span class="go">array([1, 3, 5])</span>
 </pre></div>
 </div>
-<div class="section" id="Creating-Arrays-from-Python-Sequences">
-<h2>Creating Arrays from Python Sequences<a class="headerlink" href="#Creating-Arrays-from-Python-Sequences" title="Permalink to this headline">¶</a></h2>
+<section id="Creating-Arrays-from-Python-Sequences">
+<h2>Creating Arrays from Python Sequences<a class="headerlink" href="#Creating-Arrays-from-Python-Sequences" title="Permalink to this headline"></a></h2>
 <p>You can create an array from a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> or <code class="docutils literal notranslate"><span class="pre">tuple</span></code> by using NumPy’s <code class="docutils literal notranslate"><span class="pre">array</span></code> function. NumPy will interpret the structure of the data it receives to determine the dimensionality and shape of the array. For example, a single list of numbers will be used to create a 1-dimensional array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a list of numbers will become a 1D-array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>  <span class="c1"># shape: (3,)</span>
@@ -282,9 +193,9 @@
 <p class="admonition-title fa fa-exclamation-circle"><strong>Warning!</strong></p>
 <p>You actually <em>can</em> create an array from lists of <em>unequal</em> lengths. The resulting array is <strong>not</strong> an ND-array as it has no well-defined dimensionality. Instead, something called an <em>object-array</em> is produced, which does not benefit from the majority of NumPy’s features. This is a relatively obscure feature of the NumPy library, and should be avoided unless you really know what you’re doing!</p>
 </div>
-</div>
-<div class="section" id="Creating-Constant-Arrays:-zeros-and-ones">
-<h2>Creating Constant Arrays: <code class="docutils literal notranslate"><span class="pre">zeros</span></code> and <code class="docutils literal notranslate"><span class="pre">ones</span></code><a class="headerlink" href="#Creating-Constant-Arrays:-zeros-and-ones" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Creating-Constant-Arrays:-zeros-and-ones">
+<h2>Creating Constant Arrays: <code class="docutils literal notranslate"><span class="pre">zeros</span></code> and <code class="docutils literal notranslate"><span class="pre">ones</span></code><a class="headerlink" href="#Creating-Constant-Arrays:-zeros-and-ones" title="Permalink to this headline"></a></h2>
 <p>NumPy provides the functions <code class="docutils literal notranslate"><span class="pre">zeros</span></code> and <code class="docutils literal notranslate"><span class="pre">ones</span></code>, which will fill an array of user-specified shape with 0s and 1s, respectively:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a 3x4 array of zeros</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -298,9 +209,9 @@
 </pre></div>
 </div>
 <p>NumPy provides additional functions for creating constant-valued arrays. Please refer to <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-creation.html#ones-and-zeros">the official documentation</a> for a complete listing.</p>
-</div>
-<div class="section" id="Creating-Sequential-Arrays:-arange-and-linspace">
-<h2>Creating Sequential Arrays: <code class="docutils literal notranslate"><span class="pre">arange</span></code> and <code class="docutils literal notranslate"><span class="pre">linspace</span></code><a class="headerlink" href="#Creating-Sequential-Arrays:-arange-and-linspace" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Creating-Sequential-Arrays:-arange-and-linspace">
+<h2>Creating Sequential Arrays: <code class="docutils literal notranslate"><span class="pre">arange</span></code> and <code class="docutils literal notranslate"><span class="pre">linspace</span></code><a class="headerlink" href="#Creating-Sequential-Arrays:-arange-and-linspace" title="Permalink to this headline"></a></h2>
 <p>The <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange">arange</a> function allows you to initialize a sequence of integers based on a starting point (inclusive), stopping point (exclusive), and step size. This is very similar to the <code class="docutils literal notranslate"><span class="pre">range</span></code> function; however <code class="docutils literal notranslate"><span class="pre">arange</span></code> immediately creates this sequence as an array, whereas <code class="docutils literal notranslate"><span class="pre">range</span></code> produces a generator.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># start (included): 0, stop (excluded): 10, step:1</span>
 <span class="go">array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
@@ -329,27 +240,30 @@
 </pre></div>
 </div>
 <p>Numpy has other functions for creating sequential arrays, such as producing an array spaced evenly on a log-scaled interval. See the <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-creation.html#numerical-ranges">official documentation</a> for a complete listing.</p>
-</div>
-<div class="section" id="Creating-Arrays-Using-Random-Sampling">
-<h2>Creating Arrays Using Random Sampling<a class="headerlink" href="#Creating-Arrays-Using-Random-Sampling" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Creating-Arrays-Using-Random-Sampling">
+<h2>Creating Arrays Using Random Sampling<a class="headerlink" href="#Creating-Arrays-Using-Random-Sampling" title="Permalink to this headline"></a></h2>
 <p>Several functions can be accessed from <code class="docutils literal notranslate"><span class="pre">np.random</span></code>, which populate arrays of a user-specified shape by drawing randomly from a specified statistical distribution:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a shape-(3,3) array by drawing its entries randomly</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># construct a new random number generator</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="c1"># create a shape-(3,3) array by drawing its entries randomly</span>
 <span class="c1"># from the uniform distribution [0, 1)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">array</span><span class="p">([[</span> <span class="mf">0.09542611</span><span class="p">,</span>  <span class="mf">0.13183498</span><span class="p">,</span>  <span class="mf">0.39836068</span><span class="p">],</span>
        <span class="p">[</span> <span class="mf">0.7358235</span> <span class="p">,</span>  <span class="mf">0.77640024</span><span class="p">,</span>  <span class="mf">0.74913595</span><span class="p">],</span>
        <span class="p">[</span> <span class="mf">0.37702688</span><span class="p">,</span>  <span class="mf">0.86617624</span><span class="p">,</span>  <span class="mf">0.39846429</span><span class="p">]])</span>
 
 <span class="c1"># create a shape-(5,) array by drawing its entries randomly</span>
 <span class="c1"># from a mean-0, variance-1 normal (a.k.a. Gaussian) distribution</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,))</span>
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.11262121</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.35392007</span><span class="p">,</span>  <span class="mf">0.4245215</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.81995588</span><span class="p">,</span>  <span class="mf">0.65412323</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>There are <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.random.html#distributions">many more functions</a> to read about that allow you to draw from a wide variety of statistical distributions. This only scratches the surface of random number generation in NumPy.</p>
-</div>
-<div class="section" id="Creating-an-Array-with-a-Specified-Data-Type">
-<h2>Creating an Array with a Specified Data Type<a class="headerlink" href="#Creating-an-Array-with-a-Specified-Data-Type" title="Permalink to this headline">¶</a></h2>
+<p>There are <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#simple-random-data">many more functions</a> to read about that allow you to draw from a wide variety of statistical distributions. This only scratches the surface of random number generation in NumPy.</p>
+</section>
+<section id="Creating-an-Array-with-a-Specified-Data-Type">
+<h2>Creating an Array with a Specified Data Type<a class="headerlink" href="#Creating-an-Array-with-a-Specified-Data-Type" title="Permalink to this headline"></a></h2>
 <p>Each of the preceding functions used to create an array can be passed a so-called ‘keyword’ argument, <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, which instructs NumPy to use a specified data type when producing the contents of the array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># populate an array using 32-bit floating point numbers</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
@@ -372,9 +286,9 @@
 </pre></div>
 </div>
 <p>Refer to <a class="reference external" href="https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types">the official NumPy documentation</a> for the complete list of available array datatypes.</p>
-</div>
-<div class="section" id="Joining-Arrays-Together">
-<h2>Joining Arrays Together<a class="headerlink" href="#Joining-Arrays-Together" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Joining-Arrays-Together">
+<h2>Joining Arrays Together<a class="headerlink" href="#Joining-Arrays-Together" title="Permalink to this headline"></a></h2>
 <p>Similar to Python lists and tuples, NumPy arrays can be concatenated together. However, because NumPy’s arrays can be multi-dimensional, we can choose the dimension along which arrays are joined.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating methods for joining arrays</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -391,9 +305,9 @@
 </pre></div>
 </div>
 <p>A complete listing of functions for joining arrays can be <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html#joining-arrays">found in the official NumPy documentation</a>. There are also corresponding functions for splitting an array into independent arrays.</p>
-</div>
-<div class="section" id="Links-to-Official-Documentation">
-<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-creation.html#ones-and-zeros">Constant arrays</a></p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy-array">numpy.array</a></p></li>
@@ -402,55 +316,38 @@
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types">Array types</a></p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html#joining-arrays">Joining arrays</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ArrayTraversal.html" class="btn btn-neutral float-right" title="Iterating Over Arrays &amp; Array-Traversal Order" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="BasicArrayAttributes.html" class="btn btn-neutral float-left" title="Basic Array Attributes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ArrayTraversal.html" class="btn btn-neutral float-right" title="Iterating Over Arrays &amp; Array-Traversal Order" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Ryan Soklaski.
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
