@@ -14,7 +14,7 @@ jupyter:
 
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
-   :description: MyGrad is a library that provides drop-in automatic differentiation (autodiff) for NumPy
+   :description: MyGrad is a library that provides drop-in automatic differentiation for NumPy
 <!-- #endraw -->
 
 <div class="alert alert-info">
@@ -30,9 +30,10 @@ This section requires some basic familiarity with Calculus; the reader will be e
 
 <!-- #region -->
 
-(Full disclosure: I, the author of PLYMI, created MyGrad, which we will be discussing here. Like PLYMI it is a completely free and open-source educational resource.)
+(Full disclosure: I created MyGrad, which we will be discussing here. Like PLYMI, MyGrad is a completely free and open-source educational resource.)
 
-This section is not about the essentials of NumPy, rather it is about a 3rd party library, [MyGrad](https://github.com/rsokl/MyGrad), that adds a new capability to NumPy: automatic differentiation is the ability to algorithmically evaluate derivatives of functions.
+This section is not about the essentials of NumPy, rather it is about a 3rd party library, [MyGrad](https://github.com/rsokl/MyGrad), that adds a new capability to NumPy. It adds automatic differentiation: the ability to algorithmically evaluate derivatives of functions.
+
 Automatic differentiation (a.k.a autodiff) is an important technology for scientific computing and machine learning, it enables us to measure rates of change (or "cause and effect") through our code via the derivatives of the mathematical functions that our code computes.
 Autodiff is proving to be so crucial to advancements in STEM-computing that it ought to be introduced to audiences early in their numerical computing journeys.
 This is the motivation for including this section in PLYMI's NumPy module.
@@ -90,8 +91,7 @@ This tensor will *store the point(s) at which we wish to evaluate our function a
 Tensor(5.0)
 ```
 
-We can then pass this tensor into standard math functions, thus evaluating the function at the specified point(s).
-Much like NumPy, MyGrad provides a wide array of mathematical functions that we can apply to tensors.
+We can then pass this tensor directly into NumPy's mathematical functions.
 In this example, our function is $f(x)=x^2$.
 We can compute this just as we would with NumPy: either with `x ** 2` or with `numpy.square(x)`.
 
@@ -102,7 +102,7 @@ We can compute this just as we would with NumPy: either with `x ** 2` or with `n
 Tensor(25.0)
 ```
 
-`fx` stores the value of our function at the given evaluation points, which in this case is $f(5)=5^2=25$.
+`fx` stores the value of our function -- as a `Tensor` -- at the given evaluation points, which in this case is $f(5)=5^2=25$.
 
 Now we can use MyGrad to evaluate the derivative of $f(x)$ at $x=5$.
 Invoking `fx.backward()` instructs MyGrad to evaluate the derivative of `fx` *for each variable that* `fx` *depends on* -- the derivatives of multivariable functions can also be computed.
@@ -126,7 +126,7 @@ Note that all `Tensor` instances have a `grad` attribute, but prior to invoking 
 
 <!-- #endregion -->
 
-It is important to reiterate that MyGrad *never produced the actual function* $\frac{\mathrm{d}f}{\mathrm{d}x}$; it only computes the derivative evaluated at a specific input $x=10$.
+It is important to reiterate that MyGrad *never gives us the actual function* $\frac{\mathrm{d}f}{\mathrm{d}x}$; it only computes the derivative evaluated at a specific input $x=10$.
 
 
 ### MyGrad Adds "Drop-In" AutoDiff to NumPy
@@ -135,7 +135,7 @@ It is important to reiterate that MyGrad *never produced the actual function* $\
 <!-- #region -->
 
 MyGrad's functions are intentionally designed to mirror NumPy's functions almost exactly.
-In fact, for all of the NumPy functions that MyGrad mirrors, we can pass a tensor to a NumPy function and it will be "coerced" into returning a tensor instead of a NumPy array – thus we can autodifferentiate through NumPy functions!
+In fact, for all of the NumPy functions that MyGrad mirrors, we can pass a tensor to a NumPy function and it will be "coerced" into returning a tensor instead of a NumPy array – thus we can differentiate through NumPy functions!
 
 ```python
 # showing off "drop-in" autodiff through NumPy functions
@@ -154,7 +154,7 @@ array(6.)
 
 <!-- #region -->
 How does this work?
-MyGrad's tensor is able to tell NumPy's function to *actually* call a MyGrad function.
+MyGrad's tensor is able to [tell NumPy's function to actually call a MyGrad function](https://numpy.org/neps/nep-0018-array-function-protocol.html).
 That is, the expression
 
 ```python
@@ -182,7 +182,7 @@ out_tensor.backward() # compute d(complicated_numpy_function) / dx !
 ## Vectorized Auto-Differentiation
 
 <!-- #region -->
-In accordance with mirroring NumPy's design, MyGrad supports [vectorized operations](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html), allowing us to evaluate the derivative of a function at multiple points simultaneously.
+Like NumPy's array, MyGrad's tensor supports [vectorized operations](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html), allowing us to evaluate the derivative of a function at multiple points simultaneously.
 Let's again take the function $f(x)=x^2$, which has the derivative $\frac{\mathrm{d}f}{\mathrm{d}x}=2x$.
 Now, instead of passing in a single number to `Tensor`, we can pass in a list of values corresponding to all the points at which we want the compute the derivative.
 We can then find the instantaneous slope of our function at these points, just as before. First we will pass `x` into our function of interest, namely $f(x)=x^2$.
@@ -226,16 +226,6 @@ As expected, MyGrad finds the appropriate value for the derivative evaluated at 
 
 <div class="alert alert-info">
 
-**Takeaway**:
-
-Auto-differentiation libraries will compute the derivative of a function at specified points, provided by the user.
-In MyGrad, `Tensor`s are the building blocks, storing the points at which functions and derivatives will be evaluated.
-Operations in MyGrad are vectorized, like in NumPy, to make element-wise operations fast.
-To signal to MyGrad to compute the derivative of a function, invoke `backward` on the output of the desired function.
-The derivative evaluated at the original points will be stored in the `grad` attribute of the original `Tensor`, with each element in `grad` being the derivative of the function evaluated at the corresponding element in the original `Tensor`.
-
-</div>
-
 
 ## Visualizing the Derivative
 
@@ -258,15 +248,20 @@ def plot_func_and_deriv(x, func):
     fig, ax = plt.subplots()
     
     x = mg.tensor(x)
-    y = func(x)
-    y.backward()
+    y = func(x)  # compute f(x)
+    y.backward() # compute df/dx
     
+    # plot f(x) vs x
     ax.plot(x.data, y.data, label="f(x)")
+    
+    # plot df/dx vs x
     ax.plot(x.data, x.grad, ls="--", label="df/dx")
     ax.grid(True)
     ax.legend()
     return fig, ax
 
+# We will plot f(x) and df/dx on the domain
+# [0, 10] using 10,000 evenly-spaced points 
 x = mg.linspace(0, 10, 10000)
 
 plot_func_and_deriv(x, f);
@@ -276,22 +271,21 @@ plot_func_and_deriv(x, f);
 
 <!-- #region -->
 Computers equipped with automatic differentiation libraries can make short work of derivatives that are well-beyond the reach of mere mortals.
-Let's finish with an example demonstrating how powerful MyGrad is, and why we would want to use it.
 Take the pathological function
 \begin{equation}
 f(x)=e^{(\arctan(82x^3+\ln(x)))}\sqrt{25x^{\frac{1}{22930}}+39e^{\frac{2}{x}}-\sin(x)},
 \end{equation}
 
 the derivative of which would be miserable to do by hand.
-Thankfully we can have MyGrad compute the derivative at a collection of points for us, just as we did before (using vectorization).
+Thankfully we can have MyGrad compute the derivative at a collection of points for us, just as we did before.
 
 ```python
 # Tensor containing the values x = 1, 2, ..., 10
 >>> x = mg.arange(1.0, 11.0)
 
 # Evaluated function at points x = 1, 2, ..., 10
->>> fx = mg.exp(mg.arctan(82 * x ** 3 + mg.log(x)))
->>> fx *= mg.sqrt(25 * x ** (1 / 22930) + 39 * mg.exp(2 / x) - mg.sin(x))
+>>> fx = np.exp(np.arctan(82 * x ** 3 + np.log(x)))
+>>> fx *= np.sqrt(25 * x ** (1 / 22930) + 39 * np.exp(2 / x) - np.sin(x))
 
 >>> fx.backward()
 
@@ -328,14 +322,14 @@ Additionally, plot these functions and their derivatives on the same domains, bu
 
 We are now familiar with what automatic differentiation is and what it does, but *why* is it so useful?
 One of the "killer applications" of autodiff libraries is that they help us solve challenging numerical optimization problems.
-These problems often read as: suppose we have some bounded, finite function $f(x)$; find the value of $x$ *minimizes* (i.e., produces the smallest value for) $f(x)$.
-That is, we want to find the *optimal minimizing* value $x_\mathrm{min}$ such that $f(x_\mathrm{min}) \leq f(x)$ for all other $x$.
+These problems often read as: suppose we have some bounded, finite function $f(x)$; find the value of $x$ that *minimizes* $f(x)$.
+That is, the "optimum" that we want to find is the value $x_\mathrm{min}$ such that $f(x_\mathrm{min}) \leq f(x)$ for all other $x$.
 
 
 How does automatic differentiation help us to solve such a problem? The derivative of a function evaluated at some $x_o$ tells us the slope of the function -- whether it is decreasing or increasing -- at $x_o$.
-This is certainly useful information for helping us search for $x_\mathrm{min}$: always look in the direction of decreasing slope, until the slope goes to $0$!
+This is certainly useful information for helping us search for $x_\mathrm{min}$: always look in the direction of decreasing slope, until the slope goes to $0$.
 
-We start our search for $x_{\mathrm{min}}$ by picking a random starting for value for $x_o$, use the autodiff library to compute $\frac{\mathrm{d}f}{\mathrm{d}x}\big|_{x=x_{o}}$ and then use that information to update $x_o$ in the direction that "descends" $f(x)$.
+We start our search for $x_{\mathrm{min}}$ by picking a random starting for value for $x_o$, use the autodiff library to compute $\frac{\mathrm{d}f}{\mathrm{d}x}\big|_{x=x_{o}}$ and then use that information to "step" $x_o$ in the direction that "descends" $f(x)$. We repeat this process until we see that $\frac{\mathrm{d}f}{\mathrm{d}x}\big|_{x=x_{o}} \approx 0$.
 It must be noted that this approach towards finding $x_\mathrm{min}$ is highly limited; saddle-points can stop us in our tracks, and we will only be able to find *local* minima with this strategy. Nonetheless, it is still very useful!
 
 Let's take a simple example.
@@ -344,7 +338,7 @@ As we search for $x_\mathrm{min}$ we don't want to make our updates to $x_o$
 too big, so we will scale our updates by a factor of $3/10$ (which is somewhat haphazardly here).
 
 ```python
-# Performing gradient descent on ℒ(w) = w ** 2
+# Performing gradient descent on f(x) = (x - 8) ** 2
 x = mg.Tensor(-1.5)
 step_scale = 0.3
 num_steps = 10
@@ -353,7 +347,7 @@ print(x)
 for step_cnt in range(num_steps):
     f = (x - 8.0) ** 2  # evaluate f(xo)
     f.backward()  # compute df/dx @ xo
-    x = x - learning_rate * x.grad  # update xo in direction opposite of df/dx @ xo
+    x = x - step_scale * x.grad  # update xo in direction opposite of df/dx @ xo
     print(x)
 ```
 ```
@@ -373,46 +367,18 @@ Tensor(7.99900385)
 Success! Our autodiff-driven optimization algorithm successfully guides us near the minimum $x_\mathrm{min}=8$.
 
 This simple algorithm is known as [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) (a gradient is a collection of derivatives for a multi-variable function), and it is a powerful technique for finding local minima in differentiable functions.
-As we saw in the preceding section, autodiff libraries enable use to search for local optima of *very* complex functions.
-Furthermore, we are often working with a function that will depend on *hundreds, thousands, or even many millions of variables*.
+As we saw in the preceding section, autodiff libraries enable use to search for local optima of *very* complex functions, and we can often work with functions that will depend on *hundreds, thousands, or even many millions of variables*.
 In such cases, we have no hope of simply plotting the function and literally looking for the minimum, nor do we have any chance of writing down the function's derivative by hand.
-Fortunately, we have gradient descent and autodiff in our toolkit.
+Fortunately, we have autodiff and gradient descent in our toolkit.
 
 For those who have heard of neural networks and deep learning: autodiff libraries, used in conjunction with gradient descent, is how we often "teach" a neural network to perform a task. We use gradient descent to find the optimal parameter values of the neural network; the values are found such that they *minimize the average number of mistakes* the neural makes when performing training tasks.
 
-This section has just scratched the surface of automatic differentiation. Reading about the different algorithms for performing automatic differentiation ([forward-mode differentation, back-propagation, and beyond](https://en.wikipedia.org/wiki/Automatic_differentiation#The_chain_rule,_forward_and_reverse_accumulation)), about computing higher-order derivatives, and about the [interesting advances in programming languages' approaches to automatic differentiation](https://github.com/FluxML/Zygote.jl) are all fascinating and worthwhile endeavors. 
+This section has just scratched the surface of automatic differentiation. Reading about the different algorithms for performing automatic differentiation ([forward-mode differentation, back-propagation, and beyond](https://en.wikipedia.org/wiki/Automatic_differentiation#The_chain_rule,_forward_and_reverse_accumulation)), about computing higher-order derivatives, and about the [interesting advances in programming languages' approaches to automatic differentiation](https://fluxml.ai/blog/2019/02/07/what-is-differentiable-programming.html) are all fascinating and worthwhile endeavors. 
 If you plan to take a course in differential calculus soon, see if you can incorporate autodiff into your coursework!
 
 <!-- #endregion -->
 
 ## Reading Comprehension Exercise Solutions
-
-
-**Taking Derivatives: Solution**
-
-Using the table, the derivative of the first function can be found as
-
-\begin{equation}
-\frac{\mathrm{d}f}{\mathrm{d}x}=\frac{\mathrm{d}x^3}{\mathrm{d}x}+\frac{\mathrm{d}e^x}{\mathrm{d}x}-2\frac{\mathrm{d}\ln(x)}{\mathrm{d}x}=3x^2+e^x-\frac{2}{x}.
-\end{equation}
-
-Thus, $\frac{\mathrm{d}f}{\mathrm{d}x}\big|_{x=5}$ can be computed as
-
-\begin{equation}
-\frac{\mathrm{d}f}{\mathrm{d}x}\bigg|_{x=5}=2(5)^2+e^5-\frac{2}{5}=198.01.
-\end{equation}
-
-The derivative of the second function can be found as
-
-\begin{equation}
-\frac{\mathrm{d}f}{\mathrm{d}x}=\frac{\mathrm{d}(3)}{\mathrm{d}x}+\frac{\mathrm{d}\sin(x)}{\mathrm{d}x}-\frac{1}{2}\frac{\mathrm{d}\cos(x)}{\mathrm{d}x}=0+\cos(x)+\frac{1}{2}\sin(x)=\cos(x)+\frac{1}{2}\sin(x).
-\end{equation}
-
-Evaluating the derivative at $x=5$,
-
-\begin{equation}
-\frac{\mathrm{d}f}{\mathrm{d}x}\bigg|_{x=5}=-0.196.
-\end{equation}
 
 
 **Auto-differentiation: Solution**
