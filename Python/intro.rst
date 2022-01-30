@@ -66,5 +66,4 @@ I started learning to use Python in graduate school for my physics research, and
 Here are some other open source projects that I have created:
 
 - `MyGrad <https://github.com/rsokl/MyGrad>`_: Adds drop-in automatic differentiation to NumPy
-- `hydra-zen <https://github.com/mit-ll-responsible-ai/hydra-zen>_`: Configurable, reproducible, and scalable workflows in Python, via Hydra
-
+- `hydra-zen <https://github.com/mit-ll-responsible-ai/hydra-zen>`_: Configurable, reproducible, and scalable workflows in Python, via Hydra
