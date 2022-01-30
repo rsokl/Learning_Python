@@ -1,82 +1,45 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta content="Topic: Numpy array broadcasting, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Topic: Numpy array broadcasting, Difficulty: Medium, Category: Section" name="description" />
 <meta content="broadcasting, vectorization, rules, mismatched shapes, distances" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Array Broadcasting &mdash; Python Like You Mean It</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introducing Basic and Advanced Indexing" href="BasicIndexing.html" />
     <link rel="prev" title="“Vectorized” Operations: Optimized Computations on NumPy Arrays" href="VectorizedOperations.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -84,19 +47,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -129,6 +81,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="BasicIndexing.html">Introducing Basic and Advanced Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AdvancedIndexing.html">Advanced Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutoDiff.html">Automatic Differentiation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
@@ -137,73 +90,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../module_3.html">Module 3: The Essentials of NumPy</a> &raquo;</li>
-        
       <li>Array Broadcasting</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/Module3_IntroducingNumpy/Broadcasting.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -228,8 +139,8 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Array-Broadcasting">
-<h1>Array Broadcasting<a class="headerlink" href="#Array-Broadcasting" title="Permalink to this headline">¶</a></h1>
+<section id="Array-Broadcasting">
+<h1>Array Broadcasting<a class="headerlink" href="#Array-Broadcasting" title="Permalink to this headline"></a></h1>
 <p>NumPy provides a mechanism for performing mathematical operations on arrays of <em>unequal</em> shapes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -315,8 +226,8 @@
 <p>Array Broadcasting is a mechanism used by NumPy to permit vectorized mathematical operations between arrays of unequal, but compatible shapes. Specifically, an array will be treated as if its contents have been replicated along the appropriate dimensions, such that the shape of this new, higher-dimensional array suits the mathematical operation being performed.</p>
 </div>
 <p>We will now summarize the rules that determine if two arrays are broadcast-compatible with one another, and what the shape of the resulting array will be after the mathematical operation between the two arrays is performed.</p>
-<div class="section" id="Rules-of-Broadcasting">
-<h2>Rules of Broadcasting<a class="headerlink" href="#Rules-of-Broadcasting" title="Permalink to this headline">¶</a></h2>
+<section id="Rules-of-Broadcasting">
+<h2>Rules of Broadcasting<a class="headerlink" href="#Rules-of-Broadcasting" title="Permalink to this headline"></a></h2>
 <p>Array broadcasting cannot accommodate arbitrary combinations of array shapes. For example, a (7,5)-shape array is incompatible with a shape-(11,3) array. Trying to add two such arrays would produce a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>. The following rules determine if two arrays are broadcast-compatible:</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Definition: Rules of Broadcasting</strong>:</p>
@@ -329,39 +240,39 @@
 </div>
 <p>Note that it is okay to have one array with a higher-dimensionality and thus to have “dangling” leading dimensions. Any size-1 dimension or “missing” dimension will be filled-in by broadcasting the content of that array.</p>
 <p>Considering the example from the preceding subsection, let’s see that the shape-(4,3) and shape-(3,) arrays satisfy these rules for broadcast-compatibility:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">3</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">3</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">3</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>     array-1: 4 x 3
+     array-2:     3
+result-shape: 4 x 3
 </pre></div>
 </div>
 <p>Let’s look an assortment of pairs of array-shapes and see whether or not they are broadcast-compatible:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>         <span class="mi">8</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">8</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">8</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>     array-1:         8
+     array-2: 5 x 2 x 8
+result-shape: 5 x 2 x 8
 
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>     <span class="mi">5</span> <span class="n">x</span> <span class="mi">2</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="n">INCOMPATIBLE</span>
+     array-1:     5 x 2
+     array-2: 5 x 4 x 2
+result-shape: INCOMPATIBLE
 
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>     <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">2</span>
+     array-1:     4 x 2
+     array-2: 5 x 4 x 2
+result-shape: 5 x 4 x 2
 
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">8</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">3</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="mi">8</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">3</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">8</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">3</span>
+     array-1: 8 x 1 x 3
+     array-2: 8 x 5 x 3
+result-shape: 8 x 5 x 3
 
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">2</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">9</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">2</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">9</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">2</span>
+     array-1: 5 x 1 x 3 x 2
+     array-2:     9 x 1 x 2
+result-shape: 5 x 9 x 3 x 2
 
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">2</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">8</span> <span class="n">x</span> <span class="mi">2</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="n">INCOMPATIBLE</span>
+     array-1: 1 x 3 x 2
+     array-2:     8 x 2
+result-shape: INCOMPATIBLE
 
-     <span class="n">array</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">1</span>
-     <span class="n">array</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>     <span class="mi">1</span>
-<span class="n">result</span><span class="o">-</span><span class="n">shape</span><span class="p">:</span> <span class="mi">2</span> <span class="n">x</span> <span class="mi">1</span>
+     array-1: 2 x 1
+     array-2:     1
+result-shape: 2 x 1
 </pre></div>
 </div>
 <p>NumPy provides the function <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.broadcast_to.html#numpy.broadcast_to">broadcast_to</a>, which can be used to broadcast an array to a specified shape. This can help us build our intuition for broadcasting. Let’s broadcast a shape-(3,4) array to a shape-(2,3,4) array:</p>
@@ -393,9 +304,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> with <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">x</span> <span class="pre">3</span> <span class="pre">x</span> <span class="pre">2</span></code></p></li>
 </ol>
 </div>
-</div>
-<div class="section" id="A-Simple-Application-of-Array-Broadcasting">
-<h2>A Simple Application of Array Broadcasting<a class="headerlink" href="#A-Simple-Application-of-Array-Broadcasting" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="A-Simple-Application-of-Array-Broadcasting">
+<h2>A Simple Application of Array Broadcasting<a class="headerlink" href="#A-Simple-Application-of-Array-Broadcasting" title="Permalink to this headline"></a></h2>
 <p>Here we provide a simple real-world example where broadcasting is useful. Suppose you have a grade book for 6 students, each of whom have taken 3 exams; naturally, you store these scores in a shape-(6,3) array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># grades for 6 students who have taken 3 exams</span>
 <span class="c1"># axis-0 (rows):    student</span>
@@ -452,13 +363,13 @@ unnecessarily replicate the data of <code class="docutils literal notranslate"><
 <p>Generate a random array of 10,000 2D points using <code class="docutils literal notranslate"><span class="pre">np.random.rand</span></code>. Compute the “center of mass” of these points, which is simply the average x-coordinate and the average y-coordinate of these 10,000 points. Then, use broadcasting to compute the shape-(10000,2) array that stores the position of the points <em>relative</em> to the center of mass. For example, if the center of mass is <span class="math notranslate nohighlight">\((0.5, 1)\)</span>, and the absolute position of a point is <span class="math notranslate nohighlight">\((2, 3)\)</span>, then the position of that point <em>relative</em> to
 the center of mass is simply <span class="math notranslate nohighlight">\((2, 3) - (0.5, 1) = (1.5, 2)\)</span></p>
 </div>
-</div>
-<div class="section" id="Size-1-Axes-&amp;-The-newaxis-Object">
-<h2>Size-1 Axes &amp; The <code class="docutils literal notranslate"><span class="pre">newaxis</span></code> Object<a class="headerlink" href="#Size-1-Axes-&-The-newaxis-Object" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Inserting-Size-1-Dimensions-into-An-Array">
-<h3>Inserting Size-1 Dimensions into An Array<a class="headerlink" href="#Inserting-Size-1-Dimensions-into-An-Array" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Size-1-Axes-&amp;-The-newaxis-Object">
+<h2>Size-1 Axes &amp; The <code class="docutils literal notranslate"><span class="pre">newaxis</span></code> Object<a class="headerlink" href="#Size-1-Axes-&-The-newaxis-Object" title="Permalink to this headline"></a></h2>
+<section id="Inserting-Size-1-Dimensions-into-An-Array">
+<h3>Inserting Size-1 Dimensions into An Array<a class="headerlink" href="#Inserting-Size-1-Dimensions-into-An-Array" title="Permalink to this headline"></a></h3>
 <p>As conveyed by the broadcasting rules, dimensions of size-1 are special in that they can be broadcasted to any size. Here we will learn about introducing size-1 dimensions into an array, for the purpose of tailoring its shape for broadcasting.</p>
-<p>You can introduce size-1 dimensions to an array without changing the overall size (i.e. total number of entries in an array. Thus we are free to add size-1 dimensions to an array via the <code class="docutils literal notranslate"><span class="pre">reshape</span></code> function. Let’s reshape a shape-(3,) array into a shape-(1, 3, 1, 1) array:</p>
+<p>You can introduce size-1 dimensions to an array without changing the overall size (i.e. total number of entries in an array). Thus we are free to add size-1 dimensions to an array via the <code class="docutils literal notranslate"><span class="pre">reshape</span></code> function. Let’s reshape a shape-(3,) array into a shape-(1, 3, 1, 1) array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="go"># Reshaping an array to introduce size-1 dimensions.</span>
@@ -487,9 +398,9 @@ the center of mass is simply <span class="math notranslate nohighlight">\((2, 3)
 </pre></div>
 </div>
 <p>Indexing <code class="docutils literal notranslate"><span class="pre">x</span></code> as <code class="docutils literal notranslate"><span class="pre">x[np.newaxis,</span> <span class="pre">:,</span> <span class="pre">np.newaxis,</span> <span class="pre">np.newaxis]</span></code> returns a “view” of <code class="docutils literal notranslate"><span class="pre">x</span></code> as a 4D array with size-1 dimensions inserted as axes 0, 2, and 3. The resulting array is not a copy of <code class="docutils literal notranslate"><span class="pre">x</span></code>; it points to the exact same data as <code class="docutils literal notranslate"><span class="pre">x</span></code>, but merely with a different indexing layout. This is no different than what we achieved via reshaping: <code class="docutils literal notranslate"><span class="pre">x.reshape(1,</span> <span class="pre">3,</span> <span class="pre">1,</span> <span class="pre">1)</span></code>.</p>
-</div>
-<div class="section" id="Utilizing-Size-1-Dimensions-for-Broadcasting">
-<h3>Utilizing Size-1 Dimensions for Broadcasting<a class="headerlink" href="#Utilizing-Size-1-Dimensions-for-Broadcasting" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Utilizing-Size-1-Dimensions-for-Broadcasting">
+<h3>Utilizing Size-1 Dimensions for Broadcasting<a class="headerlink" href="#Utilizing-Size-1-Dimensions-for-Broadcasting" title="Permalink to this headline"></a></h3>
 <p>Moving on to a more pressing matter: why would we ever want to introduce these spurious dimensions into an array? Let’s take an example to demonstrate the utility of size-1 dimensions.</p>
 <p>Suppose that we want to multiply all possible pairs of entries between two arrays: <code class="docutils literal notranslate"><span class="pre">array([1,</span> <span class="pre">2,</span> <span class="pre">3])</span></code> with <code class="docutils literal notranslate"><span class="pre">array([4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7])</span></code>. That is, we want to perform twelve multiplications, and have access to each result. At first glance, combining a shape-(3,) array with a shape-(4,) array seems inadmissible for broadcasting; we seem to be doomed to perform nested for-loops like a bunch of cavemen and cavewomen. Fortunately, we can make clever use of size-1 dimensions so that we can perform this
 computation in a vectorized way.</p>
@@ -572,10 +483,10 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
 </div>
 <p>Using the sequential function <code class="docutils literal notranslate"><span class="pre">np.max</span></code> and broadcasting, normalize <code class="docutils literal notranslate"><span class="pre">images</span></code> such that the largest value within <em>each color-channel of each image</em> is 1.</p>
 </div>
-</div>
-</div>
-<div class="section" id="An-Advanced-Application-of-Broadcasting:-Pairwise-Distances">
-<h2>An Advanced Application of Broadcasting: Pairwise Distances<a class="headerlink" href="#An-Advanced-Application-of-Broadcasting:-Pairwise-Distances" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="An-Advanced-Application-of-Broadcasting:-Pairwise-Distances">
+<h2>An Advanced Application of Broadcasting: Pairwise Distances<a class="headerlink" href="#An-Advanced-Application-of-Broadcasting:-Pairwise-Distances" title="Permalink to this headline"></a></h2>
 <p>We will conclude this section by demonstrating an important, non-trivial example of array broadcasting. Here, we will find that the most straightforward use of broadcasting is <em>not</em> necessarily the right solution for our problem, and we will see that it can be important to first refactor the mathematical approach taken to perform a calculation before using broadcasting. Specifically, we will see that our initial approach for using of broadcasting is memory-inefficient.</p>
 <p>Suppose we have two, 2D arrays. <code class="docutils literal notranslate"><span class="pre">x</span></code> has a shape of <span class="math notranslate nohighlight">\((M, D)\)</span> and <code class="docutils literal notranslate"><span class="pre">y</span></code> has a shape of <span class="math notranslate nohighlight">\((N, D)\)</span>. We want to compute the Euclidean distance (a.k.a. the <span class="math notranslate nohighlight">\(L_2\)</span>-distance) between <em>each pair</em> of rows between the two arrays. That is, if a given row of <code class="docutils literal notranslate"><span class="pre">x</span></code> is represented by <span class="math notranslate nohighlight">\(D\)</span> numbers <span class="math notranslate nohighlight">\((x_0, x_1, \ldots, x_{D-1})\)</span>, and similarly, a row <code class="docutils literal notranslate"><span class="pre">y</span></code> is represented by <span class="math notranslate nohighlight">\((y_0, y_1, \ldots, y_{D-1})\)</span>, and we want to compute the Euclidean distance between the two rows:</p>
 <div class="math notranslate nohighlight">
@@ -605,8 +516,8 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
 </pre></div>
 </div>
 <p>Thus we will want to compute a total of 30 distances, one for each pair of rows from <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<div class="section" id="Pairwise-Distances-Using-For-Loops">
-<h3>Pairwise Distances Using For-Loops<a class="headerlink" href="#Pairwise-Distances-Using-For-Loops" title="Permalink to this headline">¶</a></h3>
+<section id="Pairwise-Distances-Using-For-Loops">
+<h3>Pairwise Distances Using For-Loops<a class="headerlink" href="#Pairwise-Distances-Using-For-Loops" title="Permalink to this headline"></a></h3>
 <p>Performing this computation using for-loops proceeds as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists_looped</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;  Computing pairwise distances using for-loops</span>
@@ -648,10 +559,10 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
        <span class="p">[</span> <span class="mf">8.2878</span><span class="p">,</span>  <span class="mf">3.5468</span><span class="p">,</span>  <span class="mf">6.336</span> <span class="p">,</span>  <span class="mf">4.9014</span><span class="p">,</span>  <span class="mf">4.1858</span><span class="p">,</span>  <span class="mf">2.0257</span><span class="p">]])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Pairwise-Distances-Using-Broadcasting-(Unoptimized)">
-<h3>Pairwise Distances Using Broadcasting (Unoptimized)<a class="headerlink" href="#Pairwise-Distances-Using-Broadcasting-(Unoptimized)" title="Permalink to this headline">¶</a></h3>
-<p>Now, let’s use of vectorization to perform this distance computation. It must be established immediately that the method that we about to develop here is memory-inefficient. We will address this issue in detail at the end of this subsection.</p>
+</section>
+<section id="Pairwise-Distances-Using-Broadcasting-(Unoptimized)">
+<h3>Pairwise Distances Using Broadcasting (Unoptimized)<a class="headerlink" href="#Pairwise-Distances-Using-Broadcasting-(Unoptimized)" title="Permalink to this headline"></a></h3>
+<p>Now, let’s make use of vectorization to perform this distance computation. It must be established immediately that the method that we are about to develop here is memory-inefficient. We will address this issue in detail at the end of this subsection.</p>
 <p>We start off our vectorized computation by shrewdly inserting size-1 dimensions into <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, so that we can perform <span class="math notranslate nohighlight">\(M \times N\)</span> subtractions between their pairs of length-<span class="math notranslate nohighlight">\(D\)</span> rows. <em>This creates a shape-</em><span class="math notranslate nohighlight">\((M, N, D)\)</span> <em>array</em>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># subtract shape-(5, 1, 3) with shape-(1, 6, 3)</span>
 <span class="c1"># produces shape-(5, 6, 3)</span>
@@ -702,9 +613,9 @@ massive array if <span class="math notranslate nohighlight">\(D\)</span> is a la
 <p>Suppose, for instance, that you are finding the Euclidean between pairs of RGB images that each have a resolution of <span class="math notranslate nohighlight">\(32 \times 32\)</span> (in order to see if the images resemble one another). Thus in this scenario, each image is comprised of <span class="math notranslate nohighlight">\(D = 32 \times 32 \times 3 = 3072\)</span> numbers (<span class="math notranslate nohighlight">\(32^2\)</span> pixels, and each pixel has 3 values: a red, blue, and green-color value). Computing all the distances between a stack of 5000 images with a stack of 100 images would form an intermediate array of
 shape-<span class="math notranslate nohighlight">\((5000, 100, 3072)\)</span>. Even though this large array only exists temporarily, it would have to consume over 6GB of RAM! The for-loop version requires <span class="math notranslate nohighlight">\(\frac{1}{3072}\)</span> as much memory (about 2MB).</p>
 <p>Is our goose cooked? Are we doomed to pick between either slow for-loops, or a memory-inefficient use of vectorization? No! We can refactor the mathematical form of the Euclidean distance in order to avoid the creation of that bloated intermediate array.</p>
-</div>
-<div class="section" id="Optimized-Pairwise-Distances">
-<h3>Optimized Pairwise Distances<a class="headerlink" href="#Optimized-Pairwise-Distances" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Optimized-Pairwise-Distances">
+<h3>Optimized Pairwise Distances<a class="headerlink" href="#Optimized-Pairwise-Distances" title="Permalink to this headline"></a></h3>
 <p>Performing the pairwise subtraction between the respective rows of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> is what created the over-sized intermediate array in our previous calculation. Thus we want to rewrite the Euclidean distance equation such that none of the terms require broadcasting beyond the size of <span class="math notranslate nohighlight">\(M \times N\)</span>.</p>
 <p>The Euclidean distance equation, ignoring the square root for now, can be refactored by multiplying out each squared term as so:</p>
 <div class="math notranslate nohighlight">
@@ -747,13 +658,13 @@ needing to create a larger, intermediate array.</p>
 <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="A-Subtle-Issue-with-Floating-point-Precision">
-<h4>A Subtle Issue with Floating-point Precision<a class="headerlink" href="#A-Subtle-Issue-with-Floating-point-Precision" title="Permalink to this headline">¶</a></h4>
+<section id="A-Subtle-Issue-with-Floating-point-Precision">
+<h4>A Subtle Issue with Floating-point Precision<a class="headerlink" href="#A-Subtle-Issue-with-Floating-point-Precision" title="Permalink to this headline"></a></h4>
 <p>There is one more important and very subtle detail that we have to deal with. In terms of pure mathematics, <code class="docutils literal notranslate"><span class="pre">x_y_sqrd</span> <span class="pre">-</span> <span class="pre">x_y_prod</span></code> must be a strictly non-negative value (i.e. its smallest possible value is <span class="math notranslate nohighlight">\(0\)</span>), since it is equivalent to</p>
 <div class="math notranslate nohighlight">
 \begin{equation}
 \sum_{i=0}^{D-1}{(x_{i} - y_{i})^2}
-\end{equation}</div><p>That being said, are working with floating-point numbers, which do not always behave exactly like rational numbers when we do arithmetic with them. Indeed, we saw earlier that the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">quirks of floating-point arithmetic</a> can lead to surprising results. Here, the strange behavior is that <code class="docutils literal notranslate"><span class="pre">x_y_sqrd</span> <span class="pre">-</span> <span class="pre">x_y_prod</span></code> <strong>can produce negative numbers</strong>!</p>
+\end{equation}</div><p>That being said, we are working with floating-point numbers, which do not always behave exactly like rational numbers when we do arithmetic with them. Indeed, we saw earlier that the <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">quirks of floating-point arithmetic</a> can lead to surprising results. Here, the strange behavior is that <code class="docutils literal notranslate"><span class="pre">x_y_sqrd</span> <span class="pre">-</span> <span class="pre">x_y_prod</span></code> <strong>can produce negative numbers</strong>!</p>
 <p>Let’s see this in action. We’ll take the following shape-(2, 3) array</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A carefully-selected input that will trigger surprising</span>
 <span class="c1"># floating-point precision issues in our distance calculation</span>
@@ -787,9 +698,9 @@ needing to create a larger, intermediate array.</p>
        <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="The-Final-Answer,-At-Last!">
-<h4>The Final Answer, At Last!<a class="headerlink" href="#The-Final-Answer,-At-Last!" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="The-Final-Answer,-At-Last!">
+<h4>The Final Answer, At Last!<a class="headerlink" href="#The-Final-Answer,-At-Last!" title="Permalink to this headline"></a></h4>
 <p>In total, we have successfully used vectorization to compute all the pairs of distances, while only requiring an array of shape-<span class="math notranslate nohighlight">\((M, N)\)</span> to do so! This is the memory-efficient, vectorized form – the stuff that dreams are made of. Let’s write the function that performs this computation in full.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Computing pairwise distances using memory-efficient</span>
@@ -828,18 +739,18 @@ needing to create a larger, intermediate array.</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Checking the equivalence of the three pairwise distance functions</strong></p>
 <p>Use the function <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.allclose.html">numpy.allclose</a> to verify that the three methods for computing the pairwise distances produce the same numerical results.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="Links-to-Official-Documentation">
-<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html#broadcasting">Basics of broadcasting</a></p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html#changing-number-of-dimensions">Broadcasting routines</a></p></li>
 </ul>
-</div>
-<div class="section" id="Reading-Comprehension-Solutions">
-<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Reading-Comprehension-Solutions">
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Broadcast Compatibility: Solution</strong></p>
 <ol class="arabic simple">
 <li><p>Incompatible</p></li>
@@ -945,55 +856,38 @@ needing to create a larger, intermediate array.</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="BasicIndexing.html" class="btn btn-neutral float-right" title="Introducing Basic and Advanced Indexing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="VectorizedOperations.html" class="btn btn-neutral float-left" title="“Vectorized” Operations: Optimized Computations on NumPy Arrays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="BasicIndexing.html" class="btn btn-neutral float-right" title="Introducing Basic and Advanced Indexing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Ryan Soklaski.
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

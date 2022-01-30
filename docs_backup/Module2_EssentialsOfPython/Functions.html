@@ -1,82 +1,45 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta content="Topic: Functions and Function Signatures, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Topic: Functions and Function Signatures, Difficulty: Medium, Category: Section" name="description" />
 <meta content="functions, *args, **kwargs, signature, default parameter, docstring, return, vowel count, syntax, basics" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Basics of Functions &mdash; Python Like You Mean It</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Scope" href="Scope.html" />
     <link rel="prev" title="Python’s “Itertools”" href="Itertools.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -84,19 +47,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -144,73 +96,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
-        
       <li>Basics of Functions</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/Module2_EssentialsOfPython/Functions.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -235,8 +145,8 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Basics-of-Functions">
-<h1>Basics of Functions<a class="headerlink" href="#Basics-of-Functions" title="Permalink to this headline">¶</a></h1>
+<section id="Basics-of-Functions">
+<h1>Basics of Functions<a class="headerlink" href="#Basics-of-Functions" title="Permalink to this headline"></a></h1>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
 <p>There are reading-comprehension exercises included throughout the text. These are meant to help you put your reading to practice. Solutions for the exercises are included at the bottom of this page.</p>
@@ -271,13 +181,13 @@
 <p class="admonition-title fa fa-exclamation-circle"><strong>Definition</strong>:</p>
 <p>A Python <strong>function</strong> is an object that encapsulates code. <em>Calling</em> the function will execute the encapsulated code and <em>return</em> an object. A function can be defined so that it accepts <em>arguments</em>, which are objects that are to be passed to the encapsulated code.</p>
 </div>
-<div class="section" id="The-def-Statement">
-<h2>The <code class="docutils literal notranslate"><span class="pre">def</span></code> Statement<a class="headerlink" href="#The-def-Statement" title="Permalink to this headline">¶</a></h2>
+<section id="The-def-Statement">
+<h2>The <code class="docutils literal notranslate"><span class="pre">def</span></code> Statement<a class="headerlink" href="#The-def-Statement" title="Permalink to this headline"></a></h2>
 <p>Similar to <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, and <code class="docutils literal notranslate"><span class="pre">for</span></code>, the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement is reserved by the Python language to signify the definition of functions (and a few other things that we’ll cover later). The following is the general syntax for defining a Python function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="n">signature</span><span class="o">&gt;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; documentation string &quot;&quot;&quot;</span>
-    <span class="o">&lt;</span><span class="n">encapsulated</span> <span class="n">code</span><span class="o">&gt;</span>
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def &lt;function name&gt;(&lt;function signature&gt;):
+    &quot;&quot;&quot; documentation string &quot;&quot;&quot;
+    &lt;encapsulated code&gt;
+    return &lt;object&gt;
 </pre></div>
 </div>
 <ul class="simple">
@@ -327,9 +237,9 @@
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Writing a Basic Function</strong></p>
 <p>Write a function named <code class="docutils literal notranslate"><span class="pre">count_even</span></code>. It should accept one input argument, named <code class="docutils literal notranslate"><span class="pre">numbers</span></code>, which will be an iterable containing integers. Have the function return the number of even-valued integers contained in the list. Include a reasonable docstring.</p>
 </div>
-</div>
-<div class="section" id="The-return-Statement">
-<h2>The <code class="docutils literal notranslate"><span class="pre">return</span></code> Statement<a class="headerlink" href="#The-return-Statement" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="The-return-Statement">
+<h2>The <code class="docutils literal notranslate"><span class="pre">return</span></code> Statement<a class="headerlink" href="#The-return-Statement" title="Permalink to this headline"></a></h2>
 <p>In general, any Python object can follow a function’s <code class="docutils literal notranslate"><span class="pre">return</span></code> statement. Furthermore, an <strong>empty</strong> <code class="docutils literal notranslate"><span class="pre">return</span></code> statement can be specified, or the <strong>return</strong> statement of a function can be omitted altogether. In both of these cases, <em>the function will return the</em> <code class="docutils literal notranslate"><span class="pre">None</span></code> <em>object</em>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># this function returns `None`</span>
 <span class="c1"># an &quot;empty&quot; return statement</span>
@@ -364,8 +274,8 @@
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">in_string</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">&quot;aeiouAEIOU&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="Multiple-return-Statements">
-<h3>Multiple <code class="docutils literal notranslate"><span class="pre">return</span></code> Statements<a class="headerlink" href="#Multiple-return-Statements" title="Permalink to this headline">¶</a></h3>
+<section id="Multiple-return-Statements">
+<h3>Multiple <code class="docutils literal notranslate"><span class="pre">return</span></code> Statements<a class="headerlink" href="#Multiple-return-Statements" title="Permalink to this headline"></a></h3>
 <p>You can specify more than one <code class="docutils literal notranslate"><span class="pre">return</span></code> statement within a function. This can be useful for handling edge-cases or optimizations in your code. Suppose you want your function to compute <span class="math notranslate nohighlight">\(e^{x}\)</span>, using a <a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series#Exponential_function">Taylor series</a> approximation. The function should immediately return <code class="docutils literal notranslate"><span class="pre">1.0</span></code> in the case that <span class="math notranslate nohighlight">\(x = 0\)</span>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_exp</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Use a Taylor Series to compute e^x &quot;&quot;&quot;</span>
@@ -397,10 +307,10 @@
 <span class="go">(4, 8)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="Inline-Functions">
-<h2>Inline Functions<a class="headerlink" href="#Inline-Functions" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Inline-Functions">
+<h2>Inline Functions<a class="headerlink" href="#Inline-Functions" title="Permalink to this headline"></a></h2>
 <p>Functions can be defined in-line, as a single return statement:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
@@ -411,17 +321,17 @@
 </pre></div>
 </div>
 <p>This should be used sparingly, for exceedingly simple functions that can be easily understood without docstrings.</p>
-</div>
-<div class="section" id="Arguments">
-<h2>Arguments<a class="headerlink" href="#Arguments" title="Permalink to this headline">¶</a></h2>
-<p>A sequence of comma-separated variable names can specified in the function signature to indicated <em>positional</em> arguments for the function. For example, the following specifies <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">lower</span></code>, and <code class="docutils literal notranslate"><span class="pre">upper</span></code> as input arguments to a function, <code class="docutils literal notranslate"><span class="pre">is_bounded</span></code>:</p>
+</section>
+<section id="Arguments">
+<h2>Arguments<a class="headerlink" href="#Arguments" title="Permalink to this headline"></a></h2>
+<p>A sequence of comma-separated variable names can be specified in the function signature to indicated <em>positional</em> arguments for the function. For example, the following specifies <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">lower</span></code>, and <code class="docutils literal notranslate"><span class="pre">upper</span></code> as input arguments to a function, <code class="docutils literal notranslate"><span class="pre">is_bounded</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_bounded</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">lower</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">upper</span>
 </pre></div>
 </div>
 <p>This function can then be passed its arguments in several way:</p>
-<div class="section" id="Specifying-Arguments-by-Position">
-<h3>Specifying Arguments by Position<a class="headerlink" href="#Specifying-Arguments-by-Position" title="Permalink to this headline">¶</a></h3>
+<section id="Specifying-Arguments-by-Position">
+<h3>Specifying Arguments by Position<a class="headerlink" href="#Specifying-Arguments-by-Position" title="Permalink to this headline"></a></h3>
 <p>The objects passed to <code class="docutils literal notranslate"><span class="pre">is_bounded</span></code> will be assigned to its input variables based on their positions. That is, <code class="docutils literal notranslate"><span class="pre">is_bounded(3,</span> <span class="pre">2,</span> <span class="pre">4)</span></code> will assign <code class="docutils literal notranslate"><span class="pre">x=3</span></code>, <code class="docutils literal notranslate"><span class="pre">lower=2</span></code>, and <code class="docutils literal notranslate"><span class="pre">upper=4</span></code>, in accordance with the positional ordering of the function’s input arguments:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># evaluate: 2 &lt;= 3 &lt;= 4</span>
 <span class="c1"># specifying inputs based on position</span>
@@ -437,9 +347,9 @@
 <span class="n">is_bounded</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Specifying-Arguments-by-Name">
-<h3>Specifying Arguments by Name<a class="headerlink" href="#Specifying-Arguments-by-Name" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Specifying-Arguments-by-Name">
+<h3>Specifying Arguments by Name<a class="headerlink" href="#Specifying-Arguments-by-Name" title="Permalink to this headline"></a></h3>
 <p>You can provide explicit names when specifying the inputs to a function, in which case ordering does not matter. This is very nice for writing clear and flexible code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># evaluate: 2 &lt;= 3 &lt;= 4</span>
 <span class="c1"># specify inputs using explicit input names</span>
@@ -461,9 +371,9 @@
 <span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">positional</span> <span class="n">argument</span> <span class="n">follows</span> <span class="n">keyword</span> <span class="n">argument</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Default-Valued-Arguments">
-<h3>Default-Valued Arguments<a class="headerlink" href="#Default-Valued-Arguments" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Default-Valued-Arguments">
+<h3>Default-Valued Arguments<a class="headerlink" href="#Default-Valued-Arguments" title="Permalink to this headline"></a></h3>
 <p>You can specify default values for input arguments to a function. Their default values are utilized if a user does not specify these inputs when calling the function. Recall our <code class="docutils literal notranslate"><span class="pre">count_vowels</span></code> function. Suppose we want the ability to include “y” as a vowel. We know, however, that people will typically want to exclude “y” from their vowels, so we can exclude “y” by default:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_vowels</span><span class="p">(</span><span class="n">in_string</span><span class="p">,</span> <span class="n">include_y</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Returns the number of vowels contained in `in_string`&quot;&quot;&quot;</span>
@@ -506,9 +416,9 @@
 <p>The function should return <code class="docutils literal notranslate"><span class="pre">min(x,</span> <span class="pre">y)</span></code> or <code class="docutils literal notranslate"><span class="pre">max(x,</span> <span class="pre">y)</span></code> according to the <code class="docutils literal notranslate"><span class="pre">mode</span></code>. Have the function return <code class="docutils literal notranslate"><span class="pre">None</span></code> if <code class="docutils literal notranslate"><span class="pre">mode</span></code> is neither <code class="docutils literal notranslate"><span class="pre">&quot;max&quot;</span></code> nor <code class="docutils literal notranslate"><span class="pre">&quot;min&quot;</span></code>.</p>
 <p>Include a descriptive doc-string.</p>
 </div>
-</div>
-<div class="section" id="Accommodating-an-Arbitrary-Number-of-Positional-Arguments">
-<h3>Accommodating an Arbitrary Number of Positional Arguments<a class="headerlink" href="#Accommodating-an-Arbitrary-Number-of-Positional-Arguments" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Accommodating-an-Arbitrary-Number-of-Positional-Arguments">
+<h3>Accommodating an Arbitrary Number of Positional Arguments<a class="headerlink" href="#Accommodating-an-Arbitrary-Number-of-Positional-Arguments" title="Permalink to this headline"></a></h3>
 <p>Python provides us with a syntax for defining a function, which can be called with an arbitrary number of positional arguments. This is signaled by the syntax <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(*&lt;var_name&gt;)</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The * symbol indicates that an arbitrary number of</span>
 <span class="c1"># arguments can be passed to `args`, when calling `f`.</span>
@@ -545,17 +455,17 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># `y` must be specified by name</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">1</span>
-<span class="n">seq</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="mi">5</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x   is:  1
+seq is:  (2, 3, 4)
+y   is:  5
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>  <span class="c1"># no additional positional arguments are passed</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;cat&quot;</span>
-<span class="n">seq</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">()</span>
-<span class="n">y</span>   <span class="ow">is</span><span class="p">:</span>  <span class="s2">&quot;dog&quot;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x   is:  &quot;cat&quot;
+seq is:  ()
+y   is:  &quot;dog&quot;
 </pre></div>
 </div>
 <div class="admonition note">
@@ -605,9 +515,9 @@
 <span class="go">5</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Accommodating-an-Arbitrary-Number-of-Keyword-Arguments">
-<h3>Accommodating an Arbitrary Number of Keyword Arguments<a class="headerlink" href="#Accommodating-an-Arbitrary-Number-of-Keyword-Arguments" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Accommodating-an-Arbitrary-Number-of-Keyword-Arguments">
+<h3>Accommodating an Arbitrary Number of Keyword Arguments<a class="headerlink" href="#Accommodating-an-Arbitrary-Number-of-Keyword-Arguments" title="Permalink to this headline"></a></h3>
 <p>We can also define a function that is able to accept an arbitrary number of <em>keyword</em> arguments, using the syntax: <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(**&lt;var_name&gt;)</span></code></p>
 <p>Note that a single asterisk, <code class="docutils literal notranslate"><span class="pre">*</span></code>, was used to denote an arbitrary number of <em>positional</em> arguments, whereas <code class="docutils literal notranslate"><span class="pre">**</span></code> signals the acceptance of an arbitrary number of <em>keyword</em> arguments.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The ** symbol indicates that an arbitrary number of</span>
@@ -643,18 +553,18 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">is</span><span class="p">:</span>  <span class="mi">1</span>
-<span class="n">y</span> <span class="ow">is</span><span class="p">:</span>  <span class="mi">9</span>
-<span class="n">kwargs</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">{</span><span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="s1">&#39;hi&#39;</span><span class="p">}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x is:  1
+y is:  9
+kwargs is:  {&#39;z&#39;: 3, &#39;k&#39;: &#39;hi&#39;}
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># no additional keyword arguments are passed</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">is</span><span class="p">:</span>  <span class="n">cat</span>
-<span class="n">y</span> <span class="ow">is</span><span class="p">:</span>  <span class="n">dog</span>
-<span class="n">kwargs</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">{}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x is:  cat
+y is:  dog
+kwargs is:  {}
 </pre></div>
 </div>
 <p>The following function accepts an arbitrary number of positional arguments <em>and</em> an arbitrary number of keyword arguments:</p>
@@ -669,8 +579,8 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">hi</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">bye</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">sigh</span><span class="o">=-</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="p">{</span><span class="s1">&#39;hi&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;bye&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;sigh&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(1, 2, 3)
+{&#39;hi&#39;: -1, &#39;bye&#39;: -2, &#39;sigh&#39;: -3}
 </pre></div>
 </div>
 <p>We see that <code class="docutils literal notranslate"><span class="pre">**</span></code> indicates the <em>packing of an arbitrary number of keyword arguments into a dictionary</em>, when used in the signature of a function definition. Simultaneously, <code class="docutils literal notranslate"><span class="pre">**</span></code> signals the <em>unpacking of a dictionary</em> to pass each of its key-value pairs as a keyword argument to a function, when used in the context of calling a function:</p>
@@ -708,10 +618,10 @@
 <span class="go">{&#39;a&#39;: 2, &#39;umbrella&#39;: True, &#39;hi&#39;: 1, &#39;bye&#39;: 2}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="Functions-are-Objects">
-<h2>Functions are Objects<a class="headerlink" href="#Functions-are-Objects" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Functions-are-Objects">
+<h2>Functions are Objects<a class="headerlink" href="#Functions-are-Objects" title="Permalink to this headline"></a></h2>
 <p>Once defined, a function behaves like any other Python object, like a list or string or integer. You can assign a variable to a function-object:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="o">=</span> <span class="n">count_vowels</span>  <span class="c1"># `var` now references the function `count_vowels`</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>        <span class="c1"># you can now &quot;call&quot; `var`</span>
@@ -743,9 +653,9 @@
 <span class="go">&lt;function count_vowels at 0x000002A32898C6A8&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Links-to-Official-Documentation">
-<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#functions">Definition of ‘function’</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">Defining functions</a></p></li>
@@ -756,9 +666,9 @@
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#documentation-strings">Documentation strings</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#function-annotations">Function annotations</a></p></li>
 </ul>
-</div>
-<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
-<h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Reading-Comprehension-Exercise-Solutions:">
+<h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline"></a></h2>
 <p><strong>Writing a Basic Function: Solution</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_even</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Counts the number of even integers in an iterable&quot;&quot;&quot;</span>
@@ -834,55 +744,38 @@
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">if</span> <span class="n">seq</span> <span class="k">else</span> <span class="mi">0</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Scope.html" class="btn btn-neutral float-right" title="Scope" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Itertools.html" class="btn btn-neutral float-left" title="Python’s “Itertools”" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Scope.html" class="btn btn-neutral float-right" title="Scope" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Ryan Soklaski.
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,82 +1,45 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta content="Topic: Data Structures, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Topic: Data Structures, Difficulty: Medium, Category: Section" name="description" />
 <meta content="Big-O, complexity, efficiency, algorithm, interview preparation, list, tuple, sequence" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Data Structures (Part I): Introduction &mdash; Python Like You Mean It</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data Structures (Part II): Dictionaries" href="DataStructures_II_Dictionaries.html" />
     <link rel="prev" title="Scope" href="Scope.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -84,19 +47,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -133,73 +85,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
-        
       <li>Data Structures (Part I): Introduction</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/Module2_EssentialsOfPython/DataStructures.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -224,8 +134,8 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Data-Structures-(Part-I):-Introduction">
-<h1>Data Structures (Part I): Introduction<a class="headerlink" href="#Data-Structures-(Part-I):-Introduction" title="Permalink to this headline">¶</a></h1>
+<section id="Data-Structures-(Part-I):-Introduction">
+<h1>Data Structures (Part I): Introduction<a class="headerlink" href="#Data-Structures-(Part-I):-Introduction" title="Permalink to this headline"></a></h1>
 <p>Here we survey Python’s built-in data structures. You should already be familiar with its lists and tuples, two data structures that facilitate working with sequential data. Two other critical, built-in data structures to be introduced are:</p>
 <ul class="simple">
 <li><p>dictionary: a mapping from “keys” to “values”</p></li>
@@ -265,8 +175,8 @@
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>Python’s data structures come with a wealth of built-in functionality. Furthermore, understanding where each data structure “shines” is critical for writing efficient Python code. It is not necessary to memorize this information, but you should know that it exists and should be referenced frequently.</p>
 </div>
-<div class="section" id="Describing-Algorithm-Complexity">
-<h2>Describing Algorithm Complexity<a class="headerlink" href="#Describing-Algorithm-Complexity" title="Permalink to this headline">¶</a></h2>
+<section id="Describing-Algorithm-Complexity">
+<h2>Describing Algorithm Complexity<a class="headerlink" href="#Describing-Algorithm-Complexity" title="Permalink to this headline"></a></h2>
 <p>In order to meaningfully compare the relative efficiency of algorithms, it is useful to summarize how algorithms “scale” with problem size. Two sorting algorithms may be comparable when sorting tens of items, and yet they may have wildly different performances when sorting thousands of items.</p>
 <p>“Big-O” notation allows us to denote how an algorithm’s run time scales against problem size. Specifically, it signifies the “worst-case scenario” performance of an algorithm.</p>
 <p>Let’s take, for instance, the <code class="docutils literal notranslate"><span class="pre">is_in</span></code> function that we wrote at the beginning of this section. In it, we iterate over a collection to check if it contains a specific item. The worst-case scenario for this algorithm is when the item is not a member of the collection at all - we have to iterate over the entire collection before we can conclude that it does not possess our item. So if we increase the collection to be <span class="math notranslate nohighlight">\(n\)</span> times larger in size, it should take <span class="math notranslate nohighlight">\(n\)</span> times as long to
@@ -301,13 +211,13 @@ by 4 (quadratic scaling).</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>We will be using the “big-O” notation, <span class="math notranslate nohighlight">\(\mathcal{O}(f(n))\)</span>, to summarize the performance of the algorithms used by Python’s data structures.</p>
 </div>
-</div>
-<div class="section" id="Sequential-Data-Structures:-Lists-and-Tuples">
-<h2>Sequential Data Structures: Lists and Tuples<a class="headerlink" href="#Sequential-Data-Structures:-Lists-and-Tuples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Sequential-Data-Structures:-Lists-and-Tuples">
+<h2>Sequential Data Structures: Lists and Tuples<a class="headerlink" href="#Sequential-Data-Structures:-Lists-and-Tuples" title="Permalink to this headline"></a></h2>
 <p>The “Sequence Types” section already introduced lists and tuples. Recall that both provide the same interface for accessing and summarizing the contents of a heterogeneous sequence of objects. However, a list can be mutated - updated, removed from, and added to - whereas a tuple cannot be mutated. Thus a list is <em>mutable</em>, whereas a tuple is <em>immutable</em>. Here you will find a summary of the algorithmic complexities of many of the built-in functions that work on sequential data structures.</p>
 <p>For a complete rundown of the functions available to Python’s list, go <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">here</a>.</p>
-<div class="section" id="List/Tuple-Complexities">
-<h3>List/Tuple Complexities<a class="headerlink" href="#List/Tuple-Complexities" title="Permalink to this headline">¶</a></h3>
+<section id="List/Tuple-Complexities">
+<h3>List/Tuple Complexities<a class="headerlink" href="#List/Tuple-Complexities" title="Permalink to this headline"></a></h3>
 <p>Let <code class="docutils literal notranslate"><span class="pre">seq</span></code> represent a <strong>list or tuple</strong> of length <span class="math notranslate nohighlight">\(n\)</span>; <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are integers drawn randomly from the interval <span class="math notranslate nohighlight">\([0, n-1]\)</span>; <span class="math notranslate nohighlight">\(k\)</span> is the length of any subsequence involved in the operation. The following is a summary of the complexities associated with various common operations using lists and tuple (according to their implementations in CPython):</p>
 <table class="docutils align-default">
 <colgroup>
@@ -352,9 +262,9 @@ by 4 (quadratic scaling).</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="List-Complexities">
-<h3>List Complexities<a class="headerlink" href="#List-Complexities" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="List-Complexities">
+<h3>List Complexities<a class="headerlink" href="#List-Complexities" title="Permalink to this headline"></a></h3>
 <p>Here we consider some mutating operations, like <code class="docutils literal notranslate"><span class="pre">append</span></code>, that are available to lists and not tuples. It is important to note that lists are implemented such that:</p>
 <ul class="simple">
 <li><p>operations that add-to or remove-from the <em>end</em> of the list are <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span></p></li>
@@ -396,56 +306,39 @@ by 4 (quadratic scaling).</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="DataStructures_II_Dictionaries.html" class="btn btn-neutral float-right" title="Data Structures (Part II): Dictionaries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Scope.html" class="btn btn-neutral float-left" title="Scope" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="DataStructures_II_Dictionaries.html" class="btn btn-neutral float-right" title="Data Structures (Part II): Dictionaries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Ryan Soklaski.
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

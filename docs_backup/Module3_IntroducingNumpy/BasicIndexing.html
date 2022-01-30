@@ -1,82 +1,45 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta content="Topic: Numpy array basic indexing, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Topic: Numpy array basic indexing, Difficulty: Medium, Category: Section" name="description" />
 <meta content="basic index, slice, no copy index, multidimensional array, nd array, view, reverse, axis" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Introducing Basic and Advanced Indexing &mdash; Python Like You Mean It</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Advanced Indexing" href="AdvancedIndexing.html" />
     <link rel="prev" title="Array Broadcasting" href="Broadcasting.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -84,19 +47,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -130,6 +82,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="AdvancedIndexing.html">Advanced Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutoDiff.html">Automatic Differentiation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
@@ -138,73 +91,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../module_3.html">Module 3: The Essentials of NumPy</a> &raquo;</li>
-        
       <li>Introducing Basic and Advanced Indexing</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/Module3_IntroducingNumpy/BasicIndexing.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -229,8 +140,8 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Introducing-Basic-and-Advanced-Indexing">
-<h1>Introducing Basic and Advanced Indexing<a class="headerlink" href="#Introducing-Basic-and-Advanced-Indexing" title="Permalink to this headline">¶</a></h1>
+<section id="Introducing-Basic-and-Advanced-Indexing">
+<h1>Introducing Basic and Advanced Indexing<a class="headerlink" href="#Introducing-Basic-and-Advanced-Indexing" title="Permalink to this headline"></a></h1>
 <p>Thus far we have seen that we can access the contents of a NumPy array by specifying an integer or slice-object as an index for each one of its dimensions. Indexing into and slicing along the dimensions of an array are known as basic indexing. NumPy also provides a sophisticated system of “advanced indexing”, which permits us powerful means for accessing elements of an array that is flexible beyond specifying integers and slices along axes. For example, we can use advanced indexing to access all
 of the negative-valued elements from <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating basic indexing and advanced indexing</span>
@@ -254,8 +165,8 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 </pre></div>
 </div>
 <p>We will see that, where basic indexing provides us with a <em>view</em> of the data within the array, without making a copy of it, advanced indexing requires that a copy of the accessed data be made. Here, we will define basic indexing and understand the nuances of working with views of arrays. The next section, then, is dedicated to understanding advanced indexing.</p>
-<div class="section" id="Basic-Indexing">
-<h2>Basic Indexing<a class="headerlink" href="#Basic-Indexing" title="Permalink to this headline">¶</a></h2>
+<section id="Basic-Indexing">
+<h2>Basic Indexing<a class="headerlink" href="#Basic-Indexing" title="Permalink to this headline"></a></h2>
 <p>We begin this subsection by defining precisely what basic indexing is. Next, we will touch on each component of this definition, and lastly we will delve into the significance of basic indexing in the way it permits us to reference the underlying data of an array without copying it.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Definition: Basic Indexing</strong>:</p>
@@ -268,8 +179,8 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 </ul>
 <p>Accessing the contents of an array via basic indexing <em>does not create a copy of those contents</em>. Rather, a “view” of the same underlying data is produced.</p>
 </div>
-<div class="section" id="Indexing-with-Integers-and-Slice-Objects">
-<h3>Indexing with Integers and Slice Objects<a class="headerlink" href="#Indexing-with-Integers-and-Slice-Objects" title="Permalink to this headline">¶</a></h3>
+<section id="Indexing-with-Integers-and-Slice-Objects">
+<h3>Indexing with Integers and Slice Objects<a class="headerlink" href="#Indexing-with-Integers-and-Slice-Objects" title="Permalink to this headline"></a></h3>
 <p>Our discussion of <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/AccessingDataAlongMultipleDimensions.html">accessing data along multiple dimensions of a NumPy array</a> already provided a comprehensive rundown on the use of integers and slices to access the contents of an array. According to the preceding definition, <em>these were all examples of basic indexing</em>.</p>
 <p>To review the material discussed in that section, recall that one can access an individual element or a “subsection” of an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array by specifying <span class="math notranslate nohighlight">\(N\)</span> integers or slice-objects, or a combination of the two. We also saw that, when supplied fewer-than <span class="math notranslate nohighlight">\(N\)</span> indices, NumPy will automatically “fill-in” the remaining indices with trailing slices. Keep in mind that the indices start at 0, such that the 4th column in <code class="docutils literal notranslate"><span class="pre">x</span></code> corresponds to column-3.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accessing the element located</span>
@@ -300,9 +211,9 @@ of the negative-valued elements from <code class="docutils literal notranslate">
        <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span>  <span class="mi">3</span><span class="p">]])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Using-a-Tuple-as-an-N-dimensional-Index">
-<h3>Using a Tuple as an N-dimensional Index<a class="headerlink" href="#Using-a-Tuple-as-an-N-dimensional-Index" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Using-a-Tuple-as-an-N-dimensional-Index">
+<h3>Using a Tuple as an N-dimensional Index<a class="headerlink" href="#Using-a-Tuple-as-an-N-dimensional-Index" title="Permalink to this headline"></a></h3>
 <p>According to its definition, we must supply our array-indices as a tuple in order to invoke basic indexing. As it turns out, we have been forming tuples of indices all along! That is, every time that we index into an array using the syntax <code class="docutils literal notranslate"><span class="pre">x[i,</span> <span class="pre">j,</span> <span class="pre">k]</span></code>, we are actually forming a <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/SequenceTypes.html#Tuples">tuple</a> containing those indices. That is, <code class="docutils literal notranslate"><span class="pre">x[i,</span> <span class="pre">j,</span> <span class="pre">k]</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">x[(i,</span> <span class="pre">j,</span> <span class="pre">k)]</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">x[i,</span> <span class="pre">j,</span> <span class="pre">k]</span></code> forms the tuple <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j,</span> <span class="pre">k)</span></code> and passes that to the array’s “get-item” mechanism. Thus, <code class="docutils literal notranslate"><span class="pre">x[0,</span> <span class="pre">3]</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">x[(0,</span> <span class="pre">3)]</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># N-dimensional indexing utilizes tuples:</span>
@@ -334,9 +245,9 @@ of the negative-valued elements from <code class="docutils literal notranslate">
        <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">6</span><span class="p">]])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Ellipsis-and-Newaxis-objects">
-<h3>Ellipsis and Newaxis objects<a class="headerlink" href="#Ellipsis-and-Newaxis-objects" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Ellipsis-and-Newaxis-objects">
+<h3>Ellipsis and Newaxis objects<a class="headerlink" href="#Ellipsis-and-Newaxis-objects" title="Permalink to this headline"></a></h3>
 <p>Recall from our discussion of broadcasting, that the <code class="docutils literal notranslate"><span class="pre">numpy.newaxis</span></code> object can be passed as an index to an array, in order to <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/Broadcasting.html#Inserting-Size-1-Dimensions-into-An-Array">insert a size-1 dimension into the array</a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># inserting size-1 dimensions with `np.newaxis`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
@@ -406,10 +317,10 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <li><p><code class="docutils literal notranslate"><span class="pre">arr[(np.newaxis,</span> <span class="pre">0,</span> <span class="pre">slice(1,</span> <span class="pre">2),</span> <span class="pre">np.newaxis)]</span></code></p></li>
 </ul>
 </div>
-</div>
-</div>
-<div class="section" id="Producing-a-View-of-an-Array">
-<h2>Producing a View of an Array<a class="headerlink" href="#Producing-a-View-of-an-Array" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Producing-a-View-of-an-Array">
+<h2>Producing a View of an Array<a class="headerlink" href="#Producing-a-View-of-an-Array" title="Permalink to this headline"></a></h2>
 <p>As stated above, using basic indexing does not return a copy of the data being accessed, rather it produces a <em>view</em> of the underlying data. NumPy provides the function <code class="docutils literal notranslate"><span class="pre">numpy.shares_memory</span></code> to determine if two arrays refer to the same underlying data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">3.31</span><span class="p">,</span>  <span class="mf">4.71</span><span class="p">,</span>  <span class="mf">0.4</span> <span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.21</span><span class="p">,</span>  <span class="mf">2.85</span><span class="p">,</span>  <span class="mf">3.21</span><span class="p">],</span>
@@ -473,9 +384,9 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <li><p><code class="docutils literal notranslate"><span class="pre">a8</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">x</span></code></p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="Augmenting-the-Underlying-Data-of-an-Array">
-<h2>Augmenting the Underlying Data of an Array<a class="headerlink" href="#Augmenting-the-Underlying-Data-of-an-Array" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Augmenting-the-Underlying-Data-of-an-Array">
+<h2>Augmenting the Underlying Data of an Array<a class="headerlink" href="#Augmenting-the-Underlying-Data-of-an-Array" title="Permalink to this headline"></a></h2>
 <p>Because basic indexing produces a <em>view</em> of an array’s underlying data, we must take time to understand the ways in which we can <em>augment</em> that underlying data, versus performing operations that produce an array with distinct data. Here we will see that:</p>
 <ul class="simple">
 <li><p>in-place assignments</p></li>
@@ -483,8 +394,8 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <li><p>NumPy functions with the <code class="docutils literal notranslate"><span class="pre">out</span></code> argument</p></li>
 </ul>
 <p>can all be used to augment array data in-place.</p>
-<div class="section" id="In-Place-Assignments">
-<h3>In-Place Assignments<a class="headerlink" href="#In-Place-Assignments" title="Permalink to this headline">¶</a></h3>
+<section id="In-Place-Assignments">
+<h3>In-Place Assignments<a class="headerlink" href="#In-Place-Assignments" title="Permalink to this headline"></a></h3>
 <p>The assignment operator, <code class="docutils literal notranslate"><span class="pre">=</span></code>, can be used to update an array’s data in-place. Consider the array <code class="docutils literal notranslate"><span class="pre">a</span></code>, and its view <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span>
@@ -549,9 +460,9 @@ of the negative-valued elements from <code class="docutils literal notranslate">
 <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span>   <span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Augmented-Assignments">
-<h3>Augmented Assignments<a class="headerlink" href="#Augmented-Assignments" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Augmented-Assignments">
+<h3>Augmented Assignments<a class="headerlink" href="#Augmented-Assignments" title="Permalink to this headline"></a></h3>
 <p>Recall from our discussion of basic mathematical expressions in Python, that <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Augmented-Assignment-Statements">augmented assignment expressions</a> provide a nice shorthand notation for updating the value of a variable. For example, the assignment expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code> can be rewritten using the augmented assignment <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">5</span></code>.</p>
 <p>While <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">5</span></code> is truly only a shorthand in the context of basic Python objects (integers floats, etc.), <em>augmented assignments on NumPy arrays behave fundamentally different than their long-form counterparts</em>. Specifically, they directly update the underlying data referenced by the updated array, rather than creating a distinct array, thus affecting any arrays that are views of that data. We will demonstrate this here.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating that augmented assignments on NumPy</span>
@@ -593,9 +504,9 @@ of the negative-valued elements from <code class="docutils literal notranslate">
        <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Specifying-out-to-Perform-NumPy-Operations-In-Place">
-<h3>Specifying <code class="docutils literal notranslate"><span class="pre">out</span></code> to Perform NumPy Operations In-Place<a class="headerlink" href="#Specifying-out-to-Perform-NumPy-Operations-In-Place" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Specifying-out-to-Perform-NumPy-Operations-In-Place">
+<h3>Specifying <code class="docutils literal notranslate"><span class="pre">out</span></code> to Perform NumPy Operations In-Place<a class="headerlink" href="#Specifying-out-to-Perform-NumPy-Operations-In-Place" title="Permalink to this headline"></a></h3>
 <p>There is no reason why we should only be able to augment data using arithmetic operations. Indeed, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html#NumPy%E2%80%99s-Mathematical-Functions">NumPy’s various mathematical functions</a> have an optional keyword argument, <code class="docutils literal notranslate"><span class="pre">out</span></code>, which can be used to specify where to “store” the result of the mathematical operation. By default, the operation will create a distinct array in memory, leaving the input data
 unaffected.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specifying the &#39;out&#39; argument in a `numpy.exp`</span>
@@ -617,9 +528,9 @@ unaffected.</p>
 <span class="n">array</span><span class="p">([</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.22140276</span><span class="p">,</span> <span class="mf">1.4918247</span><span class="p">,</span> <span class="mf">1.8221188</span><span class="p">,</span> <span class="mf">2.22554093</span><span class="p">,</span> <span class="mf">2.71828183</span><span class="p">])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Benefits-and-Risks-of-Augmenting-Data-In-Place">
-<h3>Benefits and Risks of Augmenting Data In-Place<a class="headerlink" href="#Benefits-and-Risks-of-Augmenting-Data-In-Place" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Benefits-and-Risks-of-Augmenting-Data-In-Place">
+<h3>Benefits and Risks of Augmenting Data In-Place<a class="headerlink" href="#Benefits-and-Risks-of-Augmenting-Data-In-Place" title="Permalink to this headline"></a></h3>
 <p>It is critical to understand the relationship between arrays and the underlying data that they reference. <em>Operations that augment data in-place are more efficient than their counterparts that must allocate memory for a new array.</em> That is, an expression like <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">+=</span> <span class="pre">3</span></code> is more efficient than <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">array</span> <span class="pre">+</span> <span class="pre">3</span></code>.</p>
 <p>That being said, to <em>unwittingly</em> augment the data of an array, and thus affect all views of that data, is a big mistake; this produces hard-to-find bugs in the code of novice NumPy users. See that the following function, <code class="docutils literal notranslate"><span class="pre">add_3</span></code>, will change the data of the input array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># updating an array in-place within a function</span>
@@ -702,17 +613,17 @@ unaffected.</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
 <p>Assignments to views of an array, augmented assignments, and NumPy functions that provide an <code class="docutils literal notranslate"><span class="pre">out</span></code> argument, are all methods for augmenting the data of an array in-place. This will affect any arrays that are views of that data. Furthermore, these in-place operations are more efficient than their counterparts that allocate memory for a new array. That being said, in-place data augmentation must not be used haphazardly, for this will inevitably lead to treacherous bugs in one’s code.</p>
 </div>
-</div>
-</div>
-<div class="section" id="Links-to-Official-Documentation">
-<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#indexing">Basic indexing</a></p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-view">Definition of ‘view’</a></p></li>
 </ul>
-</div>
-<div class="section" id="Reading-Comprehension-Solutions">
-<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Reading-Comprehension-Solutions">
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Ellipsis: Solution</strong></p>
 <p>Given a <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, index into <code class="docutils literal notranslate"><span class="pre">x</span></code> such that you axis entry-0 of axis-0, the last entry of axis-<span class="math notranslate nohighlight">\((N-1)\)</span>, slicing along all intermediate dimensions. <span class="math notranslate nohighlight">\(N\)</span> is at least <span class="math notranslate nohighlight">\(2\)</span>.</p>
 <p>Using an <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> object in the index allows us to signal NumPy to insert the slices along the <span class="math notranslate nohighlight">\(N - 2\)</span> intermediate axis of <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
@@ -799,55 +710,38 @@ unaffected.</p>
 &gt;&gt;&gt; np.square(y, out=y) ✔
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="AdvancedIndexing.html" class="btn btn-neutral float-right" title="Advanced Indexing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Broadcasting.html" class="btn btn-neutral float-left" title="Array Broadcasting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="AdvancedIndexing.html" class="btn btn-neutral float-right" title="Advanced Indexing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Ryan Soklaski.
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

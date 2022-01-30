@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.9.1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -150,19 +150,22 @@ Numpy has other functions for creating sequential arrays, such as producing an a
 ## Creating Arrays Using Random Sampling
 Several functions can be accessed from `np.random`, which populate arrays of a user-specified shape by drawing randomly from a specified statistical distribution:
 ```python
+# construct a new random number generator
+>>> rng = np.random.default_rng()
+
 # create a shape-(3,3) array by drawing its entries randomly
 # from the uniform distribution [0, 1) 
->>> np.random.rand(3,3)
+>>> rng.random((3, 3))
 array([[ 0.09542611,  0.13183498,  0.39836068],
        [ 0.7358235 ,  0.77640024,  0.74913595],
        [ 0.37702688,  0.86617624,  0.39846429]])
 
 # create a shape-(5,) array by drawing its entries randomly
 # from a mean-0, variance-1 normal (a.k.a. Gaussian) distribution
->>> np.random.randn(5)
+>>> rng.normal(size=(5,))
 array([-1.11262121, -0.35392007,  0.4245215 , -0.81995588,  0.65412323])
 ```
-There are [many more functions](https://numpy.org/doc/stable/reference/routines.random.html#distributions) to read about that allow you to draw from a wide variety of statistical distributions. This only scratches the surface of random number generation in NumPy.
+There are [many more functions](https://numpy.org/doc/stable/reference/random/generator.html#simple-random-data) to read about that allow you to draw from a wide variety of statistical distributions. This only scratches the surface of random number generation in NumPy.
 
 <!-- #endregion -->
 

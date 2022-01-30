@@ -6,7 +6,7 @@
 Python Like You Mean It
 =======================
 
-  Written by `Ryan Soklaski <https://scholar.google.com/citations?hl=en&user=coXsftgAAAAJ&view_op=list_works&gmla=AJsN-F7Eg769ERNBQDKZ5-5xmT9qh2G2chKgH0Lwbd3zujR7FAPiWmVp_57dFPKG_h7ghPeLG8oGysj5YWziwXib4oHb6kr2HA>`_ (Twitter/GitHub:`@rsokl <https://twitter.com/rsokl>`_)
+  Written by Ryan Soklaski (Twitter/GitHub:`@rsokl <https://twitter.com/rsokl>`_)
 
   Edited by `David Mascharka <https://davidmascharka.com/>`_
 
@@ -61,4 +61,10 @@ The following people made significant contributions to PLYMI, adding problems wi
 
 About Me
 --------
-I started learning to use Python in graduate school for my physics research, and I was *so* bad at using it. Fortunately, one of my labmates was more experienced and had the good sense to tell me that my code and work flow was terrible. He pointed me to tooling, style guides, and documentation pages so that I could improve (I'd like to think that this resource would have been a huge help to me back then). I've been coding in Python for at least eight years now, and I've taken to following the language, along with its new features and changes, quite closely. Currently I do machine learning research, and have served as a core developer for a machine learning library. I also love to teach, so this has been a fun project for me to take on!
+I started learning to use Python in graduate school for my physics research, and I was *so* bad at using it. Fortunately, one of my labmates was more experienced and had the good sense to tell me that my code and work flow was terrible. He pointed me to tooling, style guides, and documentation pages so that I could improve (I'd like to think that this resource would have been a huge help to me back then). I've been coding in Python for at least ten years now, and I've taken to following the language, along with its new features and changes, quite closely. Currently I do machine learning research, and have served as a core developer for a machine learning library. I also love to teach, so this has been a fun project for me to take on!
+
+Here are some other open source projects that I have created:
+
+- `MyGrad <https://github.com/rsokl/MyGrad>`_: Adds drop-in automatic differentiation to NumPy
+- `hydra-zen <https://github.com/mit-ll-responsible-ai/hydra-zen>_`: Configurable, reproducible, and scalable workflows in Python, via Hydra
+
