@@ -335,7 +335,7 @@ It must be noted that this approach towards finding $x_\mathrm{min}$ is highly l
 Let's take a simple example.
 We'll choose the function $f(x) = (x-8)^2$ and the starting point $x=-1.5$.
 As we search for $x_\mathrm{min}$ we don't want to make our updates to $x_o$
-too big, so we will scale our updates by a factor of $3/10$ (which is somewhat haphazardly here).
+too big, so we will scale our updates by a factor of $3/10$ (the value of which is chosen somewhat haphazardly here).
 
 ```python
 # Performing gradient descent on f(x) = (x - 8) ** 2
