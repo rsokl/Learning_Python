@@ -20,38 +20,6 @@ jupyter:
 
 # Jupyter Notebooks
 
-<div class="alert alert-warning">
-
-**Before You Start This Section**: 
-
-In the following section we will be using IPython or a Jupyter notebook to run our code.
-Presently, there is an incompatibility with these programs and a Python package called `jedi`, which typically is responsible for performing auto-completions in our code (when prompted by hitting `<TAB>`, which we will be doing below).
-It is really useful!
-
-First, let's check to see if we have an incompatible version of `jedi` installed.
-In your terminal (before starting a Python/IPython/Jupyter session), run
-    
-```
-conda list
-```
-
-And look for the line that starts with `jedi`
-    
-```
-jedi                      0.18.0
-```
-
-If you see that you have version `0.18.0` installed (as above), then you will want to downgrade it.
-In the same terminal, run the following command
-
-```
-conda install jedi=0.17.2
-```
-You should be all set once you have followed the prompts and the installation has completed!
-    
-Note that you will need to repeat this process if you [create a new conda environment](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#A-Brief-Introduction-to-Conda-Environments) with IPython/Jupter installed in it.
-</div>
-
 In recent years, the Jupyter Notebook has become a massively popular tool for doing research-oriented work in Python and other languages alike.
 Its emergence marked a paradigm shift in the way data science is conducted. 
 
@@ -224,4 +192,4 @@ The Jupyter Notebook does not work exclusively with Python. A "kernel" can be de
 The ever-growing list of available kernels for use with Jupyter can be found [here](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels). It should be noted that these efforts are not all equally mature. For instance, whereas the Python and Julia kernels are robust, the Haskell kernel cannot run natively on Windows machines, and the C++ kernel is still in early development, as of writing this. 
 
 ### Jupyter Notebook Support in Visual Studio Code
-Native Jupyter notebook support was [recently added to Visual Studio Code](https://devblogs.microsoft.com/python/announcing-support-for-native-editing-of-jupyter-notebooks-in-vs-code/). This means that you can now edit Jupyter notebooks within the [Visual Studio Code IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html), and that you will benefit from added features like code-completion, debugging, and variable inspection.
+[Visual Studio Code provides native support for Jupyter notebooks](https://code.visualstudio.com/docs/datascience/jupyter-notebooks). This means that you can now edit Jupyter notebooks within the [Visual Studio Code IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html), and that you will benefit from added features like code-completion, debugging, and variable inspection.
