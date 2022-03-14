@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Control flow with for-loops and while-loops, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Control flow with for-loops and while-loops, Difficulty: Easy, Category: Section" name="description" />
 <meta content="for-loop, while-loop, break, control flow, basic programming" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -136,14 +135,14 @@
     text-align: unset;
 }
 </style>
-<section id="For-Loops-and-While-Loops">
+<div class="section" id="For-Loops-and-While-Loops">
 <h1>For-Loops and While-Loops<a class="headerlink" href="#For-Loops-and-While-Loops" title="Permalink to this headline"></a></h1>
 <p>In this section, we will introduce the essential “for-loop” control flow paradigm along with the formal definition of an “iterable”. The utility of these items cannot be understated. Moving forward, you will likely find use for these concepts in nearly every piece of Python code that you write!</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
 <p>There are reading-comprehension exercises included throughout the text. These are meant to help you put your reading to practice. Solutions for the exercises are included at the bottom of this page.</p>
 </div>
-<section id="For-Loops">
+<div class="section" id="For-Loops">
 <h2>For-Loops<a class="headerlink" href="#For-Loops" title="Permalink to this headline"></a></h2>
 <p>A “for-loop” allows you to iterate over a collection of items, and execute a block of code once for each iteration. For example, the following code will sum up all the positive numbers in a tuple:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
@@ -188,7 +187,7 @@
 <li><p>Iterate on the list. Having reached its end, a <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> signal it raised by the list, and the for-loop sequence is exited.</p></li>
 <li><p>Print the value of <code class="docutils literal notranslate"><span class="pre">total</span></code> (9)</p></li>
 </ol>
-<section id="Potential-Pitfall">
+<div class="section" id="Potential-Pitfall">
 <h3>Potential Pitfall<a class="headerlink" href="#Potential-Pitfall" title="Permalink to this headline"></a></h3>
 <p>Note that the variable <code class="docutils literal notranslate"><span class="pre">item</span></code> will persist after the for-loop block is exited. It will reference the last value from the for-loop iteration (in this case <code class="docutils literal notranslate"><span class="pre">item</span></code> has the value 5). That being said, <em>you should not write code that depends on the iterate-variable, outside of the context of the for-loop</em>. In the case that you try to loop over an <em>empty</em> iterable, the iterate-variable is never defined:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[]:</span>         <span class="c1"># the iterable is empty - the iterate-variable `x` will not be defined</span>
@@ -201,9 +200,9 @@
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: A basic for-loop</strong></p>
 <p>Using a for-loop and an if-statement, print each letter in the string <code class="docutils literal notranslate"><span class="pre">&quot;abcdefghij&quot;</span></code>, if that letter is a vowel.</p>
 </div>
-</section>
-</section>
-<section id="While-Loops">
+</div>
+</div>
+<div class="section" id="While-Loops">
 <h2>While-Loops<a class="headerlink" href="#While-Loops" title="Permalink to this headline"></a></h2>
 <p>A “while-loop” allows you to repeat a block of code until a condition is no longer true:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>while &lt;condition&gt;:
@@ -245,8 +244,8 @@
 <p>Given a list of nonzero, positive numbers, <code class="docutils literal notranslate"><span class="pre">x</span></code>, append the sum of that list to the end of it. Do this until the last value in <code class="docutils literal notranslate"><span class="pre">x</span></code> is at least 100. Use a while-loop.</p>
 <p>If you start with <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[1]</span></code>, then by the end of your while-loop <code class="docutils literal notranslate"><span class="pre">x</span></code> should be <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">8,</span> <span class="pre">16,</span> <span class="pre">32,</span> <span class="pre">64,</span> <span class="pre">128]</span></code>.</p>
 </div>
-</section>
-<section id="break,-continue,-&amp;-else-clauses-on-loops">
+</div>
+<div class="section" id="break,-continue,-&amp;-else-clauses-on-loops">
 <h2><code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses on loops<a class="headerlink" href="#break,-continue,-&-else-clauses-on-loops" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">continue</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> statements can be used within the bodies of both for-loops and while-loops. They provide added means for “short-circuiting” or prematurely exiting a given loop, respectively.</p>
 <p>Encountering <code class="docutils literal notranslate"><span class="pre">break</span></code> within a given loop causes that loop to be exited immediately:</p>
@@ -305,8 +304,8 @@ x =  3 &gt;&gt; enter loop-body &lt;&lt;
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: conducting flow in a loop</strong></p>
 <p>Loop over a list of integers repeatedly, summing up all of its even values, and adding the content to a total. Repeat this process until the the total exceeds 100, or if you have looped over the list more than 50 times. Print the total only if it exceeds 100.</p>
 </div>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-for-statement">‘for’ statement</a></p></li>
@@ -314,8 +313,8 @@ x =  3 &gt;&gt; enter loop-body &lt;&lt;
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops">‘break’, ‘continue’, and ‘else’ clauses</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#pass-statements">‘pass’ statment</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Exercise-Solutions:">
+</div>
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline"></a></h2>
 <p><strong>A basic for-loop: Solution</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s2">&quot;abcdefghij&quot;</span><span class="p">:</span>
@@ -351,8 +350,8 @@ x =  3 &gt;&gt; enter loop-body &lt;&lt;
     <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

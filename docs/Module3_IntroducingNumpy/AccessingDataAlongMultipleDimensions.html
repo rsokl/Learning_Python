@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Indexing into multi-dimensional numpy arrays, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Indexing into multi-dimensional numpy arrays, Difficulty: Easy, Category: Section" name="description" />
 <meta content="numpy array, multidimensional, index, slice, negative index, rows, columns" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -140,7 +139,7 @@
     text-align: unset;
 }
 </style>
-<section id="Accessing-Data-Along-Multiple-Dimensions-in-an-Array">
+<div class="section" id="Accessing-Data-Along-Multiple-Dimensions-in-an-Array">
 <h1>Accessing Data Along Multiple Dimensions in an Array<a class="headerlink" href="#Accessing-Data-Along-Multiple-Dimensions-in-an-Array" title="Permalink to this headline"></a></h1>
 <p>In this section, we will:</p>
 <ul class="simple">
@@ -184,7 +183,7 @@
 <span class="go">       [3, 2]])</span>
 </pre></div>
 </div>
-<section id="One-dimensional-Arrays">
+<div class="section" id="One-dimensional-Arrays">
 <h2>One-dimensional Arrays<a class="headerlink" href="#One-dimensional-Arrays" title="Permalink to this headline"></a></h2>
 <p>Let’s begin our discussion by constructing a simple ND-array containing three floating-point numbers.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">simple_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.1</span><span class="p">])</span>
@@ -218,8 +217,8 @@
 <p>The <strong>dimensionality</strong> of an array specifies the number of indices that are required to uniquely specify one of its entries.</p>
 </div>
 <p>This definition of dimensionality is common far beyond NumPy; one must use three numbers to uniquely specify a point in physical space, which is why it is said that space consists of three dimensions.</p>
-</section>
-<section id="Two-dimensional-Arrays">
+</div>
+<div class="section" id="Two-dimensional-Arrays">
 <h2>Two-dimensional Arrays<a class="headerlink" href="#Two-dimensional-Arrays" title="Permalink to this headline"></a></h2>
 <p>Before proceeding further down the path of high-dimensional arrays, let’s briefly consider a very simple dataset where the desire to access the data along multiple dimensions is manifestly desirable. Consider the following table from a gradebook:</p>
 <table class="docutils align-default">
@@ -284,7 +283,7 @@ axis-0 -2, 1 |84 |100|
 <span class="go">(3, 2)</span>
 </pre></div>
 </div>
-<section id="Integer-Indexing">
+<div class="section" id="Integer-Indexing">
 <h3>Integer Indexing<a class="headerlink" href="#Integer-Indexing" title="Permalink to this headline"></a></h3>
 <p>Thus, if we want to access Brad’s (item-1 along axis-0) score for Exam 1 (item-0 along axis-1) we simply specify:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># providing two numbers to access an element</span>
@@ -297,8 +296,8 @@ axis-0 -2, 1 |84 |100|
 <span class="mi">84</span>
 </pre></div>
 </div>
-</section>
-<section id="Slice-Indexing">
+</div>
+<div class="section" id="Slice-Indexing">
 <h3>Slice Indexing<a class="headerlink" href="#Slice-Indexing" title="Permalink to this headline"></a></h3>
 <p>We can also uses <em>slices</em> to access subsequences of our data. Suppose we want the scores of all the students for Exam 2. We can slice from 0 through 3 along axis-0 (refer to the indexing diagram in the previous section) to include all the students, and specify index 1 on axis-1 to select Exam 2:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grades</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Exam 2 scores for all students</span>
@@ -317,8 +316,8 @@ axis-0 -2, 1 |84 |100|
 </div>
 <p>The output of <code class="docutils literal notranslate"><span class="pre">grades[:,</span> <span class="pre">:1]</span></code> might look somewhat funny. Because the axis-1 slice only includes one column of numbers, the shape of the resulting array is (3, 1). 0 is thus only valid (non-negative) index for axis-1, since there is only one column to specify in the array.</p>
 <p>You can also supply a “step” value to the slice. <code class="docutils literal notranslate"><span class="pre">grades[::-1,</span> <span class="pre">:]</span></code> will returns the array of grades with the student-axis flipped (reverse-alphabetical order).</p>
-</section>
-<section id="Negative-Indices">
+</div>
+<div class="section" id="Negative-Indices">
 <h3>Negative Indices<a class="headerlink" href="#Negative-Indices" title="Permalink to this headline"></a></h3>
 <p>As indicated above, negative indices are valid too and are quite useful. If we want to access the scores of the latest exam for all of the students, you can specify:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using a negative index and a slice</span>
@@ -327,8 +326,8 @@ axis-0 -2, 1 |84 |100|
 </pre></div>
 </div>
 <p>Note the value of using the negative index is that it will always provide you with the latest exam score - you need not check how many exams the students have taken.</p>
-</section>
-<section id="Supplying-Fewer-Indices-Than-Dimensions">
+</div>
+<div class="section" id="Supplying-Fewer-Indices-Than-Dimensions">
 <h3>Supplying Fewer Indices Than Dimensions<a class="headerlink" href="#Supplying-Fewer-Indices-Than-Dimensions" title="Permalink to this headline"></a></h3>
 <p>What happens if we only supply one index to our array? It may be surprising that <code class="docutils literal notranslate"><span class="pre">grades[0]</span></code> does not throw an error since we are specifying only one index to access data from a 2-dimensional array. Instead, NumPy it will return all of the exam scores for student-0 (Ashley):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grades</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -346,9 +345,9 @@ reviewed here produces a “view” of the original array. That is, <em>no data 
 <p>Keeping track of the meaning of an array’s various dimensions can quickly become unwieldy when working with real datasets. <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray</a> is a Python library that provides functionality comparable to NumPy, but allows users provide <em>explicit labels</em> for an array’s dimensions; that is, you can <em>name</em> each dimension. Using an <code class="docutils literal notranslate"><span class="pre">xarray</span></code> to select Brad’s scores could look like <code class="docutils literal notranslate"><span class="pre">grades.sel(student='Brad')</span></code>, for instance. This is a valuable library to look into at
 your leisure.</p>
 </div>
-</section>
-</section>
-<section id="N-dimensional-Arrays">
+</div>
+</div>
+<div class="section" id="N-dimensional-Arrays">
 <h2>N-dimensional Arrays<a class="headerlink" href="#N-dimensional-Arrays" title="Permalink to this headline"></a></h2>
 <p>Let’s build up some intuition for arrays with a dimensionality higher than 2. The following code creates a 3-dimensional array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a 3D array, shape-(2, 2, 2)</span>
@@ -439,8 +438,8 @@ axis-0
 </pre></div>
 </div>
 </div>
-</section>
-<section id="Zero-dimensional-Arrays">
+</div>
+<div class="section" id="Zero-dimensional-Arrays">
 <h2>Zero-dimensional Arrays<a class="headerlink" href="#Zero-dimensional-Arrays" title="Permalink to this headline"></a></h2>
 <p>A zero dimensional array is simply a single number (a.k.a. a scalar value):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a 0-dimensional array</span>
@@ -468,8 +467,8 @@ axis-0
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>Although accessing data along varying dimensions is ultimately all a matter of judicious bookkeeping (you <em>could</em> access all of this data from a 1-dimensional array, after all), NumPy’s ability to provide users with an interface for accessing data along dimensions is incredibly useful. It affords us an ability to impose intuitive, abstract structure to our data.</p>
 </div>
-</section>
-<section id="Manipulating-Arrays">
+</div>
+<div class="section" id="Manipulating-Arrays">
 <h2>Manipulating Arrays<a class="headerlink" href="#Manipulating-Arrays" title="Permalink to this headline"></a></h2>
 <p>NumPy provides an assortment of functions that allow us manipulate the way that an array’s data can be accessed. These permit us to reshape an array, change its dimensionality, and swap the positions of its axes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
@@ -498,7 +497,7 @@ axis-0
 </pre></div>
 </div>
 <p>A complete listing of the available array-manipulation functions can be found in the <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html">official NumPy documentation</a>. Among these functions, the reshape function is especially useful.</p>
-<section id="Introducing-the-reshape-Function">
+<div class="section" id="Introducing-the-reshape-Function">
 <h3>Introducing the <code class="docutils literal notranslate"><span class="pre">reshape</span></code> Function<a class="headerlink" href="#Introducing-the-reshape-Function" title="Permalink to this headline"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">reshape</span></code> function allows you to change the dimensionality and axis-layout of a given array. This adjusts the indexing interface used to access the array’s underlying data, as was discussed in earlier in this module. Let’s take a shape-(6,) array, and reshape it to a shape-(2, 3) array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -562,9 +561,9 @@ axis-0
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reshaping Does Not Make a Copy of an Array</strong>:</p>
 <p>For all straightforward applications of reshape, NumPy does not actually create a new copy of an array’s data when performing a <code class="docutils literal notranslate"><span class="pre">reshape</span></code> operation. Instead, the original array and the reshaped array reference the same underlying data. The reshaped array simply provides a new index-interface for accessing said data, and is thus referred to as a “view” of the original array (more on this “views” in a later section).</p>
 </div>
-</section>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.ndarray.html">The N-dimensional array</a></p></li>
@@ -572,8 +571,8 @@ axis-0
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.indexing.html#indexing-routines">Indexing routines</a></p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html">Array manipulation routines</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Solutions">
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Reading Comprehension: Multi-dimensional Indexing</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
@@ -611,8 +610,8 @@ axis-0
        <span class="p">[</span><span class="mi">17</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

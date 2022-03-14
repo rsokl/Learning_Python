@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="MyGrad is a library that provides drop-in automatic differentiation for NumPy" name="description" />
+  <meta charset="utf-8" /><meta content="MyGrad is a library that provides drop-in automatic differentiation for NumPy" name="description" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Automatic Differentiation &mdash; Python Like You Mean It</title>
@@ -382,7 +381,7 @@ div.rendered_html tbody tr:hover {
 <p class="admonition-title fa fa-exclamation-circle"><strong>A Note to the Reader</strong>:</p>
 <p>This section requires some basic familiarity with Calculus; the reader will be expected to know what it means to take the derivative of a function, and to have some familiarity with <a class="reference external" href="https://en.wikipedia.org/wiki/Leibniz%27s_notation">Liebnitz notation</a> for representing derivatives.</p>
 </div>
-<section id="Automatic-Differentiation">
+<div class="section" id="Automatic-Differentiation">
 <h1>Automatic Differentiation<a class="headerlink" href="#Automatic-Differentiation" title="Permalink to this headline"></a></h1>
 <p>(Full disclosure: I created MyGrad, which we will be discussing here. Like PLYMI, MyGrad is a completely free and open-source educational resource.)</p>
 <p>This section is not about the essentials of NumPy, rather it is about a 3rd party library, <a class="reference external" href="https://github.com/rsokl/MyGrad">MyGrad</a>, that adds a new capability to NumPy. It adds automatic differentiation: the ability to algorithmically evaluate derivatives of functions.</p>
@@ -403,7 +402,7 @@ evaluated at <span class="math notranslate nohighlight">\(x=1\)</span>.</p>
 </div>
 <p>See that we did not need to know or derive the fact that <span class="math notranslate nohighlight">\(\mathrm{d}f/\mathrm{d}x = 1/(2\sqrt{x})\)</span> – the autodiff library does this for us! This is what sets <code class="docutils literal notranslate"><span class="pre">autodiff_libray.sqrt</span></code> apart from <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code> from Python’s standard library.</p>
 <p>Presently, some of the most popular Python-centric autodiff libraries include <a class="reference external" href="https://pytorch.org/">PyTorch</a>, <a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a>, and <a class="reference external" href="https://jax.readthedocs.io/en/latest/jax.numpy.html">JAX</a>. Among these “industrial-grade” autodiff libraries, JAX strives provide the most NumPy-like experience. <a class="reference external" href="https://github.com/rsokl/MyGrad">MyGrad</a> takes this one step further, and provides true drop-in automatic differentiation to NumPy.</p>
-<section id="Introduction-to-MyGrad">
+<div class="section" id="Introduction-to-MyGrad">
 <h2>Introduction to MyGrad<a class="headerlink" href="#Introduction-to-MyGrad" title="Permalink to this headline"></a></h2>
 <p>Install MyGrad into your Python environment. Open your terminal, activate your desired Python environment, and run the following command.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install mygrad
@@ -441,7 +440,7 @@ differentiation. This tensor will <em>store the point(s) at which we wish to eva
 </div>
 <p>As expected, MyGrad computes the appropriate value for the evaluated derivative: <span class="math notranslate nohighlight">\(\frac{\mathrm{d}f}{\mathrm{d}x}\big|_{x=5}=2 \times 5=10\)</span>. Note that all <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> instances have a <code class="docutils literal notranslate"><span class="pre">grad</span></code> attribute, but prior to invoking <code class="docutils literal notranslate"><span class="pre">fx.backward()</span></code>, <code class="docutils literal notranslate"><span class="pre">x.grad</span></code> would have simply returned <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <p>It is important to reiterate that MyGrad <em>never gives us the actual function</em> <span class="math notranslate nohighlight">\(\frac{\mathrm{d}f}{\mathrm{d}x}\)</span>; it only computes the derivative evaluated at a specific input <span class="math notranslate nohighlight">\(x=10\)</span>.</p>
-<section id="MyGrad-Adds-“Drop-In”-AutoDiff-to-NumPy">
+<div class="section" id="MyGrad-Adds-“Drop-In”-AutoDiff-to-NumPy">
 <h3>MyGrad Adds “Drop-In” AutoDiff to NumPy<a class="headerlink" href="#MyGrad-Adds-“Drop-In”-AutoDiff-to-NumPy" title="Permalink to this headline"></a></h3>
 <p>MyGrad’s functions are intentionally designed to mirror NumPy’s functions almost exactly. In fact, for all of the NumPy functions that MyGrad mirrors, we can pass a tensor to a NumPy function and it will be “coerced” into returning a tensor instead of a NumPy array – thus we can differentiate through NumPy functions!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># showing off &quot;drop-in&quot; autodiff through NumPy functions</span>
@@ -472,9 +471,9 @@ differentiation. This tensor will <em>store the point(s) at which we wish to eva
 <span class="n">out_tensor</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span> <span class="c1"># compute d(complicated_numpy_function) / dx !</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="Vectorized-Auto-Differentiation">
+</div>
+</div>
+<div class="section" id="Vectorized-Auto-Differentiation">
 <h2>Vectorized Auto-Differentiation<a class="headerlink" href="#Vectorized-Auto-Differentiation" title="Permalink to this headline"></a></h2>
 <p>Like NumPy’s array, MyGrad’s tensor supports <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html">vectorized operations</a>, allowing us to evaluate the derivative of a function at multiple points simultaneously. Let’s again take the function <span class="math notranslate nohighlight">\(f(x)=x^2\)</span>, which has the derivative <span class="math notranslate nohighlight">\(\frac{\mathrm{d}f}{\mathrm{d}x}=2x\)</span>. Now, instead of passing in a single number to <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>, we can pass in a list of values corresponding to all the points at which we
 want the compute the derivative. We can then find the instantaneous slope of our function at these points, just as before. First we will pass <code class="docutils literal notranslate"><span class="pre">x</span></code> into our function of interest, namely <span class="math notranslate nohighlight">\(f(x)=x^2\)</span>.</p>
@@ -504,8 +503,8 @@ f\big([2,\, -4,\, 1,\, 3]\big) =  \big[f(2),\, f(-4),\, f(1),\, f(3)\big].
 </pre></div>
 </div>
 <p>As expected, MyGrad finds the appropriate value for the derivative evaluated at each respective element in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<div class="alert alert-info"></section>
-<section id="Visualizing-the-Derivative">
+<div class="alert alert-info"></div>
+<div class="section" id="Visualizing-the-Derivative">
 <h2>Visualizing the Derivative<a class="headerlink" href="#Visualizing-the-Derivative" title="Permalink to this headline"></a></h2>
 <p>The following code block demonstrates how easy it is to visualize a function’s derivative by using MyGrad. Note MyGrad’s <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> stores a NumPy-array of its data, which can be accessed via the <code class="docutils literal notranslate"><span class="pre">.data</span></code> attribute. Any time a library needs to be passed a NumPy array, you can access this array from a tensor through this attribute.</p>
 <p>Study the plot displayed below: notice that the derivative is always <span class="math notranslate nohighlight">\(0\)</span> when the function has a horizontal slope, and that the derivative takes on a positive value wherever the parent function has a positive slope.</p>
@@ -552,8 +551,8 @@ f\big([2,\, -4,\, 1,\, 3]\big) =  \big[f(2),\, f(-4),\, f(1),\, f(3)\big].
 <img alt="../_images/Module3_IntroducingNumpy_AutoDiff_14_0.png" src="../_images/Module3_IntroducingNumpy_AutoDiff_14_0.png" />
 </div>
 </div>
-</section>
-<section id="Seek-and-Derive">
+</div>
+<div class="section" id="Seek-and-Derive">
 <h2>Seek and Derive<a class="headerlink" href="#Seek-and-Derive" title="Permalink to this headline"></a></h2>
 <p>Computers equipped with automatic differentiation libraries can make short work of derivatives that are well-beyond the reach of mere mortals. Take the pathological function <span class="math">\begin{equation}
 f(x)=e^{(\arctan(82x^3+\ln(x)))}\sqrt{25x^{\frac{1}{22930}}+39e^{\frac{2}{x}}-\sin(x)},
@@ -586,8 +585,8 @@ f(x)=e^{(\arctan(82x^3+\ln(x)))}\sqrt{25x^{\frac{1}{22930}}+39e^{\frac{2}{x}}-\s
 <li><p><span class="math notranslate nohighlight">\(f(x)=9\sqrt{1+\frac{x^2}{9}}-9\)</span></p></li>
 </ul>
 </div>
-</section>
-<section id="Applying-Automatic-Differentiation:-Solving-Optimization-Problems">
+</div>
+<div class="section" id="Applying-Automatic-Differentiation:-Solving-Optimization-Problems">
 <h2>Applying Automatic Differentiation: Solving Optimization Problems<a class="headerlink" href="#Applying-Automatic-Differentiation:-Solving-Optimization-Problems" title="Permalink to this headline"></a></h2>
 <p>We are now familiar with what automatic differentiation is and what it does, but <em>why</em> is it so useful? One of the “killer applications” of autodiff libraries is that they help us solve challenging numerical optimization problems. These problems often read as: suppose we have some bounded, finite function <span class="math notranslate nohighlight">\(f(x)\)</span>; find the value of <span class="math notranslate nohighlight">\(x\)</span> that <em>minimizes</em> <span class="math notranslate nohighlight">\(f(x)\)</span>. That is, the “optimum” that we want to find is the value <span class="math notranslate nohighlight">\(x_\mathrm{min}\)</span> such that
 <span class="math notranslate nohighlight">\(f(x_\mathrm{min}) \leq f(x)\)</span> for all other <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -627,8 +626,8 @@ variables</em>. In such cases, we have no hope of simply plotting the function a
 <p>For those who have heard of neural networks and deep learning: autodiff libraries, used in conjunction with gradient descent, is how we often “teach” a neural network to perform a task. We use gradient descent to find the optimal parameter values of the neural network; the values are found such that they <em>minimize the average number of mistakes</em> the neural makes when performing training tasks.</p>
 <p>This section has just scratched the surface of automatic differentiation. Reading about the different algorithms for performing automatic differentiation (<a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_differentiation#The_chain_rule,_forward_and_reverse_accumulation">forward-mode differentation, back-propagation, and beyond</a>), about computing higher-order derivatives, and about the <a class="reference external" href="https://fluxml.ai/blog/2019/02/07/what-is-differentiable-programming.html">interesting advances in programming languages’ approaches to automatic
 differentiation</a> are all fascinating and worthwhile endeavors. If you plan to take a course in differential calculus soon, see if you can incorporate autodiff into your coursework!</p>
-</section>
-<section id="Reading-Comprehension-Exercise-Solutions">
+</div>
+<div class="section" id="Reading-Comprehension-Exercise-Solutions">
 <h2>Reading Comprehension Exercise Solutions<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Auto-differentiation: Solution</strong></p>
 <div class="nbinput docutils container">
@@ -807,8 +806,8 @@ array([-1.66410059, -1.53913231, -1.40226235, -1.25319963, -1.09198696,
 <img alt="../_images/Module3_IntroducingNumpy_AutoDiff_29_0.png" src="../_images/Module3_IntroducingNumpy_AutoDiff_29_0.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

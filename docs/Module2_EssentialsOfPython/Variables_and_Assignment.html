@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: variable naming and assignment, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: variable naming and assignment, Difficulty: Medium, Category: Section" name="description" />
 <meta content="variable naming, valid names, mutable, immutable, reference, pointer" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -135,7 +134,7 @@
     text-align: unset;
 }
 </style>
-<section id="Variables-&amp;-Assignment">
+<div class="section" id="Variables-&amp;-Assignment">
 <h1>Variables &amp; Assignment<a class="headerlink" href="#Variables-&-Assignment" title="Permalink to this headline"></a></h1>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
@@ -162,7 +161,7 @@
     <span class="n">opened_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> | </span><span class="si">{}</span><span class="s2"> | </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="p">,</span> <span class="n">failing</span><span class="p">))</span>
 </pre></div>
 </div>
-<section id="Valid-Names-for-Variables">
+<div class="section" id="Valid-Names-for-Variables">
 <h2>Valid Names for Variables<a class="headerlink" href="#Valid-Names-for-Variables" title="Permalink to this headline"></a></h2>
 <p>A variable name may consist of alphanumeric characters (<code class="docutils literal notranslate"><span class="pre">a-z</span></code>, <code class="docutils literal notranslate"><span class="pre">A-Z</span></code>, <code class="docutils literal notranslate"><span class="pre">0-9</span></code>) and the underscore symbol (<code class="docutils literal notranslate"><span class="pre">_</span></code>); a valid name cannot begin with a numerical value.</p>
 <ul class="simple">
@@ -182,8 +181,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">except</span></code>, <code class="docutils literal notranslate"><span class="pre">finally</span></code></p></li>
 </ul>
 <p>There are other unicode characters that are permitted as valid characters in a Python variable name, but it is not worthwhile to delve into those details here.</p>
-</section>
-<section id="Mutable-and-Immutable-Objects">
+</div>
+<div class="section" id="Mutable-and-Immutable-Objects">
 <h2>Mutable and Immutable Objects<a class="headerlink" href="#Mutable-and-Immutable-Objects" title="Permalink to this headline"></a></h2>
 <p>The <strong>mutability</strong> of an object refers to its ability to have its state changed. A <strong>mutable object</strong> can have its state changed, whereas an <strong>immutable object</strong> cannot. For instance, a list is an example of a mutable object. Once formed, we are able to update the contents of a list - replacing, adding to, and removing its elements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the mutability of a list</span>
@@ -213,7 +212,7 @@
 <span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;tuple&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
 </pre></div>
 </div>
-<section id="Mutable-&amp;-Immutable-Types-of-Objects">
+<div class="section" id="Mutable-&amp;-Immutable-Types-of-Objects">
 <h3>Mutable &amp; Immutable Types of Objects<a class="headerlink" href="#Mutable-&-Immutable-Types-of-Objects" title="Permalink to this headline"></a></h3>
 <p>The following are some common immutable and mutable objects in Python. These will be important to have in mind as we start to work with dictionaries and sets.</p>
 <p><strong>Some immutable objects</strong></p>
@@ -231,9 +230,9 @@
 <li><p><a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure">sets</a></p></li>
 <li><p><a class="reference external" href="https://www.pythonlikeyoumeanit.com/module_3.html">NumPy arrays</a></p></li>
 </ul>
-</section>
-</section>
-<section id="Referencing-a-Mutable-Object-with-Multiple-Variables">
+</div>
+</div>
+<div class="section" id="Referencing-a-Mutable-Object-with-Multiple-Variables">
 <h2>Referencing a Mutable Object with Multiple Variables<a class="headerlink" href="#Referencing-a-Mutable-Object-with-Multiple-Variables" title="Permalink to this headline"></a></h2>
 <p>It is possible to assign variables to other, existing variables. Doing so will cause the variables to reference the same object:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the behavior of variables</span>
@@ -292,8 +291,8 @@
 </pre></div>
 </div>
 </div>
-</section>
-<section id="Reading-Comprehension-Exercise-Solutions:">
+</div>
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline"></a></h2>
 <p><strong>Does slicing a list produce a reference to that list?: Solution</strong></p>
 <p>Based on the following behavior, we can conclude that slicing a list does <strong>not</strong> produce a reference to the original list. Rather, slicing a list produces a copy of the appropriate subsequence of the list:</p>
@@ -313,8 +312,8 @@
 </div>
 <p><strong>Understanding References: Solutions</strong></p>
 <p>Integers are immutable, thus <code class="docutils literal notranslate"><span class="pre">x</span></code> must reference an entirely new object (<code class="docutils literal notranslate"><span class="pre">9</span></code>), and <code class="docutils literal notranslate"><span class="pre">y</span></code> still references <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

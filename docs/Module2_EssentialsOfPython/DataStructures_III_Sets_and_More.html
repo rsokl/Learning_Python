@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Introduction to Sets, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Introduction to Sets, Difficulty: Medium, Category: Section" name="description" />
 <meta content="set, complexity, comparison, union, intersection, membership, hashing, lookup, interview preparation" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -142,9 +141,9 @@
     text-align: unset;
 }
 </style>
-<section id="Data-Structures-(Part-III):-Sets-&amp;-the-Collections-Module">
+<div class="section" id="Data-Structures-(Part-III):-Sets-&amp;-the-Collections-Module">
 <h1>Data Structures (Part III): Sets &amp; the Collections Module<a class="headerlink" href="#Data-Structures-(Part-III):-Sets-&-the-Collections-Module" title="Permalink to this headline"></a></h1>
-<section id="The-“Set”-Data-Structure">
+<div class="section" id="The-“Set”-Data-Structure">
 <h2>The “Set” Data Structure<a class="headerlink" href="#The-“Set”-Data-Structure" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">set</span></code> type describes an <em>unordered</em> collection of <em>unique</em> objects. It is useful for:</p>
 <ul class="simple">
@@ -154,7 +153,7 @@
 </ul>
 <p>A set uses a “hashing” scheme for keeping track of its contents. Thus, like a dictionary’s keys, a set can only store <em>immutable</em> objects so that its hashes will never become invalid. Unlike the other data structures that we have encountered, <em>there is no mechanism for retrieving an individual item from a set</em>. That is, there is no index or key that can be used to retrieve an individual member from a set.</p>
 <p>Python’s sets also support many familiar set-algebra operations, like taking the union or intersection of sets, as we will see below. For an exhaustive listing of the functions available to sets, please consult <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">the official documentation on sets</a>.</p>
-<section id="Creating-a-set">
+<div class="section" id="Creating-a-set">
 <h3>Creating a set<a class="headerlink" href="#Creating-a-set" title="Permalink to this headline"></a></h3>
 <p>You can initialize a set using the syntax: <code class="docutils literal notranslate"><span class="pre">{item1,</span> <span class="pre">item2,</span> <span class="pre">...}</span></code>. Please note that this is distinct from the the dictionary-initialization syntax, which uses a colon to indicate key-value pairs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initializing a set containing various immutable objects</span>
@@ -193,8 +192,8 @@
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Set Creation</strong></p>
 <p>Use a set to find all of the unique letters in the string <code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">cat</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">hat&quot;</span></code>. Ignore all non-letter characters and lowercase all letters.</p>
 </div>
-</section>
-<section id="Set-operations">
+</div>
+<div class="section" id="Set-operations">
 <h3>Set operations<a class="headerlink" href="#Set-operations" title="Permalink to this headline"></a></h3>
 <p>Sets support membership-checking (<span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>) along with iteration (<span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>). Note that sets are unordered; thus the order of iteration is effectively random:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking membership in a set</span>
@@ -270,13 +269,13 @@
 </pre></div>
 </div>
 </div>
-</section>
-</section>
-<section id="The-Collections-Module">
+</div>
+</div>
+<div class="section" id="The-Collections-Module">
 <h2>The Collections Module<a class="headerlink" href="#The-Collections-Module" title="Permalink to this headline"></a></h2>
 <p>Python provides a number of valuable, optimized data structures in its <a class="reference external" href="https://docs.python.org/3/library/collections.html">“collections” module</a>. It is recommended that the reader take some time to peruse this module. Here, we will briefly show off some of the utilities of its data structures.</p>
 <p>Refer to the <a class="reference external" href="https://docs.python.org/3/library/collections.html">official documentation</a> for a complete listing of the functions available to these data structures.</p>
-<section id="Named-Tuple">
+<div class="section" id="Named-Tuple">
 <h3>Named-Tuple<a class="headerlink" href="#Named-Tuple" title="Permalink to this headline"></a></h3>
 <p>A named tuple allows you to form a tuple whose members are named. Thus the user can access a member by name or via index. Otherwise the named tuple behaves just like a typical tuple. This facilitates clean, readable code.</p>
 <p>Suppose, for instance, you want to keep track of the 3D-position and time of an event. You can use a named-tuple so that each space and time coordinate can be referenced “by name”. In this way, the reader doesn’t have to keep in mind that element-3 of your tuple corresponds to time:</p>
@@ -311,8 +310,8 @@
 <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">100.2</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="Default-Dictionary">
+</div>
+<div class="section" id="Default-Dictionary">
 <h3>Default Dictionary<a class="headerlink" href="#Default-Dictionary" title="Permalink to this headline"></a></h3>
 <p>A default dictionary allows you to specify a Python function, <span class="math notranslate nohighlight">\(f\)</span> that will be used as a “default value” for that dictionary. The default value will be whatever <span class="math notranslate nohighlight">\(f()\)</span> returns. That is, whenever you try to access a key that does not exist in the dictionary, instead of raising <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>, the mapping <span class="math notranslate nohighlight">\(key \rightarrow f()\)</span> will be created in the dictionary:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the behavior of the `defaultdict`</span>
@@ -361,8 +360,8 @@
 <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Susan&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">84</span><span class="p">]})</span>
 </pre></div>
 </div>
-</section>
-<section id="Counter">
+</div>
+<div class="section" id="Counter">
 <h3>Counter<a class="headerlink" href="#Counter" title="Permalink to this headline"></a></h3>
 <p>Python’s counter data structure is designed for tallying the unique objects that it encounters. It essentially creates a dictionary that maps: <span class="math notranslate nohighlight">\(obj \rightarrow count\)</span>. Suppose you want to study the distribution of words used in a body of text; counter is perfect for this application:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrate the `Counter` data structure</span>
@@ -402,8 +401,8 @@
 </pre></div>
 </div>
 <p>Refer to the <a class="reference external" href="https://docs.python.org/3/library/collections.html#counter-objects">official documentation</a> for a complete listing of all the nice functions that <code class="docutils literal notranslate"><span class="pre">Counter</span></code> has access to.</p>
-</section>
-<section id="The-deque">
+</div>
+<div class="section" id="The-deque">
 <h3>The deque<a class="headerlink" href="#The-deque" title="Permalink to this headline"></a></h3>
 <p>Like the list, Python’s deque is a mutable, sequential data structure. What distinguishes the deque is that:</p>
 <ul class="simple">
@@ -419,9 +418,9 @@
 <span class="go">deque([0, 1, 2, 3])</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">Sets and frozen sets</a></p>
@@ -431,8 +430,8 @@
 </li>
 <li><p><a class="reference external" href="https://docs.python.org/3/library/collections.html">The collections module</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Solutions">
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Set Creation: Solution</strong></p>
 <p>Use a set to find all of the unique letters in the string <code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">cat</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">hat&quot;</span></code>. Ignore all non-letter characters and lowercase all letters.</p>
@@ -453,8 +452,8 @@
 <span class="go">[&#39;Bohr&#39;, &#39;Fermi&#39;, &#39;Gauss&#39;]</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

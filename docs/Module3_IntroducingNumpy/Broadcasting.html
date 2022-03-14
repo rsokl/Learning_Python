@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Numpy array broadcasting, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Numpy array broadcasting, Difficulty: Medium, Category: Section" name="description" />
 <meta content="broadcasting, vectorization, rules, mismatched shapes, distances" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -139,7 +138,7 @@
     text-align: unset;
 }
 </style>
-<section id="Array-Broadcasting">
+<div class="section" id="Array-Broadcasting">
 <h1>Array Broadcasting<a class="headerlink" href="#Array-Broadcasting" title="Permalink to this headline"></a></h1>
 <p>NumPy provides a mechanism for performing mathematical operations on arrays of <em>unequal</em> shapes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -226,7 +225,7 @@
 <p>Array Broadcasting is a mechanism used by NumPy to permit vectorized mathematical operations between arrays of unequal, but compatible shapes. Specifically, an array will be treated as if its contents have been replicated along the appropriate dimensions, such that the shape of this new, higher-dimensional array suits the mathematical operation being performed.</p>
 </div>
 <p>We will now summarize the rules that determine if two arrays are broadcast-compatible with one another, and what the shape of the resulting array will be after the mathematical operation between the two arrays is performed.</p>
-<section id="Rules-of-Broadcasting">
+<div class="section" id="Rules-of-Broadcasting">
 <h2>Rules of Broadcasting<a class="headerlink" href="#Rules-of-Broadcasting" title="Permalink to this headline"></a></h2>
 <p>Array broadcasting cannot accommodate arbitrary combinations of array shapes. For example, a (7,5)-shape array is incompatible with a shape-(11,3) array. Trying to add two such arrays would produce a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>. The following rules determine if two arrays are broadcast-compatible:</p>
 <div class="admonition warning">
@@ -304,8 +303,8 @@ result-shape: 2 x 1
 <li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> with <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">x</span> <span class="pre">3</span> <span class="pre">x</span> <span class="pre">2</span></code></p></li>
 </ol>
 </div>
-</section>
-<section id="A-Simple-Application-of-Array-Broadcasting">
+</div>
+<div class="section" id="A-Simple-Application-of-Array-Broadcasting">
 <h2>A Simple Application of Array Broadcasting<a class="headerlink" href="#A-Simple-Application-of-Array-Broadcasting" title="Permalink to this headline"></a></h2>
 <p>Here we provide a simple real-world example where broadcasting is useful. Suppose you have a grade book for 6 students, each of whom have taken 3 exams; naturally, you store these scores in a shape-(6,3) array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># grades for 6 students who have taken 3 exams</span>
@@ -363,10 +362,10 @@ unnecessarily replicate the data of <code class="docutils literal notranslate"><
 <p>Generate a random array of 10,000 2D points using <code class="docutils literal notranslate"><span class="pre">np.random.rand</span></code>. Compute the “center of mass” of these points, which is simply the average x-coordinate and the average y-coordinate of these 10,000 points. Then, use broadcasting to compute the shape-(10000,2) array that stores the position of the points <em>relative</em> to the center of mass. For example, if the center of mass is <span class="math notranslate nohighlight">\((0.5, 1)\)</span>, and the absolute position of a point is <span class="math notranslate nohighlight">\((2, 3)\)</span>, then the position of that point <em>relative</em> to
 the center of mass is simply <span class="math notranslate nohighlight">\((2, 3) - (0.5, 1) = (1.5, 2)\)</span></p>
 </div>
-</section>
-<section id="Size-1-Axes-&amp;-The-newaxis-Object">
+</div>
+<div class="section" id="Size-1-Axes-&amp;-The-newaxis-Object">
 <h2>Size-1 Axes &amp; The <code class="docutils literal notranslate"><span class="pre">newaxis</span></code> Object<a class="headerlink" href="#Size-1-Axes-&-The-newaxis-Object" title="Permalink to this headline"></a></h2>
-<section id="Inserting-Size-1-Dimensions-into-An-Array">
+<div class="section" id="Inserting-Size-1-Dimensions-into-An-Array">
 <h3>Inserting Size-1 Dimensions into An Array<a class="headerlink" href="#Inserting-Size-1-Dimensions-into-An-Array" title="Permalink to this headline"></a></h3>
 <p>As conveyed by the broadcasting rules, dimensions of size-1 are special in that they can be broadcasted to any size. Here we will learn about introducing size-1 dimensions into an array, for the purpose of tailoring its shape for broadcasting.</p>
 <p>You can introduce size-1 dimensions to an array without changing the overall size (i.e. total number of entries in an array). Thus we are free to add size-1 dimensions to an array via the <code class="docutils literal notranslate"><span class="pre">reshape</span></code> function. Let’s reshape a shape-(3,) array into a shape-(1, 3, 1, 1) array:</p>
@@ -398,8 +397,8 @@ the center of mass is simply <span class="math notranslate nohighlight">\((2, 3)
 </pre></div>
 </div>
 <p>Indexing <code class="docutils literal notranslate"><span class="pre">x</span></code> as <code class="docutils literal notranslate"><span class="pre">x[np.newaxis,</span> <span class="pre">:,</span> <span class="pre">np.newaxis,</span> <span class="pre">np.newaxis]</span></code> returns a “view” of <code class="docutils literal notranslate"><span class="pre">x</span></code> as a 4D array with size-1 dimensions inserted as axes 0, 2, and 3. The resulting array is not a copy of <code class="docutils literal notranslate"><span class="pre">x</span></code>; it points to the exact same data as <code class="docutils literal notranslate"><span class="pre">x</span></code>, but merely with a different indexing layout. This is no different than what we achieved via reshaping: <code class="docutils literal notranslate"><span class="pre">x.reshape(1,</span> <span class="pre">3,</span> <span class="pre">1,</span> <span class="pre">1)</span></code>.</p>
-</section>
-<section id="Utilizing-Size-1-Dimensions-for-Broadcasting">
+</div>
+<div class="section" id="Utilizing-Size-1-Dimensions-for-Broadcasting">
 <h3>Utilizing Size-1 Dimensions for Broadcasting<a class="headerlink" href="#Utilizing-Size-1-Dimensions-for-Broadcasting" title="Permalink to this headline"></a></h3>
 <p>Moving on to a more pressing matter: why would we ever want to introduce these spurious dimensions into an array? Let’s take an example to demonstrate the utility of size-1 dimensions.</p>
 <p>Suppose that we want to multiply all possible pairs of entries between two arrays: <code class="docutils literal notranslate"><span class="pre">array([1,</span> <span class="pre">2,</span> <span class="pre">3])</span></code> with <code class="docutils literal notranslate"><span class="pre">array([4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7])</span></code>. That is, we want to perform twelve multiplications, and have access to each result. At first glance, combining a shape-(3,) array with a shape-(4,) array seems inadmissible for broadcasting; we seem to be doomed to perform nested for-loops like a bunch of cavemen and cavewomen. Fortunately, we can make clever use of size-1 dimensions so that we can perform this
@@ -483,9 +482,9 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
 </div>
 <p>Using the sequential function <code class="docutils literal notranslate"><span class="pre">np.max</span></code> and broadcasting, normalize <code class="docutils literal notranslate"><span class="pre">images</span></code> such that the largest value within <em>each color-channel of each image</em> is 1.</p>
 </div>
-</section>
-</section>
-<section id="An-Advanced-Application-of-Broadcasting:-Pairwise-Distances">
+</div>
+</div>
+<div class="section" id="An-Advanced-Application-of-Broadcasting:-Pairwise-Distances">
 <h2>An Advanced Application of Broadcasting: Pairwise Distances<a class="headerlink" href="#An-Advanced-Application-of-Broadcasting:-Pairwise-Distances" title="Permalink to this headline"></a></h2>
 <p>We will conclude this section by demonstrating an important, non-trivial example of array broadcasting. Here, we will find that the most straightforward use of broadcasting is <em>not</em> necessarily the right solution for our problem, and we will see that it can be important to first refactor the mathematical approach taken to perform a calculation before using broadcasting. Specifically, we will see that our initial approach for using of broadcasting is memory-inefficient.</p>
 <p>Suppose we have two, 2D arrays. <code class="docutils literal notranslate"><span class="pre">x</span></code> has a shape of <span class="math notranslate nohighlight">\((M, D)\)</span> and <code class="docutils literal notranslate"><span class="pre">y</span></code> has a shape of <span class="math notranslate nohighlight">\((N, D)\)</span>. We want to compute the Euclidean distance (a.k.a. the <span class="math notranslate nohighlight">\(L_2\)</span>-distance) between <em>each pair</em> of rows between the two arrays. That is, if a given row of <code class="docutils literal notranslate"><span class="pre">x</span></code> is represented by <span class="math notranslate nohighlight">\(D\)</span> numbers <span class="math notranslate nohighlight">\((x_0, x_1, \ldots, x_{D-1})\)</span>, and similarly, a row <code class="docutils literal notranslate"><span class="pre">y</span></code> is represented by <span class="math notranslate nohighlight">\((y_0, y_1, \ldots, y_{D-1})\)</span>, and we want to compute the Euclidean distance between the two rows:</p>
@@ -516,7 +515,7 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
 </pre></div>
 </div>
 <p>Thus we will want to compute a total of 30 distances, one for each pair of rows from <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<section id="Pairwise-Distances-Using-For-Loops">
+<div class="section" id="Pairwise-Distances-Using-For-Loops">
 <h3>Pairwise Distances Using For-Loops<a class="headerlink" href="#Pairwise-Distances-Using-For-Loops" title="Permalink to this headline"></a></h3>
 <p>Performing this computation using for-loops proceeds as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists_looped</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -559,8 +558,8 @@ shape-<span class="math notranslate nohighlight">\((M, N)\)</span> array storing
        <span class="p">[</span> <span class="mf">8.2878</span><span class="p">,</span>  <span class="mf">3.5468</span><span class="p">,</span>  <span class="mf">6.336</span> <span class="p">,</span>  <span class="mf">4.9014</span><span class="p">,</span>  <span class="mf">4.1858</span><span class="p">,</span>  <span class="mf">2.0257</span><span class="p">]])</span>
 </pre></div>
 </div>
-</section>
-<section id="Pairwise-Distances-Using-Broadcasting-(Unoptimized)">
+</div>
+<div class="section" id="Pairwise-Distances-Using-Broadcasting-(Unoptimized)">
 <h3>Pairwise Distances Using Broadcasting (Unoptimized)<a class="headerlink" href="#Pairwise-Distances-Using-Broadcasting-(Unoptimized)" title="Permalink to this headline"></a></h3>
 <p>Now, let’s make use of vectorization to perform this distance computation. It must be established immediately that the method that we are about to develop here is memory-inefficient. We will address this issue in detail at the end of this subsection.</p>
 <p>We start off our vectorized computation by shrewdly inserting size-1 dimensions into <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, so that we can perform <span class="math notranslate nohighlight">\(M \times N\)</span> subtractions between their pairs of length-<span class="math notranslate nohighlight">\(D\)</span> rows. <em>This creates a shape-</em><span class="math notranslate nohighlight">\((M, N, D)\)</span> <em>array</em>.</p>
@@ -613,8 +612,8 @@ massive array if <span class="math notranslate nohighlight">\(D\)</span> is a la
 <p>Suppose, for instance, that you are finding the Euclidean between pairs of RGB images that each have a resolution of <span class="math notranslate nohighlight">\(32 \times 32\)</span> (in order to see if the images resemble one another). Thus in this scenario, each image is comprised of <span class="math notranslate nohighlight">\(D = 32 \times 32 \times 3 = 3072\)</span> numbers (<span class="math notranslate nohighlight">\(32^2\)</span> pixels, and each pixel has 3 values: a red, blue, and green-color value). Computing all the distances between a stack of 5000 images with a stack of 100 images would form an intermediate array of
 shape-<span class="math notranslate nohighlight">\((5000, 100, 3072)\)</span>. Even though this large array only exists temporarily, it would have to consume over 6GB of RAM! The for-loop version requires <span class="math notranslate nohighlight">\(\frac{1}{3072}\)</span> as much memory (about 2MB).</p>
 <p>Is our goose cooked? Are we doomed to pick between either slow for-loops, or a memory-inefficient use of vectorization? No! We can refactor the mathematical form of the Euclidean distance in order to avoid the creation of that bloated intermediate array.</p>
-</section>
-<section id="Optimized-Pairwise-Distances">
+</div>
+<div class="section" id="Optimized-Pairwise-Distances">
 <h3>Optimized Pairwise Distances<a class="headerlink" href="#Optimized-Pairwise-Distances" title="Permalink to this headline"></a></h3>
 <p>Performing the pairwise subtraction between the respective rows of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> is what created the over-sized intermediate array in our previous calculation. Thus we want to rewrite the Euclidean distance equation such that none of the terms require broadcasting beyond the size of <span class="math notranslate nohighlight">\(M \times N\)</span>.</p>
 <p>The Euclidean distance equation, ignoring the square root for now, can be refactored by multiplying out each squared term as so:</p>
@@ -658,7 +657,7 @@ needing to create a larger, intermediate array.</p>
 <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
-<section id="A-Subtle-Issue-with-Floating-point-Precision">
+<div class="section" id="A-Subtle-Issue-with-Floating-point-Precision">
 <h4>A Subtle Issue with Floating-point Precision<a class="headerlink" href="#A-Subtle-Issue-with-Floating-point-Precision" title="Permalink to this headline"></a></h4>
 <p>There is one more important and very subtle detail that we have to deal with. In terms of pure mathematics, <code class="docutils literal notranslate"><span class="pre">x_y_sqrd</span> <span class="pre">-</span> <span class="pre">x_y_prod</span></code> must be a strictly non-negative value (i.e. its smallest possible value is <span class="math notranslate nohighlight">\(0\)</span>), since it is equivalent to</p>
 <div class="math notranslate nohighlight">
@@ -698,8 +697,8 @@ needing to create a larger, intermediate array.</p>
        <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]])</span>
 </pre></div>
 </div>
-</section>
-<section id="The-Final-Answer,-At-Last!">
+</div>
+<div class="section" id="The-Final-Answer,-At-Last!">
 <h4>The Final Answer, At Last!<a class="headerlink" href="#The-Final-Answer,-At-Last!" title="Permalink to this headline"></a></h4>
 <p>In total, we have successfully used vectorization to compute all the pairs of distances, while only requiring an array of shape-<span class="math notranslate nohighlight">\((M, N)\)</span> to do so! This is the memory-efficient, vectorized form – the stuff that dreams are made of. Let’s write the function that performs this computation in full.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_dists</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -739,17 +738,17 @@ needing to create a larger, intermediate array.</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Checking the equivalence of the three pairwise distance functions</strong></p>
 <p>Use the function <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.allclose.html">numpy.allclose</a> to verify that the three methods for computing the pairwise distances produce the same numerical results.</p>
 </div>
-</section>
-</section>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html#broadcasting">Basics of broadcasting</a></p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.array-manipulation.html#changing-number-of-dimensions">Broadcasting routines</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Solutions">
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Broadcast Compatibility: Solution</strong></p>
 <ol class="arabic simple">
@@ -856,8 +855,8 @@ needing to create a larger, intermediate array.</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

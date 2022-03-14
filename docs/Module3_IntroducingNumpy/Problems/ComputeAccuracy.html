@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Measuring classification accuracy, Difficulty: Easy, Category: Practice Problem" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Measuring classification accuracy, Difficulty: Easy, Category: Practice Problem" name="description" />
 <meta content="numpy, vectorization, practice, machine learning, classifier" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -118,7 +117,7 @@
     text-align: unset;
 }
 </style>
-<section id="Measuring-the-Accuracy-of-a-Classification-Model">
+<div class="section" id="Measuring-the-Accuracy-of-a-Classification-Model">
 <h1>Measuring the Accuracy of a Classification Model<a class="headerlink" href="#Measuring-the-Accuracy-of-a-Classification-Model" title="Permalink to this headline"></a></h1>
 <p>Suppose that we are working on a project in which we have some model that can process an image and classify its content. For example, my <code class="docutils literal notranslate"><span class="pre">cat_dog_goose_other</span></code> function tries to classify whether a picture is of a cat (class 0), a dog (class 1), a goose (class 2), or something else (class 3). We want to measure the <em>accuracy</em> of our classifier. That is, we want to feed it a series of images whose contents are known and tally the number of times the model’s prediction matches the true content of
 an image. The accuracy is the fraction of images that the model classifies correctly.</p>
@@ -176,7 +175,7 @@ an image. The accuracy is the fraction of images that the model classifies corre
     <span class="k">pass</span>
 </pre></div>
 </div>
-<section id="Unvectorized-Solution">
+<div class="section" id="Unvectorized-Solution">
 <h2>Unvectorized Solution<a class="headerlink" href="#Unvectorized-Solution" title="Permalink to this headline"></a></h2>
 <p>A simple approach to this problem is to first loop over the rows of our classification scores. We know that each such row stores the scores for each class for a particular data point, and that the <em>index</em> of the highest score in that row gives us the predicted label for that data point (e.g. image in our hypothetical use-case). We can then directly compare these predicted labels with the true labels to compute the accuracy.</p>
 <p>We can use the function <code class="docutils literal notranslate"><span class="pre">numpy.argmax</span></code> to get the index of the highest score, and thus the predicted class-ID, for each data point. Recall that NumPy arrays use <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/ArrayTraversal.html#How-to-Traverse-an-Array:-Row-major-%28C%29-vs-Column-major-%28F%29-Traversal-Ordering">row-major traversal ordering</a>, so performing a for-loop over <code class="docutils literal notranslate"><span class="pre">classification_scores</span></code> will yield one row of the array at a time.</p>
@@ -234,8 +233,8 @@ an image. The accuracy is the fraction of images that the model classifies corre
 </pre></div>
 </div>
 <p>Horray! We have a working accuracy function! However, this function can be greatly simplified and optimized by <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html">vectorizing</a> it.</p>
-</section>
-<section id="Vectorized-Solution">
+</div>
+<div class="section" id="Vectorized-Solution">
 <h2>Vectorized Solution<a class="headerlink" href="#Vectorized-Solution" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">numpy.argmax</span></code> is one of NumPy’s <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html#Sequential-Functions">vectorized sequential functions</a>. As such, it accepts <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html#Specifying-the-axis-Keyword-Argument-in-Sequential-NumPy-Functions">axis as a keyword argument</a>. This means that, instead of calling <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> on each row of <code class="docutils literal notranslate"><span class="pre">classification_scores</span></code> in a for-loop, we
 can simply instruct <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> to operate <em>across the columns of each row of the array</em> by specifying <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>.</p>
@@ -290,8 +289,8 @@ can simply instruct <code class="docutils literal notranslate"><span class="pre"
 <span class="go">1.6 ms ± 7.04 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

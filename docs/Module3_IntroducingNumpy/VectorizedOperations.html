@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Vectorized operations with numpy arrays, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Vectorized operations with numpy arrays, Difficulty: Easy, Category: Section" name="description" />
 <meta content="vectorize, optimized, calculation, numpy, fast, C routine, MKL, sum, linear algebra, optimized" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -138,7 +137,7 @@
     text-align: unset;
 }
 </style>
-<section id="“Vectorized”-Operations:-Optimized-Computations-on-NumPy-Arrays">
+<div class="section" id="“Vectorized”-Operations:-Optimized-Computations-on-NumPy-Arrays">
 <h1>“Vectorized” Operations: Optimized Computations on NumPy Arrays<a class="headerlink" href="#“Vectorized”-Operations:-Optimized-Computations-on-NumPy-Arrays" title="Permalink to this headline"></a></h1>
 <p>In this section, we will:</p>
 <ul class="simple">
@@ -148,7 +147,7 @@
 <li><p>Describe how unary, binary, and sequential functions are defined on NumPy arrays.</p></li>
 <li><p>Provide a brief overview of linear algebra functions and logical operations.</p></li>
 </ul>
-<section id="Basic-Mathematical-Operations-Using-Arrays">
+<div class="section" id="Basic-Mathematical-Operations-Using-Arrays">
 <h2>Basic Mathematical Operations Using Arrays<a class="headerlink" href="#Basic-Mathematical-Operations-Using-Arrays" title="Permalink to this headline"></a></h2>
 <p>The ND-array can be utilized in mathematical expressions to perform mathematical computations using an array’s entries. In general, NumPy implements mathematical functions such that, when a function acts on an array, the mathematical operation is applied to <em>each</em> entry in the array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating the application of common</span>
@@ -220,8 +219,8 @@
 </pre></div>
 </div>
 <p>We will use this section to provide a more thorough overview of the various mathematical functions that are provided by NumPy, as well as the behavior of its sequential mathematical operations. However, we must first understand that NumPy performs these “vectorized operations” in a highly-optimized fashion, such that pure Python code can never rival its efficiency. By the end of this section, “vectorized operation” will become a phrase of endearment.</p>
-</section>
-<section id="Vectorized-Operations">
+</div>
+<div class="section" id="Vectorized-Operations">
 <h2>Vectorized Operations<a class="headerlink" href="#Vectorized-Operations" title="Permalink to this headline"></a></h2>
 <p>Recall that NumPy’s ND-arrays are <em>homogeneous</em>: an array can only contain data of a single type. For instance, an array can contain 8-bit integers or 32-bit floating point numbers, but not a mix of the two. This is in stark contrast to Python’s lists and tuples, which are entirely unrestricted in the variety of contents they can possess; a given list could simultaneously contain strings, integers, and other objects. This restriction on an array’s contents comes at a great benefit; in “knowing”
 that an array’s contents are homogeneous in data type, NumPy is able to delegate the task of performing mathematical operations on the array’s contents to optimized, compiled C code. This is a process that is referred to as <strong>vectorization</strong>. The outcome of this can be a <em>tremendous</em> speedup relative to the analogous computation performed in Python, which must painstakingly check the data type of <em>every</em> one of the items as it iterates over the arrays, since Python typically works with lists
@@ -271,8 +270,8 @@ vectorized functions. The following computations all invoke vectorized functions
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>NumPy provides highly-optimized functions for performing mathematical operations on arrays of numbers. Performing extensive iterations (e.g. via ‘for-loops’) in Python to perform repeated mathematical computations should nearly always be replaced by the use of vectorized functions on arrays. This informs the entire design paradigm of NumPy.</p>
 </div>
-</section>
-<section id="NumPy’s-Mathematical-Functions">
+</div>
+<div class="section" id="NumPy’s-Mathematical-Functions">
 <h2>NumPy’s Mathematical Functions<a class="headerlink" href="#NumPy’s-Mathematical-Functions" title="Permalink to this headline"></a></h2>
 <p>We will now take some time to survey the various types of vectorized mathematical functions that NumPy supplies, and how these mathematical operations, which traditionally are defined on individual numbers, are applied to arrays of numbers. We will look at</p>
 <ul class="simple">
@@ -281,7 +280,7 @@ vectorized functions. The following computations all invoke vectorized functions
 <li><p>functions that operate on sequences of numbers: <span class="math notranslate nohighlight">\(f(\{x_i\}_{i=0}^{n-1})\)</span></p></li>
 </ul>
 <p>These represent a substantial portion of the essential mathematical tools in the NumPy library. An exhaustive list of NumPy’s mathematical functions is available in the <a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html#math-operations">official documentation</a>.</p>
-<section id="Unary-Functions">
+<div class="section" id="Unary-Functions">
 <h3>Unary Functions<a class="headerlink" href="#Unary-Functions" title="Permalink to this headline"></a></h3>
 <p>A unary function is a mathematical function that only accepts one operand (i.e. argument): <span class="math notranslate nohighlight">\(f(x)\)</span>. NumPy supplies many familiar unary functions:</p>
 <table class="docutils align-default">
@@ -378,8 +377,8 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 </div>
 <p>Take the natural-logarithm of the 1st and 3rd element in the 3rd-row of <code class="docutils literal notranslate"><span class="pre">x</span></code>, producing a shape-(2,) result.</p>
 </div>
-</section>
-<section id="Binary-Functions">
+</div>
+<div class="section" id="Binary-Functions">
 <h3>Binary Functions<a class="headerlink" href="#Binary-Functions" title="Permalink to this headline"></a></h3>
 <p>A binary function has the form <span class="math notranslate nohighlight">\(f(x,y)\)</span>. The arithmetic operations are all binary functions:</p>
 <table class="docutils align-default">
@@ -533,8 +532,8 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>Applying a binary NumPy function, <span class="math notranslate nohighlight">\(f(x,y)\)</span>, to an array and a scalar amounts to “distributing” the function elementwise over the array, everywhere utilizing the scalar as the other operand for the binary function.</p>
 </div>
-</section>
-<section id="Sequential-Functions">
+</div>
+<div class="section" id="Sequential-Functions">
 <h3>Sequential Functions<a class="headerlink" href="#Sequential-Functions" title="Permalink to this headline"></a></h3>
 <p>A sequential function expects a variable-length sequence of numbers as an input, and produces a single number as an output: <span class="math notranslate nohighlight">\(f(\{x_i\}_{i=0}^{n-1})\)</span>. The following are some sequential NumPy functions:</p>
 <table class="docutils align-default">
@@ -598,8 +597,8 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 </pre></div>
 </div>
 <p>This default behavior of sequential NumPy functions can be overwritten by specifying the keyword argument <code class="docutils literal notranslate"><span class="pre">axis</span></code> within the sequential function. This is a very useful and common thing to do. We will carefully study what the axis argument is used for in these and other NumPy functions.</p>
-</section>
-<section id="Specifying-the-axis-Keyword-Argument-in-Sequential-NumPy-Functions">
+</div>
+<div class="section" id="Specifying-the-axis-Keyword-Argument-in-Sequential-NumPy-Functions">
 <h3>Specifying the <code class="docutils literal notranslate"><span class="pre">axis</span></code> Keyword Argument in Sequential NumPy Functions<a class="headerlink" href="#Specifying-the-axis-Keyword-Argument-in-Sequential-NumPy-Functions" title="Permalink to this headline"></a></h3>
 <p>Let’s delve into the meaning of the <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument by first seeing it in action:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a shape-(3,2) array</span>
@@ -638,7 +637,7 @@ x[:, 1] -&gt; array([1, 3, 5])  # traverse all rows within column-1
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>All sequential NumPy functions have an <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument that can be specified. <code class="docutils literal notranslate"><span class="pre">axis</span></code> is to be fed a single integer or a tuple of integers, which indicate which array axes are to be traversed to designate the sequences of array data to be operated on. A sequence is generated for each valid combination of indices for the non-traversed axes. By default, <strong>all</strong> of the input-array’s axes are included, thus the entire content of the array is treated as a single sequence.</p>
 </div>
-<section id="Understanding-the-axis-argument-with-a-Multi-Dimensional-Array">
+<div class="section" id="Understanding-the-axis-argument-with-a-Multi-Dimensional-Array">
 <h4>Understanding the <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument with a Multi-Dimensional Array<a class="headerlink" href="#Understanding-the-axis-argument-with-a-Multi-Dimensional-Array" title="Permalink to this headline"></a></h4>
 <p>The key to understanding the <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument, when working with multi-dimensional arrays, is to be comfortable with how array traversal works in NumPy. Refer to Section 5 of this module for a refresher on this topic. Consider the following shape-(4,2,3) array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -707,10 +706,10 @@ x[:, 1, :] -&gt; array([ 3,  4,  5,  9, 10, 11, 15, 16, 17, 21, 22, 23])  {mean 
 <li><p>The maximum red-value in the top-left quadrant, respective to each image.</p></li>
 </ol>
 </div>
-</section>
-</section>
-</section>
-<section id="Logical-Operations">
+</div>
+</div>
+</div>
+<div class="section" id="Logical-Operations">
 <h2>Logical Operations<a class="headerlink" href="#Logical-Operations" title="Permalink to this headline"></a></h2>
 <p>NumPy provides <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html">a suite of logical operations</a> that can operate on arrays. Many of these map logical operations over array entries in the same fashion as NumPy’s mathematical functions. These functions return either a single boolean object, or a boolean-type array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># check which entries of `x` are less than 6</span>
@@ -741,25 +740,25 @@ arrays are approximately equal in value:</p>
 <span class="kc">True</span>
 </pre></div>
 </div>
-</section>
-<section id="Linear-Algebra">
+</div>
+<div class="section" id="Linear-Algebra">
 <h2>Linear Algebra<a class="headerlink" href="#Linear-Algebra" title="Permalink to this headline"></a></h2>
 <p>Lastly, we note that NumPy provides a suite of functions that can perform optimized computations and routines relevant to linear algebra. Included here are functions for performing matrix products and tensor products, solving eigenvalue problems, inverting matrices, and computing vector normalizations. Please refer to the <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.linalg.html">official NumPy documentation</a> for a full listing of these functions.</p>
-</section>
-<section id="Conclusion">
+</div>
+<div class="section" id="Conclusion">
 <h2>Conclusion<a class="headerlink" href="#Conclusion" title="Permalink to this headline"></a></h2>
 <p>NumPy provides users with a wide variety of functions capable of performing operations on arrays of data. Its use of <strong>vectorization</strong> makes these functions incredibly fast, when compared to the analogous computations performed in pure Python. Although the preceding discussion laid out a substantial number of rules for how these functions work, one should not worry about memorizing them. Rather, it is best to apply these functions to arrays of various dimensionality, and build an intuition for
 them. You may be pleasantly surprised by how easy it is to get a hang of this material by simply putting it to practice.</p>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html#math-operations">Math functions</a></p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html">Logic functions</a></p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.linalg.html">Linear algebra functions</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Solutions">
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Unary Functions: Solution</strong></p>
 <p>Take the natural-logarithm of the 1st and 3rd element in the 3rd-row of <code class="docutils literal notranslate"><span class="pre">x</span></code>, producing a shape-(2,) result.</p>
@@ -815,8 +814,8 @@ them. You may be pleasantly surprised by how easy it is to get a hang of this ma
 <span class="go">(100,)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: the basics of iterables in python, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: the basics of iterables in python, Difficulty: Medium, Category: Section" name="description" />
 <meta content="iterables, max, min, sum, all, any, itertools, enumerate, unpack" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -136,7 +135,7 @@
     text-align: unset;
 }
 </style>
-<section id="Iterables">
+<div class="section" id="Iterables">
 <h1>Iterables<a class="headerlink" href="#Iterables" title="Permalink to this headline"></a></h1>
 <p>Our encounter with for-loops introduced the term <em>iterable</em> - an object that can be “iterated over”, such as in a for-loop.</p>
 <div class="admonition note">
@@ -150,7 +149,7 @@ so useful for writing efficient code.</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
 <p>“Under the hood”, an iterable is any Python object with an <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> method or with a <code class="docutils literal notranslate"><span class="pre">__getitem__()</span></code> method that implements <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> semantics. These details will become salient if you read through the Object Oriented Programming module.</p>
 </div>
-<section id="Functions-that-act-on-iterables">
+<div class="section" id="Functions-that-act-on-iterables">
 <h2>Functions that act on iterables<a class="headerlink" href="#Functions-that-act-on-iterables" title="Permalink to this headline"></a></h2>
 <p>Here are some useful built-in functions that accept iterables as arguments:</p>
 <ul class="simple">
@@ -187,12 +186,12 @@ so useful for writing efficient code.</p>
 <span class="s1">&#39;e&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="Tricks-for-working-with-iterables">
+</div>
+<div class="section" id="Tricks-for-working-with-iterables">
 <h2>Tricks for working with iterables<a class="headerlink" href="#Tricks-for-working-with-iterables" title="Permalink to this headline"></a></h2>
 <p>Python provides some syntactic “tricks” for working with iterables: “unpacking” iterables and “enumerating” iterables. Although these may seem like inconsequential niceties at first glance, they deserve our attention because they will help us write clean, readable code. Writing clean, readable code leads to bug-free algorithms that are easy to understand. Furthermore, these tricks will also facilitate the use of other great Python features, like comprehension-statements, which will be introduced
 in the coming sections.</p>
-<section id="“Unpacking”-iterables">
+<div class="section" id="“Unpacking”-iterables">
 <h3>“Unpacking” iterables<a class="headerlink" href="#“Unpacking”-iterables" title="Permalink to this headline"></a></h3>
 <p>Suppose that you have three values stored in a list, and that you want to assign each value to a distinct variable. Given the lessons that we have covered thus far, you would likely write the following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># simple script for assigning contents of a list to variables</span>
@@ -257,8 +256,8 @@ Cassie
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>Python provides a sleek syntax for “unpacking” the contents of an iterable - assigning each item to its own variable. This allows us to write intuitive, highly-readable code when performing a for-loop over a collection of iterables.</p>
 </div>
-</section>
-<section id="Enumerating-iterables">
+</div>
+<div class="section" id="Enumerating-iterables">
 <h3>Enumerating iterables<a class="headerlink" href="#Enumerating-iterables" title="Permalink to this headline"></a></h3>
 <p>The built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a> function allows us to iterate over an iterable, while keeping track of the iteration count:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># basic usage of `enumerate`</span>
@@ -313,17 +312,17 @@ Cassie
 <li><p>given the iterable <code class="docutils literal notranslate"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[-1,</span> <span class="pre">0,</span> <span class="pre">3,</span> <span class="pre">6]</span></code>, <code class="docutils literal notranslate"><span class="pre">unsorted_index</span></code> should be <code class="docutils literal notranslate"><span class="pre">None</span></code> and your code should print “sorted!”.</p></li>
 </ul>
 </div>
-</section>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/glossary.html#term-iterable">Iterable Definition</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/howto/functional.html#built-in-functions">Functions on iterables</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Exercise-Solutions:">
+</div>
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline"></a></h2>
 <p><strong>enumerate: Solution</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
@@ -346,8 +345,8 @@ Cassie
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sorted!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

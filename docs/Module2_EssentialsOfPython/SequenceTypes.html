@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: understanding python sequences, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: understanding python sequences, Difficulty: Easy, Category: Section" name="description" />
 <meta content="list, tuple, string, slice, index, negative index, get item, pop, append, examples" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -137,7 +136,7 @@
     text-align: unset;
 }
 </style>
-<section id="Sequence-Types">
+<div class="section" id="Sequence-Types">
 <h1>Sequence Types<a class="headerlink" href="#Sequence-Types" title="Permalink to this headline"></a></h1>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
@@ -167,7 +166,7 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <li><p>Demonstrate the common interface that can be used to inspect and summarize the contents of a sequence.</p></li>
 <li><p>Detail the all-important indexing scheme used by Python, which will allow us to access specific items or subsequences from a sequence.</p></li>
 </ul>
-<section id="Tuples">
+<div class="section" id="Tuples">
 <h2>Tuples<a class="headerlink" href="#Tuples" title="Permalink to this headline"></a></h2>
 <p>The last built-in sequence type that we have yet to encounter is the <code class="docutils literal notranslate"><span class="pre">tuple</span></code> type. A tuple is very similar to a list, in that it can store a sequence of arbitrary objects (a mix of numbers, strings, lists, other tuples, etc.). Where lists are constructed using square-brackets, tuples use parentheses:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a tuple</span>
@@ -218,8 +217,8 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="Working-with-sequences">
+</div>
+<div class="section" id="Working-with-sequences">
 <h2>Working with sequences<a class="headerlink" href="#Working-with-sequences" title="Permalink to this headline"></a></h2>
 <p>The following summarizes the common interface that is shared by Python’s different types of sequence, which includes lists, tuples, and strings. This interface allows you to inspect, summarize, join, and retrieve members from any variety of sequence.</p>
 <p><strong>Checking if an object is contained within a sequence:</strong> <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">seq</span></code></p>
@@ -307,7 +306,7 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <li><p>How many sequence-types have we discussed thus far? Which of these produce objects that are immutable? Which of these produce objects that are mutable? For those types that are mutable, write a piece of example code that mutates an object.</p></li>
 </ol>
 </div>
-<section id="Introducing-Indexing-and-Slicing">
+<div class="section" id="Introducing-Indexing-and-Slicing">
 <h3>Introducing Indexing and Slicing<a class="headerlink" href="#Introducing-Indexing-and-Slicing" title="Permalink to this headline"></a></h3>
 <p>We can access individual items from a sequence by specifying the <em>index</em> of that item. Python ascribes the 1st entry in a sequence index-0, the second entry index-1, and so on.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># accessing individual items from a sequence via indexing</span>
@@ -326,8 +325,8 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 </pre></div>
 </div>
 <p>It is critical to have a good grasp of how to access a sequence’s members and subsequences by using indexing and slicing. This indexing scheme will also appear in our work with NumPy arrays. We will proceed by providing a detailed rundown of Python’s indexing and slicing mechanisms.</p>
-</section>
-<section id="Indexing">
+</div>
+<div class="section" id="Indexing">
 <h3>Indexing<a class="headerlink" href="#Indexing" title="Permalink to this headline"></a></h3>
 <p>Python allows you to retrieve individual members of a sequence by specifying the <em>index</em> of that member, which is the integer that uniquely identifies that member’s position in the sequence. <em>Python implements 0-based indexing for its sequences</em>, and also permits the use of negative integers to count from the end of the sequence. Consider the string <code class="docutils literal notranslate"><span class="pre">&quot;Python&quot;</span></code>. The following diagram displays the indices for this sequence:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+---+---+---+---+---+---+
@@ -381,8 +380,8 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>To “index into” a sequence is to retrieve a single member by specifying an integer index, that indicates the place of that member in the sequence: <code class="docutils literal notranslate"><span class="pre">seq[index]</span></code>. Python uses a zero-based indexing system, meaning that the first element in a sequence is located at position 0. Negative indices allow you to refer to an item’s position relative to the end of the list.</p>
 </div>
-</section>
-<section id="Slicing">
+</div>
+<div class="section" id="Slicing">
 <h3>Slicing<a class="headerlink" href="#Slicing" title="Permalink to this headline"></a></h3>
 <p>Slicing a sequence allows us to retrieve a subsequence of items, based on the indexing scheme that we reviewed in the preceeding subsection. Specifying a slice consists of:</p>
 <ul class="simple">
@@ -476,7 +475,7 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>To “slice” a sequence is to retrieve a subsequence by specifying a start-index (included), a stop-index (excluded), and a step value. Negative values can be supplied for these, and default values are available as well. The common slicing syntax <code class="docutils literal notranslate"><span class="pre">seq[start:stop:step]</span></code> is actually just a nice shorthand for using a <code class="docutils literal notranslate"><span class="pre">slice</span></code> object: <code class="docutils literal notranslate"><span class="pre">seq[slice(start,</span> <span class="pre">stop,</span> <span class="pre">step)]</span></code>.</p>
 </div>
-<section id="Handling-out-of-bounds-indices">
+<div class="section" id="Handling-out-of-bounds-indices">
 <h4>Handling out-of-bounds indices<a class="headerlink" href="#Handling-out-of-bounds-indices" title="Permalink to this headline"></a></h4>
 <p>Attempting to get a member from a sequence using an out-of-bounds index will raise an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1"># x only contains 6 items</span>
@@ -526,10 +525,10 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <li><p>Given a sequence, <code class="docutils literal notranslate"><span class="pre">x</span></code>, and a valid negative index for <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">neg_index</span></code>, find the corresponding positive-value for that index. That is, if <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">&quot;cat&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">neg_index</span> <span class="pre">=</span> <span class="pre">-3</span></code>, which is the negative index that would return <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code>, then you would want to return the index <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
 </ol>
 </div>
-</section>
-</section>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq">Sequences</a></p></li>
@@ -537,8 +536,8 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#immutable-sequence-types">Immutable Sequence Types</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types">Mutable Sequence Types</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Exercise-Solutions:">
+</div>
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline"></a></h2>
 <p><strong>Basics of sequences</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Change the list [True, None, 22] into a tuple.</span>
@@ -594,8 +593,8 @@ considered distinct strings). As such, lists, strings, and the other sequence ty
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pos_index</span> <span class="o">=</span> <span class="n">neg_index</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Conditional Statements, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Conditional Statements, Difficulty: Easy, Category: Section" name="description" />
 <meta content="if, else, elif, inline if, switch statement, comparison operator, bool, truth, is operator" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -137,7 +136,7 @@
     text-align: unset;
 }
 </style>
-<section id="Conditional-Statements">
+<div class="section" id="Conditional-Statements">
 <h1>Conditional Statements<a class="headerlink" href="#Conditional-Statements" title="Permalink to this headline"></a></h1>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
@@ -152,7 +151,7 @@
 </pre></div>
 </div>
 <p>Please refer to the “Basic Python Object Types” subsection to recall the basics of the “boolean” type, which represents True and False values. We will extend that discussion by introducing comparison operations and membership-checking, and then expanding on the utility of the built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> type.</p>
-<section id="Comparison-Operations">
+<div class="section" id="Comparison-Operations">
 <h2>Comparison Operations<a class="headerlink" href="#Comparison-Operations" title="Permalink to this headline"></a></h2>
 <p>Comparison statements will evaluate explicitly to either of the boolean-objects: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. There are eight comparison operations in Python:</p>
 <table class="docutils align-default">
@@ -237,8 +236,8 @@
 <span class="go">True</span>
 </pre></div>
 </div>
-</section>
-<section id="bool-and-Truth-Values-of-Non-Boolean-Objects">
+</div>
+<div class="section" id="bool-and-Truth-Values-of-Non-Boolean-Objects">
 <h2><code class="docutils literal notranslate"><span class="pre">bool</span></code> and Truth Values of Non-Boolean Objects<a class="headerlink" href="#bool-and-Truth-Values-of-Non-Boolean-Objects" title="Permalink to this headline"></a></h2>
 <p>Recall that the two boolean objects <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> formally belong to the <code class="docutils literal notranslate"><span class="pre">int</span></code> type in addition to <code class="docutils literal notranslate"><span class="pre">bool</span></code>, and are associated with the values <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>, respectively:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
@@ -291,8 +290,8 @@
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">bool</span></code> function allows you to evaluate the boolean values ascribed to various non-boolean objects. For instance, <code class="docutils literal notranslate"><span class="pre">bool([])</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code> wherease <code class="docutils literal notranslate"><span class="pre">bool([1,</span> <span class="pre">2])</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 </div>
-</section>
-<section id="if,-else,-and-elif">
+</div>
+<div class="section" id="if,-else,-and-elif">
 <h2><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, and <code class="docutils literal notranslate"><span class="pre">elif</span></code><a class="headerlink" href="#if,-else,-and-elif" title="Permalink to this headline"></a></h2>
 <p>We now introduce the simple, but powerful <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, and <code class="docutils literal notranslate"><span class="pre">elif</span></code> conditional statements. This will allow us to create simple branches in our code. For instance, suppose you are writing code for a video game, and you want to update a character’s status based on her/his number of health-points (an integer). The following code is representative of this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">num_health</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
@@ -422,7 +421,7 @@ else:
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;hello_world&quot;</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">&quot;hello_world&quot;</span></code></p></li>
 </ul>
 </div>
-<section id="Inline-if-else-statements">
+<div class="section" id="Inline-if-else-statements">
 <h3>Inline if-else statements<a class="headerlink" href="#Inline-if-else-statements" title="Permalink to this headline"></a></h3>
 <p>Python supports a syntax for writing a restricted version of if-else statements in a single line. The following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
@@ -463,9 +462,9 @@ else:
 <span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="mi">2</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">9</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="Short-Circuiting-Logical-Expressions">
+</div>
+</div>
+<div class="section" id="Short-Circuiting-Logical-Expressions">
 <h2>Short-Circuiting Logical Expressions<a class="headerlink" href="#Short-Circuiting-Logical-Expressions" title="Permalink to this headline"></a></h2>
 <p>Armed with our newfound understanding of conditional statements, we briefly return to our discussion of Python’s logic expressions to discuss “short-circuiting”. In Python, a logical expression is evaluated from left to right and will return its boolean value as soon as it is unambiguously determined, <em>leaving any remaining portions of the expression unevaluated</em>. That is, the expression may be <em>short-circuited</em>.</p>
 <p>For example, consider the fact that an <code class="docutils literal notranslate"><span class="pre">and</span></code> operation will only return <code class="docutils literal notranslate"><span class="pre">True</span></code> if both of its arguments evaluate to <code class="docutils literal notranslate"><span class="pre">True</span></code>. Thus the expression <code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">and</span> <span class="pre">&lt;anything&gt;</span></code> is guaranteed to return <code class="docutils literal notranslate"><span class="pre">False</span></code>; furthermore, when executed, this expression will return <code class="docutils literal notranslate"><span class="pre">False</span></code> <em>without having evaluated</em> <code class="docutils literal notranslate"><span class="pre">bool(&lt;anything&gt;)</span></code>.</p>
@@ -515,8 +514,8 @@ else:
 </pre></div>
 </div>
 </div>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></p></li>
@@ -525,8 +524,8 @@ else:
 <li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#comparisons">Comparisons</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-if-statement">‘if’ statements</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Exercise-Solutions:">
+</div>
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline"></a></h2>
 <p><strong>Conditional statements</strong></p>
 <ol class="arabic simple">
@@ -550,8 +549,8 @@ else:
 </pre></div>
 </div>
 <p>fails to account for the fact that expressions are always evaluated from left to right. That is, <code class="docutils literal notranslate"><span class="pre">bool(x.isupper())</span></code> will always be evaluated first in this instance and will raise an error if <code class="docutils literal notranslate"><span class="pre">x</span></code> is not a string. Thus the following <code class="docutils literal notranslate"><span class="pre">isinstance(x,</span> <span class="pre">str)</span></code> statement is useless.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

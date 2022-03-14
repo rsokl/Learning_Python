@@ -6,6 +6,13 @@ This is a record of all past PLYMI releases and what went into them,
 in reverse chronological order.
 
 ----------
+2022-03-14
+----------
+
+Removed the "is palindrome" problem from Module 2.
+
+
+----------
 2022-01-29
 ----------
 

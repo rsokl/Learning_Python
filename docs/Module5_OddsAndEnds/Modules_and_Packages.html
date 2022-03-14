@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Understanding imports modules and packages, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Understanding imports modules and packages, Difficulty: Easy, Category: Section" name="description" />
 <meta content="custom package, module, script, import, setup, pip, conda, relative import, absolute import" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -134,7 +133,7 @@
     text-align: unset;
 }
 </style>
-<section id="Import:-Modules-and-Packages">
+<div class="section" id="Import:-Modules-and-Packages">
 <h1>Import: Modules and Packages<a class="headerlink" href="#Import:-Modules-and-Packages" title="Permalink to this headline"></a></h1>
 <p>Our tour through the essentials of Python and NumPy required us to regularly make use of <code class="docutils literal notranslate"><span class="pre">import</span></code> statements. This allowed us to access the functions and objects that are provided by the standard library and by NumPy.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># accessing `defaultdict` from the standard library&#39;s `collections` package</span>
@@ -157,7 +156,7 @@ the standard library and other collections of Python code, but it will permit us
 </div>
 <p>Executing these “magic commands” will inform your notebook to actively reload all imported modules and packages as they are modified. If you do not execute these commands, your notebook will not “see” any changes that you have made to a module that has already been imported, unless you restart the kernel for that notebook.</p>
 </div>
-<section id="Modules">
+<div class="section" id="Modules">
 <h2>Modules<a class="headerlink" href="#Modules" title="Permalink to this headline"></a></h2>
 <p>A Python ‘module’ refers to a single <code class="docutils literal notranslate"><span class="pre">.py</span></code> file that contains function definitions and variable-assignment statements. Importing a module will execute these statements, rendering the resulting objects available via the imported module.</p>
 <p>Let’s create our own module and import it into an interactive Python session. Open a Jupyter notebook or IPython console in a known directory on your computer. Now, with an <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html#Integrated-Development-Environments">IDE</a> or simple text editor (not software like Microsoft Word!) create a text file named <code class="docutils literal notranslate"><span class="pre">my_module.py</span></code> in the same directory as you Python session. The contents of
@@ -241,8 +240,8 @@ function can also be used to summarize a module’s contents:</p>
 <p>Create a simple math module named <code class="docutils literal notranslate"><span class="pre">basic_math.py</span></code>. It should make available the irrational numbers <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(e\)</span>, and the function <code class="docutils literal notranslate"><span class="pre">deg_to_rad</span></code>, which converts an angle from degrees to radians.</p>
 <p>Next, import this module and compute <span class="math notranslate nohighlight">\(e^{i\pi}\)</span> and compute 45 degrees in radians.</p>
 </div>
-</section>
-<section id="Import-Statements">
+</div>
+<div class="section" id="Import-Statements">
 <h2>Import Statements<a class="headerlink" href="#Import-Statements" title="Permalink to this headline"></a></h2>
 <p>Python provides a flexible framework for importing modules and specific members of a module. We have already seen in our work with NumPy that we can specify an <em>alias</em> in our import statement; this can be especially convenient for import modules with long names:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the module object for numpy is returned with the variable name `np`</span>
@@ -276,8 +275,8 @@ function can also be used to summarize a module’s contents:</p>
 <span class="go">8</span>
 </pre></div>
 </div>
-</section>
-<section id="Packages">
+</div>
+<div class="section" id="Packages">
 <h2>Packages<a class="headerlink" href="#Packages" title="Permalink to this headline"></a></h2>
 <p>It is not unusual, when working on larger scale projects, to want to organize one’s code into several modules. For example, suppose that we are writing software for performing facial recognition. We might want to have a camera module for taking pictures, a face-detection module for storing a model-class capable of detecting faces, and a database module that is used to store and update “seen” faces. These modules can be stored in a collective <em>package</em>.</p>
 <p>A Python package is a directory containing a file with the name <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>, along with other Python modules and subpackages (i.e. subdirectories, each with its own <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file and associated modules). The <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file is of special importance - it serves as the indicator that its housing directory is to be treated as a package. For example, let’s build a bare-bones package with the following directory structure:</p>
@@ -346,8 +345,8 @@ function can also be used to summarize a module’s contents:</p>
 <li><p>Import the delivery module and then execute it’s get-zip function</p></li>
 </ol>
 </div>
-</section>
-<section id="Intra-Module-Imports">
+</div>
+<div class="section" id="Intra-Module-Imports">
 <h2>Intra-Module Imports<a class="headerlink" href="#Intra-Module-Imports" title="Permalink to this headline"></a></h2>
 <p>Modules within a package can import from one another; suppose, for instance, that both <code class="docutils literal notranslate"><span class="pre">face_detection.database</span></code> and <code class="docutils literal notranslate"><span class="pre">face_detection.camera.calibration</span></code> both want to leverage the <code class="docutils literal notranslate"><span class="pre">face_detection.utils</span></code> module. Recall the layout of this package:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- face_detection/
@@ -362,7 +361,7 @@ function can also be used to summarize a module’s contents:</p>
 </pre></div>
 </div>
 <p>There are two import styles that can be used to facilitate these inter-module imports: absolute imports and relative imports.</p>
-<section id="Absolute-Imports">
+<div class="section" id="Absolute-Imports">
 <h3>Absolute Imports<a class="headerlink" href="#Absolute-Imports" title="Permalink to this headline"></a></h3>
 <p>The absolute import style works by specifying all modules in terms of their absolute position in relation to the topmost package. Suppose that we want to import the <code class="docutils literal notranslate"><span class="pre">utils</span></code> module in our <code class="docutils literal notranslate"><span class="pre">model</span></code> module, stated as an absolute import, this would be:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">face_detection.utils</span>
@@ -378,8 +377,8 @@ function can also be used to summarize a module’s contents:</p>
 </pre></div>
 </div>
 <p>The absolute import syntax supports all of the variations the we enumerated above, such as aliased imports and <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">&lt;object&gt;</span></code>.</p>
-</section>
-<section id="Relative-Imports">
+</div>
+<div class="section" id="Relative-Imports">
 <h3>Relative Imports<a class="headerlink" href="#Relative-Imports" title="Permalink to this headline"></a></h3>
 <p>Relative imports use dots to indicate the relative position of the imported module, based on the location of the module doing the importing. For example, suppose that we want to import the <code class="docutils literal notranslate"><span class="pre">utils</span></code> module in our <code class="docutils literal notranslate"><span class="pre">model</span></code> module using a relative import statement:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">utils</span>
@@ -394,11 +393,11 @@ function can also be used to summarize a module’s contents:</p>
 </pre></div>
 </div>
 <p>The relative import style is more restricted than the absolute import style. It is only able to embody the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">&lt;thing1&gt;,</span> <span class="pre">&lt;thing2&gt;</span></code> form of import statements. Despite their limited form, relative imports can be nice to use if you are dealing with a project with deeply nested sub-packages.</p>
-</section>
-</section>
-<section id="Installing-a-Package">
+</div>
+</div>
+<div class="section" id="Installing-a-Package">
 <h2>Installing a Package<a class="headerlink" href="#Installing-a-Package" title="Permalink to this headline"></a></h2>
-<section id="PYTHONPATH-and-Site-Packages">
+<div class="section" id="PYTHONPATH-and-Site-Packages">
 <h3>PYTHONPATH and Site-Packages<a class="headerlink" href="#PYTHONPATH-and-Site-Packages" title="Permalink to this headline"></a></h3>
 <p>Thus far in our reading of Python packages we have had to take care that all of the modules and packages that we have written reside in the same directory as our interactive Python session. How is it that we are able to import NumPy in any session or module, without any knowledge of where that package is located? This is because we have installed <em>NumPy</em>, which means that the package has been placed in our “Python path”, which is indicated as <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> specifies the directories that the Python interpreter will look in when importing modules. You can check your <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> using <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>:</p>
@@ -424,8 +423,8 @@ function can also be used to summarize a module’s contents:</p>
 </pre></div>
 </div>
 <p>It must be mentioned that we are sweeping some details under the rug here. Installing NumPy does not merely entail copying its various modules and packages wholesale into site-packages. That being said, we will not dive any deeper into the technical details of package installation beyond understanding where packages are installed and thus where our Python interpreter looks to import them.</p>
-</section>
-<section id="Installing-Your-Own-Python-Package">
+</div>
+<div class="section" id="Installing-Your-Own-Python-Package">
 <h3>Installing Your Own Python Package<a class="headerlink" href="#Installing-Your-Own-Python-Package" title="Permalink to this headline"></a></h3>
 <p>Suppose that we are happy with the work we have done on our <code class="docutils literal notranslate"><span class="pre">face_detector</span></code> project. We will want to install this package - placing it in our site-packages directory so that we can import it irrespective of our Python interpreter’s working directory. Here we will construct a basic setup script that will allow us to accomplish this.</p>
 <p>We note outright that the purpose of this section is strictly to provide you with the minimum set of instructions needed to install a package. We will not be diving into what is going on under the hood at all. Please refer to <a class="reference external" href="https://docs.python.org/3/distutils/introduction.html#an-introduction-to-distutils">An Introduction to Distutils</a> and <a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project">Packaging Your Project</a> for a deeper treatment of this topic.</p>
@@ -467,9 +466,9 @@ installation. Thus, instead of running <code class="docutils literal notranslate
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python setup.py develop
 </pre></div>
 </div>
-</section>
-</section>
-<section id="pip-and-conda:-Package-Managers">
+</div>
+</div>
+<div class="section" id="pip-and-conda:-Package-Managers">
 <h2>pip and conda: Package Managers<a class="headerlink" href="#pip-and-conda:-Package-Managers" title="Permalink to this headline"></a></h2>
 <p>Python packages can be shared worldwide. There are two widely-used Python package managers, <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span></code>. <code class="docutils literal notranslate"><span class="pre">pip</span></code> downloads and installs packages from <a class="reference external" href="https://pypi.org/">The Python Package Index (PyPI)</a>, whereas <code class="docutils literal notranslate"><span class="pre">conda</span></code> downloads and installs packages from the Anaconda Cloud. Both <code class="docutils literal notranslate"><span class="pre">conda</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span></code> are installed as part of the <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html#Installing-Anaconda">Anaconda distribution</a>.</p>
 <p>To install a package via <code class="docutils literal notranslate"><span class="pre">pip</span></code>, you execute</p>
@@ -487,8 +486,8 @@ configurations of installed Python packages and even different versions of Pytho
 <p>That being said, there are some benefits to using <code class="docutils literal notranslate"><span class="pre">pip</span></code>. PyPi is accessible and easy to upload packages to; this is likely the easiest means for distributing a Python package worldwide. As such, <code class="docutils literal notranslate"><span class="pre">pip</span></code> provides access to a wider range of Python packages. That being said, <code class="docutils literal notranslate"><span class="pre">conda</span></code> can also be directed to install packages from custom channels - providing access to packages outside of the curated Anaconda distribution. This has become a popular method of installation for machine learning
 libraries like PyTorch and TensorFlow.</p>
 <p>You are free to install some packages using <code class="docutils literal notranslate"><span class="pre">conda</span></code> and others with <code class="docutils literal notranslate"><span class="pre">pip</span></code>. Just take care not to accidentally install the same package with both - this can lead to a real mess.</p>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">Python Tutorial: Modules</a></p></li>
@@ -496,8 +495,8 @@ libraries like PyTorch and TensorFlow.</p>
 <li><p><a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project">Packaging Your Project</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/">PyPi</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Exercise-Solutions:">
+</div>
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline"></a></h2>
 <p><strong>Creating a simple module: Solution</strong></p>
 <p>Create a simple math module named <code class="docutils literal notranslate"><span class="pre">basic_math.py</span></code>. It should make available the irrational numbers <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(e\)</span>, and the function <code class="docutils literal notranslate"><span class="pre">deg_to_rad</span></code>, which converts an angle from degrees to radians.</p>
@@ -544,8 +543,8 @@ libraries like PyTorch and TensorFlow.</p>
 <span class="go">871092</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

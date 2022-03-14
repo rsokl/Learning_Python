@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Working with paths and files, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Working with paths and files, Difficulty: Medium, Category: Section" name="description" />
 <meta content="open file, read file, pathlib, join directory, context manager, close file, rb, binary file, utf-8, encoding, pickle, numpy, load, archive, npy, npz, pkl, glob, read lines, write, save" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -379,11 +378,11 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="Working-with-Files">
+<div class="section" id="Working-with-Files">
 <h1>Working with Files<a class="headerlink" href="#Working-with-Files" title="Permalink to this headline"></a></h1>
 <p>This section will discuss the best practices for writing Python code that involves reading from and writing to files. We will learn about the built-in <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> object, which will help to ensure that the code that we write is portable across operating systems (OS) (e.g. Windows, MacOS, Linux). We will also be introduced to a <em>context manager</em>, <code class="docutils literal notranslate"><span class="pre">open</span></code>, which will permit us to read-from and write-to a file safely; by “safely” we mean that we will be assured that any file that we open will
 eventually be closed properly, so that it will not be corrupted even in the event that our code hits an error. Next, we will learn how to “glob” for files, meaning that we will learn to search for and list files whose names match specific patterns. Lastly, we will briefly encounter the <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module which allows us to save (or “pickle”) and load Python objects to and from your computer’s file system.</p>
-<section id="Working-with-Paths">
+<div class="section" id="Working-with-Paths">
 <h2>Working with Paths<a class="headerlink" href="#Working-with-Paths" title="Permalink to this headline"></a></h2>
 <p>Suppose you are writing a Jupyter notebook where you are analyzing data that is saved to your computer. You will naturally need to detail the location where your data is stored on your computer’s file system so that you can load your data. Let’s suppose that this notebook is in the directory <code class="docutils literal notranslate"><span class="pre">my_folder</span></code> and that there is a directory, <code class="docutils literal notranslate"><span class="pre">data</span></code>, within it, which contains some text files with your data. Thus your directory structure looks like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_folder/
@@ -395,7 +394,7 @@ eventually be closed properly, so that it will not be corrupted even in the even
 </div>
 <p>Now, if you are on a machine that is running Linux or MacOS, the path to <code class="docutils literal notranslate"><span class="pre">data1.txt</span></code> relative to the notebook is: <code class="docutils literal notranslate"><span class="pre">./data/data1.txt</span></code>. See that the character <code class="docutils literal notranslate"><span class="pre">/</span></code> is used as a separator used to denote subsequent directories in a path. On a Windows machine, the separator is <code class="docutils literal notranslate"><span class="pre">\</span></code>, thus the path to your data would be written as <code class="docutils literal notranslate"><span class="pre">.\data\data1.txt</span></code>. We want to write our code so that it can be utilized, without modification, across operating systems. This where Python’s fantastic <code class="docutils literal notranslate"><span class="pre">pathlib</span></code>
 module comes in handy.</p>
-<section id="pathlib.Path">
+<div class="section" id="pathlib.Path">
 <h3>pathlib.Path<a class="headerlink" href="#pathlib.Path" title="Permalink to this headline"></a></h3>
 <p>The standard library’s <a class="reference external" href="https://docs.python.org/3/library/pathlib.html">pathlib module</a> provides a number of classes that make it easy to work with file system paths across operating systems. We will limit our discussion to the <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> class, which will take care of all of our most pressing needs. This class allows us to write all of our path-related code in a single way, and it will convert the path to the operating system-appropriate format for us underneath the hood.</p>
 <p>Let’s begin by creating a <code class="docutils literal notranslate"><span class="pre">Path</span></code> object that points to the directory containing the present notebook:</p>
@@ -462,9 +461,9 @@ you take time to look through them.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pathlib</span></code> was introduced in Python 3.4. Although many 3rd party libraries have updated their file-I/O utilities to accept both strings and <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> objects (e.g. <code class="docutils literal notranslate"><span class="pre">numpy.save</span></code> can be passed a <code class="docutils literal notranslate"><span class="pre">Path</span></code> instance to tell it where to save a numpy-array), some libraries are late to the party and will only accept strings as paths. On such occasions you can simple convert your <code class="docutils literal notranslate"><span class="pre">Path</span></code> instance to a string by calling <code class="docutils literal notranslate"><span class="pre">str</span></code> on it, and then pass the resulting string-path to the file-I/O
 function. This is also a friendly reminder to accomodate <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> objects whenever you find yourself writing your own file-I/O functions!</p>
 </div>
-</section>
-</section>
-<section id="Opening-Files">
+</div>
+</div>
+<div class="section" id="Opening-Files">
 <h2>Opening Files<a class="headerlink" href="#Opening-Files" title="Permalink to this headline"></a></h2>
 <p>It is recommended that you refer to the <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">official Python tutorial</a> for a simple rundown of file reading and writing</p>
 <p>Whenever you instruct your code to open a file for reading or writing, you must take care that the file ultimately is closed so that its data is not vulnerable to being modified. Python provides the <code class="docutils literal notranslate"><span class="pre">open</span></code> context manager, which is designed to ensure that a file will be closed even in the event that our code raises an error.</p>
@@ -490,7 +489,7 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 </pre></div>
 </div>
 <p>The complete documentation for <code class="docutils literal notranslate"><span class="pre">open</span></code> can be found <a class="reference external" href="https://docs.python.org/3/library/functions.html#open">here</a>.</p>
-<section id="Specifying-the-Open-Mode">
+<div class="section" id="Specifying-the-Open-Mode">
 <h3>Specifying the Open-Mode<a class="headerlink" href="#Specifying-the-Open-Mode" title="Permalink to this headline"></a></h3>
 <p>Specifying <code class="docutils literal notranslate"><span class="pre">mode='w'</span></code> indicates that we will be writing to the file anew - if the file already has any content, that content will be <em>erased</em> before being written to. The following are the available “modes” for opening a file:</p>
 <table class="docutils align-default">
@@ -534,8 +533,8 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 <span class="o">...</span>     <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="Working-with-the-File-Object">
+</div>
+<div class="section" id="Working-with-the-File-Object">
 <h3>Working with the File Object<a class="headerlink" href="#Working-with-the-File-Object" title="Permalink to this headline"></a></h3>
 <p>When we invoke <code class="docutils literal notranslate"><span class="pre">open</span></code> to open a file, the context manager produces an opened file object. The methods of this file object allow us to write-to and read-from the opened file (assuming that we have utilized the appropriate mode when opening it).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the `read` method of the file object</span>
@@ -560,9 +559,9 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 <li><p><code class="docutils literal notranslate"><span class="pre">writelines(x)</span></code>: Given an iterable of strings, treat each string as a line of text to be written to the file (the inverse of <code class="docutils literal notranslate"><span class="pre">readlines</span></code>)</p></li>
 </ul>
 <p>Also, it is important to note that the file object can be <em>iterated over</em>, and that each iteration will return an individual line of text from the file. This is the best way to read through an entire file line-by-line.</p>
-</section>
-</section>
-<section id="Example:-Writing-and-Reading-a-Text-File">
+</div>
+</div>
+<div class="section" id="Example:-Writing-and-Reading-a-Text-File">
 <h2>Example: Writing and Reading a Text File<a class="headerlink" href="#Example:-Writing-and-Reading-a-Text-File" title="Permalink to this headline"></a></h2>
 <p>Given the following string:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># recall: triple-quotes can be used to write multi-line strings</span>
@@ -594,8 +593,8 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 <span class="p">[</span><span class="s1">&#39;A bagel rolled down the hill.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;A lady watched it roll.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="Globbing-for-Files">
+</div>
+<div class="section" id="Globbing-for-Files">
 <h2>Globbing for Files<a class="headerlink" href="#Globbing-for-Files" title="Permalink to this headline"></a></h2>
 <p>There are many cases in which we may want to construct a list of files to iterate over. For example, if we have several data files, it would be useful to create a file list which we can iterate through and process in sequence. One way to do this would be to manually construct such a list of files:</p>
 <div class="nbinput nblast docutils container">
@@ -679,8 +678,8 @@ data/*.txt
 <li><p>All txt files that have the letters ‘q’ or ‘z’ in them</p></li>
 </ul>
 </div>
-</section>
-<section id="Saving-&amp;-Loading-Python-Objects:-pickle">
+</div>
+<div class="section" id="Saving-&amp;-Loading-Python-Objects:-pickle">
 <h2>Saving &amp; Loading Python Objects: pickle<a class="headerlink" href="#Saving-&-Loading-Python-Objects:-pickle" title="Permalink to this headline"></a></h2>
 <p>Suppose that you have just populated a dictionary that is serving as a grade book for a course that you are teaching:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grades</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Albert&quot;</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s2">&quot;Emmy&quot;</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span> <span class="s2">&quot;Marie&quot;</span><span class="p">:</span> <span class="mi">79</span><span class="p">}</span>
@@ -706,8 +705,8 @@ data/*.txt
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pickle.dump</span></code> and <code class="docutils literal notranslate"><span class="pre">pickle.load</span></code> cover the vast majority of our object-pickling needs. A wide range of Python objects can be saved in this way, including functions that we define and instances of custom classes. Please refer to <a class="reference external" href="https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled">the official documentation</a> for a discussion of the Python objects that can and cannot be pickled.</p>
-</section>
-<section id="Saving-and-Loading-NumPy-Arrays">
+</div>
+<div class="section" id="Saving-and-Loading-NumPy-Arrays">
 <h2>Saving and Loading NumPy Arrays<a class="headerlink" href="#Saving-and-Loading-NumPy-Arrays" title="Permalink to this headline"></a></h2>
 <p>NumPy provides its own functions for saving and loading arrays. Although these arrays can be pickled, it is strongly advised to leverage NumPy’s file-IO functions. NumPy’s standard binary file type used to store array data is known as an ‘.npy’ file. The NumPy binary archive format, which stores multiple arrays in one file, is known as the ‘.npz’ format.</p>
 <p>Let’s save the array <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.array([1,</span> <span class="pre">2,</span> <span class="pre">3])</span></code> to the binary file (not a text file) “my_array.npz”. <code class="docutils literal notranslate"><span class="pre">numpy.save</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy.load</span></code> will save and load arrays, handling all of the file opening and closing for you. Thus there is no need to use a context manager when using these functions.</p>
@@ -751,8 +750,8 @@ data/*.txt
 <span class="go">array([7, 8, 9])</span>
 </pre></div>
 </div>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/pathlib.html">The ‘pathlib’ module</a></p></li>
@@ -765,8 +764,8 @@ data/*.txt
 </ul>
 </li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Solutions">
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Basic glob patterns: Solutions</strong></p>
 <ul class="simple">
@@ -781,8 +780,8 @@ data/*.txt
 <li><p>Any file with an odd number in its name (answer: <code class="docutils literal notranslate"><span class="pre">*[13579]*</span></code>)</p></li>
 <li><p>All txt files that have the letters ‘q’ or ‘z’ in them (answer: <code class="docutils literal notranslate"><span class="pre">*[qz]*.txt</span></code>)</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

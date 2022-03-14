@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Class instances versus objects, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Class instances versus objects, Difficulty: Medium, Category: Section" name="description" />
 <meta content="instance, class creation, init, self, isinstance" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -125,7 +124,7 @@
     text-align: unset;
 }
 </style>
-<section id="Instances-of-a-Class">
+<div class="section" id="Instances-of-a-Class">
 <h1>Instances of a Class<a class="headerlink" href="#Instances-of-a-Class" title="Permalink to this headline"></a></h1>
 <p>Thus far we have learned about the syntax for defining a new class of object, specifying its name, attributes, and methods (which are attributes that are functions). Once we leave the scope of the class definition, a class object is formed - the resulting <em>class object</em> is the singular object that encapsulates our class definition. We seldom will want to pass around or manipulate this class object once it is created. Rather, we will want to use it to create individual <em>instances</em> of that class.
 To be more concrete, <code class="docutils literal notranslate"><span class="pre">list</span></code> is a class object (remember that “class” and “type” are synonymous) - it is the same sort of object that is produced when a <code class="docutils literal notranslate"><span class="pre">class</span></code> definition is executed. As you saw in <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Lists">Module 2</a>, we can use this class object to create individual <em>instances</em> of the list class, each one containing its own sequence of items.</p>
@@ -180,7 +179,7 @@ that.</p>
 </pre></div>
 </div>
 <p>We will learn about the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method and that peculiar <code class="docutils literal notranslate"><span class="pre">self</span></code> argument momentarily. First, we will learn about creating an instance object from a class object.</p>
-<section id="Object-Identity-and-Creating-an-Instance">
+<div class="section" id="Object-Identity-and-Creating-an-Instance">
 <h2>Object Identity and Creating an Instance<a class="headerlink" href="#Object-Identity-and-Creating-an-Instance" title="Permalink to this headline"></a></h2>
 <p>Here we will learn the basic mechanism for creating an instance of a class. Consider the following trivial class definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
@@ -290,8 +289,8 @@ that.</p>
 </ul>
 </div>
 <p>Now that we know the basics of how to create an instance of a class, understand the relationship between class objects and instances, and understand the distinction between instances that are independent from one another, we can move on to learning about creating instance-level attributes for our class.</p>
-</section>
-<section id="Defining-Instance-Level-Attributes:-the-__init__-Method">
+</div>
+<div class="section" id="Defining-Instance-Level-Attributes:-the-__init__-Method">
 <h2>Defining Instance-Level Attributes: the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> Method<a class="headerlink" href="#Defining-Instance-Level-Attributes:-the-__init__-Method" title="Permalink to this headline"></a></h2>
 <p>As demonstrated in the <code class="docutils literal notranslate"><span class="pre">Person</span></code> class that we defined earlier in this section, and the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class that we defined in this module’s introduction section, there is a special method, <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, that allows us to define instance-level attributes for our class. This is a critically-important method, which we will leverage often. Note that the name of this is: “underscore-underscore-init-underscore-underscore”, which can be pronounced as “dunder-init” (where “dunder” stands for
 double-underscore).</p>
@@ -378,8 +377,8 @@ value for <code class="docutils literal notranslate"><span class="pre">name</spa
 </div>
 <p>You should now have a grasp of how the special <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method can be used to define and set instance-level attributes for your classes. Furthermore, the basic process by which invoking class instantiation produces an instance object which then automatically gets passed to <code class="docutils literal notranslate"><span class="pre">__init__</span></code> as the <code class="docutils literal notranslate"><span class="pre">self</span></code> argument, should be salient. In the following section, we will encounter three varieties of methods: instance methods, class methods, and static methods. Additionally, we will encounter even
 more so-called “special methods”, similar to <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, which can be used to more broadly specify how your class behaves and interacts with Python’s operators.</p>
-</section>
-<section id="Reading-Comprehension-Solutions">
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Solution: Class Initialization</strong></p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> class defined above, create a list consisting of 10 <em>distinct</em> instances of this type</p>
@@ -480,8 +479,8 @@ more so-called “special methods”, similar to <code class="docutils literal n
 <span class="go">40</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

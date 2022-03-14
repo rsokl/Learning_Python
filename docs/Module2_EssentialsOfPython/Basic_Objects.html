@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Basics of Python Objects, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Basics of Python Objects, Difficulty: Easy, Category: Section" name="description" />
 <meta content="integers, booleans, floats, floating point precision, lists, strings, fundamentals" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -159,7 +158,7 @@
     text-align: unset;
 }
 </style>
-<section id="Basic-Object-Types">
+<div class="section" id="Basic-Object-Types">
 <h1>Basic Object Types<a class="headerlink" href="#Basic-Object-Types" title="Permalink to this headline"></a></h1>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
@@ -188,7 +187,7 @@
 </pre></div>
 </div>
 <p>In a later module, you will learn “object-oriented” programming, which will allow you to create your own, customized objects!</p>
-<section id="Number-Types">
+<div class="section" id="Number-Types">
 <h2>Number Types<a class="headerlink" href="#Number-Types" title="Permalink to this headline"></a></h2>
 <p>Python has three basic types of numbers: integers, “floating-point” numbers, and complex numbers. Familiar mathematical symbols can be used to perform arithmetic on all of these numbers (comparison operators like “greater than” are not defined for complex numbers):</p>
 <table class="docutils align-default">
@@ -305,7 +304,7 @@
 </ol>
 <p>Now, given any integer, <code class="docutils literal notranslate"><span class="pre">n</span></code>, what are the possible values that <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">%</span> <span class="pre">2</span></code> can return? See if you can come up with a simple rule for explaining the behavior of <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">%</span> <span class="pre">2</span></code>.</p>
 </div>
-<section id="Python’s-math-module">
+<div class="section" id="Python’s-math-module">
 <h3>Python’s math module<a class="headerlink" href="#Python’s-math-module" title="Permalink to this headline"></a></h3>
 <p>The standard library’s math module provides us with many more mathematical functions, like logarithms and trigonometric functions. A complete listing of them <a class="reference external" href="https://docs.python.org/3/library/math.html#number-theoretic-and-representation-functions">can be found in the official Python documentation</a>. This module must be imported into your code in order to use its functions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using the `math` module to use</span>
@@ -323,8 +322,8 @@
 <span class="mi">24</span>
 </pre></div>
 </div>
-</section>
-<section id="Integers">
+</div>
+<div class="section" id="Integers">
 <h3>Integers<a class="headerlink" href="#Integers" title="Permalink to this headline"></a></h3>
 <p>As in traditional mathematics, an integer is any “whole” number: <span class="math notranslate nohighlight">\(\dots, -3, -2, -1, 0, 1, 2, 3, \dots\)</span>.</p>
 <p>Integers belong to the built-in type <code class="docutils literal notranslate"><span class="pre">int</span></code>, which can be used to convert objects to integers:</p>
@@ -350,8 +349,8 @@
 </pre></div>
 </div>
 <p>Integers have some built-in functions available to them, which are detailed in the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#additional-methods-on-integer-types">official documentation</a>. The utility of these will likely be quite obscure to new programmers. Just note that they are here for now.</p>
-</section>
-<section id="Floating-Point-Numbers">
+</div>
+<div class="section" id="Floating-Point-Numbers">
 <h3>Floating-Point Numbers<a class="headerlink" href="#Floating-Point-Numbers" title="Permalink to this headline"></a></h3>
 <p>A “floating-point” number is a number with a decimal point. Referred to as a “float” for short, this can be used to represent any number, up to a limited number of digits.</p>
 <p>These objects belong to the built-in type <code class="docutils literal notranslate"><span class="pre">float</span></code>, which can be used to convert objects to floats:</p>
@@ -386,7 +385,7 @@
 </pre></div>
 </div>
 <p>Floats have a couple of built-in functions available to them, as detailed in the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#additional-methods-on-float">official documentation</a>.</p>
-<section id="Scientific-Notation">
+<div class="section" id="Scientific-Notation">
 <h4>Scientific Notation<a class="headerlink" href="#Scientific-Notation" title="Permalink to this headline"></a></h4>
 <p>A float can also be created using familiar scientific notation. The character <code class="docutils literal notranslate"><span class="pre">e</span></code> is used to represent <span class="math notranslate nohighlight">\(\times 10\)</span>, and the proceeding number is the exponent. Here are some examples of traditional scientific notation, and their corresponding representation in Python:</p>
 <p><span class="math notranslate nohighlight">\(1.38 \times 10^{-4} \rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">1.38e-04</span></code></p>
@@ -398,8 +397,8 @@
 <span class="mf">1e-07</span>
 </pre></div>
 </div>
-</section>
-<section id="Understanding-Numerical-Precision">
+</div>
+<div class="section" id="Understanding-Numerical-Precision">
 <h4>Understanding Numerical Precision<a class="headerlink" href="#Understanding-Numerical-Precision" title="Permalink to this headline"></a></h4>
 <p>Whereas a Python integer can be made to be as large as you’d like, a floating-point number is <em>limited in the number of digits it can store</em>. That is, your computer will only use a set amount of memory - 8 bytes (64 bits) on most machines - to store the value of a floating-point number.</p>
 <p>In effect, this means that a float can only be represented with a <em>numerical precision</em> of approximately 16 decimal places, when that number is written in scientific notation. The computer will not be able to reliably represent a number’s digits beyond those accounted for by the allotted 8 bytes. For instance, the following Python integer is defined with 100 digits, but when this number is converted to a float, it only retains 15 decimal places in scientific notation:</p>
@@ -451,9 +450,9 @@
 <p>If you do not heed this lesson, it is inevitable that you will end up with serious, hard-to-find bugs in your code. Lastly, when doing numerical work in Python (and any other programming language), you must understand that the finite numerical precision of floating-point numbers is a source of error, akin to error associated with imprecision with a measuring device, and should be accounted for in your analysis (if error analysis is warranted).</p>
 <p>Python’s <a class="reference external" href="https://docs.python.org/3.0/library/decimal.html">decimal module</a> can be used to define higher (or lower) precision numbers than permitted by the standard 8-byte floats. Furthermore, all arithmetic involving decimal numbers from this module is guaranteed to be <em>exact</em>, meaning that <code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">+</span> <span class="pre">0.1</span> <span class="pre">+</span> <span class="pre">0.1</span> <span class="pre">-</span> <span class="pre">0.3</span></code> would be exactly <code class="docutils literal notranslate"><span class="pre">0.</span></code>. There is also a built-in <a class="reference external" href="https://docs.python.org/3/library/fractions.html#module-fractions">fractions module</a>, which provides tools for working with
 exact representations of rational numbers. Although we will not be using them here, it is very important to keep in mind that these modules exist and that floating point numbers are not the only way around the number line in Python.</p>
-</section>
-</section>
-<section id="Complex-Numbers">
+</div>
+</div>
+<div class="section" id="Complex-Numbers">
 <h3>Complex Numbers<a class="headerlink" href="#Complex-Numbers" title="Permalink to this headline"></a></h3>
 <p>In mathematics, a “complex number” is a number with the form <span class="math notranslate nohighlight">\(a + bi\)</span>, where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are real-valued numbers, and <span class="math notranslate nohighlight">\(i\)</span> is defined to be the number that satisfies the relationship <span class="math notranslate nohighlight">\(i^2 = -1\)</span>. Because no real-valued number satisfies this relationship, <span class="math notranslate nohighlight">\(i\)</span> is called the “imaginary number”.</p>
 <p>Weirdo electrical engineers use the symbol <span class="math notranslate nohighlight">\(j\)</span> in place of <span class="math notranslate nohighlight">\(i\)</span>, which is why Python displays the complex number <span class="math notranslate nohighlight">\(2 + 3i\)</span> as <code class="docutils literal notranslate"><span class="pre">2+3j</span></code> (this is actually because <span class="math notranslate nohighlight">\(i\)</span> typically denotes current; we like electrical engineers too).</p>
@@ -515,8 +514,8 @@ exact representations of rational numbers. Although we will not be using them he
 <li><p>Using Python’s syntax for scientific notation, write an expression that verifies that one trillion divided by one billion is equal to one thousand</p></li>
 </ol>
 </div>
-</section>
-<section id="Augmented-Assignment-Statements">
+</div>
+<div class="section" id="Augmented-Assignment-Statements">
 <h3>Augmented Assignment Statements<a class="headerlink" href="#Augmented-Assignment-Statements" title="Permalink to this headline"></a></h3>
 <p>Python provides a nice “shortcut” for updating a variable via an arithmetic operation. For example, suppose you want to increase the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> by 1. Currently, we would update <code class="docutils literal notranslate"><span class="pre">x</span></code> as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># incrementing `x` by 1</span>
@@ -543,8 +542,8 @@ exact representations of rational numbers. Although we will not be using them he
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//=</span> <span class="pre">n</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">//</span> <span class="pre">n</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**=</span> <span class="pre">n</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">**</span> <span class="pre">n</span></code></p></li>
 </ul>
-</section>
-<section id="Improving-The-Readability-of-Numbers">
+</div>
+<div class="section" id="Improving-The-Readability-of-Numbers">
 <h3>Improving The Readability of Numbers<a class="headerlink" href="#Improving-The-Readability-of-Numbers" title="Permalink to this headline"></a></h3>
 <p>Python version 3.6 introduced the ability to include underscores between the digits of a number as a visual delimiter. This character can be used to improve the readability of long numbers in your code. For example the number <code class="docutils literal notranslate"><span class="pre">662607004</span></code> can be rewritten as <code class="docutils literal notranslate"><span class="pre">662_607_004</span></code>, using <code class="docutils literal notranslate"><span class="pre">_</span></code> to delimit digits separated by orders of one thousand. Leading, trailing, or multiple underscores in a row are not allowed; otherwise this character can be included anywhere within a numerical literal.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># examples of using `_` as a visual delimiter in numbers</span>
@@ -564,9 +563,9 @@ exact representations of rational numbers. Although we will not be using them he
 <p class="admonition-title fa fa-exclamation-circle"><strong>Compatibility Warning</strong></p>
 <p>The permitted use of the underscore character, <code class="docutils literal notranslate"><span class="pre">_</span></code>, in numerical literals was introduced in Python 3.6. Thus utilizing this syntax in your code will render it incompatible with Python 3.5 and earlier.</p>
 </div>
-</section>
-</section>
-<section id="The-Boolean-Type">
+</div>
+</div>
+<div class="section" id="The-Boolean-Type">
 <h2>The Boolean Type<a class="headerlink" href="#The-Boolean-Type" title="Permalink to this headline"></a></h2>
 <p>There are two boolean-type objects: <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>; they belong to the built-in type <code class="docutils literal notranslate"><span class="pre">bool</span></code>. We have already seen that the <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> function either returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, as a given object either is or isn’t an instance of a specific type.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the two boolean-objects: `True` and `False`</span>
@@ -579,7 +578,7 @@ exact representations of rational numbers. Although we will not be using them he
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> must be specified with capital letters in Python. These should not be confused with strings; note that there are no quotation marks used here.</p>
-<section id="Logic-Operators">
+<div class="section" id="Logic-Operators">
 <h3>Logic Operators<a class="headerlink" href="#Logic-Operators" title="Permalink to this headline"></a></h3>
 <p>Python provides familiar operators for performing basic boolean logic:</p>
 <table class="docutils align-default">
@@ -639,8 +638,8 @@ exact representations of rational numbers. Although we will not be using them he
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">bool</span></code> type has additional utilities, which will be discussed in the “Conditional Statements” section.</p>
-</section>
-<section id="Boolean-Objects-are-Integers">
+</div>
+<div class="section" id="Boolean-Objects-are-Integers">
 <h3>Boolean Objects are Integers<a class="headerlink" href="#Boolean-Objects-are-Integers" title="Permalink to this headline"></a></h3>
 <p>The two boolean objects <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> formally belong to the <code class="docutils literal notranslate"><span class="pre">int</span></code> type in addition to <code class="docutils literal notranslate"><span class="pre">bool</span></code>, and are associated with the values <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>, respectively:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
@@ -678,9 +677,9 @@ exact representations of rational numbers. Although we will not be using them he
 <li><p>Write an expression that returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is a boolean-type object or a float-type object.</p></li>
 </ol>
 </div>
-</section>
-</section>
-<section id="The-None-Type">
+</div>
+</div>
+<div class="section" id="The-None-Type">
 <h2>The None-Type<a class="headerlink" href="#The-None-Type" title="Permalink to this headline"></a></h2>
 <p>There is a simple type, <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> that has exactly one object: <code class="docutils literal notranslate"><span class="pre">None</span></code>. <code class="docutils literal notranslate"><span class="pre">None</span></code> is used to represent “null”… nothing.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `None` is the *only* object belonging to NoneType</span>
@@ -723,10 +722,10 @@ exact representations of rational numbers. Although we will not be using them he
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The list did not contain any number larger than 10&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="Strings">
+</div>
+<div class="section" id="Strings">
 <h2>Strings<a class="headerlink" href="#Strings" title="Permalink to this headline"></a></h2>
-<section id="Introducing-the-string-type">
+<div class="section" id="Introducing-the-string-type">
 <h3>Introducing the string type<a class="headerlink" href="#Introducing-the-string-type" title="Permalink to this headline"></a></h3>
 <p>The string type is used to store written characters. A string can be formed using:</p>
 <ul class="simple">
@@ -768,8 +767,8 @@ exact representations of rational numbers. Although we will not be using them he
 </pre></div>
 </div>
 <p>Strings are not the only sequence-type in Python; lists and tuples are examples of sequences as well. We will reserve a separate section to learn about the common interface that Python has for all of its types that are sequential in nature, including the “indexing” and “slicing” demonstrated here.</p>
-</section>
-<section id="String-essentials">
+</div>
+<div class="section" id="String-essentials">
 <h3>String essentials<a class="headerlink" href="#String-essentials" title="Permalink to this headline"></a></h3>
 <p>We will only scratch the surface with strings, touching on some essentials. Please refer to the <a class="reference external" href="https://docs.python.org/3/tutorial/introduction.html#strings">official Python tutorial</a> for a more extensive, but still informal, overview of strings.</p>
 <p>In a string, <code class="docutils literal notranslate"><span class="pre">\n</span></code> is treated as a single character. It denotes a new-line in a string, and will be rendered thusly when the string is printed. Similarly, <code class="docutils literal notranslate"><span class="pre">\t</span></code> will render as a tab-character.</p>
@@ -821,8 +820,8 @@ exact representations of rational numbers. Although we will not be using them he
 <span class="kc">True</span>
 </pre></div>
 </div>
-</section>
-<section id="Formatting-strings">
+</div>
+<div class="section" id="Formatting-strings">
 <h3>Formatting strings<a class="headerlink" href="#Formatting-strings" title="Permalink to this headline"></a></h3>
 <p>Python provides multiple syntaxes for formatting strings; these permit us to do things like programmatically inject the values of variables into strings, align fields using whitespace, and control the number of decimal places with which numbers are displayed in a string. This section is designed to simply expose the reader to the different varieties of string-formatting.</p>
 <p><a class="reference external" href="https://pyformat.info">pyformat.info</a> is the best resource to consult to see an exhaustive (but still intuitive) treatment of string-formatting in Python. You can also refer to the official documentation <a class="reference external" href="https://docs.python.org/3/library/string.html#format-examples">here</a>.</p>
@@ -873,8 +872,8 @@ exact representations of rational numbers. Although we will not be using them he
 <p class="admonition-title fa fa-exclamation-circle"><strong>f-string Compatibility</strong>:</p>
 <p>The ‘f-string’ syntax was introduced in Python 3.6. It is not available in earlier versions of Python.</p>
 </div>
-</section>
-<section id="Official-documentation-for-strings">
+</div>
+<div class="section" id="Official-documentation-for-strings">
 <h3>Official documentation for strings<a class="headerlink" href="#Official-documentation-for-strings" title="Permalink to this headline"></a></h3>
 <p>It is highly recommended that you take time to read over all of the functions that are built-in to a string.</p>
 <ul class="simple">
@@ -903,9 +902,9 @@ exact representations of rational numbers. Although we will not be using them he
 <li><p>Only kids 13 and up are allowed to see Wayne’s World. Given the variables <code class="docutils literal notranslate"><span class="pre">name</span></code> (a string) and <code class="docutils literal notranslate"><span class="pre">age</span></code> (an integer), use an f-string that will display: “NAME is old enough to watch the movie: BOOL”, where NAME is to be replaced with the kid’s name, and BOOL should be <code class="docutils literal notranslate"><span class="pre">True</span></code> if the kid is at least 13 years old, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
 </ol>
 </div>
-</section>
-</section>
-<section id="Lists">
+</div>
+</div>
+<div class="section" id="Lists">
 <h2>Lists<a class="headerlink" href="#Lists" title="Permalink to this headline"></a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> is a type of Python object that allows us to store a sequence of other objects. One of its major utilities is that it provides us with means for updating the contents of a list later on.</p>
 <p>A list object is created using square-brackets, and its contents are separated by commas: <code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">...,</span> <span class="pre">itemN]</span></code>. Its contents need not be of the same type of object.</p>
@@ -942,7 +941,7 @@ exact representations of rational numbers. Although we will not be using them he
 <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<section id="Lists-are-sequences">
+<div class="section" id="Lists-are-sequences">
 <h3>Lists are sequences<a class="headerlink" href="#Lists-are-sequences" title="Permalink to this headline"></a></h3>
 <p>Like a string, the ordering of a list’s contents matters, meaning that a list is sequential in nature.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list&#39;s ordering matters</span>
@@ -967,8 +966,8 @@ exact representations of rational numbers. Although we will not be using them he
 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="Lists-can-be-“mutated”">
+</div>
+<div class="section" id="Lists-can-be-“mutated”">
 <h3>Lists can be “mutated”<a class="headerlink" href="#Lists-can-be-“mutated”" title="Permalink to this headline"></a></h3>
 <p>We will encounter other types of containers in Python, what makes the list stand out is that the <em>contents of a list can be changed after the list has already been constructed</em>. Thus a list is an example of a <em>mutable</em> object.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># changing a list after it has been constructed</span>
@@ -1017,8 +1016,8 @@ exact representations of rational numbers. Although we will not be using them he
 <span class="go">[&#39;a&#39;, &#39;c&#39;]</span>
 </pre></div>
 </div>
-</section>
-<section id="Official-documentation-for-lists">
+</div>
+<div class="section" id="Official-documentation-for-lists">
 <h3>Official documentation for lists<a class="headerlink" href="#Official-documentation-for-lists" title="Permalink to this headline"></a></h3>
 <p>It is highly recommended that you take time to read over all of the functions that are built-in to a list. These are all designed to allow us to either inspect or mutate the contents of a list.</p>
 <ul class="simple">
@@ -1033,9 +1032,9 @@ exact representations of rational numbers. Although we will not be using them he
 <li><p>Alphabetize the list of names: <code class="docutils literal notranslate"><span class="pre">[&quot;Jane&quot;,</span> <span class="pre">&quot;Adam&quot;,</span> <span class="pre">&quot;Ryan&quot;,</span> <span class="pre">&quot;Bob&quot;,</span> <span class="pre">&quot;Zordon&quot;,</span> <span class="pre">&quot;Jack&quot;,</span> <span class="pre">&quot;Jackenzie&quot;]</span></code>.</p></li>
 </ol>
 </div>
-</section>
-</section>
-<section id="Summary">
+</div>
+</div>
+<div class="section" id="Summary">
 <h2>Summary<a class="headerlink" href="#Summary" title="Permalink to this headline"></a></h2>
 <p>The term “object” is a catch-all in Python, meaning anything that we can assign to a variable. Objects behave differently from one another according to what “type” a given object is.</p>
 <p>We reviewed several fundamental object types in Python:</p>
@@ -1098,8 +1097,8 @@ exact representations of rational numbers. Although we will not be using them he
 </pre></div>
 </div>
 <p>It is very important to remember this issue of the limited numerical precision of a floating point number.</p>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#additional-methods-on-integer-types">Integers</a></p></li>
@@ -1114,8 +1113,8 @@ exact representations of rational numbers. Although we will not be using them he
 </li>
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">Lists</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Exercise-Solutions:">
+</div>
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline"></a></h2>
 <p><strong>Understanding the modulo operator: Solution</strong></p>
 <p>If <code class="docutils literal notranslate"><span class="pre">n</span></code> is an even integer, then 2 will divide into it evenly, and thus there is no remainder. If <code class="docutils literal notranslate"><span class="pre">n</span></code> is odd, then <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">/</span> <span class="pre">2</span></code> must have a remainder of 1. Thus:</p>
@@ -1247,8 +1246,8 @@ exact representations of rational numbers. Although we will not be using them he
 <span class="p">[</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Jackenzie&#39;</span><span class="p">,</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;Ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;Zordon&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

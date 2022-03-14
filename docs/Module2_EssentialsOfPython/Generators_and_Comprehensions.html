@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: generators comprehensions and efficiency, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: generators comprehensions and efficiency, Difficulty: Easy, Category: Section" name="description" />
 <meta content="generator, range, list comprehension, generator comprehension, nested comprehensions, inline for-loop, filtered, iterator" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -149,13 +148,13 @@
     text-align: unset;
 }
 </style>
-<section id="Generators-&amp;-Comprehension-Expressions">
+<div class="section" id="Generators-&amp;-Comprehension-Expressions">
 <h1>Generators &amp; Comprehension Expressions<a class="headerlink" href="#Generators-&-Comprehension-Expressions" title="Permalink to this headline"></a></h1>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong>:</p>
 <p>There are reading-comprehension exercises included throughout the text. These are meant to help you put your reading to practice. Solutions for the exercises are included at the bottom of this page.</p>
 </div>
-<section id="Introducing-Generators">
+<div class="section" id="Introducing-Generators">
 <h2>Introducing Generators<a class="headerlink" href="#Introducing-Generators" title="Permalink to this headline"></a></h2>
 <p>Now we introduce an important type of object called a <strong>generator</strong>, which allows us to generate arbitrarily-many items in a series, without having to store them all in memory at once.</p>
 <div class="admonition note">
@@ -164,7 +163,7 @@
 </div>
 <p>Recall that a list readily stores all of its members; you can access any of its contents via indexing. A generator, on the other hand, <em>does not store any items</em>. Instead, it stores the instructions for generating each of its members, and stores its iteration state; this means that the generator will know if it has generated its second member, and will thus generate its third member the next time it is iterated on.</p>
 <p>The whole point of this is that you can use a generator to produce a long sequence of items, without having to store them all in memory.</p>
-<section id="The-range-generator">
+<div class="section" id="The-range-generator">
 <h3>The <code class="docutils literal notranslate"><span class="pre">range</span></code> generator<a class="headerlink" href="#The-range-generator" title="Permalink to this headline"></a></h3>
 <p>An extremely popular built-in generator is <code class="docutils literal notranslate"><span class="pre">range</span></code>, which, given the values:</p>
 <ul class="simple">
@@ -212,9 +211,9 @@ in a list:</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Using ``range``</strong>:</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">range</span></code> in a for-loop, print the numbers 10-1, in sequence.</p>
 </div>
-</section>
-</section>
-<section id="Creating-your-own-generator:-generator-comprehensions">
+</div>
+</div>
+<div class="section" id="Creating-your-own-generator:-generator-comprehensions">
 <h2>Creating your own generator: generator comprehensions<a class="headerlink" href="#Creating-your-own-generator:-generator-comprehensions" title="Permalink to this headline"></a></h2>
 <p>Python provides a sleek syntax for defining a simple generator in a single line of code; this expression is known as a <strong>generator comprehension</strong>. The following syntax is extremely useful and will appear very frequently in Python code:</p>
 <div class="admonition note">
@@ -297,7 +296,7 @@ in a list:</p>
 <p>Note that (3, 5) is <em>not</em> in the series.</p>
 <p>Iterate over the generator and print its contents to verify your solution.</p>
 </div>
-<section id="Storing-generators">
+<div class="section" id="Storing-generators">
 <h3>Storing generators<a class="headerlink" href="#Storing-generators" title="Permalink to this headline"></a></h3>
 <p>Just like we saw with the <code class="docutils literal notranslate"><span class="pre">range</span></code> generator, defining a generator using a comprehension does <em>not</em> perform any computations or consume any memory beyond defining the rules for producing the sequence of data. See what happens when we try to print this generator:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># will generate 0, 1, 4, 9, 25, ..., 9801</span>
@@ -320,8 +319,8 @@ in a list:</p>
 </pre></div>
 </div>
 <p>The sole exception to this is the <code class="docutils literal notranslate"><span class="pre">range</span></code> generator, for which all of these inspections are valid.</p>
-</section>
-<section id="Consuming-generators">
+</div>
+<div class="section" id="Consuming-generators">
 <h3>Consuming generators<a class="headerlink" href="#Consuming-generators" title="Permalink to this headline"></a></h3>
 <p>We can feed this to any function that accepts iterables. For instance, we can feed <code class="docutils literal notranslate"><span class="pre">gen</span></code> to the built-in <code class="docutils literal notranslate"><span class="pre">sum</span></code> function, which sums the contents of an iterable:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
@@ -359,8 +358,8 @@ in a list:</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>A generator can only be iterated over once, after which it is exhausted and must be re-defined in order to be iterated over again.</p>
 </div>
-</section>
-<section id="Chaining-comprehensions">
+</div>
+<div class="section" id="Chaining-comprehensions">
 <h3>Chaining comprehensions<a class="headerlink" href="#Chaining-comprehensions" title="Permalink to this headline"></a></h3>
 <p>Because generators are iterables, they can be fed into subsequent generator comprehensions. That is, they can be “chained” together.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># chaining two generator comprehensions</span>
@@ -386,8 +385,8 @@ in a list:</p>
 <span class="c1"># total is now 200</span>
 </pre></div>
 </div>
-</section>
-<section id="Using-generator-comprehensions-on-the-fly">
+</div>
+<div class="section" id="Using-generator-comprehensions-on-the-fly">
 <h3>Using generator comprehensions on the fly<a class="headerlink" href="#Using-generator-comprehensions-on-the-fly" title="Permalink to this headline"></a></h3>
 <p>A feature of Python, that can make your code supremely readable and intuitive, is that generator comprehensions can be fed <em>directly</em> into functions that operate on iterables. That is,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
@@ -426,9 +425,9 @@ in a list:</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Using Generator Comprehensions on the Fly</strong>:</p>
 <p>In a single line, compute the sum of all of the odd-numbers in 0-100.</p>
 </div>
-</section>
-</section>
-<section id="Iterating-over-generators-using-next">
+</div>
+</div>
+<div class="section" id="Iterating-over-generators-using-next">
 <h2>Iterating over generators using <code class="docutils literal notranslate"><span class="pre">next</span></code><a class="headerlink" href="#Iterating-over-generators-using-next" title="Permalink to this headline"></a></h2>
 <p>The built-in function <code class="docutils literal notranslate"><span class="pre">next</span></code> allows you manually “request” the next member of a generator, or more generally, any kind of <em>iterator</em>. Calling <code class="docutils literal notranslate"><span class="pre">next</span></code> on an exhausted iterator will raise a <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> signal.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># consuming an iterator using `next`</span>
@@ -453,7 +452,7 @@ in a list:</p>
 </pre></div>
 </div>
 <p>This is a great tool for retrieving content from a generator, or any iterator, without having to perform a for-loop over it.</p>
-<section id="Iterables-vs. Iterators">
+<div class="section" id="Iterables-vs. Iterators">
 <h3>Iterables vs. Iterators<a class="headerlink" href="#Iterables-vs. Iterators" title="Permalink to this headline"></a></h3>
 <p>This subsection is <em>not</em> essential to your basic understanding of the material. I am including it to prevent this text from being misleading to those who already know quite a bit about Python. <strong>This is a bit advanced, feel free to skip it…</strong></p>
 <p>There is a bit of confusing terminology to be cleared up: an iterable is not the same thing as an iterator.</p>
@@ -486,9 +485,9 @@ in a list:</p>
 </div>
 <p>In this way, a list is an <em>iterable</em> but not an <em>iterator</em>, which is also the case for tuples, strings, sets, and dictionaries.</p>
 <p>Python actually creates an iterator “behind the scenes”, whenever you perform a for-loop over an iterable like a list. It feeds that iterable to <code class="docutils literal notranslate"><span class="pre">iter</span></code>, and then proceeds to call <code class="docutils literal notranslate"><span class="pre">next</span></code> on the resulting iterator for each of the for-loop’s iterations.</p>
-</section>
-</section>
-<section id="List-&amp;-Tuple-Comprehensions">
+</div>
+</div>
+<div class="section" id="List-&amp;-Tuple-Comprehensions">
 <h2>List &amp; Tuple Comprehensions<a class="headerlink" href="#List-&-Tuple-Comprehensions" title="Permalink to this headline"></a></h2>
 <p>Using generator comprehensions to initialize lists is so useful that Python actually reserves a specialized syntax for it, known as the list comprehension. A <strong>list comprehension</strong> is a syntax for constructing a list, which exactly mirrors the generator comprehension syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;expression&gt; for &lt;var&gt; in &lt;iterable&gt; {if &lt;condition}]
@@ -527,7 +526,7 @@ in a list:</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway</strong>:</p>
 <p>The comprehensions-statement is an extremely useful syntax for creating simple and complicated lists and tuples alike.</p>
 </div>
-<section id="Nesting-comprehensions">
+<div class="section" id="Nesting-comprehensions">
 <h3>Nesting comprehensions<a class="headerlink" href="#Nesting-comprehensions" title="Permalink to this headline"></a></h3>
 <p>It can be useful to nest comprehension expressions within one another, although this should be used sparingly.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nested list comprehensions.</span>
@@ -586,9 +585,9 @@ in a list:</p>
 </div>
 <p>Is one expression preferable over the other? Why?</p>
 </div>
-</section>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/glossary.html#term-generator">Generator definition</a></p></li>
@@ -600,8 +599,8 @@ in a list:</p>
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">List comprehensions</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#nested-list-comprehensions">Nested list comprehensions</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Exercise-Solutions:">
+</div>
+<div class="section" id="Reading-Comprehension-Exercise-Solutions:">
 <h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline"></a></h2>
 <p><strong>Using range: Solution</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># start=10, stop=0 (excluded), step-size=-1</span>
@@ -650,8 +649,8 @@ in a list:</p>
 </div>
 <p><strong>Memory Efficiency: Solution</strong></p>
 <p>It is preferable to use the generator expression <code class="docutils literal notranslate"><span class="pre">sum(1/n</span> <span class="pre">for</span> <span class="pre">n</span> <span class="pre">in</span> <span class="pre">range(1,</span> <span class="pre">101))</span></code>, rather than the list comprehension <code class="docutils literal notranslate"><span class="pre">sum([1/n</span> <span class="pre">for</span> <span class="pre">n</span> <span class="pre">in</span> <span class="pre">range(1,</span> <span class="pre">101)])</span></code>. Using a list comprehension unnecessarily creates a list of the one hundred numbers, in memory, before feeding the list to <code class="docutils literal notranslate"><span class="pre">sum</span></code>. The generator expression need only produce a single value at a time, as <code class="docutils literal notranslate"><span class="pre">sum</span></code> iterates over it.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

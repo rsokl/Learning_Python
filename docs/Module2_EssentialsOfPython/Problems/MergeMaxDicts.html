@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Dictionary Merge Exercise, Difficulty: Easy, Category: Practice Problem" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Dictionary Merge Exercise, Difficulty: Easy, Category: Practice Problem" name="description" />
 <meta content="dictionary, merge, practice problem" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,7 +25,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Is Palindrome" href="Palindrome.html" />
+    <link rel="next" title="Within Margin Percentage" href="MarginPercentage.html" />
     <link rel="prev" title="Module 2: Problems" href="../../module_2_problems.html" /> 
 </head>
 
@@ -67,7 +66,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#Extra-Challenges">Extra Challenges</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Palindrome.html">Is Palindrome</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MarginPercentage.html">Within Margin Percentage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DifferenceFanout.html">Difference Fanout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EncodeAsString.html">Encode as String</a></li>
@@ -129,7 +127,7 @@
     text-align: unset;
 }
 </style>
-<section id="Merging-Two-Dictionaries">
+<div class="section" id="Merging-Two-Dictionaries">
 <h1>Merging Two Dictionaries<a class="headerlink" href="#Merging-Two-Dictionaries" title="Permalink to this headline"></a></h1>
 <blockquote>
 <div><p>Merge two <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html#Data-Structures-(Part-II):-Dictionaries">dictionaries</a> together such that the resulting dictionary always retain the <em>greater</em> value among mappings with common keys.</p>
@@ -144,7 +142,7 @@
 </pre></div>
 </div>
 <p>Write a function that accepts two dictionaries and merges them in the fashion shown above. The <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_II_Dictionaries.html#What-Can-a-Dictionary-Store?">dictionaries’ keys need not be strings</a>, and the values should be any data type that can be ordered (e.g. can be compared using the inequality operators <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, etc.).</p>
-<section id="A-Simple,-Buggy-Solution">
+<div class="section" id="A-Simple,-Buggy-Solution">
 <h2>A Simple, Buggy Solution<a class="headerlink" href="#A-Simple,-Buggy-Solution" title="Permalink to this headline"></a></h2>
 <p>Let’s begin by writing a straightforward but flawed solution to our problem. The following function will correctly merge its two input dictionaries and is generally well-written, however, something insidious is afoot… Can you identify the bad behavior that will result from this function?</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">buggy_merge_max_mappings</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
@@ -185,8 +183,8 @@ Thus calling this function will <em>mutate</em> (change) the state of <code clas
 <li><p>When testing a function, include a check that the function does not mutate its inputs.</p></li>
 </ul>
 </div>
-</section>
-<section id="A-Simple,-Correct-Solution">
+</div>
+<div class="section" id="A-Simple,-Correct-Solution">
 <h2>A Simple, Correct Solution<a class="headerlink" href="#A-Simple,-Correct-Solution" title="Permalink to this headline"></a></h2>
 <p>We can easily stomp the bug in the previous function; updating <code class="docutils literal notranslate"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict1</span></code> with either <code class="docutils literal notranslate"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict(dict1)</span></code> or <code class="docutils literal notranslate"><span class="pre">merged</span> <span class="pre">=</span> <span class="pre">dict1.copy()</span></code> will ensure that <code class="docutils literal notranslate"><span class="pre">merged</span></code> references a <em>new</em> dictionary, which we are free to update:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simple_merge_max_mappings</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
@@ -220,8 +218,8 @@ in the docstring of our function.</p>
 </pre></div>
 </div>
 <p>The problem with this flipped ordering is that the given key may not exist in <code class="docutils literal notranslate"><span class="pre">merged</span></code> yet, thus <code class="docutils literal notranslate"><span class="pre">dict2[key]</span> <span class="pre">&gt;</span> <span class="pre">merged[key]</span></code> will raise a <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>. Using the original ordering, such a case would cause <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">merged</span></code> to return <code class="docutils literal notranslate"><span class="pre">True</span></code>, and the overall expression will return <code class="docutils literal notranslate"><span class="pre">True</span></code> without evaluating the second part of the expression (convince yourself that <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">&lt;whatever&gt;</span></code> will always return <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
-</section>
-<section id="A-Minor-Optimization">
+</div>
+<div class="section" id="A-Minor-Optimization">
 <h2>A Minor Optimization<a class="headerlink" href="#A-Minor-Optimization" title="Permalink to this headline"></a></h2>
 <p>Supposing that your code makes heavy use of dictionary merging and that its performance is a bottleneck for the overall performance of your code, then there is a minor optimization that we can implement.</p>
 <p>Consider a case of extreme imbalance in the sizes of our dictionaries; suppose <code class="docutils literal notranslate"><span class="pre">dict1</span></code> is contains one key while <code class="docutils literal notranslate"><span class="pre">dict2</span></code> contains 10,000. It would be preferable for our solution to manually iterate over the smaller of these two dictionaries. We can easily accommodate this in our function by choosing <code class="docutils literal notranslate"><span class="pre">merged</span></code> to be the longer of the two dictionaries and iterating over the other dictionary:</p>
@@ -277,8 +275,8 @@ opt_merge_max_mappings(a, b)
 </pre></div>
 </div>
 <p>This is a relatively small speedup despite the rather stark example we cooked up.</p>
-</section>
-<section id="Extended-Problem:-Merging-Arbitrary-Numbers-of-Dictionaries">
+</div>
+<div class="section" id="Extended-Problem:-Merging-Arbitrary-Numbers-of-Dictionaries">
 <h2>Extended Problem: Merging Arbitrary Numbers of Dictionaries<a class="headerlink" href="#Extended-Problem:-Merging-Arbitrary-Numbers-of-Dictionaries" title="Permalink to this headline"></a></h2>
 <p>There is no reason that our function should only be able to merge two dictionaries, it should be easy to accommodate an arbitrary number of inputs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -291,8 +289,8 @@ opt_merge_max_mappings(a, b)
 </pre></div>
 </div>
 <p>Before you write your solution, consider the following: 1. How do you write a function signature so that it can handle an arbitrary number of input dictionaries? 2. How should your function handle zero inputs? How about one input?</p>
-</section>
-<section id="Generalized-Solution">
+</div>
+<div class="section" id="Generalized-Solution">
 <h2>Generalized Solution<a class="headerlink" href="#Generalized-Solution" title="Permalink to this headline"></a></h2>
 <p>Addressing point #1, we will want to use the <code class="docutils literal notranslate"><span class="pre">*args</span></code> syntax in our function signature so that <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Functions.html#Accommodating-an-Arbitrary-Number-of-Positional-Arguments">it can accommodate an arbitrary number of dictionaries</a>. Thus all of the dictionaries fed to our function will be packed into a tuple that can be accessed via <code class="docutils literal notranslate"><span class="pre">args</span></code> (or whatever variable name we use in our signature).</p>
 <p>Regarding point #2, we can handle the case of receiving no inputs by simply returning an empty dictionary. We will also see that handling the case of a single input is more subtle than one might guess. This point will be discussed further once the solution is presented.</p>
@@ -318,7 +316,7 @@ opt_merge_max_mappings(a, b)
     <span class="k">return</span> <span class="n">merged</span>
 </pre></div>
 </div>
-<section id="Handling-Zero-Inputs">
+<div class="section" id="Handling-Zero-Inputs">
 <h3>Handling Zero Inputs<a class="headerlink" href="#Handling-Zero-Inputs" title="Permalink to this headline"></a></h3>
 <p>See that our function returns an empty dictionary if it is not passed any inputs, this is because <code class="docutils literal notranslate"><span class="pre">dicts</span></code> will be an empty tuple and thus our loop over it will immediately exit, returning an unpopulated <code class="docutils literal notranslate"><span class="pre">merged</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">merge_max_mappings</span><span class="p">()</span>
@@ -326,8 +324,8 @@ opt_merge_max_mappings(a, b)
 </pre></div>
 </div>
 <p>While you may have thought to have returned <code class="docutils literal notranslate"><span class="pre">None</span></code> in the case of there being no dictionaries to merge, returning an empty dictionary is much better behavior as code downstream from our function will only need to accommodate one type of output. Additionally, our function’s docstring promises that it will return a dictionary and we should always abide by this contract.</p>
-</section>
-<section id="Handling-One-Input">
+</div>
+<div class="section" id="Handling-One-Input">
 <h3>Handling One Input<a class="headerlink" href="#Handling-One-Input" title="Permalink to this headline"></a></h3>
 <p>In the case that our function is passed a single dictionary, our function effectively makes a (shallow) copy of that dictionary and returns it. Suppose we tried to be clever and wrote our function to pass a single dictionary through; e.g.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bad_merge_max_mappings</span><span class="p">(</span><span class="o">*</span><span class="n">dicts</span><span class="p">):</span>
@@ -344,9 +342,9 @@ opt_merge_max_mappings(a, b)
 <p>What is wrong with this solution? The problem is similar to the one that we considered above; our function always returns a dictionary that is independent from its inputs, meaning that mutating the merged dictionary has no impact on any of the inputs dictionaries. This is no longer the case when we receive a single dictionary - here the “merged” dictionary is simply a reference to the input. Any subsequent mutation of the output dictionary will also mutate the input dictionary, and vice versa.
 This unanticipated behavior could create very hard-to-find bugs in your code!</p>
 <p>It is best to not try to handle specialized cases like this, when the general code behaves appropriately to begin with.</p>
-</section>
-</section>
-<section id="Extra-Challenges">
+</div>
+</div>
+<div class="section" id="Extra-Challenges">
 <h2>Extra Challenges<a class="headerlink" href="#Extra-Challenges" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Write tests for your functions where the dictionary keys aren’t strings and the values aren’t numbers.</p></li>
@@ -368,15 +366,15 @@ This unanticipated behavior could create very hard-to-find bugs in your code!</p
 </pre></div>
 </div>
 <p>Compare this code to the solution that we devised, and enumerate all of the stylistic mistakes that are made here. Appreciate how simple and readable our code is by comparison and make a promise to yourself that you will not write code like this.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../../module_2_problems.html" class="btn btn-neutral float-left" title="Module 2: Problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Palindrome.html" class="btn btn-neutral float-right" title="Is Palindrome" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="MarginPercentage.html" class="btn btn-neutral float-right" title="Within Margin Percentage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Topic: Advanced indexing with numpy arrays, Difficulty: Hard, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Advanced indexing with numpy arrays, Difficulty: Hard, Category: Section" name="description" />
 <meta content="numpy array, integer array indexing, boolean array indexing, copy indexing, advanced" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -137,7 +136,7 @@
     text-align: unset;
 }
 </style>
-<section id="Advanced-Indexing">
+<div class="section" id="Advanced-Indexing">
 <h1>Advanced Indexing<a class="headerlink" href="#Advanced-Indexing" title="Permalink to this headline"></a></h1>
 <p>We conclude our discussion of indexing into N-dimensional NumPy arrays by understanding advanced indexing. Unlike basic indexing, which allows us to access distinct elements and regular slices of an array, advanced indexing is significantly more flexible. For example, arrays of integers can be used to access arbitrary and even repeated entries from an array,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -194,9 +193,9 @@
 </ul>
 <p>Accessing the contents of an array via advanced indexing <em>always returns a copy of those contents</em>, whereas basic indexing returns a view.</p>
 </div>
-<section id="Integer-Array-Indexing">
+<div class="section" id="Integer-Array-Indexing">
 <h2>Integer Array Indexing<a class="headerlink" href="#Integer-Array-Indexing" title="Permalink to this headline"></a></h2>
-<section id="Indexing-into-1-Dimensional-Arrays">
+<div class="section" id="Indexing-into-1-Dimensional-Arrays">
 <h3>Indexing into 1-Dimensional Arrays<a class="headerlink" href="#Indexing-into-1-Dimensional-Arrays" title="Permalink to this headline"></a></h3>
 <p>Using an integer-type array as an index allows us to access the contents of an array arbitrarily, permitting items to be accessed out of order, and even repeatedly. Consider the following 1-dimensional array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
@@ -285,8 +284,8 @@
 </pre></div>
 </div>
 </div>
-</section>
-<section id="Indexing-into-N-Dimensional-Arrays">
+</div>
+<div class="section" id="Indexing-into-N-Dimensional-Arrays">
 <h3>Indexing into N-Dimensional Arrays<a class="headerlink" href="#Indexing-into-N-Dimensional-Arrays" title="Permalink to this headline"></a></h3>
 <p>In the preceding examples, working with a 1-dimensional array, we specified a single index-array to access the contents along the only dimension of that array. As you may guess, in order to perform this variety of indexing on an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, we must specify <span class="math notranslate nohighlight">\(N\)</span> index-arrays; one for each dimension.</p>
 <p>Each of the <span class="math notranslate nohighlight">\(N\)</span> index-arrays must have the same shape, and their common shape determines the shape of the resulting array. The corresponding entries of each of the <span class="math notranslate nohighlight">\(N\)</span> index-arrays are used to specify a specific array element to be accessed. For example, consider the following 3-dimensional array whose elements we will be accessing:</p>
@@ -401,9 +400,9 @@ out[2] \\
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
 <p>An <span class="math notranslate nohighlight">\(N\)</span>-dimensional array’s contents can be accessed by supplying <span class="math notranslate nohighlight">\(N\)</span> index-arrays of integers; one for each axis of data. The index-arrays must have the same shape as one another, and this common shape determines the shape of the resulting array. This is a form of advanced indexing, and thus a copy of the parent array’s data is created.</p>
 </div>
-</section>
-</section>
-<section id="Boolean-Array-Indexing">
+</div>
+</div>
+<div class="section" id="Boolean-Array-Indexing">
 <h2>Boolean-Array Indexing<a class="headerlink" href="#Boolean-Array-Indexing" title="Permalink to this headline"></a></h2>
 <p>NumPy also permits the use of a boolean-valued array as an index, to perform advanced indexing on an array. In its simplest form, this is an extremely intuitive and elegant method for selecting contents from an array based on logical conditions.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># advanced indexing using a boolean-array</span>
@@ -447,7 +446,7 @@ array. Refer to the preceding example and convince yourself that this is the beh
 <li><p>All entries of <code class="docutils literal notranslate"><span class="pre">h</span></code> that fall within the domain `(0.1, 0.3)</p></li>
 </ol>
 </div>
-<section id="Converting-a-Boolean-Index-Array-to-Integer-Index-Arrays:-numpy.where">
+<div class="section" id="Converting-a-Boolean-Index-Array-to-Integer-Index-Arrays:-numpy.where">
 <h3>Converting a Boolean Index-Array to Integer Index-Arrays: numpy.where<a class="headerlink" href="#Converting-a-Boolean-Index-Array-to-Integer-Index-Arrays:-numpy.where" title="Permalink to this headline"></a></h3>
 <p>The function <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html">numpy.where</a> can be used to take a boolean-valued array, and produce the <em>tuple</em> of index-arrays that access the <code class="docutils literal notranslate"><span class="pre">True</span></code> entries of that array, via integer array indexing (discussed at the beginning of this section).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `np.where`</span>
@@ -499,9 +498,9 @@ array. Refer to the preceding example and convince yourself that this is the beh
 </div>
 <p><em>Predict</em> what the output of <code class="docutils literal notranslate"><span class="pre">np.where(b)</span></code> is.</p>
 </div>
-</section>
-</section>
-<section id="In-Place-&amp;-Augmented-Assignments-via-Advanced-Indexing">
+</div>
+</div>
+<div class="section" id="In-Place-&amp;-Augmented-Assignments-via-Advanced-Indexing">
 <h2>In-Place &amp; Augmented Assignments via Advanced Indexing<a class="headerlink" href="#In-Place-&-Augmented-Assignments-via-Advanced-Indexing" title="Permalink to this headline"></a></h2>
 <p>Although advanced indexing does not produce a <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/BasicIndexing.html#Producing-a-View-of-an-Array">*view* of the underlying data</a>, it can still be used to facilitate in-place and augmented assignments to regions of an array. Suppose, for instance, that you want to threshold the contents of an array such that all of its negative-valued entries are replaced with 0. Boolean indexing makes this task trivial to perform via in-place
 assignment:</p>
@@ -559,8 +558,8 @@ assignment:</p>
 </div>
 <p>Replace the diagonal elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> with <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code>, and add <code class="docutils literal notranslate"><span class="pre">1</span></code> to all values in <code class="docutils literal notranslate"><span class="pre">x</span></code> that are greater than <code class="docutils literal notranslate"><span class="pre">0.8</span></code>.</p>
 </div>
-</section>
-<section id="Combining-Basic-and-Advanced-Indexing-Schemes">
+</div>
+<div class="section" id="Combining-Basic-and-Advanced-Indexing-Schemes">
 <h2>Combining Basic and Advanced Indexing Schemes<a class="headerlink" href="#Combining-Basic-and-Advanced-Indexing-Schemes" title="Permalink to this headline"></a></h2>
 <p>Integer- and boolean-valued arrays can be used in conjunction with <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.newaxis</span></code>, and <code class="docutils literal notranslate"><span class="pre">int</span></code> objects to form indices that combine basic and advanced indexing schemes.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># combining advanced and basic indexing techniques</span>
@@ -580,8 +579,8 @@ assignment:</p>
 </pre></div>
 </div>
 <p>The rules for resolving the various possible combinations of basic and advanced indexing are nontrivial. Refer to the <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">official NumPy documentation</a> for a detailed description for these rules. In practice, basic and advanced indexing can typically be used independently from one another.</p>
-</section>
-<section id="Links-to-Official-Documentation">
+</div>
+<div class="section" id="Links-to-Official-Documentation">
 <h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#advanced-indexing">Advanced Indexing</a></p></li>
@@ -589,8 +588,8 @@ assignment:</p>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html">numpy.where</a></p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">Combining Basics and Advanced Indexing</a></p></li>
 </ul>
-</section>
-<section id="Reading-Comprehension-Solutions">
+</div>
+<div class="section" id="Reading-Comprehension-Solutions">
 <h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Integer Array Indexing (1-D): Solution</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
@@ -701,8 +700,8 @@ assignment:</p>
 <span class="go">       [ 1.84,  0.76,  0.25,  4.  ]])</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
