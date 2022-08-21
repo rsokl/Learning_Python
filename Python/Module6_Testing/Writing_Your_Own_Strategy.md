@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.2'
       jupytext_version: 1.3.0
   kernelspec:
-    display_name: Python [conda env:scicomp]
+    display_name: Python 3
     language: python
-    name: conda-env-scicomp-py
+    name: python3
 ---
 
 <!-- #raw raw_mimetype="text/restructuredtext" -->
@@ -241,15 +241,6 @@ This is where some level of manual inspection of our strategy's outputs, or test
 </div>
 <!-- #endregion -->
 
-```python
-@given(x=interval_bounds(-10, 10, min_size=0, max_size=1))
-def test(x):
-    print(x, x[1] - x[0])
-```
-
-```python
-test()
-```
 
 <!-- #region -->
 ```python
