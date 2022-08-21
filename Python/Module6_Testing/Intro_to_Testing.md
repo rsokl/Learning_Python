@@ -14,13 +14,12 @@ jupyter:
 
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
-   :description: Topic: Writing tests for your code, Difficulty: Easy, Category: Section
-   :keywords: test, automated, unit, assert  
+   :description: A basic introduction to writing tests for Python code
 <!-- #endraw -->
 
-# Introduction to Testing
+# The Basics of Writing Tests for Python Code
 
-This section will show us just how simple it is to write rudimentary tests. We need only recall some of Python's basic scoping rules and introduce ourselves to the `assert` statement to write a genuine test function. That being said, we will quickly encounter some important questions to ponder. How do we know that our tests work? And, how do we know that our tests are effective? These questions will drive us deeper into the world of testing. 
+This section will show us just how simple it is to write rudimentary tests for our Python code. We need only recall some of Python's [basic scoping rules](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Scope.html) and introduce ourselves to the `assert` statement to write a genuine test function. That being said, we will quickly encounter some important questions to ponder. How do we know that our tests work? And, how do we know that our tests are effective? These questions will drive us deeper into the world of testing. 
 
 Before we hit the ground running, let's take a moment to consider some motivations for testing out code.
 
