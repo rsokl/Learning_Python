@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -65,8 +65,36 @@ We can spend some time talking about `my_func` and then see it in action:
 ```
 
 Lastly, the input and output of an iPython console and a Jupyter notebook alike is displayed as follows:
-<!-- #endregion -->
 
 ```python
 2 + 3
 ```
+
+## Running Code Snippets from this Site
+
+In PLYMI, we typically precede every code snippet with one or more commented lines.
+This is useful because it makes a page more "skimmable", since the code snippets essentially come with
+descriptive, self-explanatory captions.
+That being said, there is a downside to this. 
+
+Python terminals don't like having multiple comment lines precede an input-prompt.
+E.g. if you paste and run the following code into a terminal
+
+```python
+# demonstrating the distinction of
+# input and output via >>>
+
+>>> x = 1
+```
+
+you will get a syntax error.
+To fix this issue, simply exclude the comments when you copy this block to your clipboard.
+Running
+
+```python
+>>> x = 1
+```
+
+will work without any issue.
+Keep this in mind if you ever find yourself having trouble running code that you copied from this site.
+<!-- #endregion -->

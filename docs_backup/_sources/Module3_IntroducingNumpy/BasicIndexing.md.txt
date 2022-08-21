@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -202,18 +202,16 @@ Basic indexing is triggered whenever a tuple of: integer, `slice`, `numpy.newaxi
 
 
 <div class="alert alert-info"> 
-
-
+    
 **Reading Comprehension: Ellipsis**
 
-Given a $N$-dimensional array, `x`, index into `x` such that you axis entry-0 of axis-0, the last entry of axis-$N-1$, slicing along all intermediate dimensions. $N$ is at least $2$.
+Given a $N$-dimensional array, `x`, index into `x` such that you access entry-0 of axis-0, the last entry of axis-$N-1$, slicing along all intermediate dimensions. $N$ is at least $2$.
 
 </div>
 
-
-<div class="alert alert-info"> 
-
 <!-- #region -->
+<div class="alert alert-info"> 
+    
 **Reading Comprehension: Basic Indexing**
 
 Given a shape-(4, 3) array,
@@ -291,9 +289,9 @@ False
 Thus updating a variable `subarray` via `subarray = subarray + 2` does *not*  overwrite the original data referenced by `subarray`. Rather, `subarray + 2` assigns that new array to the variable `subarray`. NumPy does provide mechanisms for performing mathematical operations to directly update the underlying data of an array without having to create a distinct array. We will discuss these mechanisms in the next subsection.
 <!-- #endregion -->
 
-<div class="alert alert-info"> 
-
 <!-- #region -->
+<div class="alert alert-info"> 
+    
 **Reading Comprehension: Views**
 
 Given, 
@@ -546,7 +544,6 @@ Which of the following expressions updates the data originally referenced by `x`
 ```python 
 # 5.
 >>> np.log(x[1:3], out=x[1:3])
->>> y += 3
 ```
 
 ```python 
@@ -556,7 +553,7 @@ Which of the following expressions updates the data originally referenced by `x`
 
 ```python 
 # 7.
->>> y = y + 2
+>>> x = np.square(x)
 ```
 
 ```python 
@@ -568,6 +565,11 @@ Which of the following expressions updates the data originally referenced by `x`
 # 9.
 >>> def f(z): z /= 3
 >>> f(y)
+```
+
+```python
+# 10.
+>>> np.square(y, out=y)
 ```
 
 </div>
@@ -584,8 +586,8 @@ Assignments to views of an array, augmented assignments, and NumPy functions tha
 
 ## Links to Official Documentation
 
-- [Basic indexing](https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#indexing)
-- [Definition of 'view'](https://docs.scipy.org/doc/numpy/glossary.html#term-view)
+- [Basic indexing](https://numpy.org/doc/stable/reference/arrays.indexing.html#indexing)
+- [Definition of 'view'](https://numpy.org/doc/stable/glossary.html#term-view)
 
 
 ## Reading Comprehension Solutions

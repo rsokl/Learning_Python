@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -14,7 +14,7 @@ jupyter:
 
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
-   :description: Topic: Contorl flow with for-loops and while-loops, Difficulty: Easy, Category: Section
+   :description: Topic: Control flow with for-loops and while-loops, Difficulty: Easy, Category: Section
    :keywords: for-loop, while-loop, break, control flow, basic programming
 <!-- #endraw -->
 

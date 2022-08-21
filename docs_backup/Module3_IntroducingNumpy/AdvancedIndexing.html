@@ -1,78 +1,45 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta content="Topic: Advanced indexing with numpy arrays, Difficulty: Hard, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Topic: Advanced indexing with numpy arrays, Difficulty: Hard, Category: Section" name="description" />
 <meta content="numpy array, integer array indexing, boolean array indexing, copy indexing, advanced" name="keywords" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advanced Indexing &mdash; Python Like You Mean It</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Module 3: Problems" href="../module_3_problems.html" />
+    <link rel="next" title="Automatic Differentiation" href="AutoDiff.html" />
     <link rel="prev" title="Introducing Basic and Advanced Indexing" href="BasicIndexing.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +47,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -112,13 +69,17 @@
 <li class="toctree-l4"><a class="reference internal" href="#Indexing-into-N-Dimensional-Arrays">Indexing into N-Dimensional Arrays</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Boolean-Array-Indexing">Boolean-Array Indexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Boolean-Array-Indexing">Boolean-Array Indexing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Converting-a-Boolean-Index-Array-to-Integer-Index-Arrays:-numpy.where">Converting a Boolean Index-Array to Integer Index-Arrays: numpy.where</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#In-Place-&amp;-Augmented-Assignments-via-Advanced-Indexing">In-Place &amp; Augmented Assignments via Advanced Indexing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Combining-Basic-and-Advanced-Indexing-Schemes">Combining Basic and Advanced Indexing Schemes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Links-to-Official-Documentation">Links to Official Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reading-Comprehension-Solutions">Reading Comprehension Solutions</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="AutoDiff.html">Automatic Differentiation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
@@ -127,82 +88,43 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../module_3.html">Module 3: The Essentials of NumPy</a> &raquo;</li>
-        
       <li>Advanced Indexing</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/Module3_IntroducingNumpy/AdvancedIndexing.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -215,10 +137,10 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Advanced-Indexing">
-<h1>Advanced Indexing<a class="headerlink" href="#Advanced-Indexing" title="Permalink to this headline">¶</a></h1>
+<section id="Advanced-Indexing">
+<h1>Advanced Indexing<a class="headerlink" href="#Advanced-Indexing" title="Permalink to this headline"></a></h1>
 <p>We conclude our discussion of indexing into N-dimensional NumPy arrays by understanding advanced indexing. Unlike basic indexing, which allows us to access distinct elements and regular slices of an array, advanced indexing is significantly more flexible. For example, arrays of integers can be used to access arbitrary and even repeated entries from an array,</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
@@ -246,9 +168,9 @@
 
 <span class="c1"># Specify `True` wherever we want to access</span>
 <span class="c1"># the entry of `x`</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">bool_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
-<span class="o">...</span>                        <span class="p">[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
-<span class="o">...</span>                        <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bool_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+<span class="o">...</span>                        <span class="p">[</span><span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+<span class="o">...</span>                        <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">]])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">bool_index</span><span class="p">]</span>
 <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
@@ -262,20 +184,20 @@
 <span class="go">False</span>
 </pre></div>
 </div>
-<p>The flexibility permitted by advanced indexing makes it a difficult topic to treat exhaustively without delving into somewhat terse and abstract notation. It is best to refer to <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing">the official documentation</a> for such a treatment of the topic. Here, we will discuss the essential aspects of advanced indexing, with the aim of the discussion being both thorough and accessible.</p>
+<p>The flexibility permitted by advanced indexing makes it a difficult topic to treat exhaustively without delving into somewhat terse and abstract notation. It is best to refer to <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#advanced-indexing">the official documentation</a> for such a treatment of the topic. Here, we will discuss the essential aspects of advanced indexing, with the aim of the discussion being both thorough and accessible.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Advanced Indexing</strong>:</p>
 <p>Given an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">x[index]</span></code> invokes <strong>advanced indexing</strong> whenever <code class="docutils literal notranslate"><span class="pre">index</span></code> is:</p>
 <ul class="simple">
-<li>an integer-type or boolean-type <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></li>
-<li>a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> with at least one <em>sequence</em>-type object as an element (e.g.&nbsp;a list, tuple, or ndarray)</li>
+<li><p>an integer-type or boolean-type <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> with at least one <em>sequence</em>-type object as an element (e.g. a list, tuple, or ndarray)</p></li>
 </ul>
 <p>Accessing the contents of an array via advanced indexing <em>always returns a copy of those contents</em>, whereas basic indexing returns a view.</p>
 </div>
-<div class="section" id="Integer-Array-Indexing">
-<h2>Integer Array Indexing<a class="headerlink" href="#Integer-Array-Indexing" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Indexing-into-1-Dimensional-Arrays">
-<h3>Indexing into 1-Dimensional Arrays<a class="headerlink" href="#Indexing-into-1-Dimensional-Arrays" title="Permalink to this headline">¶</a></h3>
+<section id="Integer-Array-Indexing">
+<h2>Integer Array Indexing<a class="headerlink" href="#Integer-Array-Indexing" title="Permalink to this headline"></a></h2>
+<section id="Indexing-into-1-Dimensional-Arrays">
+<h3>Indexing into 1-Dimensional Arrays<a class="headerlink" href="#Indexing-into-1-Dimensional-Arrays" title="Permalink to this headline"></a></h3>
 <p>Using an integer-type array as an index allows us to access the contents of an array arbitrarily, permitting items to be accessed out of order, and even repeatedly. Consider the following 1-dimensional array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
@@ -305,7 +227,7 @@
 \end{equation}</div><p>This returns a <em>copy</em> of the data, as do all occurrences of advanced indexing.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># advanced indexing returns a copy</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 </pre></div>
 </div>
 <p>The indexing array can have an arbitrary shape; <em>the resulting array will match that shape</em>.</p>
@@ -363,9 +285,9 @@
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Indexing-into-N-Dimensional-Arrays">
-<h3>Indexing into N-Dimensional Arrays<a class="headerlink" href="#Indexing-into-N-Dimensional-Arrays" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Indexing-into-N-Dimensional-Arrays">
+<h3>Indexing into N-Dimensional Arrays<a class="headerlink" href="#Indexing-into-N-Dimensional-Arrays" title="Permalink to this headline"></a></h3>
 <p>In the preceding examples, working with a 1-dimensional array, we specified a single index-array to access the contents along the only dimension of that array. As you may guess, in order to perform this variety of indexing on an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, we must specify <span class="math notranslate nohighlight">\(N\)</span> index-arrays; one for each dimension.</p>
 <p>Each of the <span class="math notranslate nohighlight">\(N\)</span> index-arrays must have the same shape, and their common shape determines the shape of the resulting array. The corresponding entries of each of the <span class="math notranslate nohighlight">\(N\)</span> index-arrays are used to specify a specific array element to be accessed. For example, consider the following 3-dimensional array whose elements we will be accessing:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Indexing a 3D array using integer index-arrays</span>
@@ -380,9 +302,9 @@
 </div>
 <p>We specify three index-arrays; the indices to be accessed along axis-0, axis-1, and axis-2, respectively. Suppose we want to produce the array: <code class="docutils literal notranslate"><span class="pre">array([</span> <span class="pre">3,</span> <span class="pre">23,</span>&#160; <span class="pre">4])</span></code>. The layout of these elements is as follows:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">3</span></code>: sheet-0, row-0, column-3</li>
-<li><code class="docutils literal notranslate"><span class="pre">23</span></code>: sheet-1, row-2, column-3</li>
-<li><code class="docutils literal notranslate"><span class="pre">4</span></code>: sheet-0, row-1, column-0</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code>: sheet-0, row-0, column-3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">23</span></code>: sheet-1, row-2, column-3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code>: sheet-0, row-1, column-0</p></li>
 </ul>
 <p>Each index-array must have a shape (3,) in order to produce the result of the appropriate shape. The index-array supplied for axis-0 must be <code class="docutils literal notranslate"><span class="pre">np.array([0,</span> <span class="pre">1,</span> <span class="pre">0])</span></code> in order to select sheet-0 for <code class="docutils literal notranslate"><span class="pre">3</span></code>, sheet-1 for <code class="docutils literal notranslate"><span class="pre">23</span></code>, and then sheet-0 for <code class="docutils literal notranslate"><span class="pre">4</span></code>. The other index-arrays are formed similarly.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># specifies subsequent sheets to access</span>
@@ -479,10 +401,10 @@ out[2] \\
 <p class="admonition-title fa fa-exclamation-circle"><strong>Takeaway:</strong></p>
 <p>An <span class="math notranslate nohighlight">\(N\)</span>-dimensional array’s contents can be accessed by supplying <span class="math notranslate nohighlight">\(N\)</span> index-arrays of integers; one for each axis of data. The index-arrays must have the same shape as one another, and this common shape determines the shape of the resulting array. This is a form of advanced indexing, and thus a copy of the parent array’s data is created.</p>
 </div>
-</div>
-</div>
-<div class="section" id="Boolean-Array-Indexing">
-<h2>Boolean-Array Indexing<a class="headerlink" href="#Boolean-Array-Indexing" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Boolean-Array-Indexing">
+<h2>Boolean-Array Indexing<a class="headerlink" href="#Boolean-Array-Indexing" title="Permalink to this headline"></a></h2>
 <p>NumPy also permits the use of a boolean-valued array as an index, to perform advanced indexing on an array. In its simplest form, this is an extremely intuitive and elegant method for selecting contents from an array based on logical conditions.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># advanced indexing using a boolean-array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="o">-</span><span class="mf">0.26</span><span class="p">,</span>  <span class="mf">0.49</span><span class="p">,</span>  <span class="mf">0.18</span><span class="p">],</span>
@@ -494,17 +416,17 @@ out[2] \\
 <span class="c1"># `True` wherever `x` is positive</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bool_ind</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bool_ind</span>
-<span class="n">array</span><span class="p">([[[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
-        <span class="p">[</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">]],</span>
+<span class="n">array</span><span class="p">([[[</span><span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">],</span>
+        <span class="p">[</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">]],</span>
 
-       <span class="p">[[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
-        <span class="p">[</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+       <span class="p">[[</span><span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">],</span>
+        <span class="p">[</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">bool_ind</span><span class="p">]</span>
 <span class="n">array</span><span class="p">([</span> <span class="mf">0.49</span><span class="p">,</span>  <span class="mf">0.18</span><span class="p">,</span>  <span class="mf">0.43</span><span class="p">,</span>  <span class="mf">0.3</span> <span class="p">,</span>  <span class="mf">0.29</span><span class="p">,</span>  <span class="mf">0.3</span> <span class="p">,</span>  <span class="mf">0.28</span><span class="p">,</span>  <span class="mf">0.27</span><span class="p">])</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">bool_ind</span><span class="p">])</span>
-<span class="bp">False</span>
+<span class="kc">False</span>
 </pre></div>
 </div>
 <p>In its simplest form, boolean indexing behaves as follows: Suppose <code class="docutils literal notranslate"><span class="pre">x</span></code> is an <span class="math notranslate nohighlight">\(N\)</span>-dimensional array, and <code class="docutils literal notranslate"><span class="pre">ind</span></code> is a boolean-value array <em>of the same shape as</em> <code class="docutils literal notranslate"><span class="pre">x</span></code>. Then <code class="docutils literal notranslate"><span class="pre">x[ind]</span></code> returns a 1-dimensional array, which is formed by traversing <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">ind</span></code> using <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/ArrayTraversal.html">row-major ordering</a>. Wherever an element of <code class="docutils literal notranslate"><span class="pre">ind</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the corresponding entry of <code class="docutils literal notranslate"><span class="pre">x</span></code> is added to the end of the resulting
@@ -517,22 +439,24 @@ array. Refer to the preceding example and convince yourself that this is the beh
 <span class="gp">... </span>              <span class="p">[</span><span class="o">-</span><span class="mf">0.29</span><span class="p">,</span>  <span class="mf">0.13</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.26</span><span class="p">,</span>  <span class="mf">0.33</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Use boolean array-indexing and NumPy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">logical functions</a> to select the contents of <code class="docutils literal notranslate"><span class="pre">h</span></code> that satisfy the following conditions. Because you are dealing with floating-point numbers, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">you should not require that two values are exactly equal</a>; rather, make use of the function
-<a class="reference external" href="https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.isclose.html">numpy.isclose</a>.</p>
+<p>Use boolean array-indexing and NumPy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html">logical functions</a> to select the contents of <code class="docutils literal notranslate"><span class="pre">h</span></code> that satisfy the following conditions. Because you are dealing with floating-point numbers, <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision">you should not require that two values are exactly equal</a>; rather, make use of the function
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isclose.html#numpy.isclose">numpy.isclose</a>.</p>
 <ol class="arabic simple">
-<li>All negative entries in <code class="docutils literal notranslate"><span class="pre">h</span></code></li>
-<li>All entries in <code class="docutils literal notranslate"><span class="pre">h</span></code> “equal” to <code class="docutils literal notranslate"><span class="pre">0.01</span></code> or <code class="docutils literal notranslate"><span class="pre">0.33</span></code></li>
-<li>All entries of <code class="docutils literal notranslate"><span class="pre">h</span></code> that fall within the domain `(0.1, 0.3)</li>
+<li><p>All negative entries in <code class="docutils literal notranslate"><span class="pre">h</span></code></p></li>
+<li><p>All entries in <code class="docutils literal notranslate"><span class="pre">h</span></code> “equal” to <code class="docutils literal notranslate"><span class="pre">0.01</span></code> or <code class="docutils literal notranslate"><span class="pre">0.33</span></code></p></li>
+<li><p>All entries of <code class="docutils literal notranslate"><span class="pre">h</span></code> that fall within the domain `(0.1, 0.3)</p></li>
 </ol>
 </div>
-<p>The function <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html">numpy.where</a> can be used to take a boolean-valued array, and produce the <em>tuple</em> of index-arrays that access the <code class="docutils literal notranslate"><span class="pre">True</span></code> entries of that array, via integer array indexing (discussed at the beginning of this section).</p>
+<section id="Converting-a-Boolean-Index-Array-to-Integer-Index-Arrays:-numpy.where">
+<h3>Converting a Boolean Index-Array to Integer Index-Arrays: numpy.where<a class="headerlink" href="#Converting-a-Boolean-Index-Array-to-Integer-Index-Arrays:-numpy.where" title="Permalink to this headline"></a></h3>
+<p>The function <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html">numpy.where</a> can be used to take a boolean-valued array, and produce the <em>tuple</em> of index-arrays that access the <code class="docutils literal notranslate"><span class="pre">True</span></code> entries of that array, via integer array indexing (discussed at the beginning of this section).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating `np.where`</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bool_ind</span>
-<span class="n">array</span><span class="p">([[[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
-        <span class="p">[</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">]],</span>
+<span class="n">array</span><span class="p">([[[</span><span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">],</span>
+        <span class="p">[</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">]],</span>
 
-       <span class="p">[[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
-        <span class="p">[</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+       <span class="p">[[</span><span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">],</span>
+        <span class="p">[</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bool_ind</span><span class="p">)</span>
 <span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span>
@@ -564,20 +488,21 @@ array. Refer to the preceding example and convince yourself that this is the beh
 <span class="c1"># only sheet-0 contains such values</span>
 </pre></div>
 </div>
-<p>Armed with NumPy’s suite of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">logical functions</a>, boolean-array indexing provides a sleek interface for accessing the particular contents of an array, irrespective of the array’s shape and the layout of its contents. This method of indexing is especially powerful in the context of performing augmented updates to an array, which is the subject of the following subsection.</p>
+<p>Armed with NumPy’s suite of <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html">logical functions</a>, boolean-array indexing provides a sleek interface for accessing the particular contents of an array, irrespective of the array’s shape and the layout of its contents. This method of indexing is especially powerful in the context of performing augmented updates to an array, which is the subject of the following subsection.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: numpy.where</strong></p>
 <p>Given the array</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
-<span class="gp">... </span>              <span class="p">[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
-<span class="gp">... </span>              <span class="p">[</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><em>Predict</em> what the output of <code class="docutils literal notranslate"><span class="pre">np.where(b)</span></code> is.</p>
 </div>
-</div>
-<div class="section" id="In-Place-&amp;-Augmented-Assignments-via-Advanced-Indexing">
-<h2>In-Place &amp; Augmented Assignments via Advanced Indexing<a class="headerlink" href="#In-Place-&-Augmented-Assignments-via-Advanced-Indexing" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="In-Place-&amp;-Augmented-Assignments-via-Advanced-Indexing">
+<h2>In-Place &amp; Augmented Assignments via Advanced Indexing<a class="headerlink" href="#In-Place-&-Augmented-Assignments-via-Advanced-Indexing" title="Permalink to this headline"></a></h2>
 <p>Although advanced indexing does not produce a <a class="reference external" href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/BasicIndexing.html#Producing-a-View-of-an-Array">*view* of the underlying data</a>, it can still be used to facilitate in-place and augmented assignments to regions of an array. Suppose, for instance, that you want to threshold the contents of an array such that all of its negative-valued entries are replaced with 0. Boolean indexing makes this task trivial to perform via in-place
 assignment:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># assignment via advanced indexing</span>
@@ -632,11 +557,11 @@ assignment:</p>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.76</span><span class="p">,</span>  <span class="mf">0.25</span><span class="p">,</span>  <span class="mf">0.07</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>Replace the diagonal elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> with <code class="docutils literal notranslate"><span class="pre">(-1,</span> <span class="pre">-2,</span> <span class="pre">-3,</span> <span class="pre">-4)</span></code>, and add <code class="docutils literal notranslate"><span class="pre">1</span></code> to all values in <code class="docutils literal notranslate"><span class="pre">x</span></code> that are greater than <code class="docutils literal notranslate"><span class="pre">0.8</span></code>.</p>
+<p>Replace the diagonal elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> with <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code>, and add <code class="docutils literal notranslate"><span class="pre">1</span></code> to all values in <code class="docutils literal notranslate"><span class="pre">x</span></code> that are greater than <code class="docutils literal notranslate"><span class="pre">0.8</span></code>.</p>
 </div>
-</div>
-<div class="section" id="Combining-Basic-and-Advanced-Indexing-Schemes">
-<h2>Combining Basic and Advanced Indexing Schemes<a class="headerlink" href="#Combining-Basic-and-Advanced-Indexing-Schemes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Combining-Basic-and-Advanced-Indexing-Schemes">
+<h2>Combining Basic and Advanced Indexing Schemes<a class="headerlink" href="#Combining-Basic-and-Advanced-Indexing-Schemes" title="Permalink to this headline"></a></h2>
 <p>Integer- and boolean-valued arrays can be used in conjunction with <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.newaxis</span></code>, and <code class="docutils literal notranslate"><span class="pre">int</span></code> objects to form indices that combine basic and advanced indexing schemes.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># combining advanced and basic indexing techniques</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
@@ -647,26 +572,26 @@ assignment:</p>
 <span class="o">...</span>                <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
 <span class="o">...</span>                <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">]]])</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">ind0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ind0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
 
 <span class="c1"># select sheet-0, all rows, last column</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">z</span><span class="p">[</span><span class="n">ind0</span><span class="p">,</span> <span class="p">:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">array</span><span class="p">([[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p>The rules for resolving the various possible combinations of basic and advanced indexing are nontrivial. Refer to the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">official NumPy documentation</a> for a detailed description for these rules. In practice, basic and advanced indexing can typically be used independently from one another.</p>
-</div>
-<div class="section" id="Links-to-Official-Documentation">
-<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<p>The rules for resolving the various possible combinations of basic and advanced indexing are nontrivial. Refer to the <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">official NumPy documentation</a> for a detailed description for these rules. In practice, basic and advanced indexing can typically be used independently from one another.</p>
+</section>
+<section id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing">Advanced Indexing</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">Logical Functions</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html">numpy.where</a></li>
-<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">Combining Basics and Advanced Indexing</a></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#advanced-indexing">Advanced Indexing</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html">Logical Functions</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html">numpy.where</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#combining-advanced-and-basic-indexing">Combining Basics and Advanced Indexing</a></p></li>
 </ul>
-</div>
-<div class="section" id="Reading-Comprehension-Solutions">
-<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Reading-Comprehension-Solutions">
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Integer Array Indexing (1-D): Solution</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
@@ -744,9 +669,9 @@ assignment:</p>
 </div>
 <p><strong>numpy.where: Solution</strong></p>
 <p>Given the array</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">],</span>
-<span class="gp">... </span>              <span class="p">[</span><span class="bp">False</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
-<span class="gp">... </span>              <span class="p">[</span> <span class="bp">True</span><span class="p">,</span>  <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><em>Predict</em> what the output of <code class="docutils literal notranslate"><span class="pre">np.where(b)</span></code> is.</p>
@@ -761,6 +686,13 @@ assignment:</p>
 <span class="gp">... </span>              <span class="p">[</span> <span class="mf">0.84</span><span class="p">,</span>  <span class="mf">0.76</span><span class="p">,</span>  <span class="mf">0.25</span><span class="p">,</span>  <span class="mf">0.07</span><span class="p">]])</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go"># equivalent (works for the general case of a square matrix of N-dims)</span>
+<span class="go"># x[tuple(np.arange(x) for x in x.shape)] = range(x.shape[0])</span>
+
+<span class="go"># equivalent (using numpy built-in functions):</span>
+<span class="go"># x[np.diag_indices_from(x)] = np.arange(4)</span>
+<span class="go"># np.fill_diagonal(x, np.arange(4))</span>
+
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mf">0.8</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">array([[ 0.  ,  0.05,  1.84,  0.21],</span>
@@ -769,56 +701,38 @@ assignment:</p>
 <span class="go">       [ 1.84,  0.76,  0.25,  4.  ]])</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../module_3_problems.html" class="btn btn-neutral float-right" title="Module 3: Problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="BasicIndexing.html" class="btn btn-neutral float-left" title="Introducing Basic and Advanced Indexing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="BasicIndexing.html" class="btn btn-neutral float-left" title="Introducing Basic and Advanced Indexing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="AutoDiff.html" class="btn btn-neutral float-right" title="Automatic Differentiation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Ryan Soklaski
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

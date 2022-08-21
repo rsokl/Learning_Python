@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -191,7 +191,6 @@ True
 # even when `class_func` is called from an instance
 >>> inst = Dummy()
 >>> inst.class_func()
->>> inst.class_func()
 __main__.Dummy
 ```
 <!-- #endregion -->
@@ -200,7 +199,7 @@ __main__.Dummy
 `dict.fromkeys` is an example of a class method that takes in an iterable, and returns a dictionary whose keys are the elements of that iterable, and whose values all default to `None`.
 
 ```python
->>> dict.fromkeys("abcd")
+>>> dict.fromkeys("abcd", 2.3)
 {'a': 2.3, 'b': 2.3, 'c': 2.3, 'd': 2.3}
 ```
 
@@ -288,7 +287,7 @@ What will happen if you try to call `Dummy.func("hi")`? Why?
 
 ```python
 # Dummy.func("hi") would raise an error
->>> Dummy(None, "hi")
+>>> Dummy.func(None, "hi")
 'hi'
 ```
 <!-- #endregion -->

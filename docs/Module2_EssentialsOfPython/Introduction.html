@@ -1,78 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta content="Topic: introduction to control flow, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: introduction to control flow, Difficulty: Easy, Category: Section" name="description" />
 <meta content="overview, summary, if, else, function, for-loop, if, else, control flow" name="keywords" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introducing Control Flow &mdash; Python Like You Mean It</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Conditional Statements" href="ConditionalStatements.html" />
     <link rel="prev" title="Variables &amp; Assignment" href="Variables_and_Assignment.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -123,82 +79,43 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../module_2.html">Module 2: The Essentials of Python</a> &raquo;</li>
-        
       <li>Introducing Control Flow</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/Module2_EssentialsOfPython/Introduction.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -212,15 +129,15 @@
 }
 </style>
 <div class="section" id="Introducing-Control-Flow">
-<h1>Introducing Control Flow<a class="headerlink" href="#Introducing-Control-Flow" title="Permalink to this headline">¶</a></h1>
+<h1>Introducing Control Flow<a class="headerlink" href="#Introducing-Control-Flow" title="Permalink to this headline"></a></h1>
 <p>Very simply put, to “control flow” in your code is to affect the order in which the code in your program is executed. Up until this point in the course, you have seen (and hopefully written) code that executes linearly; for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># simple code without any &quot;control flow&quot;</span>
 <span class="c1"># i.e. no branches in logic, loops, or</span>
 <span class="c1"># code encapsulation</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;x + y = &quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;x - y = &quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x + y = &quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x - y = &quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>But what if you want your code to do something different when <code class="docutils literal notranslate"><span class="pre">x</span></code> is an even number? What if you want to do an additional computation for every number that falls between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>? By the end of this module, you should understand how to write programs that can accommodate these, and many other, branches in logic.</p>
@@ -241,28 +158,28 @@
 <p>(note: there are much more efficient ways of computing this - can you think of any?)</p>
 <p>This code contains several critical “control flow” features:</p>
 <ul class="simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">cnt_div_by_3(m,</span> <span class="pre">n):</span></code> statement signals the definition of a function: a modular block of code, which can be utilized elsewhere in your code.</li>
-<li>The line <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">num</span> <span class="pre">in</span> <span class="pre">range(m,</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1):</span></code> signifies a “for-loop” which instructs the code to iterate over a sequence of numbers, executing a common block of code for each iteration.</li>
-<li><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">num</span> <span class="pre">%</span> <span class="pre">3</span> <span class="pre">==</span> <span class="pre">0:</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> instruct pieces of codes to be executed conditionally - only if a specified condition is met.</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">cnt_div_by_3(m,</span> <span class="pre">n):</span></code> statement signals the definition of a function: a modular block of code, which can be utilized elsewhere in your code.</p></li>
+<li><p>The line <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">num</span> <span class="pre">in</span> <span class="pre">range(m,</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1):</span></code> signifies a “for-loop” which instructs the code to iterate over a sequence of numbers, executing a common block of code for each iteration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">num</span> <span class="pre">%</span> <span class="pre">3</span> <span class="pre">==</span> <span class="pre">0:</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> instruct pieces of codes to be executed conditionally - only if a specified condition is met.</p></li>
 </ul>
 <p>In the following sections, you will be formally introduced to if-elif-else blocks, for-loops &amp; iterables, and functions, all so that you can implement effective “control flow” in your code.</p>
 <p>Before embarking on these sections, we must take a moment to study Python’s syntax for delimiting scope for these various control flow constructs.</p>
 <div class="section" id="Python-Uses-Whitespace-to-Delimit-Scope">
-<h2>Python Uses Whitespace to Delimit Scope<a class="headerlink" href="#Python-Uses-Whitespace-to-Delimit-Scope" title="Permalink to this headline">¶</a></h2>
+<h2>Python Uses Whitespace to Delimit Scope<a class="headerlink" href="#Python-Uses-Whitespace-to-Delimit-Scope" title="Permalink to this headline"></a></h2>
 <p>While the concepts of function definitions, loops, and conditional statements are shared across the majority of modern programming languages, the languages often differ in their syntax for delimiting the <em>bodies</em> of these constructs. For example, where C++ uses “curly braces” as delimiters, e.g.:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// example showing that C++ uses curly braces to delimit scope</span>
-<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
-    <span class="p">{</span>
-    <span class="c1">// we are inside the if-block, as delimited by the curly-brackets</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// we are inside the if-block, as delimited by the curly-brackets</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="c1">// we are outside of the if-block</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Python <strong>uses whitespace (i.e.&nbsp;indentation) to delimit scope</strong>:</p>
+<p>Python <strong>uses whitespace (i.e. indentation) to delimit scope</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example showing that Python uses whitespace to delimit scope</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -276,14 +193,14 @@
 <p>Look to the example at the beginning of this section to see the bodies of the function definition, the for-loop, and the subsequent if-else block were all separated by increasing levels of indentation.</p>
 <p>Python’s syntax is quite flexible in terms of what it defines as a whitespace delimiter. Its rules are that:</p>
 <ul class="simple">
-<li>One or more whitespace characters (spaces or tabs) is sufficient to serve as indentation.</li>
-<li>A given indented block must use a uniform level of indentation. E.g. if the first line of an indented block has two leading spaces, all subsequent lines in that block must lead with exactly two white spaces.</li>
+<li><p>One or more whitespace characters (spaces or tabs) is sufficient to serve as indentation.</p></li>
+<li><p>A given indented block must use a uniform level of indentation. E.g. if the first line of an indented block has two leading spaces, all subsequent lines in that block must lead with exactly two white spaces.</p></li>
 </ul>
 <p>While Python’s syntax is relatively forgiving, I am not: the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#indentation">standard style</a> for indenting in Python is to <strong>use four space characters</strong> for each level of indentation. It is strongly advised that you adhere to this standard. Most IDEs and consoles (including Jupyter notebooks) will automatically add a four-space indentation for you when you enter into the body of one of the aforementioned constructs.</p>
-<p>Let’s review these ruled by considering a few simple examples (including incorrect examples) of delimiting scope in Python.</p>
+<p>Let’s review these rules by considering a few simple examples (including incorrect examples) of delimiting scope in Python.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OK, but gross: The use of a single whitespace</span>
 <span class="c1"># makes the indentation hard to see. Use four spaces.</span>
-<span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># one space</span>
  <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># one space</span>
 </pre></div>
@@ -301,7 +218,7 @@
 <span class="c1"># The else-block uses two spaces as a delimiter. This is technically</span>
 <span class="c1"># okay since indentation is consistent within each block. One should</span>
 <span class="c1"># always use four spaces for indentation.</span>
-<span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># four spaces</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># four spaces</span>
 <span class="k">else</span><span class="p">:</span>
@@ -324,51 +241,33 @@
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ConditionalStatements.html" class="btn btn-neutral float-right" title="Conditional Statements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="Variables_and_Assignment.html" class="btn btn-neutral float-left" title="Variables &amp; Assignment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Variables_and_Assignment.html" class="btn btn-neutral float-left" title="Variables &amp; Assignment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ConditionalStatements.html" class="btn btn-neutral float-right" title="Conditional Statements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Ryan Soklaski
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -1044,7 +1044,7 @@ It is very important to remember this issue of the limited numerical precision o
 
 **Understanding the modulo operator: Solution**
 
-If `n` is an integer, then 2 will divide into it evenly, and thus there is no remainder. If `n` is odd, then `n / 2` must have a remainder of 1. Thus:
+If `n` is an even integer, then 2 will divide into it evenly, and thus there is no remainder. If `n` is odd, then `n / 2` must have a remainder of 1. Thus:
 
 - `n % 2 ` = 0 if `n` is an even number
 - `n % 2 ` = 1 if `n` is an odd number

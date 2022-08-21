@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -59,8 +59,8 @@ Having defined our subclass, we can leverage the other methods of `Rectangle` as
 # create a square of side-length 2
 >>> my_square = Square(2)
 
-# using the inherited `get_area` method
->>> my_square.get_area()
+# using the inherited `compute_area` method
+>>> my_square.compute_area()
 4
 
 # a square is a rectangle with equal height/width

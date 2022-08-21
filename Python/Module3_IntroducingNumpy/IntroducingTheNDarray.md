@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -106,6 +106,6 @@ By the end of this module, these code snippets should make good sense, and NumPy
 
 ## Links to Official Documentation
 
-- [The N-dimensional array](https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html)
-- [NumPy Basics](https://docs.scipy.org/doc/numpy/user/basics.html#numpy-basics)
-- [NumPy reference](https://docs.scipy.org/doc/numpy/reference/index.html)
+- [The N-dimensional array](https://numpy.org/doc/stable/reference/arrays.ndarray.html)
+- [NumPy Basics](https://numpy.org/doc/stable/user/basics.html#numpy-basics)
+- [NumPy reference](https://numpy.org/doc/stable/reference/index.html)

@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -108,12 +108,12 @@ array([[ 0.,  0.,  0.,  0.],
 array([ 1.,  1.,  1.,  1.])
 ```
 
-NumPy provides additional functions for creating constant-valued arrays. Please refer to [the official documentation](https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#ones-and-zeros) for a complete listing. 
+NumPy provides additional functions for creating constant-valued arrays. Please refer to [the official documentation](https://numpy.org/doc/stable/reference/routines.array-creation.html#ones-and-zeros) for a complete listing. 
 <!-- #endregion -->
 
 <!-- #region -->
 ## Creating Sequential Arrays: `arange` and `linspace`
-The [arange](https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html#numpy.arange) function allows you to initialize a sequence of integers based on a starting point (inclusive), stopping point (exclusive), and step size. This is very similar to the `range` function; however `arange` immediately creates this sequence as an array, whereas `range` produces a generator.
+The [arange](https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange) function allows you to initialize a sequence of integers based on a starting point (inclusive), stopping point (exclusive), and step size. This is very similar to the `range` function; however `arange` immediately creates this sequence as an array, whereas `range` produces a generator.
 ```python
 >>> np.arange(0, 10, 1)  # start (included): 0, stop (excluded): 10, step:1 
 array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -127,7 +127,7 @@ array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 array([-5, -3, -1,  1,  3,  5])
 ```
 
-The [linspace](https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html) function allows you to generate $N$ *evenly-spaced* points within a user-specified interval $[i, j]$ ($i$ and $j$ are included in the interval). This is often used to generate a domain of values on which to evaluate a mathematical function (e.g. if you want to the sine function from $-\pi$ to $\pi$ on a finely-divided grid).
+The [linspace](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html) function allows you to generate $N$ *evenly-spaced* points within a user-specified interval $[i, j]$ ($i$ and $j$ are included in the interval). This is often used to generate a domain of values on which to evaluate a mathematical function (e.g. if you want to the sine function from $-\pi$ to $\pi$ on a finely-divided grid).
 
 ```python
 # generate five evenly-spaced points on the interval [-1, 1]
@@ -143,26 +143,29 @@ array([ 3.,  4.])
 array([-3.14159265, ..., 3.14159265])
 ```
 
-Numpy has other functions for creating sequential arrays, such as producing an array spaced evenly on a log-scaled interval. See the [official documentation](https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#numerical-ranges) for a complete listing.
+Numpy has other functions for creating sequential arrays, such as producing an array spaced evenly on a log-scaled interval. See the [official documentation](https://numpy.org/doc/stable/reference/routines.array-creation.html#numerical-ranges) for a complete listing.
 <!-- #endregion -->
 
 <!-- #region -->
 ## Creating Arrays Using Random Sampling
 Several functions can be accessed from `np.random`, which populate arrays of a user-specified shape by drawing randomly from a specified statistical distribution:
 ```python
+# construct a new random number generator
+>>> rng = np.random.default_rng()
+
 # create a shape-(3,3) array by drawing its entries randomly
 # from the uniform distribution [0, 1) 
->>> np.random.rand(3,3)
+>>> rng.random((3, 3))
 array([[ 0.09542611,  0.13183498,  0.39836068],
        [ 0.7358235 ,  0.77640024,  0.74913595],
        [ 0.37702688,  0.86617624,  0.39846429]])
 
 # create a shape-(5,) array by drawing its entries randomly
 # from a mean-0, variance-1 normal (a.k.a. Gaussian) distribution
->>> np.random.randn(5)
+>>> rng.normal(size=(5,))
 array([-1.11262121, -0.35392007,  0.4245215 , -0.81995588,  0.65412323])
 ```
-There are [many more functions](https://docs.scipy.org/doc/numpy/reference/routines.random.html#distributions) to read about that allow you to draw from a wide variety of statistical distributions. This only scratches the surface of random number generation in NumPy.
+There are [many more functions](https://numpy.org/doc/stable/reference/random/generator.html#simple-random-data) to read about that allow you to draw from a wide variety of statistical distributions. This only scratches the surface of random number generation in NumPy.
 
 <!-- #endregion -->
 
@@ -191,7 +194,7 @@ array([[ 0.+0.j,  0.+0.j,  0.+0.j,  0.+0.j],
        [ 0.+0.j,  0.+0.j,  0.+0.j,  0.+0.j]], dtype=complex64)
 ```
 
-Refer to [the official NumPy documentation](https://docs.scipy.org/doc/numpy/user/basics.types.html#array-types-and-conversions-between-types) for the complete list of available array datatypes.
+Refer to [the official NumPy documentation](https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types) for the complete list of available array datatypes.
 <!-- #endregion -->
 
 <!-- #region -->
@@ -212,14 +215,14 @@ array([[ 1,  2,  3],
 array([ 1,  2,  3, -1, -2, -3])
 ```
 
-A complete listing of functions for joining arrays can be [found in the official NumPy documentation](https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html#joining-arrays). There are also corresponding functions for splitting an array into independent arrays.
+A complete listing of functions for joining arrays can be [found in the official NumPy documentation](https://numpy.org/doc/stable/reference/routines.array-manipulation.html#joining-arrays). There are also corresponding functions for splitting an array into independent arrays.
 <!-- #endregion -->
 
 ## Links to Official Documentation
 
-- [Constant arrays](https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#ones-and-zeros)
-- [numpy.array](https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy-array)
-- [Sequential arrays](https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#numerical-ranges)
-- [Random distributions](https://docs.scipy.org/doc/numpy/reference/routines.random.html#distributions)
-- [Array types](https://docs.scipy.org/doc/numpy/user/basics.types.html#array-types-and-conversions-between-types)
-- [Joining arrays](https://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html#joining-arrays)
+- [Constant arrays](https://numpy.org/doc/stable/reference/routines.array-creation.html#ones-and-zeros)
+- [numpy.array](https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy-array)
+- [Sequential arrays](https://numpy.org/doc/stable/reference/routines.array-creation.html#numerical-ranges)
+- [Random distributions](https://numpy.org/doc/stable/reference/routines.random.html#distributions)
+- [Array types](https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types)
+- [Joining arrays](https://numpy.org/doc/stable/reference/routines.array-manipulation.html#joining-arrays)
