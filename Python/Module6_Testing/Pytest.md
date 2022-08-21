@@ -18,9 +18,11 @@ jupyter:
    :keywords: test, automated, pytest, parametrize, fixture, suite, decorator, clean directory  
 <!-- #endraw -->
 
-# The pytest Framework
+# Designing a Test Suite for a Python Project
 
-Thus far, our process for running tests has been an entirely manual one. It is time for us to arrange our test functions into a proper "test suite" and to learn to leverage [the pytest framework](https://docs.pytest.org/en/latest/) to run them.
+Thus far, our process for running tests has been an entirely manual one – we have been responsible for running each test-function and noting whether or not an assertion error was raised.
+It is time for us to arrange our test functions into a proper "test suite" and to learn to leverage [the pytest framework](https://docs.pytest.org/en/latest/) to run them.
+This will make it trivial for us to run all (or a subset) of our tests with a single command and to view the pass/fail status of each test in a nice list.
 We will begin by reorganizing our source code to create an installable [Python package](https://www.pythonlikeyoumeanit.com/Module5_OddsAndEnds/Modules_and_Packages.html#Packages).
 We will then learn how to structure and run a test suite for this Python package, using pytest.
 
@@ -69,8 +71,8 @@ While [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) prov
 There is a project, "Nose2", which is carrying the torch of `nose`. However, this is a fledgling project in comparison with `pytest`.
 As of writing this, `pytest` was downloaded 12 million times last month versus `nose2`'s 150 thousand downloads.
     
-The takeaway here is that, when it comes to picking a testing framework for Python, `pytest` is the clear choice.
-Any discussion that you come across to the contrary is likely outdated.
+The takeaway here is that `pytest` is the clear choice when it comes to picking a testing framework for Python.
+Any discussion that you come across to the contrary is likely outdated or is lending too much legitimacy to out-dated frameworks.
 </div>
 
 <!-- #region -->
@@ -418,10 +420,13 @@ Furthermore, the four assertions are now being run independently from one anothe
 <!-- #endregion -->
 
 <!-- #region -->
-#### Decorators
+
+<div class="alert alert-warning"> 
+
+**Decorators**
 
 The syntax used to parameterize this test may look alien to us, as we have yet to encounter this construct thus far.
-`pytest.mark.parameterize(...)` is a _decorator_ - an object that is used to "wrap" a function in order to transform its behavior.
+`pytest.mark.parameterize(...)` is a _decorator_ – an object that is used to "wrap" a function in order to transform its behavior.
 The `pytest.mark.parameterize(...)` decorator wraps our test function so that pytest can call it multiple times, once for each parameter value. 
 The `@` character, in this context, denotes the application of a decorator:
 
@@ -434,6 +439,9 @@ def the_function_being_decorated(<arguments_for_function>):
 ```
 
 For an in-depth discussion of decorators, please refer to [Real Python's Primer on decorators](https://realpython.com/primer-on-python-decorators/#simple-decorators).
+</div>
+
+
 <!-- #endregion -->
 
 <!-- #region -->
