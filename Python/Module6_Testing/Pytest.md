@@ -14,8 +14,7 @@ jupyter:
 
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
-   :description: Topic: Introducing the pytest framework, Difficulty: Easy, Category: Section
-   :keywords: test, automated, pytest, parametrize, fixture, suite, decorator, clean directory  
+   :description: The basics of using pytest to create a test suite for a Python project
 <!-- #endraw -->
 
 # Designing a Test Suite for a Python Project

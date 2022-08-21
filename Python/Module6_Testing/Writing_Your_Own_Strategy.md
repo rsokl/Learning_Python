@@ -14,8 +14,7 @@ jupyter:
 
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
-   :description: Topic: Writing Your Own Hypothesis Strategy, Difficulty: Medium, Category: Section
-   :keywords: test, python, hypotheis, composite, decorator, strategy, property-based 
+   :description: Writing your own strategies for describing data in Hypothesis tests
 <!-- #endraw -->
 
 <!-- #region -->
