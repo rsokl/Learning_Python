@@ -17,7 +17,7 @@ jupyter:
    :description: Practice exercises using the Hypothesis testing library
 <!-- #endraw -->
 
-# Practice Exercises Using Hypothesis
+# Additional Practice Exercises Using Hypothesis
 
 Hypothesis will not only improve the quality of our tests, but it should also save us time and cognitive load as it simplifies the process for describing the data that we want to pass to our code.
 That being said, it can take some practice to learn one's way around [Hypothesis' core strategies](https://hypothesis.readthedocs.io/en/latest/data.html#core-strategies);
