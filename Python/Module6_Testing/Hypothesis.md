@@ -308,7 +308,7 @@ We will be leveraging the `.example()` method throughout the rest of this sectio
 
 There are a number critical Hypothesis strategies for us to become familiar with. It is worthwhile to peruse through all of Hypothesis' [core strategies](https://hypothesis.readthedocs.io/en/latest/data.html#core-strategies), but we will take time to highlight a few here.
 
-#### `st.booleans ()`
+#### `st.booleans()`
 
 [st.booleans()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.booleans) generates either `True` or `False`. This strategy will shrink towards `False`
 
