@@ -320,7 +320,7 @@ False
 
 <!-- #region -->
 
-#### `st.lists ()`
+#### `st.lists()`
 
 [st.lists](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.lists) accepts *another* strategy, which describes the elements of the lists being generated. You can also specify:
  - bounds on the length of the list
