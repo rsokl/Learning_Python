@@ -373,7 +373,7 @@ For example, the following strategy will generate length-3 tuples whose entries 
 
 The [st.text](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.text) accepts an "alphabet" – a collection of string-characters – from which it will construct strings of varying lengths, whose bounds can be specified by the user.
 
-For example, the following strategy will strings of lowercase vowels from length 2 to length 10:
+For example, the following strategy will generate strings of lowercase vowels from length 2 to length 10:
 
 ```python
 >>> st.text("aeiouy", min_size=2, max_size=10).example()
