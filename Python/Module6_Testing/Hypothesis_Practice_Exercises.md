@@ -26,7 +26,7 @@ thus this section is dedicated to providing some useful exercises towards this e
 
 <div class="alert alert-info">
 
-**Exercise: Describing data with `st.lists`**
+**Exercise: Describing data with `st.lists()`**
 
 Write a strategy that generates lists of even-valued integers, ranging from length-0 to length-10. 
 
@@ -40,7 +40,7 @@ Write a test that checks these properties and run the test.
 
 **Exercise: Using Hypothesis to learn about floats.. Part 1**
 
-Use the `st.floats` strategy to identify which float(s) violate the identity: `x == x`.
+Use the `st.floats()` strategy to identify which float(s) violate the identity: `x == x`.
 That is, write a hypothesis-driven test for which `assert x == x` *fails*, run the test, and identify the input that causes the failure. 
 
 Then, revise your usage of `st.floats` such that it only describes values that satisfy the identity.
