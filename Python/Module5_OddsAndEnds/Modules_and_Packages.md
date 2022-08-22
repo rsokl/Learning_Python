@@ -408,7 +408,7 @@ It must be mentioned that we are sweeping some details under the rug here. Insta
 
 Suppose that we are happy with the work we have done on our `face_detector` project. We will want to install this package - placing it in our site-packages directory so that we can import it irrespective of our Python interpreter's working directory. Here we will construct a basic setup script that will allow us to accomplish this. For completeness, we will also indicate how one would include a test suite alongside the source code in this directory structure.
 
-We note outright that the purpose of this section is strictly to provide you with the minimum set of instructions needed to install a package. We will not be diving into what is going on under the hood at all. Please refer to [An Introduction to Distutils](https://docs.python.org/3/distutils/introduction.html#an-introduction-to-distutils) and [Packaging Your Project](https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project) for a deeper treatment of this topic.
+We note outright that the purpose of this section is strictly to provide you with the minimum set of instructions needed to install a package. We will not be diving into what is going on under the hood at all. Please refer [the Python packaging user guide](https://packaging.python.org/en/latest/) for a deeper treatment of this topic.
 
 Carrying on, we will want to create a setup-script, `setup.py`, *in the same directory as our package*. That is, our directory structure should look like:
 
@@ -503,8 +503,7 @@ You are free to install some packages using `conda` and others with `pip`. Just 
 ## Links to Official Documentation
 
 - [Python Tutorial: Modules](https://docs.python.org/3/tutorial/modules.html)
-- [An Introduction to Distutils](https://docs.python.org/3/distutils/introduction.html#an-introduction-to-distutils)
-- [Packaging Your Project](https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project) 
+- [The Python Packaging User Guids](https://packaging.python.org/en/latest/)
 - [PyPi](https://pypi.org/)
 
 
