@@ -307,7 +307,7 @@ We will be leveraging the `.example()` method throughout the rest of this sectio
 
 There are a number critical Hypothesis strategies for us to become familiar with. It is worthwhile to peruse through all of Hypothesis' [core strategies](https://hypothesis.readthedocs.io/en/latest/data.html#core-strategies), but we will take time to highlight a few here.
 
-#### `st.booleans ()`
+#### `st.booleans()`
 
 [st.booleans()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.booleans) generates either `True` or `False`. This strategy will shrink towards `False`
 
@@ -319,7 +319,7 @@ False
 
 <!-- #region -->
 
-#### `st.lists ()`
+#### `st.lists()`
 
 [st.lists](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.lists) accepts *another* strategy, which describes the elements of the lists being generated. You can also specify:
  - bounds on the length of the list
@@ -372,7 +372,7 @@ For example, the following strategy will generate length-3 tuples whose entries 
 
 The [st.text](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.text) accepts an "alphabet" – a collection of string-characters – from which it will construct strings of varying lengths, whose bounds can be specified by the user.
 
-For example, the following strategy will strings of lowercase vowels from length 2 to length 10:
+For example, the following strategy will generate strings of lowercase vowels from length 2 to length 10:
 
 ```python
 >>> st.text("aeiouy", min_size=2, max_size=10).example()
