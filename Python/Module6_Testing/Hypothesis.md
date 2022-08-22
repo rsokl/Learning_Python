@@ -129,7 +129,6 @@ I did not want this error to distract from what is otherwise merely a simple exa
 
 Hypothesis has a knack for catching these sorts of unexpected edge cases.
 Now we know that `len(range(size)) == size` _does not_ hold for "arbitrary" non-negative integers!
-(This overflow behavior is now documented in the [CPython source code](https://github.com/python/cpython) because it was discovered while writing this material 😄).
 
 
 </div>
