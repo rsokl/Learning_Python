@@ -1,79 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta content="Topic: Plotting with matplotlib, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Plotting with matplotlib, Difficulty: Easy, Category: Section" name="description" />
 <meta content="plot, matplotlib, figure, axes, functional, object oriented, histogram, image, save, load, color, colormap, API, style, notebook, inline" name="keywords" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matplotlib &mdash; Python Like You Mean It</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Working with Files" href="WorkingWithFiles.html" />
     <link rel="prev" title="Writing Good Code" href="Writing_Good_Code.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -81,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -124,90 +79,65 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../module_5.html">Module 5: Odds and Ends</a> &raquo;</li>
-        
       <li>Matplotlib</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/Module5_OddsAndEnds/Matplotlib.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
-    background: none;
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
     border: none;
-    padding: 0 0;
+    padding: 0;
     margin: 0;
     box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -254,20 +184,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -295,7 +238,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
 }
 
 /* override MathJax center alignment in output cells */
@@ -360,7 +303,8 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
+    margin: 0;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -370,7 +314,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -431,7 +375,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="section" id="Matplotlib">
-<h1>Matplotlib<a class="headerlink" href="#Matplotlib" title="Permalink to this headline">¶</a></h1>
+<h1>Matplotlib<a class="headerlink" href="#Matplotlib" title="Permalink to this headline"></a></h1>
 <p>In this section, we will introduce Matplotlib, the most long-lived Python package for plotting data and images. It is designed to work nicely with NumPy arrays, and natively uses two and three-dimensional arrays to represent images, (gray-scale and RGB, respectively). This section will introduce the basics of plotting and key features of Matplotlib.</p>
 <p>There are many tutorials, “cheat sheets”, and other resources for using Matplotlib. Our goal here is to provide a treatment of Matplotlib with slightly deeper aims than simply showing you how to make “a plot that looks like …”. Specifically, our aim is to introduce Matplotib’s <a class="reference external" href="https://matplotlib.org/api/pyplot_summary.html#the-object-oriented-api">object oriented API</a>, instead of its <a class="reference external" href="https://matplotlib.org/api/pyplot_summary.html#the-pyplot-api">function-based API</a>. Let’s briefly draw a
 distinction between these two APIs:</p>
@@ -460,7 +404,7 @@ distinction between these two APIs:</p>
 </div>
 <p>There are many tutorials and examples available online, which demonstrate Matplotlib’s wide range of capabilities for visualizing data. Here, we will only distill the essentials needed for understanding how to use Matplotlib effectively for typical data science applications.</p>
 <div class="section" id="Plotting-in-Jupyter-Notebooks">
-<h2>Plotting in Jupyter Notebooks<a class="headerlink" href="#Plotting-in-Jupyter-Notebooks" title="Permalink to this headline">¶</a></h2>
+<h2>Plotting in Jupyter Notebooks<a class="headerlink" href="#Plotting-in-Jupyter-Notebooks" title="Permalink to this headline"></a></h2>
 <p>While Matplotlib provides a graphical interface for plots so that we can plot data from the Python shell or IPython, the Jupyter notebook is the ideal environment for creating and refining data visualizations. The command <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, when executed in a notebook, will instruct Matplotlib to embed its plots within that notebook, rather than opening a separate window for each plot.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># instructs Jupyter to embed plots within a notebook</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
@@ -470,8 +414,8 @@ distinction between these two APIs:</p>
 <p>Finally, note that <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code> is not a valid line of Python code, rather it is an example of a <a class="reference external" href="http://ipython.readthedocs.io/en/stable/interactive/magics.html">“magic command”</a> which is reserved to affect the behavior of the IPython console and Jupyter notebook.</p>
 </div>
 <div class="section" id="Creating-Figures-and-Axes-with-pyplot.subplots">
-<h2>Creating Figures and Axes with <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code><a class="headerlink" href="#Creating-Figures-and-Axes-with-pyplot.subplots" title="Permalink to this headline">¶</a></h2>
-<p>There are many different wasy to create blank figure and axes objects in Matplotlib. Here, we will introduce the function <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code>, which creates a figure that contains axes on which data is plotted. We will see that the keyword argument <code class="docutils literal notranslate"><span class="pre">figsize</span></code> can be used to control the size of the figure, and that the keyword arguments <code class="docutils literal notranslate"><span class="pre">ncols</span></code> and <code class="docutils literal notranslate"><span class="pre">nrows</span></code> can be used to specify the grid on which the axes will be laid out within the figure.</p>
+<h2>Creating Figures and Axes with <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code><a class="headerlink" href="#Creating-Figures-and-Axes-with-pyplot.subplots" title="Permalink to this headline"></a></h2>
+<p>There are many different ways to create blank figure and axes objects in Matplotlib. Here, we will introduce the function <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code>, which creates a figure that contains axes on which data is plotted. We will see that the keyword argument <code class="docutils literal notranslate"><span class="pre">figsize</span></code> can be used to control the size of the figure, and that the keyword arguments <code class="docutils literal notranslate"><span class="pre">ncols</span></code> and <code class="docutils literal notranslate"><span class="pre">nrows</span></code> can be used to specify the grid on which the axes will be laid out within the figure.</p>
 <p>In Matplotlib, the <code class="docutils literal notranslate"><span class="pre">Figure</span></code> object is used to contain one or more sets of <code class="docutils literal notranslate"><span class="pre">Axes</span></code> objects. Data is plotted within a given set of axes. The <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function can be used to create a figure along with a specified layout of axes. By default, <code class="docutils literal notranslate"><span class="pre">subplots</span></code> will create a figure with a single set of axes; calling it will return the figure object and its axes object in a tuple:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
@@ -484,13 +428,12 @@ distinction between these two APIs:</p>
 </div>
 <p>Executing this code will open a figure with a blank set of axes. We can use the <code class="docutils literal notranslate"><span class="pre">Axes</span></code> instance, <code class="docutils literal notranslate"><span class="pre">ax</span></code>, to plot data, add labels and a title to the plot, and add grid lines. The <code class="docutils literal notranslate"><span class="pre">Figure</span></code> instance, <code class="docutils literal notranslate"><span class="pre">fig</span></code>, controls higher-level features of the figure, such as the layout of the axes, the alignment of labels, and other factors. <code class="docutils literal notranslate"><span class="pre">fig</span></code> is perhaps most used for saving figures. Let’s plot a single period of a sine wave and then save it.</p>
 <div class="section" id="Plotting-and-Saving-a-Figure">
-<h3>Plotting and Saving a Figure<a class="headerlink" href="#Plotting-and-Saving-a-Figure" title="Permalink to this headline">¶</a></h3>
+<h3>Plotting and Saving a Figure<a class="headerlink" href="#Plotting-and-Saving-a-Figure" title="Permalink to this headline"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># using subplots to create a figure with a singe set of axes</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># using subplots to create a figure with a singe set of axes</span>
 <span class="c1"># plotting points on a sine curve</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1309,8 +1252,7 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># specify the figure size created by `subplots`</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># specify the figure size created by `subplots`</span>
 <span class="c1"># create a 6-inch x 2-inch figure</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
@@ -2108,8 +2050,7 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># demonstrating wide range of functionality controlled</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating wide range of functionality controlled</span>
 <span class="c1"># by the axes object.</span>
 
 <span class="c1"># create a figure with multiple axes</span>
@@ -2933,7 +2874,7 @@ if (IPython.notebook.kernel != null) {
 </div>
 </div>
 <div class="section" id="The-Axes-Object">
-<h3>The Axes Object<a class="headerlink" href="#The-Axes-Object" title="Permalink to this headline">¶</a></h3>
+<h3>The Axes Object<a class="headerlink" href="#The-Axes-Object" title="Permalink to this headline"></a></h3>
 <p>The axes object is used to control the appearance of data within a plot. A quick glance at the <a class="reference external" href="https://matplotlib.org/api/axes_api.html">official documentation for the axes object</a> reveals that it is nearly “one object to rule them all” in Matplotlib, as it possesses a massive amount of functionality. It permits us to control the type of plotting being performed; the following is list of some of the various types of plots that can be created:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Axes.plot</span></code>: lines with data markers</p></li>
@@ -2953,8 +2894,7 @@ line styles can be found <a class="reference external" href="https://matplotlib.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># plotting multiple curves on the same set of axes</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting multiple curves on the same set of axes</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
@@ -3806,8 +3746,7 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># demonstrating a variety of plot-types</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating a variety of plot-types</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="c1">################# Plot (0, 0) ##########################</span>
@@ -4657,7 +4596,7 @@ if (IPython.notebook.kernel != null) {
 </div>
 </div>
 <div class="section" id="The-Figure-Object-(Saving-Figures)">
-<h3>The Figure Object (Saving Figures)<a class="headerlink" href="#The-Figure-Object-(Saving-Figures)" title="Permalink to this headline">¶</a></h3>
+<h3>The Figure Object (Saving Figures)<a class="headerlink" href="#The-Figure-Object-(Saving-Figures)" title="Permalink to this headline"></a></h3>
 <p>Along with the <code class="docutils literal notranslate"><span class="pre">Axes</span></code> instances produced by <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code>, a <code class="docutils literal notranslate"><span class="pre">Figure</span></code> object is also produced. Like <code class="docutils literal notranslate"><span class="pre">Axes</span></code>, <code class="docutils literal notranslate"><span class="pre">Figure</span></code> has a massive amount of functionality associated with it. Its documentation can be found <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure">here</a>. One of its essential uses is to save figures via the method <code class="docutils literal notranslate"><span class="pre">Figure.savefig</span></code>. Various file extensions can be specified with the image’s filename, such as pdf, jpg, png, and eps.
 The image will be saved to the corresponding format. Additionally, the resolution of the saved figure can be specified in term of “dots per inch” - this is thus controlled by the input argument <code class="docutils literal notranslate"><span class="pre">dpi</span></code>.</p>
 <p>Beyond saving plots, the <code class="docutils literal notranslate"><span class="pre">Figure</span></code> object can be used to both retrieve and set information about our figure, including the size of the figure in inches, its resolution, and its background color.</p>
@@ -4665,8 +4604,7 @@ The image will be saved to the corresponding format. Additionally, the resolutio
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -5472,7 +5410,7 @@ if (IPython.notebook.kernel != null) {
 </div>
 </div>
 <div class="section" id="Displaying-Images">
-<h2>Displaying Images<a class="headerlink" href="#Displaying-Images" title="Permalink to this headline">¶</a></h2>
+<h2>Displaying Images<a class="headerlink" href="#Displaying-Images" title="Permalink to this headline"></a></h2>
 <p>Matplotlib also provides functionality for displaying images. Using the <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object, we will use its <code class="docutils literal notranslate"><span class="pre">imshow</span></code> method to display an image. Here, ‘image’ can be anything that “looks like” an image. For example, a 2D NumPy-array can be interpreted as a grayscale image where the rows and columns are pixel locations and the values are intensity. An image can also be <span class="math notranslate nohighlight">\(r \times c \times 3\)</span> array, where <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(c\)</span> correspond to rows and columns of pixels, and 3 indicates 3 color
 channels for red, green, and blue (RGB) pixel values, or <span class="math notranslate nohighlight">\(r \times c \times 4\)</span>, where the channels are red, green, blue, and alpha (RGBA) for transparency.</p>
 <p>Lets plot some of these. Let’s construct a 50x75x3 RGB image split into three vertical strips. The left strip will be red, the middle strip green, and the right strip blue. We will create a NumPy-array of zeros, and then populate its entries with RGB color values according to this pattern. Our array will store unsigned 8-bit integers (i.e. “uint8”); a uint8 number can store <span class="math notranslate nohighlight">\(2^8 = 256\)</span> distinct values: 0, 1, …, 255. Thus an RGB channel of (255, 0, 0) will be red, (0, 255, 0) is green, and
@@ -5481,8 +5419,7 @@ channels for red, green, and blue (RGB) pixel values, or <span class="math notra
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># generate and display an RGB image</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate and display an RGB image</span>
 <span class="c1"># The image has a shape Height=50, Width=75, Color Channels=3</span>
 <span class="c1"># Channel-0: red</span>
 <span class="c1"># Channel-1: green</span>
@@ -6295,8 +6232,7 @@ if (IPython.notebook.kernel != null) {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># generate and display a grayscale image</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate and display a grayscale image</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># create a linear ramp from 0-100 along a shape-25 array,</span>
@@ -7095,14 +7031,14 @@ if (IPython.notebook.kernel != null) {
 <p>Lastly, we note that <code class="docutils literal notranslate"><span class="pre">plt.imsave</span></code> is available to save your numpy-array as an image file, and <code class="docutils literal notranslate"><span class="pre">plt.imread</span></code> is available to read an image file and load it as a numpy array (thus <code class="docutils literal notranslate"><span class="pre">imsave</span></code> and <code class="docutils literal notranslate"><span class="pre">imread</span></code> are inverses of one another).</p>
 </div>
 <div class="section" id="Beyond-Matplotlib">
-<h2>Beyond Matplotlib<a class="headerlink" href="#Beyond-Matplotlib" title="Permalink to this headline">¶</a></h2>
+<h2>Beyond Matplotlib<a class="headerlink" href="#Beyond-Matplotlib" title="Permalink to this headline"></a></h2>
 <p>Although Matplotlib is the most long-lived plotting library for Python, it is not the only player in town, nor is necessarily it the best tool for all variety of visualizations. For instance, Matplotlib is not well-suited for plotting large amounts of data, nor does it facilitate dynamic, interactive plots very well. It is worthwhile to be aware of some of Python’s other plotting libraries, which benefit from a more focused design and leverage more modern plotting technologies.</p>
 <p><a class="reference external" href="https://toyplot.readthedocs.io/en/stable/">ToyPlot</a> provides a sleek, minimalist interface that aims to develop beautiful interactive, animated plots that embrace the unique capabilities of electronic publishing and support reproducibility.</p>
 <p><a class="reference external" href="https://bokeh.pydata.org/en/latest/">Bokeh</a> is an interactive visualization library that targets modern web browsers for presentation. Its goal is to provide elegant, concise construction of versatile graphics, and to extend this capability with high-performance interactivity over very large or streaming datasets.</p>
 <p><a class="reference external" href="https://plot.ly/python/">Plotly</a> has a Python graphing library makes interactive, publication-quality graphs online. It and Bokeh provide similar capabilities, and leverage JavaScript to create elegant interactive visualizations. Plotly and Bokeh both have their respective strengths and weaknesses.</p>
 </div>
 <div class="section" id="Links-to-Official-Documentation">
-<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://matplotlib.org/users/index.html">Matplotlib User Guide</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org/tutorials/index.html">Tutorials</a></p></li>
@@ -7114,7 +7050,7 @@ if (IPython.notebook.kernel != null) {
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Exercise-Solutions:">
-<h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline">¶</a></h2>
+<h2>Reading Comprehension Exercise Solutions:<a class="headerlink" href="#Reading-Comprehension-Exercise-Solutions:" title="Permalink to this headline"></a></h2>
 <p><strong>Creating a Basic Plot: Solution</strong></p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code> to create a figure with two subplots that are aligned side-by-side (i.e. they reside in two columns). In the left subplot, plot <span class="math notranslate nohighlight">\(f(x) = e^{-x}\)</span> using 100 points on the domain <span class="math notranslate nohighlight">\([0, 1]\)</span>. In the right subplot, plot <span class="math notranslate nohighlight">\(f(x) = x^2\)</span> on whatever domain you’d like, using a green line.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -7147,51 +7083,33 @@ if (IPython.notebook.kernel != null) {
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="WorkingWithFiles.html" class="btn btn-neutral float-right" title="Working with Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="Writing_Good_Code.html" class="btn btn-neutral float-left" title="Writing Good Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Writing_Good_Code.html" class="btn btn-neutral float-left" title="Writing Good Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="WorkingWithFiles.html" class="btn btn-neutral float-right" title="Working with Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Ryan Soklaski
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

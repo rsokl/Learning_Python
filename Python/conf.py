@@ -59,7 +59,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "Python Like You Mean It"
-copyright = "2019, Ryan Soklaski"
+copyright = "2021, Ryan Soklaski"
 author = "Ryan Soklaski"
 html_title = "Python Like You Mean It"
 
@@ -101,7 +101,8 @@ html_theme = "sphinx_rtd_theme"
 
 def setup(app):
     app.add_css_file("my_theme.css")
-    app.add_js_file("https://www.googletagmanager.com/gtag/js?id=UA-115029372-1")
+    app.add_js_file(
+        "https://www.googletagmanager.com/gtag/js?id=UA-115029372-1", loading_method="async")
     app.add_js_file("gtag.js")
 
 
@@ -168,7 +169,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, "bfundamentalsofpython", "BPython Like You Mean It", [author], 1)
+    (master_doc, "bfundamentalsofpython",
+     "BPython Like You Mean It", [author], 1)
 ]
 
 

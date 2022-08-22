@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -19,19 +19,25 @@ jupyter:
 <!-- #endraw -->
 
 # Jupyter Notebooks
-In recent years, the Jupyter Notebook has become a massively popular tool for doing research-oriented work in Python and other languages alike. Its emergence marked a paradigm shift in the way data science is conducted. 
 
-A Jupyter notebook is similar to the IPython console, but, instead of only being able to work with a single line of code at a time, you can easily edit and re-execute *any* code that had been written in a notebook. Furthermore, you can save a notebook, and thus return to it later. Additionally, a notebook provides many terrific features. For instance, you can embed visualizations of data within a notebook, and write blocks of nicely-formatted text (using the [Markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)), for presenting and explaining the contents of the notebook. 
+In recent years, the Jupyter Notebook has become a massively popular tool for doing research-oriented work in Python and other languages alike.
+Its emergence marked a paradigm shift in the way data science is conducted. 
+
+A Jupyter notebook is similar to the IPython console, but, instead of only being able to work with a single line of code at a time, you can easily edit and re-execute *any* code that had been written in a notebook. Furthermore, you can save a notebook, and thus return to it later.
+Additionally, a notebook provides many terrific features. For instance, you can embed visualizations of data within a notebook, and write blocks of nicely-formatted text (using the [Markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)), for presenting and explaining the contents of the notebook. 
 
 In this way, the Jupyter Notebook stands out as an excellent tool for many practical applications. You could work on a notebook while you are working through sections of this website, for instance, testing out snippets of code, and answering reading-comprehension questions as you proceed through the text, and using markdown-headers to visually separate different portions of the notebook. When I do research, I am always creating Jupyter notebooks in which I write code that analyzes data, I plot various results, presented in different ways, and I write detailed markdown-text blocks to document my work. The end result is something that I can share with my labmates, and easily revisit months later without having to struggle to recall what I had done.
 
 ## Jupyter Lab
-[Jupyter lab](https://jupyterlab.readthedocs.io/) is a new web interface from Project Jupyter that provides a rich web-based interface for managing and running Jupyter notebooks, console terminals, and text editors, all within your browser. Among its useful features and polished user interface - compared to that a Jupyter notebook server - Jupyter lab provides moveable panes for viewing data, images, and code output apart from the rest of the notebook. This is facilitates effective data science work flows.
+[Jupyter lab](https://jupyterlab.readthedocs.io/) is a new web interface from Project Jupyter that provides a rich web-based interface for managing and running Jupyter notebooks, console terminals, and text editors, all within your browser.
+Among its useful features and polished user interface, Jupyter lab provides moveable panes for viewing data, images, and code output apart from the rest of the notebook.
+This is facilitates effective data science work flows.
 
 It is recommended that you peruse the [Jupyter lab documentation](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) to get a feel for all of its added capabilities.
 
 
-The following instructions are laid out for running a Jupyter notebook server. That being said, the process for running a Jupyter lab server and working with notebooks therein is nearly identical. Both Jupyter notebook and Jupyter lab should already be [installed via Anaconda](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html).
+The following instructions are laid out for running a Jupyter notebook server. That being said, the process for running a Jupyter lab server and working with notebooks therein is nearly identical.
+Both Jupyter notebook and Jupyter lab should already be [installed via Anaconda](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Installing_Python.html).
 
 
 ## Running a Notebook Server & Creating a Notebook
@@ -100,7 +106,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # this tells Jupyter to embed matplotlib plots in the notebook
-%matplotlib notebook 
+%matplotlib inline 
 ```
 
 ```python
@@ -186,4 +192,4 @@ The Jupyter Notebook does not work exclusively with Python. A "kernel" can be de
 The ever-growing list of available kernels for use with Jupyter can be found [here](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels). It should be noted that these efforts are not all equally mature. For instance, whereas the Python and Julia kernels are robust, the Haskell kernel cannot run natively on Windows machines, and the C++ kernel is still in early development, as of writing this. 
 
 ### Jupyter Notebook Support in Visual Studio Code
-Native Jupyter notebook support was [recently added to Visual Studio Code](https://devblogs.microsoft.com/python/announcing-support-for-native-editing-of-jupyter-notebooks-in-vs-code/). This means that you can now edit Jupyter notebooks within the [Visual Studio Code IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html), and that you will benefit from added features like code-completion, debugging, and variable inspection.
+[Visual Studio Code provides native support for Jupyter notebooks](https://code.visualstudio.com/docs/datascience/jupyter-notebooks). This means that you can now edit Jupyter notebooks within the [Visual Studio Code IDE](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Getting_Started_With_IDEs_and_Notebooks.html), and that you will benefit from added features like code-completion, debugging, and variable inspection.

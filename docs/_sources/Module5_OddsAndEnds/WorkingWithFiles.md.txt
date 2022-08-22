@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -135,9 +135,9 @@ The following code opens the file "file1.txt" for writing:
 path_to_file = Path("file1.txt")
 with open(path_to_file, mode="w") as f:
     # The indented space enters the "context" of the open file.
-    # Leaving the indented space exist the context of the opened file, forcing
-    # the file to be closed. This is ensured even if our code causes an error
-    # within this indented block
+    # Leaving the indented space exits the context of the opened file, forcing
+    # the file to be closed. This is ensured even if the code within the indented 
+    # block causes an error.
     f.write('this is a line.\nThis is a second line.\nThis is the third line.')
 
 # The file is closed here.
@@ -254,7 +254,7 @@ with open("a_poem.txt", mode="r") as my_open_file:
 
 There are many cases in which we may want to construct a list of files to iterate over. For example, if we have several data files, it would be useful to create a file list which we can iterate through and process in sequence. One way to do this would be to manually construct such a list of files:
 
-``` python
+```python
 my_files = ['data/file1.txt', 'data/file2.txt', 'data/file3.txt', 'data/file4.txt']
 ```
 

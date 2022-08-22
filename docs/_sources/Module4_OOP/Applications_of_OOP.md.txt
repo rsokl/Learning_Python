@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -30,7 +30,7 @@ Let's create a shopping list class, where an instance of this class stores a lis
 - mark items on the list as "purchased"
 - remove items, purchased or not, from the list
 - list the name of the items to-be purchased (in alphabetical order)
-- list the name of the items have been purchased (in alphabetical order)
+- list the name of the items that have been purchased (in alphabetical order)
 
 We do not want redundant items to be included on our shopping list - if someone enters "apples" twice, we should only list it once. Thus we will make use of [sets](http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/DataStructures_III_Sets_and_More.html#The-%E2%80%9CSet%E2%80%9D-Data-Structure), which store unique elements, to store the items on our list.
 
@@ -73,7 +73,7 @@ class ShoppingList:
             items = [items]
         # only mark items as purchased that are on our list to begin with
         self._purchased.update(set(items) & self._needed)
-        # remove all purchased items from out unpurchased set
+        # remove all purchased items from our unpurchased set
         self._needed.difference_update(self._purchased)
     
     def list_purchased_items(self):

@@ -1,78 +1,45 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta content="Topic: Working with aths and files, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Topic: Working with paths and files, Difficulty: Medium, Category: Section" name="description" />
 <meta content="open file, read file, pathlib, join directory, context manager, close file, rb, binary file, utf-8, encoding, pickle, numpy, load, archive, npy, npz, pkl, glob, read lines, write, save" name="keywords" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Working with Files &mdash; Python Like You Mean It</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
-        <script type="text/javascript" src="../_static/gtag.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script src="../_static/gtag.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Import: Modules and Packages" href="Modules_and_Packages.html" />
     <link rel="prev" title="Matplotlib" href="Matplotlib.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +47,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -127,82 +84,289 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../module_5.html">Module 5: Odds and Ends</a> &raquo;</li>
-        
       <li>Working with Files</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/Module5_OddsAndEnds/WorkingWithFiles.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -215,24 +379,24 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Working-with-Files">
-<h1>Working with Files<a class="headerlink" href="#Working-with-Files" title="Permalink to this headline">¶</a></h1>
-<p>This section will discuss the best practices for writing Python code that involves reading from and writing to files. We will learn about the built-in <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> object, which will help to ensure that the code that we write is portable across operating systems (OS) (e.g.&nbsp;Windows, MacOS, Linux). We will also be introduced to a <em>context manager</em>, <code class="docutils literal notranslate"><span class="pre">open</span></code>, which will permit us to read-from and write-to a file safely; by “safely” we mean that we will be assured that any file that we open will
+<section id="Working-with-Files">
+<h1>Working with Files<a class="headerlink" href="#Working-with-Files" title="Permalink to this headline"></a></h1>
+<p>This section will discuss the best practices for writing Python code that involves reading from and writing to files. We will learn about the built-in <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> object, which will help to ensure that the code that we write is portable across operating systems (OS) (e.g. Windows, MacOS, Linux). We will also be introduced to a <em>context manager</em>, <code class="docutils literal notranslate"><span class="pre">open</span></code>, which will permit us to read-from and write-to a file safely; by “safely” we mean that we will be assured that any file that we open will
 eventually be closed properly, so that it will not be corrupted even in the event that our code hits an error. Next, we will learn how to “glob” for files, meaning that we will learn to search for and list files whose names match specific patterns. Lastly, we will briefly encounter the <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module which allows us to save (or “pickle”) and load Python objects to and from your computer’s file system.</p>
-<div class="section" id="Working-with-Paths">
-<h2>Working with Paths<a class="headerlink" href="#Working-with-Paths" title="Permalink to this headline">¶</a></h2>
+<section id="Working-with-Paths">
+<h2>Working with Paths<a class="headerlink" href="#Working-with-Paths" title="Permalink to this headline"></a></h2>
 <p>Suppose you are writing a Jupyter notebook where you are analyzing data that is saved to your computer. You will naturally need to detail the location where your data is stored on your computer’s file system so that you can load your data. Let’s suppose that this notebook is in the directory <code class="docutils literal notranslate"><span class="pre">my_folder</span></code> and that there is a directory, <code class="docutils literal notranslate"><span class="pre">data</span></code>, within it, which contains some text files with your data. Thus your directory structure looks like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_folder</span><span class="o">/</span>
-  <span class="o">|-</span><span class="n">notebook</span><span class="o">.</span><span class="n">ipynb</span>
-  <span class="o">|-</span><span class="n">data</span><span class="o">/</span>
-     <span class="o">|-</span><span class="n">data1</span><span class="o">.</span><span class="n">txt</span>
-     <span class="o">|-</span><span class="n">data2</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_folder/
+  |-notebook.ipynb
+  |-data/
+     |-data1.txt
+     |-data2.txt
 </pre></div>
 </div>
 <p>Now, if you are on a machine that is running Linux or MacOS, the path to <code class="docutils literal notranslate"><span class="pre">data1.txt</span></code> relative to the notebook is: <code class="docutils literal notranslate"><span class="pre">./data/data1.txt</span></code>. See that the character <code class="docutils literal notranslate"><span class="pre">/</span></code> is used as a separator used to denote subsequent directories in a path. On a Windows machine, the separator is <code class="docutils literal notranslate"><span class="pre">\</span></code>, thus the path to your data would be written as <code class="docutils literal notranslate"><span class="pre">.\data\data1.txt</span></code>. We want to write our code so that it can be utilized, without modification, across operating systems. This where Python’s fantastic <code class="docutils literal notranslate"><span class="pre">pathlib</span></code>
 module comes in handy.</p>
-<div class="section" id="pathlib.Path">
-<h3>pathlib.Path<a class="headerlink" href="#pathlib.Path" title="Permalink to this headline">¶</a></h3>
+<section id="pathlib.Path">
+<h3>pathlib.Path<a class="headerlink" href="#pathlib.Path" title="Permalink to this headline"></a></h3>
 <p>The standard library’s <a class="reference external" href="https://docs.python.org/3/library/pathlib.html">pathlib module</a> provides a number of classes that make it easy to work with file system paths across operating systems. We will limit our discussion to the <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> class, which will take care of all of our most pressing needs. This class allows us to write all of our path-related code in a single way, and it will convert the path to the operating system-appropriate format for us underneath the hood.</p>
 <p>Let’s begin by creating a <code class="docutils literal notranslate"><span class="pre">Path</span></code> object that points to the directory containing the present notebook:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a path-object pointing to the present directory</span>
@@ -298,10 +462,10 @@ you take time to look through them.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pathlib</span></code> was introduced in Python 3.4. Although many 3rd party libraries have updated their file-I/O utilities to accept both strings and <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> objects (e.g. <code class="docutils literal notranslate"><span class="pre">numpy.save</span></code> can be passed a <code class="docutils literal notranslate"><span class="pre">Path</span></code> instance to tell it where to save a numpy-array), some libraries are late to the party and will only accept strings as paths. On such occasions you can simple convert your <code class="docutils literal notranslate"><span class="pre">Path</span></code> instance to a string by calling <code class="docutils literal notranslate"><span class="pre">str</span></code> on it, and then pass the resulting string-path to the file-I/O
 function. This is also a friendly reminder to accomodate <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> objects whenever you find yourself writing your own file-I/O functions!</p>
 </div>
-</div>
-</div>
-<div class="section" id="Opening-Files">
-<h2>Opening Files<a class="headerlink" href="#Opening-Files" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Opening-Files">
+<h2>Opening Files<a class="headerlink" href="#Opening-Files" title="Permalink to this headline"></a></h2>
 <p>It is recommended that you refer to the <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">official Python tutorial</a> for a simple rundown of file reading and writing</p>
 <p>Whenever you instruct your code to open a file for reading or writing, you must take care that the file ultimately is closed so that its data is not vulnerable to being modified. Python provides the <code class="docutils literal notranslate"><span class="pre">open</span></code> context manager, which is designed to ensure that a file will be closed even in the event that our code raises an error.</p>
 <p>The following code opens the file “file1.txt” for writing:</p>
@@ -312,9 +476,9 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 <span class="n">path_to_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;file1.txt&quot;</span><span class="p">)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="c1"># The indented space enters the &quot;context&quot; of the open file.</span>
-    <span class="c1"># Leaving the indented space exist the context of the opened file, forcing</span>
-    <span class="c1"># the file to be closed. This is ensured even if our code causes an error</span>
-    <span class="c1"># within this indented block</span>
+    <span class="c1"># Leaving the indented space exits the context of the opened file, forcing</span>
+    <span class="c1"># the file to be closed. This is ensured even if the code within the indented</span>
+    <span class="c1"># block causes an error.</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;this is a line.</span><span class="se">\n</span><span class="s1">This is a second line.</span><span class="se">\n</span><span class="s1">This is the third line.&#39;</span><span class="p">)</span>
 
 <span class="c1"># The file is closed here.</span>
@@ -326,34 +490,34 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 </pre></div>
 </div>
 <p>The complete documentation for <code class="docutils literal notranslate"><span class="pre">open</span></code> can be found <a class="reference external" href="https://docs.python.org/3/library/functions.html#open">here</a>.</p>
-<div class="section" id="Specifying-the-Open-Mode">
-<h3>Specifying the Open-Mode<a class="headerlink" href="#Specifying-the-Open-Mode" title="Permalink to this headline">¶</a></h3>
+<section id="Specifying-the-Open-Mode">
+<h3>Specifying the Open-Mode<a class="headerlink" href="#Specifying-the-Open-Mode" title="Permalink to this headline"></a></h3>
 <p>Specifying <code class="docutils literal notranslate"><span class="pre">mode='w'</span></code> indicates that we will be writing to the file anew - if the file already has any content, that content will be <em>erased</em> before being written to. The following are the available “modes” for opening a file:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Mode</th>
-<th class="head">Explanation</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Explanation</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">r</span></code></td>
-<td>Open the file for reading text</td>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">r</span></code></p></td>
+<td><p>Open the file for reading text</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">w</span></code></td>
-<td>Open the file, <strong>clearing its contents</strong>, for writing text anew</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">w</span></code></p></td>
+<td><p>Open the file, <strong>clearing its contents</strong>, for writing text anew</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">a</span></code></td>
-<td>Open the file to write text to end of any existing content, thus “appending” to the file</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p>Open the file to write text to end of any existing content, thus “appending” to the file</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">x</span></code></td>
-<td>Open the file for writing text, failing if the file already exists</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+<td><p>Open the file for writing text, failing if the file already exists</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">+</span></code></td>
-<td>Open the file for both reading and writing text</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>Open the file for both reading and writing text</p></td>
 </tr>
 </tbody>
 </table>
@@ -361,7 +525,7 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 (which is necessary for it to be stored as a file) according to the utf-8 encoding scheme.</p>
 <p>You can instead force Python to read and write strictly in terms of binary data by adding a <code class="docutils literal notranslate"><span class="pre">'b'</span></code> to these modes: <code class="docutils literal notranslate"><span class="pre">'rb'</span></code>, <code class="docutils literal notranslate"><span class="pre">'wb'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ab'</span></code>, <code class="docutils literal notranslate"><span class="pre">'xb'</span></code>, <code class="docutils literal notranslate"><span class="pre">'+b'</span></code>. It is important to be aware of this binary mode. For example, if you are saving a NumPy-array, you should open a file in the ‘wb’ or ‘xb’ modes so that it expects binary data to be written to it; obviously we are not saving text when we are saving a NumPy array of numbers.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># saving a NumPy-array to the file &#39;array.npy&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
 <span class="c1"># file must be open for binary-write mode</span>
@@ -370,9 +534,9 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 <span class="o">...</span>     <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Working-with-the-File-Object">
-<h3>Working with the File Object<a class="headerlink" href="#Working-with-the-File-Object" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Working-with-the-File-Object">
+<h3>Working with the File Object<a class="headerlink" href="#Working-with-the-File-Object" title="Permalink to this headline"></a></h3>
 <p>When we invoke <code class="docutils literal notranslate"><span class="pre">open</span></code> to open a file, the context manager produces an opened file object. The methods of this file object allow us to write-to and read-from the opened file (assuming that we have utilized the appropriate mode when opening it).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># demonstrating the `read` method of the file object</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">var</span><span class="p">:</span>
@@ -381,7 +545,7 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">content</span>
 <span class="s1">&#39;this is a line.</span><span class="se">\n</span><span class="s1">This is a second line.</span><span class="se">\n</span><span class="s1">This is the third line.&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 <span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">line</span><span class="o">.</span>
 <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">second</span> <span class="n">line</span><span class="o">.</span>
 <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">third</span> <span class="n">line</span><span class="o">.</span>
@@ -389,17 +553,17 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 </div>
 <p>The following summarizes some of the methods available to this file object:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">read()</span></code>: Read the entire content of the file as a string or as bytes (depending on the open-mode)</li>
-<li><code class="docutils literal notranslate"><span class="pre">readline()</span></code>: Read the next line of text from the file, including the trailing <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> character</li>
-<li><code class="docutils literal notranslate"><span class="pre">readlines()</span></code>: Read in the lines of text from the file, storing each line as an string in a list.</li>
-<li><code class="docutils literal notranslate"><span class="pre">write(x)</span></code>: Write <code class="docutils literal notranslate"><span class="pre">x</span></code> (a string) to the file.</li>
-<li><code class="docutils literal notranslate"><span class="pre">writelines(x)</span></code>: Given an iterable of strings, treat each string as a line of text to be written to the file (the inverse of <code class="docutils literal notranslate"><span class="pre">readlines</span></code>)</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read()</span></code>: Read the entire content of the file as a string or as bytes (depending on the open-mode)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">readline()</span></code>: Read the next line of text from the file, including the trailing <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> character</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">readlines()</span></code>: Read in the lines of text from the file, storing each line as an string in a list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write(x)</span></code>: Write <code class="docutils literal notranslate"><span class="pre">x</span></code> (a string) to the file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">writelines(x)</span></code>: Given an iterable of strings, treat each string as a line of text to be written to the file (the inverse of <code class="docutils literal notranslate"><span class="pre">readlines</span></code>)</p></li>
 </ul>
 <p>Also, it is important to note that the file object can be <em>iterated over</em>, and that each iteration will return an individual line of text from the file. This is the best way to read through an entire file line-by-line.</p>
-</div>
-</div>
-<div class="section" id="Example:-Writing-and-Reading-a-Text-File">
-<h2>Example: Writing and Reading a Text File<a class="headerlink" href="#Example:-Writing-and-Reading-a-Text-File" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Example:-Writing-and-Reading-a-Text-File">
+<h2>Example: Writing and Reading a Text File<a class="headerlink" href="#Example:-Writing-and-Reading-a-Text-File" title="Permalink to this headline"></a></h2>
 <p>Given the following string:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># recall: triple-quotes can be used to write multi-line strings</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">some_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A bagel rolled down the hill.</span>
@@ -430,33 +594,38 @@ function. This is also a friendly reminder to accomodate <code class="docutils l
 <span class="p">[</span><span class="s1">&#39;A bagel rolled down the hill.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;A lady watched it roll.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Globbing-for-Files">
-<h2>Globbing for Files<a class="headerlink" href="#Globbing-for-Files" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Globbing-for-Files">
+<h2>Globbing for Files<a class="headerlink" href="#Globbing-for-Files" title="Permalink to this headline"></a></h2>
 <p>There are many cases in which we may want to construct a list of files to iterate over. For example, if we have several data files, it would be useful to create a file list which we can iterate through and process in sequence. One way to do this would be to manually construct such a list of files:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data/file1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data/file2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data/file3.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data/file4.txt&#39;</span><span class="p">]</span>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data/file1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data/file2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data/file3.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data/file4.txt&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
 </div>
 <p>However, this is extraordinarily tedious and prone to error, either by mis-typing a file name or forgetting a file. A much more powerful way to construct such a list of files is by file globbing. A <code class="docutils literal notranslate"><span class="pre">glob</span></code> is a set of file names matching some pattern. To glob files, we use special wildcard characters that will match all the files with a certain part of a file name. In our case, <code class="docutils literal notranslate"><span class="pre">*</span></code> will be the wildcard character we use the most - it matches any character. This is much better motivated with an
 example. Below, we see some globs and the types of patterns they will match:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># matches anything that starts with `file` and ends with `.txt` like</span>
-<span class="c1"># file1.txt, filefilefile.txt, file.txt, file12345.txt, ...</span>
-<span class="n">file</span><span class="o">*.</span><span class="n">txt</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># matches anything that starts with `file` and ends with `.txt` like
+# file1.txt, filefilefile.txt, file.txt, file12345.txt, ...
+file*.txt
 
-<span class="c1"># matches all .txt files in the &#39;data&#39; directory</span>
-<span class="n">data</span><span class="o">/*.</span><span class="n">txt</span>
+# matches all .txt files in the &#39;data&#39; directory
+data/*.txt
 
-<span class="c1"># matches any file name</span>
-<span class="o">*</span>
+# matches any file name
+*
 
-<span class="c1"># matches all png image files</span>
-<span class="o">*.</span><span class="n">png</span>
+# matches all png image files
+*.png
 
-<span class="c1"># matches anything that contains &#39;test&#39; as part of its file name</span>
-<span class="o">*</span><span class="n">test</span><span class="o">*</span>
+# matches anything that contains &#39;test&#39; as part of its file name
+*test*
 
-<span class="c1"># matches all .py files that contain &#39;number&#39;</span>
-<span class="o">*</span><span class="n">number</span><span class="o">*.</span><span class="n">py</span>
+# matches all .py files that contain &#39;number&#39;
+*number*.py
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> module provides convenient functionality for globbing files. Once we have a <code class="docutils literal notranslate"><span class="pre">Path</span></code> object, we can simply call <code class="docutils literal notranslate"><span class="pre">glob()</span></code> on it and pass in a glob string. This will return a <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Generators_and_Comprehensions.html#Introducing-Generators">generator</a> that will yield each of the globbed files.</p>
@@ -473,8 +642,8 @@ example. Below, we see some globs and the types of patterns they will match:</p>
  <span class="n">PosixPath</span><span class="p">(</span><span class="s1">&#39;test_apple.txt&#39;</span><span class="p">)]</span>
 
 <span class="c1"># iterating over the generator directly</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">root_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;test*.txt&#39;</span><span class="p">):</span>
-<span class="o">&gt;&gt;&gt;</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">root_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;test*.txt&#39;</span><span class="p">):</span>
+<span class="o">&gt;&gt;&gt;</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span class="o">...</span>         <span class="c1"># do some processing</span>
 <span class="o">...</span>         <span class="k">pass</span>
 </pre></div>
@@ -484,35 +653,35 @@ example. Below, we see some globs and the types of patterns they will match:</p>
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: Basic glob patterns</strong></p>
 <p>Write a glob pattern for each of the following prompts</p>
 <ul class="simple">
-<li>Glob all .txt files in the directory <code class="docutils literal notranslate"><span class="pre">./files</span></code></li>
-<li>Glob all files that contain ‘quirk’ as part of their file name</li>
-<li>Glob all file that begins with ‘data’</li>
-<li>Glob all file that starts with the letter ‘q’, contains a ‘w’, and ends with a ‘.npy’ extension</li>
+<li><p>Glob all .txt files in the directory <code class="docutils literal notranslate"><span class="pre">./files</span></code></p></li>
+<li><p>Glob all files that contain ‘quirk’ as part of their file name</p></li>
+<li><p>Glob all file that begins with ‘data’</p></li>
+<li><p>Glob all file that starts with the letter ‘q’, contains a ‘w’, and ends with a ‘.npy’ extension</p></li>
 </ul>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> wildcard is not the only pattern available to us. Sometimes it can be useful to match certain subsets of characters. For example, we may only want to match file names that start with a number. With the <code class="docutils literal notranslate"><span class="pre">*</span></code> wildcard alone, that’s not possible. Luckily for us, these common use-cases are also taken care of.</p>
 <p>To match a subset of characters, we can use square brackets: <code class="docutils literal notranslate"><span class="pre">[abc]*</span></code> will match anything that starts with ‘a’, ‘b’, or ‘c’ and nothing else. We can also use a ‘-’ inside our brackets to glob groups of characters. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># matches any file that starts with a number</span>
-<span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">*.</span><span class="n">txt</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># matches any file that starts with a number
+[0-9]*.txt
 
-<span class="c1"># matches any file that has a vowel in its name</span>
-<span class="o">*</span><span class="p">[</span><span class="n">aeiou</span><span class="p">]</span><span class="o">*</span>
+# matches any file that has a vowel in its name
+*[aeiou]*
 
-<span class="c1"># matches any file that starts with a lowercase letter</span>
-<span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">z</span><span class="p">]</span><span class="o">*</span>
+# matches any file that starts with a lowercase letter
+[a-z]*
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading Comprehension: More glob patterns</strong></p>
 <p>Write a glob pattern for each of the following prompts</p>
 <ul class="simple">
-<li>Any file with an odd number in its name</li>
-<li>All txt files that have the letters ‘q’ or ‘z’ in them</li>
+<li><p>Any file with an odd number in its name</p></li>
+<li><p>All txt files that have the letters ‘q’ or ‘z’ in them</p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="Saving-&amp;-Loading-Python-Objects:-pickle">
-<h2>Saving &amp; Loading Python Objects: pickle<a class="headerlink" href="#Saving-&-Loading-Python-Objects:-pickle" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Saving-&amp;-Loading-Python-Objects:-pickle">
+<h2>Saving &amp; Loading Python Objects: pickle<a class="headerlink" href="#Saving-&-Loading-Python-Objects:-pickle" title="Permalink to this headline"></a></h2>
 <p>Suppose that you have just populated a dictionary that is serving as a grade book for a course that you are teaching:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grades</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Albert&quot;</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s2">&quot;Emmy&quot;</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span> <span class="s2">&quot;Marie&quot;</span><span class="p">:</span> <span class="mi">79</span><span class="p">}</span>
 </pre></div>
@@ -537,12 +706,12 @@ example. Below, we see some globs and the types of patterns they will match:</p>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pickle.dump</span></code> and <code class="docutils literal notranslate"><span class="pre">pickle.load</span></code> cover the vast majority of our object-pickling needs. A wide range of Python objects can be saved in this way, including functions that we define and instances of custom classes. Please refer to <a class="reference external" href="https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled">the official documentation</a> for a discussion of the Python objects that can and cannot be pickled.</p>
-</div>
-<div class="section" id="Saving-and-Loading-NumPy-Arrays">
-<h2>Saving and Loading NumPy Arrays<a class="headerlink" href="#Saving-and-Loading-NumPy-Arrays" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Saving-and-Loading-NumPy-Arrays">
+<h2>Saving and Loading NumPy Arrays<a class="headerlink" href="#Saving-and-Loading-NumPy-Arrays" title="Permalink to this headline"></a></h2>
 <p>NumPy provides its own functions for saving and loading arrays. Although these arrays can be pickled, it is strongly advised to leverage NumPy’s file-IO functions. NumPy’s standard binary file type used to store array data is known as an ‘.npy’ file. The NumPy binary archive format, which stores multiple arrays in one file, is known as the ‘.npz’ format.</p>
 <p>Let’s save the array <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.array([1,</span> <span class="pre">2,</span> <span class="pre">3])</span></code> to the binary file (not a text file) “my_array.npz”. <code class="docutils literal notranslate"><span class="pre">numpy.save</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy.load</span></code> will save and load arrays, handling all of the file opening and closing for you. Thus there is no need to use a context manager when using these functions.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
 <span class="go"># save a numpy array to disk</span>
@@ -582,85 +751,68 @@ example. Below, we see some globs and the types of patterns they will match:</p>
 <span class="go">array([7, 8, 9])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Links-to-Official-Documentation">
-<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Links-to-Official-Documentation">
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/library/pathlib.html">The ‘pathlib’ module</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#open">The ‘open’ function</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Official tutorial: reading and writing files</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob">Globbing files</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/library/pickle.html">The pickle module</a><ul>
-<li><a class="reference external" href="https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled">What can and cannot be pickled?</a></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/pathlib.html">The ‘pathlib’ module</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#open">The ‘open’ function</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Official tutorial: reading and writing files</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob">Globbing files</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/pickle.html">The pickle module</a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled">What can and cannot be pickled?</a></p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="Reading-Comprehension-Solutions">
-<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Reading-Comprehension-Solutions">
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Basic glob patterns: Solutions</strong></p>
 <ul class="simple">
-<li>Glob all .txt files in the directory <code class="docutils literal notranslate"><span class="pre">./files</span></code> (answer: <code class="docutils literal notranslate"><span class="pre">./files/*.txt</span></code>)</li>
-<li>Glob all files that contain ‘quirk’ as part of their file name (answer: <code class="docutils literal notranslate"><span class="pre">*quirk*</span></code>)</li>
-<li>Glob all file that begins with ‘data’ (answer: <code class="docutils literal notranslate"><span class="pre">data*</span></code>)</li>
-<li>Glob all file that starts with the letter ‘q’, contains a ‘w’, and ends with a ‘.npy’ extension (answer: <code class="docutils literal notranslate"><span class="pre">q*w*.npy</span></code>)</li>
+<li><p>Glob all .txt files in the directory <code class="docutils literal notranslate"><span class="pre">./files</span></code> (answer: <code class="docutils literal notranslate"><span class="pre">./files/*.txt</span></code>)</p></li>
+<li><p>Glob all files that contain ‘quirk’ as part of their file name (answer: <code class="docutils literal notranslate"><span class="pre">*quirk*</span></code>)</p></li>
+<li><p>Glob all file that begins with ‘data’ (answer: <code class="docutils literal notranslate"><span class="pre">data*</span></code>)</p></li>
+<li><p>Glob all file that starts with the letter ‘q’, contains a ‘w’, and ends with a ‘.npy’ extension (answer: <code class="docutils literal notranslate"><span class="pre">q*w*.npy</span></code>)</p></li>
 </ul>
 <p><strong>More glob patterns: Solutions</strong></p>
 <p>Write a glob pattern for each of the following prompts</p>
 <ul class="simple">
-<li>Any file with an odd number in its name (answer: <code class="docutils literal notranslate"><span class="pre">*[13579]*</span></code>)</li>
-<li>All txt files that have the letters ‘q’ or ‘z’ in them (answer: <code class="docutils literal notranslate"><span class="pre">*[qz]*.txt</span></code>)</li>
+<li><p>Any file with an odd number in its name (answer: <code class="docutils literal notranslate"><span class="pre">*[13579]*</span></code>)</p></li>
+<li><p>All txt files that have the letters ‘q’ or ‘z’ in them (answer: <code class="docutils literal notranslate"><span class="pre">*[qz]*.txt</span></code>)</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="Modules_and_Packages.html" class="btn btn-neutral float-right" title="Import: Modules and Packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="Matplotlib.html" class="btn btn-neutral float-left" title="Matplotlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Matplotlib.html" class="btn btn-neutral float-left" title="Matplotlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Modules_and_Packages.html" class="btn btn-neutral float-right" title="Import: Modules and Packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Ryan Soklaski
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

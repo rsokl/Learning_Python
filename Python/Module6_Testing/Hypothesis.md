@@ -14,8 +14,7 @@ jupyter:
 
 <!-- #raw raw_mimetype="text/restructuredtext" -->
 .. meta::
-   :description: Topic: Writing tests for your code, Difficulty: Easy, Category: Section
-   :keywords: test, automated, pytest, parametrize, fixture, suite, decorator, clean directory  
+   :description: A basic introduction for using Hypothesis testing library
 <!-- #endraw -->
 
 <!-- #region -->
@@ -28,16 +27,10 @@ Indeed, these are questions that you may have been asking yourself when writing 
 It will then *generate* test cases that satisfy this description and will run our test on these cases.
 Ultimately, this an extremely powerful tool for enabling us to write high-quality automated tests for our code.
 
-Hypothesis can be installed via conda:
+Hypothesis can be installed pip:
 
-```shell
-conda install hypothesis
-```
-
-or pip:
-
-```shell
-pip install hypothesis
+```console
+$ pip install hypothesis
 ```
 
 
@@ -473,7 +466,7 @@ This reading comprehension question will require more substantial work than usua
 That being said, the experience that we will gain from this will be well worth the work.
 Keep in mind that solutions are included at the end of this page, and that these can provide guidance if we get stuck.
 
-Part 1: Testing correctness by construction
+Testing correctness by construction:
 
 Write a Hypothesis-driven test for the `count_vowels`; include this test in `tests/test_basic_functions`.
 This is a test function where we can explicitly construct a string in parts: its non-vowel characters, non-y vowels, and y-vowels.
@@ -482,20 +475,6 @@ We will want to read about the [st.text()](https://hypothesis.readthedocs.io/en/
 The standard library's built-in `string` module provides a string of all printable characters (`string.printable`).
 
 We should ask ourselves: how general are input strings that we are constructing? Are there regular patterns in the strings that might prevent our test from identifying edge case bugs in `count_vowels`?
-
-
-Part 2: Property-based testing
-
-Write a Hypothesis-driven test for `merge_max_mappings` ; include this test in `tests/test_basic_functions`.
-Here, we can't simply contrive the inputs to `merge_max_mappings` in a general way and know what its output should be – we would have to re-implement the function to do that.
-Instead, we should *test the expected properties* of the merged dictionary.
-For example, one such property is that the merged dictionary should only contain maximum values.
-Another property would be that all of the keys among the input dictionaries should be present in the merged dictionary.
-Take some time to think of other such properties that we should test for.
-Ultimately we want to arrive at a comprehensive set of properties to test for such that we can be confident that our merged dictionary is correct.
-
-We will want to use [st.dictionaries()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.dictionaries) to describe the inputs to `merge_max_mappings`.
-Although dictionary keys can be any hashable object, suffice it to use both integers and text for the keys, and integers for the dictionary values in this test, for simplicity's sake.
 
 
 **We must remember to temporarily mutate our original functions to verify that these tests can actually catch bugs!**
@@ -766,6 +745,12 @@ def test_pairs_of_squares(a, b):
 
 Executing this test runs 103 cases: the three specified examples and one hundred pairs of values drawn via `given`.
 
+## Next Steps
+
+Thus far we have learned about the basic anatomy of a test, how to use pytest to create an automated test-suite for our code base, and how to leverage Hypothesis to generate diverse and randomized inputs to our test functions.
+In the final section of this module, we will discuss three testing methods: example-based testing, fuzzing, and property-based testing (Hypothesis will prove to be indispensable for facilitating these last two methods).
+These strategies will equip us with ability to "test the untestable": we will be able to write effective tests for code where we are unable to discern what the exact appropriate behavior is for the code under arbitrary inputs.
+
 
 ## Links to Official Documentation
 
@@ -858,7 +843,7 @@ Permutations of the list `[1, 2, 3, 4]`
 
 **Improving our tests using Hypothesis: Solution**
 
-Part 1: Testing correctness by construction
+Testing correctness by construction
 
 Write a hypothesis-driven test for the `count_vowels`; include this test in `test/test_basic_functions`.
 This is a test function where we can explicit construct a string in parts: its non-vowel characters, non-y vowels, and y-vowels.
@@ -918,58 +903,6 @@ def test_count_vowels_hypothesis(not_vowels, vowels_but_not_ys, ys):
 ```
 <!-- #endregion -->
 
-Part 2: Property-based testing
-
-Write a hypothesis-driven test for `merge_max_mappings` ; include this test in `test/test_basic_functions`.
-Here, we can't simply contrive the inputs to `merge_max_mappings` in a general way and know what its output should be – we would have to re-implement the function to do that.
-Instead, we should *test the expected properties* of the merged dictionary.
-For example, one such property is that the merged dictionary should only contain maximum values.
-Another property would be that all of the keys among the input dictionaries should be present in the merged dictionary.
-Take some time to think of other such properties that we should test for.
-Ultimately we want to arrive at a comprehensive set of properties to test for such that we can be confident that our merged dictionary is correct.
-
-We will want to use [st.dictionaries()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.dictionaries) to describe the inputs to `merge_max_mappings`.
-Although dictionary keys can be any hashable object, suffice it to use both integers and text for the keys, and integers for the dictionary values in this test, for simplicity's sake.
-
-<!-- #region -->
-```python
-@given(
-    dict1=st.dictionaries(
-        keys=st.integers(-10, 10) | st.text(), values=st.integers(-10, 10)
-    ),
-    dict2=st.dictionaries(
-        keys=st.integers(-10, 10) | st.text(), values=st.integers(-10, 10)
-    ),
-)
-def test_merge_max_mappings_hypothesis(dict1, dict2):
-    merged_dict = merge_max_mappings(dict1, dict2)
-    
-    # property: `merged_dict` contains all of the keys among
-    # `dict1` and `dict2`
-    assert set(merged_dict) == set(dict1).union(dict2), \
-        "novel keys were introduced or lost"
-
-    # property: `merged_dict` only contains values that appear
-    # among `dict1` and `dict2`
-    assert set(merged_dict.values()) <= set(dict1.values()).union(
-        dict2.values()
-    ), "novel values were introduced"
-
-    # property: `merged_dict` only contains key-value pairs with
-    # the largest value represented among the pairs in `dict1`
-    # and `dict2`
-    assert all(dict1[k] <= merged_dict[k] for k in dict1) and \
-           all(dict2[k] <= merged_dict[k] for k in dict2), \
-        "`merged_dict` contains a non-max value"
-
-    # property: `merged_dict` only contains key-value pairs that
-    # appear among `dict1` and `dict2`
-    for k, v in merged_dict.items():
-        assert (k, v) in dict1.items() or \
-               (k, v) in dict2.items(), \
-            "`merged_dict` did not preserve the key-value pairings"
-```
-<!-- #endregion -->
 
 **Using the `.map` method to create a sorted list: Solution**
 

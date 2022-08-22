@@ -1,79 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta content="Topic: Vectorized operations with numpy arrays, Difficulty: Easy, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Vectorized operations with numpy arrays, Difficulty: Easy, Category: Section" name="description" />
 <meta content="vectorize, optimized, calculation, numpy, fast, C routine, MKL, sum, linear algebra, optimized" name="keywords" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>“Vectorized” Operations: Optimized Computations on NumPy Arrays &mdash; Python Like You Mean It</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Array Broadcasting" href="Broadcasting.html" />
     <link rel="prev" title="Iterating Over Arrays &amp; Array-Traversal Order" href="ArrayTraversal.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -81,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -124,6 +79,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Broadcasting.html">Array Broadcasting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BasicIndexing.html">Introducing Basic and Advanced Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AdvancedIndexing.html">Advanced Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutoDiff.html">Automatic Differentiation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../module_3_problems.html">Module 3: Problems</a></li>
@@ -132,70 +88,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../module_3.html">Module 3: The Essentials of NumPy</a> &raquo;</li>
-        
       <li>“Vectorized” Operations: Optimized Computations on NumPy Arrays</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/Module3_IntroducingNumpy/VectorizedOperations.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -221,7 +138,7 @@
 }
 </style>
 <div class="section" id="“Vectorized”-Operations:-Optimized-Computations-on-NumPy-Arrays">
-<h1>“Vectorized” Operations: Optimized Computations on NumPy Arrays<a class="headerlink" href="#“Vectorized”-Operations:-Optimized-Computations-on-NumPy-Arrays" title="Permalink to this headline">¶</a></h1>
+<h1>“Vectorized” Operations: Optimized Computations on NumPy Arrays<a class="headerlink" href="#“Vectorized”-Operations:-Optimized-Computations-on-NumPy-Arrays" title="Permalink to this headline"></a></h1>
 <p>In this section, we will:</p>
 <ul class="simple">
 <li><p>Define the term vectorization, as it is used in the context of Python/NumPy.</p></li>
@@ -231,7 +148,7 @@
 <li><p>Provide a brief overview of linear algebra functions and logical operations.</p></li>
 </ul>
 <div class="section" id="Basic-Mathematical-Operations-Using-Arrays">
-<h2>Basic Mathematical Operations Using Arrays<a class="headerlink" href="#Basic-Mathematical-Operations-Using-Arrays" title="Permalink to this headline">¶</a></h2>
+<h2>Basic Mathematical Operations Using Arrays<a class="headerlink" href="#Basic-Mathematical-Operations-Using-Arrays" title="Permalink to this headline"></a></h2>
 <p>The ND-array can be utilized in mathematical expressions to perform mathematical computations using an array’s entries. In general, NumPy implements mathematical functions such that, when a function acts on an array, the mathematical operation is applied to <em>each</em> entry in the array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstrating the application of common</span>
 <span class="c1"># mathematical operations to a NumPy array</span>
@@ -257,7 +174,7 @@
 <span class="c1"># Slices return arrays, thus you can operate</span>
 <span class="c1"># on these too. Add .5 to each entry in row-0</span>
 <span class="c1"># of `x`</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="o">.</span><span class="mi">5</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mf">.5</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
 <span class="n">array</span><span class="p">([</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">1.5</span><span class="p">,</span>  <span class="mf">2.5</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -304,7 +221,7 @@
 <p>We will use this section to provide a more thorough overview of the various mathematical functions that are provided by NumPy, as well as the behavior of its sequential mathematical operations. However, we must first understand that NumPy performs these “vectorized operations” in a highly-optimized fashion, such that pure Python code can never rival its efficiency. By the end of this section, “vectorized operation” will become a phrase of endearment.</p>
 </div>
 <div class="section" id="Vectorized-Operations">
-<h2>Vectorized Operations<a class="headerlink" href="#Vectorized-Operations" title="Permalink to this headline">¶</a></h2>
+<h2>Vectorized Operations<a class="headerlink" href="#Vectorized-Operations" title="Permalink to this headline"></a></h2>
 <p>Recall that NumPy’s ND-arrays are <em>homogeneous</em>: an array can only contain data of a single type. For instance, an array can contain 8-bit integers or 32-bit floating point numbers, but not a mix of the two. This is in stark contrast to Python’s lists and tuples, which are entirely unrestricted in the variety of contents they can possess; a given list could simultaneously contain strings, integers, and other objects. This restriction on an array’s contents comes at a great benefit; in “knowing”
 that an array’s contents are homogeneous in data type, NumPy is able to delegate the task of performing mathematical operations on the array’s contents to optimized, compiled C code. This is a process that is referred to as <strong>vectorization</strong>. The outcome of this can be a <em>tremendous</em> speedup relative to the analogous computation performed in Python, which must painstakingly check the data type of <em>every</em> one of the items as it iterates over the arrays, since Python typically works with lists
 with unrestricted contents.</p>
@@ -355,16 +272,16 @@ vectorized functions. The following computations all invoke vectorized functions
 </div>
 </div>
 <div class="section" id="NumPy’s-Mathematical-Functions">
-<h2>NumPy’s Mathematical Functions<a class="headerlink" href="#NumPy’s-Mathematical-Functions" title="Permalink to this headline">¶</a></h2>
+<h2>NumPy’s Mathematical Functions<a class="headerlink" href="#NumPy’s-Mathematical-Functions" title="Permalink to this headline"></a></h2>
 <p>We will now take some time to survey the various types of vectorized mathematical functions that NumPy supplies, and how these mathematical operations, which traditionally are defined on individual numbers, are applied to arrays of numbers. We will look at</p>
 <ul class="simple">
 <li><p>unary functions: <span class="math notranslate nohighlight">\(f(x)\)</span></p></li>
 <li><p>binary functions: <span class="math notranslate nohighlight">\(f(x,y)\)</span></p></li>
 <li><p>functions that operate on sequences of numbers: <span class="math notranslate nohighlight">\(f(\{x_i\}_{i=0}^{n-1})\)</span></p></li>
 </ul>
-<p>These represent a substantial portion of the essential mathematical tools in the NumPy library. An exhaustive list of NumPy’s mathematical functions is available in the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html#math-operations">official documentation</a>.</p>
+<p>These represent a substantial portion of the essential mathematical tools in the NumPy library. An exhaustive list of NumPy’s mathematical functions is available in the <a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html#math-operations">official documentation</a>.</p>
 <div class="section" id="Unary-Functions">
-<h3>Unary Functions<a class="headerlink" href="#Unary-Functions" title="Permalink to this headline">¶</a></h3>
+<h3>Unary Functions<a class="headerlink" href="#Unary-Functions" title="Permalink to this headline"></a></h3>
 <p>A unary function is a mathematical function that only accepts one operand (i.e. argument): <span class="math notranslate nohighlight">\(f(x)\)</span>. NumPy supplies many familiar unary functions:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -462,7 +379,7 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 </div>
 </div>
 <div class="section" id="Binary-Functions">
-<h3>Binary Functions<a class="headerlink" href="#Binary-Functions" title="Permalink to this headline">¶</a></h3>
+<h3>Binary Functions<a class="headerlink" href="#Binary-Functions" title="Permalink to this headline"></a></h3>
 <p>A binary function has the form <span class="math notranslate nohighlight">\(f(x,y)\)</span>. The arithmetic operations are all binary functions:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -506,6 +423,10 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Recall</strong>:</p>
 <p>The “modulo” function (“mod” for short), denoted by <span class="math notranslate nohighlight">\(\%\)</span>, is defined to return the <em>remainder</em> of division: <span class="math notranslate nohighlight">\(5 \% 3 = 2\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Using Math Operators on NumPy Arrays</strong>:</p>
+<p>It is important to note that NumPy arrays know how to “override” the standard mathematical operators so that they invoke vectorized functions. For example, suppose <code class="docutils literal notranslate"><span class="pre">arr1</span></code> and <code class="docutils literal notranslate"><span class="pre">arr2</span></code> are NumPy arrays; calling <code class="docutils literal notranslate"><span class="pre">arr1</span> <span class="pre">+</span> <span class="pre">arr2</span></code> ends up calling <code class="docutils literal notranslate"><span class="pre">np.add(arr1,</span> <span class="pre">arr2)</span></code> “under the hood”. Thus we can safely use the standard math operators <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">/</span> <span class="pre">*</span> <span class="pre">**</span></code> between NumPy arrays, and fast vectorized functions will be used for us.</p>
 </div>
 <p>As indicated in this table, these NumPy functions can be called by invoking the familiar Python math-operators, when used in the context of NumPy arrays.</p>
 <p>Here are some other common binary functions:</p>
@@ -613,7 +534,7 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 </div>
 </div>
 <div class="section" id="Sequential-Functions">
-<h3>Sequential Functions<a class="headerlink" href="#Sequential-Functions" title="Permalink to this headline">¶</a></h3>
+<h3>Sequential Functions<a class="headerlink" href="#Sequential-Functions" title="Permalink to this headline"></a></h3>
 <p>A sequential function expects a variable-length sequence of numbers as an input, and produces a single number as an output: <span class="math notranslate nohighlight">\(f(\{x_i\}_{i=0}^{n-1})\)</span>. The following are some sequential NumPy functions:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -678,7 +599,7 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 <p>This default behavior of sequential NumPy functions can be overwritten by specifying the keyword argument <code class="docutils literal notranslate"><span class="pre">axis</span></code> within the sequential function. This is a very useful and common thing to do. We will carefully study what the axis argument is used for in these and other NumPy functions.</p>
 </div>
 <div class="section" id="Specifying-the-axis-Keyword-Argument-in-Sequential-NumPy-Functions">
-<h3>Specifying the <code class="docutils literal notranslate"><span class="pre">axis</span></code> Keyword Argument in Sequential NumPy Functions<a class="headerlink" href="#Specifying-the-axis-Keyword-Argument-in-Sequential-NumPy-Functions" title="Permalink to this headline">¶</a></h3>
+<h3>Specifying the <code class="docutils literal notranslate"><span class="pre">axis</span></code> Keyword Argument in Sequential NumPy Functions<a class="headerlink" href="#Specifying-the-axis-Keyword-Argument-in-Sequential-NumPy-Functions" title="Permalink to this headline"></a></h3>
 <p>Let’s delve into the meaning of the <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument by first seeing it in action:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a shape-(3,2) array</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
@@ -706,8 +627,8 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument thus specifies which axis or axes are traversed to produce the input sequences for the sequential function to act on. One sequence is designated for each valid combination of indices of the non-traversed axes. For example, <code class="docutils literal notranslate"><span class="pre">np.sum(x,</span> <span class="pre">axis=0)</span></code> says: “for each of the columns of <code class="docutils literal notranslate"><span class="pre">x</span></code>, sum over its rows”. Thus the following sequences are summed over:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>  <span class="c1"># traverse all rows within column-0</span>
-<span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>  <span class="c1"># traverse all rows within column-1</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x[:, 0] -&gt; array([0, 2, 4])  # traverse all rows within column-0
+x[:, 1] -&gt; array([1, 3, 5])  # traverse all rows within column-1
 </pre></div>
 </div>
 <p>Thus each column of <code class="docutils literal notranslate"><span class="pre">x</span></code> is summed over, producing a shape-(2,) array containing the result of the two sums. Similarly, <code class="docutils literal notranslate"><span class="pre">np.sum(x,</span> <span class="pre">axis=1)</span></code> produces a shape-(3,) array, which stores the sum along each of the three rows in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
@@ -717,7 +638,7 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 <p>All sequential NumPy functions have an <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument that can be specified. <code class="docutils literal notranslate"><span class="pre">axis</span></code> is to be fed a single integer or a tuple of integers, which indicate which array axes are to be traversed to designate the sequences of array data to be operated on. A sequence is generated for each valid combination of indices for the non-traversed axes. By default, <strong>all</strong> of the input-array’s axes are included, thus the entire content of the array is treated as a single sequence.</p>
 </div>
 <div class="section" id="Understanding-the-axis-argument-with-a-Multi-Dimensional-Array">
-<h4>Understanding the <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument with a Multi-Dimensional Array<a class="headerlink" href="#Understanding-the-axis-argument-with-a-Multi-Dimensional-Array" title="Permalink to this headline">¶</a></h4>
+<h4>Understanding the <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument with a Multi-Dimensional Array<a class="headerlink" href="#Understanding-the-axis-argument-with-a-Multi-Dimensional-Array" title="Permalink to this headline"></a></h4>
 <p>The key to understanding the <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument, when working with multi-dimensional arrays, is to be comfortable with how array traversal works in NumPy. Refer to Section 5 of this module for a refresher on this topic. Consider the following shape-(4,2,3) array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
@@ -735,12 +656,12 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 </pre></div>
 </div>
 <p>We can think of this array as possessing four, 2x3 sheets of numbers. Traversing along axis-0 of <code class="docutils literal notranslate"><span class="pre">x</span></code> amounts to stepping from sheet to sheet, given each valid combination of axis-1 and axis-2 indices. Thus <code class="docutils literal notranslate"><span class="pre">np.mean(x,</span> <span class="pre">axis=0)</span></code> says: “for each combination of row and column, take the mean along the sheets of <code class="docutils literal notranslate"><span class="pre">x</span></code>”. Therefore six distinct sequences within <code class="docutils literal notranslate"><span class="pre">x</span></code> are designated for this sequential function to act on:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span>  <span class="mi">9</span><span class="p">}</span>
-<span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">19</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">10</span><span class="p">}</span>
-<span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">11</span><span class="p">}</span>
-<span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">21</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">12</span><span class="p">}</span>
-<span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">13</span><span class="p">}</span>
-<span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">14</span><span class="p">}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x[:, 0, 0] -&gt; array([ 0,  6, 12, 18])  {mean =  9}
+x[:, 0, 1] -&gt; array([ 1,  7, 13, 19])  {mean = 10}
+x[:, 0, 2] -&gt; array([ 2,  8, 14, 20])  {mean = 11}
+x[:, 1, 0] -&gt; array([ 3,  9, 15, 21])  {mean = 12}
+x[:, 1, 1] -&gt; array([ 4, 10, 16, 22])  {mean = 13}
+x[:, 1, 2] -&gt; array([ 5, 11, 17, 23])  {mean = 14}
 </pre></div>
 </div>
 <p>Also, notice that the set of valid combinations of axis-1 and axis-2 indices corresponds to the two-by-three grid associated with they layout of a sheet. NumPy will return the six mean values in a shape-(2,3) array, so that the correspondence between each sequence and its mean-value is unambiguous:</p>
@@ -754,8 +675,8 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 <p>Recall that NumPy uses row-major ordering (a.k.a C-ordering) when traversing arrays.</p>
 </div>
 <p>Suppose we specify two axes, say axis-0 and axis-2; traversing these two axes amounts to stepping along the sheets and columns of <code class="docutils literal notranslate"><span class="pre">x</span></code>, for each axis-1 index. Thus two sequences are produced:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">10</span><span class="p">}</span>
-<span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">([</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>  <span class="p">{</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">13</span><span class="p">}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x[:, 0, :] -&gt; array([ 0,  1,  2,  6,  7,  8, 12, 13, 14, 18, 19, 20])  {mean = 10}
+x[:, 1, :] -&gt; array([ 3,  4,  5,  9, 10, 11, 15, 16, 17, 21, 22, 23])  {mean = 13}
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -789,8 +710,8 @@ producing a new array as a result (i.e. the input array is not overwritten).</p
 </div>
 </div>
 <div class="section" id="Logical-Operations">
-<h2>Logical Operations<a class="headerlink" href="#Logical-Operations" title="Permalink to this headline">¶</a></h2>
-<p>NumPy provides <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">a suite of logical operations</a> that can operate on arrays. Many of these map logical operations over array entries in the same fashion as NumPy’s mathematical functions. These functions return either a single boolean object, or a boolean-type array.</p>
+<h2>Logical Operations<a class="headerlink" href="#Logical-Operations" title="Permalink to this headline"></a></h2>
+<p>NumPy provides <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html">a suite of logical operations</a> that can operate on arrays. Many of these map logical operations over array entries in the same fashion as NumPy’s mathematical functions. These functions return either a single boolean object, or a boolean-type array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># check which entries of `x` are less than 6</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
 <span class="o">...</span>               <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
@@ -821,24 +742,24 @@ arrays are approximately equal in value:</p>
 </div>
 </div>
 <div class="section" id="Linear-Algebra">
-<h2>Linear Algebra<a class="headerlink" href="#Linear-Algebra" title="Permalink to this headline">¶</a></h2>
-<p>Lastly, we note that NumPy provides a suite of functions that can perform optimized computations and routines relevant to linear algebra. Included here are functions for performing matrix products and tensor products, solving eigenvalue problems, inverting matrices, and computing vector normalizations. Please refer to the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html">official NumPy documentation</a> for a full listing of these functions.</p>
+<h2>Linear Algebra<a class="headerlink" href="#Linear-Algebra" title="Permalink to this headline"></a></h2>
+<p>Lastly, we note that NumPy provides a suite of functions that can perform optimized computations and routines relevant to linear algebra. Included here are functions for performing matrix products and tensor products, solving eigenvalue problems, inverting matrices, and computing vector normalizations. Please refer to the <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.linalg.html">official NumPy documentation</a> for a full listing of these functions.</p>
 </div>
 <div class="section" id="Conclusion">
-<h2>Conclusion<a class="headerlink" href="#Conclusion" title="Permalink to this headline">¶</a></h2>
+<h2>Conclusion<a class="headerlink" href="#Conclusion" title="Permalink to this headline"></a></h2>
 <p>NumPy provides users with a wide variety of functions capable of performing operations on arrays of data. Its use of <strong>vectorization</strong> makes these functions incredibly fast, when compared to the analogous computations performed in pure Python. Although the preceding discussion laid out a substantial number of rules for how these functions work, one should not worry about memorizing them. Rather, it is best to apply these functions to arrays of various dimensionality, and build an intuition for
 them. You may be pleasantly surprised by how easy it is to get a hang of this material by simply putting it to practice.</p>
 </div>
 <div class="section" id="Links-to-Official-Documentation">
-<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline">¶</a></h2>
+<h2>Links to Official Documentation<a class="headerlink" href="#Links-to-Official-Documentation" title="Permalink to this headline"></a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html#math-operations">Math functions</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.logic.html">Logic functions</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html">Linear algebra functions</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html#math-operations">Math functions</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html">Logic functions</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.linalg.html">Linear algebra functions</a></p></li>
 </ul>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
-<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Unary Functions: Solution</strong></p>
 <p>Take the natural-logarithm of the 1st and 3rd element in the 3rd-row of <code class="docutils literal notranslate"><span class="pre">x</span></code>, producing a shape-(2,) result.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">],</span>
@@ -857,7 +778,7 @@ them. You may be pleasantly surprised by how easy it is to get a hang of this ma
 <span class="gp">... </span>              <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
 
-<span class="go">    # top-left  top-right    bottom-left  bottom-right</span>
+<span class="go"># top-left  top-right    bottom-left  bottom-right</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
 <span class="go">array([[20, 24],</span>
 <span class="go">       [36, 40]])</span>
@@ -898,51 +819,33 @@ them. You may be pleasantly surprised by how easy it is to get a hang of this ma
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="Broadcasting.html" class="btn btn-neutral float-right" title="Array Broadcasting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="ArrayTraversal.html" class="btn btn-neutral float-left" title="Iterating Over Arrays &amp; Array-Traversal Order" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ArrayTraversal.html" class="btn btn-neutral float-left" title="Iterating Over Arrays &amp; Array-Traversal Order" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Broadcasting.html" class="btn btn-neutral float-right" title="Array Broadcasting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Ryan Soklaski
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

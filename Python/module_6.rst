@@ -17,5 +17,6 @@ This will take us down a bit of a rabbit hole, where we will find the powerful p
    Module6_Testing/Intro_to_Testing.md
    Module6_Testing/Pytest.md
    Module6_Testing/Hypothesis.md
+   Module6_Testing/Hypothesis_Practice_Exercises.md
 
 

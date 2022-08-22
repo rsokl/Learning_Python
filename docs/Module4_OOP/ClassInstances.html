@@ -1,79 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta content="Topic: Class instances versus objects, Difficulty: Medium, Category: Section" name="description" />
+  <meta charset="utf-8" /><meta content="Topic: Class instances versus objects, Difficulty: Medium, Category: Section" name="description" />
 <meta content="instance, class creation, init, self, isinstance" name="keywords" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Instances of a Class &mdash; Python Like You Mean It</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-115029372-1"></script>
         <script src="../_static/gtag.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/my_theme.css" type="text/css" />
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="A Brief Summary of Terms and Concepts" href="Brief_Review.html" />
     <link rel="prev" title="Defining a New Class of Object" href="ClassDefinition.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Python Like You Mean It
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.4
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -81,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Python Like You Mean It</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_1.html">Module 1: Getting Started with Python</a></li>
@@ -120,70 +75,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Python Like You Mean It</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../module_4.html">Module 4: Object Oriented Programming</a> &raquo;</li>
-        
       <li>Instances of a Class</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/Module4_OOP/ClassInstances.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -209,7 +125,7 @@
 }
 </style>
 <div class="section" id="Instances-of-a-Class">
-<h1>Instances of a Class<a class="headerlink" href="#Instances-of-a-Class" title="Permalink to this headline">¶</a></h1>
+<h1>Instances of a Class<a class="headerlink" href="#Instances-of-a-Class" title="Permalink to this headline"></a></h1>
 <p>Thus far we have learned about the syntax for defining a new class of object, specifying its name, attributes, and methods (which are attributes that are functions). Once we leave the scope of the class definition, a class object is formed - the resulting <em>class object</em> is the singular object that encapsulates our class definition. We seldom will want to pass around or manipulate this class object once it is created. Rather, we will want to use it to create individual <em>instances</em> of that class.
 To be more concrete, <code class="docutils literal notranslate"><span class="pre">list</span></code> is a class object (remember that “class” and “type” are synonymous) - it is the same sort of object that is produced when a <code class="docutils literal notranslate"><span class="pre">class</span></code> definition is executed. As you saw in <a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Lists">Module 2</a>, we can use this class object to create individual <em>instances</em> of the list class, each one containing its own sequence of items.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using the class object `list` to create list-instances</span>
@@ -264,7 +180,7 @@ that.</p>
 </div>
 <p>We will learn about the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method and that peculiar <code class="docutils literal notranslate"><span class="pre">self</span></code> argument momentarily. First, we will learn about creating an instance object from a class object.</p>
 <div class="section" id="Object-Identity-and-Creating-an-Instance">
-<h2>Object Identity and Creating an Instance<a class="headerlink" href="#Object-Identity-and-Creating-an-Instance" title="Permalink to this headline">¶</a></h2>
+<h2>Object Identity and Creating an Instance<a class="headerlink" href="#Object-Identity-and-Creating-an-Instance" title="Permalink to this headline"></a></h2>
 <p>Here we will learn the basic mechanism for creating an instance of a class. Consider the following trivial class definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dummy</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
@@ -375,7 +291,7 @@ that.</p>
 <p>Now that we know the basics of how to create an instance of a class, understand the relationship between class objects and instances, and understand the distinction between instances that are independent from one another, we can move on to learning about creating instance-level attributes for our class.</p>
 </div>
 <div class="section" id="Defining-Instance-Level-Attributes:-the-__init__-Method">
-<h2>Defining Instance-Level Attributes: the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> Method<a class="headerlink" href="#Defining-Instance-Level-Attributes:-the-__init__-Method" title="Permalink to this headline">¶</a></h2>
+<h2>Defining Instance-Level Attributes: the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> Method<a class="headerlink" href="#Defining-Instance-Level-Attributes:-the-__init__-Method" title="Permalink to this headline"></a></h2>
 <p>As demonstrated in the <code class="docutils literal notranslate"><span class="pre">Person</span></code> class that we defined earlier in this section, and the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class that we defined in this module’s introduction section, there is a special method, <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, that allows us to define instance-level attributes for our class. This is a critically-important method, which we will leverage often. Note that the name of this is: “underscore-underscore-init-underscore-underscore”, which can be pronounced as “dunder-init” (where “dunder” stands for
 double-underscore).</p>
 <p>Consider the slightly-modified definition of <code class="docutils literal notranslate"><span class="pre">Person</span></code>, which also includes the class-attribute <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
@@ -463,7 +379,7 @@ value for <code class="docutils literal notranslate"><span class="pre">name</spa
 more so-called “special methods”, similar to <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, which can be used to more broadly specify how your class behaves and interacts with Python’s operators.</p>
 </div>
 <div class="section" id="Reading-Comprehension-Solutions">
-<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline">¶</a></h2>
+<h2>Reading Comprehension Solutions<a class="headerlink" href="#Reading-Comprehension-Solutions" title="Permalink to this headline"></a></h2>
 <p><strong>Solution: Class Initialization</strong></p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> class defined above, create a list consisting of 10 <em>distinct</em> instances of this type</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># will call `Dummy()` once for each iteration</span>
@@ -568,51 +484,33 @@ more so-called “special methods”, similar to <code class="docutils literal n
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="Brief_Review.html" class="btn btn-neutral float-right" title="A Brief Summary of Terms and Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="ClassDefinition.html" class="btn btn-neutral float-left" title="Defining a New Class of Object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ClassDefinition.html" class="btn btn-neutral float-left" title="Defining a New Class of Object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Brief_Review.html" class="btn btn-neutral float-right" title="A Brief Summary of Terms and Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Ryan Soklaski
-
-    </p>
+    <p>&#169; Copyright 2021, Ryan Soklaski.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

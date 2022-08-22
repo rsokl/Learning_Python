@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -320,7 +320,7 @@ The basic syntax for slicing is: `seq[start:stop:step]`, using colons to separat
 >>> seq[1:4:1]
 'bcd'
 
-# start:1, stop:5, step:2
+# start:0, stop:5, step:2
 >>> seq[0:5:2] # get every other entry within [start, stop)
 'ace'
 

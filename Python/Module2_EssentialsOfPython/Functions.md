@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -244,7 +244,7 @@ This should be used sparingly, for exceedingly simple functions that can be easi
 
 <!-- #region -->
 ## Arguments
-A sequence of comma-separated variable names can specified in the function signature to indicated *positional* arguments for the function. For example, the following specifies `x`, `lower`, and `upper` as input arguments to a function, `is_bounded`:
+A sequence of comma-separated variable names can be specified in the function signature to indicated *positional* arguments for the function. For example, the following specifies `x`, `lower`, and `upper` as input arguments to a function, `is_bounded`:
 
 ```python
 def is_bounded(x, lower, upper):

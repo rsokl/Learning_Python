@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -227,11 +227,11 @@ if 3 < len(x):
     # bool(3 < 2) returns False, this code 
     # block is skipped
     print("`x` has more than three items in it")
-elif len(x) == 2
+elif len(x) == 2:
     # bool(len(x) == 2) returns True
     # this code block is executed
     print("`x` has two items in it")
-elif len(x) == 1
+elif len(x) == 1:
     # this statement is never reached
     print("`x` has one items in it")
 else:
@@ -332,6 +332,8 @@ That is:
 Python supports a syntax for writing a restricted version of if-else statements in a single line. The following code:
 
 ```python
+num = 2
+
 if num >= 0:
     sign = "positive"
 else:
@@ -353,7 +355,7 @@ This is suggestive of the general underlying syntax for inline if-else statement
 The expression `A if <condition> else B` returns `A` if `bool(<condition>)` evaluates to `True`, otherwise this expression will return `B`.
 </div>
 
-This syntax is highly restricted compared to the full "if-elif-else" expressions - no "elif" statement is permitted by this inline syntax, nor are muli-line code blocks within the if/else clauses.
+This syntax is highly restricted compared to the full "if-elif-else" expressions - no "elif" statement is permitted by this inline syntax, nor are multi-line code blocks within the if/else clauses.
 
 Inline if-else statements can be used anywhere, not just on the right side of an assignment statement, and can be quite convenient:
 ```python

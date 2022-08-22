@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -519,7 +519,7 @@ def get_maxes(dictionary):
     max_val = max(dictionary.values())
     return tuple(k for k,v in dictionary.items() if v == max_val)
 
->>> get_maxes(dict(a=1, b=2,c= 2, d=1))
+>>> get_maxes(dict(a=1, b=2, c=2, d=1))
 ('b', 'c')
 ```
 

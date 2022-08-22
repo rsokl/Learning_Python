@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -70,7 +70,7 @@ False
 >>> np.shares_memory(x, x[bool_index])
 False
 ```
-The flexibility permitted by advanced indexing makes it a difficult topic to treat exhaustively without delving into somewhat terse and abstract notation. It is best to refer to [the official documentation](https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing) for such a treatment of the topic. Here, we will discuss the essential aspects of advanced indexing, with the aim of the discussion being  both thorough and accessible.
+The flexibility permitted by advanced indexing makes it a difficult topic to treat exhaustively without delving into somewhat terse and abstract notation. It is best to refer to [the official documentation](https://numpy.org/doc/stable/reference/arrays.indexing.html#advanced-indexing) for such a treatment of the topic. Here, we will discuss the essential aspects of advanced indexing, with the aim of the discussion being  both thorough and accessible.
 <!-- #endregion -->
 
 <div class="alert alert-info"> 
@@ -392,7 +392,7 @@ Given the following array:
 ...               [-0.29,  0.13, -0.26,  0.33]])
 ```
 
-Use boolean array-indexing and NumPy's [logical functions](https://docs.scipy.org/doc/numpy/reference/routines.logic.html) to select the contents of `h` that satisfy the following conditions. Because you are dealing with floating-point numbers, [you should not require that two values are exactly equal](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision); rather, make use of the function [numpy.isclose](https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.isclose.html).
+Use boolean array-indexing and NumPy's [logical functions](https://numpy.org/doc/stable/reference/routines.logic.html) to select the contents of `h` that satisfy the following conditions. Because you are dealing with floating-point numbers, [you should not require that two values are exactly equal](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Basic_Objects.html#Understanding-Numerical-Precision); rather, make use of the function [numpy.isclose](https://numpy.org/doc/stable/reference/generated/numpy.isclose.html#numpy.isclose).
 
 1. All negative entries in `h`
 2. All entries in `h` "equal" to `0.01` or `0.33`
@@ -403,7 +403,7 @@ Use boolean array-indexing and NumPy's [logical functions](https://docs.scipy.or
 
 <!-- #region -->
 ### Converting a Boolean Index-Array to Integer Index-Arrays: numpy.where
-The function [numpy.where](https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html) can be used to take a boolean-valued array, and produce the *tuple* of index-arrays that access the `True` entries of that array, via integer array indexing (discussed at the beginning of this section).
+The function [numpy.where](https://numpy.org/doc/stable/reference/generated/numpy.where.html) can be used to take a boolean-valued array, and produce the *tuple* of index-arrays that access the `True` entries of that array, via integer array indexing (discussed at the beginning of this section).
 
 ```python
 # demonstrating `np.where`
@@ -449,7 +449,7 @@ array([0], dtype=int64)
 ```
 <!-- #endregion -->
 
-Armed with NumPy's suite of [logical functions](https://docs.scipy.org/doc/numpy/reference/routines.logic.html), boolean-array indexing provides a sleek interface for accessing the particular contents of an array, irrespective of the array's shape and the layout of its contents. This method of indexing is especially powerful in the context of performing augmented updates to an array, which is the subject of the following subsection.
+Armed with NumPy's suite of [logical functions](https://numpy.org/doc/stable/reference/routines.logic.html), boolean-array indexing provides a sleek interface for accessing the particular contents of an array, irrespective of the array's shape and the layout of its contents. This method of indexing is especially powerful in the context of performing augmented updates to an array, which is the subject of the following subsection.
 
 <!-- #region -->
 <div class="alert alert-info"> 
@@ -537,7 +537,7 @@ Given the array
 ...               [ 0.84,  0.76,  0.25,  0.07]])
 ```
 
-Replace the diagonal elements of `x` with `(-1, -2, -3, -4)`, and add `1` to all values in `x` that are greater than `0.8`.
+Replace the diagonal elements of `x` with `(0, 1, 2, 3)`, and add `1` to all values in `x` that are greater than `0.8`.
 </div>
 <!-- #endregion -->
 
@@ -563,15 +563,15 @@ array([[ 3,  7, 11]])
 ```
 <!-- #endregion -->
 
-The rules for resolving the various possible combinations of basic and advanced indexing are nontrivial. Refer to the [official NumPy documentation](https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#combining-advanced-and-basic-indexing) for a detailed description for these rules. In practice, basic and advanced indexing can typically be used independently from one another.
+The rules for resolving the various possible combinations of basic and advanced indexing are nontrivial. Refer to the [official NumPy documentation](https://numpy.org/doc/stable/reference/arrays.indexing.html#combining-advanced-and-basic-indexing) for a detailed description for these rules. In practice, basic and advanced indexing can typically be used independently from one another.
 
 
 ## Links to Official Documentation
 
-- [Advanced Indexing](https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing)
-- [Logical Functions](https://docs.scipy.org/doc/numpy/reference/routines.logic.html)
-- [numpy.where](https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html)
-- [Combining Basics and Advanced Indexing](https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#combining-advanced-and-basic-indexing)
+- [Advanced Indexing](https://numpy.org/doc/stable/reference/arrays.indexing.html#advanced-indexing)
+- [Logical Functions](https://numpy.org/doc/stable/reference/routines.logic.html)
+- [numpy.where](https://numpy.org/doc/stable/reference/generated/numpy.where.html)
+- [Combining Basics and Advanced Indexing](https://numpy.org/doc/stable/reference/arrays.indexing.html#combining-advanced-and-basic-indexing)
 
 
 ## Reading Comprehension Solutions

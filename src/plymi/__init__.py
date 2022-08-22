@@ -21,6 +21,8 @@ __all__ = [
     "convert_all_markdown_to_ipynb",
     "convert_src_to_html",
     "build_to_doc",
+    "delete_all_notebooks",
+    "delete_all_markdown",
 ]
 
 all_source_dirs = [

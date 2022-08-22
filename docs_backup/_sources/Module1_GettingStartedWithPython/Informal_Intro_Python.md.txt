@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.3.0rc1
+      format_version: '1.3'
+      jupytext_version: 1.13.6
   kernelspec:
     display_name: Python 3
     language: python
@@ -19,6 +19,7 @@ jupyter:
 <!-- #endraw -->
 
 # An Informal Introduction to Python
+
 Now that you have the Anaconda distribution of Python installed on your machine, let's write some simple Python code! We are going to forego writing a full Python script for now, and instead make use of a convenient tool for doing quick code scratchwork. The IPython console was installed as a part of Anaconda; it will allow us to build incrementally off of snippets of code, instead of having to execute an entire script all at once. 
 
 Let's open an IPython console. Open your terminal if you are a Mac/Linux user, or start `cmd.exe` if you are a Windows user. Now type `ipython` into the console and hit `<Enter>`. You should see the following display on your screen:

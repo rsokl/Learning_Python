@@ -21,3 +21,4 @@ This module presents to us the essentials of NumPy. We will first define what th
    Module3_IntroducingNumpy/Broadcasting.md
    Module3_IntroducingNumpy/BasicIndexing.md
    Module3_IntroducingNumpy/AdvancedIndexing.md
+   Module3_IntroducingNumpy/AutoDiff.md
