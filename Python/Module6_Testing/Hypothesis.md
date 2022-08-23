@@ -276,7 +276,7 @@ Update the body of `test_demonstrating_the_given_decorator` so that it no longer
 ## Describing Data: Hypothesis Strategies
 
 Hypothesis provides us with so-called "strategies" for describing our data.
-We are already familiar with the `integers` strategy;
+We are already familiar with the `integers()` strategy;
 Hypothesis' core strategies are all located in the `hypothesis.strategies` module.
 The official documentation for the core strategies can be found [here](https://hypothesis.readthedocs.io/en/latest/data.html).
 
@@ -289,15 +289,17 @@ Hypothesis provides a useful mechanism for developing an intuition for the data 
 
 ```python
 # demonstrating usage of `<strategy>.example()`
->>> st.integers(-1, 1).example()
--1
-
->>> st.integers(-1, 1).example()
+>>> for _ in range(5):
+...     print(st.integers(-1, 1).example())
+0
 1
+-1
+1
+0
 ```
 
 **Note: the** `.example()` **mechanism is only meant to be used for pedagogical purposes. You should never use this in your test suite**
-because (among other reasons) `.example()` biases towards smaller and simpler examples than `@given`, and lacks the features to ensure any test failures are reproducible.
+because (among other reasons) `.example()` lacks the features to ensure any test failures are reproducible.
 
 We will be leveraging the `.example()` method throughout the rest of this section to help provide an intuition for the data that Hypothesis' various strategies generate.
 <!-- #endregion -->
@@ -321,7 +323,7 @@ False
 
 #### `st.lists()`
 
-[st.lists](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.lists) accepts *another* strategy, which describes the elements of the lists being generated. You can also specify:
+[st.lists()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.lists) accepts *another* strategy, which describes the elements of the lists being generated. You can also specify:
  - bounds on the length of the list
  - if we want the elements to be unique
  - a mechanism for defining "uniqueness"
@@ -333,13 +335,13 @@ For example, the following strategy describes lists whose length varies from 2 t
 [-10, 0, 5]
 ```
 
-**`st.lists(...)` is the strategy of choice anytime we want to generate sequences of varying lengths with elements that are, themselves, described by strategies**.
+**st.lists(...) is our go-to anytime we want to create a strategy that generates sequences of varying lengths with elements that are, themselves, described by strategies**.
 <!-- #endregion -->
 
 <!-- #region -->
 #### `st.floats()`
 
-[st.floats](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.floats) is a powerful strategy that generates all variety of floats, including `math.inf` and `math.nan`. You can also specify:
+[st.floats()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.floats) is a powerful strategy that generates all variety of floats, including `math.inf` and `math.nan`. You can also specify:
  - whether `math.inf` and `math.nan`, respectively, should be included in the data description
  - bounds (either inclusive or exclusive) on the floats being generated; this will naturally preclude `math.nan` from being generated
  - the "width" of the floats; e.g. if you want to generate 16-bit or 32-bit floats vs 64-bit
@@ -370,7 +372,7 @@ For example, the following strategy will generate length-3 tuples whose entries 
 <!-- #region -->
 #### `st.text()`
 
-The [st.text](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.text) accepts an "alphabet" – a collection of length-one strings or a strategy for generating such values (such as `st.characters()`). – from which it will construct strings of varying lengths, whose bounds can be specified by the user.
+The [st.text()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.text) strategy accepts an "alphabet" – a collection of length-one strings or a strategy for generating such values (such as `st.characters()`) – from which it will construct strings of varying lengths, whose bounds can be specified by the user.
 
 For example, the following strategy will generate strings of lowercase vowels from length 2 to length 10:
 
@@ -383,7 +385,7 @@ For example, the following strategy will generate strings of lowercase vowels fr
 <!-- #region -->
 #### `st.just()`
 
-[st.just](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.just) is a strategy that "just" returns the value that you fed it. This is a convenient strategy that helps us to avoid having to manipulate our data before using it.
+[st.just()](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.just) is a strategy that "just" returns the value that you fed it. This is a convenient strategy that helps us to avoid having to manipulate our data before using it.
 
 Suppose that we want a strategy that describes the shape of an array (i.e. a tuple of integers) that contains 1-20 two-dimensional vectors. E.g. `(5, 2)` is the shape of the array containing five two-dimensional vectors. We can leverage `st.just`, in conjunction with `st.integers` and `st.tuples`, towards this end:
 
@@ -429,9 +431,9 @@ The "pipe" operator, `|` can be used between strategies, to chain `st.one_of` ca
 <!-- #endregion -->
 
 <!-- #region -->
-#### `st.sampled_from`
+#### `st.sampled_from()`
 
-[st.sampled_from](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.sampled_from) accepts a collection of objects (anything that has a length and supports integer-based indexing is a collection; e.g. lists, tuples, strings, and NumPy arrays). The strategy will return values that are sampled from this collection.
+[st.sampled_from](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.sampled_from) accepts a collection of objects (anything that has a length and supports integer-based indexing is a collection; e.g. lists, tuples, strings, and NumPy arrays) and returns a strategy that are randomly samples values from this collection.
 
 For example, the following strategy will sample a value `0`, `"a"`, or `(2, 2)` from a list:
 
@@ -458,14 +460,12 @@ Write down a strategy, and print out a representative example, that describes th
 <!-- #region -->
 <div class="alert alert-info">
 
-**Reading Comprehension: Improving our tests using Hypothesis**
+**Reading Comprehension: Testing correctness by construction**
 
-We will be writing improved tests for the basic functions – `count_vowels` and `merge_max_mappings` – by leveraging Hypothesis.
+We will be writing improved tests for `count_vowels` by leveraging Hypothesis.
 This reading comprehension question will require more substantial work than usual.
 That being said, the experience that we will gain from this will be well worth the work.
 Keep in mind that solutions are included at the end of this page, and that these can provide guidance if we get stuck.
-
-Testing correctness by construction:
 
 Write a Hypothesis-driven test for the `count_vowels`; include this test in `tests/test_basic_functions`.
 This is a test function where we can explicitly construct a string in parts: its non-vowel characters, non-y vowels, and y-vowels.
@@ -546,7 +546,7 @@ In general, the syntax for defining a lambda expression is:
 lambda <comma-separated variable names>: <expression using variables>
 ```
 
-Note that lambda expressions are restricted compared to typical function definitions: they do not permit default values or keyword arguments in their signatures, and a lambda's "body" must fit on one line.
+Note that lambda expressions are restricted compared to typical function definitions: their body must consist only of a single Python expression, and the lambda function returns whatever that expression returns.
 
 Here are some examples of lambda expressions:
 
@@ -748,7 +748,7 @@ Executing this test runs 103 cases: the three specified examples and one hundred
 
 Thus far we have learned about the basic anatomy of a test, how to use pytest to create an automated test-suite for our code base, and how to leverage Hypothesis to generate diverse and randomized inputs to our test functions.
 In the final section of this module, we will discuss three testing methods: example-based testing, fuzzing, and property-based testing (Hypothesis will prove to be indispensable for facilitating these last two methods).
-These strategies will equip us with ability to "test the untestable": we will be able to write effective tests for code where we are unable to discern what the exact appropriate behavior is for the code under arbitrary inputs.
+These strategies will equip us with ability to "test the untestable": we will be able to write effective tests for code even when we can't predict what the exact behavior of a function should be for an arbitrary input.
 
 
 ## Links to Official Documentation
