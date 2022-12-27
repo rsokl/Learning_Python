@@ -63,7 +63,7 @@ Given this basic understanding of what the Python programming language is, we no
 <!-- #endregion -->
 
 ## Python Scripts
-You can save the the valid code from the preceding section in a text file using a simple text editor, and *voilà* you have written a **Python script**: a text file containing Python code. It is standard to save this text file using the suffix `.py` (e.g. `my_code.py`), rather than the familiar `.txt` (e.g. `my_text.txt`). There is nothing special about the `.py` suffix; it simply helps differentiate files that contain Python code from run-of-the-mill text files, which contain plain English.
+You can save the valid code from the preceding section in a text file using a simple text editor, and *voilà* you have written a **Python script**: a text file containing Python code. It is standard to save this text file using the suffix `.py` (e.g. `my_code.py`), rather than the familiar `.txt` (e.g. `my_text.txt`). There is nothing special about the `.py` suffix; it simply helps differentiate files that contain Python code from run-of-the-mill text files, which contain plain English.
 
 Although you can use simple text editors to write Python scripts (e.g. notepad (Win), TextEdit (Mac), nano (Linux)), there are much more sophisticated editors that provide an "integrated development environment" (IDE) for writing code. An IDE, configured to support Python, will warn you if you have written code that violates Python's grammar rules, similar to the way word processing software warns you if you have made a spelling mistake. More on IDEs in a later section. 
 
@@ -206,6 +206,6 @@ Minor releases are forward compatible but not necessarily fully backward compati
 - Python code is text that conforms to the Python language.
 - A Python script is a text file containing Python code. Traditionally such a file will be saved using the suffix `.py`.
 - A Python interpreter is a program that is capable of reading and parsing a text file, and translating the code into machine instructions, as specified by the Python language.
-- To "install Python" onto you machine boils down to saving a functioning Python interpreter onto your machine.
+- To "install Python" onto your machine boils down to saving a functioning Python interpreter onto your machine.
 - The official Python interpreter is a program written in the language C, and is known as the CPython interpreter.
 - The "standard library" is a large collection of tools and functions that comes packaged with the CPython interpreter.
