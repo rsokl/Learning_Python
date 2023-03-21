@@ -586,7 +586,7 @@ If $X$ is an $N$-dimensional array, and $j$ (with $j \leq N$) axes are specified
 
 A digital image is simply an array of numbers, which instructs a grid of pixels on a monitor to shine light of specific colors, according to the numerical values in that array. 
 
-An RGB-image can thus be stored as a 3D NumPy array of shape-$(V, H, 3)$. $V$ is the number of pixels along the vertical direction, $H$ is the number of pixels along the horizontal, and the size-3 dimension stores the red, blue, and green color values for a given pixel. Thus a $(32, 32, 3)$ array would be a 32x32 RBG image.
+An RGB-image can thus be stored as a 3D NumPy array of shape-$(V, H, 3)$. $V$ is the number of pixels along the vertical direction, $H$ is the number of pixels along the horizontal, and the size-3 dimension stores the red, green, and blue color values for a given pixel. Thus a $(32, 32, 3)$ array would be a 32x32 RGB image.
 
 It is common to work with a collection of images. Suppose we want to store N images in a single array; thus we now consider a 4D shape-$(N, V, H, 3)$ array. 
 
@@ -716,7 +716,7 @@ array([[20, 24],
 153422.97903817348
 
 # 3. The minimum blue value, respective to each image.
-# the colors are ordered red-blue-green along axis-3
+# the colors are ordered red-green-blue along axis-3
 >>> min_blue = images[:, :, :, 2].min(axis=(1, 2))
 >>> min_blue.shape
 (100,)
