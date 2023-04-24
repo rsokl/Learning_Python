@@ -83,6 +83,7 @@ Here are some other open source projects that I have created:
    module_3_problems.rst
    module_4.rst
    module_5.rst
+   module_6.rst
    changes.rst
 
 Indices and tables

@@ -711,6 +711,7 @@ Let's write the function that performs this computation in full.
 ```python
 def pairwise_dists(x, y):
     """ Computing pairwise distances using memory-efficient 
+
     vectorization.
 
     Parameters
@@ -723,6 +724,7 @@ def pairwise_dists(x, y):
     numpy.ndarray, shape=(M, N)
         The Euclidean distance between each pair of
         rows between `x` and `y`."""
+
     sqr_dists = -2 * np.matmul(x, y.T)
     sqr_dists +=  np.sum(x**2, axis=1)[:, np.newaxis]
     sqr_dists += np.sum(y**2, axis=1)

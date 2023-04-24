@@ -406,15 +406,15 @@ It must be mentioned that we are sweeping some details under the rug here. Insta
 
 ### Installing Your Own Python Package
 
-Suppose that we are happy with the work we have done on our `face_detector` project. We will want to install this package - placing it in our site-packages directory so that we can import it irrespective of our Python interpreter's working directory. Here we will construct a basic setup script that will allow us to accomplish this. 
+Suppose that we are happy with the work we have done on our `face_detector` project. We will want to install this package - placing it in our site-packages directory so that we can import it irrespective of our Python interpreter's working directory. Here we will construct a basic setup script that will allow us to accomplish this. For completeness, we will also indicate how one would include a test suite alongside the source code in this directory structure.
 
-We note outright that the purpose of this section is strictly to provide you with the minimum set of instructions needed to install a package. We will not be diving into what is going on under the hood at all. Please refer to [An Introduction to Distutils](https://docs.python.org/3/distutils/introduction.html#an-introduction-to-distutils) and [Packaging Your Project](https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project) for a deeper treatment of this topic.
+We note outright that the purpose of this section is strictly to provide you with the minimum set of instructions needed to install a package. We will not be diving into what is going on under the hood at all. Please refer [the Python packaging user guide](https://packaging.python.org/en/latest/) for a deeper treatment of this topic.
 
 Carrying on, we will want to create a setup-script, `setup.py`, *in the same directory as our package*. That is, our directory structure should look like:
 
 ```
-- setup.py
-- face_detection/
+- setup.py         # script responsible for installing `face_detection` package
+- face_detection/  # source code of `face_detection` package
     |-- __init__.py
     |-- utils.py
     |-- database.py
@@ -423,23 +423,34 @@ Carrying on, we will want to create a setup-script, `setup.py`, *in the same dir
         |-- __init__.py
         |-- calibration.py
         |-- config.py
+- tests/            # test-suite for `face_detection` package (to be run using pytest)
+    |-- conftest.py # optional configuration file for pytest
+    |-- test_utils.py
+    |-- test_database.py
+    |-- test_model.py
+    |-- camera/
+        |-- test_calibration.py
+        |-- test_config.py  
 ```
+
+A `tests/` directory can be included at the same directory level as `setup.py` and `face_detection/`.
+This is the recommended structure for using [pytest](https://docs.pytest.org/en/latest/) as our test-runner.
 
 <!-- #region -->
 The bare bones build script for preparing your package for installation, `setup.py`, is as follows: 
 
 ```python
 # contents of setup.py
-import setuptools
+from setuptools import find_packages, setup
 
-setuptools.setup(
+setup(
     name="face_detection",
-    version="1.0",
-    packages=setuptools.find_packages(),
+    version="1.0.0",
+    packages=find_packages(exclude=["tests", "tests.*"]),
+    python_requires=">=3.5",
 )
 ```
-
-
+The `exclude` expression is used to ensure that specific directories or files are not included in the installation of `face_detection`. We use `exclude=["tests", "tests.*"]` to avoid installing the test-suite alongside `face_detection`.
 <!-- #endregion -->
 
 If you read through the additional materials linked above, you will see that there are many more fields of optional information that can be provided in this setup script, such as the author name, any installation requirements that the package has, and more.
@@ -447,7 +458,7 @@ If you read through the additional materials linked above, you will see that the
 Armed with this script, we are ready to install our package locally on our machine! In your terminal, navigate to the directory containing this setup script and your package that it being installed. Run
 
 ```shell
-python setup.py install
+pip install .
 ```
 
 and voilà, your package `face_detection` will have been installed to site-packages. You are now free to import this package from any directory on your machine. In order to uninstall this package from your machine execute the following from your terminal:
@@ -456,10 +467,10 @@ and voilà, your package `face_detection` will have been installed to site-packa
 pip uninstall face_detection
 ```
 
-One final but important detail. The installed version of your package will no longer "see" the source code. That is, if you go on to make any changes to your code, you will have to uninstall and reinstall your package before your will see the effects system-wide. Instead you can install your package in develop mode, such that a symbolic link to your source code is placed in your site-packages. Thus any changes that you make to your code will immediately be reflected in your system-wide installation. Thus, instead of running `python setup.py install`, execute the following to install a package in develop mode:
+One final but important detail: the installed version of your package will no longer "see" the source code. That is, if you go on to make any changes to your code, you will have to uninstall and reinstall your package before your will see the effects system-wide. Instead, you can install your package in "development mode", such that a symbolic link to your source code is placed in your site-packages. Thus, any changes that you make to your code will immediately be reflected in your system-wide installation. You can add the `--editable` flag to pip to install a package in development mode:
 
 ```shell
-python setup.py develop
+pip install --editable .
 ```
 
 
@@ -492,8 +503,7 @@ You are free to install some packages using `conda` and others with `pip`. Just 
 ## Links to Official Documentation
 
 - [Python Tutorial: Modules](https://docs.python.org/3/tutorial/modules.html)
-- [An Introduction to Distutils](https://docs.python.org/3/distutils/introduction.html#an-introduction-to-distutils)
-- [Packaging Your Project](https://packaging.python.org/tutorials/packaging-projects/#packaging-your-project) 
+- [The Python Packaging User Guids](https://packaging.python.org/en/latest/)
 - [PyPi](https://pypi.org/)
 
 
