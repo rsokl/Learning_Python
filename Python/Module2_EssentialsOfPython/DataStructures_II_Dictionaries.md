@@ -446,10 +446,13 @@ for index in range(len(names)):
     grades[name] = value
 ```
 
-You should make use of the function [zip](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Itertools.html#zip) to pair the names and scores together in an iterable, and create the dictionary using a comprehension expression.
+You should make use of the function [zip](https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Itertools.html#zip) to pair the names and scores together in an iterable, which can then be passed to `dict` or used in a comprehension expression.
 
 ```python
-# much better solution for creating `grades`
+# pass iterable output of `zip` straight to `dict` 
+grades = dict(zip(names, scores))
+
+# alternatively, iterate over output of `zip` using a comprehension expression
 grades = {student:value for student, value in zip(names, scores)}
 
 # updating Zoe's grade
