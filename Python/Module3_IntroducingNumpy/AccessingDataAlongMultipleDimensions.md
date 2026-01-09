@@ -190,7 +190,7 @@ We can also uses *slices* to access subsequences of our data. Suppose we want th
 >>> grades[0:3, 1]  # Exam 2 scores for all students
 array([ 95, 100,  87])
 ```
-As with Python sequences, you can specify an "empty" slice to include all possible entries along an axis, by default: `grades[:, 1]` is equivalent to `grades[0:3, 1]`, in this instance. More generally, withholding either the 'start' or 'stop' value in a slice will result in the use smallest or largest valid index, respectively:  
+As with Python sequences, you can specify an "empty" slice to include all possible entries along an axis, by default: `grades[:, 1]` is equivalent to `grades[0:3, 1]`, in this instance. More generally, withholding either the 'start' or 'stop' value in a slice will result in the use of the smallest or largest valid index, respectively:  
 ```python
 >>> grades[1:, 1]  # equivalent to `grades[1:3, 1]
 array([ 100,  87])
